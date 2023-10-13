@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nút Trượt</title>
+    <style>
+        /* CSS cho nút trượt */
+        .slider-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .slider {
+            width: 200px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .slider-thumb {
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slider-thumb"></div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript để xử lý sự kiện trượt
+        const slider = document.querySelector(".slider");
+        const thumb = document.querySelector(".slider-thumb");
+
+        let isDragging = false;
+
+        thumb.addEventListener("mousedown", (e) => {
+            isDragging = true;
+
+            document.addEventListener("mousemove", onMouseMove);
+            document.addEventListener("mouseup", onMouseUp);
+        });
+
+        function onMouseMove(e) {
+            if (!isDragging) return;
+
+            const offsetX = e.clientX - slider.getBoundingClientRect().left;
+            const newPosition = Math.min(
+                Math.max(offsetX, 0),
+                slider.clientWidth - thumb.clientWidth
+            );
+
+            thumb.style.left = newPosition + "px";
+        }
+
+        function onMouseUp() {
+            isDragging = false;
+
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+        }
+    </script>
+</body>
+
+</html>

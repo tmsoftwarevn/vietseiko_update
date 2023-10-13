@@ -1,0 +1,337 @@
+.layout-pb-120 {
+  padding-bottom: 120px !important;
+}
+
+.layout-pt-120 {
+  padding-top: 120px !important;
+}
+
+.bg-light-blue {
+  background-color: #f6f4fc;
+}
+
+.job-section {
+  position: relative;
+  padding: 100px 0;
+}
+
+.bg-shape.-left {
+  left: 0;
+}
+
+.bg-shape.-top {
+  top: 0;
+}
+
+.bg-shape {
+  z-index: 40;
+  position: absolute;
+}
+
+.auto-container {
+  position: static;
+  max-width: 1310px;
+  padding: 0px 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sec-title {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.sec-title.-type-2 h2 {
+  font-weight: 500;
+  font-size: 40px !important;
+  line-height: 1.2 !important;
+}
+
+.sec-title h2 {
+  position: relative;
+  display: block;
+  font-size: 30px;
+  line-height: 1.2em;
+  color: #202124;
+  font-weight: 500;
+}
+
+.sec-title.-type-2 .text {
+  margin-top: 30px;
+}
+
+.sec-title .text {
+  position: relative;
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+.default-tabs {
+  position: relative;
+  overflow: hidden;
+}
+
+.tabs-box {
+  position: relative;
+}
+
+.default-tabs .tab-buttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.job-section .tab-buttons {
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.tab-buttons.-pills .tab-btn.active-btn {
+  color: white;
+  background-color: #9073ec;
+}
+
+.default-tabs .tab-buttons li.active-btn {
+  background-color: transparent;
+  border: 1px solid #ecedf2;
+  color: #202124;
+}
+
+.tab-buttons.-pills .tab-btn {
+  margin-right: 6px;
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 10px 30px;
+  border-radius: 200px;
+  background-color: transparent;
+}
+
+.default-tabs .tab-buttons li {
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  color: #202124;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  line-height: 40px;
+  padding: 5px 20px;
+  background: #ffffff;
+  border: 1px solid #e2e7ea;
+  border-radius: 88px;
+  cursor: pointer;
+  margin: 0 7px 14px;
+  transition: all 300ms ease;
+}
+
+.default-tabs .tab-buttons li:hover {
+  background: #ecedf2;
+  color: #e99dda;
+  transition: all 300ms ease;
+}
+
+.default-tabs .tabbed-trigger {
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.default-tabs .tabbed-trigger.clicked {
+  background: #1836df;
+  color: #e4dccb;
+  border-radius: 88px;
+}
+
+.tabs-box .tab-btn {
+  cursor: pointer;
+}
+
+.tabs-box .tab-btn {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.job-section .default-tabs .tabs-content {
+  padding: 0;
+}
+
+.default-tabs .tabs-content {
+  position: relative;
+  width: 100%;
+  padding: 25px 0;
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.tabs-box .active-tab {
+  display: block;
+}
+
+.tabs-box .tab {
+  display: none;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.job-block {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.job-block .inner-box {
+  position: relative;
+  padding: 10px 10px 5px 0px;
+  background: #ffffff;
+  border: 1px solid #ecedf2;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: all 300ms ease;
+}
+
+.job-block .content {
+  position: relative;
+  padding-left: 68px;
+  min-height: 51px;
+}
+
+.job-block .company-logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  transition: all 300ms ease;
+}
+
+.rounded-full {
+  border-radius: 100% !important;
+}
+
+@media only screen and (max-width: 1366px) {
+  .job-block h4 {
+    font-size: 16px;
+  }
+}
+
+.job-block h4 {
+  font-size: 18px;
+  color: #202124;
+  font-weight: 500;
+  line-height: 26px;
+  top: -3px;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.job-block h4 a {
+  color: #202124;
+  transition: all 300ms ease;
+}
+
+.job-block .job-info {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.job-block .job-info li {
+  position: relative;
+  font-size: 14px;
+  line-height: 22px;
+  color: #696969;
+  font-weight: 400;
+  padding-left: 25px;
+  margin-bottom: 5px;
+  margin-right: 20px;
+}
+
+.job-block .job-info li .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 18px;
+  line-height: 22px;
+  color: #696969;
+}
+
+.job-block .job-other-info {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.job-other-info li.required {
+  background: rgba(249, 171, 0, 0.15);
+  color: #f9ab00;
+}
+
+.job-other-info li {
+  position: relative;
+  font-size: 13px;
+  line-height: 15px;
+  margin-right: 15px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.job-other-info li.time {
+  background: rgba(25, 103, 210, 0.15);
+  color: #1967d2;
+}
+
+.job-block .bookmark-btn {
+  position: absolute;
+  right: 0;
+  top: -15px;
+  height: 30px;
+  width: 30px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #ffffff;
+  transition: all 300ms ease;
+}
+
+.job-block .bookmark-btn:hover {
+  background: #ecedf2;
+}
+
+button {
+  background-color: transparent;
+  outline: none !important;
+  cursor: pointer;
+  min-width: auto;
+}

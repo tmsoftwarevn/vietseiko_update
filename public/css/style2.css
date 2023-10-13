@@ -1,0 +1,592 @@
+/* element.style {} */
+/* //phan body */
+.body_child_content {
+    background: #f3f7fa;
+}
+
+.page_child .content_jobs {
+    padding-top: 0px;
+}
+
+.content_jobs {
+    float: left;
+    display: block;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    padding-top: 5px;
+}
+
+.content_banner_aboutus {
+    background: url(../images/bg1.jpg) no-repeat left top;
+    background-size: 100%;
+    background-attachment: fixed !important;
+    height: 220px;
+}
+
+.content_banner_aboutus_title {
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 8%;
+    line-height: 30px;
+}
+
+.content_banner_aboutus_title h4 {
+    text-align: center;
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+
+.col-lg-3 {
+    width: 25%;
+}
+
+@media (min-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+    }
+}
+
+
+/* Css cột bên trái */
+@media only screen and (min-width: 1200px) {
+    .left_container {
+        padding: 15px;
+    }
+}
+
+.left_container {
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 15px;
+}
+
+.left_container_title {
+    background: rgb(237, 28, 36);
+    background: linear-gradient(90deg, rgba(237, 28, 36, 1) 0%, rgba(237, 28, 36, 1) 35%, rgba(191, 3, 12, 1) 100%);
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    font-family: 'Tinos', serif;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.left_container_title_ch {
+    float: right;
+    display: block;
+    width: auto;
+    line-height: 0px;
+}
+
+.content_banner_aboutus_title,
+.left_container,
+.left_container_title,
+.left_container_content,
+.panel-heading h4.panel-title,
+.panel-heading,
+.collapse_large,
+.collapse_small,
+#gioithieucongty ul li,
+#gioithieubophan ul li,
+#thuvienmedia ul li,
+#gioithieucongty ul li a,
+#gioithieubophan ul li a,
+#thuvienmedia ul li a,
+.left_container_maz,
+.left_container_maz_cont .carousel-item-maz,
+.left_container_maz,
+.left_container_maz_cont {
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+.panel-group {
+    margin-bottom: 20px;
+}
+
+.left_container_content .panel-default {
+    border-color: #f0f0f0;
+    float: left;
+    display: block;
+    width: 100%;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.left_container_content .panel {
+    background-color: #f0f0f0;
+}
+
+.panel-group .panel {
+    margin-bottom: -5px;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.panel-default>.panel-heading {
+    border-color: #c56060;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-bottom: 0px;
+    padding: 10px 10px 10px 20px;
+    color: #333;
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+
+span.collapse_small {
+    color: #898989;
+    display: block;
+    font-size: 12px;
+    font-family: "Times New Roman", Times, serif;
+    margin: 0px 0px 5px;
+
+}
+
+span.collapse_large {
+    width: 201.17px;
+    font-weight: bold;
+    height: 20px;
+    color: #333;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* //gioi thiêu */
+#gioithieucongty,
+#gioithieubophan,
+#thuvienmedia {
+    float: left;
+    width: 100%;
+}
+
+.collapse.in {
+    display: block;
+}
+
+#gioithieucongty .panel-body,
+#gioithieubophan .panel-body,
+#thuvienmedia .panel-body {
+    float: left;
+    width: 100%;
+    padding-top: 0px;
+}
+
+.panel-default>.panel-heading+.panel-collapse>.panel-body {
+    border-top-color: #f0f0f0;
+}
+
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: 1px solid #ddd;
+}
+
+.panel-body {
+    padding: 15px 10px;
+}
+
+#gioithieucongty ul li a,
+#gioithieubophan ul li a,
+#thuvienmedia ul li a {
+    color: #333333;
+    line-height: 20px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#gioithieucongty ul li.active a,
+#gioithieubophan ul li.active a,
+#thuvienmedia ul li.active a {
+    color: #be030c;
+    text-decoration: none;
+}
+
+
+#gioithieucongty ul li,
+#gioithieubophan ul li,
+#thuvienmedia ul li {
+    list-style-type: none;
+    border-bottom: 1px solid #d4d4d4;
+    background: url(/images/icon_muiten.png) no-repeat 20px 13px;
+    background-size: 6px 10px;
+    padding: 8px 0px 8px 40px;
+}
+
+#gioithieucongty ul,
+#gioithieubophan ul,
+#thuvienmedia ul {
+    float: left;
+    width: 100%;
+    display: block;
+    background: #fff;
+    border: 1px solid #d4d4d4;
+    border-radius: 2px;
+    -moz-border-radius: 2x;
+    -webkit-border-radius: 2px;
+    padding: 0px;
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+ul,
+ol {
+    margin-top: 0;
+}
+
+.collapse_small {
+    font-size: 13px;
+    color: #888c87;
+    transition: color 0.3s;
+}
+
+.collapse_large:hover {
+    color: #BE030C;
+}
+
+.collapse_small:hover {
+    color: #009979;
+}
+
+
+/* // center */
+
+@media (min-width: 1200px) {
+    .col-lg-9 {
+        width: 75%;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .col-lg-1,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12 {
+        float: left;
+    }
+
+}
+
+
+@media (min-width: 1200px) {
+    .col-lg-12 {
+        width: 100%;
+    }
+}
+
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.loichao_gd {
+    margin-bottom: 50px;
+}
+
+.loichao_gd,
+.loichao_gd_tieusu,
+.loichao_gd_content_row,
+.loichao_gd_content_row_name,
+.loichao_gd_content_row_nd,
+.loichao_gd_content_row_lylich,
+.loichao_gd_trichluoc,
+.loichao_gd_content,
+.loichao_gd_content_cont span,
+.loichao_gd_content_right span {
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+@media only screen and (min-width: 1200px) {
+    .loichao_gd_tieusu {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.loichao_gd_img {
+    float: left;
+    display: block;
+    width: 75%;
+    background: #d4d4d4;
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+    display: inline-block;
+}
+
+img,
+object,
+embed {
+    height: auto;
+}
+
+img {
+    vertical-align: middle;
+}
+
+img {
+    border: 0;
+}
+
+.loichao_gd_tieusu,
+.loichao_gd_img {
+    position: relative;
+}
+
+@media only screen and (min-width: 1200px) {
+    .loichao_gd_content_ts {
+        width: 40%;
+        right: 14%;
+    }
+}
+
+.loichao_gd_content_ts {
+    float: right;
+    display: block;
+    position: absolute;
+    margin-top: 30px;
+}
+
+.loichao_gd_content_row {
+    padding: 10px 22px;
+    margin-bottom: 1px;
+    background: #ffffff;
+    color: #0a0909;
+}
+
+.loichao_gd_content_row_name span,
+.loichao_gd_trichluoc {
+    font-family: 'Tinos', serif;
+    font-size: 20px;
+}
+
+.loichao_gd_content_row_lylich {
+    padding-top: 5px;
+    text-transform: uppercase;
+    padding-bottom: 13px;
+}
+
+.loichao_gd_content_row_nd {
+    font-size: 12px;
+}
+
+.loichao_gd_content_row_nd p {
+    margin: 0 0 16px;
+    line-height: 18px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0a0909;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .loichao_gd_trichluoc,
+    .loichao_gd_content {
+        margin-left: 12%;
+        width: 77%;
+    }
+}
+
+.loichao_gd_content {
+    float: left;
+    display: block;
+}
+
+.loichao_gd_trichluoc {
+    margin-top: 30px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    float: left;
+    display: block;
+}
+
+.loichao_gd_content_row_name span,
+.loichao_gd_trichluoc {
+    font-family: 'Tinos', serif;
+    font-size: 20px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .loichao_gd_trichluoc_border {
+        height: 75px;
+    }
+}
+
+.loichao_gd_trichluoc_border {
+    float: left;
+    display: block;
+    width: 4px;
+    height: 75px;
+    background: #e30a0a;
+    margin-right: 30px;
+    margin-top: 8px;
+}
+
+.loichao_gd_trichluoc_content {
+    float: left;
+    display: block;
+    width: 94%;
+}
+
+.loichao_gd_content p {
+    line-height: 22px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+.loichao_gd_content_boder {
+    display: block;
+    width: 10%;
+    height: 1px;
+    background-color: #e30a0a;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+}
+
+.loichao_gd_content_cont {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.loichao_gd_content_cont_up {
+    text-transform: uppercase;
+    font-family: "latobold", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #e30a0a;
+    padding: 8px 0px 6px 0px;
+}
+
+.loichao_gd_content_right {
+    float: right;
+    display: block;
+    width: 100%;
+    text-align: right;
+}
