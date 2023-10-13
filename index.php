@@ -244,17 +244,17 @@ require_once 'header.php';
         <nav class="list-inline scrollto"></nav>
         <ul class="tab-buttons wrapper">
           <li class="tab-btn active-btn active">
-            <a href="#1" class="tabbed-trigger" data-id="tabbed1">
+            <a href="#1" class="tabbed-trigger" data-id="tabbed1" style="font-weight: 500; font-size: 15px;">
               <span>Việc Làm Tại Việt Nam</span>
             </a>
           </li>
           <li class="tab-btn">
-            <a href="#2" class="tabbed-trigger" data-id="tabbed2">
+            <a href="#2" class="tabbed-trigger" data-id="tabbed2" style="font-weight: 500; font-size: 15px;">
               <span>XKLD Nhật Bản</span>
             </a>
           </li>
           <li class="tab-btn">
-            <a href="#3" class="tabbed-trigger" data-id="tabbed3">
+            <a href="#3" class="tabbed-trigger" data-id="tabbed3" style="font-weight: 500; font-size: 15px;">
               <span>Kỹ Sư & Thông Dịch Tại Nhật Bản</span>
             </a>
           </li>
@@ -309,46 +309,38 @@ require_once 'header.php';
           <div class="row">
             <!-- Job Block - Replace with PHP loop -->
             <?php
-            $list_of_latestJob = Job::getLatestJob(6);
-            foreach ($list_of_latestJob as $key => $value) {
+            $list_of_latestJob_NB = Job_NB::getLatestJob_NB(6);
+            foreach ($list_of_latestJob_NB as $key => $value) {
             ?>
               <div class="job-block col-lg-6 col-md-12 col-sm-12">
                 <div class="inner-box">
                   <div class="content">
                     <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
                     <h4>
-                      <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
-                        <?php echo $value['chucvu'] ?>
+                      <a href="job-detail_NB.php?id=<?php echo $value['name_NB'] ?>">
+                        <?php echo $value['name_NB'] ?>
                       </a>
                     </h4>
                     <ul class="job-info">
                       <li>
                         <span class="icon bi bi-briefcase"></span>
-                        <?php echo $value['tencongty'] ?>
-                      </li>
-                      <li>
-                        <span class="icon bi bi-geo-al"></span>
                         <?php echo $value['diachi'] ?>
                       </li>
-                      <li>
-                        <span class="icon bi bi-clock"></span>
-                        <?php echo $value['thoigian'] ?>
-                      </li>
-                      <li>
-                        <span class="icon bi bi-cash-coin"></span>
-                        <?php echo $value['mucluong'] ?>
-                      </li>
+                      
                     </ul>
-                    <ul class="job-other-info">
-                      <li class="time">
-                        <?php echo $value['thoigianlamviec'] ?>
-                      </li>
-                      <li class="privacy">
-                        <?php echo $value['quyenriengtu'] ?>
-                      </li>
-                      <li class="required">
-                        <?php echo $value['mucdo_urgent'] ?>
-                      </li>
+                    <ul class="job-icon-info">
+                      <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                        <?php echo $value['soluong'] ?> Người
+                      </span>
+                      <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                        <?php echo $value['gioitinh'] ?>
+                      </span>
+                      <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                        <?php echo $value['mucluong'] ?>
+                      </span>
                     </ul>
                   </div>
                 </div>

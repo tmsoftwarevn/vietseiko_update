@@ -9,11 +9,15 @@ require "models/jobs.php";
 require "models/hinhthuc.php";
 require "models/nganhnghe.php";
 require "models/protype.php";
+require "models/job_NB.php";
+require "models/nganhnghe_NB.php";
 
 $nganhnghe = new Nganhnghe;
+$nganhngheNB = new Nganhnghe_NB;
 $hinhthuc = new Hinhthuc;
 $protype = new Protype;
 $job = new Job;
+$job_NB = new Job_NB;
 ?>
 
 <head>
@@ -80,9 +84,13 @@ $job = new Job;
     <link rel="stylesheet" type="text/css" href="public/css/switcher.css" />
     <!-- Css INTRODUCE -->
     <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
+    </style>
 </head>
 
-<body>
+<body style="font-family: 'Roboto', sans-serif;">
     <!-- LOADING AREA START ===== -->
     <div class="loading-area">
         <div class="loading-box"></div>

@@ -134,6 +134,7 @@
 
 .default-tabs .tab-buttons li:hover {
   background: #ecedf2;
+  border-radius: 10px;
   color: #e99dda;
   transition: all 300ms ease;
 }
@@ -141,6 +142,7 @@
 .default-tabs .tabbed-trigger {
   background: #fff;
   color: #000;
+  
   cursor: pointer;
   padding: 10px 20px;
   margin: 0;
