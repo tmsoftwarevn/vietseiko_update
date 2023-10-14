@@ -224,29 +224,6 @@ require_once 'header.php';
                   </div>
 
                 </div>
-                <div class="left_container left_container_maz hidden-md hidden-xs hidden-sm">
-                  <div class="left_container_maza">
-                    <h4>
-                      magazine
-                    </h4>
-                  </div>
-                  <div class="left_container_maza_cont">
-                    <div class="carousel_magazine slide" data-ride="carousel" data-interval="9000">
-                      <div class="content_magazine_content">
-                        <div class="carousel-inner slide_tungnhich4" role="listbox">
-
-                          <div class="carousel-item">
-                            <div class="carousel-item-maz">
-                              <a href="/magazine/3D38C/esuhai-group-lookback-2022-kien-nghiep-thanh-cong.html" target="_blank">
-                                <img src="/upload/fck_new/image/9Magazines/avatar/167230345262.jpg" width="240" height="100" alt="" />
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <!-- CONTEN BODY 1 -->
@@ -259,64 +236,64 @@ require_once 'header.php';
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="right_container_img">
                     <img src="images/img_school@2x.jpg" alt="" width="360" height="504" />
-                    <img src="#" alt="" width="360" height="504" />
+                    <!-- <img src="images/logo.png" alt="" width="360" height="504" /> -->
                   </div>
                   <div class="right_container_cont">
                     <div class="right_container_cont_logo">
-                      <img src="#" alt="" height="37" width="165">
+                      <img src="images/logo.png" alt="" height="37" width="165">
                     </div>
                     <div class="right_container_cont_cont no_margin">
                       <div class="right_container_cont_cont_ct">
                         <div class="right_container_cont_cont_row">
                           <div class="right_container_cont_cont_row_left">
-                            Tên gọi
+                            Tên gọi:
                           </div>
                           <div class="right_container_cont_cont_row_right">
-                            Công ty TNHH Ê Su Hai (Esuhai)
+                            Công ty TNHH VIETSEIKO
                           </div>
                         </div>
                         <div class="right_container_cont_cont_row">
                           <div class="right_container_cont_cont_row_left">
-                            Ngày thành lập
+                            Ngày thành lập:
                           </div>
                           <div class="right_container_cont_cont_row_right">
-                            Ngày 09 tháng 06 năm 2006
+                            Ngày 15 Tháng 12 Năm 2017
                           </div>
                         </div>
                         <div class="right_container_cont_cont_row">
                           <div class="right_container_cont_cont_row_left">
-                            Số GPKD
+                            Số GPKD:
                           </div>
                           <div class="right_container_cont_cont_row_right">
-                            0304401652
+                            0314789339
                           </div>
                         </div>
                         <div class="right_container_cont_cont_row">
                           <div class="right_container_cont_cont_row_left">
                             Đại diện<br />
-                            pháp luật
+                            pháp luật:
                           </div>
                           <div class="right_container_cont_cont_row_right">
-                            Tổng Giám đốc Lê Long Sơn<br />
+                            Tổng Giám Đốc: Phạm Hữu Đạo<br />
 
-                            Phó Tổng Giám đốc Trần Thị Thùy Trang
+                            Phó Tổng Giám Đốc: Võ Thị Trang
 
                           </div>
                         </div>
                         <div class="right_container_cont_cont_row">
                           <div class="right_container_cont_cont_row_left">
-                            Vốn đăng ký
+                            Vốn đăng ký:
                           </div>
                           <div class="right_container_cont_cont_row_right">
-                            20.000.000.000 VNĐ
+                            9.600.000.000 VNĐ
                           </div>
                         </div>
                         <div class="right_container_cont_cont_row">
                           <div class="right_container_cont_cont_row_left">
-                            Nhân viên
+                            Nhân viên:
                           </div>
                           <div class="right_container_cont_cont_row_right">
-                            340 nhân viên
+                            21 nhân viên
                           </div>
                         </div>
                         <div class="right_container_cont_cont_row">
@@ -325,21 +302,10 @@ require_once 'header.php';
                             kinh doanh
                           </div>
                           <div class="right_container_cont_cont_row_right">
-                            24 Ấp Bắc, Phường 13, Quận Tân Bình,<br />
-                            TP. HCM
+                            108/17, Đường 79, Phường Tăng Nhơn Phú B, TP. Thủ Đức, TP. HCM.
                           </div>
                         </div>
-                        <div class="right_container_cont_cont_row">
-                          <div class="right_container_cont_cont_row_left">
-                            Cơ sở vật chất<br />
-                            để tổ chức giáo dục định hướng
-                          </div>
-                          <div class="right_container_cont_cont_row_right">
-                            40/12-40/14 Ấp Bắc, <br />
-                            Phường 13, Quận Tân Bình, <br />
-                            thành phố Hồ Chí Minh
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>
                     <div class="right_container_cont_cont right_container_cont_cont_red">
@@ -393,7 +359,7 @@ require_once 'header.php';
                         VĂN PHÒNG CHÍNH
                       </div>
                       <div class="right_container_cont_cont_cont">
-                        <p>40/12 - 40/16, Ấp Bắc, P. 13, Q. Tân Bình, TP. HCM</p>
+                        <p>Số 108/17, Đường 79, Phường Tăng Nhơn Phú B, TP.Thủ Đức, TP.HCM</p>
                       </div>
                     </div>
                     <div class="right_container_cont_cont_1">
@@ -402,9 +368,17 @@ require_once 'header.php';
                       </div>
                       <div class="right_container_cont_cont_cont">
                         <p>
-                          101-0047 <br />
-                          Arte Otemachi, 5F, 1-5-16, Uchikanda,<br />
-                          Chiyoda-ku, Tokyo, Japan
+                        日本の駐住事務所: 〒170-0013東京都豊島区 東池袋1丁目34番5号いちご東池袋ビル6階
+                        </p>
+                      </div>
+                    </div>
+                    <div class="right_container_cont_cont_1">
+                      <div class="right_container_cont_cont_title">
+                      VĂN PHÒNG TẠI HIROSHIMA (広島)
+                      </div>
+                      <div class="right_container_cont_cont_cont">
+                        <p>
+                        日本の駐住事務所：広島県福山市神辺町 下御 領1332-5
                         </p>
                       </div>
                     </div>

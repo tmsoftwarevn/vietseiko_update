@@ -128,7 +128,7 @@ $job_NB = new Job_NB;
                         <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
                             <ul class="nav navbar-nav">
                                 <li class="has-child">
-                                    <a href="about-us.html">Giới Thiệu</a>
+                                    <a href="about-us.php">Giới Thiệu</a>
                                 </li>
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
@@ -170,7 +170,7 @@ $job_NB = new Job_NB;
                                     </ul>
                                 </li>
                                 <li class="has-child">
-                                    <a href="blog.html">Tin Tức</a>
+                                    <a href="blog.php">Tin Tức</a>
                                 </li>
                             </ul>
                         </div>
