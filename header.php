@@ -11,6 +11,7 @@ require "models/nganhnghe.php";
 require "models/protype.php";
 require "models/job_NB.php";
 require "models/nganhnghe_NB.php";
+require "models/blog.php";
 
 $nganhnghe = new Nganhnghe;
 $nganhngheNB = new Nganhnghe_NB;
@@ -18,6 +19,7 @@ $hinhthuc = new Hinhthuc;
 $protype = new Protype;
 $job = new Job;
 $job_NB = new Job_NB;
+$blog = new blog;
 ?>
 
 <head>
@@ -132,7 +134,7 @@ $job_NB = new Job_NB;
                                 </li>
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
-                                    <ul class="sub-menu">
+                                    <ul class="sub-menu" style="width: 270px;">
                                         <?php
                                         $list_of_protypes = Protype::getAllProtypes();
                                         foreach ($list_of_protypes as $key => $value) {
@@ -185,23 +187,8 @@ $job_NB = new Job_NB;
                             <div class="extra-cell">
                                 <div class="header-nav-btn-section">
                                     <div class="twm-nav-btn-left has-child">
-                                        <a class="twm-nav-sign-up" data-bs-toggle="modal" href="#sign_up_popup2" role="button">
-                                            <?php
-                                            if (isset($_SESSION['user'])) {
-                                                $user = $_SESSION['user'];
-
-                                            ?>
-                                                <div class="dropdown"><a href="#"><?php echo $user; ?><i class="fa fa-angle-down"></i>
-                                                        <ul role="menu" class="sub-menu">
-                                                            <li><a href="candidates/candidate-dashboard.html">Tài Khoản</a></li>
-                                                            <li><a href="logout.php">Đăng Xuất <i class="fa fa-sign-out" style="font-size:24px"></i></a></li>
-                                                        </ul>
-                                                </div>
-                                            <?php
-                                            } else {
-                                            ?>
-                                                <i class="bi bi-person"></i> Đăng Nhập
-                                            <?php } ?>
+                                        <a class="twm-nav-sign-up" href="login.php" role="button">
+                                            <i class="feather-log-in"></i> Đăng Nhập
                                         </a>
                                     </div>
                                     <div class="twm-nav-btn-right">

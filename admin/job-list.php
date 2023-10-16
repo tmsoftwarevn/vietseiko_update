@@ -45,7 +45,7 @@ $nganhnghe = new Nganhnghe;
             <tbody>
               <?php
               $page = 1;
-              $resultsPerPage = 10;
+              $resultsPerPage = 8;
               $totalResults = count(Job::getAllJob());
               if (isset($_GET['page']) == TRUE) {
                 $page = $_GET['page'];
@@ -88,7 +88,7 @@ $nganhnghe = new Nganhnghe;
                           </g>
                         </svg>
                       </a>
-                      <a href="javascript:void(0);" class="btn btn-danger light">
+                      <a onclick="return confirm('Are you want to delete?')" href="javascript:void(0);" class="btn btn-danger light">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <rect x="0" y="0" width="24" height="24"></rect>
@@ -103,6 +103,15 @@ $nganhnghe = new Nganhnghe;
               <?php } ?>
             </tbody>
           </table>
+          <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
+            <span>Page 1 of 5, showing 2 records out of 8 total,
+              starting on record 1, ending on 2</span>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination my-2 my-md-0">
+                <?php echo Job::paginate("job-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </div>

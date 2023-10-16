@@ -80,7 +80,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                       </div>
 
                       <div class="twm-job-self-bottom">
-                        <a class="site-button" data-bs-toggle="modal" href="#apply_job_popup" role="button">
+                        <a class="site-button" data-bs-toggle="modal" href="#apply_job_popup" role= "button">
                           Ứng tuyển ngay
                         </a>
                       </div>
@@ -130,6 +130,13 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                 <a href="javascript:void(0)" class="link-clr">Linkedin</a>
                 <a href="javascript:void(0)" class="whats-clr">Whatsapp</a>
                 <a href="javascript:void(0)" class="pinte-clr">Pinterest</a>
+              </div>
+
+              <h4 class="twm-s-title">Location</h4>
+              <div class="twm-m-map mb-5">
+                <div class="twm-m-map-iframe">
+                  <iframe height="310" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8534521658976!2d-118.2533646842856!3d34.073270780600225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6fd9829c6f3%3A0x6ecd11bcf4b0c23a!2s1363%20Sunset%20Blvd%2C%20Los%20Angeles%2C%20CA%2090026%2C%20USA!5e0!3m2!1sen!2sin!4v1620815366832!5m2!1sen!2sin"></iframe>
+                </div>
               </div>
             </div>
           </div>
@@ -285,6 +292,15 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                   </ul>
                   <a href="about-1.html" class="site-button">Vew Profile</a>
                 </div>
+              </div>
+              <div class="twm-advertisment" style="background-image: url(images/add-bg.jpg)">
+                <div class="overlay"></div>
+                <h4 class="twm-title">Recruiting?</h4>
+                <p>
+                  Get Best Matched Jobs On your <br />
+                  Email. Add Resume NOW!
+                </p>
+                <a href="javascript:;" class="site-button white">Read More</a>
               </div>
             </div>
           </div>

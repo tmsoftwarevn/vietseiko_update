@@ -57,7 +57,11 @@ require_once 'header.php';
                       <select name="id_nganhnghe" id="job-list" class="wt-select-bar-large selectpicker" data-live-search="true" data-bv-field="size">
                         <?php
                         foreach ($nganhnghe->getAllNganhNghe() as $key => $value) { ?>
-                          <option value="<?php echo $value['id_nganhnghe'] ?>"><?php echo $value['name_nganhnghe'] ?></option>
+                          <option value="<?php echo $value['id_nganhnghe'] ?>" <?php if (isset($_GET['id_nganhnghe']) == TRUE && $_GET['id_nganhnghe'] == $value['id_nganhnghe']) {
+                                                                                  echo "Selected";
+                                                                                } ?>>
+                            <?php echo $value['name_nganhnghe'] ?>
+                          </option>
                         <?php } ?>
                       </select>
                     </div>
@@ -79,13 +83,17 @@ require_once 'header.php';
                       <select class="wt-select-bar-large selectpicker" data-live-search="true" data-bv-field="size">
                         <?php
                         foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
-                          <option value="<?php echo $value['id_hinhthuc'] ?>"><?php echo $value['name_hinhthuc'] ?></option>
+                          <option value="<?php echo $value['id_hinhthuc'] ?>" <?php if (isset($_GET['id_hinhthuc']) == TRUE && $_GET['id_hinhthuc'] == $value['id_hinhthuc']) {
+                                                                                echo "Selected";
+                                                                              } ?>>
+                            <?php echo $value['name_hinhthuc'] ?>
+                          </option>
                         <?php } ?>
                       </select>
                     </div>
                   </div>
-                  <div>
-                    <input type="submit" value="Submit">
+                  <div style="padding-bottom: 30px;">
+                    <input type="submit" value="Submit" style="width: 100%;padding: 10px; border: hidden; border-radius: 10px; background: cornflowerblue; font-size: 17px; font-weight: 600;">
                   </div>
                 </form>
               </div>
@@ -111,8 +119,8 @@ require_once 'header.php';
 
         <div class="col-lg-8 col-md-12">
           <!--Filter Short By-->
-          <div class="product-filter-wrap d-flex justify-content-between align-items-center m-b30">
-            <!--  <span class="woocommerce-result-count-left">Showing 2,150 jobs</span> -->
+          <!-- <div class="product-filter-wrap d-flex justify-content-between align-items-center m-b30">
+             <span class="woocommerce-result-count-left">Showing 2,150 jobs</span> 
 
             <form class="woocommerce-ordering twm-filter-select" method="get">
               <span class="woocommerce-result-count">Short By</span>
@@ -137,7 +145,7 @@ require_once 'header.php';
                 </select>
               </div>
             </form>
-          </div>
+          </div> -->
 
           <!-- Lấy danh sách job theo ngành nghề -->
 
@@ -152,7 +160,7 @@ require_once 'header.php';
             $list_of_job = Job::getJob_ByNganhngheID_andCreatePagination($_GET['id_nganhnghe'], $page, $resultsPerPage);
 
             //Output:
-
+            echo "<p style=\"text-align:center;\"><b>There are $totalResults results.</b></p>";
             foreach ($list_of_job as $key => $value) {
           ?>
               <div class="twm-jobs-list-wrap">
@@ -213,7 +221,7 @@ require_once 'header.php';
             $list_of_job = Job::getJob_ByTypeID_andCreatePagination($_GET['type_id'], $page, $resultsPerPage);
 
             //Output:
-
+            echo "<p style=\"text-align:center;\"><b>There are $totalResults results.</b></p>";
             foreach ($list_of_job as $key => $value) {
             ?>
               <div class="twm-jobs-list-wrap">
@@ -276,7 +284,7 @@ require_once 'header.php';
 
 
             // Output:
-
+            echo "<p style=\"text-align:center;\"><b>There are $totalResults results.</b></p>";
             foreach ($list_of_job as $key => $value) {
             ?>
               <div class="twm-jobs-list-wrap">
@@ -339,7 +347,7 @@ require_once 'header.php';
 
 
             // Output:
-
+            echo "<p style=\"text-align:center;\"><b>There are $totalResults results.</b></p>";
             foreach ($list_of_job as $key => $value) {
             ?>
               <div class="twm-jobs-list-wrap">
@@ -389,28 +397,12 @@ require_once 'header.php';
           <?php }
           } ?>
 
-          <div class="pagination-outer">
-            <div class="pagination-style1">
-              <ul class="clearfix">
-                <!-- <li class="prev">
-                  <a href="javascript:;"><span> <i class="bi bi-chevron-left"></i> </span></a>
-                </li>
-                <li><a href="javascript:;">1</a></li>
-                <li class="active"><a href="javascript:;">2</a></li>
-                <li><a href="javascript:;">3</a></li>
-                <li>
-                  <a class="javascript:;" href="javascript:;"><i class="bi bi-three-dots"></i></a>
-                </li>
-                <li><a href="javascript:;">5</a></li>
-                <li class="next">
-                  <a href="javascript:;"><span> <i class="bi bi-chevron-right"></i> </span></a>
-                </li> -->
-                <?php
-                echo Protype::paginate("job-list.php?", $page, $totalResults, $resultsPerPage, 2);
-                // echo Product::paginate($_SERVER['PHP_SELF'] . "?", $page, $totalResults, $resultsPerPage, 2);
-                ?>
+          <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination my-2 my-md-0">
+                <?php echo Job::paginate("job-list.php?type_id=" . $_GET['type_id'] . "&", $page, $totalResults, $resultsPerPage, 1) ?>
               </ul>
-            </div>
+            </nav>
           </div>
         </div>
       </div>

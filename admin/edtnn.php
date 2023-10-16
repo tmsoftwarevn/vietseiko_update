@@ -2,7 +2,7 @@
     require_once "./config.php";
     require_once "./models/nganhnghe.php";
     $nganhnghe = new Nganhnghe;
-    if(isset($_POST['id'])) {
+    if(isset($_POST['id_nganhnghe'])) {
         $nganhnghe->updateJobNganhnghe($_GET['id'], $_POST['name_nganhnghe'], $_FILES['fileUpload']['name']);
         if(isset($_FILES['fileUpload']))
         {

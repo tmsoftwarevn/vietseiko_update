@@ -2,11 +2,11 @@
 require_once 'header.php';
 
 $id;
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_GET['id_nganhnghe'])) {
+    $id = $_GET['id_nganhnghe'];
 }
 $nganhngheByID = $nganhngheAdmin->getNganhngheByID($id);
-/* var_dump($nganhngheByID); */
+var_dump($nganhngheByID);
 
 ?>
 
@@ -28,12 +28,14 @@ $nganhngheByID = $nganhngheAdmin->getNganhngheByID($id);
                     <div class="card-body">
                         <div class="basic-form">
                             <?php
-                            foreach ($nganhngheByID as $key => $value) {
+                            if (isset($_GET['functionType']) == TRUE && $_GET['functionType'] == "job_nganhnghe" && isset($_GET['id_nganhnghe']) == TRUE) {
+                                $selectedNganhnghe = Nganhnghe::getBrand($_GET['id_nganhnghe']);
+
                             ?>
                                 <!-- BEGIN NGANH NGHE FORM -->
-                                <form action="update-nganhnghe.php?id=<?php echo $value['id_nganhnghe'] ?>" method="post" class="form-horizontal" enctype="multipart/form-data">
+                                <form action="update-nganhnghe.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                                     <div class="row align-items-center">
-                                        <input type="hidden" name="id" value=<?php echo $id ?>>
+                                        <input type="hidden" name="id" value=<?php echo $_GET['id_nganhnghe']; ?>>
                                         <div class="col">
                                             <label class="sr-only">Name</label>
                                             <input type="text" class="form-control mb-2" placeholder="Ngành Nghề" name="name_nganhnghe" require value="<?php echo $selectedNganhnghe; ?>">
@@ -49,6 +51,19 @@ $nganhngheByID = $nganhngheAdmin->getNganhngheByID($id);
                                         </div>
                                     </div>
                                 </form>
+                                <!-- INSERT RESULT: -->
+                                <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
+                                    <?php
+                                    echo "<div style=\"text-decoration:underline;\">RESULT:</div>";
+                                    if (isset($_GET['updateResult']) == TRUE) {
+                                        if ($_GET['updateResult'] > 0) {
+                                            echo "<span style=\"color:green;\">" . "Updated successfully!" . "</span>";
+                                        } else {
+                                            echo "<span style=\"color:red;\">" . "Fail to update!" . "</span>";
+                                        }
+                                    }
+                                    ?>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>

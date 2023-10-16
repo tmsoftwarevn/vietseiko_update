@@ -121,14 +121,14 @@
         <div class="section-full site-bg-white">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-xl-8 col-lg-6 col-md-5 twm-log-reg-media-wrap">
+              <div class="col-xl-5 col-lg-6 col-md-5 twm-log-reg-media-wrap">
                 <div class="twm-log-reg-media">
                   <div class="twm-l-media">
                     <img src="images/login-bg.png" alt="" />
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-lg-6 col-md-7">
+              <div class="col-xl-7 col-lg-6 col-md-7">
                 <div class="twm-log-reg-form-wrap">
                   <div class="twm-log-reg-logo-head">
                     <a href="index.html">

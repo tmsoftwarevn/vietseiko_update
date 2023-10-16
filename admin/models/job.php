@@ -257,44 +257,45 @@ class Job extends Db
     //     return $firstLink . $prevLink . $links . $nextLink . $lastLink;
     // }
 
-
-
-    static function paginate($url, $page, $totalResults, $resultsPerPage, $offset)
-    {
-        $totalLinks = ceil($totalResults / $resultsPerPage);
+ /**____________________________________________________________________________________________________
+     * PAGINATE: ĐÁNH SỐ TRANG, TẠO LINK TỚI CÁC TRANG.
+     */
+    static function paginate($url, $page, $totalResults, $resultsPerPage, $offset) {
+        $totalLinks = ceil(floatval($totalResults)/floatval($resultsPerPage));
         $links = "";
+
         $from = $page - $offset;
         $to = $page + $offset;
-        if ($from <= 0) {
+        if($from <= 0) {
             $from = 1;
             $to = $offset * 2;
         }
-        if ($to > $totalLinks) {
+        if($to > $totalLinks) {
             $to = $totalLinks;
         }
+
         $firstLink = "";
         $lastLink = "";
         $prevLink = "";
         $nextLink = "";
         // Trường hợp để xuất hiện $firstLink, $lastLink, $prevLink, $nextLink:
-        if ($page > 1) {
+        if($page > 1) {
             $prev = $page - 1;
-            // $prevLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$prev'><</a>";
-            //  $firstLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=1'><<</a>";
-            $firstLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$prev'>Trước</a>";
-            // $nextLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$next'>Tiếp</a>";
+            $prevLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$prev'><</a>";
+            $firstLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=1'><<</a>";
         }
-        if ($page < $totalLinks) {
+        if($page < $totalLinks) {
             $next = $page + 1;
-            $firstLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=1'>Trước</a>";
-            $nextLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$next'>Tiếp</a>";
-            // $lastLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$totalLinks'>Sau</a>";
+            $nextLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$next'>></a>";
+            $lastLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$totalLinks'>>></a>";
         }
         // $links:
-        for ($i = $from; $i <= $to; $i++) {
-            if ($page == $i) {
+        for($i=$from; $i<=$to; $i++) {
+            if($page == $i) {
                 $links = $links . "<a style=\"padding:15px;margin:0 5px;text-decoration:underline;color:red;font-weight:bold;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$i'>$i</a>";
-            } else {
+            }
+            else
+            {
                 $links = $links . "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$i'>$i</a>";
             }
         }

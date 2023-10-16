@@ -63,7 +63,9 @@ $trangthai = new Trangthai;
                                                 <td>
                                                     <div class="d-flex">
                                                         <a href="update-hinhthuc.php" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                        <a href="delete_hinhthuc.php?id_trangthai=<?php echo $value['id_trangthai'] ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                        <a onclick="return confirm('Are you want to delete?')" href="delete_hinhthuc.php?id_trangthai=<?php echo $value['id_trangthai'] ?>" class="btn btn-danger shadow btn-xs sharp">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
                                                     </div>
                                                 </td>
                                             </tr>

@@ -1,3 +1,5 @@
+
+
 <?php
 
 class Nganhnghe extends Db
