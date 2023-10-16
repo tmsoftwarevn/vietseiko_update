@@ -148,6 +148,82 @@
     <span class="relative" id="btn-vibrate"><i class="bi bi-arrow-up-circle"></i></span>
 </button>
 
+<!-- apply job popup -->
+<div class="modal fade" aria-hidden="true" id="apply_job_popup" style="display: none;" tabindex="-1" >
+            <div class="modal-dialog modal-dialog-centered" style="margin-top: 0px;">
+                <div class="modal-content">
+                    
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="sign_up_popupLabel">Apply For This Job</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    
+                    <div class="modal-body">
+                        <div class="apl-job-inpopup">
+                            <!--Basic Information-->
+                            <div class="panel panel-default">
+                                
+                                <div class="panel-body wt-panel-body p-a20 ">
+
+                                    <div class="twm-tabs-style-1">
+                                            
+                                        <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Your Name</label>
+                                                        <div class="ls-inputicon-box"> 
+                                                            <input class="form-control" name="company_name" type="text" placeholder="Devid Smith">
+                                                            <i class="fs-input-icon fa fa-user "></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Email Address</label>
+                                                        <div class="ls-inputicon-box"> 
+                                                            <input class="form-control" name="company_Email" type="email" placeholder="Devid@example.com">
+                                                            <i class="fs-input-icon fas fa-at"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Message</label>
+                                                        <textarea class="form-control" rows="3" placeholder="Message sent to the employer"></textarea>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Upload Resume</label>
+                                                        <form action="upload.php" class="dropzone dz-clickable"><div class="dz-default dz-message"><span><i class="sl sl-icon-plus"></i> Click here or drop files to upload</span></div></form>
+                                                        <small>If you do not have a resume document, you may write your brief professional profile <a class="site-text-primary" href="javascript:void(0);">here</a></small>
+                                                    </div>                                    
+                                                </div>
+
+                                            
+                                                                
+                                                <div class="col-xl-12 col-lg-12 col-md-12"> 
+                                                    <div class="text-left">
+                                                        <button type="submit" class="site-button">Send Application</button>
+                                                    </div>
+                                                </div> 
+                                                
+                                            
+                                                
+                                        </div>
+                                        
+                                    </div>  
+
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            
+        </div>
 <!--Model Popup Section Start-->
 <!--Signup popup -->
 <div class="modal fade twm-sign-up" id="sign_up_popup" aria-hidden="true" aria-labelledby="sign_up_popupLabel" tabindex="-1">
@@ -428,6 +504,7 @@
         </div>
     </div>
 </div>
+
 <!--Model Popup Section End-->
 </div>
 
