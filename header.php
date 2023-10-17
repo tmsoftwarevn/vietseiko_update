@@ -13,7 +13,10 @@ require "models/job_NB.php";
 require "models/nganhnghe_NB.php";
 require "models/blog.php";
 require "models/ban_tin.php";
+require "models/protypes_congcu.php";
 
+
+$protypes_congcu = new Protypes_congcu;
 $ban_tin = new Ban_tin;
 $nganhnghe = new Nganhnghe;
 $nganhngheNB = new Nganhnghe_NB;
@@ -90,8 +93,8 @@ $blog = new blog;
     <!-- Css INTRODUCE -->
     <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
     </style>
 </head>
 
@@ -143,41 +146,42 @@ $blog = new blog;
                                         $list_of_protypes = Protype::getAllProtypes();
                                         foreach ($list_of_protypes as $key => $value) {
                                             ?>
-                                        <li>
-                                            <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
-                                                <?php echo $value['type_name'] ?>
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
+                                                    <?php echo $value['type_name'] ?>
+                                                </a>
+                                            </li>
 
                                         <?php } ?>
                                     </ul>
                                 </li>
                                 <li class="has-child">
                                     <a href="javascript:" ;>Công Cụ</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="blog-camnang.php">Cẩm nang nghề nghiệp</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">Tính lương Gross sang Net</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">Trắc nghiệm tính cách</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-child">
-                                    <a href="javascript:;">Công Ty</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="employer.html">Danh Sách Công Ty</a>
-                                        </li>
-                                        <li><a href="employer-list.html">Top Công Ty</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-child">
-                                    <a href="blog.php">Tin Tức</a>
-                                </li>
+                                    <ul class="sub-menu" style="width: 270px;">
+                                        <?php
+                                        $list_of_Protypes_congcu = Protypes_congcu::getAllProtypes_congcu();
+                                        foreach ($list_of_Protypes_congcu as $key => $value) {
+                                            ?>
+                                            <li></li>
+                                            <a href="blog-camnang.php?id_congcu=<?php echo $value['id_congcu']; ?>">
+                                                <?php echo $value['name_congcu'] ?>
+                                            </a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="javascript:;">Công Ty</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="employer.html">Danh Sách Công Ty</a>
+                                    </li>
+                                    <li><a href="employer-list.html">Top Công Ty</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-child">
+                                <a href="blog.php">Tin Tức</a>
+                            </li>
                             </ul>
                         </div>
 
