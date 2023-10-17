@@ -12,7 +12,9 @@ require "models/protype.php";
 require "models/job_NB.php";
 require "models/nganhnghe_NB.php";
 require "models/blog.php";
+require "models/ban_tin.php";
 
+$ban_tin = new Ban_tin;
 $nganhnghe = new Nganhnghe;
 $nganhngheNB = new Nganhnghe_NB;
 $hinhthuc = new Hinhthuc;
@@ -140,7 +142,7 @@ $blog = new blog;
                                         <?php
                                         $list_of_protypes = Protype::getAllProtypes();
                                         foreach ($list_of_protypes as $key => $value) {
-                                        ?>
+                                            ?>
                                         <li>
                                             <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
                                                 <?php echo $value['type_name'] ?>
