@@ -38,7 +38,8 @@ $blog = new blog;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- PAGE TITLE HERE -->
     <title>Jobzilla Template | Home Page Style 1</title>
@@ -87,8 +88,8 @@ $blog = new blog;
     <!-- Css INTRODUCE -->
     <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
     </style>
 </head>
 
@@ -119,7 +120,8 @@ $blog = new blog;
                         </div>
 
                         <!-- NAV Toggle Button -->
-                        <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
+                        <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button"
+                            class="navbar-toggler collapsed">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar icon-bar-first"></span>
                             <span class="icon-bar icon-bar-two"></span>
@@ -139,11 +141,11 @@ $blog = new blog;
                                         $list_of_protypes = Protype::getAllProtypes();
                                         foreach ($list_of_protypes as $key => $value) {
                                         ?>
-                                            <li>
-                                                <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
-                                                    <?php echo $value['type_name'] ?>
-                                                </a>
-                                            </li>
+                                        <li>
+                                            <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
+                                                <?php echo $value['type_name'] ?>
+                                            </a>
+                                        </li>
 
                                         <?php } ?>
                                     </ul>
@@ -152,7 +154,7 @@ $blog = new blog;
                                     <a href="javascript:" ;>Công Cụ</a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="blog-camnang.html">Cẩm nang nghề nghiệp</a>
+                                            <a href="blog-camnang.php">Cẩm nang nghề nghiệp</a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">Tính lương Gross sang Net</a>

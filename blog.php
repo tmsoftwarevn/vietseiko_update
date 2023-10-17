@@ -44,43 +44,43 @@ require_once 'header.php';
                                 $list_of_allBlog = Blog::getAllBlog();
                                 foreach ($list_of_allBlog as $post) {
                                     ?>
-                                    <div class="blog-post twm-blog-post-1-outer">
+                                <div class="blog-post twm-blog-post-1-outer">
 
-                                        <div class="wt-post-media">
-                                            <a href="blog-single.html"><img
-                                                    src="images/blog/latest/<?php echo $post['img_blog']; ?>" alt="" /></a>
-                                        </div>
-                                        <div class="wt-post-info">
-                                            <div class="wt-post-meta">
-                                                <ul>
-                                                    <li class="post-date">
-                                                        <?php echo $post['ngaydang']; ?>
-                                                    </li>
-                                                    <li class="post-author">
-                                                        By <a href="author-detail.html">
-                                                            <?php echo $post['name_blog']; ?>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="wt-post-title">
-                                                <h4 class="post-title">
-                                                    <a href="blog-single.html">
-                                                        <?php echo substr($post['tieude_blog'], 0, 50); ?>...
+                                    <div class="wt-post-media">
+                                        <a href="blog-single.html"><img
+                                                src="images/blog/latest/<?php echo $post['img_blog']; ?>" alt="" /></a>
+                                    </div>
+                                    <div class="wt-post-info">
+                                        <div class="wt-post-meta">
+                                            <ul>
+                                                <li class="post-date">
+                                                    <?php echo $post['ngaydang']; ?>
+                                                </li>
+                                                <li class="post-author">
+                                                    By <a href="author-detail.html">
+                                                        <?php echo $post['name_blog']; ?>
                                                     </a>
-                                                </h4>
-                                            </div>
-                                            <div class="wt-post-text">
-                                                <p>
-                                                    <?php echo substr($post['noidung_blog'], 0, 100) ?>...
-                                                </p>
-                                            </div>
-                                            <div class="wt-post-readmore">
-                                                <a href="blog-single.html" class="site-button-link site-text-primary">Read
-                                                    More</a>
-                                            </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wt-post-title">
+                                            <h4 class="post-title">
+                                                <a href="blog-single.html">
+                                                    <?php echo substr($post['tieude_blog'], 0, 50); ?>...
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="wt-post-text">
+                                            <p>
+                                                <?php echo substr($post['noidung_blog'], 0, 100) ?>...
+                                            </p>
+                                        </div>
+                                        <div class="wt-post-readmore">
+                                            <a href="blog-single.html" class="site-button-link site-text-primary">Read
+                                                More</a>
                                         </div>
                                     </div>
+                                </div>
                                 <?php } ?>
                             </div>
 
@@ -91,43 +91,43 @@ require_once 'header.php';
                                 $list_of_allBlog = Blog::getAllBlog();
                                 foreach ($list_of_allBlog as $post) {
                                     ?>
-                                    <div class="blog-post twm-blog-post-1-outer">
+                                <div class="blog-post twm-blog-post-1-outer">
 
-                                        <div class="wt-post-media">
-                                            <a href="blog-single.html"><img
-                                                    src="images/blog/latest/<?php echo $post['img_blog']; ?>" alt="" /></a>
-                                        </div>
-                                        <div class="wt-post-info">
-                                            <div class="wt-post-meta">
-                                                <ul>
-                                                    <li class="post-date">
-                                                        <?php echo $post['ngaydang']; ?>
-                                                    </li>
-                                                    <li class="post-author">
-                                                        By <a href="author-detail.html">
-                                                            <?php echo $post['name_blog']; ?>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="wt-post-title">
-                                                <h4 class="post-title">
-                                                    <a href="blog-single.html">
-                                                        <?php echo substr($post['tieude_blog'], 0, 50); ?>...
+                                    <div class="wt-post-media">
+                                        <a href="blog-single.html"><img
+                                                src="images/blog/latest/<?php echo $post['img_blog']; ?>" alt="" /></a>
+                                    </div>
+                                    <div class="wt-post-info">
+                                        <div class="wt-post-meta">
+                                            <ul>
+                                                <li class="post-date">
+                                                    <?php echo $post['ngaydang']; ?>
+                                                </li>
+                                                <li class="post-author">
+                                                    By <a href="author-detail.html">
+                                                        <?php echo $post['name_blog']; ?>
                                                     </a>
-                                                </h4>
-                                            </div>
-                                            <div class="wt-post-text">
-                                                <p>
-                                                    <?php echo substr($post['noidung_blog'], 0, 100) ?>...
-                                                </p>
-                                            </div>
-                                            <div class="wt-post-readmore">
-                                                <a href="blog-single.html" class="site-button-link site-text-primary">Read
-                                                    More</a>
-                                            </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wt-post-title">
+                                            <h4 class="post-title">
+                                                <a href="blog-single.html">
+                                                    <?php echo substr($post['tieude_blog'], 0, 50); ?>...
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="wt-post-text">
+                                            <p>
+                                                <?php echo substr($post['noidung_blog'], 0, 100) ?>...
+                                            </p>
+                                        </div>
+                                        <div class="wt-post-readmore">
+                                            <a href="blog-single.html" class="site-button-link site-text-primary">Read
+                                                More</a>
                                         </div>
                                     </div>
+                                </div>
                                 <?php } ?>
                             </div>
 
@@ -138,43 +138,43 @@ require_once 'header.php';
                                 $list_of_allBlog = Blog::getAllBlog();
                                 foreach ($list_of_allBlog as $post) {
                                     ?>
-                                    <div class="blog-post twm-blog-post-1-outer">
+                                <div class="blog-post twm-blog-post-1-outer">
 
-                                        <div class="wt-post-media">
-                                            <a href="blog-single.html"><img
-                                                    src="images/blog/latest/<?php echo $post['img_blog']; ?>" alt="" /></a>
-                                        </div>
-                                        <div class="wt-post-info">
-                                            <div class="wt-post-meta">
-                                                <ul>
-                                                    <li class="post-date">
-                                                        <?php echo $post['ngaydang']; ?>
-                                                    </li>
-                                                    <li class="post-author">
-                                                        By <a href="author-detail.html">
-                                                            <?php echo $post['name_blog']; ?>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="wt-post-title">
-                                                <h4 class="post-title">
-                                                    <a href="blog-single.html">
-                                                        <?php echo substr($post['tieude_blog'], 0, 50); ?>...
+                                    <div class="wt-post-media">
+                                        <a href="blog-single.html"><img
+                                                src="images/blog/latest/<?php echo $post['img_blog']; ?>" alt="" /></a>
+                                    </div>
+                                    <div class="wt-post-info">
+                                        <div class="wt-post-meta">
+                                            <ul>
+                                                <li class="post-date">
+                                                    <?php echo $post['ngaydang']; ?>
+                                                </li>
+                                                <li class="post-author">
+                                                    By <a href="author-detail.html">
+                                                        <?php echo $post['name_blog']; ?>
                                                     </a>
-                                                </h4>
-                                            </div>
-                                            <div class="wt-post-text">
-                                                <p>
-                                                    <?php echo substr($post['noidung_blog'], 0, 100) ?>...
-                                                </p>
-                                            </div>
-                                            <div class="wt-post-readmore">
-                                                <a href="blog-single.html" class="site-button-link site-text-primary">Read
-                                                    More</a>
-                                            </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wt-post-title">
+                                            <h4 class="post-title">
+                                                <a href="blog-single.html">
+                                                    <?php echo substr($post['tieude_blog'], 0, 50); ?>...
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="wt-post-text">
+                                            <p>
+                                                <?php echo substr($post['noidung_blog'], 0, 100) ?>...
+                                            </p>
+                                        </div>
+                                        <div class="wt-post-readmore">
+                                            <a href="blog-single.html" class="site-button-link site-text-primary">Read
+                                                More</a>
                                         </div>
                                     </div>
+                                </div>
                                 <?php } ?>
                             </div>
 
@@ -183,20 +183,26 @@ require_once 'header.php';
                         <div class="pagination-outer">
                             <div class="pagination-style1">
                                 <ul class="clearfix">
-                                    <li class="prev">
-                                        <a href="javascript:;"><span> <i class="bi bi-chevron-left"></i> </span></a>
-                                    </li>
-                                    <li><a href="javascript:;">1</a></li>
-                                    <li class="active"><a href="javascript:;">2</a></li>
-                                    <li><a href="javascript:;">3</a></li>
-                                    <li>
-                                        <a class="javascript:;" href="javascript:;"><i class="bi bi-three-dots"></i></a>
-                                    </li>
-                                    <li><a href="javascript:;">5</a></li>
-                                    <li class="next">
-                                        <a href="javascript:;"><span> <i class="bi bi-chevron-right"></i>
-                                            </span></a>
-                                    </li>
+                                    <?php
+                                    $totalPages = 5;
+                                    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+                                    $paginationLimit = 3;
+                                    $startPage = max(1, $currentPage - $paginationLimit);
+                                    $endPage = min($totalPages, $currentPage + $paginationLimit);
+                                    if ($currentPage > 1) {
+                                        echo '<li class="prev"><a href="?page=' . ($currentPage - 1) . '"><span> <i class="bi bi-chevron-left"></i> </span></a></li>';
+                                    }
+                                    for ($i = $startPage; $i <= $endPage; $i++) {
+                                        if ($i == $currentPage) {
+                                            echo '<li class="active"><a href="javascript:;">' . $i . '</a></li>';
+                                        } else {
+                                            echo '<li><a href="?page=' . $i . '">' . $i . '</a></li>';
+                                        }
+                                    }
+                                    if ($currentPage < $totalPages) {
+                                        echo '<li class="next"><a href="?page=' . ($currentPage + 1) . '"><span> <i class="bi bi-chevron-right"></i> </span></a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
