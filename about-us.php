@@ -233,7 +233,7 @@ require_once 'header.php';
                                     <div class="panel panel-default ">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a href="#">
+                                                <a href="contact.html">
                                                     <span class="collapse_large">LIÊN HỆ</span>
 
                                                     <span class="collapse_small">Thông tin liên hệ Esuhai</span>
@@ -413,5 +413,5 @@ require_once 'header.php';
     <!-- END CENTEN BODY -->
 
     <?php
-  require "footer.php";
-  ?>
+    require "footer.php";
+    ?>
