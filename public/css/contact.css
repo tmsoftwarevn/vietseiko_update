@@ -49,104 +49,130 @@ body {
     --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
 }
 
-element.style {
-    margin-top: 7%;
+:root {
+    --primary: #007bff;
+    --border-color: #ddd;
 }
 
 element.style {
-    margin: auto;
-    max-width: 1000px;
-    width: auto;
+    border: 0;
 }
 
-.content {
-    min-height: 250px;
-    padding: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+.contact_page {
+    padding: 30px 0;
+    background-color: #ffffff;
 }
 
-/* .content, .content-top {
-    min-height: 140px;
-} */
+@media (min-width: 1200px) {}
 
-section {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    background: #fdfdfd;
-}
-
-.panel-primary {
-    border-color: #337ab7;
-}
-
-.panel {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-}
-
-.panel-body {
-    padding: 15px;
-}
-
-.mb-4,
-.my-4 {
-    margin-bottom: 1.5rem !important;
+.container {
+    width: 1170px;
 }
 
 .container {
-    max-width: var(--mx-width, 1200px);
-    padding: 0 var(--gutter, 15px);
-    margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-@media (min-width: 1200px) {
-    .container {
-        width: 1170px;
-    }
+.entry_content {
+    overflow: hidden;
 }
 
-.containerinfo {
-    position: absolute;
-    top: 40px;
-    width: 352px;
-    height: calc(100% - 80px);
-    background: #4a83e9;
-    z-index: 1;
-    padding: 38px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+.entry_content,
+.tax_desc {
+    margin-bottom: 30px;
 }
 
-.containerinfo h2 {
-    color: #f5eded;
-    font-size: 24px;
-    margin: 20px 0;
+.entry_content>* {
+    font-size: 16px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+@media (min-width: 992px) {}
+
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9 {
+    float: left;
+}
+
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 .h1,
 .h2,
 .h3,
-.h4,
-.h5,
-.h6 {
-    font-family: 'Source Sans Pro', sans-serif;
+h1,
+h2,
+h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .h1,
@@ -167,48 +193,14 @@ h6 {
     color: inherit;
 }
 
-h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-}
-
-.info {
-
-    width: 100%;
-}
-
-ol,
-ul {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.containerinfo li {
-    position: relative;
-    list-style: none;
-    display: flex;
-    margin: 20px 0;
-    cursor: pointer;
-    align-items: flex-start;
-}
-
-.containerinfo li span {
-    color: #fff;
-    margin-left: 10px;
-    font-weight: 300;
-    opacity: 0.5;
+.entry_content h3 {
     font-size: 18px;
+    line-height: 150%;
+}
+
+h3.ft_title_ct {
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .fa {
@@ -220,108 +212,115 @@ ul {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.sci {
-    position: relative;
-    display: flex;
-}
-
-.sci li {
+.col_contact ul.ft_list {
     list-style: none;
-    margin-right: 15px;
+    padding-left: 0;
 }
 
-.sci li a {
-    text-decoration: none;
-    opacity: 0.5;
-    color: #fff;
-    font-size: 32px;
+.entry_content ul,
+menu,
+dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
 }
 
-a:-webkit-any-link {
-    cursor: pointer;
+ul.ft_list li {
+    font-size: 14px;
+    padding: 5px 0;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ol,
+ul {
+    box-sizing: border-box;
 }
 
 a {
     background-color: transparent;
-    text-decoration: none !important;
+    color: #337ab7;
+    text-decoration: none;
+    transition: all ease-in-out 0.3s;
+    -moz-transition: all ease-in-out 0.3s;
+    -webkit-transition: all ease-in-out 0.3s;
+    -o-transition: all ease-in-out 0.3s;
+
 }
 
-.containerForm {
+.box_map iframe {
+    max-width: 100%;
+    height: 255px;
+}
+
+.contact_page .contact_form {
+    margin: 20px 0;
+}
+
+.wpcf7 .screen-reader-response {
     position: absolute;
-    padding: 70px 50px;
-    background: #fff;
-    margin-left: 135px;
-    padding-left: 250px;
-    width: calc(100% - 150px);
-    height: 100%;
-    box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    word-wrap: normal !important;
 }
 
-.containerForm .formBox {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-top: 30px;
+.entry_content p,
+.tax_desc p,
+.entry_content table,
+.tax_desc table,
+.entry_content img,
+.tax_desc img,
+.entry_content figure,
+.tax_desc figure {
+    max-width: 100% !important;
+    height: auto !important;
 }
 
-.containerForm .formBox .inputBox.w50 {
-    width: 47%;
+p {
+    margin: 0 0 10px;
 }
 
-.containerForm .formBox .inputBox {
-    position: relative;
-    margin: 0 0 25px 0;
+.qcol form input,
+.qcol form textarea {
+    border-radius: 0;
 }
 
-.containerForm .formBox .inputBox.w100 {
-    width: 100%;
+.qcol form input {
+    margin-top: 6.5px;
 }
 
-.containerForm .formBox .inputBox textarea {
-    min-height: 120px;
-}
-
-element.style {
-    height: 22px;
-}
-
-.containerForm .formBox .inputBox input,
-.containerForm .formBox .inputBox textarea {
-    width: 100%;
-    padding: 5px 0;
-    resize: none;
-    font-size: 18px;
-    font-weight: 400;
-    color: #333;
-    border: none;
-    border-bottom: 1px solid #777;
-    outline: none;
-}
-
-.form-control:not(select) {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.form-control {
-    display: block;
-    line-height: 1.5;
-    background-color: #fff;
-    background-image: none;
-    border-radius: 4px;
-    box-shadow: none;
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-
+button,
 input,
-textarea,
-select {
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
     font: inherit;
-    width: 100%;
+    color: inherit;
 }
 
 label {
@@ -331,52 +330,104 @@ label {
     font-weight: 700;
 }
 
-.containerForm .formBox .inputBox input[type="submit"] {
+.wpcf7-form-control-wrap {
     position: relative;
-    cursor: pointer;
-    background: #1E4DA1;
-    color: #fff;
-    border: none;
-    max-width: 150px;
-    padding: 12px;
 }
 
-.btn {
-    border-radius: 3px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border: 1px solid transparent;
-}
-
-.btn {
-    display: inline-block;
-    padding: 6px 12px;
+p.submit_ct {
+    position: relative;
     margin-bottom: 0;
+}
+
+p.submit_ct .fa {
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    color: #fff;
+}
+
+.qcol form input[type="submit"] {
+    border: none;
+    padding: 10px 15px;
+    background: #0284f2;
+    color: #fff;
+    padding-left: 35px;
+}
+
+.wpcf7-spinner {
+    visibility: hidden;
+    display: inline-block;
+    background-color: #23282d;
+    opacity: 0.75;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 100%;
+    padding: 0;
+    margin: 0 24px;
+    position: relative;
+}
+
+.wpcf7 form.init .wpcf7-response-output,
+.wpcf7 form.resetting .wpcf7-response-output,
+.wpcf7 form.submitting .wpcf7-response-output {
+    display: none;
+}
+
+.wpcf7 form .wpcf7-response-output {
+    margin: 2em 0.5em 1em;
+    padding: 0.2em 1em;
+    border: 2px solid #00a0d2;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
     font-size: 14px;
-    font-weight: 400;
     line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    color: #555;
+    background-color: #fff;
     background-image: none;
-    border: 1px solid transparent;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.wpcf7 input[type="url"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"] {
+    direction: ltr;
 }
 
 button,
-input {
-    overflow: visible;
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
 
-.panel.panel-primary.bordered-element {
-    border: 1px solid #cacaff;
-    border-radius: 2px;
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+
+.bordered-element {
+    border: 1px solid #fef8f8;
+}
+
+textarea.form-control {
+    height: 126px;
 }

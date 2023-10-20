@@ -233,7 +233,7 @@ require_once 'header.php';
                                     <div class="panel panel-default ">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a href="contact.html">
+                                                <a href="contact.php">
                                                     <span class="collapse_large">LIÊN HỆ</span>
 
                                                     <span class="collapse_small">Thông tin liên hệ Esuhai</span>

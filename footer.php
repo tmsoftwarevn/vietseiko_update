@@ -149,84 +149,93 @@
 </button>
 
 <!-- apply job popup -->
-<div class="modal fade" aria-hidden="true" id="apply_job_popup" style="display: none;" tabindex="-1" >
-            <div class="modal-dialog modal-dialog-centered" style="margin-top: 0px;">
-                <div class="modal-content">
-                    
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="sign_up_popupLabel">Apply For This Job</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    
-                    <div class="modal-body">
-                        <div class="apl-job-inpopup">
-                            <!--Basic Information-->
-                            <div class="panel panel-default">
-                                
-                                <div class="panel-body wt-panel-body p-a20 ">
+<div class="modal fade" aria-hidden="true" id="apply_job_popup" style="display: none;" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" style="margin-top: 0px;">
+        <div class="modal-content">
 
-                                    <div class="twm-tabs-style-1">
-                                            
-                                        <div class="row">
-                                                <div class="col-xl-12 col-lg-12 col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Your Name</label>
-                                                        <div class="ls-inputicon-box"> 
-                                                            <input class="form-control" name="company_name" type="text" placeholder="Devid Smith">
-                                                            <i class="fs-input-icon fa fa-user "></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-12 col-lg-12 col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Email Address</label>
-                                                        <div class="ls-inputicon-box"> 
-                                                            <input class="form-control" name="company_Email" type="email" placeholder="Devid@example.com">
-                                                            <i class="fs-input-icon fas fa-at"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
+            <div class="modal-header">
+                <h4 class="modal-title" id="sign_up_popupLabel">Apply For This Job</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Message</label>
-                                                        <textarea class="form-control" rows="3" placeholder="Message sent to the employer"></textarea>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Upload Resume</label>
-                                                        <form action="upload.php" class="dropzone dz-clickable"><div class="dz-default dz-message"><span><i class="sl sl-icon-plus"></i> Click here or drop files to upload</span></div></form>
-                                                        <small>If you do not have a resume document, you may write your brief professional profile <a class="site-text-primary" href="javascript:void(0);">here</a></small>
-                                                    </div>                                    
-                                                </div>
+            <div class="modal-body">
+                <div class="apl-job-inpopup">
+                    <!--Basic Information-->
+                    <div class="panel panel-default">
 
-                                            
-                                                                
-                                                <div class="col-xl-12 col-lg-12 col-md-12"> 
-                                                    <div class="text-left">
-                                                        <button type="submit" class="site-button">Send Application</button>
-                                                    </div>
-                                                </div> 
-                                                
-                                            
-                                                
+                        <div class="panel-body wt-panel-body p-a20 ">
+
+                            <div class="twm-tabs-style-1">
+
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label>Your Name</label>
+                                            <div class="ls-inputicon-box">
+                                                <input class="form-control" name="company_name" type="text"
+                                                    placeholder="Devid Smith">
+                                                <i class="fs-input-icon fa fa-user "></i>
+                                            </div>
                                         </div>
-                                        
-                                    </div>  
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <div class="ls-inputicon-box">
+                                                <input class="form-control" name="company_Email" type="email"
+                                                    placeholder="Devid@example.com">
+                                                <i class="fs-input-icon fas fa-at"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Message</label>
+                                            <textarea class="form-control" rows="3"
+                                                placeholder="Message sent to the employer"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label>Upload Resume</label>
+                                            <form action="upload.php" class="dropzone dz-clickable">
+                                                <div class="dz-default dz-message"><span><i class="sl sl-icon-plus"></i>
+                                                        Click here or drop files to upload</span></div>
+                                            </form>
+                                            <small>If you do not have a resume document, you may write your brief
+                                                professional profile <a class="site-text-primary"
+                                                    href="javascript:void(0);">here</a></small>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="text-left">
+                                            <button type="submit" class="site-button">Send Application</button>
+                                        </div>
+                                    </div>
+
+
 
                                 </div>
+
                             </div>
-                        </div> 
+
+                        </div>
                     </div>
                 </div>
             </div>
-            
         </div>
+    </div>
+
+</div>
 <!--Model Popup Section Start-->
 <!--Signup popup -->
-<div class="modal fade twm-sign-up" id="sign_up_popup" aria-hidden="true" aria-labelledby="sign_up_popupLabel" tabindex="-1">
+<div class="modal fade twm-sign-up" id="sign_up_popup" aria-hidden="true" aria-labelledby="sign_up_popupLabel"
+    tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form>
@@ -241,13 +250,15 @@
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <!--Signup Candidate-->
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#sign-candidate" type="button">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#sign-candidate"
+                                    type="button">
                                     <i class="bi bi-people"></i>Ứng Viên
                                 </button>
                             </li>
                             <!--Signup Employer-->
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sign-Employer" type="button">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sign-Employer"
+                                    type="button">
                                     <i class="bi bi-building"></i>Nhà Tuyển Dụng
                                 </button>
                             </li>
@@ -258,25 +269,29 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
+                                            <input name="username" type="text" required="" class="form-control"
+                                                placeholder="Usearname*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
+                                            <input name="email" type="text" class="form-control" required=""
+                                                placeholder="Password*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required="" placeholder="Email*" />
+                                            <input name="phone" type="text" class="form-control" required=""
+                                                placeholder="Email*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required="" placeholder="Phone*" />
+                                            <input name="phone" type="text" class="form-control" required=""
+                                                placeholder="Phone*" />
                                         </div>
                                     </div>
 
@@ -288,7 +303,8 @@
                                                     <a href="javascript:;">Terms and conditions</a></label>
                                                 <p>
                                                     Already registered?
-                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2" data-bs-toggle="modal" data-bs-dismiss="modal">
+                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2"
+                                                        data-bs-toggle="modal" data-bs-dismiss="modal">
                                                         Log in here
                                                     </button>
                                                 </p>
@@ -307,25 +323,29 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
+                                            <input name="username" type="text" required="" class="form-control"
+                                                placeholder="Usearname*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
+                                            <input name="email" type="text" class="form-control" required=""
+                                                placeholder="Password*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required="" placeholder="Email*" />
+                                            <input name="phone" type="text" class="form-control" required=""
+                                                placeholder="Email*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required="" placeholder="Phone*" />
+                                            <input name="phone" type="text" class="form-control" required=""
+                                                placeholder="Phone*" />
                                         </div>
                                     </div>
 
@@ -337,7 +357,8 @@
                                                     <a href="javascript:;">Terms and conditions</a></label>
                                                 <p>
                                                     Already registered?
-                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2" data-bs-toggle="modal" data-bs-dismiss="modal">
+                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2"
+                                                        data-bs-toggle="modal" data-bs-dismiss="modal">
                                                         Log in here
                                                     </button>
                                                 </p>
@@ -377,7 +398,8 @@
     </div>
 </div>
 <!--Login popup -->
-<div class="modal fade twm-sign-up" id="sign_up_popup2" aria-hidden="true" aria-labelledby="sign_up_popupLabel2" tabindex="-1">
+<div class="modal fade twm-sign-up" id="sign_up_popup2" aria-hidden="true" aria-labelledby="sign_up_popupLabel2"
+    tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form>
@@ -390,13 +412,15 @@
                         <ul class="nav nav-tabs" id="myTab2" role="tablist">
                             <!--Login Candidate-->
                             <li class="nav-item">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#login-candidate" type="button">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#login-candidate"
+                                    type="button">
                                     <i class="bi bi-people"></i>Ứng Viên
                                 </button>
                             </li>
                             <!--Login Employer-->
                             <li class="nav-item">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#login-Employer" type="button">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#login-Employer"
+                                    type="button">
                                     <i class="bi bi-building"></i>Nhà Tuyển Dụng
                                 </button>
                             </li>
@@ -409,13 +433,15 @@
                                     <form action="login.php" method="post">
                                         <div class="col-lg-12">
                                             <div class="form-group mb-3">
-                                                <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" required />
+                                                <input name="username" type="text" required="" class="form-control"
+                                                    placeholder="Usearname*" required />
                                             </div>
                                         </div>
 
                                         <div class="col-lg-12">
                                             <div class="form-group mb-3">
-                                                <input name="email" type="text" class="form-control" required="" placeholder="Password*" required />
+                                                <input name="email" type="text" class="form-control" required=""
+                                                    placeholder="Password*" required />
                                             </div>
                                         </div>
 
@@ -423,7 +449,8 @@
                                             <div class="form-group mb-3">
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" id="Password3" />
-                                                    <label class="form-check-label rem-forgot" for="Password3">Remember me
+                                                    <label class="form-check-label rem-forgot" for="Password3">Remember
+                                                        me
                                                         <a href="javascript:;">Forgot Password</a></label>
                                                 </div>
                                             </div>
@@ -434,7 +461,8 @@
                                             </button>
                                             <div class="mt-3 mb-3">
                                                 Don't have an account ?
-                                                <button class="twm-backto-login" data-bs-target="#sign_up_popup" data-bs-toggle="modal" data-bs-dismiss="modal">
+                                                <button class="twm-backto-login" data-bs-target="#sign_up_popup"
+                                                    data-bs-toggle="modal" data-bs-dismiss="modal">
                                                     Sign Up
                                                 </button>
                                             </div>
@@ -447,13 +475,15 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
+                                            <input name="username" type="text" required="" class="form-control"
+                                                placeholder="Usearname*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
+                                            <input name="email" type="text" class="form-control" required=""
+                                                placeholder="Password*" />
                                         </div>
                                     </div>
 
@@ -473,7 +503,8 @@
                                         </button>
                                         <div class="mt-3 mb-3">
                                             Don't have an account ?
-                                            <button class="twm-backto-login" data-bs-target="#sign_up_popup" data-bs-toggle="modal" data-bs-dismiss="modal">
+                                            <button class="twm-backto-login" data-bs-target="#sign_up_popup"
+                                                data-bs-toggle="modal" data-bs-dismiss="modal">
                                                 Sign Up
                                             </button>
                                         </div>
@@ -509,31 +540,30 @@
 </div>
 
 <script>
-    //tabbed
-    document.addEventListener("DOMContentLoaded", function() {
-        const trigger = document.querySelectorAll('.tabbed-trigger');
-        const content = document.querySelectorAll('.tab');
+//tabbed
+document.addEventListener("DOMContentLoaded", function() {
+    const trigger = document.querySelectorAll('.tabbed-trigger');
+    const content = document.querySelectorAll('.tab');
 
-        trigger.forEach((btn) => {
-            btn.addEventListener('click', function(event) {
-                event.preventDefault();
+    trigger.forEach((btn) => {
+        btn.addEventListener('click', function(event) {
+            event.preventDefault();
 
-                let dataTarget = this.getAttribute('data-id');
-                let selectedTab = document.getElementById(dataTarget);
+            let dataTarget = this.getAttribute('data-id');
+            let selectedTab = document.getElementById(dataTarget);
 
-                trigger.forEach((b) => b.parentNode.classList.remove('active'));
-                content.forEach((s) => s.style.display = 'none');
+            trigger.forEach((b) => b.parentNode.classList.remove('active'));
+            content.forEach((s) => s.style.display = 'none');
 
-                this.parentNode.classList.add('active');
-                selectedTab.style.display = 'block';
+            this.parentNode.classList.add('active');
+            selectedTab.style.display = 'block';
 
-                trigger.forEach((b) => b.classList.remove('clicked'));
-                this.classList.add('clicked');
-            });
+            trigger.forEach((b) => b.classList.remove('clicked'));
+            this.classList.add('clicked');
         });
     });
+});
 </script>
-
 <!-- JAVASCRIPT  FILES ========================================= -->
 <script src="public/js/jquery-3.6.0.min.js"></script>
 <!-- JQUERY.MIN JS -->
@@ -586,6 +616,11 @@
 <!-- /about-us-js -->
 <script src="public/js/about-us.js"></script>
 <script src="public/js/Profile.js"></script>
+
+<link rel="stylesheet" href=" https://www.vietseiko.com/public/admin/bower_components/jvectormap/jquery-jvectormap.css">
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
