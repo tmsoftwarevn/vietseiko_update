@@ -83,6 +83,7 @@ $blog = new blog;
     <!-- Swiper Slider -->
     <link rel="stylesheet" type="text/css" href="public/css/style.css" />
     <!-- MAIN STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="public/css/style2.css" />
     <!-- Thêm liên kết đến tệp CSS -->
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
 
@@ -94,9 +95,10 @@ $blog = new blog;
     <link rel="stylesheet" type="text/css" href="public/css/contact.css" />
     <!-- Css INTRODUCE -->
     <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/style1.css" />
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
     </style>
 </head>
 
@@ -148,11 +150,11 @@ $blog = new blog;
                                         $list_of_protypes = Protype::getAllProtypes();
                                         foreach ($list_of_protypes as $key => $value) {
                                             ?>
-                                        <li>
-                                            <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
-                                                <?php echo $value['type_name'] ?>
-                                            </a>
-                                        </li>
+                                            <li>
+                                                <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
+                                                    <?php echo $value['type_name'] ?>
+                                                </a>
+                                            </li>
 
                                         <?php } ?>
                                     </ul>
@@ -164,26 +166,26 @@ $blog = new blog;
                                         $list_of_Protypes_congcu = Protypes_congcu::getAllProtypes_congcu();
                                         foreach ($list_of_Protypes_congcu as $key => $value) {
                                             ?>
-                                        <li></li>
-                                        <a href="blog-camnang.php?id_congcu=<?php echo $value['id_congcu']; ?>">
-                                            <?php echo $value['name_congcu'] ?>
-                                        </a>
+                                            <li>
+                                                <a href="blog-camnang.php?id_congcu=<?php echo $value['id_congcu']; ?>">
+                                                    <?php echo $value['name_congcu'] ?>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
                                 </li>
-                                <?php } ?>
-                            </ul>
-                            </li>
-                            <li class="has-child">
-                                <a href="javascript:;">Công Ty</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="employer.html">Danh Sách Công Ty</a>
-                                    </li>
-                                    <li><a href="employer-list.html">Top Công Ty</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-child">
-                                <a href="blog.php">Tin Tức</a>
-                            </li>
+                                <li class="has-child">
+                                    <a href="javascript:;">Công Ty</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="employer.html">Danh Sách Công Ty</a>
+                                        </li>
+                                        <li><a href="employer-list.html">Top Công Ty</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-child">
+                                    <a href="blog.php">Tin Tức</a>
+                                </li>
                             </ul>
                         </div>
 

@@ -25,13 +25,13 @@ require_once 'header.php';
                         <form>
                             <div class="row">
                                 <!--Title-->
-                                <div class="form-group col-xl-3 col-lg-6 col-md-6">
+                                <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Vị trí</label>
                                     <select class="wt-search-bar-select selectpicker" data-live-search="true" title=""
                                         id="j-Job_Title" data-bv-field="size">
                                         <?php
-                    foreach ($nganhnghe->getAllNganhNghe() as $key => $value) {
-                      ?>
+                                        foreach ($nganhnghe->getAllNganhNghe() as $key => $value) {
+                                            ?>
                                         <option value="<?php echo $value['id_nganhnghe'] ?>">
                                             <?php echo $value['name_nganhnghe'] ?>
                                         </option>
@@ -41,12 +41,12 @@ require_once 'header.php';
                                 </div>
 
                                 <!--All Category-->
-                                <div class="form-group col-xl-3 col-lg-6 col-md-6">
+                                <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Hình thức</label>
                                     <select class="wt-search-bar-select selectpicker" data-live-search="true" title=""
                                         id="j-All_Category" data-bv-field="size">
                                         <?php
-                    foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
+                                        foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
                                         <option value="<?php echo $value['id_hinhthuc'] ?>">
                                             <?php echo $value['name_hinhthuc'] ?>
                                         </option>
@@ -55,7 +55,7 @@ require_once 'header.php';
                                 </div>
 
                                 <!--Location-->
-                                <div class="form-group col-xl-3 col-lg-6 col-md-6">
+                                <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Khu vực</label>
                                     <div class="twm-inputicon-box">
                                         <input name="username" type="text" required class="form-control"
@@ -65,7 +65,7 @@ require_once 'header.php';
                                 </div>
 
                                 <!--Find job btn-->
-                                <div class="form-group col-xl-3 col-lg-6 col-md-6">
+                                <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <button type="button" class="site-button">
                                         Find Job
                                     </button>
@@ -278,9 +278,9 @@ require_once 'header.php';
                     <div class="row">
                         <!-- Job Block -->
                         <?php
-            $list_of_latestJob = Job::getLatestJob(8);
-            foreach ($list_of_latestJob as $key => $value) {
-              ?>
+                        $list_of_latestJob = Job::getLatestJob(8);
+                        foreach ($list_of_latestJob as $key => $value) {
+                            ?>
                         <div class="job-block col-lg-4 col-md-12 col-sm-12">
                             <div class="inner-box " style="padding: 10px 10px 5px 0px;">
                                 <div class="content">
@@ -321,9 +321,9 @@ require_once 'header.php';
                     <div class="row">
                         <!-- Job Block - Replace with PHP loop -->
                         <?php
-            $list_of_latestJob_NB = Job_NB::getLatestJob_NB(6);
-            foreach ($list_of_latestJob_NB as $key => $value) {
-              ?>
+                        $list_of_latestJob_NB = Job_NB::getLatestJob_NB(6);
+                        foreach ($list_of_latestJob_NB as $key => $value) {
+                            ?>
                         <div class="job-block col-lg-6 col-md-12 col-sm-12">
                             <div class="inner-box">
                                 <div class="content">
@@ -366,9 +366,9 @@ require_once 'header.php';
                     <div class="row">
                         <!-- Job Block - Replace with PHP loop -->
                         <?php
-            $list_of_latestJob = Job::getLatestJob(6);
-            foreach ($list_of_latestJob as $key => $value) {
-              ?>
+                        $list_of_latestJob = Job::getLatestJob(6);
+                        foreach ($list_of_latestJob as $key => $value) {
+                            ?>
                         <div class="job-block col-lg-6 col-md-12 col-sm-12">
                             <div class="inner-box">
                                 <div class="content">
@@ -482,13 +482,13 @@ require_once 'header.php';
         <div class="container">
             <div class="section-content">
                 <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
-                    <div class="item">
+                    <!-- <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_nidec.png" alt="" /></a>
+                                <img src="images/client-logo/logo_nidec.png" alt="" />
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="item">
                         <div class="ow-client-logo">
@@ -533,7 +533,6 @@ require_once 'header.php';
                             </div>
                         </div>
                     </div>
-
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
@@ -711,9 +710,9 @@ require_once 'header.php';
             <div class="section-content">
                 <div class="twm-blog-post-1-outer-wrap">
                     <?php
-          $list_of_latestBlog = Blog::getLatestBlog(6);
-          foreach ($list_of_latestBlog as $key => $value) {
-            ?>
+                    $list_of_latestBlog = Blog::getLatestBlog(6);
+                    foreach ($list_of_latestBlog as $key => $value) {
+                        ?>
                     <div class="owl-carousel twm-la-home-blog owl-btn-bottom-center">
                         <div class="item">
                             <div class="blog-post twm-blog-post-1-outer">

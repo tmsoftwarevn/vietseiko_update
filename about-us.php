@@ -67,10 +67,10 @@ require_once 'header.php';
                                                             triển</a>
                                                     </li>
                                                     <li>
-                                                        <a href="tuyen-ngon-Esuhai.html">Tuyên ngôn Esuhai</a>
+                                                        <a href="tuyen-ngon-Esuhai.php">Tuyên ngôn Esuhai</a>
                                                     </li>
                                                     <li>
-                                                        <a href="loi-chao-tu-tong-Giam-Doc.html">Lời chào từ Tổng Giám
+                                                        <a href="loi-chao-tu-tong-Giam-Doc.php">Lời chào từ Tổng Giám
                                                             đốc</a>
                                                     </li>
                                                 </ul>

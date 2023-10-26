@@ -282,7 +282,7 @@ h1 {
 }
 
 h2 {
-  font-size: 46px;
+  font-size: 40px;
   font-weight: 500;
 }
 
@@ -5928,9 +5928,9 @@ ol li {
 }
 
 .home-client-carousel2 .client-logo a img {
-  width: auto;
-  height: auto;
-  filter: grayscale(100%);
+  width: 94%;
+  height: 90%;
+  /* filter: grayscale(100%); */
   transition: 0.5s all ease;
 }
 
@@ -6896,7 +6896,7 @@ button.scroltop span {
   background-color: #f8f8f8;
 }
 
-.form-group {
+.form-group1 {
   margin-bottom: 30px;
 }
 
@@ -28563,5 +28563,6 @@ HOME PAGE 15 START
   margin-bottom: 0px;
   color: #17171d;
 }
+
 
 /*# sourceMappingURL=style.css.map */
