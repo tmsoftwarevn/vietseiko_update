@@ -709,11 +709,11 @@ require_once 'header.php';
 
             <div class="section-content">
                 <div class="twm-blog-post-1-outer-wrap">
-                    <?php
-                    $list_of_latestBlog = Blog::getLatestBlog(6);
-                    foreach ($list_of_latestBlog as $key => $value) {
-                        ?>
                     <div class="owl-carousel twm-la-home-blog owl-btn-bottom-center">
+                        <?php
+                        $list_of_latestBlog = Blog::getLatestBlog(6);
+                        foreach ($list_of_latestBlog as $key => $value) {
+                            ?>
                         <div class="item">
                             <div class="blog-post twm-blog-post-1-outer">
                                 <div class="wt-post-media">
@@ -753,16 +753,18 @@ require_once 'header.php';
                                 </div>
                             </div>
                         </div>
+                        <?php
+                        }
+                        ?>
                     </div>
-                    <?php } ?>
                 </div>
             </div>
+
         </div>
     </div>
     <!-- OUR BLOG END -->
 </div>
 <!-- CONTENT END -->
-
 <?php
 require_once 'footer.php';
 ?>

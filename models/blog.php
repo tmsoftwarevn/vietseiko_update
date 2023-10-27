@@ -6,9 +6,8 @@ class Blog extends Db
 
     static function getAllBlog()
     {
-        $sql = self::$connection->prepare("SELECT * FROM blog ORDER BY id_blog DESC");
+        $sql = self::$connection->prepare("SELECT * FROM blog");
         $sql->execute();
-        $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
@@ -44,8 +43,15 @@ class Blog extends Db
         $sql = self::$connection->prepare("SELECT * FROM blog WHERE id_blog = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
-        $items = $sql->get_result()->fetch_assoc();
-        return $items;
+
+        if ($sql->execute()) {
+            $result = $sql->get_result();
+            $row = $result->fetch_assoc();
+            return $row;
+        } else {
+            // Xử lý lỗi nếu cần
+            return null;
+        }
     }
 
     /* lấy các bài viết liên quan dự trên ngành nghề và hình thức.*/

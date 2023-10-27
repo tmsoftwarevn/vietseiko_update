@@ -64,7 +64,8 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                         <?php echo $allJob[0]['chucvu'] ?>
                       </h4>
                       <p class="twm-job-address">
-                        <i class="feather-map-pin"></i><?php echo $allJob[0]['diachi_cuthe'] ?>
+                        <i class="feather-map-pin"></i>
+                        <?php echo $allJob[0]['diachi_cuthe'] ?>
                       </p>
                       <div class="twm-job-self-mid">
                         <div class="twm-job-self-mid-left">
@@ -75,13 +76,17 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                         </div>
                         <div class="twm-job-apllication-area">
                           Hạn nộp hồ sơ:
-                          <span class="twm-job-apllication-date"><?php echo $allJob[0]['ngaycuoicung'] ?></span>
+                          <span class="twm-job-apllication-date">
+                            <?php echo $allJob[0]['ngaycuoicung'] ?>
+                          </span>
                         </div>
                       </div>
 
                       <div class="twm-job-self-bottom">
-                        <a class="site-button" data-bs-toggle="modal" href="#apply_job_popup" role= "button">
-                          Ứng tuyển ngay
+                        <a class="site-button" href="Apply now.php" role="button">
+                          <i class="feather-log-in"></i> Ứng tuyển ngay
+                        </a>
+
                         </a>
                       </div>
                     </div>
@@ -135,7 +140,8 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
               <h4 class="twm-s-title">Location</h4>
               <div class="twm-m-map mb-5">
                 <div class="twm-m-map-iframe">
-                  <iframe height="310" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8534521658976!2d-118.2533646842856!3d34.073270780600225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6fd9829c6f3%3A0x6ecd11bcf4b0c23a!2s1363%20Sunset%20Blvd%2C%20Los%20Angeles%2C%20CA%2090026%2C%20USA!5e0!3m2!1sen!2sin!4v1620815366832!5m2!1sen!2sin"></iframe>
+                  <iframe height="310"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8534521658976!2d-118.2533646842856!3d34.073270780600225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6fd9829c6f3%3A0x6ecd11bcf4b0c23a!2s1363%20Sunset%20Blvd%2C%20Los%20Angeles%2C%20CA%2090026%2C%20USA!5e0!3m2!1sen!2sin!4v1620815366832!5m2!1sen!2sin"></iframe>
                 </div>
               </div>
             </div>
@@ -193,7 +199,9 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                         <div class="twm-s-info-inner">
                           <i class="bi bi-clock"></i>
                           <span class="twm-title">Kinh nghiệm</span>
-                          <div class="twm-s-info-discription"><?php echo $allJob[0]['kinhnghiem'] ?> Năm</div>
+                          <div class="twm-s-info-discription">
+                            <?php echo $allJob[0]['kinhnghiem'] ?> Năm
+                          </div>
                         </div>
                       </li>
                       <li>
@@ -210,7 +218,9 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                         <div class="twm-s-info-inner">
                           <i class="bi bi-briefcase"></i>
                           <span class="twm-title">Số lượng tuyển</span>
-                          <div class="twm-s-info-discription"><?php echo $allJob[0]['soluong'] ?> Người</div>
+                          <div class="twm-s-info-discription">
+                            <?php echo $allJob[0]['soluong'] ?> Người
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -334,7 +344,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
               <?php
               $list_of_latestJob = Job::getLatestJob(9);
               foreach ($list_of_latestJob as $key => $value) {
-              ?>
+                ?>
                 <div class="owl-item cloned" style="width: 362px; margin-right: 30px">
                   <div class="item">
                     <div class="twm-jobs-grid-style2">
@@ -347,7 +357,8 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                       </div>
                       <div class="twm-mid-content">
                         <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
-                          <h4 class="twm-job-title" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                          <h4 class="twm-job-title"
+                            style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
                             <?php echo $value['chucvu'] ?>
                           </h4>
                         </a>
@@ -364,7 +375,8 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                         <div class="twm-jobs-amount">
                           <?php echo $value['mucluong'] ?> <span>/ Tháng</span>
                         </div>
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
+                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>"
+                          class="twm-jobs-browse site-text-primary">Browse Job</a>
                       </div>
                     </div>
                   </div>

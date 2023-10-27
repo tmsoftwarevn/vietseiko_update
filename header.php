@@ -46,6 +46,7 @@ $blog = new blog;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+
     <!-- PAGE TITLE HERE -->
     <title>Jobzilla Template | Home Page Style 1</title>
 
@@ -96,6 +97,10 @@ $blog = new blog;
     <!-- Css INTRODUCE -->
     <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
     <link rel="stylesheet" type="text/css" href="public/css/style1.css" />
+    <!-- THEME COLOR CHANGE STYLE SHEET -->
+    <link rel="stylesheet" class="skin" type="text/css" href="public/css/skins-type/skin-6.css" />
+    <!-- SIDE SWITCHER STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="public/css/switcher.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');

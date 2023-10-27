@@ -18,6 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="public/css/apply-now.css" />
 
     <!-- PAGE TITLE HERE -->
     <title>Jobzilla Template | Home Page Style 1</title>
@@ -26,156 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 </head>
-<style>
-    .form-control {
-        background-color: #f8f9fa;
-        color: #333;
-    }
 
-    .btn {
-        background-color: #007bff;
-        color: #fff;
-
-    }
-
-
-    .form-control {
-        border-radius: 12px;
-        border: 1px solid #e6cdcd;
-    }
-
-    .form-label,
-    .form-control {
-        padding: 10px;
-    }
-
-    .btn {
-        padding: 10px 20px;
-    }
-
-    .container {
-        padding: 20px;
-
-    }
-
-    .container {
-        margin: 20px auto;
-    }
-
-    .card-footer {
-        padding: 10px;
-        font-size: 13px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: black;
-
-    }
-
-    .with-scroll {
-        max-height: 170px;
-        overflow-y: auto;
-    }
-
-    .mp-3 label {
-        font-size: 13px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: black;
-    }
-
-    .form-group p {
-        font-size: 13px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: black;
-    }
-
-    .btn-custom {
-        background-color: #e7e8ea;
-        width: 220px;
-        height: 40px;
-        text-align: center;
-        padding: 10px;
-        border: 0px solid #f5ebeb;
-        border-radius: 3px;
-        text-decoration: none;
-        font-size: 13px;
-        font-weight: bold;
-        color: rgb(188, 132, 245);
-    }
-
-
-    .btn-custom:hover {
-        background-color: #0056b3;
-    }
-
-    .card {
-        border: none;
-    }
-
-    .card p {
-        font-size: 13px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: black;
-    }
-
-    .card.fw-bold {
-        font-size: 13px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: black;
-    }
-
-    .img {
-        text-align: center;
-    }
-
-    .group img p {
-        text-align: center;
-    }
-
-    .bordered-col-sm-6,
-    .offset-sm-3 {
-        border-radius: 10px;
-        border: 1px solid #f3e7e6;
-        padding: 10px;
-    }
-
-    .mb-3 p {
-        text-align: right;
-    }
-
-    .button-upload {
-        background-color: #e7e8ea;
-        color: rgb(188, 132, 245);
-        text-align: center;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        font-weight: bold;
-        border: none;
-        border-radius: 0.25rem;
-        cursor: pointer;
-        outline: none;
-    }
-
-    .button-upload:hover {
-        background-color: #0056b3;
-    }
-
-    .upload-option {
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: bold;
-        display: block;
-        margin-top: 0.5rem;
-    }
-
-    .mp-3 a {
-        color: rgb(188, 132, 245);
-    }
-
-    .upload-input {
-        display: none;
-    }
-</style>
-
-<body>
+<body
+    style="background-color: #f0f0f0; background-image: url('public/images/background.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm-6 offset-sm-3 bordered-element">
@@ -231,7 +85,7 @@
                 </div>
                 <hr>
                 <div class="card-footer mt-3 d-flex justify-content-between align-items-center">
-                    <p>Nhận thông báo việc làm tương</p>
+                    <!-- <p>Nhận thông báo việc làm tương tự</p> -->
                     <button class="btn btn-primary" id="submitButton">Nộp Hồ Sơ</button>
                 </div>
                 <div class="form-group text-center">

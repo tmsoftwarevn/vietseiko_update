@@ -747,34 +747,36 @@
 </div>
 
 <script>
-    //tabbed
-    document.addEventListener("DOMContentLoaded", function () {
-        const trigger = document.querySelectorAll('.tabbed-trigger');
-        const content = document.querySelectorAll('.tab');
+//tabbed
+document.addEventListener("DOMContentLoaded", function() {
+    const trigger = document.querySelectorAll('.tabbed-trigger');
+    const content = document.querySelectorAll('.tab');
 
-        trigger.forEach((btn) => {
-            btn.addEventListener('click', function (event) {
-                event.preventDefault();
+    trigger.forEach((btn) => {
+        btn.addEventListener('click', function(event) {
+            event.preventDefault();
 
-                let dataTarget = this.getAttribute('data-id');
-                let selectedTab = document.getElementById(dataTarget);
+            let dataTarget = this.getAttribute('data-id');
+            let selectedTab = document.getElementById(dataTarget);
 
-                trigger.forEach((b) => b.parentNode.classList.remove('active'));
-                content.forEach((s) => s.style.display = 'none');
+            trigger.forEach((b) => b.parentNode.classList.remove('active'));
+            content.forEach((s) => s.style.display = 'none');
 
-                this.parentNode.classList.add('active');
-                selectedTab.style.display = 'block';
+            this.parentNode.classList.add('active');
+            selectedTab.style.display = 'block';
 
-                trigger.forEach((b) => b.classList.remove('clicked'));
-                this.classList.add('clicked');
-            });
+            trigger.forEach((b) => b.classList.remove('clicked'));
+            this.classList.add('clicked');
         });
     });
+});
 </script>
 <!-- JAVASCRIPT  FILES ========================================= -->
-<script src="public/js/jquery-3.6.0.min.js"></script>
-<!-- JQUERY.MIN JS -->
-<script src="public/js/popper.min.js"></script>
+<script src="public/js/jquery-3.6.0.min.js">
+< /scrip> <!--JQUERY.MIN JS-- >
+    <
+    script src = "public/js/popper.min.js" >
+</script>
 <!-- POPPER.MIN JS -->
 <script src="public/js/bootstrap.min.js"></script>
 <!-- BOOTSTRAP.MIN JS -->
