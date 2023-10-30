@@ -2,81 +2,74 @@
 <html lang="en">
 
 <head>
-    <!-- META -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <meta name="robots" content="" />
     <meta name="description" content="" />
-
-    <!-- FAVICONS ICON -->
     <link rel="icon" href="public/images/logo.png" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href="public/images/favicon.png" />
-    <!-- Bao gồm các tệp CSS và JavaScript của Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="public/css/apply-now.css" />
-
-    <!-- PAGE TITLE HERE -->
-    <title>Jobzilla Template | Home Page Style 1</title>
-
-    <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 </head>
 
 <body
-    style="background-color: #f0f0f0; background-image: url('public/images/background.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+    style="background-color: #f3f4f7; background-image: url('public/images/background.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+
     <div class="container mt-5">
         <div class="row">
-            <div class="col-sm-6 offset-sm-3 bordered-element">
+            <div class="col-sm-6 offset-sm-3 bordered-element p-4 bg-white rounded shadow">
                 <div class="card">
-                    <p class="fw-bold">Ứng tuyển vị trí</p>
-                    <h4>Nhân Viên Tư Vấn</h4>
+                    <p class="fw-bold text-primary mb-0">Ứng Tuyển Vị Trí</p>
+                    <h4 class="mb-3">Nhân Viên Tư Vấn</h4>
                     <p>Công Ty TNHH VIETSEIKO</p>
                 </div>
                 <div class="card-body with-scroll">
-                    <div class="group img">
-                        <img src="images/apply-job.png" alt="" width="128px" height="128px"><br>
-                        <p>bạn chưa có hồ sơ nào</p>
+                    <div class="group text-center mb-4">
+                        <img src="images/apply-job.png" alt="" class="rounded-circle"
+                            style="width: 128px; height: 128px;">
+                        <p class="mt-2">Bạn chưa có hồ sơ nào</p>
                     </div>
                     <form id="applicationForm">
-                        <div class="col-sm-6">
-                            <div class="mb-3">
-                                <a href="#" class="btn btn-custom">Tạo hồ sơ trực tiếp</a>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <a href="#" class="btn btn-primary btn-custom btn-block">Tạo Hồ Sơ Trực Tiếp</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mb-3">
-                                <button class="button-upload">
+                            <div class="col-6">
+                                <button class="btn btn-info btn-block button-upload">
                                     <label class="upload-option">
-                                        <input type="file" class="upload-input" accept=".pdf,.doc,.docx"
+                                        <input type="file" class="upload-input" accept=".pdf, .doc, .docx"
                                             onchange="handleFileUpload(event)">
-                                        <span class="svicon-upload mr-1"></span>
+                                        <span class="svicon-upload mr-2"></span>
                                     </label>
                                 </button>
-                                <div id="error-message" style="color: red;"></div>
-                                <p id="uploadSuccess" style="color: green;"></p>
+                                <div id="error-message" class="text-danger mt-2"></div>
+                                <p id="uploadSuccess" class="text-success mt-2"></p>
                             </div>
-                            <p>File .doc, .docx, .pdf dung lượng <= 2 MB</p>
                         </div>
                         <div class="mb-3">
-                            <label for="fullName" class="form-label">Họ Và Tên *</label>
+                            <label for="fullName" class="form-label">Họ Và Tên <span
+                                    class="text-danger">*</span></label>
                             <input type="text" class="form-control rounded" id="fullName"
                                 placeholder="Nhập họ và tên của bạn">
                             <span id="fullNameError" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email *</label>
+                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                             <input type="email" class="form-control rounded" id="email"
                                 placeholder="Nhập địa chỉ email của bạn">
                             <span id="emailError" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <label for="phoneNumber" class="form-label">Số Điện Thoại *</label>
+                            <label for="phoneNumber" class="form-label">Số Điện Thoại <span
+                                    class="text-danger">*</span></label>
                             <input type="tel" class="form-control rounded" id="phoneNumber"
                                 placeholder="Nhập số điện thoại của bạn">
                             <span id="phoneNumberError" class="text-danger"></span>
@@ -85,17 +78,15 @@
                 </div>
                 <hr>
                 <div class="card-footer mt-3 d-flex justify-content-between align-items-center">
-                    <!-- <p>Nhận thông báo việc làm tương tự</p> -->
                     <button class="btn btn-primary" id="submitButton">Nộp Hồ Sơ</button>
                 </div>
                 <div class="form-group text-center">
-                    <p>Bằng việc nhấn nút nộp hồ sơ, bạn đã đồng ý với Điều khoản sử dụng và Chính sách bảo mật của
-                        Việc Làm 24h</p>
+                    <p>Bằng việc nhấn nút Nộp Hồ Sơ, bạn đã đồng ý với <a href="#">Điều Khoản Sử Dụng</a> và <a
+                            href="#">Chính Sách Bảo Mật</a> của Việc Làm 24h</p>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
         var fullNameField = document.getElementById("fullName");
         var emailField = document.getElementById("email");
@@ -178,13 +169,6 @@
         document.getElementById('fullName').value = loggedInUser.name;
         document.getElementById('email').value = loggedInUser.email;
     </script>
-</body>
-
-</html>
-<!-- Thêm link JavaScript -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
