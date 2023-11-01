@@ -169,8 +169,8 @@ require_once 'header.php';
                                                 <a href="job-detail.html">Skill</a><span class="badge">12</span>
                                             </li>
                                         </ul>
-                                    </div>
-                                </div>
+                                    </div> 
+                                </div> 
 
                                 <div class="widget recent-posts-entry">
                                     <h4 class="section-head-small mb-4">Recent Article</h4>
