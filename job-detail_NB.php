@@ -235,7 +235,8 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                     </div>
                                 </div>
                             </div>
-                            <div class="twm-s-info3-wrap mb-5">
+                            <!-- Thông tin cty -->
+                            <!-- <div class="twm-s-info3-wrap mb-5">
                                 <div class="twm-s-info3">
                                     <div class="twm-s-info-logo-section">
                                         <div class="twm-media">
@@ -294,7 +295,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                     </ul>
                                     <a href="about-1.html" class="site-button">Vew Profile</a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

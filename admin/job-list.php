@@ -19,7 +19,7 @@ $nganhnghe = new Nganhnghe;
     <div class="d-flex align-items-center mb-4 flex-wrap">
       <h3 class="me-auto">Job List</h3>
       <div>
-        <a href="new-job.php" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Add New Job</a>
+        <a href="insert_job.php" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Add New Job</a>
         <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3">
           <i class="fas fa-envelope"></i></a>
         <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3"><i class="fas fa-phone-alt"></i></a>
@@ -66,8 +66,10 @@ $nganhnghe = new Nganhnghe;
                   <td><?php echo $value['ngaygan'] ?></td>
 
                   <td>
-                    <span class="badge badge-success badge-lg light"><?php $trangthaiName = $trangthaiAdmin->getTrangThai($value['id_trangthai']);
-                                                                      foreach ($trangthaiName as $name => $num) echo $num['name_trangthai'] ?></span>
+                    <span class="badge badge-success badge-lg light">
+                      <?php $trangthaiName = $trangthaiAdmin->getTrangThai($value['id_trangthai']);
+                      foreach ($trangthaiName as $name => $num) echo $num['name_trangthai'] ?>
+                    </span>
                   </td>
                   <td>
                     <div class="action-buttons d-flex justify-content-end">
@@ -88,7 +90,7 @@ $nganhnghe = new Nganhnghe;
                           </g>
                         </svg>
                       </a>
-                      <a onclick="return confirm('Are you want to delete?')" href="javascript:void(0);" class="btn btn-danger light">
+                      <a onclick="return confirm('Are you want to delete?')" href="delete_job.php?id_job=<?php echo $value['id_job']; ?>" class="btn btn-danger light">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <rect x="0" y="0" width="24" height="24"></rect>

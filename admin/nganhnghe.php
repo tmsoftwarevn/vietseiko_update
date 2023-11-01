@@ -2,7 +2,6 @@
 require_once 'header.php';
 
 require_once 'models/nganhnghe.php';
-
 $nganhnghe = new Nganhnghe;
 ?>
 
@@ -23,7 +22,10 @@ $nganhnghe = new Nganhnghe;
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Ngành Nghề Datatable</h4>
-                        <a href="new-nganhnghe.php" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Add Ngành Nghề</a>
+                        <a href="form.php?functionType=job_nganhnghe" class="btn btn-primary me-3 btn-sm">
+                            <i class="fas fa-plus me-2"></i>
+                            Add Ngành Nghề
+                        </a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -34,7 +36,6 @@ $nganhnghe = new Nganhnghe;
                                             <option value="50">50</option>
                                             <option value="100">100</option>
                                         </select> entries</label></div>
-                                <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>
                                 <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid" aria-describedby="example3_info">
                                     <thead>
                                         <tr role="row">
@@ -62,7 +63,7 @@ $nganhnghe = new Nganhnghe;
                                                 <td><?php echo $value['name_nganhnghe']; ?></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="edit-nganhnghe.php" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="form_update.php?functionType=job_nganhnghe&id_nganhnghe=<?php echo $value['id_nganhnghe'] ?>" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
                                                         <a onclick="return confirm('Are you want to delete?')" href="delete_nganhnghe.php?id_nganhnghe=<?php echo $value['id_nganhnghe'] ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>

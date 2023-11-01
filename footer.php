@@ -770,12 +770,35 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+//dropdown
+/* const dropdownBtn = document.querySelector(".dropdown__button");
+const dropdownItems = document.querySelector(".dropdown__items");
+
+let isOpen = false;
+
+const openDropdown = () => {
+  isOpen = !isOpen;
+
+  if (isOpen) {
+    dropdownItems.classList.replace("dropdown--hide", "dropdown--show");
+  } else {
+    dropdownItems.classList.replace("dropdown--show", "dropdown--hide");
+  }
+};
+
+dropdownBtn.addEventListener("click", openDropdown); */
+
+$(".user-menu").click(function() {
+  $(this).toggleClass("show");
+});
+
 </script>
 <!-- JAVASCRIPT  FILES ========================================= -->
 <script src="public/js/jquery-3.6.0.min.js">
-< /scrip> <!--JQUERY.MIN JS-- >
-    <
-    script src = "public/js/popper.min.js" >
+</script> 
+<!--JQUERY.MIN JS-->
+    <script src = "public/js/popper.min.js" >
 </script>
 <!-- POPPER.MIN JS -->
 <script src="public/js/bootstrap.min.js"></script>

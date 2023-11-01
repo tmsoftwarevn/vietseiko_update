@@ -34,7 +34,6 @@ $user_candidate = new User_candidate;
                                             <option value="50">50</option>
                                             <option value="100">100</option>
                                         </select> entries</label></div>
-                                <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>
                                 <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid" aria-describedby="example3_info">
                                     <thead>
                                         <tr role="row">
@@ -82,7 +81,7 @@ $user_candidate = new User_candidate;
                                                     <td>
                                                         <div class="d-flex">
                                                             <a href="edit-user-candidate.php" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                            <a href="delete-user-candidate.php?id=<?php echo $value['id'] ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                            <a href="delete-user-candidate.php?id=<?php echo $value['id_user'] ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -105,12 +104,12 @@ $user_candidate = new User_candidate;
                                                     <td><?php if ($value['permission'] == "Admin") {
                                                             echo "Admin";
                                                         } else {
-                                                            echo "candidate";
+                                                            echo "User";
                                                         } ?></td>
                                                     <td>
                                                         <div class="d-flex">
                                                             <a href="edit-user-candidate.php" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                            <a href="delete-user-candidate.php?id=<?php echo $value['id'] ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                            <a href="delete-user-candidate.php?id=<?php echo $value['id_user'] ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>

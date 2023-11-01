@@ -48,16 +48,11 @@ class Hinhthuc extends Db
         $sql->execute();
     }
 
-    /**
-     * Thêm Job nganhnghe
+    /**____________________________________________________________________________________________________
+     * THÊM Hinhthuc:
      */
-    function addHinhthuc($name, $img)
-    {
-        //$img = "../../mobile/public/images/".$img;
-        $sql = self::$connection->prepare("INSERT INTO `job_hinhthuc`(`name_hinhthuc`, `img_hinhthuc`)
-        VALUES ('$name','$img')");
-        //$sql->bind_param($name,$img);
-        //$sql->bind_param(2,$img);
+    static function insertHinhthuc($name_hinhthuc) {
+        $sql = self::$connection->prepare("INSERT INTO job_hinhthuc(id_hinhthuc, name_hinhthuc) VALUES(0, '$name_hinhthuc')");
         return $sql->execute();
     }
     /**

@@ -1,24 +1,23 @@
 <?php
-
+require_once "db.php";
 class User_candidate extends Db
 {
-    //LOGIN:
-    public function login($username)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM user where username = ?");
-        $sql->bind_param("s", $username); // return an object
-        $sql->execute(); //return an object
+     //LOGIN.
+     public function login($username) {
+        $sql = self::$connection->prepare("SELECT * FROM user where username = ? ");
+        $sql->bind_param("s",$username);//return an object
+        $sql->execute();//return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
-
+    
     public function getUserLogin($username, $permission)
     {
         //2. Viết câu SQL
-        $sql = parent::$connection->prepare("SELECT * FROM user WHERE premission = ? AND username = ?");
+        $sql = parent::$connection->prepare("SELECT * FROM user WHERE permission = ? AND username = ?");
         $sql->bind_param('ss', $permission, $username);
-        $sql->execute(); //return an object
+        $sql->execute();//return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
@@ -52,7 +51,7 @@ class User_candidate extends Db
      */
     static function deleteCandidateByID($id)
     {
-        $sql = self::$connection->prepare("DELETE FROM user WHERE id = ? and permission = 'candidate'");
+        $sql = self::$connection->prepare("DELETE FROM user WHERE id_user = ? and permission = 'candidate'");
         $sql->bind_param("i", $id);
         $sql->execute();
     }

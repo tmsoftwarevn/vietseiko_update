@@ -299,6 +299,25 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 <script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script>
 
+<?php
+if (isset($_GET['deleteResult']) == TRUE) {
+    if ($_GET['deleteResult'] == 1) {
+        echo "<script type='text/javascript'>alert('Deleted successfully!');</script>";
+    } elseif ($_GET['deleteResult'] == 0) {
+        echo "<script type='text/javascript'>alert('Unable to delete! Because there is the existence of products that belong to this product type.');</script>";
+    }
+}
+?>
+<!--end-Footer-part-->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.uniform.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/matrix.js"></script>
+<script src="js/matrix.tables.js"></script>
+
 <script>
     CKEDITOR.replace('noidung');
 </script>

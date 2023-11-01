@@ -142,9 +142,9 @@ class Job extends Db
     /**
      * XÓA JOB THEO id
      */
-    static function deleteJobByID($id_job)
+    static function deleteJob_ByTypeID($id_job)
     {
-        $sql = self::$connection->prepare("DELETE FROM job WHERE id = ?");
+        $sql = self::$connection->prepare("DELETE FROM job WHERE id_job = ?");
         $sql->bind_param("i", $id_job);
         $sql->execute();
     }
@@ -152,39 +152,11 @@ class Job extends Db
     /**
      * Thêm JOB:
      */
-    static function insertJob($tencongty, $chucvu, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $ngaygan, $gioitinh, $mucluong, $diachi, $mota, $yeucau, $quyenloi, $id_trangthai, $create_at)
+    static function insertJob($name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai, $feature, $create_at)
     {
-        $sql = self::$connection->prepare("UPDATE INTO job(id_job, tencongty, chucvu, img_cty, id_nganhnghe, id_hinhthuc, soluong, kinhnghiem, ngaydang, ngaycuoicung, ngaygan, gioitinh, mucluong, diachi, mota, yeucau, quyenloi, trangthai, created_at)
-        VALUES(0, '$tencongty', $chucvu, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $ngaygan, $gioitinh, $mucluong, $diachi, $mota, $yeucau, $quyenloi, $id_trangthai, $create_at)");
-        return $sql->execute();
-    }
-    function addJob($tencongty, $chucvu, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $ngaygan, $gioitinh, $mucluong, $diachi, $mota, $yeucau, $quyenloi, $id_trangthai, $create_at)
-    {
-        $sql = self::$connection->prepare("INSERT INTO `job`(`tencongty`, `chucvu`, `img_cty`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `kinhnghiem`, `ngaydang`, `ngaycuoicung`, `ngaygan`, `gioitinh`, `mucluong`, `diachi`, `mota`, `yeucau`, `quyenloi`, `id_trangthai`, `created_at`)");
-        $sql->bind_param("siissiissiissiissi", $tencongty, $chucvu, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $ngaygan, $gioitinh, $mucluong, $diachi, $mota, $yeucau, $quyenloi, $id_trangthai, $create_at);
-        return $sql->execute();
-    }
-    function addJobWOImg($tencongty, $chucvu, $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $ngaygan, $gioitinh, $mucluong, $diachi, $mota, $yeucau, $quyenloi, $id_trangthai, $create_at)
-    {
-        $img_cty = "";
-        $sql = self::$connection->prepare("INSERT INTO `job`(`tencongty`, `chucvu`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `kinhnghiem`, `ngaydang`, `ngaycuoicung`, `ngaygan`, `gioitinh`, `mucluong`, `diachi`, `mota`, `yeucau`, `quyenloi`, `id_trangthai`, `created_at`)");
-        $sql->bind_param(':tencongty', $tencongty);
-        $sql->bind_param(':chucvu', $chucvu);
-        $sql->bind_param(':id_nganhnghe', $id_nganhnghe);
-        $sql->bind_param(':id_hinhthuc', $id_hinhthuc);
-        $sql->bind_param(':soluong', $soluong);
-        $sql->bind_param(':kinhnghiem', $kinhnghiem);
-        $sql->bind_param(':ngaydang', $ngaydang);
-        $sql->bind_param(':ngaycuoicung', $ngaycuoicung);
-        $sql->bind_param(':ngaygan', $ngaygan);
-        $sql->bind_param(':gioitinh', $gioitinh);
-        $sql->bind_param(':diachi', $diachi);
-        $sql->bind_param(':mota', $mota);
-        $sql->bind_param(':yeucau', $yeucau);
-        $sql->bind_param(':quyenloi', $quyenloi);
-        $sql->bind_param(':id_trangthai', $id_trangthai);
-        $sql->bind_param(':create_at', $create_at);
-        return $sql->execute();
+        $sql = self::$connection->prepare("INSERT INTO job(id_job, name, img_cty, chucvu, id_nganhnghe, capbac, soluong, kinhnghiem, ngaydang, ngaycuoicung, mucluong, diachi, diachi_cuthe, id_hinhthuc, mota, yeucau, quyenloi, id_trangthai, feature, create_at) 
+        VALUES(0, '$name', '$img_cty', '$chucvu', '$id_nganhnghe', '$capbac', '$soluong', '$kinhnghiem', '$ngaydang', '$ngaycuoicung', '$gioitinh', '$mucluong', '$diachi', '$diachi_cuthe' ,'$id_hinhthuc', '$mota', '$yeucau', '$quyenloi', '$id_trangthai', '$feature', '$create_at')");
+        $sql->execute();
     }
 
     /**
@@ -199,7 +171,7 @@ class Job extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    //(SEARCHING + Paging/Pagination) Tìm kiếm sản phẩm và Phân trang:
+    //(SEARCHING + Paging/Pagination) Tìm kiếm job và Phân trang:
     static function secarchJob_andCreatePagination($keyword, $page, $resultPerPage)
     {
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
@@ -214,63 +186,18 @@ class Job extends Db
     /**____________________________________________________________________________________________________
      * PAGINATE: ĐÁNH SỐ TRANG, TẠO LINK TỚI CÁC TRANG.
      */
-    // static function paginate($url, $page, $totalResults, $resultsPerPage, $offset) {
-    //     $totalLinks = ceil(floatval($totalResults)/floatval($resultsPerPage));
-    //     $links = "";
-
-    //     $from = $page - $offset;
-    //     $to = $page + $offset;
-    //     if($from <= 0) {
-    //         $from = 1;
-    //         $to = $offset * 2;
-    //     }
-    //     if($to > $totalLinks) {
-    //         $to = $totalLinks;
-    //     }
-
-    //     $firstLink = "";
-    //     $lastLink = "";
-    //     $prevLink = "";
-    //     $nextLink = "";
-    //     // Trường hợp để xuất hiện $firstLink, $lastLink, $prevLink, $nextLink:
-    //     if($page > 1) {
-    //         $prev = $page - 1;
-    //         $prevLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$prev'><</a>";
-    //         $firstLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=1'><<</a>";
-    //     }
-    //     if($page < $totalLinks) {
-    //         $next = $page + 1;
-    //         $firstLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=1'>Trước</a>";
-    //         $nextLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$next'>Tiếp</a>";
-    //         // $lastLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$totalLinks'>Sau</a>";
-    //     }
-    //     // $links:
-    //     for($i=$from; $i<=$to; $i++) {
-    //         if($page == $i) {
-    //             $links = $links . "<a style=\"padding:15px;margin:0 5px;text-decoration:underline;color:red;font-weight:bold;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$i'>$i</a>";
-    //         }
-    //         else
-    //         {
-    //             $links = $links . "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$i'>$i</a>";
-    //         }
-    //     }
-    //     return $firstLink . $prevLink . $links . $nextLink . $lastLink;
-    // }
-
- /**____________________________________________________________________________________________________
-     * PAGINATE: ĐÁNH SỐ TRANG, TẠO LINK TỚI CÁC TRANG.
-     */
-    static function paginate($url, $page, $totalResults, $resultsPerPage, $offset) {
-        $totalLinks = ceil(floatval($totalResults)/floatval($resultsPerPage));
+    static function paginate($url, $page, $totalResults, $resultsPerPage, $offset)
+    {
+        $totalLinks = ceil(floatval($totalResults) / floatval($resultsPerPage));
         $links = "";
 
         $from = $page - $offset;
         $to = $page + $offset;
-        if($from <= 0) {
+        if ($from <= 0) {
             $from = 1;
             $to = $offset * 2;
         }
-        if($to > $totalLinks) {
+        if ($to > $totalLinks) {
             $to = $totalLinks;
         }
 
@@ -279,23 +206,21 @@ class Job extends Db
         $prevLink = "";
         $nextLink = "";
         // Trường hợp để xuất hiện $firstLink, $lastLink, $prevLink, $nextLink:
-        if($page > 1) {
+        if ($page > 1) {
             $prev = $page - 1;
             $prevLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$prev'><</a>";
             $firstLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=1'><<</a>";
         }
-        if($page < $totalLinks) {
+        if ($page < $totalLinks) {
             $next = $page + 1;
             $nextLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$next'>></a>";
             $lastLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$totalLinks'>>></a>";
         }
         // $links:
-        for($i=$from; $i<=$to; $i++) {
-            if($page == $i) {
+        for ($i = $from; $i <= $to; $i++) {
+            if ($page == $i) {
                 $links = $links . "<a style=\"padding:15px;margin:0 5px;text-decoration:underline;color:red;font-weight:bold;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$i'>$i</a>";
-            }
-            else
-            {
+            } else {
                 $links = $links . "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$i'>$i</a>";
             }
         }

@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+
 require_once "config.php";
 require_once "models/db.php";
 require_once "models/nganhnghe.php";
@@ -6,11 +9,15 @@ require_once "models/job.php";
 require_once "models/hinhthuc.php";
 require_once "models/trangthai.php";
 require_once "models/blog.php";
+require_once "models/job_NB.php";
+require_once "models/job_kysu.php";
 
 $trangthaiAdmin = new Trangthai;
 $nganhngheAdmin = new Nganhnghe;
 $hinhthucAdmin = new Hinhthuc;
 $jobAdmin = new Job;
+$jobNBAdmin = new Job_NB;
+$jobKySuAdmin = new Job_KySu;
 /* $blogAdmin = new Blog; */
 ?>
 
@@ -42,6 +49,14 @@ $jobAdmin = new Job;
     <!-- All StyleSheet -->
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
     <link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="css/uniform.css" />
+    <link rel="stylesheet" href="css/select2.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
 
     <!-- Globle CSS -->
     <link href="css/style.css" rel="stylesheet" />
@@ -904,59 +919,57 @@ $jobAdmin = new Job;
         ***********************************-->
         <div class="dlabnav">
             <div class="dlabnav-scroll">
-                <div class="dropdown header-profile2">
-                    <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                        <div class="header-info2 d-flex align-items-center">
-                            <img src="images/profile/pic1.jpg" alt="" />
-                            <div class="d-flex align-items-center sidebar-info">
-                                <div>
-                                    <span class="font-w400 d-block">Franklin Jr</span>
-                                    <small class="text-end font-w400">Superadmin</small>
+                <?php
+                if (isset($_SESSION['user'])) {
+                    $user = $_SESSION['user'];
+                ?>
+                    <div class="dropdown header-profile2">
+                        <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                            <div class="header-info2 d-flex align-items-center">
+                                <img src="images/profile/pic1.jpg" alt="" />
+                                <div class="d-flex align-items-center sidebar-info">
+                                    <div>
+                                        <span class="font-w400 d-block"><?php echo $user; ?></span>
+                                        <small class="text-end font-w400">Superadmin</small>
+                                    </div>
+                                    <i class="fas fa-chevron-down"></i>
                                 </div>
-                                <i class="fas fa-chevron-down"></i>
                             </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="app-profile.php" class="dropdown-item ai-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span class="ms-2">Profile </span>
+                            </a>
+                            <a href="email-inbox.php" class="dropdown-item ai-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <span class="ms-2">Inbox </span>
+                            </a>
+                            <a href="./login/logout.php" class="dropdown-item ai-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                    <polyline points="16 17 21 12 16 7"></polyline>
+                                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                                </svg>
+                                <span class="ms-2">Logout </span>
+                            </a>
                         </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <a href="app-profile.php" class="dropdown-item ai-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            <span class="ms-2">Profile </span>
-                        </a>
-                        <a href="email-inbox.php" class="dropdown-item ai-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <span class="ms-2">Inbox </span>
-                        </a>
-                        <a href="page-register.php" class="dropdown-item ai-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                <polyline points="16 17 21 12 16 7"></polyline>
-                                <line x1="21" y1="12" x2="9" y2="12"></line>
-                            </svg>
-                            <span class="ms-2">Logout </span>
-                        </a>
                     </div>
-                </div>
+                <?php
+                }
+                ?>
                 <ul class="metismenu" id="menu">
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <a class="has-arrow" href="dashboard.php" aria-expanded="false">
                             <i class="flaticon-025-dashboard"></i>
                             <span class="nav-text">Dashboard</span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="index.php">Dashboard Light</a></li>
-                            <li><a href="index-2.php">Dashboard Dark</a></li>
-                            <li><a href="jobs-page.php">Jobs</a></li>
-                            <li><a href="application-page.php">Application</a></li>
-                            <li><a href="my-profile.php">Profile</a></li>
-                            <li><a href="statistics-page.php">Statistics</a></li>
-                            <li><a href="compaines.php">Companies</a></li>
-                        </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -964,10 +977,10 @@ $jobAdmin = new Job;
                             <span class="nav-text">Jobs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="job-list.php">Job Lists</a></li>
-                            <li><a href="job-view.php">Job View</a></li>
-                            <li><a href="job-application.php">Job Application</a></li>
-                            <li><a href="apply-job.php">Apply Job</a></li>
+                            <li><a href="job-list.php">Job Trong Nước</a></li>
+                            <li><a href="job-NB.php">Đơn Hàng Nhật Bản</a></li>
+                            <li><a href="job-kysu.php">Kỹ sư & Thông dịch viên</a></li>
+                            <li><a href="job-application.php">Apply Job</a></li>
                             <li><a href="new-job.php">New Job</a></li>
                             <li><a href="user-profile.php">User Profile</a></li>
                         </ul>
@@ -976,51 +989,14 @@ $jobAdmin = new Job;
                         <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
                             <i class="fa-solid fa-gear"></i>
 
-                            <span class="nav-text">CMS</span>
-                            <span class="badge badge-xs style-1 badge-danger">New</span>
+                            <span class="nav-text">Protypes</span>
                         </a>
                         <ul aria-expanded="false">
+                            <li><a href="navbar.php">Navbar</a></li>
                             <li><a href="nganhnghe.php">Ngành Nghề</a></li>
                             <li><a href="hinh-thuc.php">Loại Công Việc</a></li>
                             <li><a href="job-trangthai.php">Trang Thái</a></li>
                             <li><a href="blog.php">Blog</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-050-info"></i>
-                            <span class="nav-text">Apps</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="app-profile.php">Profile</a></li>
-                            <li>
-                                <a href="edit-profile.php">Edit Profile
-                                    <span class="badge badge-xs badge-danger ms-3">New</span></a>
-                            </li>
-                            <li><a href="post-details.php">Post Details</a></li>
-                            <li>
-                                <a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="email-compose.php">Compose</a></li>
-                                    <li><a href="email-inbox.php">Inbox</a></li>
-                                    <li><a href="email-read.php">Read</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="app-calender.php">Calendar</a></li>
-                            <li>
-                                <a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="ecom-product-grid.php">Product Grid</a></li>
-                                    <li><a href="ecom-product-list.php">Product List</a></li>
-                                    <li>
-                                        <a href="ecom-product-detail.php">Product Details</a>
-                                    </li>
-                                    <li><a href="ecom-product-order.php">Order</a></li>
-                                    <li><a href="ecom-checkout.php">Checkout</a></li>
-                                    <li><a href="ecom-invoice.php">Invoice</a></li>
-                                    <li><a href="ecom-customers.php">Customers</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1033,110 +1009,11 @@ $jobAdmin = new Job;
                             <li><a href="chart-morris.php">Add Candidate</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-086-star"></i>
-                            <span class="nav-text">Bootstrap</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="ui-accordion.php">Accordion</a></li>
-                            <li><a href="ui-alert.php">Alert</a></li>
-                            <li><a href="ui-badge.php">Badge</a></li>
-                            <li><a href="ui-button.php">Button</a></li>
-                            <li><a href="ui-modal.php">Modal</a></li>
-                            <li><a href="ui-button-group.php">Button Group</a></li>
-                            <li><a href="ui-list-group.php">List Group</a></li>
-                            <li><a href="ui-card.php">Cards</a></li>
-                            <li><a href="ui-carousel.php">Carousel</a></li>
-                            <li><a href="ui-dropdown.php">Dropdown</a></li>
-                            <li><a href="ui-popover.php">Popover</a></li>
-                            <li><a href="ui-progressbar.php">Progressbar</a></li>
-                            <li><a href="ui-tab.php">Tab</a></li>
-                            <li><a href="ui-typography.php">Typography</a></li>
-                            <li><a href="ui-pagination.php">Pagination</a></li>
-                            <li><a href="ui-grid.php">Grid</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-045-heart"></i>
-                            <span class="nav-text">Plugins</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="uc-select2.php">Select 2</a></li>
-                            <li><a href="uc-nestable.php">Nestedable</a></li>
-                            <li><a href="uc-noui-slider.php">Noui Slider</a></li>
-                            <li><a href="uc-sweetalert.php">Sweet Alert</a></li>
-                            <li><a href="uc-toastr.php">Toastr</a></li>
-                            <li><a href="map-jqvmap.php">Jqv Map</a></li>
-                            <li><a href="uc-lightgallery.php">Light Gallery</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="widget-basic.php" class="" aria-expanded="false">
-                            <i class="flaticon-013-checkmark"></i>
-                            <span class="nav-text">Widget</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-072-printer"></i>
-                            <span class="nav-text">Forms</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="form-element.php">Form Elements</a></li>
-                            <li><a href="form-wizard.php">Wizard</a></li>
-                            <li><a href="form-ckeditor.php">CkEditor</a></li>
-                            <li><a href="form-pickers.php">Pickers</a></li>
-                            <li><a href="form-validation.php">Form Validate</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-043-menu"></i>
-                            <span class="nav-text">Table</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.php">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.php">Datatable</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-022-copy"></i>
-                            <span class="nav-text">Pages</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="page-login.php">Login</a></li>
-                            <li>
-                                <a href="page-register.php">Register
-                                    <span class="badge badge-xs badge-danger ms-3">New</span></a>
-                            </li>
-                            <li>
-                                <a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="page-error-400.php">Error 400</a></li>
-                                    <li><a href="page-error-403.php">Error 403</a></li>
-                                    <li><a href="page-error-404.php">Error 404</a></li>
-                                    <li><a href="page-error-500.php">Error 500</a></li>
-                                    <li><a href="page-error-503.php">Error 503</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="page-lock-screen.php">Lock Screen</a></li>
-                            <li><a href="empty-page.php">Empty Page</a></li>
-                        </ul>
-                    </li>
                 </ul>
-                <div class="plus-box">
-                    <p class="fs-14 font-w600 mb-2">
-                        Let Jobick Managed<br />Your Resume Easily<br />
-                    </p>
-                    <p class="plus-box-p">Lorem ipsum dolor sit amet</p>
-                </div>
                 <div class="copyright">
                     <p><strong>Jobick Job Admin</strong> © 2023 All Rights Reserved</p>
                     <p class="fs-12">
-                        Made with <span class="heart"></span> by DexignLab
+                        Made with <span class="heart"></span> by Le Ngoc Hai
                     </p>
                 </div>
             </div>

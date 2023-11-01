@@ -74,16 +74,11 @@ class Nganhnghe extends Db
         $sql->execute();
     }
 
-    /**
-     * Thêm Job nganhnghe
+    /**____________________________________________________________________________________________________
+     * THÊM nganhnghe:
      */
-    function addNganhNghe($name, $img)
-    {
-        //$img = "../../mobile/public/images/".$img;
-        $sql = self::$connection->prepare("INSERT INTO `job_nganhnghe`(`name_nganhnghe`, `img_nganhnghe`)
-        VALUES ('$name','$img')");
-        //$sql->bind_param($name,$img);
-        //$sql->bind_param(2,$img);
+    static function insertNganhnghe($name_nganhnghe) {
+        $sql = self::$connection->prepare("INSERT INTO job_nganhnghe (id_nganhnghe, name_nganhnghe) VALUES(0, '$name_nganhnghe')");
         return $sql->execute();
     }
 

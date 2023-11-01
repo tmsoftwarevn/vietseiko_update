@@ -2,6 +2,7 @@
 
 <html lang="en">
 <?php
+session_start();
 
 require_once 'config.php';
 require "models/db.php";
@@ -14,6 +15,7 @@ require "models/nganhnghe_NB.php";
 require "models/blog.php";
 require "models/ban_tin.php";
 require "models/protypes_congcu.php";
+require "models/job_kysu.php";
 
 
 $protypes_congcu = new Protypes_congcu;
@@ -25,6 +27,7 @@ $protype = new Protype;
 $job = new Job;
 $job_NB = new Job_NB;
 $blog = new blog;
+$job_kysu = new Job_Kysu;
 ?>
 
 <head>
@@ -43,12 +46,11 @@ $blog = new blog;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 
     <!-- PAGE TITLE HERE -->
-    <title>Jobzilla Template | Home Page Style 1</title>
+    <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,6 +59,7 @@ $blog = new blog;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
     <!-- BOOTSTRAP STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="public/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FONTAWESOME STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="public/css/feather.css" />
     <!-- FEATHER ICON SHEET -->
@@ -104,6 +107,142 @@ $blog = new blog;
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
+
+        .mr-3 {
+            margin-right: 1rem !important;
+        }
+
+        #main-wrapper,
+        #main-content {
+            display: flex;
+            flex: 1;
+        }
+
+        #main-wrapper {
+            height: 100%;
+            width: 100%;
+        }
+
+        #main-top-bar {
+            position: relative;
+
+            height: 70px;
+            min-height: 70px;
+            width: 100%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+
+            padding-left: 1rem;
+        }
+
+        .shape {
+            width: 40%;
+            height: 70px;
+
+            -webkit-clip-path: polygon(94% 0, 100% 26%, 100% 100%, 0 100%, 22% 0);
+            clip-path: polygon(94% 0, 100% 26%, 100% 100%, 0 100%, 22% 0);
+        }
+
+        .main-logo {
+            background: url(https://rolecalljobs.com/img/RoleCall_WhiteLogo.svg) no-repeat;
+            width: 140px;
+            height: 55px;
+        }
+
+        .user-dropdown,
+        .user-menu {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+        }
+
+        .user-menu {
+            background-color: #adc9f3bd;
+            border-radius: 10px;
+            height: 60px;
+            width: 20rem;
+            padding: 0 1rem;
+            z-index: 10;
+        }
+
+        .user-menu:hover {
+            background-color: transparent;
+            background-color: #4080ff96;
+        }
+
+        .user-menu-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .user-image-wrapper {
+            height: 70px;
+            background-color: transparent;
+            z-index: 20;
+        }
+
+        .user-image {
+            display: inline-block;
+            margin-top: 14px;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .user-name-wrapper {
+            padding-left: 1rem;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .user-name-wrapper i {
+            padding: 0 0.3rem;
+        }
+
+        .user-menu.show {
+            background-color: transparent;
+            background-color: #4080ff96;
+        }
+
+        .user-menu.show .user-dropdown {
+            box-shadow: -2px 4px 7px #ccc;
+            display: block;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 70px;
+            display: none;
+            right: 0;
+            width: 220px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .dropdown-item {
+            color: #000;
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+        }
+
+        .dropdown-item:active,
+        .dropdown-item:hover {
+            background-color: #EBF5FF;
+        }
+
+        .dropdown-item span {
+            color: #03A9FA;
+            display: inline-block;
+            width: 24px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -134,8 +273,7 @@ $blog = new blog;
                         </div>
 
                         <!-- NAV Toggle Button -->
-                        <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button"
-                            class="navbar-toggler collapsed">
+                        <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar icon-bar-first"></span>
                             <span class="icon-bar icon-bar-two"></span>
@@ -154,7 +292,7 @@ $blog = new blog;
                                         <?php
                                         $list_of_protypes = Protype::getAllProtypes();
                                         foreach ($list_of_protypes as $key => $value) {
-                                            ?>
+                                        ?>
                                             <li>
                                                 <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
                                                     <?php echo $value['type_name'] ?>
@@ -170,7 +308,7 @@ $blog = new blog;
                                         <?php
                                         $list_of_Protypes_congcu = Protypes_congcu::getAllProtypes_congcu();
                                         foreach ($list_of_Protypes_congcu as $key => $value) {
-                                            ?>
+                                        ?>
                                             <li>
                                                 <a href="blog-camnang.php?id_congcu=<?php echo $value['id_congcu']; ?>">
                                                     <?php echo $value['name_congcu'] ?>
@@ -196,23 +334,59 @@ $blog = new blog;
 
                         <!-- Header Right Section-->
                         <div class="extra-nav header-2-nav">
-                            <div class="extra-cell">
+                            <!-- Search -->
+                            <!-- <div class="extra-cell">
                                 <div class="header-search">
                                     <a href="#search" class="header-search-icon"><i class="bi bi-search"></i></a>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="extra-cell">
                                 <div class="header-nav-btn-section">
-                                    <div class="twm-nav-btn-left has-child">
-                                        <a class="twm-nav-sign-up" href="login.php" role="button">
-                                            <i class="feather-log-in"></i> Đăng Nhập
-                                        </a>
-                                    </div>
-                                    <div class="twm-nav-btn-right">
+                                    <?php
+                                    if (isset($_SESSION['user'])) {
+                                        $user = $_SESSION['user'];
+                                    ?>
+
+                                        <div id="main-wrapper">
+                                            <main class="main" role="main" id="main-content">
+                                                <div id="main-top-bar">
+                                                    <a href="https://rolecalljobs.com" class="main-logo"></a>
+                                                    <div class="user-menu">
+                                                        <div class="user-menu-item">
+                                                            <div class="user-image-wrapper">
+                                                                <span class="user-image"><img src="https://rolecall.imgix.net/users/31603_GE9ho7jeF7Wt3YwD?crop=faces&amp;fit=crop&amp;h=40&amp;ixlib=php-1.1.0&amp;trim=auto&amp;w=40&amp;s=e7983239e5d698a99e87fcbc491d03fb"></span>
+                                                            </div>
+                                                            <div class="user-name-wrapper">
+                                                                <?php echo $user; ?> <i class="bi bi-caret-down-fill"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="user-dropdown">
+                                                            <a href="candidates/candidate-profile.html" class="dropdown-item"><span class="mr-3"><i class="bi bi-person-square"></i></span> Tài Khoản</a>
+                                                            <a href="logout.php" class="dropdown-item"><span class="mr-3"><i class="bi bi-box-arrow-right"></i></span> Đăng Xuất</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shape"></div>
+                                                </div>
+                                            </main>
+                                        </div>
+
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <div class="twm-nav-btn-left has-child">
+                                            <a class="twm-nav-sign-up" href="login.php" role="button">
+                                                <i class="feather-log-in"></i> Đăng Nhập
+                                            </a>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <!-- Đăng nhập cho nhà tuyển dụng: -->
+                                    <!-- <div class="twm-nav-btn-right">
                                         <a href="employer/dash-post-job.html" class="twm-nav-post-a-job">
                                             <i class="bi bi-briefcase"></i> Đăng Tuyển & Tìm Hồ Sơ
                                         </a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

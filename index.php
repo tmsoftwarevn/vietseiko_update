@@ -278,7 +278,7 @@ require_once 'header.php';
                     <div class="row">
                         <!-- Job Block -->
                         <?php
-                        $list_of_latestJob = Job::getLatestJob(8);
+                        $list_of_latestJob = Job::getLatestJob(15);
                         foreach ($list_of_latestJob as $key => $value) {
                             ?>
                         <div class="job-block col-lg-4 col-md-12 col-sm-12">
@@ -293,7 +293,7 @@ require_once 'header.php';
                                     <ul class="job-info"
                                         style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
                                         <a href="">
-                                            <?php echo $value['tencongty'] ?>
+                                            <?php echo $value['name'] ?>
                                         </a>
                                     </ul>
                                     <ul class="job-icon-info">
@@ -321,7 +321,7 @@ require_once 'header.php';
                     <div class="row">
                         <!-- Job Block - Replace with PHP loop -->
                         <?php
-                        $list_of_latestJob_NB = Job_NB::getLatestJob_NB(6);
+                        $list_of_latestJob_NB = Job_NB::getLatestJob_NB(15);
                         foreach ($list_of_latestJob_NB as $key => $value) {
                             ?>
                         <div class="job-block col-lg-6 col-md-12 col-sm-12">
@@ -366,51 +366,44 @@ require_once 'header.php';
                     <div class="row">
                         <!-- Job Block - Replace with PHP loop -->
                         <?php
-                        $list_of_latestJob = Job::getLatestJob(6);
-                        foreach ($list_of_latestJob as $key => $value) {
+                        $list_of_latestJobKySu_NB = Job_Kysu::getAllJob_KySuNB(15);
+                        foreach ($list_of_latestJobKySu_NB as $key => $value) {
                             ?>
                         <div class="job-block col-lg-6 col-md-12 col-sm-12">
                             <div class="inner-box">
                                 <div class="content">
                                     <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
                                     <h4>
-                                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
-                                            <?php echo $value['chucvu'] ?>
+                                        <a href="job-detail_NB.php?id=<?php echo $value['id_kysu'] ?>">
+                                            <?php echo $value['name_kysu'] ?>
                                         </a>
                                     </h4>
                                     <ul class="job-info">
                                         <li>
                                             <span class="icon bi bi-briefcase"></span>
-                                            <?php echo $value['tencongty'] ?>
-                                        </li>
-                                        <li>
-                                            <span class="icon bi bi-geo-al"></span>
                                             <?php echo $value['diachi'] ?>
                                         </li>
-                                        <li>
-                                            <span class="icon bi bi-clock"></span>
-                                            <?php echo $value['thoigian'] ?>
-                                        </li>
-                                        <li>
-                                            <span class="icon bi bi-cash-coin"></span>
-                                            <?php echo $value['mucluong'] ?>
-                                        </li>
+
                                     </ul>
-                                    <ul class="job-other-info">
-                                        <li class="time">
-                                            <?php echo $value['thoigianlamviec'] ?>
-                                        </li>
-                                        <li class="privacy">
-                                            <?php echo $value['quyenriengtu'] ?>
-                                        </li>
-                                        <li class="required">
-                                            <?php echo $value['mucdo_urgent'] ?>
-                                        </li>
+                                    <ul class="job-icon-info">
+                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                            <?php echo $value['soluong'] ?> Người
+                                        </span>
+                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                            <?php echo $value['gioitinh'] ?>
+                                        </span>
+                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                            <?php echo $value['mucluong'] ?>
+                                        </span>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <?php } ?>
+                        <!-- Kết thúc vòng lặp PHP -->
                     </div>
                 </div>
             </div>

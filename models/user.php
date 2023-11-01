@@ -58,6 +58,16 @@ class User extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+    //Phuong thuc lay password
+    public function getPassword($user)
+    {
+   
+		foreach($this->getPass($user) as $pass=>$get)
+			{  
+                $password = $get['password'];
+			}
+		return $password;
+    }
     //Phuong thuc lay lai password:
 
 }

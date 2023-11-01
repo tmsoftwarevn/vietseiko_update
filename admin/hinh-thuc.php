@@ -23,7 +23,10 @@ $hinhthuc = new Hinhthuc;
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Hình Thức Datatable</h4>
-                        <a href="new-loaicongviec.php" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Add Ngành Nghề</a>
+                        <a href="form.php?functionType=job_hinhthuc" class="btn btn-primary me-3 btn-sm">
+                            <i class="fas fa-plus me-2"></i>
+                            Add Ngành Nghề
+                        </a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -34,7 +37,6 @@ $hinhthuc = new Hinhthuc;
                                             <option value="50">50</option>
                                             <option value="100">100</option>
                                         </select> entries</label></div>
-                                <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>
                                 <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid" aria-describedby="example3_info">
                                     <thead>
                                         <tr role="row">
@@ -63,7 +65,9 @@ $hinhthuc = new Hinhthuc;
                                                 <td>
                                                     <div class="d-flex">
                                                         <a href="update-hinhthuc.php" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                        <a onclick="return confirm('Are you want to delete?')" href="delete_hinhthuc.php?id_hinhthuc=<?php echo $value['id_hinhthuc'] ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                        <a onclick="return confirm('Are you want to delete?')" href="delete_hinhthuc.php?id_hinhthuc=<?php echo $value['id_hinhthuc'] ?>" class="btn btn-danger shadow btn-xs sharp">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
                                                     </div>
                                                 </td>
                                             </tr>
