@@ -171,7 +171,7 @@ require_once 'header.php';
     <!--Banner End-->
 
     <!-- HOW IT WORK SECTION START -->
-    <div class="section-full p-t120 p-b90 site-bg-white twm-how-it-work-area">
+    <div class="section-full p-t50 site-bg-white twm-how-it-work-area">
         <div class="container">
             <!-- TITLE START-->
             <div class="section-head center wt-small-separator-outer">
@@ -241,7 +241,7 @@ require_once 'header.php';
     <!-- HOW IT WORK SECTION END -->
 
     <!-- JOB POST START -->
-    <section class="job-section alternate">
+    <section class="job-section alternate p-t50" style="padding: 50px 0;">
         <div class="auto-container">
             <div class="sec-title text-center">
                 <h2>Công Việc Phổ Biển</h2>
@@ -460,7 +460,7 @@ require_once 'header.php';
     <!-- EXPLORE NEW LIFE END -->
 
     <!-- TOP COMPANIES START -->
-    <div class="section-full p-t120 site-bg-white twm-companies-wrap">
+    <div class="section-full p-t50 site-bg-white twm-companies-wrap">
         <!-- TITLE START-->
         <div class="section-head center wt-small-separator-outer">
             <!-- <div class="wt-small-separator site-text-primary">
@@ -564,7 +564,7 @@ require_once 'header.php';
     <!-- TOP COMPANIES END -->
 
     <!-- TESTIMONIAL SECTION START -->
-    <div class="section-full p-t120 p-b90 site-bg-white twm-testimonial-1-area">
+    <div class="section-full site-bg-white twm-testimonial-1-area">
         <div class="container">
             <div class="wt-separator-two-part">
                 <div class="row wt-separator-two-part-row">
@@ -687,7 +687,7 @@ require_once 'header.php';
     <!-- TESTIMONIAL SECTION END -->
 
     <!-- OUR BLOG START -->
-    <div class="section-full p-t120 p-b90 site-bg-gray">
+    <div class="section-full p-t50 p-b90 site-bg-gray">
         <div class="container">
             <!-- TITLE START-->
             <div class="section-head center wt-small-separator-outer">
