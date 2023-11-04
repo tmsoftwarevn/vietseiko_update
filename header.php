@@ -96,7 +96,7 @@ $job_kysu = new Job_Kysu;
     <!-- SIDE SWITCHER STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="public/css/switcher.css" />
     <!--css contact-->
-    <link rel="stylesheet" type="text/css" href="public/css/contact.css" />
+   <!--  <link rel="stylesheet" type="text/css" href="public/css/contact.css" /> -->
     <!-- Css INTRODUCE -->
     <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
     <link rel="stylesheet" type="text/css" href="public/css/style1.css" />
@@ -163,7 +163,7 @@ $job_kysu = new Job_Kysu;
         .user-menu {
             background-color: #adc9f3bd;
             border-radius: 10px;
-            height: 60px;
+            height: 40px;
             width: 20rem;
             padding: 0 1rem;
             z-index: 10;
@@ -181,16 +181,16 @@ $job_kysu = new Job_Kysu;
         }
 
         .user-image-wrapper {
-            height: 70px;
+            height: 40px;
             background-color: transparent;
             z-index: 20;
         }
 
         .user-image {
             display: inline-block;
-            margin-top: 14px;
-            height: 40px;
-            width: 40px;
+            margin-top: 5px;
+            height: 30px;
+            width: 30px;
             border-radius: 50%;
             overflow: hidden;
         }
@@ -329,6 +329,9 @@ $job_kysu = new Job_Kysu;
                                 <li class="has-child">
                                     <a href="blog.php">Tin Tức</a>
                                 </li>
+                                <li class="has-child">
+                                    <a href="contact.php">Liên Hệ</a>
+                                </li>
                             </ul>
                         </div>
 
@@ -354,7 +357,9 @@ $job_kysu = new Job_Kysu;
                                                     <div class="user-menu">
                                                         <div class="user-menu-item">
                                                             <div class="user-image-wrapper">
-                                                                <span class="user-image"><img src="https://rolecall.imgix.net/users/31603_GE9ho7jeF7Wt3YwD?crop=faces&amp;fit=crop&amp;h=40&amp;ixlib=php-1.1.0&amp;trim=auto&amp;w=40&amp;s=e7983239e5d698a99e87fcbc491d03fb"></span>
+                                                                <span class="user-image">
+                                                                    <img src="/login/image/user.png">
+                                                                </span>
                                                             </div>
                                                             <div class="user-name-wrapper">
                                                                 <?php echo $user; ?> <i class="bi bi-caret-down-fill"></i>

@@ -45,7 +45,7 @@ require_once 'header.php';
                                 style="position: absolute; left: 390px; top: 0px">
                                 <div class="blog-post twm-blog-post-1-outer">
                                     <div class="wt-post-media">
-                                        <a href="blog-single.html">
+                                        <a href="blog-detail.html">
                                             <img src="images/blog/latest/<?php echo $post['img_blog']; ?>" alt="" />
                                         </a>
                                     </div>
@@ -56,7 +56,7 @@ require_once 'header.php';
                                                     <?php echo $post['ngaydang']; ?>
                                                 </li>
                                                 <li class="post-author">
-                                                    By <a href="author-detail.html">
+                                                    By <a href="blog-detail.html">
                                                         <?php echo $post['name_blog']; ?>
                                                     </a>
                                                 </li>

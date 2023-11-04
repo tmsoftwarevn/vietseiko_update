@@ -411,14 +411,14 @@ require_once 'header.php';
     <!-- JOB POST END -->
 
     <!-- EXPLORE NEW LIFE START -->
-    <div class="section-full p-t120 p-b120 twm-explore-area bg-cover"
+    <div class="section-full p-t20 p-b20 twm-explore-area bg-cover"
         style="background-image: url(images/background/bg-1.jpg)">
         <div class="container">
             <div class="section-content">
                 <div class="row">
                     <div class="col-lg-4 col-md-12">
                         <div class="twm-explore-media-wrap">
-                            <div class="twm-media">
+                            <div class="twm-media" style="width: 70%; height: 70%;">
                                 <img src="images/gir-large.png" alt="" />
                             </div>
                         </div>
@@ -436,18 +436,16 @@ require_once 'header.php';
                                 <div class="twm-title-small">Explore New Life</div>
                                 <div class="twm-title-large">
                                     <h2>
-                                        Don’t just find. be found put your CV in front of
-                                        great employers
+                                        <span>Một CV tốt</span> mở ra cánh cửa dẫn đến thành công
                                     </h2>
                                     <p>
-                                        Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry the standard dummy text ever
-                                        since the when an printer took.
+                                        Dễ dàng tạo CV xịn, gây ấn tượng tốt với Nhà tuyển dụng và gia tăng
+                                         cơ hội được lựa chọn phỏng vấn
                                     </p>
                                 </div>
                                 <div class="twm-upload-file">
                                     <button type="button" class="site-button">
-                                        Upload Your Resume <i class="feather-upload"></i>
+                                        Tạo CV ngay <i class="feather-upload"></i>
                                     </button>
                                 </div>
                             </div>
@@ -710,7 +708,7 @@ require_once 'header.php';
                         <div class="item">
                             <div class="blog-post twm-blog-post-1-outer">
                                 <div class="wt-post-media">
-                                    <a href="blog-single.php?id=<?php echo $value['id_blog']; ?>">
+                                    <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
                                         <img src="images/blog/latest/<?php echo $value['img_blog']; ?>" alt="" />
                                     </a>
                                 </div>
@@ -721,7 +719,7 @@ require_once 'header.php';
                                                 <?php echo $value['ngaydang']; ?>
                                             </li>
                                             <li class="post-author">
-                                                By <a href="author-detail.php">
+                                                By <a href="blog-detail.php">
                                                     <?php echo $value['name_blog']; ?>
                                                 </a>
                                             </li>

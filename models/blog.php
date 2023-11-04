@@ -75,4 +75,14 @@ class Blog extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+    //Lay chi tiet blog:
+    function detail($id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM blog  WHERE id_blog = ?");
+        $sql->bind_param("i", $id);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
 }
