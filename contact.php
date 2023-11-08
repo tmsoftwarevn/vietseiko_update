@@ -10,15 +10,15 @@ require_once 'header.php';
             <div class="wt-bnr-inr-entry">
                 <div class="banner-title-outer">
                     <div class="banner-title-name">
-                        <h2 class="wt-title">About Us</h2>
+                        <h2 class="wt-title">Liên hệ</h2>
                     </div>
                 </div>
                 <!-- BREADCRUMB ROW -->
 
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="index.html">Home</a></li>
-                        <li>About Us</li>
+                        <li><a href="trang-chu">Home</a></li>
+                        <li>Liên hệ</li>
                     </ul>
                 </div>
 

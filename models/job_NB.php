@@ -38,7 +38,7 @@ class Job_NB extends Db {
      */
     function getJob_Detail($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban WHERE name_NB = ?");
+        $sql = self::$connection->prepare("SELECT * FROM job_nhatban WHERE id_NB = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();

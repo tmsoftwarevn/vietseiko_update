@@ -1,3 +1,4 @@
+<title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <?php
 require_once 'header.php';
 ?>
@@ -5,8 +6,7 @@ require_once 'header.php';
 <!-- CONTENT START -->
 <div class="page-content">
     <!--Banner Start-->
-    <div class="twm-home1-banner-section site-bg-gray bg-cover"
-        style="background-image: url(images/main-slider/slider1/bg1.jpg)">
+    <div class="twm-home1-banner-section site-bg-gray bg-cover" style="background-image: url(images/main-slider/slider1/bg1.jpg)">
         <div class="row">
             <!--Left Section-->
             <div class="col-xl-6 col-lg-6 col-md-12">
@@ -22,19 +22,18 @@ require_once 'header.php';
                     </div>
 
                     <div class="twm-bnr-search-bar">
-                        <form>
+                        <form action="rearch-result.php"  method="get">
                             <div class="row">
                                 <!--Title-->
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Vị trí</label>
-                                    <select class="wt-search-bar-select selectpicker" data-live-search="true" title=""
-                                        id="j-Job_Title" data-bv-field="size">
+                                    <select class="wt-search-bar-select selectpicker" data-live-search="true" title="" id="j-Job_Title" data-bv-field="size">
                                         <?php
                                         foreach ($nganhnghe->getAllNganhNghe() as $key => $value) {
-                                            ?>
-                                        <option value="<?php echo $value['id_nganhnghe'] ?>">
-                                            <?php echo $value['name_nganhnghe'] ?>
-                                        </option>
+                                        ?>
+                                            <option value="<?php echo $value['id_nganhnghe'] ?>">
+                                                <?php echo $value['name_nganhnghe'] ?>
+                                            </option>
                                         <?php } ?>
 
                                     </select>
@@ -43,13 +42,12 @@ require_once 'header.php';
                                 <!--All Category-->
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Hình thức</label>
-                                    <select class="wt-search-bar-select selectpicker" data-live-search="true" title=""
-                                        id="j-All_Category" data-bv-field="size">
+                                    <select class="wt-search-bar-select selectpicker" data-live-search="true" title="" id="j-All_Category" data-bv-field="size">
                                         <?php
                                         foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
-                                        <option value="<?php echo $value['id_hinhthuc'] ?>">
-                                            <?php echo $value['name_hinhthuc'] ?>
-                                        </option>
+                                            <option value="<?php echo $value['id_hinhthuc'] ?>">
+                                                <?php echo $value['name_hinhthuc'] ?>
+                                            </option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -58,17 +56,15 @@ require_once 'header.php';
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Khu vực</label>
                                     <div class="twm-inputicon-box">
-                                        <input name="username" type="text" required class="form-control"
-                                            placeholder="Search..." />
+                                        <input name="keyword" type="text" required class="form-control" placeholder="Search..." />
                                         <i class="twm-input-icon bi bi-geo-alt"></i>
                                     </div>
                                 </div>
 
                                 <!--Find job btn-->
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
-                                    <button type="button" class="site-button">
-                                        Find Job
-                                    </button>
+                                    <input type="submit" name="submit" value="Search" class="site-button">
+                                    </input>
                                 </div>
                             </div>
                         </form>
@@ -241,34 +237,38 @@ require_once 'header.php';
     <!-- HOW IT WORK SECTION END -->
 
     <!-- JOB POST START -->
-    <section class="job-section alternate p-t50" style="padding: 50px 0;">
+    <section class="job-section alternate p-t20" style="padding: 50px 0; background: #f3f5f7!important;">
         <div class="auto-container">
-            <div class="sec-title text-center">
-                <h2>Công Việc Phổ Biển</h2>
-            </div>
-
             <div class="default-tabs tabs-box wrapper tabbed">
                 <!--Tabs Box-->
                 <nav class="list-inline scrollto"></nav>
                 <ul class="tab-buttons wrapper">
-                    <li class="tab-btn active-btn active">
-                        <a href="#1" class="tabbed-trigger" data-id="tabbed1"
-                            style="font-weight: 500; font-size: 15px;">
-                            <span>Việc Làm Tại Việt Nam</span>
-                        </a>
-                    </li>
-                    <li class="tab-btn">
-                        <a href="#2" class="tabbed-trigger" data-id="tabbed2"
-                            style="font-weight: 500; font-size: 15px;">
-                            <span>XKLD Nhật Bản</span>
-                        </a>
-                    </li>
-                    <li class="tab-btn">
-                        <a href="#3" class="tabbed-trigger" data-id="tabbed3"
-                            style="font-weight: 500; font-size: 15px;">
-                            <span>Kỹ Sư & Thông Dịch Tại Nhật Bản</span>
-                        </a>
-                    </li>
+                    <div class="sec-title text-center" style="margin-bottom: 10px;">
+                        <h2 style="font-size: 24px; font-weight: bold;">Việc làm tốt nhất</h2>
+                    </div>
+                    <div style="display: flex;">
+                        <li class="tab-btn active-btn active">
+                            <a href="#1" class="tabbed-trigger" data-id="tabbed1">
+                                <span>Việc làm tại Việt Nam</span>
+                            </a>
+                        </li>
+                        <li class="tab-btn">
+                            <a href="#2" class="tabbed-trigger" data-id="tabbed2">
+                                <span>XKLD Nhật Bản</span>
+                            </a>
+                        </li>
+                        <li class="tab-btn">
+                            <a href="#3" class="tabbed-trigger" data-id="tabbed3">
+                                <span>Kỹ sư & Thông dịch tại Nhật Bản</span>
+                            </a>
+                        </li>
+                        <li class="tab-btn">
+                            <a href="#4" class="tabbed-trigger" data-id="tabbed3">
+                                <span>Việc làm tại VietSeiko</span>
+                            </a>
+                        </li>
+                    </div>
+
                 </ul>
                 </nav>
             </div>
@@ -280,39 +280,38 @@ require_once 'header.php';
                         <?php
                         $list_of_latestJob = Job::getLatestJob(15);
                         foreach ($list_of_latestJob as $key => $value) {
-                            ?>
-                        <div class="job-block col-lg-4 col-md-12 col-sm-12">
-                            <div class="inner-box " style="padding: 10px 10px 5px 0px;">
-                                <div class="content">
-                                    <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
-                                    <h5 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
-                                            <?php echo $value['chucvu'] ?>
-                                        </a>
-                                    </h5>
-                                    <ul class="job-info"
-                                        style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                                        <a href="">
-                                            <?php echo $value['name'] ?>
-                                        </a>
-                                    </ul>
-                                    <ul class="job-icon-info">
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                        ?>
+                            <div class="job-block col-lg-4 col-md-12 col-sm-12">
+                                <div class="inner-box " style="padding: 10px 10px 5px 0px;">
+                                    <div class="content">
+                                        <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
+                                        <h5 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                                            <a href="detail?id=<?php echo $value['id_job'] ?>">
+                                                <?php echo $value['chucvu'] ?>
+                                            </a>
+                                        </h5>
+                                        <ul class="job-info" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                            <a href="">
+                                                <?php echo $value['name'] ?>
+                                            </a>
+                                        </ul>
+                                        <ul class="job-icon-info">
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['capbac'] ?>
-                                        </span>
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                                <?php echo $value['capbac'] ?>
+                                            </span>
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['diachi'] ?>
-                                        </span>
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                                <?php echo $value['diachi'] ?>
+                                            </span>
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['mucluong'] ?>
-                                        </span>
-                                    </ul>
+                                                <?php echo $value['mucluong'] ?>
+                                            </span>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -323,40 +322,40 @@ require_once 'header.php';
                         <?php
                         $list_of_latestJob_NB = Job_NB::getLatestJob_NB(15);
                         foreach ($list_of_latestJob_NB as $key => $value) {
-                            ?>
-                        <div class="job-block col-lg-6 col-md-12 col-sm-12">
-                            <div class="inner-box">
-                                <div class="content">
-                                    <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
-                                    <h4>
-                                        <a href="job-detail_NB.php?id=<?php echo $value['name_NB'] ?>">
-                                            <?php echo $value['name_NB'] ?>
-                                        </a>
-                                    </h4>
-                                    <ul class="job-info">
-                                        <li>
-                                            <span class="icon bi bi-briefcase"></span>
-                                            <?php echo $value['diachi'] ?>
-                                        </li>
+                        ?>
+                            <div class="job-block col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
+                                        <h4>
+                                            <a href="detail-NB?id=<?php echo $value['id_NB'] ?>">
+                                                <?php echo $value['name_NB'] ?>
+                                            </a>
+                                        </h4>
+                                        <ul class="job-info">
+                                            <li>
+                                                <span class="icon bi bi-briefcase"></span>
+                                                <?php echo $value['diachi'] ?>
+                                            </li>
 
-                                    </ul>
-                                    <ul class="job-icon-info">
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                        </ul>
+                                        <ul class="job-icon-info">
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['soluong'] ?> Người
-                                        </span>
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                                <?php echo $value['soluong'] ?> Người
+                                            </span>
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['gioitinh'] ?>
-                                        </span>
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                                <?php echo $value['gioitinh'] ?>
+                                            </span>
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['mucluong'] ?>
-                                        </span>
-                                    </ul>
+                                                <?php echo $value['mucluong'] ?>
+                                            </span>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <?php } ?>
                         <!-- Kết thúc vòng lặp PHP -->
                     </div>
@@ -368,40 +367,40 @@ require_once 'header.php';
                         <?php
                         $list_of_latestJobKySu_NB = Job_Kysu::getAllJob_KySuNB(15);
                         foreach ($list_of_latestJobKySu_NB as $key => $value) {
-                            ?>
-                        <div class="job-block col-lg-6 col-md-12 col-sm-12">
-                            <div class="inner-box">
-                                <div class="content">
-                                    <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
-                                    <h4>
-                                        <a href="job-detail_NB.php?id=<?php echo $value['id_kysu'] ?>">
-                                            <?php echo $value['name_kysu'] ?>
-                                        </a>
-                                    </h4>
-                                    <ul class="job-info">
-                                        <li>
-                                            <span class="icon bi bi-briefcase"></span>
-                                            <?php echo $value['diachi'] ?>
-                                        </li>
+                        ?>
+                            <div class="job-block col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
+                                        <h4>
+                                            <a href="job-detail_NB.php?id=<?php echo $value['id_kysu'] ?>">
+                                                <?php echo $value['name_kysu'] ?>
+                                            </a>
+                                        </h4>
+                                        <ul class="job-info">
+                                            <li>
+                                                <span class="icon bi bi-briefcase"></span>
+                                                <?php echo $value['diachi'] ?>
+                                            </li>
 
-                                    </ul>
-                                    <ul class="job-icon-info">
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                        </ul>
+                                        <ul class="job-icon-info">
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['soluong'] ?> Người
-                                        </span>
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                                <?php echo $value['soluong'] ?> Người
+                                            </span>
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['gioitinh'] ?>
-                                        </span>
-                                        <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                                <?php echo $value['gioitinh'] ?>
+                                            </span>
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                       font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                            <?php echo $value['mucluong'] ?>
-                                        </span>
-                                    </ul>
+                                                <?php echo $value['mucluong'] ?>
+                                            </span>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <?php } ?>
                         <!-- Kết thúc vòng lặp PHP -->
                     </div>
@@ -411,8 +410,7 @@ require_once 'header.php';
     <!-- JOB POST END -->
 
     <!-- EXPLORE NEW LIFE START -->
-    <div class="section-full p-t20 p-b20 twm-explore-area bg-cover"
-        style="background-image: url(images/background/bg-1.jpg)">
+    <div class="section-full p-t20 p-b20 twm-explore-area bg-cover" style="background-image: url(images/background/bg-1.jpg)">
         <div class="container">
             <div class="section-content">
                 <div class="row">
@@ -440,7 +438,7 @@ require_once 'header.php';
                                     </h2>
                                     <p>
                                         Dễ dàng tạo CV xịn, gây ấn tượng tốt với Nhà tuyển dụng và gia tăng
-                                         cơ hội được lựa chọn phỏng vấn
+                                        cơ hội được lựa chọn phỏng vấn
                                     </p>
                                 </div>
                                 <div class="twm-upload-file">
@@ -463,29 +461,17 @@ require_once 'header.php';
     <div class="section-full p-t50 site-bg-white twm-companies-wrap">
         <!-- TITLE START-->
         <div class="section-head center wt-small-separator-outer">
-            <!-- <div class="wt-small-separator site-text-primary">
-                <div>Top Companies</div>
-            </div> -->
-            <h2 class="wt-title">LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO MGƯỜI LAO ĐỘNG</h2>
+            <h2 class="wt-title" style="font-size: 24px;">LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO MGƯỜI LAO ĐỘNG</h2>
         </div>
         <!-- TITLE END-->
 
         <div class="container">
             <div class="section-content">
                 <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
-                    <!-- <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_nidec.png" alt="" />
-                            </div>
-                        </div>
-                    </div> -->
-
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_olympus.png"
-                                        alt="" /></a>
+                                <a href="employer-list.html"><img src="images/client-logo/logo_olympus.png" alt="" /></a>
                             </div>
                         </div>
                     </div>
@@ -501,8 +487,7 @@ require_once 'header.php';
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_Nakajima.jpg"
-                                        alt="" /></a>
+                                <a href="employer-list.html"><img src="images/client-logo/logo_Nakajima.jpg" alt="" /></a>
                             </div>
                         </div>
                     </div>
@@ -510,8 +495,7 @@ require_once 'header.php';
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/shimizu_logo.png"
-                                        alt="" /></a>
+                                <a href="employer-list.html"><img src="images/client-logo/shimizu_logo.png" alt="" /></a>
                             </div>
                         </div>
                     </div>
@@ -519,8 +503,7 @@ require_once 'header.php';
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_Sumitomo.png"
-                                        alt="" /></a>
+                                <a href="employer-list.html"><img src="images/client-logo/logo_Sumitomo.png" alt="" /></a>
                             </div>
                         </div>
                     </div>
@@ -535,8 +518,7 @@ require_once 'header.php';
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_olympus.png"
-                                        alt="" /></a>
+                                <a href="employer-list.html"><img src="images/client-logo/logo_olympus.png" alt="" /></a>
                             </div>
                         </div>
                     </div>
@@ -552,8 +534,7 @@ require_once 'header.php';
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_Nakajima.jpg"
-                                        alt="" /></a>
+                                <a href="employer-list.html"><img src="images/client-logo/logo_Nakajima.jpg" alt="" /></a>
                             </div>
                         </div>
                     </div>
@@ -572,10 +553,12 @@ require_once 'header.php';
                         <!-- TITLE START-->
                         <div class="section-head left wt-small-separator-outer">
                             <div class="wt-small-separator site-text-primary">
-                                <h2>CẢM NHẬN CỦA NGƯỜI TUYỂN DỤNG</h2>
-                                <a class="wt-title" style="text-align: center;">Mọi người nói gì về các dịch vụ mà
-                                    Vietseiko cung cấp khi họ đến với
-                                    công ty</a>
+                                <h2 style="font-size: 24px;font-family: 'Roboto', sans-serif !important;">
+                                    CẢM NHẬN CỦA NGƯỜI TUYỂN DỤNG
+                                </h2>
+                                <a class="wt-title" style="font-family: 'Roboto', sans-serif;">
+                                    Mọi người nói gì về các dịch vụ mà Vietseiko cung cấp khi họ đến với công ty
+                                </a>
                             </div>
 
                         </div>
@@ -704,46 +687,45 @@ require_once 'header.php';
                         <?php
                         $list_of_latestBlog = Blog::getLatestBlog(6);
                         foreach ($list_of_latestBlog as $key => $value) {
-                            ?>
-                        <div class="item">
-                            <div class="blog-post twm-blog-post-1-outer">
-                                <div class="wt-post-media">
-                                    <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
-                                        <img src="images/blog/latest/<?php echo $value['img_blog']; ?>" alt="" />
-                                    </a>
-                                </div>
-                                <div class="wt-post-info">
-                                    <div class="wt-post-meta">
-                                        <ul>
-                                            <li class="post-date">
-                                                <?php echo $value['ngaydang']; ?>
-                                            </li>
-                                            <li class="post-author">
-                                                By <a href="blog-detail.php">
-                                                    <?php echo $value['name_blog']; ?>
+                        ?>
+                            <div class="item">
+                                <div class="blog-post twm-blog-post-1-outer">
+                                    <div class="wt-post-media">
+                                        <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
+                                            <img src="images/blog/latest/<?php echo $value['img_blog']; ?>" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="wt-post-info">
+                                        <div class="wt-post-meta">
+                                            <ul>
+                                                <li class="post-date">
+                                                    <?php echo $value['ngaydang']; ?>
+                                                </li>
+                                                <li class="post-author">
+                                                    By <a href="blog-detail.php">
+                                                        <?php echo $value['name_blog']; ?>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wt-post-title">
+                                            <h4 class="post-title">
+                                                <a href="blog-single.php?id=<?php echo $value['id_blog']; ?>">
+                                                    <?php echo substr($value['tieude_blog'], 0, 100); ?>...
                                                 </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="wt-post-title">
-                                        <h4 class="post-title">
-                                            <a href="blog-single.php?id=<?php echo $value['id_blog']; ?>">
-                                                <?php echo substr($value['tieude_blog'], 0, 100); ?>...
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div class="wt-post-text">
-                                        <p>
-                                            <?php echo substr($value['noidung_blog'], 0, 200); ?>...
-                                        </p>
-                                    </div>
-                                    <div class="wt-post-readmore">
-                                        <a href="blog-single.php?id=<?php echo $value['id_blog']; ?>"
-                                            class="site-button-link site-text-primary">Read More</a>
+                                            </h4>
+                                        </div>
+                                        <div class="wt-post-text">
+                                            <p>
+                                                <?php echo substr($value['noidung_blog'], 0, 200); ?>...
+                                            </p>
+                                        </div>
+                                        <div class="wt-post-readmore">
+                                            <a href="blog-single.php?id=<?php echo $value['id_blog']; ?>" class="site-button-link site-text-primary">Read More</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <?php
                         }
                         ?>

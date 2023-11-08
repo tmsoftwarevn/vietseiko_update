@@ -50,7 +50,7 @@ $job_kysu = new Job_Kysu;
 
 
     <!-- PAGE TITLE HERE -->
-    <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
+    <!-- <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title> -->
 
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -81,25 +81,25 @@ $job_kysu = new Job_Kysu;
     <!-- CUSTOM SCROLL BAR STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="public/css/datepicker.css" />
     <!-- DATEPICKER STYLE SHEET -->
-    <!-- <link rel="stylesheet" type="text/css" href="public/css/flaticon.css" /> -->
+    <link rel="stylesheet" type="text/css" href="public/css/flaticon.css" />
     <!-- Flaticon -->
     <link rel="stylesheet" type="text/css" href="public/css/swiper-bundle.min.css" />
     <!-- Swiper Slider -->
     <link rel="stylesheet" type="text/css" href="public/css/style.css" />
     <!-- MAIN STYLE SHEET -->
-    <link rel="stylesheet" type="text/css" href="public/css/style2.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="public/css/style2.css" /> -->
     <!-- Thêm liên kết đến tệp CSS -->
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- THEME COLOR CHANGE STYLE SHEET -->
     <link rel="stylesheet" class="skin" type="text/css" href="public/css/skins-type/skin-6.css" />
     <!-- SIDE SWITCHER STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="public/css/switcher.css" />
     <!--css contact-->
-   <!--  <link rel="stylesheet" type="text/css" href="public/css/contact.css" /> -->
+    <!--  <link rel="stylesheet" type="text/css" href="public/css/contact.css" /> -->
     <!-- Css INTRODUCE -->
     <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
-    <link rel="stylesheet" type="text/css" href="public/css/style1.css" />
+    
     <!-- THEME COLOR CHANGE STYLE SHEET -->
     <link rel="stylesheet" class="skin" type="text/css" href="public/css/skins-type/skin-6.css" />
     <!-- SIDE SWITCHER STYLE SHEET -->
@@ -243,10 +243,48 @@ $job_kysu = new Job_Kysu;
             width: 24px;
             text-align: center;
         }
+
+        .default-tabs .tabbed-trigger {
+            background: #e9eaec !important;
+        }
+
+        .default-tabs .tab-buttons {
+            align-items: flex-start;
+            /* flex-wrap: wrap; */
+            justify-content: space-between !important;
+        }
+
+        .default-tabs .tab-buttons li {
+            background: #e9eaec !important;
+            color: #212f3f !important;
+            font-size: 14px !important;
+            font-weight: 500;
+            height: 40px;
+            line-height: 25px;
+        }
+
+        .default-tabs .tab-buttons li:hover {
+            border: 1px solid #0dcaf0 !important;
+            color: #fff !important;
+            border-radius: 20px;
+        }
+
+        .default-tabs .tabbed-trigger.clicked {
+            background: #0dcaf0 !important;
+            color: #fff !important;
+            font-size: 14px !important;
+            font-weight: 500;
+            height: 40px;
+            line-height: 25px;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif !important;
+        }
     </style>
 </head>
 
-<body style="font-family: 'Roboto', sans-serif;">
+<body>
     <!-- LOADING AREA START ===== -->
     <div class="loading-area">
         <div class="loading-box"></div>
@@ -266,7 +304,7 @@ $job_kysu = new Job_Kysu;
                     <div class="container-fluid clearfix">
                         <div class="logo-header">
                             <div class="logo-header-inner logo-header-one">
-                                <a href="index.php">
+                                <a href="trang-chu">
                                     <img src="public/images/logo.png" alt="" />
                                 </a>
                             </div>
@@ -284,7 +322,7 @@ $job_kysu = new Job_Kysu;
                         <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
                             <ul class="nav navbar-nav">
                                 <li class="has-child">
-                                    <a href="about-us.php">Giới Thiệu</a>
+                                    <a href="gioi-thieu">Giới Thiệu</a>
                                 </li>
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
@@ -294,7 +332,7 @@ $job_kysu = new Job_Kysu;
                                         foreach ($list_of_protypes as $key => $value) {
                                         ?>
                                             <li>
-                                                <a href="job-list.php?type_id=<?php echo $value['type_id']; ?>">
+                                                <a href="viec-lam?type_id=<?php echo $value['type_id']; ?>">
                                                     <?php echo $value['type_name'] ?>
                                                 </a>
                                             </li>
@@ -310,13 +348,13 @@ $job_kysu = new Job_Kysu;
                                         foreach ($list_of_Protypes_congcu as $key => $value) {
                                         ?>
                                             <li>
-                                                <a href="blog-camnang.php?id_congcu=<?php echo $value['id_congcu']; ?>">
+                                                <a href="cam-nang?id_congcu=<?php echo $value['id_congcu']; ?>">
                                                     <?php echo $value['name_congcu'] ?>
                                                 </a>
                                             </li>
                                         <?php } ?>
                                     </ul>
-                                </li>
+                                </li><!-- 
                                 <li class="has-child">
                                     <a href="javascript:;">Công Ty</a>
                                     <ul class="sub-menu">
@@ -325,12 +363,12 @@ $job_kysu = new Job_Kysu;
                                         </li>
                                         <li><a href="employer-list.html">Top Công Ty</a></li>
                                     </ul>
+                                </li> -->
+                                <li class="has-child">
+                                    <a href="tin-tuc">Tin Tức</a>
                                 </li>
                                 <li class="has-child">
-                                    <a href="blog.php">Tin Tức</a>
-                                </li>
-                                <li class="has-child">
-                                    <a href="contact.php">Liên Hệ</a>
+                                    <a href="lien-he">Liên Hệ</a>
                                 </li>
                             </ul>
                         </div>

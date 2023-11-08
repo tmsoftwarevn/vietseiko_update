@@ -1,3 +1,4 @@
+<title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <?php
 
 require_once 'header.php';
@@ -118,34 +119,6 @@ require_once 'header.php';
         </div>
 
         <div class="col-lg-8 col-md-12">
-          <!--Filter Short By-->
-          <!-- <div class="product-filter-wrap d-flex justify-content-between align-items-center m-b30">
-             <span class="woocommerce-result-count-left">Showing 2,150 jobs</span> 
-
-            <form class="woocommerce-ordering twm-filter-select" method="get">
-              <span class="woocommerce-result-count">Short By</span>
-              <div class="dropdown bootstrap-select wt-select-bar-2">
-                <select class="wt-select-bar-2 selectpicker" data-live-search="true" data-bv-field="size">
-                  <option>Most Recent</option>
-                  <option>Freelance</option>
-                  <option>Full Time</option>
-                  <option>Internship</option>
-                  <option>Part Time</option>
-                  <option>Temporary</option>
-                </select>
-              </div>
-              <div class="dropdown bootstrap-select wt-select-bar-2">
-                <select class="wt-select-bar-2 selectpicker" data-live-search="true" data-bv-field="size">
-                  <option>Show 10</option>
-                  <option>Show 20</option>
-                  <option>Show 30</option>
-                  <option>Show 40</option>
-                  <option>Show 50</option>
-                  <option>Show 60</option>
-                </select>
-              </div>
-            </form>
-          </div> -->
 
           <!-- Lấy danh sách job theo ngành nghề -->
 
@@ -171,7 +144,7 @@ require_once 'header.php';
                         <img src="images/jobs-company/pic1.jpg" alt="#" />
                       </div>
                       <div class="twm-mid-content">
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
+                        <a href="detail?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
                           <h4>
                             <?php echo $value['chucvu'] ?>
                           </h4>
@@ -202,7 +175,7 @@ require_once 'header.php';
                         <div class="twm-jobs-amount">
                           <?php echo $value['mucluong'] ?> <span>/ Tháng</span>
                         </div>
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
+                        <a href="detail?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
                       </div>
                     </div>
                   </li>
@@ -232,7 +205,7 @@ require_once 'header.php';
                         <img src="images/jobs-company/pic1.jpg" alt="#" />
                       </div>
                       <div class="twm-mid-content">
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
+                        <a href="detail?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
                           <h4>
                             <?php echo $value['chucvu'] ?>
                           </h4>
@@ -262,7 +235,7 @@ require_once 'header.php';
                         <div class="twm-jobs-amount">
                           <?php echo $value['mucluong'] ?> <span>/ Tháng</span>
                         </div>
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
+                        <a href="detail?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
                       </div>
                     </div>
                   </li>
@@ -295,7 +268,7 @@ require_once 'header.php';
                         <img src="images/jobs-company/pic1.jpg" alt="#" />
                       </div>
                       <div class="twm-mid-content">
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
+                        <a href="detail?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
                           <h4>
                             <?php echo $value['chucvu'] ?>
                           </h4>
@@ -325,7 +298,7 @@ require_once 'header.php';
                         <div class="twm-jobs-amount">
                           <?php echo $value['mucluong'] ?> <span>/ Tháng</span>
                         </div>
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
+                        <a href="detail?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
                       </div>
                     </div>
                   </li>
@@ -358,7 +331,7 @@ require_once 'header.php';
                         <img src="images/jobs-company/pic1.jpg" alt="#" />
                       </div>
                       <div class="twm-mid-content">
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
+                        <a href="detail?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
                           <h4>
                             <?php echo $value['chucvu'] ?>
                           </h4>
@@ -388,7 +361,7 @@ require_once 'header.php';
                         <div class="twm-jobs-amount">
                           <?php echo $value['mucluong'] ?> <span>/ Tháng</span>
                         </div>
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
+                        <a href="detail?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
                       </div>
                     </div>
                   </li>
@@ -400,7 +373,7 @@ require_once 'header.php';
           <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
             <nav aria-label="Page navigation example">
               <ul class="pagination my-2 my-md-0">
-                <?php echo Job::paginate("job-list.php?type_id=" . $_GET['type_id'] . "&", $page, $totalResults, $resultsPerPage, 1) ?>
+                <?php echo Job::paginate("viec-lam?type_id=", $page, $totalResults, $resultsPerPage, 1) ?>
               </ul>
             </nav>
           </div>

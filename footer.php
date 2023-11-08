@@ -1,67 +1,23 @@
+<link rel="stylesheet" type="text/css" href="public/css/style2.css" />
 <!-- FOOTER START -->
 <div class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12 hidden-xs hidden-sm">
-                <div class="menu_title">
-                    <a href="/">Trang chủ</a>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="logo_content hidden-xs hidden-sm">
+                    <span class="logo_content_kaizen">
+                        <a href="https://www.vietseiko.com/" target="_blank">
+                            <img src="images/logo.png" width="205" alt="" />
+                        </a>
+                    </span>
                 </div>
-                <ul class="menu_content">
-
-                    <li><a href="/goc-viec-lam-tai-nhat-ban.html" target="_blank">Đối tác liên kết -
-                            <br />Việc làm Nhật Bản</a></li>
-                    <li><a href="/jlpt">Thông báo đậu JLPT</a></li>
-                    <li><a href="/tuyen-dung-viec-lam-esuhai.html" target="_blank">Tuyển dụng Nhân viên
-                            Vietseiko</a></li>
-                    <li><a href="/thu-vien-media/mang-xa-hoi-thuong-hieu">Thư viện - Media</a></li>
-                    <li><a href="/policy.html" target="_blank">Quy định bảo mật</a></li>
-                    <li><a href="/contact.php">Liên hệ</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12 hidden-xs hidden-sm">
-                <div class="menu_title">
-                    <a href="/gioi-thieu/thong-tin-cong-ty">Giới thiệu</a>
-                </div>
-                <ul class="menu_content">
-                    <li><a href="">Giới thiệu công ty</a></li>
-                    <li><a href="/">Giới thiệu các bộ phận</a></li>
-                    <li><a href="/news-events.html">Tin tức & Sự kiện</a></li>
-                    <li><a href="/news/japan.html">Thông tin Nhật Bản</a></li>
-                    <li><a href="/goc-vuon-uom">Góc vườn ươm nhân tài Việt Nhật</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12 hidden-xs hidden-sm">
-                <div class="menu_title">
-                    <a href="/our-service">Dịch vụ</a>
-                </div>
-                <ul class="menu_content">
-                    <li><a href="/our-service/dao-tao-va-giao-duc/gioi-thieu">Đào tạo & giáo dục</a></li>
-                    <li><a href="/our-service/phai-cu-thuc-tap-sinh/gioi-thieu">Phái cử thực tập sinh kỹ
-                            thuật</a></li>
-                    <li><a href="/ky-su-lam-viec-tai-nhat-ban.html">Đào tạo & giới thiệu kỹ sư</a></li>
-                    <li><a href="/our-service/viec-lam-trong-nuoc/gioi-thieu">Giới thiệu việc làm trong
-                            nước</a></li>
-                    <li><a href="/our-service/tu-van-dau-tu/gioi-thieu">Tư vấn đầu tư</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12 hidden-xs hidden-sm">
-                <div class="menu_title">
-                    <a href="/xuat-khau-lao-dong-nhat-ban.html">Việc làm & Đào tạo</a>
-                </div>
-                <ul class="menu_content">
-                    <li><a href="/xuat-khau-lao-dong-nhat-ban.html">Xuất khẩu lao động Nhật Bản</a></li>
-                    <li><a href="/viec-lam/cong-viec-tieng-nhat.html">Việc làm tại Việt Nam</a></li>
-                    <li><a href="/viec-lam/ky-su.html">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
-                    <li><a href="/viec-lam/chieu-sinh">Tuyển sinh - Chiêu sinh</a></li>
-                </ul>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="giayphep_content">
                     <div class="giayphep_content_col">
                         <a href="https://www.vietseiko.com/giay-phep" target="_blank">
                             <span class="giayphep_content_col_img">
-                                <img src="images/icon_giayphep@3x.png" width="80" height="80"
-                                    alt="Giấy phép <br/>đưa NLĐ đi làm việc <br/>ở nước ngoài" />
+                                <img src="images/icon_giayphep@3x.png" width="80" height="80" alt="Giấy phép <br/>đưa NLĐ đi làm việc <br/>ở nước ngoài" />
                             </span>
                             <span class="giayphep_content_col_tile">
                                 7907-ldtbxh-gp
@@ -75,8 +31,7 @@
                     <div class="giayphep_content_col">
                         <a href="https://www.vietseiko.com/giay-phep-kinh-doanh" target="_blank">
                             <span class="giayphep_content_col_img">
-                                <img src="images/icon_giayphep@2x.png" width="80" height="80"
-                                    alt="Giấy phép <br/>Đào tạo" />
+                                <img src="images/icon_giayphep@2x.png" width="80" height="80" alt="Giấy phép <br/>Đào tạo" />
                             </span>
                             <span class="giayphep_content_col_tile">
                                 7907-ldtbxh-gp
@@ -88,15 +43,42 @@
 
 
                 </div>
-
-                <div class="logo_content hidden-xs hidden-sm">
-                    <span class="logo_content_kaizen">
-                        <a href="https://www.vietseiko.com/" target="_blank">
-                            <img src="images/logo.png" width="205" alt="" />
-                        </a>
-                    </span>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <!-- start div newsletter_content-->
+                <div class="newsletter_content">
+                    <div class="newsletter_title">
+                        BẢN TIN VIETSEIKO</div>
+                    <div class="newsletter_cont">
+                        <span class="newsletter_cont_label">
+                            Nhập email của bạn để nhận được các thông tin, kinh nghiệm sống, văn hóa Nhật
+                            Bản từ VietSeiko.</span>
+                        <div class="newsletter_cont_cont">
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Nhập email của bạn vào đây" name="email_dangky_email" id="email_dk">
+                                    <button type="button" class="hvr-sweep-to-right" id="gui_email">Gửi</button>
+                                </div>
+                                <div class="span_email_bantin email_error">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
+                <div class="newsletter_content">
+                    <h4>Kết nối với VietSeiko</h4>
+                    <div class="newsletter_content_right">
+                        <a class="ketnoi_youtube" target="_blank" href="https://www.youtube.com/@congtytnhhvietseiko7739">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a class="ketnoi_face" target="_blank" href="https://www.facebook.com/Cty.TNHH.Vietseiko/">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a class="ketnoi_face" target="_blank" href="https://www.tiktok.com/@vietseiko.hr?lang=en">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -122,10 +104,7 @@
                                     </a>
                                 </span>
                                 <span>
-                                    <iframe
-                                        src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Vi%E1%BB%87c-L%C3%A0m-Ti%E1%BA%BFng-Nh%E1%BA%ADt-TPHCM-Vietseiko-105744628103928;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                        width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                        frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Vi%E1%BB%87c-L%C3%A0m-Ti%E1%BA%BFng-Nh%E1%BA%ADt-TPHCM-Vietseiko-105744628103928;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                 </span>
                             </div>
                         </div>
@@ -145,10 +124,7 @@
                                     </a>
                                 </span>
                                 <span>
-                                    <iframe
-                                        src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/HR-Vietseiko-Vi%E1%BB%87c-L%C3%A0m-Nhanh-108428324645270;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                        width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                        frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/HR-Vietseiko-Vi%E1%BB%87c-L%C3%A0m-Nhanh-108428324645270;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                 </span>
                             </div>
                         </div>
@@ -166,10 +142,7 @@
                                     </a>
                                 </span>
                                 <span>
-                                    <iframe
-                                        src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                        width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                        frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                 </span>
                             </div>
                         </div>
@@ -189,10 +162,7 @@
                                     </a>
                                 </span>
                                 <span>
-                                    <iframe
-                                        src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                        width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                        frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                 </span>
                             </div>
                         </div>
@@ -202,8 +172,7 @@
                         <div class="facebook_content_kaizen">
                             <div class="facebook_content_kaizen_img hidden-md">
                                 <a href="https://www.facebook.com/Cty.TNHH.Vietseiko/" target="_blank">
-                                    <img src="images/fanpage1 (1).png" width="40" height="40"
-                                        alt="icon_face_kaizen@2x.png" />
+                                    <img src="images/fanpage1 (1).png" width="40" height="40" alt="icon_face_kaizen@2x.png" />
                                 </a>
                             </div>
                             <div class="facebook_content_kaizen_cont">
@@ -213,10 +182,7 @@
                                     </a>
                                 </span>
                                 <span>
-                                    <iframe
-                                        src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCty.TNHH.Vietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                        width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                        frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCty.TNHH.Vietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                 </span>
                             </div>
                         </div>
@@ -254,27 +220,6 @@
                 </div>
                 <br />
                 <!-- end div add_cont-->
-                <!-- start div add_cont-->
-                <div class="add_cont add_cont_t">
-                    <div class="address_title">
-                        <ion-icon name="podium-outline"></ion-icon> VĂN PHÒNG TẠI NHẬT BẢN
-                    </div>
-                    <div class="address_content">
-                        <span class="address_content_label">
-                            <ion-icon name="ribbon-outline"></ion-icon>Văn phòng tại HIROSHIMA (広島)
-                        </span>
-                        <span class="address_content_add">
-                            <ion-icon name="location-outline"></ion-icon>日本の駐住事務所：広島県福山市神辺町 下御 領1332-5
-                        </span>
-                        <span class="address_content_tel">
-                            <ion-icon name="logo-whatsapp"></ion-icon><span> 担当者の電話番号:</span>084-965-0831
-                        </span>
-                        <span class="address_content_Email">
-                            <ion-icon name="mail-outline"></ion-icon>
-                            <span>E-mail:</span>hello.quykhachhang@vietseiko.com
-                    </div>
-                </div>
-                <!-- end div add_cont-->
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -301,43 +246,29 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <!-- start div newsletter_content-->
-                <div class="newsletter_content">
-                    <div class="newsletter_title">
-                        BẢN TIN VIETSEIKO</div>
-                    <div class="newsletter_cont">
-                        <span class="newsletter_cont_label">
-                            Nhập email của bạn để nhận được các thông tin, kinh nghiệm sống, văn hóa Nhật
-                            Bản từ VietSeiko.</span>
-                        <div class="newsletter_cont_cont">
-                            <form>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Nhập email của bạn vào đây"
-                                        name="email_dangky_email" id="email_dk">
-                                    <button type="button" class="hvr-sweep-to-right" id="gui_email">Gửi</button>
-                                </div>
-                                <div class="span_email_bantin email_error">
-                                </div>
-                            </form>
-                        </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <!-- start div add_cont-->
+                <div class="add_cont add_cont_t">
+                    <div class="address_title">
+                        <ion-icon name="podium-outline"></ion-icon> VĂN PHÒNG TẠI NHẬT BẢN
                     </div>
-                </div>
-                <div class="newsletter_content">
-                    <div class="newsletter_content_right">
-                        <a class="ketnoi_youtube" target="_blank"
-                            href="https://www.youtube.com/@congtytnhhvietseiko7739">
-                            <i class="bi bi-youtube"></i>
-                        </a>
-                        <a class="ketnoi_face" target="_blank" href="https://www.facebook.com/Cty.TNHH.Vietseiko/">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a class="ketnoi_face" target="_blank" href="https://www.tiktok.com/@vietseiko.hr?lang=en">
-                            <i class="bi bi-tiktok"></i>
-                        </a>
+                    <div class="address_content">
+                        <span class="address_content_label">
+                            <ion-icon name="ribbon-outline"></ion-icon>Văn phòng tại HIROSHIMA (広島)
+                        </span>
+                        <span class="address_content_add">
+                            <ion-icon name="location-outline"></ion-icon>日本の駐住事務所：広島県福山市神辺町 下御 領1332-5
+                        </span>
+                        <span class="address_content_tel">
+                            <ion-icon name="logo-whatsapp"></ion-icon><span> 担当者の電話番号:</span>084-965-0831
+                        </span>
+                        <span class="address_content_Email">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <span>E-mail:</span>hello.quykhachhang@vietseiko.com
                     </div>
                 </div>
             </div>
+
             <div class="copy_right">
                 <div class="container">
                     <div class="copy">
@@ -379,8 +310,7 @@
                                         <div class="form-group">
                                             <label>Your Name</label>
                                             <div class="ls-inputicon-box">
-                                                <input class="form-control" name="company_name" type="text"
-                                                    placeholder="Devid Smith">
+                                                <input class="form-control" name="company_name" type="text" placeholder="Devid Smith">
                                                 <i class="fs-input-icon fa fa-user "></i>
                                             </div>
                                         </div>
@@ -389,8 +319,7 @@
                                         <div class="form-group">
                                             <label>Email Address</label>
                                             <div class="ls-inputicon-box">
-                                                <input class="form-control" name="company_Email" type="email"
-                                                    placeholder="Devid@example.com">
+                                                <input class="form-control" name="company_Email" type="email" placeholder="Devid@example.com">
                                                 <i class="fs-input-icon fas fa-at"></i>
                                             </div>
                                         </div>
@@ -399,8 +328,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Message</label>
-                                            <textarea class="form-control" rows="3"
-                                                placeholder="Message sent to the employer"></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Message sent to the employer"></textarea>
                                         </div>
                                     </div>
 
@@ -412,8 +340,7 @@
                                                         Click here or drop files to upload</span></div>
                                             </form>
                                             <small>If you do not have a resume document, you may write your brief
-                                                professional profile <a class="site-text-primary"
-                                                    href="javascript:void(0);">here</a></small>
+                                                professional profile <a class="site-text-primary" href="javascript:void(0);">here</a></small>
                                         </div>
                                     </div>
 
@@ -441,8 +368,7 @@
 </div>
 <!--Model Popup Section Start-->
 <!--Signup popup -->
-<div class="modal fade twm-sign-up" id="sign_up_popup" aria-hidden="true" aria-labelledby="sign_up_popupLabel"
-    tabindex="-1">
+<div class="modal fade twm-sign-up" id="sign_up_popup" aria-hidden="true" aria-labelledby="sign_up_popupLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form>
@@ -457,15 +383,13 @@
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <!--Signup Candidate-->
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#sign-candidate"
-                                    type="button">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#sign-candidate" type="button">
                                     <i class="bi bi-people"></i>Ứng Viên
                                 </button>
                             </li>
                             <!--Signup Employer-->
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sign-Employer"
-                                    type="button">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sign-Employer" type="button">
                                     <i class="bi bi-building"></i>Nhà Tuyển Dụng
                                 </button>
                             </li>
@@ -476,29 +400,25 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control"
-                                                placeholder="Usearname*" />
+                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required=""
-                                                placeholder="Password*" />
+                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required=""
-                                                placeholder="Email*" />
+                                            <input name="phone" type="text" class="form-control" required="" placeholder="Email*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required=""
-                                                placeholder="Phone*" />
+                                            <input name="phone" type="text" class="form-control" required="" placeholder="Phone*" />
                                         </div>
                                     </div>
 
@@ -510,8 +430,7 @@
                                                     <a href="javascript:;">Terms and conditions</a></label>
                                                 <p>
                                                     Already registered?
-                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2"
-                                                        data-bs-toggle="modal" data-bs-dismiss="modal">
+                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2" data-bs-toggle="modal" data-bs-dismiss="modal">
                                                         Log in here
                                                     </button>
                                                 </p>
@@ -530,29 +449,25 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control"
-                                                placeholder="Usearname*" />
+                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required=""
-                                                placeholder="Password*" />
+                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required=""
-                                                placeholder="Email*" />
+                                            <input name="phone" type="text" class="form-control" required="" placeholder="Email*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required=""
-                                                placeholder="Phone*" />
+                                            <input name="phone" type="text" class="form-control" required="" placeholder="Phone*" />
                                         </div>
                                     </div>
 
@@ -564,8 +479,7 @@
                                                     <a href="javascript:;">Terms and conditions</a></label>
                                                 <p>
                                                     Already registered?
-                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2"
-                                                        data-bs-toggle="modal" data-bs-dismiss="modal">
+                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2" data-bs-toggle="modal" data-bs-dismiss="modal">
                                                         Log in here
                                                     </button>
                                                 </p>
@@ -605,8 +519,7 @@
     </div>
 </div>
 <!--Login popup -->
-<div class="modal fade twm-sign-up" id="sign_up_popup2" aria-hidden="true" aria-labelledby="sign_up_popupLabel2"
-    tabindex="-1">
+<div class="modal fade twm-sign-up" id="sign_up_popup2" aria-hidden="true" aria-labelledby="sign_up_popupLabel2" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form>
@@ -619,15 +532,13 @@
                         <ul class="nav nav-tabs" id="myTab2" role="tablist">
                             <!--Login Candidate-->
                             <li class="nav-item">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#login-candidate"
-                                    type="button">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#login-candidate" type="button">
                                     <i class="bi bi-people"></i>Ứng Viên
                                 </button>
                             </li>
                             <!--Login Employer-->
                             <li class="nav-item">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#login-Employer"
-                                    type="button">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#login-Employer" type="button">
                                     <i class="bi bi-building"></i>Nhà Tuyển Dụng
                                 </button>
                             </li>
@@ -640,15 +551,13 @@
                                     <form action="login.php" method="post">
                                         <div class="col-lg-12">
                                             <div class="form-group mb-3">
-                                                <input name="username" type="text" required="" class="form-control"
-                                                    placeholder="Usearname*" required />
+                                                <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" required />
                                             </div>
                                         </div>
 
                                         <div class="col-lg-12">
                                             <div class="form-group mb-3">
-                                                <input name="email" type="text" class="form-control" required=""
-                                                    placeholder="Password*" required />
+                                                <input name="email" type="text" class="form-control" required="" placeholder="Password*" required />
                                             </div>
                                         </div>
 
@@ -668,8 +577,7 @@
                                             </button>
                                             <div class="mt-3 mb-3">
                                                 Don't have an account ?
-                                                <button class="twm-backto-login" data-bs-target="#sign_up_popup"
-                                                    data-bs-toggle="modal" data-bs-dismiss="modal">
+                                                <button class="twm-backto-login" data-bs-target="#sign_up_popup" data-bs-toggle="modal" data-bs-dismiss="modal">
                                                     Sign Up
                                                 </button>
                                             </div>
@@ -682,15 +590,13 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control"
-                                                placeholder="Usearname*" />
+                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required=""
-                                                placeholder="Password*" />
+                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
                                         </div>
                                     </div>
 
@@ -710,8 +616,7 @@
                                         </button>
                                         <div class="mt-3 mb-3">
                                             Don't have an account ?
-                                            <button class="twm-backto-login" data-bs-target="#sign_up_popup"
-                                                data-bs-toggle="modal" data-bs-dismiss="modal">
+                                            <button class="twm-backto-login" data-bs-target="#sign_up_popup" data-bs-toggle="modal" data-bs-dismiss="modal">
                                                 Sign Up
                                             </button>
                                         </div>
@@ -747,58 +652,57 @@
 </div>
 
 <script>
-//tabbed
-document.addEventListener("DOMContentLoaded", function() {
-    const trigger = document.querySelectorAll('.tabbed-trigger');
-    const content = document.querySelectorAll('.tab');
+    //tabbed
+    document.addEventListener("DOMContentLoaded", function() {
+        const trigger = document.querySelectorAll('.tabbed-trigger');
+        const content = document.querySelectorAll('.tab');
 
-    trigger.forEach((btn) => {
-        btn.addEventListener('click', function(event) {
-            event.preventDefault();
+        trigger.forEach((btn) => {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
 
-            let dataTarget = this.getAttribute('data-id');
-            let selectedTab = document.getElementById(dataTarget);
+                let dataTarget = this.getAttribute('data-id');
+                let selectedTab = document.getElementById(dataTarget);
 
-            trigger.forEach((b) => b.parentNode.classList.remove('active'));
-            content.forEach((s) => s.style.display = 'none');
+                trigger.forEach((b) => b.parentNode.classList.remove('active'));
+                content.forEach((s) => s.style.display = 'none');
 
-            this.parentNode.classList.add('active');
-            selectedTab.style.display = 'block';
+                this.parentNode.classList.add('active');
+                selectedTab.style.display = 'block';
 
-            trigger.forEach((b) => b.classList.remove('clicked'));
-            this.classList.add('clicked');
+                trigger.forEach((b) => b.classList.remove('clicked'));
+                this.classList.add('clicked');
+            });
         });
     });
-});
 
-//dropdown
-/* const dropdownBtn = document.querySelector(".dropdown__button");
-const dropdownItems = document.querySelector(".dropdown__items");
+    //dropdown
+    /* const dropdownBtn = document.querySelector(".dropdown__button");
+    const dropdownItems = document.querySelector(".dropdown__items");
 
-let isOpen = false;
+    let isOpen = false;
 
-const openDropdown = () => {
-  isOpen = !isOpen;
+    const openDropdown = () => {
+      isOpen = !isOpen;
 
-  if (isOpen) {
-    dropdownItems.classList.replace("dropdown--hide", "dropdown--show");
-  } else {
-    dropdownItems.classList.replace("dropdown--show", "dropdown--hide");
-  }
-};
+      if (isOpen) {
+        dropdownItems.classList.replace("dropdown--hide", "dropdown--show");
+      } else {
+        dropdownItems.classList.replace("dropdown--show", "dropdown--hide");
+      }
+    };
 
-dropdownBtn.addEventListener("click", openDropdown); */
+    dropdownBtn.addEventListener("click", openDropdown); */
 
-$(".user-menu").click(function() {
-  $(this).toggleClass("show");
-});
-
+    $(".user-menu").click(function() {
+        $(this).toggleClass("show");
+    });
 </script>
 <!-- JAVASCRIPT  FILES ========================================= -->
 <script src="public/js/jquery-3.6.0.min.js">
-</script> 
+</script>
 <!--JQUERY.MIN JS-->
-    <script src = "public/js/popper.min.js" >
+<script src="public/js/popper.min.js">
 </script>
 <!-- POPPER.MIN JS -->
 <script src="public/js/bootstrap.min.js"></script>

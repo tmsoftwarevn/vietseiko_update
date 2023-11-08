@@ -17,7 +17,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
 /* var_dump(Hinhthuc::getAllHinhThuc()); */
 /* var_dump($allJob); */
 ?>
-
+<title><?php echo $allJob[0]['chucvu'] ?></title>
 <!-- CONTENT START -->
 <div class="page-content" style="transform: none">
     <!-- INNER PAGE BANNER -->

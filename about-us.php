@@ -59,18 +59,7 @@ require_once 'header.php';
                                                         <a href="gioi-thieu/thong-tin-cong-ty">Thông tin công ty</a>
                                                     </li>
                                                     <li>
-                                                        <a href="gioi-thieu/chi-nhanh-da-nang" target="_blank">Chi nhánh
-                                                            Đà Nẵng</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="gioi-thieu/qua-trinh-phat-trien">Quá trình phát
-                                                            triển</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="tuyen-ngon-Esuhai.php">Tuyên ngôn Esuhai</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="loi-chao-tu-tong-Giam-Doc.php">Lời chào từ Tổng Giám
+                                                        <a href="loi-chao-tu-tong-Giam-Doc">Lời chào từ Tổng Giám
                                                             đốc</a>
                                                     </li>
                                                 </ul>
@@ -254,7 +243,7 @@ require_once 'header.php';
                             <div class="row row_trusochinh">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="right_container_img">
-                                        <img src="images/img_school@2x.jpg" alt="" width="360" height="504" />
+                                        <img src="images/VietSeiko/banner-gt.jpg" alt="" width="360" height="504" />
                                         <!-- <img src="images/logo.png" alt="" width="360" height="504" /> -->
                                     </div>
                                     <div class="right_container_cont">
@@ -337,7 +326,7 @@ require_once 'header.php';
                                                 </div>
                                                 <div class="right_container_cont_cont_row">
                                                     <div class="right_container_cont_cont_row_left_right">
-                                                        <b>Công Ty TNHH Ê Su Hai</b>
+                                                        <b>Công ty TNHH VIETSEIKO</b>
                                                     </div>
 
                                                 </div>
@@ -346,7 +335,7 @@ require_once 'header.php';
                                                         Số tài khoản
                                                     </div>
                                                     <div class="right_container_cont_cont_row_right">
-                                                        0441000708743
+                                                    060170201577
                                                     </div>
                                                 </div>
                                                 <div class="right_container_cont_cont_row">
@@ -354,8 +343,8 @@ require_once 'header.php';
                                                         Ngân hàng
                                                     </div>
                                                     <div class="right_container_cont_cont_row_right">
-                                                        Vietcombank,<br />
-                                                        Chi nhánh Tân Bình, Phòng giao dịch Etown, HCM
+                                                    Ngân hàng TMCP, Sài Gòn Thương Tín ( Sacombank )<br />
+                                                        Chi nhánh Phòng giao dịch Bình Thái
                                                     </div>
                                                 </div>
                                             </div>
