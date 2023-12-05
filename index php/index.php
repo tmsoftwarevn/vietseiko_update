@@ -28,12 +28,12 @@ require_once 'header.php';
                                 <!--Title-->
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Vị trí</label>
-                                    <select class="form-select" style="cursor: pointer;">
+                                    <select class="wt-search-bar-select selectpicker" data-live-search="true" title="" id="j-Job_Title" data-bv-field="size">
                                         <?php
-                                        foreach ($nganh_ung_tuyen->getAllNganh_ung_tuyen() as $key => $value) {
+                                        foreach ($nganhnghe->getAllNganhNghe() as $key => $value) {
                                         ?>
-                                            <option value="<?php echo $value['id'] ?>">
-                                                <?php echo $value['ten_nganh'] ?>
+                                            <option value="<?php echo $value['id_nganhnghe'] ?>">
+                                                <?php echo $value['name_nganhnghe'] ?>
                                             </option>
                                         <?php } ?>
 
@@ -41,10 +41,9 @@ require_once 'header.php';
                                 </div>
 
                                 <!--All Category-->
-                                <!-- class="wt-search-bar-select selectpicker" data-live-search="true" title="" id="j-All_Category" data-bv-field="size" -->
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Hình thức</label>
-                                    <select class="form-select" style="cursor: pointer;">
+                                    <select class="wt-search-bar-select selectpicker" data-live-search="true" title="" id="j-All_Category" data-bv-field="size">
                                         <?php
                                         foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
                                             <option value="<?php echo $value['id_hinhthuc'] ?>">
@@ -58,22 +57,8 @@ require_once 'header.php';
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Khu vực</label>
                                     <div class="twm-inputicon-box">
-                                        <!-- <input name="keyword" type="text" required class="form-control" placeholder="Search..." /> -->
-                                        <select class="form-select" style="cursor: pointer;">
-                                            <option disabled selected value>-- Khu vực --</option>
-
-                                            <option value="Miền Bắc">
-                                                Miền Bắc
-                                            </option>
-                                            <option value="Miền Trung">
-                                                Miền Trung
-                                            </option>
-                                            <option value="Miền Nam">
-                                                Miền Nam
-                                            </option>
-
-                                        </select>
-                                        <!-- <i class="twm-input-icon bi bi-geo-alt"></i> -->
+                                        <input name="keyword" type="text" required class="form-control" placeholder="Search..." />
+                                        <i class="twm-input-icon bi bi-geo-alt"></i>
                                     </div>
                                 </div>
 
@@ -302,7 +287,7 @@ require_once 'header.php';
                                     <div class="content">
                                         <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
                                         <h5 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                                            <a href="detail?id=<?php echo $value['id_job'] ?>">
                                                 <?php echo $value['chucvu'] ?>
                                             </a>
                                         </h5>
@@ -344,7 +329,7 @@ require_once 'header.php';
                                     <div class="content">
                                         <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
                                         <h4>
-                                            <a href="job-detail_NB.php?id=<?php echo $value['id_NB'] ?>">
+                                            <a href="detail-NB?id=<?php echo $value['id_NB'] ?>">
                                                 <?php echo $value['name_NB'] ?>
                                             </a>
                                         </h4>

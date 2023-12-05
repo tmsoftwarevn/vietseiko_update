@@ -3,16 +3,19 @@ include 'header.php';
 /* if (!isset($_GET['id'])) {
   header('location: index.php');
 } */
-$id = 0;
+$id = 1;
 if (isset($_GET['id'])) {
-  $id = $_GET['id'];
+    $id = $_GET['id'];
+    //echo 'check id nb ' . $id;
 } else {
-  echo "Khong nhan duoc ID";
+    echo "Khong nhan duoc ID";
 }
 
 $allJob = $job_NB->getJob_Detail($id);
 $getManuTypeID = $job_NB->getTypeManuID($id);
 $getNganhngheNB_Name = $nganhngheNB->getNganhngheNB_NameByID($getManuTypeID[0]['id_nganhnghe_NB']);
+// $getNganhngheNB_Name = $nganhngheNB->getNganhngheNB_NameByID('1');
+
 /* $getNN_HTID = $job->getNN_HTID($id); */
 /* $getNganhNgheName = $nganhnghe->getNganhngheByID($getNN_HTID[0]['id_nganhnghe']);
 $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID[0]['id_hinhthuc']); */
@@ -84,8 +87,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                             </div>
 
                                             <div class="twm-job-self-bottom">
-                                                <a class="site-button" data-bs-toggle="modal" href="#apply_job_popup"
-                                                    role="button">
+                                                <a class="site-button" data-bs-toggle="modal" href="Applynow.php" role="button">
                                                     Ứng tuyển ngay
                                                 </a>
                                             </div>
@@ -183,7 +185,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                                     <i class="bi bi-pin-map-fill"></i>
                                                     <span class="twm-title">Cấp bậc</span>
                                                     <div class="twm-s-info-discription">
-                                                        <?php echo $getNganhngheNB_Name[0]['id_nganhnghe_NB'] ?>
+                                                        <?php echo $getNganhngheNB_Name[0]['name_nn_NB']  ?>
                                                     </div>
                                                 </div>
                                             </li>
@@ -192,7 +194,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                                     <i class="bi bi-clock"></i>
                                                     <span class="twm-title">Kinh nghiệm</span>
                                                     <div class="twm-s-info-discription">
-                                                        <?php echo $allJob[0]['kinhnghiem'] ?> Năm
+                                                        <?php echo $allJob[0]['kinh_nghiem'] ?> Năm
                                                     </div>
                                                 </div>
                                             </li>
@@ -326,46 +328,43 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                       width: 5880px;
                     ">
                             <?php
-              $list_of_latestJob = Job::getLatestJob(9);
-              foreach ($list_of_latestJob as $key => $value) {
-                ?>
-                            <div class="owl-item cloned" style="width: 362px; margin-right: 30px">
-                                <div class="item">
-                                    <div class="twm-jobs-grid-style2">
-                                        <div class="twm-media">
-                                            <img src="images/jobs-company/pic4.jpg" alt="#" />
-                                        </div>
-                                        <span class="twm-job-post-duration">1 days ago</span>
-                                        <div class="twm-jobs-category green">
-                                            <span class="twm-bg-sky">New</span>
-                                        </div>
-                                        <div class="twm-mid-content">
-                                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>"
-                                                class="twm-job-title">
-                                                <h4 class="twm-job-title"
-                                                    style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                                                    <?php echo $value['chucvu'] ?>
-                                                </h4>
-                                            </a>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                          font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['capbac'] ?>
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                          font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['diachi'] ?>
-                                            </span>
-                                        </div>
-                                        <div class="twm-right-content">
-                                            <div class="twm-jobs-amount">
-                                                <?php echo $value['mucluong'] ?> <span>/ Tháng</span>
+                            $list_of_latestJob = Job::getLatestJob(9);
+                            foreach ($list_of_latestJob as $key => $value) {
+                            ?>
+                                <div class="owl-item cloned" style="width: 362px; margin-right: 30px">
+                                    <div class="item">
+                                        <div class="twm-jobs-grid-style2">
+                                            <div class="twm-media">
+                                                <img src="images/jobs-company/pic4.jpg" alt="#" />
                                             </div>
-                                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>"
-                                                class="twm-jobs-browse site-text-primary">Browse Job</a>
+                                            <span class="twm-job-post-duration">1 days ago</span>
+                                            <div class="twm-jobs-category green">
+                                                <span class="twm-bg-sky">New</span>
+                                            </div>
+                                            <div class="twm-mid-content">
+                                                <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
+                                                    <h4 class="twm-job-title" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                                                        <?php echo $value['chucvu'] ?>
+                                                    </h4>
+                                                </a>
+                                                <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                          font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                                    <?php echo $value['capbac'] ?>
+                                                </span>
+                                                <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                          font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                                    <?php echo $value['diachi'] ?>
+                                                </span>
+                                            </div>
+                                            <div class="twm-right-content">
+                                                <div class="twm-jobs-amount">
+                                                    <?php echo $value['mucluong'] ?> <span>/ Tháng</span>
+                                                </div>
+                                                <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             <?php } ?>
                         </div>
 

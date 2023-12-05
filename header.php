@@ -16,7 +16,7 @@ require "models/blog.php";
 require "models/ban_tin.php";
 require "models/protypes_congcu.php";
 require "models/job_kysu.php";
-
+require "models/nganh_ung_tuyen.php";
 
 $protypes_congcu = new Protypes_congcu;
 $ban_tin = new Ban_tin;
@@ -28,9 +28,14 @@ $job = new Job;
 $job_NB = new Job_NB;
 $blog = new blog;
 $job_kysu = new Job_Kysu;
+$nganh_ung_tuyen = new Nganh_ung_tuyen;
+
+$nganh_ung_tuyen->fetch_tinh_thanh();
+
 ?>
 
 <head>
+    <!-- <meta http-equiv="refresh" content="3"> -->
     <!-- META -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -99,7 +104,7 @@ $job_kysu = new Job_Kysu;
     <!--  <link rel="stylesheet" type="text/css" href="public/css/contact.css" /> -->
     <!-- Css INTRODUCE -->
     <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
-    
+
     <!-- THEME COLOR CHANGE STYLE SHEET -->
     <link rel="stylesheet" class="skin" type="text/css" href="public/css/skins-type/skin-6.css" />
     <!-- SIDE SWITCHER STYLE SHEET -->
@@ -367,8 +372,11 @@ $job_kysu = new Job_Kysu;
                                 <li class="has-child">
                                     <a href="tin-tuc">Tin Tức</a>
                                 </li>
-                                <li class="has-child">
+                                <!-- <li class="has-child">
                                     <a href="lien-he">Liên Hệ</a>
+                                </li> -->
+                                <li class="has-child">
+                                    <a href="contact.php">Liên Hệ</a>
                                 </li>
                             </ul>
                         </div>
