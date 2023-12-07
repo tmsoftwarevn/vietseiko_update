@@ -91,8 +91,8 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
     <link rel="stylesheet" type="text/css" href="public/css/swiper-bundle.min.css" />
     <!-- Swiper Slider -->
     <link rel="stylesheet" type="text/css" href="public/css/style.css" />
-    <!-- MAIN STYLE SHEET -->
-    <!-- <link rel="stylesheet" type="text/css" href="public/css/style2.css" /> -->
+    <!-- MAIN STYLE SHEET ////////////dong lai ---------------------- -->
+    <link rel="stylesheet" type="text/css" href="public/css/style2.css" />
     <!-- Thêm liên kết đến tệp CSS -->
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -103,7 +103,7 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
     <!--css contact-->
     <!--  <link rel="stylesheet" type="text/css" href="public/css/contact.css" /> -->
     <!-- Css INTRODUCE -->
-    <link rel="stylesheet" type="text/css" href="public/css/about-us.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="public/css/about-us.css" /> -->
 
     <!-- THEME COLOR CHANGE STYLE SHEET -->
     <link rel="stylesheet" class="skin" type="text/css" href="public/css/skins-type/skin-6.css" />
@@ -327,7 +327,7 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
                         <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
                             <ul class="nav navbar-nav">
                                 <li class="has-child">
-                                    <a href="gioi-thieu">Giới Thiệu</a>
+                                    <a href="about-us.php">Giới Thiệu</a>
                                 </li>
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
@@ -346,7 +346,7 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
                                     </ul>
                                 </li>
                                 <li class="has-child">
-                                    <a href="javascript:" ;>Công Cụ</a>
+                                    <a href="blog-camnang.php" ;>Công Cụ</a>
                                     <ul class="sub-menu" style="width: 270px;">
                                         <?php
                                         $list_of_Protypes_congcu = Protypes_congcu::getAllProtypes_congcu();

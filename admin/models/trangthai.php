@@ -49,14 +49,14 @@ class Trangthai extends Db
         return $items;
     }
 
-    function getTrangthaiByID($id_trangthai)
+    public function getTrangthaiByID($id_trangthai)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `job_trangthai` where id_trangthai = ?");
+        $sql = self::$connection->prepare("SELECT * FROM job_trangthai where id_trangthai = ?");
         $sql->bind_param("i", $id_trangthai);
         $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
+        //$items = array();
+        $items = $sql->get_result()->fetch_assoc();
+        return $items['name_trangthai'];
     }
 
     /**

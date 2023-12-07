@@ -47,15 +47,16 @@ $jobKySuAdmin = new Job_KySu;
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 
     <!-- All StyleSheet -->
-    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <!-- <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" /> -->
     <link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="css/uniform.css" />
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" /> -->
+
+    <!-- <link rel="stylesheet" href="css/uniform.css" />
     <link rel="stylesheet" href="css/select2.css" />
     <link rel="stylesheet" href="css/matrix-style.css" />
-    <link rel="stylesheet" href="css/matrix-media.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" /> -->
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
 
     <!-- Globle CSS -->

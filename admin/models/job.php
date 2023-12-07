@@ -8,7 +8,7 @@ class Job extends Db
     //Lấy danh sách tất cả job
     static function getAllJob()
     {
-        $sql = self::$connection->prepare("SELECT * FROM job order by id_job desc");
+        $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -32,17 +32,19 @@ class Job extends Db
      */
     static function getLatestJob($number_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job ORDER BY created_at DESC LIMIT 0, $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc LIMIT $number_of_records");
+        // $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+
         return $items;
     }
 
     /**
      * Lấy sản phẩm theo id:
      */
-    static function getJob_ByID($id)
+    public function getJob_ByID($id)
     {
         $sql = self::$connection->prepare("SELECT * FROM job WHERE id_job = ?");
         $sql->bind_param("i", $id);
@@ -158,7 +160,15 @@ class Job extends Db
         VALUES(0, '$name', '$img_cty', '$chucvu', '$id_nganhnghe', '$capbac', '$soluong', '$kinhnghiem', '$ngaydang', '$ngaycuoicung', '$gioitinh', '$mucluong', '$diachi', '$diachi_cuthe' ,'$id_hinhthuc', '$mota', '$yeucau', '$quyenloi', '$id_trangthai', '$feature', '$create_at')");
         $sql->execute();
     }
+    // update job
+    static function updateJob($id_job, $name, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai)
+    {
+        $sql = self::$connection->prepare("UPDATE `job` SET `name`='$name',`chucvu`='$chucvu',`capbac`='$capbac',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',
+        `soluong`='$soluong',`kinhnghiem`='$kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$gioitinh',`mucluong`='$mucluong',
+        `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`id_trangthai`='$id_trangthai' WHERE id_job = $id_job");
 
+        return $sql->execute();
+    }
     /**
      * SEARCHING
      */

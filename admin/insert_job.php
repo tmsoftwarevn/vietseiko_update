@@ -53,7 +53,7 @@ if (isset($_POST['name']) == TRUE) {
     $id_trangthai = $_POST['id_trangthai'];
     $feature = $_POST['feature'];
     $create_at = (new DateTime('now'))->format('Y-m-d H:i:s');
-    $insertResult = Job::insertJob($name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe ,$id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai, $feature, $create_at);
+    $insertResult = Job::insertJob($name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai, $feature, $create_at);
 }
 header("Location: form.php?functionType=job&insertResult=$insertResult");
 

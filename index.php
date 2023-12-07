@@ -29,6 +29,7 @@ require_once 'header.php';
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Vị trí</label>
                                     <select class="form-select" style="cursor: pointer;">
+                                        <option value="all">Tất cả</option>
                                         <?php
                                         foreach ($nganh_ung_tuyen->getAllNganh_ung_tuyen() as $key => $value) {
                                         ?>
@@ -45,6 +46,7 @@ require_once 'header.php';
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
                                     <label>Hình thức</label>
                                     <select class="form-select" style="cursor: pointer;">
+                                        <option value="all">Tất cả</option>
                                         <?php
                                         foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
                                             <option value="<?php echo $value['id_hinhthuc'] ?>">
@@ -59,19 +61,18 @@ require_once 'header.php';
                                     <label>Khu vực</label>
                                     <div class="twm-inputicon-box">
                                         <!-- <input name="keyword" type="text" required class="form-control" placeholder="Search..." /> -->
-                                        <select class="form-select" style="cursor: pointer;">
-                                            <option disabled selected value>-- Khu vực --</option>
-
-                                            <option value="Miền Bắc">
-                                                Miền Bắc
-                                            </option>
-                                            <option value="Miền Trung">
-                                                Miền Trung
-                                            </option>
-                                            <option value="Miền Nam">
-                                                Miền Nam
-                                            </option>
-
+                                        <select class="form-select" required name="location" style="cursor: pointer;">
+                                            <!-- <option disabled selected value>-- Tất cả --</option> -->
+                                            <option value="all">Tất cả</option>
+                                            <?php
+                                            foreach ($nganh_ung_tuyen->fetch_tinh_thanh() as $index => $item) {
+                                            ?>
+                                                <option value="<?php echo $item ?>">
+                                                    <?php echo $item ?>
+                                                </option>
+                                            <?php
+                                            }
+                                            ?>
                                         </select>
                                         <!-- <i class="twm-input-icon bi bi-geo-alt"></i> -->
                                     </div>
@@ -691,9 +692,9 @@ require_once 'header.php';
             <!-- TITLE START-->
             <div class="section-head center wt-small-separator-outer">
                 <div class="wt-small-separator site-text-primary">
-                    <div>Our Blogs</div>
+                    <div>Tin tức</div>
                 </div>
-                <h2 class="wt-title">Latest Article</h2>
+                <h2 class="wt-title">Tin mới nhất</h2>
             </div>
             <!-- TITLE END-->
 
@@ -718,7 +719,7 @@ require_once 'header.php';
                                                     <?php echo $value['ngaydang']; ?>
                                                 </li>
                                                 <li class="post-author">
-                                                    By <a href="blog-detail.php">
+                                                    By <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
                                                         <?php echo $value['name_blog']; ?>
                                                     </a>
                                                 </li>
@@ -726,7 +727,7 @@ require_once 'header.php';
                                         </div>
                                         <div class="wt-post-title">
                                             <h4 class="post-title">
-                                                <a href="blog-single.php?id=<?php echo $value['id_blog']; ?>">
+                                                <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
                                                     <?php echo substr($value['tieude_blog'], 0, 100); ?>...
                                                 </a>
                                             </h4>
@@ -737,7 +738,7 @@ require_once 'header.php';
                                             </p>
                                         </div>
                                         <div class="wt-post-readmore">
-                                            <a href="blog-single.php?id=<?php echo $value['id_blog']; ?>" class="site-button-link site-text-primary">Read More</a>
+                                            <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>" class="site-button-link site-text-primary">Read More</a>
                                         </div>
                                     </div>
                                 </div>

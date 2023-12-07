@@ -127,43 +127,4 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-:root {
-  --color-main: #3498db;
-}
-
-.form-contact .i-half {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-.form-contact .i-half:focus {
-  border: 1px solid var(--color-main);
-}
-.form-contact .hoc-van {
-  margin: 8px 0;
-}
-.form-contact .ta:focus {
-  outline: none !important;
-  border-color: var(--color-main);
-}
-
-.btn-form {
-  width: 100%;
-  background-color: var(--color-main);
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0 30px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.btn-form:hover {
-  transition: 0.5s;
-  background-color: #05619e;
-}/*# sourceMappingURL=contact.css.map */
+}/*# sourceMappingURL=reset.css.map */
