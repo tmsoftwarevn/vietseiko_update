@@ -12,19 +12,50 @@ $hinhthuc = new Hinhthuc;
 $hinhthucAdmin = new Hinhthuc;
 ?>
 <?php
-// if (isset($_POST['submit']) == TRUE) {
-//     $valiFile = TRUE;
+if (isset($_POST['submit']) == TRUE) {
 
-//     $target_dir = "../images/jobs-company";
+    $final_path_image = $_POST['path-image'];
+    //$path_image = $_POST['path-image'];
 
-//     $fileName = $_FILES['fileUpload']['name'];
-//     $fileTmpName = $_FILES['fileUpload']['tmp_name'];
-//     $fileSize = $_FILES['fileUpload']['size'];
-//     $fileError = $_FILES['fileUpload']['error'];
-//     $fileType = $_FILES['fileUpload']['type'];
+    $valiFile = TRUE;
+    $target_dir = "../../images/jobs-company/vietnam/";
+    $fileName = time() . $_FILES['fileUpload']['name'];
+    $fileTmpName = $_FILES['fileUpload']['tmp_name'];
+    $fileSize = $_FILES['fileUpload']['size'];
+    $fileError = $_FILES['fileUpload']['error'];
+    $fileType = $_FILES['fileUpload']['type'];
 
-//     move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $target_dir . $_FILES["fileUpload"]["name"]);
-// }
+    //check image đã có rồi ko import nữa
+
+    if (!$final_path_image) {
+        echo 'không có file ảnh nào';
+        return;
+    }
+    if ($fileName && $fileTmpName) {
+        $final_path_image = $fileName;
+
+        // Giới hạn kích thước tối đa của file (5MB)
+        $allowed = array('jpeg', 'png', 'jpg');
+        $filenameCheck = $_FILES['fileUpload']['name'];
+        $ext = pathinfo($filenameCheck, PATHINFO_EXTENSION);
+
+        if (!$fileName || !$fileTmpName) {
+            echo 'không có file ảnh nào';
+            return;
+        }
+
+        if (!in_array($ext, $allowed)) {
+            echo 'chỉ được tải lên file gồm jpeg, png hoặc jpg';
+            return;
+        }
+        if ($fileSize > 5242880) {
+            $errors[] = 'Kích thước file không được vượt quá 5 MB';
+            return;
+        }
+        echo 'chekk path: ' . $final_path_image;
+        move_uploaded_file($fileTmpName, $target_dir . $fileName);
+    }
+}
 
 //Them du lieu vao CSDL: Neu upload duoc anh thi moi insert:
 
@@ -33,15 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id_job = $_POST['id_job'];
     $name = $_POST['tencongty'];
-    //$img_cty = $_FILES['fileUpload']['name'];
+    $img_cty = $final_path_image;
     $chucvu = $_POST['chucvu'];
     $id_nganhnghe = $_POST['nganhnghe'];
     $capbac = $_POST['capbac'];
     $soluong = $_POST['soluong'];
-    $kinhnghiem = $_POST['kinhnghiem'];
-
+    $id_kinhnghiem = $_POST['kinhnghiem'];
     $ngaycuoicung = $_POST['ngaycuoicung'];
-
     $gioitinh = $_POST['gioitinh'];
     $mucluong = $_POST['mucluong'];
     $diachi = $_POST['diachi'];
@@ -52,12 +81,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quyenloi = htmlspecialchars($_POST['quyenloi']);
     $id_trangthai = $_POST['trangthai'];
 
-    echo 'check data' . $name . $chucvu . $id_nganhnghe . $capbac . $soluong . $kinhnghiem . $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai;
-
-    $checkResult = Job::updateJob($id_job, $name, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai, $feature);
+    echo 'name image: ' . $img_cty;
+    //echo 'check nganh nghe: ' . $id_nganhnghe;
+    //echo 'check data' . $name . $chucvu . $id_nganhnghe . $capbac . $soluong . $kinhnghiem . $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai;
+    $checkResult = Job::updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty);
 }
-$url =  $_SERVER['HTTP_REFERER'] . '&checkResult=' . $checkResult;
 
-header("Location: $url");
+$url =  $_SERVER['HTTP_REFERER'];
+
+// custom path để click 2 lần submit ko bị lỗi
+$path = $url;
+
+$parts = explode('&', $path);
+if (count($parts) > 2) {
+    array_pop($parts);
+    $newpath = implode('&', $parts);
+    header("Location: $newpath&checkResult=$checkResult");
+} else {
+    header("Location: $url&checkResult=$checkResult");
+}
 
 ?>
+

@@ -5,12 +5,14 @@ require_once "models/db.php";
 require_once "models/hinhthuc.php";
 require_once "models/nganhnghe.php";
 require_once "models/gioi_tinh.php";
+require_once "models/kinh_nghiem.php";
 
 $job = new Job;
 $hinhthuc = new Hinhthuc;
 $nganhnghe = new Nganhnghe;
 $trangthai  = new Trangthai;
 $gioitinh = new Gioi_tinh;
+$kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -18,15 +20,19 @@ if (isset($_GET['id'])) {
     echo "Khong nhan duoc ID";
 }
 $job_modal =  $job->getJob_ByID($id);
+
 $name_nganhnghe = $nganhnghe::getNganhngheName($job_modal['id_nganhnghe']);
 $name_hinhthuc = $hinhthuc::getHinhthucName($job_modal['id_hinhthuc']);
 $name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
+$name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
+$name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($job_modal['id_kinhnghiem']);
 
+$all_kinhnghiem = $kinh_nghiem->getAllKinhNghiem();
 $all_nganhnghe = $nganhnghe::getAllNganhnghe();
 $allGioitinh = $gioitinh->getAllGioitinh();
-$name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
 $all_trangthai = $trangthai->getAllTrangthai();
-
+$all_hinhthuc = $hinhthuc::getAllHinhthuc();
+/////////////
 
 ?>
 <style>
@@ -59,162 +65,190 @@ $all_trangthai = $trangthai->getAllTrangthai();
         <?php
         if (isset($_GET['typeUpdate']) == TRUE && $_GET['typeUpdate'] == "job") {
         ?>
+            <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
+                <?php
+
+                if (isset($_GET['checkResult']) == TRUE) {
+
+                    if ($_GET['checkResult'] > 0) {
+                        echo "<span style=\"color:green;\">" . "Cập nhật thành công." . "</span>";
+                    } else {
+                        echo "<span style=\"color:red;\">" . "Không thể cập nhật" . "</span>";
+                    }
+                }
+                ?>
+            </div>
             <div class="body-view-job" style="padding: 100px;">
 
                 <div class="title-job" style="text-align: center; font-weight: 600; 
                 font-size: 20px; text-transform: capitalize;">
                     <?php echo 'Cập nhật mã công việc tại Việt Nam: ' . $job_modal['id_job'] ?>
                 </div>
-
-                <form action="job-vietnam/form-update.php" method="POST" enctype="multipart/form-data" name="job">
+                <!-- job-vietnam/form-update.php -->
+                <form action="job-vietnam/form-update.php" method="POST" enctype="multipart/form-data">
                     <input name='id_job' value="<?php echo $job_modal['id_job'] ?>" style="display: none;" />
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Tên Công Ty :</label>
                         <div class="controls">
-                            <input type="text" value="<?php echo $job_modal['name']; ?>" class="form-control" name="tencongty" />
+                            <input required type="text" value="<?php echo $job_modal['name']; ?>" class="form-control" name="tencongty" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Logo Cty :</label>
+                        <input value="<?php echo $job_modal['img_cty'] ?>" style="display: none;" name="path-image" />
                         <div class="image-job-logo">
-                            <img src="../images/job-viet-nam/logo-company/<?php echo $job_modal['img_cty'] ?>" alt="anh">
+                            <img src="../images/jobs-company/vietnam/<?php echo $job_modal['img_cty'] ?>" alt="anh" width="300px" height="auto" style="object-fit: cover;">
                         </div>
+                        <label for="fileUpload" style="cursor: pointer;">Update ảnh: Chỉ được tải lên file đuôi (jpeg, png hoặc jpg)</label>
+                        <input type="file" id="fileUpload" name="fileUpload"><br><br>
+
                     </div>
 
                     <div class="control-group" aria-label="Default select example">
                         <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
-                        <select class="form-select" name="nganhnghe">
-                            <option disabled selected value="<?php echo $job_modal['id_nganhnghe'] ?>"><?php echo '---' . $name_nganhnghe . '---' ?></option>
+                        <select required class="form-select" name="nganhnghe">
+
                             <?php
                             foreach ($all_nganhnghe as $key => $value) {
+                                if ($value['id_nganhnghe'] == $job_modal['id_nganhnghe']) {
+                                    echo ('<option selected="selected" value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
+                                } else {
+                                    echo ('<option value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
+                                }
+                            }
                             ?>
-                                <option value="<?php echo $value['id_nganhnghe'] ?>">
-                                    <?php echo $value['name_nganhnghe'] ?>
-                                </option>
-                            <?php } ?>
                         </select>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
                         <div class="controls">
-                            <input name="chucvu" type="text" value="<?php echo $job_modal['chucvu']; ?>" class="form-control" />
+                            <input required name="chucvu" type="text" value="<?php echo $job_modal['chucvu']; ?>" class="form-control" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
                         <div class="controls">
-                            <input name="capbac" type="text" value="<?php echo $job_modal['capbac']; ?>" class="form-control" />
+                            <input required name="capbac" type="text" value="<?php echo $job_modal['capbac']; ?>" class="form-control" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Số Lượng :</label>
                         <div class="controls">
-                            <input name="soluong" type="text" value="<?php echo $job_modal['soluong']; ?>" class="form-control" />
+                            <input required name="soluong" type="text" value="<?php echo $job_modal['soluong']; ?>" class="form-control" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
-                        <div class="controls">
-                            <input name="kinhnghiem" type="text" value="<?php echo $job_modal['kinhnghiem']; ?>" class="form-control" />
-                        </div>
+                        <select required class="form-select" name="kinhnghiem">
+
+                            <?php
+                            foreach ($all_kinhnghiem as $key => $value) {
+                                if ($value['id_kn'] == $job_modal['id_kinhnghiem']) {
+                                    echo ('<option selected="selected" value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
+                                } else {
+                                    echo ('<option value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
+                                }
+                            }
+                            ?>
+                        </select>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
                         <div class="controls">
-                            <input name="ngaycuoicung" type="date" value="<?php echo $job_modal['ngaycuoicung']; ?>" class="form-control" />
+                            <input required name="ngaycuoicung" type="date" value="<?php echo $job_modal['ngaycuoicung']; ?>" class="form-control" />
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
-                        <select name="gioitinh" class="form-select">
-                            <option disabled selected value="<?php echo $job_modal['id_gioitinh'] ?>"><?php echo '---' . $name_gioitinh . '---' ?></option>
+                        <select required name="gioitinh" class="form-select">
                             <?php
                             foreach ($allGioitinh as $key => $value) {
+                                if ($value['id_gt'] == $job_modal['id_gioitinh']) {
+                                    echo ('<option selected="selected" value=' . $value['id_gt'] . '>' . $value['name_gt'] . '</option>');
+                                } else {
+                                    echo ('<option value=' . $value['id_gt'] . '>' . $value['name_gt'] . '</option>');
+                                }
+                            }
                             ?>
-                                <option value="<?php echo $value['id_gt'] ?>">
-                                    <?php echo $value['name_gt'] ?>
-                                </option>
-                            <?php } ?>
+
                         </select>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Mức Lương :</label>
                         <div class="controls">
-                            <input name="mucluong" type="text" value="<?php echo $job_modal['mucluong']; ?>" class="form-control" />
+                            <input required name="mucluong" type="text" value="<?php echo $job_modal['mucluong']; ?>" class="form-control" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Địa Chỉ :</label>
                         <div class="controls">
-                            <input name="diachi" type="text" value="<?php echo $job_modal['diachi']; ?>" class="form-control" />
+                            <input required name="diachi" type="text" value="<?php echo $job_modal['diachi']; ?>" class="form-control" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>
                         <div class="controls">
-                            <input name="diachicuthe" type="text" value="<?php echo $job_modal['diachi_cuthe']; ?>" class="form-control" />
+                            <input required name="diachicuthe" type="text" value="<?php echo $job_modal['diachi_cuthe']; ?>" class="form-control" />
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*Hình thức:</label>
-                        <div class="controls">
-                            <input name="hinhthuc" type="text" value="<?php echo $name_hinhthuc ?>" class="form-control" />
-                        </div>
+                        <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
+                        <select required name="hinhthuc" class="form-select">
+                            <?php
+                            foreach ($all_hinhthuc as $key => $value) {
+                                if ($value['id_hinhthuc'] == $job_modal['id_hinhthuc']) {
+                                    echo ('<option selected="selected" value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
+                                } else {
+                                    echo ('<option value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
+                                }
+                            }
+                            ?>
+
+                        </select>
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Mô tả công việc</label>
                         <div class="controls">
-                            <textarea name="mota" rows="10" class="form-control"><?php echo $job_modal['mota']; ?></textarea>
+                            <textarea required name="mota" rows="10" class="form-control"><?php echo $job_modal['mota']; ?></textarea>
                         </div>
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Yêu cầu</label>
                             <div class="controls">
-                                <textarea name="yeucau" rows="10" class="form-control"><?php echo $job_modal['yeucau']; ?></textarea>
+                                <textarea required name="yeucau" rows="10" class="form-control"><?php echo $job_modal['yeucau']; ?></textarea>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Quyền Lợi</label>
                             <div class="controls">
-                                <textarea name="quyenloi" rows="10" class="form-control"><?php echo $job_modal['quyenloi']; ?></textarea>
+                                <textarea required name="quyenloi" rows="10" class="form-control"><?php echo $job_modal['quyenloi']; ?></textarea>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Trạng thái:</label>
-                            <select name="trangthai" class="form-select">
-                                <option disabled selected value="<?php echo $job_modal['id_trangthai'] ?>"><?php echo '---' . $name_trangthai . '---' ?></option>
+                            <select required name="trangthai" class="form-select">
                                 <?php
                                 foreach ($all_trangthai as $key => $value) {
+                                    if ($value['id_trangthai'] == $job_modal['id_trangthai']) {
+                                        echo ('<option selected="selected" value=' . $value['id_trangthai'] . '>' . $value['name_trangthai'] . '</option>');
+                                    } else {
+                                        echo ('<option value=' . $value['id_trangthai'] . '>' . $value['name_trangthai'] . '</option>');
+                                    }
+                                }
                                 ?>
-                                    <option value="<?php echo $value['id_trangthai'] ?>">
-                                        <?php echo $value['name_trangthai'] ?>
-                                    </option>
-                                <?php } ?>
+
                             </select>
                         </div>
 
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button style="font-size: 18px;" class="btn btn-primary" type="submit">Cập nhật</button>
+
+                        <button style="font-size: 18px;" class="btn btn-primary" type="submit" name="submit">Cập nhật</button>
                     </div>
                 </form>
 
-                <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
-                    <?php
 
-                    if (isset($_GET['checkResult']) == TRUE) {
-                        echo "<div style=\"text-decoration:underline;\">RESULT:</div>";
-                        if ($_GET['checkResult'] > 0) {
-                            echo "<span style=\"color:green;\">" . "Cập nhật thành công." . "</span>";
-                        } elseif ($_GET['checkResult'] == 0) {
-                            echo "<span style=\"color:green;\">" . "Không có thay đổi" . "</span>";
-                        } else {
-                            echo "<span style=\"color:red;\">" . "Chưa cập nhật" . "</span>";
-                        }
-                    }
-                    ?>
-                </div>
             </div>
         <?php
         }

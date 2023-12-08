@@ -161,10 +161,10 @@ class Job extends Db
         $sql->execute();
     }
     // update job
-    static function updateJob($id_job, $name, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai)
+    static function updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty)
     {
-        $sql = self::$connection->prepare("UPDATE `job` SET `name`='$name',`chucvu`='$chucvu',`capbac`='$capbac',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',
-        `soluong`='$soluong',`kinhnghiem`='$kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$gioitinh',`mucluong`='$mucluong',
+        $sql = self::$connection->prepare("UPDATE `job` SET `name`='$name',`chucvu`='$chucvu',`capbac`='$capbac',`img_cty`='$img_cty',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',
+        `soluong`='$soluong',`id_kinhnghiem`='$kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$gioitinh',`mucluong`='$mucluong',
         `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`id_trangthai`='$id_trangthai' WHERE id_job = $id_job");
 
         return $sql->execute();

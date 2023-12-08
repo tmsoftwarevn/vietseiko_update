@@ -4,11 +4,15 @@ require_once "header.php";
 require_once "models/db.php";
 require_once "models/hinhthuc.php";
 require_once "models/nganhnghe.php";
-
+require_once "models/gioi_tinh.php";
+require_once "models/kinh_nghiem.php";
 $job = new Job;
 $hinhthuc = new Hinhthuc;
 $nganhnghe = new Nganhnghe;
 $trangthai  = new Trangthai;
+$gioitinh = new Gioi_tinh;
+$kinh_nghiem = new Kinh_nghiem;
+
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -19,6 +23,10 @@ $job_modal =  $job->getJob_ByID($id);
 $name_nganhnghe = $nganhnghe::getNganhngheName($job_modal['id_nganhnghe']);
 $name_hinhthuc = $hinhthuc::getHinhthucName($job_modal['id_hinhthuc']);
 $name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
+$name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($job_modal['id_kinhnghiem']);
+
+$all_kinhnghiem = $kinh_nghiem->getAllKinhNghiem();
+$name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
 
 ?>
 <style>
@@ -65,7 +73,7 @@ $name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
                 <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Logo Cty :</label>
                     <div class="image-job-logo">
-                        <img src="../images/job-viet-nam/logo-company/<?php echo $job_modal['img_cty'] ?>" alt="anh">
+                        <img src="../images/jobs-company/vietnam/<?php echo $job_modal['img_cty'] ?>" alt="anh" width="300px" height="auto" style="object-fit: cover;">
                     </div>
                 </div>
 
@@ -90,7 +98,7 @@ $name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
                 <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
                     <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['kinhnghiem']; ?>" class="form-control" disabled />
+                        <input type="text" value="<?php echo $name_kinhnghiem; ?>" class="form-control" disabled />
                     </div>
                 </div>
                 <div class="control-group">
@@ -109,7 +117,7 @@ $name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
                 <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
                     <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['id_gioitinh']; ?>" class="form-control" disabled />
+                        <input type="text" value="<?php echo $name_gioitinh; ?>" class="form-control" disabled />
                     </div>
                 </div>
                 <div class="control-group">

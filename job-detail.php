@@ -1,8 +1,14 @@
 <?php
 include 'header.php';
+
+require_once "./admin/models/gioi_tinh.php";
+require_once "./admin/models/kinh_nghiem.php";
+$gioitinh = new Gioi_tinh;
+$kinh_nghiem = new Kinh_nghiem;
 /* if (!isset($_GET['id'])) {
   header('location: index.php');
 } */
+
 $id = 0;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -11,6 +17,11 @@ if (isset($_GET['id'])) {
 }
 
 $allJob = $job->getJob_Detail($id);
+$name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
+
+$name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem']);
+
+
 /* $getNN_HTID = $job->getNN_HTID($id); */
 /* $getNganhNgheName = $nganhnghe->getNganhngheByID($getNN_HTID[0]['id_nganhnghe']);
 $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID[0]['id_hinhthuc']); */
@@ -57,7 +68,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
 
                                         <div class="twm-mid-content">
                                             <div class="twm-media">
-                                                <img src="images/jobs-company/pic1.jpg" alt="#" />
+                                                <img src="./images/jobs-company/vietnam/<?php echo $allJob[0]['img_cty'] ?>" alt="#" />
                                             </div>
 
                                             <h4 class="twm-job-title" style="font-size: 25px; padding-top: 20px;">
@@ -231,7 +242,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                                 <i class="bi bi-clock"></i>
                                                 <span class="twm-title">Kinh nghiệm</span>
                                                 <div class="twm-s-info-discription">
-                                                    <?php echo $allJob[0]['kinhnghiem'] ?> Năm
+                                                    <?php echo $name_kinhnghiem; ?>
                                                 </div>
                                             </div>
                                         </li>
@@ -241,7 +252,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                                 <i class="bi bi-gender-ambiguous"></i>
                                                 <span class="twm-title">Giới tính</span>
                                                 <div class="twm-s-info-discription">
-                                                    <?php echo $allJob[0]['gioitinh'] ?>
+                                                    <?php echo $name_gioitinh ?>
                                                 </div>
                                             </div>
                                         </li>
