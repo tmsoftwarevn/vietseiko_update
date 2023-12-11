@@ -6,9 +6,9 @@ require_once "models/hinhthuc.php";
 require_once "models/nganhnghe.php";
 require_once "models/gioi_tinh.php";
 require_once "models/kinh_nghiem.php";
+require_once "models/job_NB.php";
 
-
-$job = new Job;
+$job = new Job_NB;
 $hinhthuc = new Hinhthuc;
 $nganhnghe = new Nganhnghe;
 $trangthai  = new Trangthai;
@@ -18,21 +18,20 @@ $kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
- 
 } else {
     echo "Khong nhan duoc ID";
 }
 
-if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
-    $job_modal =  $job->getJob_ByID($id);
-    $name_nganhnghe = $nganhnghe::getNganhngheName($job_modal['id_nganhnghe']);
-    $name_hinhthuc = $hinhthuc::getHinhthucName($job_modal['id_hinhthuc']);
-    $name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
-    $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($job_modal['id_kinhnghiem']);
 
-    $all_kinhnghiem = $kinh_nghiem->getAllKinhNghiem();
-    $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
-}
+$job_modal =  $job->getJobNB_ByID_admin($id);
+$name_nganhnghe = $nganhnghe::getNganhngheName($job_modal['id_nganhnghe']);
+$name_hinhthuc = $hinhthuc::getHinhthucName($job_modal['id_hinhthuc']);
+$name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
+$name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($job_modal['id_kinhnghiem']);
+
+$all_kinhnghiem = $kinh_nghiem->getAllKinhNghiem();
+$name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
+
 
 ?>
 <style>
@@ -61,13 +60,13 @@ if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
 
     <div class="content-body">
         <?php
-        if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
+        if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job-nb") {
         ?>
             <div class="body-view-job" style="padding: 100px;">
                 <!-- detail cong viec -->
                 <div class="title-job" style="text-align: center; font-weight: 600; 
                 font-size: 20px; text-transform: capitalize;">
-                    <?php echo 'Mã công việc tại Việt Nam: ' . $job_modal['id_job'] ?>
+                    <?php echo 'Mã công việc XKLD Nhật bản: ' . $job_modal['id_job'] ?>
                 </div>
 
                 <div class="control-group">
@@ -151,6 +150,12 @@ if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
                     </div>
                 </div>
                 <div class="control-group">
+                    <label class="control-label" style="font-weight: 600;">*Phỏng vấn:</label>
+                    <div class="controls">
+                        <input type="text" value="<?php echo $job_modal['hinhthuc_PV'] ?>" class="form-control" disabled />
+                    </div>
+                </div>
+                <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Mô tả công việc</label>
                     <div class="controls">
                         <textarea rows="10" class="form-control" disabled><?php echo $job_modal['mota']; ?></textarea>
@@ -180,9 +185,9 @@ if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
         <?php
         }
 
-      
 
-       ?>
+
+        ?>
     </div>
 
 

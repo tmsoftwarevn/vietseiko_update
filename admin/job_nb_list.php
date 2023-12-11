@@ -4,7 +4,9 @@ require_once "header.php";
 require_once "models/db.php";
 require_once "models/hinhthuc.php";
 require_once "models/nganhnghe.php";
-$job = new Job;
+require_once "models/job_NB.php";
+
+$job = new Job_NB;
 $hinhthuc = new Hinhthuc;
 $nganhnghe = new Nganhnghe;
 
@@ -36,9 +38,9 @@ $nganhnghe = new Nganhnghe;
 
     <div class="container-fluid">
       <div class="d-flex align-items-center mb-4 flex-wrap">
-        <h3 class="me-auto">Job VietNam</h3>
+        <h3 class="me-auto">Job Nhật bản</h3>
         <div>
-          <a href="job_add.php?typeAdd=job" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm công việc mới</a>
+          <a href="job_add.php?typeAdd=job-nb" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm công việc mới</a>
           <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3">
             <i class="fas fa-envelope"></i></a>
           <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3"><i class="fas fa-phone-alt"></i></a>
@@ -51,7 +53,7 @@ $nganhnghe = new Nganhnghe;
             <table class="table display mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
               <thead>
                 <tr>
-                  <th>Stt</th>
+                  <th>ID</th>
                   <th>Chức Vụ</th>
                   <th>Ngành Nghề</th>
                   <th>Ngày Đăng</th>
@@ -64,14 +66,14 @@ $nganhnghe = new Nganhnghe;
               <tbody>
                 <?php
                 $page = 1;
-                $resultsPerPage = 8;
-                $totalResults = count(Job::getAllJob());
+                $resultsPerPage = 10;
+                $totalResults = count(Job_NB::getAllJobNB_admin());
                 if (isset($_GET['page']) == TRUE) {
                   $page = $_GET['page'];
                 }
-                $list_of_job = Job::getAllJob_andCreatePagination($page, $resultsPerPage);
-                $total = ceil(floatval($totalResults)/floatval($resultsPerPage));
+                $list_of_job = Job_NB::getAllJobNB_andCreatePagination_admin($page, $resultsPerPage);
                 echo "<p style=\"text-align:center;\"><b>There are $totalResults results.</b></p>";
+                $total = ceil(floatval($totalResults)/floatval($resultsPerPage));
                 foreach ($list_of_job as $key => $value) {
                 ?>
                   <tr>
@@ -82,7 +84,6 @@ $nganhnghe = new Nganhnghe;
                     <td class="wspace-no"><?php echo $value['ngaydang'] ?></td>
                     <td><?php echo $value['ngaycuoicung'] ?></td>
                    
-
                     <td>
                       <span class="badge badge-success badge-lg light"
                       <?php if($value['id_trangthai'] == '0') echo 'style="background-color: red;color: white"'?>
@@ -95,7 +96,7 @@ $nganhnghe = new Nganhnghe;
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
 
-                        <a class="btn btn-success light mr-2 " href="job_view.php?typeView=job&id=<?php echo $value['id_job'] ?>">
+                        <a class="btn btn-success light mr-2 " href="job_nb_view.php?typeView=job-nb&id=<?php echo $value['id_job'] ?>">
 
                           <svg xmlns="http://www.w3.org/2000/svg" class="svg-main-icon" width="24px" height="24px" viewBox="0 0 32 32" x="0px" y="0px">
                             <g data-name="Layer 21">
@@ -105,7 +106,7 @@ $nganhnghe = new Nganhnghe;
                           </svg>
                         </a>
 
-                        <a href="job_update.php?typeUpdate=job&id=<?php echo $value['id_job'] ?>" class="btn btn-secondary light mr-2">
+                        <a href="job_nb_update.php?typeUpdate=job-nb&id=<?php echo $value['id_job'] ?>" class="btn btn-secondary light mr-2">
 
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -116,7 +117,7 @@ $nganhnghe = new Nganhnghe;
                           </svg>
                         </a>
 
-                        <a onclick="return confirm('Xác nhận muốn xóa công việc có id: <?php echo $value['id_job']; ?>?')" href="delete_job.php?id_job=<?php echo $value['id_job']; ?>" class="btn btn-danger light">
+                        <a onclick="return confirm('Xác nhận muốn xóa công việc có id: <?php echo $value['id_job']; ?>?')" href="job-vietnam/delete_jobNb.php?id_job=<?php echo $value['id_job']; ?>"  class="btn btn-danger light">
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <rect x="0" y="0" width="24" height="24"></rect>
@@ -132,10 +133,12 @@ $nganhnghe = new Nganhnghe;
               </tbody>
             </table>
             <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
-              <span>Trang <?php echo $page . '/'. $total ?></span>
+              <span>
+                Trang <?php echo $page . '/'. $total ?>
+              </span>
               <nav aria-label="Page navigation example">
                 <ul class="pagination my-2 my-md-0">
-                  <?php echo Job::paginate("job-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
+                  <?php echo Job_NB::paginate("job_nb_list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
                 </ul>
               </nav>
             </div>

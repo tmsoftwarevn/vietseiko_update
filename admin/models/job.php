@@ -152,13 +152,13 @@ class Job extends Db
     }
 
     /**
-     * Thêm JOB:
+     * Thêm mới JOB:
      */
-    static function insertJob($name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai, $feature, $create_at)
+    public function insertJob($name,$chucvu,$capbac, $img_cty, $id_nganhnghe,$id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi)
     {
-        $sql = self::$connection->prepare("INSERT INTO job(id_job, name, img_cty, chucvu, id_nganhnghe, capbac, soluong, kinhnghiem, ngaydang, ngaycuoicung, mucluong, diachi, diachi_cuthe, id_hinhthuc, mota, yeucau, quyenloi, id_trangthai, feature, create_at) 
-        VALUES(0, '$name', '$img_cty', '$chucvu', '$id_nganhnghe', '$capbac', '$soluong', '$kinhnghiem', '$ngaydang', '$ngaycuoicung', '$gioitinh', '$mucluong', '$diachi', '$diachi_cuthe' ,'$id_hinhthuc', '$mota', '$yeucau', '$quyenloi', '$id_trangthai', '$feature', '$create_at')");
-        $sql->execute();
+        $sql = self::$connection->prepare("INSERT INTO `job`(`name`, `chucvu`, `capbac`, `img_cty`,`id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`,`ngaycuoicung`,`id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`) 
+        VALUES ('$name','$chucvu','$capbac','$img_cty','$id_nganhnghe','$id_hinhthuc','$soluong','$kinhnghiem','$ngaycuoicung','$gioitinh','$mucluong','$diachi','$diachi_cuthe','$mota','$yeucau','$quyenloi')");
+        return $sql->execute();
     }
     // update job
     static function updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty)

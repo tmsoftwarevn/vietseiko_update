@@ -301,7 +301,10 @@ require_once 'header.php';
                             <div class="job-block col-lg-4 col-md-12 col-sm-12">
                                 <div class="inner-box " style="padding: 10px 10px 5px 0px;">
                                     <div class="content">
-                                        <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
+                                        <span class="company-logo">
+                                            <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
+                                            <!-- <img src="images/jobs-company/pic1.jpg" alt="" /> -->
+                                        </span>
                                         <h5 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
                                             <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
                                                 <?php echo $value['chucvu'] ?>

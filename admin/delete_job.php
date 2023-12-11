@@ -6,8 +6,8 @@ require_once "models/hinhthuc.php";
 
 $job = new Job;
 
-$job->deleteJob_ByTypeID($_GET['id_job']);
-header("Location: job-list.php?deleteResult=$deleteResult");
+$deleteResult = $job->deleteJob_ByTypeID($_GET['id_job']);
+header("Location: job-list.php");
 
 
 ?>

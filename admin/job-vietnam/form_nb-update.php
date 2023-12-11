@@ -1,20 +1,22 @@
 <?php
-require "../models/job.php";
+require "../models/job_NB.php";
 require "../models/nganhnghe.php";
 require "../models/hinhthuc.php";
 require "../config.php";
 require_once "../models/db.php";
 
-$job = new Job;
+$job = new Job_NB;
 $nganhnghe = new Nganhnghe;
 $nganhngheAdmin = new Nganhnghe;
 $hinhthuc = new Hinhthuc;
 $hinhthucAdmin = new Hinhthuc;
+
+$final_path_image = $_POST['path-image'];
 ?>
 <?php
 if (isset($_POST['submit']) == TRUE) {
-
-    $final_path_image = $_POST['path-image'];
+   
+    //$final_path_image = $_POST['path-image'];
     //$path_image = $_POST['path-image'];
 
     $valiFile = TRUE;
@@ -27,19 +29,17 @@ if (isset($_POST['submit']) == TRUE) {
 
     //check image đã có rồi ko import nữa
 
-    if (!$final_path_image && !$fileName) {
-        echo 'không có file ảnh nào';
-        return;
-    }
-    if ($fileName && $fileTmpName) {
-        $final_path_image = $fileName;
+    
+    if ($fileSize && $fileTmpName) {
+       global $final_path_image;
+        $final_path_image_uppp = $fileName;
 
         // Giới hạn kích thước tối đa của file (5MB)
         $allowed = array('jpeg', 'png', 'jpg');
         $filenameCheck = $_FILES['fileUpload']['name'];
         $ext = pathinfo($filenameCheck, PATHINFO_EXTENSION);
 
-        if (!$fileName || !$fileTmpName ) {
+        if (!$fileSize || !$fileTmpName ) {
             echo 'không có file ảnh nào';
             return;
         }
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id_job = $_POST['id_job'];
     $name = $_POST['tencongty'];
-    $img_cty = $final_path_image;
+    $img_cty = $final_path_image_uppp;
     $chucvu = $_POST['chucvu'];
     $id_nganhnghe = $_POST['nganhnghe'];
     $capbac = $_POST['capbac'];
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //echo 'check nganh nghe: ' . $id_nganhnghe;
     //echo 'check data' . $name . $chucvu . $id_nganhnghe . $capbac . $soluong . $kinhnghiem . $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai;
-    $checkResult = Job::updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty);
+    $checkResult = Job_NB::updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty);
 }
 
 $url =  $_SERVER['HTTP_REFERER'];

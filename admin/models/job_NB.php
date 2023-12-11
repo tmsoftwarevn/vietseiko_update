@@ -6,21 +6,21 @@ class Job_NB extends Db
      * LẤY DỮ LIỆU BẢNG JOB
      */
     //Lấy danh sách tất cả job
-    static function getAllJobNB()
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban order by id_NB desc");
+    static function getAllJobNB_admin()
+    { 
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb order by created_at desc");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
     //Lấy danh sách tất cả sản phẩm và phân trang:
-    static function getAllJobNB_andCreatePagination($page, $resultsPerPage)
+    static function getAllJobNB_andCreatePagination_admin($page, $resultsPerPage)
     {
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban order by created_at desc LIMIT $firstLink, $resultsPerPage");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb order by created_at desc LIMIT $firstLink, $resultsPerPage");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -32,7 +32,7 @@ class Job_NB extends Db
      */
     static function getLatestJobNB($number_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban ORDER BY created_at DESC LIMIT 0, $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb ORDER BY created_at DESC LIMIT 0, $number_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -42,9 +42,9 @@ class Job_NB extends Db
     /**
      * Lấy sản phẩm theo id:
      */
-    static function getJobNB_ByID($id)
+    public function getJobNB_ByID_admin($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban WHERE id_NB = ?");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb WHERE id_job= ?");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = $sql->get_result()->fetch_assoc();
@@ -56,7 +56,7 @@ class Job_NB extends Db
      */
     static function getJobNB_ByNganhNgheID($nganhnghe_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban WHERE id_nganhnghe_NB like ?");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb WHERE id_nganhnghe like ?");
         $sql->bind_param("i", $nganhnghe_id);
         $sql->execute();
         $items = array();
@@ -144,19 +144,27 @@ class Job_NB extends Db
      */
     static function deleteJobByID($id_job)
     {
-        $sql = self::$connection->prepare("DELETE FROM job WHERE id_job = ?");
+        $sql = self::$connection->prepare("DELETE FROM job_xkld_nb WHERE id_job = ?");
         $sql->bind_param("i", $id_job);
         $sql->execute();
     }
 
-    /**
-     * Thêm JOB:
-     */
-    static function insertJob($name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe ,$id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai, $feature, $create_at){
-        $sql = self::$connection->prepare("INSERT INTO job(id_job, name, img_cty, chucvu, id_nganhnghe, capbac, soluong, kinhnghiem, ngaydang, ngaycuoicung, mucluong, diachi, diachi_cuthe, id_hinhthuc, mota, yeucau, quyenloi, id_trangthai, feature, create_at) 
-        VALUES(0, '$name', '$img_cty', '$chucvu', '$id_nganhnghe', '$capbac', '$soluong', '$kinhnghiem', '$ngaydang', '$ngaycuoicung', '$gioitinh', '$mucluong', '$diachi', '$diachi_cuthe' ,'$id_hinhthuc', '$mota', '$yeucau', '$quyenloi', '$id_trangthai', '$feature', '$create_at')");
-        return $sql->execute();    
-}
+    // Thêm JOB:
+    public function insertJob($name, $chucvu, $capbac, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung,$phongvan, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi)
+    {
+        $sql = self::$connection->prepare("INSERT INTO `job_xkld_nb`(`name`, `chucvu`, `capbac`, `img_cty`,`id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`,`ngaycuoicung`,`hinhthuc_PV`,`id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`) 
+        VALUES ('$name','$chucvu','$capbac','$img_cty','$id_nganhnghe','$id_hinhthuc','$soluong','$id_kinhnghiem','$ngaycuoicung','$phongvan','$gioitinh','$mucluong','$diachi','$diachi_cuthe','$mota','$yeucau','$quyenloi')");
+        return $sql->execute();
+    } 
+     //update
+    static function updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty)
+    {
+        $sql = self::$connection->prepare("UPDATE `job_xkld_nb` SET `name`='$name',`chucvu`='$chucvu',`capbac`='$capbac',`img_cty`='$img_cty',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',
+        `soluong`='$soluong',`id_kinhnghiem`='$kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$gioitinh',`mucluong`='$mucluong',
+        `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`id_trangthai`='$id_trangthai' WHERE id_job = $id_job");
+
+        return $sql->execute();
+    }
     
     /**
      * SEARCHING
