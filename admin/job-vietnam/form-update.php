@@ -80,10 +80,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $yeucau = htmlspecialchars($_POST['yeucau']);
     $quyenloi = htmlspecialchars($_POST['quyenloi']);
     $id_trangthai = $_POST['trangthai'];
-
+    $ungtuyen = htmlspecialchars($_POST['ungtuyen']);
     //echo 'check nganh nghe: ' . $id_nganhnghe;
     //echo 'check data' . $name . $chucvu . $id_nganhnghe . $capbac . $soluong . $kinhnghiem . $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai;
-    $checkResult = Job::updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty);
+    $checkResult = Job::updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty,$ungtuyen);
 }
 
 $url =  $_SERVER['HTTP_REFERER'];

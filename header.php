@@ -32,6 +32,7 @@ $nganh_ung_tuyen = new Nganh_ung_tuyen;
 
 $nganh_ung_tuyen->fetch_tinh_thanh();
 
+
 ?>
 
 <head>

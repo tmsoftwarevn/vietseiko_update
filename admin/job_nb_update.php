@@ -209,21 +209,41 @@ $all_hinhthuc = $hinhthuc::getAllHinhthuc();
 
                         </select>
                     </div>
+                    <!-- <div class="control-group">
+                        <label class="control-label" style="font-weight: 600;">*Phỏng vấn:</label>
+                        <select required name="phongvan" class="form-select">
+                           <?php 
+                            if ($job_modal['hinhthuc_PV'] == 'Online') {
+                                echo ('<option selected="selected" value="Online">' . "Online" . '</option>');
+                                echo ('<option value="Offline">' . "Offline" . '</option>');
+                            } else {
+                                echo ('<option selected="selected" value="Offline">' . "Offline" . '</option>');
+                                echo ('<option value="Online">' . "Online" . '</option>');
+                            }
+                           ?>
+                        </select>
+                    </div> -->
                     <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*Mô tả công việc</label>
+                        <label class="control-label" style="font-weight: 600;">*Mô tả công việc (thêm dấu '+' trước mỗi câu)</label>
                         <div class="controls">
                             <textarea required name="mota" rows="10" class="form-control"><?php echo $job_modal['mota']; ?></textarea>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" style="font-weight: 600;">*Yêu cầu</label>
+                            <label class="control-label" style="font-weight: 600;">*Yêu cầu (thêm dấu '+' trước mỗi câu)</label>
                             <div class="controls">
                                 <textarea required name="yeucau" rows="10" class="form-control"><?php echo $job_modal['yeucau']; ?></textarea>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" style="font-weight: 600;">*Quyền Lợi</label>
+                            <label class="control-label" style="font-weight: 600;">*Quyền Lợi (thêm dấu '+' trước mỗi câu)</label>
                             <div class="controls">
                                 <textarea required name="quyenloi" rows="10" class="form-control"><?php echo $job_modal['quyenloi']; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Cách ứng tuyển (thêm dấu '+' trước mỗi câu)</label>
+                            <div class="controls">
+                                <textarea required name="ungtuyen" rows="10" class="form-control"><?php echo $job_modal['cach_ungtuyen']; ?></textarea>
                             </div>
                         </div>
                         <div class="control-group">

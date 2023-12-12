@@ -5,9 +5,6 @@ require_once "./admin/models/gioi_tinh.php";
 require_once "./admin/models/kinh_nghiem.php";
 $gioitinh = new Gioi_tinh;
 $kinh_nghiem = new Kinh_nghiem;
-/* if (!isset($_GET['id'])) {
-  header('location: index.php');
-} */
 
 $id = 0;
 if (isset($_GET['id'])) {
@@ -28,6 +25,10 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
 /* var_dump(Hinhthuc::getAllHinhThuc()); */
 /* var_dump($allJob); */
 ?>
+<style>
+    <?php include 'public/scss/custom.scss'; ?>
+</style>
+
 <title><?php echo $allJob[0]['chucvu'] ?></title>
 <!-- CONTENT START -->
 <div class="page-content" style="transform: none">
@@ -63,12 +64,12 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                 <div class="twm-job-self-info">
                                     <div class="twm-job-self-top">
                                         <div class="twm-media-bg">
-                                            <img src="images/job-detail-bg.jpg" alt="#" />
+                                            <img src="images/job-detail-bg.jpg" alt="anh" />
                                         </div>
 
                                         <div class="twm-mid-content">
                                             <div class="twm-media">
-                                                <img src="./images/jobs-company/vietnam/<?php echo $allJob[0]['img_cty'] ?>" alt="#" />
+                                                <img src="./images/jobs-company/vietnam/<?php echo $allJob[0]['img_cty'] ?>" alt="anh" />
                                             </div>
 
                                             <h4 class="twm-job-title" style="font-size: 25px; padding-top: 20px;">
@@ -93,8 +94,8 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                                 </div>
                                             </div>
 
-                                            <div class="twm-job-self-bottom">
-                                                <a class="site-button" href="#applicationForm" role="button">
+                                            <div class="twm-job-self-bottom" id="openModalBtn">
+                                                <a class="site-button" role="button">
                                                     <i class="feather-log-in"></i> Ứng tuyển ngay
                                                 </a>
 
@@ -169,7 +170,27 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                 <?php }
                                 ?>
                             </ul>
+                            <h4 class="twm-s-title">Cách ứng tuyển:</h4>
+                            <ul class="description-list-2">
+                                <?php
+                                $str = $allJob[0]['cach_ungtuyen'];
+                                $arr = (explode("+", $str));
+                                foreach ($arr as $key => $value) {
+                                ?>
+                                    <div style="margin-bottom: 5px;">
+                                        <?php
+                                        if ($key == 0) continue;
+                                        echo '+' . $value;
+                                        ?>
+                                    </div>
+                                <?php }
+                                ?>
+                            </ul>
+                            <!-- // nut dang ki -->
+                            <div class="btn-dangki-detail" id="openModalBtn-2">
+                                Ứng tuyển ngay
 
+                            </div>
                             <!-- <h4 class="twm-s-title">Share Profile</h4>
                             <div class="twm-social-tags">
                                 <a href="javascript:void(0)" class="fb-clr">Facebook</a>
@@ -358,6 +379,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -369,7 +391,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
         <div class="wt-small-separator site-text-primary">
             <!-- <div>Top Jobs</div> -->
         </div>
-        <h2 class="wt-title">Công Việc Liên Quan</h2>
+        <h2 class="wt-title">Công Việc mới nhất</h2>
     </div>
     <!-- TITLE END-->
 
@@ -384,11 +406,19 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                     <div class="item">
                         <div class="twm-jobs-grid-style2">
                             <div class="twm-media">
-                                <img src="images/jobs-company/pic4.jpg" alt="#" />
+                                <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                                    <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
+
+                                </a>
                             </div>
-                            <span class="twm-job-post-duration">1 days ago</span>
+                            <span class="twm-job-post-duration">
+                                <?php
+                                $time = $job->timeAgo($value['created_at']);
+                                echo $time;
+                                ?>
+                            </span>
                             <div class="twm-jobs-category green">
-                                <span class="twm-bg-sky">New</span>
+                                <span class="twm-bg-sky">Mới nhất</span>
                             </div>
                             <div class="twm-mid-content">
                                 <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
@@ -409,7 +439,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                 <div class="twm-jobs-amount">
                                     <?php echo $value['mucluong'] ?> <span>/ Tháng</span>
                                 </div>
-                                <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Browse Job</a>
+                                <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -424,6 +454,86 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
 </div>
 <!-- CONTENT END -->
 
+
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModalBtn" style="text-align: end;margin-right: 10px;font-size: 35px;">&times;</span>
+
+        <div class="bordered-element p-4 rounded shadow">
+            <div class="card" style="padding: 10px;">
+                <p class="fw-bold text-primary mb-0" style="font-size: 13px;">Ứng Tuyển Vị Trí</p>
+                <h4 class="mt-2 mb-2">Nhân Viên Tư Vấn</h4>
+                <p style="font-size: 12px;font-weight: 600; color: #333;">Công Ty TNHH VIETSEIKO</p>
+            </div>
+            <div class="card-body height-scroll">
+                <div class="group text-center mb-4">
+                    <img src="images/apply-job.png" alt="" class="rounded-circle" style="width: 128px; height: 128px;">
+                    <p>File phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.</p>
+                </div>
+                <form action="./admin/file-cv/code/add_file_cv.php" method="POST">
+
+                    <button class="btn btn-info btn-block button-upload">
+
+                        <label class="upload-option">
+                            <input name="fileUpload" id="fileUpload"type="file" class="upload-input" accept=".pdf, .doc, .docx" required onchange="handleFileUpload(event)">
+                            <span class="svicon-upload mr-2"></span>
+                        </label>
+                    </button>
+                    <div id="error-message" class="text-danger mt-2"></div>
+                    <p id="uploadSuccess" class="text-success mt-2"></p>
+
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Họ Và Tên <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control rounded input-field" id="fullName" placeholder="Nhập họ và tên của bạn" required>
+                        <span id="fullNameError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                        <input required type="email" class="form-control rounded input-field" id="email" placeholder="Nhập địa chỉ email của bạn">
+                        <span id="emailError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Số Điện Thoại <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control rounded input-field" id="phoneNumber" placeholder="Nhập số điện thoại của bạn" required pattern="(03|05|07|08|09)[0-9]{8}">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <hr>
+                    <div class="card-footer mt-3 d-flex justify-content-between align-items-center">
+                        <button class="btn btn-primary"  style="font-size: 14px;">Nộp Hồ Sơ</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="public/js/modal-form-apply.js">
+</script>
+<script>
+    function handleFileUpload(event) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+        const errorMessageBox = document.getElementById('error-message');
+        const uploadSuccess = document.getElementById('uploadSuccess');
+
+        if (file) {
+            const allowedExtensions = ['.pdf', '.doc', '.docx'];
+            const maxFileSize = 2 * 1024 * 1024;
+
+            const fileExtension = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+            if (!allowedExtensions.includes(fileExtension) || file.size > maxFileSize) {
+                errorMessageBox.textContent = 'File upload không hợp lệ. File phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.';
+                uploadSuccess.textContent = '';
+                fileInput.value = '';
+            } else {
+                errorMessageBox.textContent = '';
+                uploadSuccess.textContent = 'Tải lên thành công: ' + file.name;
+            }
+        }
+    }
+</script>
 <?php
 require_once 'footer.php';
 ?>

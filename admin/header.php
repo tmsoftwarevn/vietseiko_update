@@ -978,9 +978,9 @@ $jobKySuAdmin = new Job_KySu;
                             <span class="nav-text">Jobs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="job-list.php">Job Trong Nước</a></li>
-                            <li><a href="job_nb_list.php">Đơn Hàng Nhật Bản</a></li>
-                            <li><a href="job-kysu.php">Kỹ sư & Thông dịch viên</a></li>
+                            <li><a href="job-list.php">Công việc tại Việt Nam</a></li>
+                            <li><a href="job_nb_list.php">Công việc tại Nhật Bản</a></li>
+                            <li><a href="job-kysu.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
                             <li><a href="job-application.php">Apply Job</a></li>
                             <li><a href="new-job.php">New Job</a></li>
                             <li><a href="user-profile.php">User Profile</a></li>

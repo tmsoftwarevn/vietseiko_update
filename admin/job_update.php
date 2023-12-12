@@ -226,6 +226,12 @@ $all_hinhthuc = $hinhthuc::getAllHinhthuc();
                             </div>
                         </div>
                         <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Cách ứng tuyển</label>
+                            <div class="controls">
+                                <textarea required name="ungtuyen" rows="10" class="form-control"><?php echo $job_modal['cach_ungtuyen']; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Trạng thái:</label>
                             <select required name="trangthai" class="form-select">
                                 <?php

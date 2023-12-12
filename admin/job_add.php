@@ -212,7 +212,12 @@ $all_hinhthuc = $hinhthuc::getAllHinhthuc();
                                 <textarea required name="quyenloi" rows="10" class="form-control"></textarea>
                             </div>
                         </div>
-
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Cách ứng tuyển (thêm dấu '+' trước mỗi câu)</label>
+                            <div class="controls">
+                                <textarea required name="ungtuyen" rows="10" class="form-control"></textarea>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="d-flex justify-content-center">
@@ -372,14 +377,14 @@ $all_hinhthuc = $hinhthuc::getAllHinhthuc();
 
                         </select>
                     </div>
-                    <div class="control-group">
+                    <!-- <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Phỏng vấn:</label>
                         <select required name="phongvan" class="form-select">
                             <option disabled selected value>-- Hình thức phỏng vấn --</option>
                             <option value="Online">Online</option>
                             <option value="Offline">Offline</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Mô tả công việc (thêm dấu '+' trước mỗi câu)</label>
                         <div class="controls">
@@ -397,7 +402,12 @@ $all_hinhthuc = $hinhthuc::getAllHinhthuc();
                                 <textarea required name="quyenloi" rows="10" class="form-control"></textarea>
                             </div>
                         </div>
-
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Cách ứng tuyển (thêm dấu '+' trước mỗi câu)</label>
+                            <div class="controls">
+                                <textarea required name="ungtuyen" rows="10" class="form-control"></textarea>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="d-flex justify-content-center">

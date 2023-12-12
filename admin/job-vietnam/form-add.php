@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mota = htmlspecialchars($_POST['mota']);
     $yeucau = htmlspecialchars($_POST['yeucau']);
     $quyenloi = htmlspecialchars($_POST['quyenloi']);
-    //$id_trangthai = $_POST['trangthai'];
+    $ungtuyen = htmlspecialchars($_POST['ungtuyen']);
 
     // echo 'name image: ' . $img_cty;
 
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo 'check' . $name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi;
     // return;
 
-    $checkResult = $job->insertJob($name, $chucvu, $capbac, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi);
+    $checkResult = $job->insertJob($name, $chucvu, $capbac, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi,$ungtuyen);
     //return;
 }
 

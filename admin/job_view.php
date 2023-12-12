@@ -168,6 +168,12 @@ if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
                         </div>
                     </div>
                     <div class="control-group">
+                        <label class="control-label" style="font-weight: 600;">*Cách ứng tuyển</label>
+                        <div class="controls">
+                            <textarea rows="10" class="form-control" disabled><?php echo $job_modal['cach_ungtuyen']; ?></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Trạng thái:</label>
                         <div class="controls">
                             <input type="text" value="<?php echo $name_trangthai ?>" class="form-control" disabled />

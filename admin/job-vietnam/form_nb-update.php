@@ -13,6 +13,7 @@ $hinhthucAdmin = new Hinhthuc;
 
 $final_path_image = $_POST['path-image'];
 ?>
+
 <?php
 if (isset($_POST['submit']) == TRUE) {
    
@@ -31,8 +32,8 @@ if (isset($_POST['submit']) == TRUE) {
 
     
     if ($fileSize && $fileTmpName) {
-       global $final_path_image;
-        $final_path_image_uppp = $fileName;
+      
+        $final_path_image = $fileName;
 
         // Giới hạn kích thước tối đa của file (5MB)
         $allowed = array('jpeg', 'png', 'jpg');
@@ -64,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id_job = $_POST['id_job'];
     $name = $_POST['tencongty'];
-    $img_cty = $final_path_image_uppp;
+    $img_cty = $final_path_image;
     $chucvu = $_POST['chucvu'];
     $id_nganhnghe = $_POST['nganhnghe'];
     $capbac = $_POST['capbac'];
@@ -76,14 +77,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $diachi = $_POST['diachi'];
     $diachi_cuthe = $_POST['diachicuthe'];
     $id_hinhthuc = $_POST['hinhthuc'];
+    //$phongvan = $_POST['phongvan'];
     $mota = htmlspecialchars($_POST['mota']);
     $yeucau = htmlspecialchars($_POST['yeucau']);
     $quyenloi = htmlspecialchars($_POST['quyenloi']);
     $id_trangthai = $_POST['trangthai'];
-
-    //echo 'check nganh nghe: ' . $id_nganhnghe;
+    $ungtuyen = htmlspecialchars($_POST['ungtuyen']);
+    //echo 'check ung tuyen: ' . $ungtuyen;
     //echo 'check data' . $name . $chucvu . $id_nganhnghe . $capbac . $soluong . $kinhnghiem . $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai;
-    $checkResult = Job_NB::updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty);
+    $checkResult = Job_NB::updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty,$ungtuyen);
 }
 
 $url =  $_SERVER['HTTP_REFERER'];

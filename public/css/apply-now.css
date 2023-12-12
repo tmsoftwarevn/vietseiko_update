@@ -44,6 +44,7 @@
 .with-scroll {
     max-height: 195px;
     overflow-y: auto;
+    
 }
 
 .mp-3 label {

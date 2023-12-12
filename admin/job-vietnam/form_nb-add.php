@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $capbac = $_POST['capbac'];
     $soluong = $_POST['soluong'];
     $id_kinhnghiem = $_POST['kinhnghiem'];
-    $phongvan = $_POST['phongvan'];
+    // $phongvan = $_POST['phongvan'];
     $ngaycuoicung = $_POST['ngaycuoicung'];
     $gioitinh = $_POST['gioitinh'];
     $mucluong = $_POST['mucluong'];
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mota = htmlspecialchars($_POST['mota']);
     $yeucau = htmlspecialchars($_POST['yeucau']);
     $quyenloi = htmlspecialchars($_POST['quyenloi']);
-   
+    $ungtuyen = htmlspecialchars($_POST['ungtuyen']);
 
     // echo 'name image: ' . $img_cty;
 
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo 'check' . $name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi;
     // return;
 
-    $checkResult = $jobNb->insertJob($name, $chucvu, $capbac, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung,$phongvan, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi);
+    $checkResult = $jobNb->insertJob($name, $chucvu, $capbac, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung,$gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi,$ungtuyen);
     //return;
 }
 

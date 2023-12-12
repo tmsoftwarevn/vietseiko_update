@@ -2,6 +2,8 @@
 
 <?php
 require_once 'header.php';
+require_once 'admin/models/gioi_tinh.php';
+
 ?>
 
 <!-- CONTENT START -->
@@ -299,14 +301,68 @@ require_once 'header.php';
                         foreach ($list_of_latestJob as $key => $value) {
                         ?>
                             <div class="job-block col-lg-4 col-md-12 col-sm-12">
-                                <div class="inner-box " style="padding: 10px 10px 5px 0px;">
+
+                                <div class="inner-box " style="padding: 10px 10px 5px 5px;">
+
                                     <div class="content">
                                         <span class="company-logo">
-                                            <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
-                                            <!-- <img src="images/jobs-company/pic1.jpg" alt="" /> -->
+                                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                                                <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
+                                            </a>
                                         </span>
                                         <h5 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
                                             <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                                                <?php echo $value['chucvu'] ?>
+                                            </a>
+                                        </h5>
+                                        <ul class="job-info" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                                                <?php echo $value['name'] ?>
+                                            </a>
+                                        </ul>
+                                        <ul class="job-icon-info">
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                                <?php echo $value['capbac'] ?>
+                                            </span>
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                                <?php echo $value['diachi'] ?>
+                                            </span>
+                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                                <?php echo $value['mucluong'] ?>
+                                            </span>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <div class="tab animated fadeIn" id="tabbed2" style="display: none">
+                    <div class="row">
+                        <!-- Job Block - Replace with PHP loop -->
+                        <?php
+                        $list_of_latestJob_NB = Job_NB::getLatestJob_NB(15);
+                        foreach ($list_of_latestJob_NB as $key => $value) {
+                        ?>
+                            <div class="job-block col-lg-4 col-md-12 col-sm-12">
+                                <div class="inner-box" style="padding: 10px 10px 5px 5px;">
+                                    <div class="content">
+                                        <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
+                                            <span class="company-logo"><img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" /></span>
+
+                                        </a>
+                                        <h4>
+                                            <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
+                                                <?php echo $value['name'] ?>
+                                            </a>
+                                        </h4>
+                                        <h5 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                                            <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
                                                 <?php echo $value['chucvu'] ?>
                                             </a>
                                         </h5>
@@ -333,50 +389,6 @@ require_once 'header.php';
                                 </div>
                             </div>
                         <?php } ?>
-                    </div>
-                </div>
-
-                <div class="tab animated fadeIn" id="tabbed2" style="display: none">
-                    <div class="row">
-                        <!-- Job Block - Replace with PHP loop -->
-                        <?php
-                        $list_of_latestJob_NB = Job_NB::getLatestJob_NB(15);
-                        foreach ($list_of_latestJob_NB as $key => $value) {
-                        ?>
-                            <div class="job-block col-lg-6 col-md-12 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
-                                        <h4>
-                                            <a href="job-detail_NB.php?id=<?php echo $value['id_NB'] ?>">
-                                                <?php echo $value['name_NB'] ?>
-                                            </a>
-                                        </h4>
-                                        <ul class="job-info">
-                                            <li>
-                                                <span class="icon bi bi-briefcase"></span>
-                                                <?php echo $value['diachi'] ?>
-                                            </li>
-
-                                        </ul>
-                                        <ul class="job-icon-info">
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['soluong'] ?> Người
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['gioitinh'] ?>
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['mucluong'] ?>
-                                            </span>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
                         <!-- Kết thúc vòng lặp PHP -->
                     </div>
                 </div>
@@ -389,7 +401,7 @@ require_once 'header.php';
                         foreach ($list_of_latestJobKySu_NB as $key => $value) {
                         ?>
                             <div class="job-block col-lg-6 col-md-12 col-sm-12">
-                                <div class="inner-box">
+                                <div class="inner-box" style="padding: 10px 10px 5px 5px;">
                                     <div class="content">
                                         <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
                                         <h4>

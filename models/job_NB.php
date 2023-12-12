@@ -27,7 +27,7 @@ class Job_NB extends Db {
      * Lấy ra các job_NB mới nhất
      */
     static function getLatestJob_NB($number_of_records) {
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban ORDER BY created_at DESC LIMIT 0, $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb ORDER BY created_at DESC LIMIT 0, $number_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -38,7 +38,7 @@ class Job_NB extends Db {
      */
     function getJob_Detail($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban WHERE id_NB = ?");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb WHERE id_job = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();

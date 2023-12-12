@@ -150,18 +150,18 @@ class Job_NB extends Db
     }
 
     // Thêm JOB:
-    public function insertJob($name, $chucvu, $capbac, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung,$phongvan, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi)
+    public function insertJob($name, $chucvu, $capbac, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi,$ungtuyen)
     {
-        $sql = self::$connection->prepare("INSERT INTO `job_xkld_nb`(`name`, `chucvu`, `capbac`, `img_cty`,`id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`,`ngaycuoicung`,`hinhthuc_PV`,`id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`) 
-        VALUES ('$name','$chucvu','$capbac','$img_cty','$id_nganhnghe','$id_hinhthuc','$soluong','$id_kinhnghiem','$ngaycuoicung','$phongvan','$gioitinh','$mucluong','$diachi','$diachi_cuthe','$mota','$yeucau','$quyenloi')");
+        $sql = self::$connection->prepare("INSERT INTO `job_xkld_nb`(`name`, `chucvu`, `capbac`, `img_cty`,`id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`,`ngaycuoicung`,`id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`,`cach_ungtuyen`) 
+        VALUES ('$name','$chucvu','$capbac','$img_cty','$id_nganhnghe','$id_hinhthuc','$soluong','$id_kinhnghiem','$ngaycuoicung','$gioitinh','$mucluong','$diachi','$diachi_cuthe','$mota','$yeucau','$quyenloi','$ungtuyen')");
         return $sql->execute();
     } 
      //update
-    static function updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty)
+    static function updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc ,$soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty,$ungtuyen)
     {
         $sql = self::$connection->prepare("UPDATE `job_xkld_nb` SET `name`='$name',`chucvu`='$chucvu',`capbac`='$capbac',`img_cty`='$img_cty',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',
         `soluong`='$soluong',`id_kinhnghiem`='$kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$gioitinh',`mucluong`='$mucluong',
-        `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`id_trangthai`='$id_trangthai' WHERE id_job = $id_job");
+        `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`cach_ungtuyen`='$ungtuyen',`id_trangthai`='$id_trangthai' WHERE id_job = $id_job");
 
         return $sql->execute();
     }
