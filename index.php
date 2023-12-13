@@ -903,6 +903,7 @@ if (isset($_GET['type'])) {
 
         </div>
     </div>
+    <!-- //fixxxx -->
     <!-- OUR BLOG END -->
 </div>
 <!-- CONTENT END -->
