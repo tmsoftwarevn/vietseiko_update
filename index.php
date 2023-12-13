@@ -2,14 +2,15 @@
 require_once 'header.php';
 require_once 'admin/models/gioi_tinh.php';
 
-$totalShow = 6;
+$totalShow = 15;
 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$typeJob = 'vn';
 
+$typeJob = 'vn';
 if (isset($_GET['type'])) {
     $typeJob = $_GET['type'];
-}
 
+}
+$totalPages = 10;
 
 ?>
 <style>
@@ -283,7 +284,7 @@ if (isset($_GET['type'])) {
                             <?php
                             if ($typeJob == 'vn') echo ' clicked'
                             ?>
-                            " data-id="tabbed1">
+                            " data-id="tabbed1" onclick="changeUrl_vn()" ;>
                                 <span>Việc làm tại Việt Nam</span>
                             </a>
                         </li>
@@ -292,26 +293,24 @@ if (isset($_GET['type'])) {
                             <?php
                             if ($typeJob == 'nb') echo ' clicked'
                             ?>
-                            " data-id="tabbed2" 
-                            onclick="changeUrl_nb()";
-                            >
+                            " data-id="tabbed2" onclick="changeUrl_nb()" ;>
                                 <span>XKLD Nhật Bản</span>
                             </a>
-                            
+
                         </li>
                         <li class="tab-btn">
                             <a href="#3" class="tabbed-trigger
                             <?php
                             if ($typeJob == 'ks') echo ' clicked'
                             ?> 
-                            " data-id="tabbed3">
+                            " data-id="tabbed3" onclick="changeUrl_ks()" ;>
                                 <span>Kỹ sư & Thông dịch tại Nhật Bản</span>
                             </a>
                         </li>
                         <li class="tab-btn">
                             <a href="#4" class="tabbed-trigger
                             <?php
-                            if ($typeJob == 'vs') echo ' clicked' ?>" data-id="tabbed4">
+                            if ($typeJob == 'vs') echo ' clicked' ?>" data-id="tabbed4" onclick="changeUrl_vs()" ;>
                                 <span>Việc làm tại VietSeiko</span>
                             </a>
                         </li>
@@ -327,10 +326,12 @@ if (isset($_GET['type'])) {
                     <div class="row">
                         <!-- Job Block -->
                         <?php
-                        $typeJob = 'vn';
+
                         $list_of_job_vn = Job::getAllJob_andCreatePagination($currentPage, $totalShow);
                         $list_all = Job::getAllJob();
-                        $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                        if ($typeJob == 'vn') {
+                            $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                        }
                         foreach ($list_of_job_vn as $key => $value) {
                         ?>
                             <div class="col-lg-4 col-md-12 col-sm-12 ">
@@ -378,7 +379,9 @@ if (isset($_GET['type'])) {
                         <?php
                         $list_of_latestJob_NB = Job_NB::getAllJob_NB_andCreatePagination($currentPage, $totalShow);
                         $list_all = Job_NB::getAllJob_NB();
-                        $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                        if ($typeJob == 'nb') {
+                            $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                        }
                         foreach ($list_of_latestJob_NB as $key => $value) {
                         ?>
                             <div class="col-lg-4 col-md-12 col-sm-12 ">
@@ -473,7 +476,7 @@ if (isset($_GET['type'])) {
 
                         $list_of_latestJob_NB = Job_NB::getAllJob_NB_andCreatePagination($currentPage, $totalShow);
                         $list_all = Job_NB::getAllJob_NB();
-                        $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                        //$totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
                         foreach ($list_of_latestJob_NB as $key => $value) {
                         ?>
                             <div class="col-lg-4 col-md-12 col-sm-12 ">
@@ -525,7 +528,7 @@ if (isset($_GET['type'])) {
                 $output = '';
                 $d = 1;
                 global $typeJob;
-                echo 'check ttttt: ' . $typeJob;
+            
                 if ($totalPages > 1) {
                     // Previous button
                     if ($currentPage > 1) {
@@ -565,8 +568,8 @@ if (isset($_GET['type'])) {
 
                 return $output;
             }
-            $totalPages = 10; // Replace with the actual total number of pages
-            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            // $totalPages = 10; // Replace with the actual total number of pages
+            // $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
             echo '<ul class="pagination justify-content-end pagination-lg" id="pagination">';
             echo generatePagination($currentPage, $totalPages);
@@ -908,9 +911,24 @@ if (isset($_GET['type'])) {
 </div>
 <!-- CONTENT END -->
 <script>
-   
+    function changeUrl_vn() {
+        var domain = new URL(window.location.href).pathname;
+        window.location.href = domain + '?type=vn';
+    }
+
     function changeUrl_nb() {
-        window.location.href = window.location.href + `trang-chu?type=nb`;
+        var domain = new URL(window.location.href).pathname;
+        window.location.href = domain + '?type=nb';
+    }
+
+    function changeUrl_ks() {
+        var domain = new URL(window.location.href).pathname;
+        window.location.href = domain + '?type=ks';
+    }
+
+    function changeUrl_vs() {
+        var domain = new URL(window.location.href).pathname;
+        window.location.href = domain + '?type=vs';
     }
 </script>
 <?php
