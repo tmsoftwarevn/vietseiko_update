@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 10:20 AM
+-- Thời gian đã tạo: Th12 13, 2023 lúc 08:30 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.0.28
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -130,7 +130,43 @@ CREATE TABLE `gioitinh` (
 INSERT INTO `gioitinh` (`id_gt`, `name_gt`, `created_at`) VALUES
 (1, 'Nam', '2023-09-12 07:31:40'),
 (2, 'Nữ', '2023-09-12 07:31:40'),
-(3, 'Khác', '2023-09-12 07:32:04');
+(3, 'Khác', '2023-09-12 07:32:04'),
+(4, 'Không yêu cầu', '2023-12-08 04:35:22');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `infomation_ung_tuyen`
+--
+
+CREATE TABLE `infomation_ung_tuyen` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `ngay-sinh` varchar(255) NOT NULL,
+  `job` varchar(255) NOT NULL,
+  `kinh-nghiem` varchar(255) NOT NULL,
+  `hoc-van` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `luong` varchar(255) NOT NULL,
+  `des-kn` varchar(255) NOT NULL,
+  `muctieu` varchar(255) NOT NULL,
+  `ghi-chu` varchar(255) NOT NULL,
+  `created_At` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_At` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `infomation_ung_tuyen`
+--
+
+INSERT INTO `infomation_ung_tuyen` (`id`, `name`, `gender`, `email`, `phone`, `ngay-sinh`, `job`, `kinh-nghiem`, `hoc-van`, `address`, `luong`, `des-kn`, `muctieu`, `ghi-chu`, `created_At`, `updated_At`) VALUES
+(1, 'rqwe', 'Nam', ' test@gmail.com', '0333333333', '2023-12-08', 'Công nghệ thông tin', '>4 năm', 'THPT', 'ewqe', 'ewqe', 'ewqe', 'ewe', 'ewqe', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'gsdfg', 'Nam', ' test@gmail.com', '0333333333', '2023-12-21', 'Tự động hóa', '3 năm', 'THPT', 'rewr', 'rewr', 'rewr', 'rẻ', 'rewr', '0000-00-00 00:00:00', '2023-12-04 10:30:22'),
+(3, 'aaaaa', 'Nam', ' ewq@krwej.com', '0533333334', '2023-12-08', 'Cơ khí', '4 năm', 'Trung cấp', 'ewqqe', 'ewqeqwe', 'qưeqwe', 'qưewqee', 'ewqe', '2023-12-05 03:17:06', '2023-12-05 03:17:06'),
+(4, 'dong nai', 'Nữ', ' ewq@krwej.com', '0533333334', '2023-12-14', 'Công nghệ thông tin', '4 năm', 'Trung cấp', 'Tỉnh Đồng Nai', 'ewqeqwe', 'dsads', 'dsd', 'dsd', '2023-12-05 07:07:13', '2023-12-05 07:07:13');
 
 -- --------------------------------------------------------
 
@@ -144,42 +180,42 @@ CREATE TABLE `job` (
   `chucvu` varchar(225) NOT NULL,
   `capbac` varchar(255) NOT NULL,
   `img_cty` varchar(255) NOT NULL,
-  `type_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL DEFAULT 1,
   `id_nganhnghe` int(11) NOT NULL,
   `id_hinhthuc` int(11) NOT NULL,
   `soluong` int(11) NOT NULL,
-  `kinhnghiem` varchar(255) NOT NULL,
-  `ngaydang` date NOT NULL,
+  `id_kinhnghiem` int(255) NOT NULL,
+  `ngaydang` date NOT NULL DEFAULT current_timestamp(),
   `ngaycuoicung` date NOT NULL,
   `ngaygan` date NOT NULL,
-  `gioitinh` varchar(255) NOT NULL,
+  `id_gioitinh` int(11) NOT NULL,
   `mucluong` varchar(250) NOT NULL,
   `diachi` varchar(250) NOT NULL,
   `diachi_cuthe` varchar(300) NOT NULL,
   `mota` text DEFAULT NULL,
   `yeucau` text DEFAULT NULL,
   `quyenloi` text DEFAULT NULL,
-  `id_trangthai` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `cach_ungtuyen` text NOT NULL,
+  `id_trangthai` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `job`
 --
 
-INSERT INTO `job` (`id_job`, `name`, `chucvu`, `capbac`, `img_cty`, `type_id`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `kinhnghiem`, `ngaydang`, `ngaycuoicung`, `ngaygan`, `gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `id_trangthai`, `created_at`) VALUES
-(1, 'Công Ty TNHH ABC', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, '2', '2023-10-02', '2023-10-02', '2023-10-02', '1', '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\nRachelor or Master degree level educational background.\n4 years relevant PHP dev experience.\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\nAccurately estimate design tickets during planning sessions.\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\nExecute all visual design stages from concept to final hand-off to engineering.', 0, '2023-09-28 03:52:10'),
-(2, 'Công ty TNHH Phân Phối Synnex FPT', 'Nhân Viên IT Helpdesk/ Support Tại Vĩnh Phúc (Thu Nhập 9 - 12 Triệu) ', 'Nhân viên', '', 2, 2, 2, 3, '1', '2023-10-02', '2023-10-13', '2023-10-11', 'Nam', '9 - 12 triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '- Hỗ trợ người dùng cuối từ xa hoặc trực tiếp:\r\n<br/>\r\n- Trong các ứng dụng/dịch vụ phục vụ cho người dùng trong môi trường doanh nghiệp.\r\n<br/>\r\n- Quản lý hệ thống và xử lý các yêu cầu, khắc phục sự cố phần mềm/ phần cứng trên các thiết bị người dùng.\r\n<br/>\r\n- Thực hiện kiểm tra và đề xuất bảo hành, bảo trì , nâng cấp hệ thống và các thiết bị CNTT\r\n<br/>\r\n- Cài đặt các chương trình ứng dụng và các thiết bị CNTT.\r\n<br/>\r\n- Các công việc cụ thể khác được trao đổi trong buổi phỏng vấn.', '- Nam, tốt nghiệp Cao đẳng trở lên các ngành điện tử, viễn thông, CNTT.\r\n<br/>\r\n- Sử dụng được Tiếng Anh cơ bản trong giao tiếp và email\r\n<br/>\r\n- Hiểu biết về hệ thống mạng LAN, WAN\r\n<br/>\r\n- Biết cài đặt mail Outlook, lưu trữ thông tin mail.\r\n<br/>\r\n- Có khả năng quản trị các hệ thống của MS như AD, DNS, DHCP, file, TMG …\r\n<br/>\r\n- Có khả năng cài đặt và quản lý các ứng dụng\r\n<br/>\r\n- Chịu được áp lực công việc, có khả năng làm việc độc lập và làm việc nhóm', '- Thu nhập cạnh tranh 9 - 12 Triệu <br/>\r\n- Lương tháng thứ 13. <br/>\r\n- Thời gian làm việc từ T2 - T6<br/>\r\n- Xem xét tăng lương định kỳ hàng năm.<br/>\r\n- Các chế độ BHYT, BHXH, BHTN theo quy định.<br/>\r\n- Chế độ nghỉ mát, FPT Care theo quy định của Công ty.<br/>\r\n- Môi trường làm việc năng động, hiện đại, tôn trọng cá nhân;<br/>\r\n- Được đào tạo để nâng cao năng lực và nghiệp vụ;<br/>\r\n- Có cơ hội thăng tiến trong Tập đoàn CNTT lớn nhất Việt Nam;<br/>', 1, '2023-10-02 07:04:30'),
-(3, 'Công ty TNHH Concentrix Service Vietnam', 'Nhân Viên IT Helpdesk ', 'Nhân viên\r\n', '', 1, 1, 1, 2, '1', '2023-10-02', '2023-10-19', '2023-10-17', 'Không yêu cầu\r\n', 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '• Provide support to end-users in regard to network connectivity and desktop computing. \r\n• Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n• Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n• Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n• Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', 'Good English: ability to write, read well. \r\n• Ability to analyse, logical thinking. \r\n• Can use office software (Word, Excel, Outlook...) \r\n• At least 2 years of Helpdesk Support', '- 14 ngày phép/năm.\r\n- Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n- Xét tăng lương hàng năm.\r\n- Khám sức khỏe hằng năm.\r\n- Lộ trình thăng tiến rõ ràng.\r\n- Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n- Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', 1, '2023-10-02 07:10:52'),
-(4, 'Công Ty TNHH ABC', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, '2', '2023-10-02', '2023-10-02', '2023-10-02', '1', '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\r\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\r\nRachelor or Master degree level educational background.\r\n4 years relevant PHP dev experience.\r\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\r\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\r\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\r\nExecute all visual design stages from concept to final hand-off to engineering.', 0, '2023-09-28 03:52:10'),
-(5, 'Công ty TNHH Concentrix Service Vietnam', 'Nhân Viên IT Helpdesk ', 'Nhân viên\r\n', '', 1, 1, 1, 2, '1', '2023-10-02', '2023-10-19', '2023-10-17', 'Không yêu cầu\r\n', 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '• Provide support to end-users in regard to network connectivity and desktop computing. \r\n• Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n• Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n• Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n• Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', 'Good English: ability to write, read well. \r\n• Ability to analyse, logical thinking. \r\n• Can use office software (Word, Excel, Outlook...) \r\n• At least 2 years of Helpdesk Support', '- 14 ngày phép/năm.\r\n- Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n- Xét tăng lương hàng năm.\r\n- Khám sức khỏe hằng năm.\r\n- Lộ trình thăng tiến rõ ràng.\r\n- Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n- Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', 1, '2023-10-02 07:10:52'),
-(6, 'Công Ty TNHH ABC', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, '2', '2023-10-02', '2023-10-02', '2023-10-02', '1', '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\r\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\r\nRachelor or Master degree level educational background.\r\n4 years relevant PHP dev experience.\r\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\r\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\r\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\r\nExecute all visual design stages from concept to final hand-off to engineering.', 0, '2023-09-28 03:52:10'),
-(7, 'Công ty TNHH Concentrix Service Vietnam', 'Nhân Viên IT Helpdesk ', 'Nhân viên\r\n', '', 1, 1, 1, 2, '1', '2023-10-02', '2023-10-19', '2023-10-17', 'Không yêu cầu\r\n', 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '• Provide support to end-users in regard to network connectivity and desktop computing. \r\n• Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n• Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n• Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n• Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', 'Good English: ability to write, read well. \r\n• Ability to analyse, logical thinking. \r\n• Can use office software (Word, Excel, Outlook...) \r\n• At least 2 years of Helpdesk Support', '- 14 ngày phép/năm.\r\n- Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n- Xét tăng lương hàng năm.\r\n- Khám sức khỏe hằng năm.\r\n- Lộ trình thăng tiến rõ ràng.\r\n- Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n- Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', 1, '2023-10-02 07:10:52'),
-(8, 'Công Ty TNHH ABC', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, '2', '2023-10-02', '2023-10-02', '2023-10-02', '1', '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\r\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\r\nRachelor or Master degree level educational background.\r\n4 years relevant PHP dev experience.\r\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\r\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\r\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\r\nExecute all visual design stages from concept to final hand-off to engineering.', 0, '2023-09-28 03:52:10'),
-(9, 'Công ty TNHH Concentrix Service Vietnam', 'Nhân Viên IT Helpdesk ', 'Nhân viên\r\n', '', 1, 1, 1, 2, '1', '2023-10-02', '2023-10-19', '2023-10-17', 'Không yêu cầu\r\n', 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '• Provide support to end-users in regard to network connectivity and desktop computing. \r\n• Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n• Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n• Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n• Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', 'Good English: ability to write, read well. \r\n• Ability to analyse, logical thinking. \r\n• Can use office software (Word, Excel, Outlook...) \r\n• At least 2 years of Helpdesk Support', '- 14 ngày phép/năm.\r\n- Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n- Xét tăng lương hàng năm.\r\n- Khám sức khỏe hằng năm.\r\n- Lộ trình thăng tiến rõ ràng.\r\n- Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n- Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', 1, '2023-10-02 07:10:52'),
-(10, 'Công ty TNHH Concentrix Service Vietnam', 'Nhân Viên IT Helpdesk ', 'Nhân viên\r\n', '', 1, 1, 1, 2, '1', '2023-10-02', '2023-10-19', '2023-10-17', 'Không yêu cầu\r\n', 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '• Provide support to end-users in regard to network connectivity and desktop computing. \r\n• Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n• Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n• Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n• Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', 'Good English: ability to write, read well. \r\n• Ability to analyse, logical thinking. \r\n• Can use office software (Word, Excel, Outlook...) \r\n• At least 2 years of Helpdesk Support', '- 14 ngày phép/năm.\r\n- Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n- Xét tăng lương hàng năm.\r\n- Khám sức khỏe hằng năm.\r\n- Lộ trình thăng tiến rõ ràng.\r\n- Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n- Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', 1, '2023-10-02 07:10:52'),
-(11, 'Công Ty TNHH ABC', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, '2', '2023-10-02', '2023-10-02', '2023-10-02', '1', '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\r\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\r\nRachelor or Master degree level educational background.\r\n4 years relevant PHP dev experience.\r\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\r\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\r\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\r\nExecute all visual design stages from concept to final hand-off to engineering.', 0, '2023-09-28 03:52:10'),
-(12, 'Công ty TNHH Concentrix Service Vietnam', 'Nhân Viên IT Helpdesk ', 'Nhân viên\r\n', '', 1, 1, 1, 2, '1', '2023-10-02', '2023-10-19', '2023-10-17', 'Không yêu cầu\r\n', 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '• Provide support to end-users in regard to network connectivity and desktop computing. \r\n• Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n• Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n• Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n• Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', 'Good English: ability to write, read well. \r\n• Ability to analyse, logical thinking. \r\n• Can use office software (Word, Excel, Outlook...) \r\n• At least 2 years of Helpdesk Support', '- 14 ngày phép/năm.\r\n- Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n- Xét tăng lương hàng năm.\r\n- Khám sức khỏe hằng năm.\r\n- Lộ trình thăng tiến rõ ràng.\r\n- Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n- Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', 1, '2023-10-02 07:10:52');
+INSERT INTO `job` (`id_job`, `name`, `chucvu`, `capbac`, `img_cty`, `type_id`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaydang`, `ngaycuoicung`, `ngaygan`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `cach_ungtuyen`, `id_trangthai`, `created_at`, `updated_at`) VALUES
+(1, 'Công Ty TNHH ABC 1', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, 2, '2023-10-02', '2023-10-02', '2023-10-02', 1, '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\r\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\r\nRachelor or Master degree level educational background.\r\n4 years relevant PHP dev experience.\r\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\r\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\r\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\r\nExecute all visual design stages from concept to final hand-off to engineering.', '', 0, '2023-09-28 03:52:10', '2023-12-08 10:04:26'),
+(2, 'Công ty TNHH Phân Phối Synnex FPT 2 sdada dasdasd đâsdad', 'Nhân Viên IT Helpdesk/ Support Tại Vĩnh Phúc (Thu Nhập 9 - 12 Triệu) ', 'Nhân viên', '1702394507p1.jpg', 2, 2, 2, 3, 1, '2023-10-02', '2023-10-13', '2023-10-11', 1, '9 - 12 triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+Ability to analyse, logical thinking. \r\n+Can use office software (Word, Excel, Outlook...) \r\n+At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', 'tret', 1, '2023-10-02 07:04:30', '2023-12-12 15:21:47'),
+(3, 'Công ty TNHH 33333333', 'quản lý', 'nhân viên', '1702031142slide-01.jpg', 1, 1, 1, 3, 6, '2023-10-02', '2023-12-30', '2023-10-17', 1, '12 triệu', 'HÀ NỘI', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+Ability to analyse, logical thinking. \r\n+Can use office software (Word, Excel, Outlook...) \r\n+At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '', 1, '2023-10-02 07:10:52', '2023-12-08 10:25:42'),
+(4, 'Công Ty TNHH ABC', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, 2, '2023-10-02', '2023-10-02', '2023-10-02', 1, '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\r\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\r\nRachelor or Master degree level educational background.\r\n4 years relevant PHP dev experience.\r\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\r\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\r\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\r\nExecute all visual design stages from concept to final hand-off to engineering.', '', 0, '2023-09-28 03:52:10', '2023-12-07 10:13:28'),
+(13, 'Công ty TNHH adddđ asd dasdsa dasdas đasadsad dsadsad ewqe', ' Helpdesk  77 dá ddasdqwewq 23e4234 ewtert', 'Nhân viên 7', '1702388642p1.jpg', 1, 8, 2, 5, 2, '2023-12-11', '2023-12-21', '0000-00-00', 4, '12 triệu', 'HÀ NỘI', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'ewee', 'rewrerer', 'ểwr', 'ẻwrer', 1, '2023-12-11 04:07:01', '2023-12-13 01:32:47'),
+(7, 'Công ty TNHH Concentrix Service Vietnam 777', ' Helpdesk  77', 'Nhân viên 7', '1702024878Screenshot (41).png', 1, 1, 1, 12, 5, '2023-10-02', '2023-10-03', '2023-10-17', 1, 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+ Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+ Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+ Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+ Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+ Ability to analyse, logical thinking. \r\n+ Can use office software (Word, Excel, Outlook...) \r\n+At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+ Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '', 1, '2023-10-02 07:10:52', '2023-12-11 01:15:59'),
+(9, 'Công ty TNHH Concentrix Service Vietnam 99', 'Nhân Viên IT Helpdesk ', 'Nhân viên', '1702257934p2.jpg', 1, 1, 1, 2, 1, '2023-10-02', '2023-10-19', '2023-10-17', 1, 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+ Provide support to end-users in regard to network connectivity and desktop computing. \r\n+Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+ Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+ Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+ Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', 'Good English: ability to write, read well. \r\n+Ability to analyse, logical thinking. \r\n+ Can use office software (Word, Excel, Outlook...) \r\n+ At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+ Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+ Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '+wwww\r\n+ddddd\r\n+tttttt', 1, '2023-10-02 07:10:52', '2023-12-12 03:29:11'),
+(10, 'Công ty TNHH Concentrix Service Vietnam10', 'Nhân Viên IT Helpdesk ', 'Nhân viên', '1702029612bground.jpg', 1, 1, 1, 2, 6, '2023-10-02', '2023-10-19', '2023-10-17', 1, 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+ Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+ Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+ Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+ Ability to analyse, logical thinking. \r\n+ Can use office software (Word, Excel, Outlook...) \r\n+ At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+ Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+ Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '', 1, '2023-10-02 07:10:52', '2023-12-11 01:26:33'),
+(12, 'Công ty TNHH Concentrix Service Vietnam 12', 'Nhân Viên IT Helpdesk ', 'Nhân viên', '1702258043p6.png', 1, 1, 1, 2, 1, '2023-10-02', '2023-10-19', '2023-10-17', 1, 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+ Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+ Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+ Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+ Ability to analyse, logical thinking. \r\n+ Can use office software (Word, Excel, Outlook...) \r\n+ At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+ Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+ Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '', 1, '2023-10-02 07:10:52', '2023-12-11 01:27:23'),
+(17, 'Công ty TNHH Concentrix Service Vietnam 99', 'quản lý', 'nhân viên', '1702350194ddd.jpg', 1, 7, 2, 50, 6, '2023-12-10', '2024-01-07', '0000-00-00', 3, 'Tới 20 triệu', 'hcm', 'bình thạnh, 123 , tp hcm', 'ewqe', 'ewqe', 'ewqeưqsss', 'aaaaaaaaaaaaaaaa', 1, '2023-12-10 03:03:14', '2023-12-12 04:42:56');
 
 -- --------------------------------------------------------
 
@@ -233,8 +269,15 @@ CREATE TABLE `job_nganhnghe` (
 --
 
 INSERT INTO `job_nganhnghe` (`id_nganhnghe`, `name_nganhnghe`, `img_nganhnghe`, `created_at`) VALUES
-(1, 'IT', '', '2023-08-29 06:39:34'),
-(2, 'QA', '', '2023-08-29 06:43:44');
+(1, 'Sản xuất', '', '2023-12-07 04:02:03'),
+(2, 'Kỹ thuật', '', '2023-12-07 04:02:11'),
+(3, 'Cơ khí', '', '2023-12-07 04:01:47'),
+(4, 'Tự động hóa', '', '2023-12-07 04:01:47'),
+(5, 'Công nghệ thông tin', '', '2023-12-07 04:01:47'),
+(6, 'Khối ngoại ngữ', '', '2023-12-07 04:01:47'),
+(7, 'Xuất nhập khẩu và Logistics', '', '2023-12-07 04:02:59'),
+(8, 'Khối cấp cao và khối văn phòng có ngoại ngữ', '', '2023-12-07 04:02:59'),
+(9, 'Khác', '', '2023-12-07 04:03:12');
 
 -- --------------------------------------------------------
 
@@ -286,8 +329,53 @@ CREATE TABLE `job_trangthai` (
 --
 
 INSERT INTO `job_trangthai` (`id_trangthai`, `name_trangthai`, `img_trangthai`, `create_at`) VALUES
-(0, 'Active', '', '2023-09-29 08:38:31'),
-(1, 'In Active', '', '2023-09-29 08:39:18');
+(0, 'Hết thời hạn', '', '2023-12-07 03:17:21'),
+(1, 'Còn thời hạn', '', '2023-12-07 03:17:13');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `job_xkld_nb`
+--
+
+CREATE TABLE `job_xkld_nb` (
+  `id_job` int(11) NOT NULL,
+  `name` varchar(225) NOT NULL,
+  `chucvu` varchar(225) NOT NULL,
+  `capbac` varchar(255) NOT NULL,
+  `img_cty` varchar(255) NOT NULL,
+  `type_id` int(11) NOT NULL DEFAULT 2,
+  `id_nganhnghe` int(11) NOT NULL,
+  `id_hinhthuc` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `id_kinhnghiem` int(255) NOT NULL,
+  `ngaydang` date NOT NULL DEFAULT current_timestamp(),
+  `ngaycuoicung` date NOT NULL,
+  `hinhthuc_PV` varchar(255) NOT NULL,
+  `ngaygan` date NOT NULL,
+  `id_gioitinh` int(11) NOT NULL,
+  `mucluong` varchar(250) NOT NULL,
+  `diachi` varchar(250) NOT NULL,
+  `diachi_cuthe` varchar(300) NOT NULL,
+  `mota` text DEFAULT NULL,
+  `yeucau` text DEFAULT NULL,
+  `quyenloi` text DEFAULT NULL,
+  `cach_ungtuyen` text NOT NULL,
+  `id_trangthai` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `job_xkld_nb`
+--
+
+INSERT INTO `job_xkld_nb` (`id_job`, `name`, `chucvu`, `capbac`, `img_cty`, `type_id`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaydang`, `ngaycuoicung`, `hinhthuc_PV`, `ngaygan`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `cach_ungtuyen`, `id_trangthai`, `created_at`, `updated_at`) VALUES
+(22, 'Công ty TNHH 33333333', 'Nhân Viên IT ', 'Nhân viên 7', '1702345094Untitled.jpg', 2, 9, 2, 3, 4, '2023-12-11', '2024-01-03', 'Online', '0000-00-00', 3, 'Tới 20 triệu', 'hcm', 'bình thạnh, 123 , tp hcm', 'fsdfsd', 'fsdfdsf', 'fdsfdsf', '', 1, '2023-12-11 14:14:30', '2023-12-12 01:38:14'),
+(23, 'dsadasd 23333 nb', 'Nhân Viên IT ', 'nhân viên', '1702343859images.jpg', 2, 3, 3, 3, 4, '2023-12-11', '2024-01-02', 'Offline', '0000-00-00', 2, '23', 'hcm', 'bình thạnh, 123 , tp hcm', '+đasa', '+dsad', '+dsadsad', '', 1, '2023-12-11 14:15:14', '2023-12-12 02:26:49'),
+(24, 'test nb 1234 34rer', 'Nhân Viên IT ', 'Nhân viên 7', '1702345296Untitled.jpg', 2, 5, 1, 12, 5, '2023-12-12', '2024-01-05', 'Offline', '0000-00-00', 4, '12 triệu', 'hcm', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+dsadsad', '+dsfdfd', '+ewrerewr', '', 1, '2023-12-12 01:41:36', '2023-12-12 02:39:51'),
+(25, 'Công Ty TNHH Nnd Studio tttt', 'quẩn lý', 'Quản lý cấp trung', '1702349018Untitled.png', 2, 5, 3, 12, 3, '2023-12-12', '2024-01-07', '', '0000-00-00', 4, 'Tới 20 triệu', 'hcm', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '+fdfdsfdsf\r\n+fsdfdsf\r\n+fdsfdsfd', '+rewrwer\r\n+rewrewr\r\n+rewrewre', '+fdfdf\r\n+gdfgfdg\r\n+gdfgfdg', '', 1, '2023-12-12 02:43:38', '2023-12-12 02:44:17'),
+(26, 'Công ty TNHH adddđ', 'quản lý', 'Nhân viên 7', '1702351579images.jpg', 2, 4, 3, 23, 5, '2023-12-12', '2023-12-29', '', '0000-00-00', 3, 'Tới 20 triệu', 'hcm', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'đázxczx', 'czxcx', 'cxzc', 'aaaaaaaaabbbbbbbbb', 1, '2023-12-12 03:26:19', '2023-12-12 03:27:18');
 
 -- --------------------------------------------------------
 
@@ -307,7 +395,11 @@ CREATE TABLE `kinhnghiem` (
 
 INSERT INTO `kinhnghiem` (`id_kn`, `name_kn`, `created_at`) VALUES
 (1, '1 Năm', '2023-09-12 07:29:46'),
-(2, '2 Năm', '2023-09-12 07:29:46');
+(2, '2 Năm', '2023-09-12 07:29:46'),
+(3, '3 năm', '2023-12-08 08:50:47'),
+(4, '4 năm', '2023-12-08 08:50:47'),
+(5, 'Trên 4 năm', '2023-12-08 08:51:46'),
+(6, 'Không yêu cầu ', '2023-12-08 08:51:46');
 
 -- --------------------------------------------------------
 
@@ -329,6 +421,33 @@ CREATE TABLE `nganhnghe_nb` (
 INSERT INTO `nganhnghe_nb` (`id_nganhnghe_NB`, `name_nn_NB`, `img_nn_NB`, `create_at`) VALUES
 (1, 'Kỹ Sư', '', '2023-10-13'),
 (2, 'Thực Tập Sinh', '', '2023-10-13');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nganh_ung_tuyen`
+--
+
+CREATE TABLE `nganh_ung_tuyen` (
+  `id` int(11) NOT NULL,
+  `ten_nganh` varchar(255) NOT NULL,
+  `created_At` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nganh_ung_tuyen`
+--
+
+INSERT INTO `nganh_ung_tuyen` (`id`, `ten_nganh`, `created_At`) VALUES
+(1, 'Sản xuất', '2023-12-05 03:34:51'),
+(2, 'Kỹ thuật', '2023-12-05 03:34:51'),
+(3, 'Cơ khí', '2023-12-05 03:34:51'),
+(4, 'Tự động hóa', '2023-12-05 03:34:51'),
+(5, 'Công nghệ thông tin', '2023-12-05 03:34:51'),
+(6, 'Khối ngoại ngữ', '2023-12-05 03:34:51'),
+(7, 'Xuất nhập khẩu và Logistics', '2023-12-05 03:34:51'),
+(8, 'Khối cấp cao và khối văn phòng có ngoại ngữ', '2023-12-05 03:36:34'),
+(9, 'Khác', '2023-12-05 03:36:20');
 
 -- --------------------------------------------------------
 
@@ -399,7 +518,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `address`, `img`, `password`, `gioitinh`, `bangcap`, `sodienthoai`, `email`, `created_at`, `Role`) VALUES
 (1, 'LeNgocHai', NULL, '', '25f9e794323b453885f5181f1b624d0b', 'Nam', 'Cao Đẳng', 332369993, 'lengochai.fit2019@gmail.com', '2023-10-04 06:11:52', 0),
-(3, 'admin', NULL, '', '25f9e794323b453885f5181f1b624d0b', '', '', 0, '', '2023-11-13 09:09:41', 1);
+(3, 'admin', NULL, '', '25f9e794323b453885f5181f1b624d0b', '', '', 0, '', '2023-11-13 09:09:41', 1),
+(4, 'admin2', NULL, '', '123456', '', '', 0, '', '2023-11-28 15:26:23', 1);
 
 -- --------------------------------------------------------
 
@@ -449,6 +569,12 @@ ALTER TABLE `gioitinh`
   ADD PRIMARY KEY (`id_gt`);
 
 --
+-- Chỉ mục cho bảng `infomation_ung_tuyen`
+--
+ALTER TABLE `infomation_ung_tuyen`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `job`
 --
 ALTER TABLE `job`
@@ -485,6 +611,12 @@ ALTER TABLE `job_trangthai`
   ADD PRIMARY KEY (`id_trangthai`);
 
 --
+-- Chỉ mục cho bảng `job_xkld_nb`
+--
+ALTER TABLE `job_xkld_nb`
+  ADD PRIMARY KEY (`id_job`);
+
+--
 -- Chỉ mục cho bảng `kinhnghiem`
 --
 ALTER TABLE `kinhnghiem`
@@ -495,6 +627,12 @@ ALTER TABLE `kinhnghiem`
 --
 ALTER TABLE `nganhnghe_nb`
   ADD PRIMARY KEY (`id_nganhnghe_NB`);
+
+--
+-- Chỉ mục cho bảng `nganh_ung_tuyen`
+--
+ALTER TABLE `nganh_ung_tuyen`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `protypes`
@@ -540,13 +678,19 @@ ALTER TABLE `cty`
 -- AUTO_INCREMENT cho bảng `gioitinh`
 --
 ALTER TABLE `gioitinh`
-  MODIFY `id_gt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_gt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `infomation_ung_tuyen`
+--
+ALTER TABLE `infomation_ung_tuyen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `job`
 --
 ALTER TABLE `job`
-  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `job_hinhthuc`
@@ -558,7 +702,7 @@ ALTER TABLE `job_hinhthuc`
 -- AUTO_INCREMENT cho bảng `job_nganhnghe`
 --
 ALTER TABLE `job_nganhnghe`
-  MODIFY `id_nganhnghe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_nganhnghe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `job_nhatban`
@@ -567,10 +711,16 @@ ALTER TABLE `job_nhatban`
   MODIFY `id_NB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `job_xkld_nb`
+--
+ALTER TABLE `job_xkld_nb`
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
 -- AUTO_INCREMENT cho bảng `kinhnghiem`
 --
 ALTER TABLE `kinhnghiem`
-  MODIFY `id_kn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `nganhnghe_nb`
@@ -594,7 +744,7 @@ ALTER TABLE `protypes_congcu`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `user_employer`

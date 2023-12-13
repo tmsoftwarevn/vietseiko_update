@@ -203,97 +203,12 @@ li {
   animation-name: fadeIn;
 }
 
-.job-block {
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.job-block .inner-box {
-  cursor: pointer;
-  position: relative;
-  padding: 10px 10px 5px 0px;
-  background: #ffffff;
-  border: 1px solid #ecedf2;
-  box-sizing: border-box;
-  border-radius: 10px;
-  transition: all 300ms ease;
-}
-.inner-box:hover{
-  transition: 0.5s;
-  border: 1px solid #2e74d4;
-}
-.job-block .content {
-  position: relative;
-  padding-left: 68px;
-  min-height: 51px;
-}
-
-.job-block .company-logo {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50px;
-  transition: all 300ms ease;
-}
-
 .rounded-full {
   border-radius: 100% !important;
 }
 
 @media only screen and (max-width: 1366px) {
-  .job-block h4 {
-    font-size: 16px;
-  }
-}
-
-.job-block h4 {
-  font-size: 18px;
-  color: #202124;
-  font-weight: 500;
-  line-height: 26px;
-  top: -3px;
-  margin-bottom: 3px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.job-block h4 a {
-  color: #202124;
-  transition: all 300ms ease;
-}
-
-.job-block .job-info {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.job-block .job-info li {
-  position: relative;
-  font-size: 14px;
-  line-height: 22px;
-  color: #696969;
-  font-weight: 400;
-  padding-left: 25px;
-  margin-bottom: 5px;
-  margin-right: 20px;
-}
-
-.job-block .job-info li .icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 18px;
-  line-height: 22px;
-  color: #696969;
-}
-
-.job-block .job-other-info {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  
 }
 
 .job-other-info li.required {
@@ -316,24 +231,6 @@ li {
   color: #1967d2;
 }
 
-.job-block .bookmark-btn {
-  position: absolute;
-  right: 0;
-  top: -15px;
-  height: 30px;
-  width: 30px;
-  line-height: 35px;
-  text-align: center;
-  font-size: 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  background: #ffffff;
-  transition: all 300ms ease;
-}
-
-.job-block .bookmark-btn:hover {
-  background: #ecedf2;
-}
 
 button {
   background-color: transparent;

@@ -75,7 +75,7 @@ class Job extends Db
     //Lấy danh sách tất cả sản phẩm:
     static function getAllJob()
     {
-        $sql = self::$connection->prepare("SELECT * FROM job order by id_job desc");
+        $sql = self::$connection->prepare("SELECT * FROM job ");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

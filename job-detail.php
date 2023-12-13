@@ -471,12 +471,12 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                     <img src="images/apply-job.png" alt="" class="rounded-circle" style="width: 128px; height: 128px;">
                     <p>File phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.</p>
                 </div>
-                <form action="./admin/file-cv/code/add_file_cv.php" method="POST">
+                <form action="./admin/file-cv/code/add_file_cv.php" method="POST" enctype="multipart/form-data">
 
                     <button class="btn btn-info btn-block button-upload">
 
                         <label class="upload-option">
-                            <input name="fileUpload" id="fileUpload"type="file" class="upload-input" accept=".pdf, .doc, .docx" required onchange="handleFileUpload(event)">
+                            <input name="file" id="file"type="file" class="upload-input" accept=".pdf, .doc, .docx" required onchange="handleFileUpload(event)">
                             <span class="svicon-upload mr-2"></span>
                         </label>
                     </button>
@@ -500,7 +500,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                     </div>
                     <hr>
                     <div class="card-footer mt-3 d-flex justify-content-between align-items-center">
-                        <button class="btn btn-primary"  style="font-size: 14px;">Nộp Hồ Sơ</button>
+                        <button class="btn btn-primary" type="submit"  style="font-size: 14px;">Nộp Hồ Sơ</button>
                     </div>
                 </form>
             </div>

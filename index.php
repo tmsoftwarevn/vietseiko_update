@@ -1,12 +1,24 @@
-<title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
-
 <?php
 require_once 'header.php';
 require_once 'admin/models/gioi_tinh.php';
 
-?>
+$totalShow = 6;
+$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$typeJob = 'vn';
 
+if (isset($_GET['type'])) {
+    $typeJob = $_GET['type'];
+}
+
+
+?>
+<style>
+    <?php include 'public/scss/custom.scss'; ?>
+</style>
+
+<title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <!-- CONTENT START -->
+<div class="test" style="display: none;">v</div>
 <div class="page-content">
     <!--Banner Start-->
     <div class="twm-home1-banner-section site-bg-gray bg-cover" style="background-image: url(images/main-slider/slider1/bg1.jpg)">
@@ -263,26 +275,43 @@ require_once 'admin/models/gioi_tinh.php';
                 <nav class="list-inline scrollto"></nav>
                 <ul class="tab-buttons wrapper">
                     <div class="sec-title text-center" style="margin-bottom: 10px;">
-                        <h2 style="font-size: 24px; font-weight: bold;">Việc làm tốt nhất</h2>
+                        <h2 style="font-size: 24px; font-weight: bold;">Thông tin</h2>
                     </div>
                     <div style="display: flex;">
-                        <li class="tab-btn active-btn active">
-                            <a href="#1" class="tabbed-trigger" data-id="tabbed1">
+                        <li class="tab-btn active">
+                            <a href="#1" class="tabbed-trigger 
+                            <?php
+                            if ($typeJob == 'vn') echo ' clicked'
+                            ?>
+                            " data-id="tabbed1">
                                 <span>Việc làm tại Việt Nam</span>
                             </a>
                         </li>
                         <li class="tab-btn">
-                            <a href="#2" class="tabbed-trigger" data-id="tabbed2">
+                            <a href="#2" class="tabbed-trigger
+                            <?php
+                            if ($typeJob == 'nb') echo ' clicked'
+                            ?>
+                            " data-id="tabbed2" 
+                            onclick="changeUrl_nb()";
+                            >
                                 <span>XKLD Nhật Bản</span>
                             </a>
+                            
                         </li>
                         <li class="tab-btn">
-                            <a href="#3" class="tabbed-trigger" data-id="tabbed3">
+                            <a href="#3" class="tabbed-trigger
+                            <?php
+                            if ($typeJob == 'ks') echo ' clicked'
+                            ?> 
+                            " data-id="tabbed3">
                                 <span>Kỹ sư & Thông dịch tại Nhật Bản</span>
                             </a>
                         </li>
                         <li class="tab-btn">
-                            <a href="#4" class="tabbed-trigger" data-id="tabbed3">
+                            <a href="#4" class="tabbed-trigger
+                            <?php
+                            if ($typeJob == 'vs') echo ' clicked' ?>" data-id="tabbed4">
                                 <span>Việc làm tại VietSeiko</span>
                             </a>
                         </li>
@@ -293,107 +322,105 @@ require_once 'admin/models/gioi_tinh.php';
             </div>
 
             <div class="tabs-content wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp">
-                <div class="tab active-tab animated fadeIn" id="tabbed1" style="display: block">
+                <div class="tab active-tab animated fadeIn" id="tabbed1" style="<?php if ($typeJob == 'vn') echo 'display: block';
+                                                                                else echo 'display: none' ?>">
                     <div class="row">
                         <!-- Job Block -->
                         <?php
-                        $list_of_latestJob = Job::getLatestJob(15);
-                        foreach ($list_of_latestJob as $key => $value) {
+                        $typeJob = 'vn';
+                        $list_of_job_vn = Job::getAllJob_andCreatePagination($currentPage, $totalShow);
+                        $list_all = Job::getAllJob();
+                        $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                        foreach ($list_of_job_vn as $key => $value) {
                         ?>
-                            <div class="job-block col-lg-4 col-md-12 col-sm-12">
+                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" style="display: block;">
 
-                                <div class="inner-box " style="padding: 10px 10px 5px 5px;">
-
-                                    <div class="content">
-                                        <span class="company-logo">
-                                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                                    <div class="g-pr" id='job-vietnam'>
+                                        <div class="chucvu">
+                                            <?php echo $value['chucvu'] ?>
+                                        </div>
+                                        <div class="group-info">
+                                            <div class="company-logo">
                                                 <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
-                                            </a>
-                                        </span>
-                                        <h5 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
-                                                <?php echo $value['chucvu'] ?>
-                                            </a>
-                                        </h5>
-                                        <ul class="job-info" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
-                                                <?php echo $value['name'] ?>
-                                            </a>
-                                        </ul>
-                                        <ul class="job-icon-info">
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['capbac'] ?>
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['diachi'] ?>
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['mucluong'] ?>
-                                            </span>
-                                        </ul>
-                                    </div>
-                                </div>
+                                            </div>
+                                            <div class="content">
 
+                                                <!-- href="job-detail.php?id= echo $value['id_job'] ?> -->
+                                                <div class="name_job">
+
+                                                    <?php echo $value['name'] ?>
+                                                </div>
+
+                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                    <i class="bi bi-cash"></i>
+                                                    <?php echo $value['mucluong'] ?>
+                                                </div>
+                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                    <?php echo $value['diachi'] ?>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         <?php } ?>
                     </div>
+
                 </div>
 
-                <div class="tab animated fadeIn" id="tabbed2" style="display: none">
+                <div class="tab animated fadeIn" id="tabbed2" style="<?php if ($typeJob == 'nb') echo 'display: block';
+                                                                        else echo 'display: none' ?>">
                     <div class="row">
                         <!-- Job Block - Replace with PHP loop -->
                         <?php
-                        $list_of_latestJob_NB = Job_NB::getLatestJob_NB(15);
+                        $list_of_latestJob_NB = Job_NB::getAllJob_NB_andCreatePagination($currentPage, $totalShow);
+                        $list_all = Job_NB::getAllJob_NB();
+                        $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
                         foreach ($list_of_latestJob_NB as $key => $value) {
                         ?>
-                            <div class="job-block col-lg-4 col-md-12 col-sm-12">
-                                <div class="inner-box" style="padding: 10px 10px 5px 5px;">
-                                    <div class="content">
-                                        <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
-                                            <span class="company-logo"><img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" /></span>
+                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>" style="display: block;">
 
-                                        </a>
-                                        <h4>
-                                            <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
-                                                <?php echo $value['name'] ?>
-                                            </a>
-                                        </h4>
-                                        <h5 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                                            <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
-                                                <?php echo $value['chucvu'] ?>
-                                            </a>
-                                        </h5>
-                                        <ul class="job-info" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                                            <a href="">
-                                                <?php echo $value['name'] ?>
-                                            </a>
-                                        </ul>
-                                        <ul class="job-icon-info">
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['capbac'] ?>
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['diachi'] ?>
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['mucluong'] ?>
-                                            </span>
-                                        </ul>
+                                    <div class="g-pr" id='job-vietnam'>
+                                        <div class="chucvu">
+                                            <?php echo $value['chucvu'] ?>
+                                        </div>
+                                        <div class="group-info">
+                                            <div class="company-logo">
+                                                <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
+                                            </div>
+                                            <div class="content">
+
+                                                <!-- href="job-detail.php?id= echo $value['id_job'] ?> -->
+                                                <div class="name_job">
+
+                                                    <?php echo $value['name'] ?>
+                                                </div>
+
+                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                    <i class="bi bi-cash"></i>
+                                                    <?php echo $value['mucluong'] ?>
+                                                </div>
+                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                    <?php echo $value['diachi'] ?>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         <?php } ?>
-                        <!-- Kết thúc vòng lặp PHP -->
                     </div>
+
                 </div>
 
-                <div class="tab animated fadeIn" id="tabbed3" style="display: none">
+                <div class="tab animated fadeIn" id="tabbed3" style="<?php if ($typeJob == 'ks') echo 'display: block';
+                                                                        else echo 'display: none' ?>">
                     <div class="row">
                         <!-- Job Block - Replace with PHP loop -->
                         <?php
@@ -437,12 +464,121 @@ font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
                         <!-- Kết thúc vòng lặp PHP -->
                     </div>
                 </div>
+
+                <div class="tab animated fadeIn" id="tabbed4" style="<?php if ($typeJob == 'vs') echo 'display: block';
+                                                                        else echo 'display: none' ?>">
+                    <div class="row">
+                        <!-- Job Block - Replace with PHP loop -->
+                        <?php
+
+                        $list_of_latestJob_NB = Job_NB::getAllJob_NB_andCreatePagination($currentPage, $totalShow);
+                        $list_all = Job_NB::getAllJob_NB();
+                        $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                        foreach ($list_of_latestJob_NB as $key => $value) {
+                        ?>
+                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>" style="display: block;">
+
+                                    <div class="g-pr" id='job-vietnam'>
+                                        <div class="chucvu">
+                                            <?php echo $value['chucvu'] ?>
+                                        </div>
+                                        <div class="group-info">
+                                            <div class="company-logo">
+                                                <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
+                                            </div>
+                                            <div class="content">
+
+                                                <!-- href="job-detail.php?id= echo $value['id_job'] ?> -->
+                                                <div class="name_job">
+
+                                                    <?php echo $value['name'] ?>
+                                                </div>
+
+                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                    <i class="bi bi-cash"></i>
+                                                    <?php echo $value['mucluong'] ?>
+                                                </div>
+                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                    <?php echo $value['diachi'] ?>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
+
+                </div>
             </div>
+            <!-- // page  -->
+            <div style="border-bottom: 1px solid #1967d2;"></div>
+            <!-- page bootstrap -->
+            <?php
+
+            function generatePagination($currentPage, $totalPages)
+            {
+                $range = 2; // Number of pages before and after the current page to display
+                $output = '';
+                $d = 1;
+                global $typeJob;
+                echo 'check ttttt: ' . $typeJob;
+                if ($totalPages > 1) {
+                    // Previous button
+                    if ($currentPage > 1) {
+                        $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
+                        $output .= '<li class="page-item">';
+                        $output .= '<a class="page-link" href="?page=' . $prevPage . '&type=' . $typeJob . '" aria-label="Previous">';
+                        $output .= '<span aria-hidden="true">&laquo;</span>';
+                        $output .= '</a>';
+                        $output .= '</li>';
+                    }
+
+                    for ($i = 1; $i <= $totalPages; $i++) {
+
+                        if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
+                            $output .= '<li class="page-item';
+                            $output .= ($i == $currentPage) ? ' active">' : '">';
+                            $output .= '<a class="page-link" href="?page=' . $i . '&type=' . $typeJob . ' ">' . $i . '</a>';
+                            $output .= '</li>';
+                        } elseif (!strpos($output, '<li class="page-item dots">...</li>') || $d < 3) {
+                            if ($d > 2) {
+                                continue;
+                            }
+
+                            $d = $d + 1;
+                            $output .= '<li class="page-item dots">...</li>';
+                        }
+                    }
+                    if ($currentPage < $totalPages) {
+                        $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
+                        $output .= '<li class="page-item">';
+                        $output .= '<a class="page-link" href="?page=' . $nextPage . '&type=' . $typeJob . '" aria-label="Next">';
+                        $output .= '<span aria-hidden="true">&raquo;</span>';
+                        $output .= '</a>';
+                        $output .= '</li>';
+                    }
+                }
+
+                return $output;
+            }
+            $totalPages = 10; // Replace with the actual total number of pages
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+            echo '<ul class="pagination justify-content-end pagination-lg" id="pagination">';
+            echo generatePagination($currentPage, $totalPages);
+            echo '</ul>';
+            ?>
+        </div>
+
     </section>
     <!-- JOB POST END -->
 
     <!-- EXPLORE NEW LIFE START -->
-    <div class="section-full p-t20 p-b20 twm-explore-area bg-cover" style="background-image: url(images/background/bg-1.jpg)">
+    <!-- <div class="section-full p-t20 p-b20 twm-explore-area bg-cover" style="background-image: url(images/background/bg-1.jpg)">
         <div class="container">
             <div class="section-content">
                 <div class="row">
@@ -486,7 +622,7 @@ font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- EXPLORE NEW LIFE END -->
 
     <!-- TOP COMPANIES START -->
@@ -770,6 +906,12 @@ font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
     <!-- OUR BLOG END -->
 </div>
 <!-- CONTENT END -->
+<script>
+   
+    function changeUrl_nb() {
+        window.location.href = window.location.href + `trang-chu?type=nb`;
+    }
+</script>
 <?php
 require_once 'footer.php';
 ?>

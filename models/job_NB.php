@@ -5,7 +5,7 @@ class Job_NB extends Db {
      * LẤY RA DỮ LIỆU BẢNG job_NB
      */
     static function getAllJob_NB() {
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban order by id_NB desc");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -16,7 +16,7 @@ class Job_NB extends Db {
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage;
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job_nhatban order by created_at desc LIMIT $firstLink, $resultsPerPage");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb order by created_at desc LIMIT $firstLink, $resultsPerPage");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
