@@ -63,8 +63,8 @@ $jobKySuAdmin = new Job_KySu;
     <link href="css/style.css" rel="stylesheet" />
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script>
+     <!-- <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script> -->
+    <!-- <script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script> -->
 </head>
 
 <body>
@@ -981,6 +981,9 @@ $jobKySuAdmin = new Job_KySu;
                             <li><a href="job-list.php">Công việc tại Việt Nam</a></li>
                             <li><a href="job_nb_list.php">Công việc tại Nhật Bản</a></li>
                             <li><a href="job-kysu.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
+                            
+                            <li><a href="#3">Công việc tại VietSeiko</a></li>
+                            <li><a href="company-list.php">Thông tin các công ty</a></li>
                             <li><a href="job-application.php">Apply Job</a></li>
                             <li><a href="new-job.php">New Job</a></li>
                             <li><a href="user-profile.php">User Profile</a></li>

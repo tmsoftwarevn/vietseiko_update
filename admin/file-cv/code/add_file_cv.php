@@ -2,17 +2,16 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-   $file_name = $_FILES["file"]["name"];
+    $file_name =time() . $_FILES["file"]["name"];
     $file_type = $_FILES["file"]["type"];
-    $file_data = file_get_contents($_FILES["file"]["tmp_name"]);
+    $fileTmpName = $_FILES["file"]["tmp_name"];
+    $target_dir = "../list-file/";
    
-    
-   
+    if ($file_name && $fileTmpName) {
+        
+        echo 'chekk path save: ' . $file_name;
+        move_uploaded_file($fileTmpName, $target_dir . $file_name);
+    }
 
-    echo 'name: '. $fileName .'<br>';    
-    echo 'type: '. $file_type .'<br>';    
-    echo 'data: '. $file_data .'<br>';    
+
 }
-?>
-
-

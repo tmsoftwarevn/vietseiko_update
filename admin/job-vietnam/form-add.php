@@ -6,41 +6,45 @@ require "../config.php";
 require_once "../models/db.php";
 
 $job = new Job;
+
 ?>
 <?php
-if (isset($_POST['submit']) == TRUE) {
+// if (isset($_POST['submit']) == TRUE) {
 
-    $valiFile = TRUE;
-    $target_dir = "../../images/jobs-company/vietnam/";
-    $fileName = time() . $_FILES['fileUpload']['name'];
-    $fileTmpName = $_FILES['fileUpload']['tmp_name'];
-    $fileSize = $_FILES['fileUpload']['size'];
-    $fileError = $_FILES['fileUpload']['error'];
-    $fileType = $_FILES['fileUpload']['type'];
+//     $check = $_POST['mota'];
+//     echo 'check :' .$check;
+//     ///////////
+//     $valiFile = TRUE;
+//     $target_dir = "../../images/jobs-company/vietnam/";
+//     $fileName = time() . $_FILES['fileUpload']['name'];
+//     $fileTmpName = $_FILES['fileUpload']['tmp_name'];
+//     $fileSize = $_FILES['fileUpload']['size'];
+//     $fileError = $_FILES['fileUpload']['error'];
+//     $fileType = $_FILES['fileUpload']['type'];
 
-    if ($fileName && $fileTmpName) {
-        $final_path_image = $fileName;
+//     if ($fileName && $fileTmpName) {
+//         $final_path_image = $fileName;
 
-        // Giới hạn kích thước tối đa của file (5MB)
-        $allowed = array('jpeg', 'png', 'jpg');
-        $filenameCheck = $_FILES['fileUpload']['name'];
-        $ext = pathinfo($filenameCheck, PATHINFO_EXTENSION);
+//         // Giới hạn kích thước tối đa của file (5MB)
+//         $allowed = array('jpeg', 'png', 'jpg');
+//         $filenameCheck = $_FILES['fileUpload']['name'];
+//         $ext = pathinfo($filenameCheck, PATHINFO_EXTENSION);
 
 
-        if (!in_array($ext, $allowed)) {
-            echo 'chỉ được tải lên file gồm jpeg, png hoặc jpg';
-            return;
-        }
-        if ($fileSize > 5242880) {
-            $errors[] = 'Kích thước file không được vượt quá 5 MB';
-            return;
-        }
-        move_uploaded_file($fileTmpName, $target_dir . $fileName);
-    } else {
-        echo 'không có file ảnh nào';
-        return;
-    }
-}
+//         if (!in_array($ext, $allowed)) {
+//             echo 'chỉ được tải lên file gồm jpeg, png hoặc jpg';
+//             return;
+//         }
+//         if ($fileSize > 5242880) {
+//             $errors[] = 'Kích thước file không được vượt quá 5 MB';
+//             return;
+//         }
+//         move_uploaded_file($fileTmpName, $target_dir . $fileName);
+//     } else {
+//         echo 'không có file ảnh nào';
+//         return;
+//     }
+// }
 
 //Them du lieu vao CSDL: Neu upload duoc anh thi moi insert:
 
@@ -48,7 +52,6 @@ $checkResult  = -1;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name = $_POST['tencongty'];
-    $img_cty = $fileName;
     $chucvu = $_POST['chucvu'];
     $id_nganhnghe = $_POST['nganhnghe'];
     $capbac = $_POST['capbac'];
@@ -61,10 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $diachi = $_POST['diachi'];
     $diachi_cuthe = $_POST['diachicuthe'];
     $id_hinhthuc = $_POST['hinhthuc'];
-    $mota = htmlspecialchars($_POST['mota']);
-    $yeucau = htmlspecialchars($_POST['yeucau']);
-    $quyenloi = htmlspecialchars($_POST['quyenloi']);
-    $ungtuyen = htmlspecialchars($_POST['ungtuyen']);
+    $mota = $_POST['mota'];
+    $yeucau = $_POST['yeucau'];
+    $quyenloi = $_POST['quyenloi'];
+    $ungtuyen = $_POST['ungtuyen'];
 
     // echo 'name image: ' . $img_cty;
 
@@ -72,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo 'check' . $name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi;
     // return;
 
-    $checkResult = $job->insertJob($name, $chucvu, $capbac, $img_cty, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi,$ungtuyen);
+    $checkResult = $job->insertJob($name, $chucvu, $capbac, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi,$ungtuyen);
     //return;
 }
 

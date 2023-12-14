@@ -346,10 +346,8 @@ $totalPages = 10;
                                                 <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
                                             </div>
                                             <div class="content">
-
                                                 <!-- href="job-detail.php?id= echo $value['id_job'] ?> -->
                                                 <div class="name_job">
-
                                                     <?php echo $value['name'] ?>
                                                 </div>
 

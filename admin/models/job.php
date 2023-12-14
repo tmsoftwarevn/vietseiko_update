@@ -154,10 +154,10 @@ class Job extends Db
     /**
      * Thêm mới JOB:
      */
-    public function insertJob($name,$chucvu,$capbac, $img_cty, $id_nganhnghe,$id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi,$ungtuyen)
+    public function insertJob($name,$chucvu,$capbac, $id_nganhnghe,$id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi,$ungtuyen)
     {
-        $sql = self::$connection->prepare("INSERT INTO `job`(`name`, `chucvu`, `capbac`, `img_cty`,`id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`,`ngaycuoicung`,`id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`,`cach_ungtuyen`) 
-        VALUES ('$name','$chucvu','$capbac','$img_cty','$id_nganhnghe','$id_hinhthuc','$soluong','$kinhnghiem','$ngaycuoicung','$gioitinh','$mucluong','$diachi','$diachi_cuthe','$mota','$yeucau','$quyenloi','$ungtuyen')");
+        $sql = self::$connection->prepare("INSERT INTO `job`(`name`, `chucvu`, `capbac`,`id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`,`ngaycuoicung`,`id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`,`cach_ungtuyen`) 
+        VALUES ('$name','$chucvu','$capbac','$id_nganhnghe','$id_hinhthuc','$soluong','$kinhnghiem','$ngaycuoicung','$gioitinh','$mucluong','$diachi','$diachi_cuthe','$mota','$yeucau','$quyenloi','$ungtuyen')");
         return $sql->execute();
     }
     // update job
