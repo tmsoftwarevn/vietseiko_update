@@ -18,21 +18,20 @@ $kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
- 
 } else {
     echo "Khong nhan duoc ID";
 }
 
-if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
-    $job_modal =  $job->getJob_ByID($id);
-    $name_nganhnghe = $nganhnghe::getNganhngheName($job_modal['id_nganhnghe']);
-    $name_hinhthuc = $hinhthuc::getHinhthucName($job_modal['id_hinhthuc']);
-    $name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
-    $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($job_modal['id_kinhnghiem']);
 
-    $all_kinhnghiem = $kinh_nghiem->getAllKinhNghiem();
-    $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
-}
+$job_modal =  $job->getJob_ByID($id);
+$name_nganhnghe = $nganhnghe::getNganhngheName($job_modal['id_nganhnghe']);
+$name_hinhthuc = $hinhthuc::getHinhthucName($job_modal['id_hinhthuc']);
+$name_trangthai = $trangthai->getTrangthaiByID($job_modal['id_trangthai']);
+$name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($job_modal['id_kinhnghiem']);
+
+$all_kinhnghiem = $kinh_nghiem->getAllKinhNghiem();
+$name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
+
 
 ?>
 <style>
@@ -78,11 +77,19 @@ if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
                 </div>
                 <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Logo Cty :</label>
-                    <div class="image-job-logo">
-                        <img src="../images/jobs-company/vietnam/<?php echo $job_modal['img_cty'] ?>" alt="anh" width="300px" height="auto" style="object-fit: cover;">
+                    <div style="width: 200px;">
+                    <p>
+                    <?php echo $job_modal['img_cty'] ?>
+                    </p>
+                        
                     </div>
                 </div>
-
+                <div class="control-group">
+                    <label class="control-label" style="font-weight: 600;">*Chức vụ :</label>
+                    <div class="controls">
+                        <input type="text" value="<?php echo $job_modal['chucvu']; ?>" class="form-control" disabled />
+                    </div>
+                </div>
                 <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Ngành nghề:</label>
                     <div class="controls">
@@ -186,9 +193,9 @@ if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
         <?php
         }
 
-      
 
-       ?>
+
+        ?>
     </div>
 
 

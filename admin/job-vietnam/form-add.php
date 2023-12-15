@@ -9,44 +9,6 @@ $job = new Job;
 
 ?>
 <?php
-// if (isset($_POST['submit']) == TRUE) {
-
-//     $check = $_POST['mota'];
-//     echo 'check :' .$check;
-//     ///////////
-//     $valiFile = TRUE;
-//     $target_dir = "../../images/jobs-company/vietnam/";
-//     $fileName = time() . $_FILES['fileUpload']['name'];
-//     $fileTmpName = $_FILES['fileUpload']['tmp_name'];
-//     $fileSize = $_FILES['fileUpload']['size'];
-//     $fileError = $_FILES['fileUpload']['error'];
-//     $fileType = $_FILES['fileUpload']['type'];
-
-//     if ($fileName && $fileTmpName) {
-//         $final_path_image = $fileName;
-
-//         // Giới hạn kích thước tối đa của file (5MB)
-//         $allowed = array('jpeg', 'png', 'jpg');
-//         $filenameCheck = $_FILES['fileUpload']['name'];
-//         $ext = pathinfo($filenameCheck, PATHINFO_EXTENSION);
-
-
-//         if (!in_array($ext, $allowed)) {
-//             echo 'chỉ được tải lên file gồm jpeg, png hoặc jpg';
-//             return;
-//         }
-//         if ($fileSize > 5242880) {
-//             $errors[] = 'Kích thước file không được vượt quá 5 MB';
-//             return;
-//         }
-//         move_uploaded_file($fileTmpName, $target_dir . $fileName);
-//     } else {
-//         echo 'không có file ảnh nào';
-//         return;
-//     }
-// }
-
-//Them du lieu vao CSDL: Neu upload duoc anh thi moi insert:
 
 $checkResult  = -1;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $capbac = $_POST['capbac'];
     $soluong = $_POST['soluong'];
     $id_kinhnghiem = $_POST['kinhnghiem'];
-    //$ngaydang = $_POST['ngaydang'];
+   
     $ngaycuoicung = $_POST['ngaycuoicung'];
     $gioitinh = $_POST['gioitinh'];
     $mucluong = $_POST['mucluong'];

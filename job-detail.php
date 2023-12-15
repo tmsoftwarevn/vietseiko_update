@@ -170,7 +170,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                 <?php }
                                 ?>
                             </ul>
-                            <h4 class="twm-s-title">Cách ứng tuyển:</h4>
+                            <h4 class="twm-s-title">Thông tin thêm:</h4>
                             <ul class="description-list-2">
                                 <?php
                                 $str = $allJob[0]['cach_ungtuyen'];

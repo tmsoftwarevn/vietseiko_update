@@ -19,7 +19,7 @@ class Congty extends Db
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang)
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang: order by updated_at desc LIMIT $firstLink, $resultsPerPage
-        $sql = self::$connection->prepare("SELECT cty.*,protypes.* FROM cty INNER JOIN protypes ON cty.type_id=protypes.type_id order by updated_at desc LIMIT $firstLink, $resultsPerPage; ");
+        $sql = self::$connection->prepare("SELECT cty.*,protypes.* FROM cty INNER JOIN protypes ON cty.type_id=protypes.type_id order by created_at desc LIMIT $firstLink, $resultsPerPage; ");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -58,14 +58,14 @@ class Congty extends Db
         return $sql->execute();
     }
     /**
-     * Sửa Job hinhthuc
+     * Sửa thong tin cty
      */
-    static function updateJobHinhthuc($id_hinhthuc, $name_hinhthuc)
+    static function updateCongty($id_cty, $name, $img_logo, $quymo,$thongtin,$diachi,$type)
     {
-        $sql = self::$connection->prepare("UPDATE job_hinhthuc SET name_hinhthuc ='$name_hinhthuc' WHERE id_hinhthuc=$id_hinhthuc");
+        $sql = self::$connection->prepare("UPDATE `cty` SET `img_cty`='$img_logo',`name`='$name',`quymo`='$quymo',`about_cty`='$thongtin',`address`='$diachi',`type_id`='$type' WHERE id_cty = $id_cty");
+
         return $sql->execute();
     }
-
     /**____________________________________________________________________________________________________
      * PAGINATE: ĐÁNH SỐ TRANG, TẠO LINK TỚI CÁC TRANG.
      */

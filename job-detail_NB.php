@@ -171,7 +171,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                 <?php }
                                 ?>
                             </ul>
-                            <h4 class="twm-s-title">Cách ứng tuyển:</h4>
+                            <h4 class="twm-s-title">Thông tin thêm:</h4>
                             <ul class="description-list-2">
                                 <?php
                                 $str = $allJob[0]['cach_ungtuyen'];
@@ -343,15 +343,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                 </ul>
                             </div>
                         </div>
-                        <!-- <div class="twm-advertisment" style="background-image: url(images/add-bg.jpg)">
-                                <div class="overlay"></div>
-                                <h4 class="twm-title">Recruiting?</h4>
-                                <p>
-                                    Get Best Matched Jobs On your <br />
-                                    Email. Add Resume NOW!
-                                </p>
-                                <a href="javascript:;" class="site-button white">Read More</a>
-                            </div> -->
+                        
                     </div>
                 </div>
             </div>

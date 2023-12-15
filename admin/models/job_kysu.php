@@ -1,26 +1,22 @@
 <?php
 require_once "db.php";
-class Job_KySu extends Db
+class Kysu_Thongdich extends Db
 {
-    /**
-     * LẤY DỮ LIỆU BẢNG JOB
-     */
+    
     //Lấy danh sách tất cả job
-    static function getAllJobKysu()
+    static function getAllJob()
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb order by id_kysu desc");
+        $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
     //Lấy danh sách tất cả sản phẩm và phân trang:
-    static function getAllJobKysu_andCreatePagination($page, $resultsPerPage)
-    {
-        //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
+    static function getAllJob_andCreatePagination($page, $resultsPerPage)
+    {     
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
-        //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb order by create_at desc LIMIT $firstLink, $resultsPerPage");
+        $sql = self::$connection->prepare("SELECT * FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty order by job_kysunb.created_at desc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -30,21 +26,23 @@ class Job_KySu extends Db
     /**
      * Lấy ra các job mới nhất:
      */
-    static function getLatestJobKysu($number_of_records)
+    static function getLatestJob($number_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb ORDER BY create_at DESC LIMIT 0, $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc LIMIT $number_of_records");
+        // $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+
         return $items;
     }
 
     /**
      * Lấy sản phẩm theo id:
      */
-    static function getJobKysu_ByID($id)
+    public function getJob_ByID($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb WHERE id_kysu = ?");
+        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE id_job = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = $sql->get_result()->fetch_assoc();
@@ -54,18 +52,18 @@ class Job_KySu extends Db
     /**
      * LẤY DANH SÁCH JOB THEO id_nganhnghe
      */
-    static function getJobKysu_ByNganhNgheID($nganhnghe_id)
+    static function getJob_ByNganhNgheID($nganhnghe_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_kysu WHERE id_nganhnghe_NB like ?");
+        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_nganhnghe like ?");
         $sql->bind_param("i", $nganhnghe_id);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    public function getNganhNgheNB($id)
+    public function getNganhNghe($id)
     {
-        $sql = self::$connection->prepare("SELECT name_nn_NB FROM nganhnghe_NB WHERE id_nganhnghe_NB = ?");
+        $sql = self::$connection->prepare("SELECT name_nganhnghe FROM job_nganhnghe WHERE id_nganhnghe = ?");
         $sql->bind_param('i', $id);
         $items = array();
         $sql->execute();
@@ -73,11 +71,11 @@ class Job_KySu extends Db
         return $items;
     }
     //Lấy ra các job cùng một cty và phân trang:
-    static function getJobKysu_ByNganhNgheID_andCreatePagination($nganhnghe_id, $page, $resultsPerPage)
+    static function getJob_ByNganhNgheID_andCreatePagination($nganhnghe_id, $page, $resultsPerPage)
     {
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage;
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb WHERE id_kysu = ? LIMIT $firstLink, $resultsPerPage");
+        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_nganhnghe = ? LIMIT $firstLink, $resultsPerPage");
         $sql->bind_param("i", $nganhnghe_id);
         $sql->execute();
         $items = array();
@@ -142,7 +140,7 @@ class Job_KySu extends Db
     /**
      * XÓA JOB THEO id
      */
-    static function deleteJobByID($id_job)
+    static function deleteJob_ByTypeID($id_job)
     {
         $sql = self::$connection->prepare("DELETE FROM job WHERE id_job = ?");
         $sql->bind_param("i", $id_job);
@@ -150,14 +148,23 @@ class Job_KySu extends Db
     }
 
     /**
-     * Thêm JOB:
+     * Thêm mới JOB:
      */
-    static function insertJob($name, $img_cty, $chucvu, $id_nganhnghe, $capbac, $soluong, $kinhnghiem, $ngaydang, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe ,$id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai, $feature, $create_at){
-        $sql = self::$connection->prepare("INSERT INTO job(id_job, name, img_cty, chucvu, id_nganhnghe, capbac, soluong, kinhnghiem, ngaydang, ngaycuoicung, mucluong, diachi, diachi_cuthe, id_hinhthuc, mota, yeucau, quyenloi, id_trangthai, feature, create_at) 
-        VALUES(0, '$name', '$img_cty', '$chucvu', '$id_nganhnghe', '$capbac', '$soluong', '$kinhnghiem', '$ngaydang', '$ngaycuoicung', '$gioitinh', '$mucluong', '$diachi', '$diachi_cuthe' ,'$id_hinhthuc', '$mota', '$yeucau', '$quyenloi', '$id_trangthai', '$feature', '$create_at')");
-        return $sql->execute();    
-}
-    
+    public function insertJob($chucvu, $capbac, $job_code, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $id_gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi, $other, $id_cty, $age, $ngonngu)
+    {
+        $sql = self::$connection->prepare("INSERT INTO `job_kysunb`( `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_cty`, `age`, `ngonngu`) 
+        VALUES ('$chucvu','$capbac','$job_code','$id_nganhnghe','$id_hinhthuc','$soluong','$id_kinhnghiem','$ngaycuoicung','$id_gioitinh','$mucluong','$diachi','$diachi_cuthe','$mota','$yeucau','$quyenloi','$other','$id_cty','$age','$ngonngu')");
+        return $sql->execute();
+    }
+    // update job
+    static function updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty,$ungtuyen)
+    {
+        $sql = self::$connection->prepare("UPDATE `job` SET `name`='$name',`chucvu`='$chucvu',`capbac`='$capbac',`img_cty`='$img_cty',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',
+        `soluong`='$soluong',`id_kinhnghiem`='$kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$gioitinh',`mucluong`='$mucluong',
+        `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`cach_ungtuyen`='$ungtuyen',`id_trangthai`='$id_trangthai' WHERE id_job = $id_job");
+
+        return $sql->execute();
+    }
     /**
      * SEARCHING
      */
@@ -182,20 +189,21 @@ class Job_KySu extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
- /**____________________________________________________________________________________________________
+    /**____________________________________________________________________________________________________
      * PAGINATE: ĐÁNH SỐ TRANG, TẠO LINK TỚI CÁC TRANG.
      */
-    static function paginate($url, $page, $totalResults, $resultsPerPage, $offset) {
-        $totalLinks = ceil(floatval($totalResults)/floatval($resultsPerPage));
+    static function paginate($url, $page, $totalResults, $resultsPerPage, $offset)
+    {
+        $totalLinks = ceil(floatval($totalResults) / floatval($resultsPerPage));
         $links = "";
 
         $from = $page - $offset;
         $to = $page + $offset;
-        if($from <= 0) {
+        if ($from <= 0) {
             $from = 1;
             $to = $offset * 2;
         }
-        if($to > $totalLinks) {
+        if ($to > $totalLinks) {
             $to = $totalLinks;
         }
 
@@ -204,23 +212,21 @@ class Job_KySu extends Db
         $prevLink = "";
         $nextLink = "";
         // Trường hợp để xuất hiện $firstLink, $lastLink, $prevLink, $nextLink:
-        if($page > 1) {
+        if ($page > 1) {
             $prev = $page - 1;
             $prevLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$prev'><</a>";
             $firstLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=1'><<</a>";
         }
-        if($page < $totalLinks) {
+        if ($page < $totalLinks) {
             $next = $page + 1;
             $nextLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$next'>></a>";
             $lastLink = "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$totalLinks'>>></a>";
         }
         // $links:
-        for($i=$from; $i<=$to; $i++) {
-            if($page == $i) {
+        for ($i = $from; $i <= $to; $i++) {
+            if ($page == $i) {
                 $links = $links . "<a style=\"padding:15px;margin:0 5px;text-decoration:underline;color:red;font-weight:bold;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$i'>$i</a>";
-            }
-            else
-            {
+            } else {
                 $links = $links . "<a style=\"padding:15px;margin:0 5px;box-shadow: 5px 5px 8px #888888;border-radius:10%;\" href='$url" . "page=$i'>$i</a>";
             }
         }

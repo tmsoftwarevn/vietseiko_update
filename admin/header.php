@@ -4,21 +4,12 @@ session_start();
 
 require_once "config.php";
 require_once "models/db.php";
-require_once "models/nganhnghe.php";
 require_once "models/job.php";
-require_once "models/hinhthuc.php";
 require_once "models/trangthai.php";
-require_once "models/blog.php";
-require_once "models/job_NB.php";
-require_once "models/job_kysu.php";
 
 $trangthaiAdmin = new Trangthai;
-$nganhngheAdmin = new Nganhnghe;
-$hinhthucAdmin = new Hinhthuc;
 $jobAdmin = new Job;
-$jobNBAdmin = new Job_NB;
-$jobKySuAdmin = new Job_KySu;
-/* $blogAdmin = new Blog; */
+
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +54,7 @@ $jobKySuAdmin = new Job_KySu;
     <link href="css/style.css" rel="stylesheet" />
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-     <!-- <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script> -->
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script> -->
     <!-- <script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script> -->
 </head>
 
@@ -980,13 +971,12 @@ $jobKySuAdmin = new Job_KySu;
                         <ul aria-expanded="false">
                             <li><a href="job-list.php">Công việc tại Việt Nam</a></li>
                             <li><a href="job_nb_list.php">Công việc tại Nhật Bản</a></li>
-                            <li><a href="job-kysu.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
-                            
-                            <li><a href="#3">Công việc tại VietSeiko</a></li>
+                            <li><a href="job_ksnb_list.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
+                            <li><a href="job_vietseiko_list.php">Công việc tại VietSeiko</a></li>
                             <li><a href="company-list.php">Thông tin các công ty</a></li>
-                            <li><a href="job-application.php">Apply Job</a></li>
-                            <li><a href="new-job.php">New Job</a></li>
-                            <li><a href="user-profile.php">User Profile</a></li>
+                            <li><a href="#2">Apply Job</a></li>
+                            <li><a href="#3">New Job</a></li>
+                            <li><a href="#4">User Profile</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1022,6 +1012,4 @@ $jobKySuAdmin = new Job_KySu;
                 </div>
             </div>
         </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
+   

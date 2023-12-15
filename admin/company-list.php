@@ -5,6 +5,7 @@ require_once "models/db.php";
 require_once "models/hinhthuc.php";
 require_once "models/nganhnghe.php";
 require_once "models/cty.php";
+require_once "models/job.php";
 $job = new Job;
 $hinhthuc = new Hinhthuc;
 $nganhnghe = new Nganhnghe;
@@ -78,7 +79,7 @@ $cty = new Congty;
                     <td><?php echo $value['name'] ?></td>
                     <td><?php echo $value['address'] ?></td>                  
                     <td><?php echo $value['type_name'] ?></td>
-                    <td><?php echo $value['updated_at'] ?></td>
+                    <td><?php echo $value['created_at'] ?></td>
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
                         <a class="btn btn-success light mr-2 " href="company-view.php?typeView=cty&id=<?php echo $value['id_cty'] ?>">

@@ -16,7 +16,7 @@ if (isset($_FILES['upload']['name'])) {
         }
     } else {
         $data['uploaded'] = 0;
-        $data['error']['message'] = 'Invalid intension !';
+        $data['error']['message'] = 'không đúng định dạng (jpg , jpeg or png) !';
     }
 }
 echo json_encode($data);

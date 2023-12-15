@@ -78,8 +78,7 @@ $detail_Cty = $cty::getCty_byId($id);
                 </div>
                 <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Logo Cty :</label>
-                    <div style="width: 200px; ">
-
+                    <div style="width: 200px;">
                         <?php echo $detail_Cty['img_cty'] ?>
                     </div>
                 </div>

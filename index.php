@@ -42,7 +42,7 @@ $totalPages = 10;
                             <div class="row">
                                 <!--Title-->
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
-                                    <label>Vị trí</label>
+                                    <label>Chọn ngành</label>
                                     <select class="form-select" style="cursor: pointer;">
                                         <option value="all">Tất cả</option>
                                         <?php
@@ -343,7 +343,7 @@ $totalPages = 10;
                                         </div>
                                         <div class="group-info">
                                             <div class="company-logo">
-                                                <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
+                                            <?php echo $value['img_cty'] ?>
                                             </div>
                                             <div class="content">
                                                 <!-- href="job-detail.php?id= echo $value['id_job'] ?> -->
@@ -422,48 +422,7 @@ $totalPages = 10;
 
                 <div class="tab animated fadeIn" id="tabbed3" style="<?php if ($typeJob == 'ks') echo 'display: block';
                                                                         else echo 'display: none' ?>">
-                    <div class="row">
-                        <!-- Job Block - Replace with PHP loop -->
-                        <?php
-                        $list_of_latestJobKySu_NB = Job_Kysu::getAllJob_KySuNB(15);
-                        foreach ($list_of_latestJobKySu_NB as $key => $value) {
-                        ?>
-                            <div class="job-block col-lg-6 col-md-12 col-sm-12">
-                                <div class="inner-box" style="padding: 10px 10px 5px 5px;">
-                                    <div class="content">
-                                        <span class="company-logo"><img src="images/jobs-company/pic1.jpg" alt="" /></span>
-                                        <h4>
-                                            <a href="job-detail_NB.php?id=<?php echo $value['id_kysu'] ?>">
-                                                <?php echo $value['name_kysu'] ?>
-                                            </a>
-                                        </h4>
-                                        <ul class="job-info">
-                                            <li>
-                                                <span class="icon bi bi-briefcase"></span>
-                                                <?php echo $value['diachi'] ?>
-                                            </li>
-
-                                        </ul>
-                                        <ul class="job-icon-info">
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['soluong'] ?> Người
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['gioitinh'] ?>
-                                            </span>
-                                            <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                      font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                                <?php echo $value['mucluong'] ?>
-                                            </span>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                        <!-- Kết thúc vòng lặp PHP -->
-                    </div>
+                    
                 </div>
 
                 <div class="tab animated fadeIn" id="tabbed4" style="<?php if ($typeJob == 'vs') echo 'display: block';
