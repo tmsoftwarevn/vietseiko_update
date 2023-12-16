@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 13, 2023 lúc 08:30 AM
+-- Thời gian đã tạo: Th12 16, 2023 lúc 02:52 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -94,22 +94,23 @@ INSERT INTO `blog` (`id_blog`, `name_blog`, `img_blog`, `tieude_blog`, `noidung_
 
 CREATE TABLE `cty` (
   `id_cty` int(11) NOT NULL,
-  `img_cty` varchar(255) NOT NULL,
-  `name_cty` varchar(255) NOT NULL,
-  `phone_cty` int(11) NOT NULL,
-  `email_cty` varchar(255) NOT NULL,
+  `img_cty` text NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `quymo` varchar(255) NOT NULL,
   `about_cty` text NOT NULL,
-  `responsabilities` text NOT NULL,
-  `address_cty` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `address` varchar(255) NOT NULL,
+  `type_id` int(11) NOT NULL DEFAULT 1,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `cty`
 --
 
-INSERT INTO `cty` (`id_cty`, `img_cty`, `name_cty`, `phone_cty`, `email_cty`, `about_cty`, `responsabilities`, `address_cty`, `created_at`) VALUES
-(1, 'pic1.jpg', 'Galaxy Software Development', 332369993, 'thewebmaxdemo@gmail.com\r\n', 'UUt enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.\r\n\r\nOpossum but dramatically despite expeditiously that jeepers loosely yikes that as or eel underneath kept and slept compactly far purred sure abidingly up above fitting to strident wiped set waywardly far the and pangolin horse approving paid chuckled cassowary oh above a much opposite far much hypnotically more therefore wasp less that hey apart well like while superbly orca and far hence one.Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy.?', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals.', '1363-1385 Sunset Blvd Angeles, CA 90026 ,USA', '2023-08-29 06:26:15');
+INSERT INTO `cty` (`id_cty`, `img_cty`, `name`, `quymo`, `about_cty`, `address`, `type_id`, `updated_at`) VALUES
+(15, '<figure class=\"image\"><img src=\"../../images/logo-company/170273238222.jpg\"></figure>', 'Công Ty TNHH Dịch Vụ Truyền Thông Gadas', '10-20', '<p>Gadas là công ty cung cấp các giải pháp truyền thông và nhân sự cho các Doanh nghiệp, đặc biệt trong lĩnh vực Tài chính Ngân hàng.&nbsp;</p><p>Với nền tảng tuyển dụng trực tuyến vững chắc cùng mạng lưới đa kênh trên thị trường việc làm, Gadas đã hợp tác mang lại những giá trị thiết thực cho nhiều ứng viên cũng như các doanh nghiệp trong và ngoài nước.</p><p>Với mong muốn hỗ trợ và gắn kết giữa những người đang tìm kiếm việc làm với các công ty, Gadas đã xây dựng một hệ thống tìm kiếm, phân loại công việc thông minh; một đội ngũ nhân sự tận tâm, tận lực và một cộng đồng Gadas chia sẻ nhiều thông tin về việc làm trên toàn quốc.</p><p>Chia sẻ nhiệt tình, hỗ trợ chu đáo, xúc tiến quy trình tuyển dụng nhanh chóng và chăm sóc khách hàng tận tâm là những điều Gadas luôn đề cao hàng đầu.&nbsp;</p><p>Đến với Gadas, tổng thời gian từ khi tiếp nhận hồ sơ, tư vấn đến khi đi làm chính thức sẽ được tối ưu hóa ở mức thấp nhất. Việc này là điều Gadas luôn chú trọng hàng đầu, để có thể giúp các ứng viên mau chóng tìm được một công việc ổn định hài lòng.</p><p>“Nghề chọn người chứ người đâu chọn nghề”, đó là câu bạn hay nghe, còn Gadas sẽ nói rằng: “Chúng tôi sẽ giúp bạn chạm đến một công việc phù hợp và mang nhiều lợi ích nhất đến với cuộc sống của bạn”</p><p>Hôm nay bạn có thể tự tìm kiếm cho mình một công việc mới, hoặc liên hệ Gadas để chúng tôi giúp bạn chạm đến một công việc tốt nhanh chóng.</p><p><br>&nbsp;</p>', 'Xuân Thủy, Phường Thảo Điền, Thành phố Thủ Đức, Thành phố Hồ Chí Minh', 3, '2023-12-16 13:13:13'),
+(16, '<figure class=\"image\"><img src=\"../../images/logo-company/1702732461ewrew.png\"></figure>', 'Công Ty Cổ Phần Đầu Tư Và Phát Triển Kinh Doanh Hoàng Phát', '50-100', '<p>Với nền tảng tuyển dụng trực tuyến vững chắc cùng mạng lưới đa kênh trên thị trường việc làm, Gadas đã hợp tác mang lại những giá trị thiết thực cho nhiều ứng viên cũng như các doanh nghiệp trong và ngoài nước.</p><p>Với mong muốn hỗ trợ và gắn kết giữa những người đang tìm kiếm việc làm với các công ty, Gadas đã xây dựng một hệ thống tìm kiếm, phân loại công việc thông minh; một đội ngũ nhân sự tận tâm, tận lực và một cộng đồng Gadas chia sẻ nhiều thông tin về việc làm trên toàn quốc.</p><p>Chia sẻ nhiệt tình, hỗ trợ chu đáo, xúc tiến quy trình tuyển dụng nhanh chóng và chăm sóc khách hàng tận tâm là những điều Gadas luôn đề cao hàng đầu.&nbsp;</p>', '745 Phạm Văn Thuận, KP5, Tam Hiệp, Biên Hòa, Đồng Nai', 4, '2023-12-16 13:14:42'),
+(14, '<figure class=\"image\"><img src=\"../../images/logo-company/1702732168Untitled.jpg\"></figure>', 'Công Ty CP Phân Phối Quốc Tế Genex', '30- 50', '<p>Công Ty Cổ Phần Phân Phối Quốc Tế Genex (trước đây là Công ty TNHH Sản phẩm trẻ em Chí Việt).</p><p>Trụ sở chính: 123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, TP. HCM</p><p>Chi Nhánh Hà Nội: 52-53 TT 20, Khu Đô Thị Văn Phú, Hà Đông, Hà Nội Website: http://genex.com.vn</p><p>Facebook nhãn hiệu Fatz baby: https://www.facebook.com/fatzbabyvietnam</p><p>Kênh Youtube nhãn hiệu Fatz baby: https://www.youtube.com/@FATZBABYVIETNAM</p><p>Công Ty Cổ Phần Phân Phối Quốc Tế Genex là nhà phân phối đồ dùng mẹ và bé trên toàn quốc (các nhãn hiệu: Unimom, Fatz baby, Upass, Ange) với khoảng 2.000 điểm bán. Nhãn hiệu Fatz baby, đã phổ biến trên thị trường 14 năm, là nhãn hiệu số 1 hiện nay cho ngành hàng đồ dùng mẹ và bé (máy hâm sữa, máy tiệt trùng, máy hút sữa, máy đun nước pha sữa, …) tại Việt Nam.</p><p>Mô hình quản trị, văn hóa và phương thức làm việc của công ty theo phương Tây/Mỹ. Công ty chỉ có 1 cổ đông và được xây dựng dựa trên sự minh bạch, công bằng, rõ ràng. Không phát triển dựa trên quan hệ thân hữu/họ hàng. Chúng tôi dựa vào Tinh thần làm chủ, Kỹ năng lãnh đạo và Tài năng để thăng tiến và phát triển. Chúng tôi coi con người là 1 trong những tài sản quý giá nhất của Công ty.</p><p>Tại Công ty, mọi người đều bình đẳng, tôn trọng lẫn nhau và tôn trọng sự khác biệt. Ý chí, Nghị lực, Tố chất lãnh đạo và Tinh thần làm chủ là những giá trị cốt lõi của Công ty và là yếu tố giúp Công ty vượt qua những giai đoạn khó khăn nhất. Chúng tôi làm việc với niềm tin “Không gì là không thể”, luôn hướng tới mục đích thành công lâu dài. Chúng tôi tin rằng mỗi cá nhân, không phân biệt giới tính, tuổi tác, sắc tộc, tôn giáo hay học vấn, đều có thể vươn tới thành công với lòng kiên trì, sáng tạo và nỗ lực không ngừng nghỉ. (Xin xem mục “Chúng tôi là ai” trên website http://genex.com.vn).</p><p>Quy mô công ty: 50-60 nhân viên.</p>', ' TP.HCM, 123A Gò Dầu, Tân Quý,, Tân Phú', 1, '2023-12-16 13:09:31');
 
 -- --------------------------------------------------------
 
@@ -176,18 +177,14 @@ INSERT INTO `infomation_ung_tuyen` (`id`, `name`, `gender`, `email`, `phone`, `n
 
 CREATE TABLE `job` (
   `id_job` int(11) NOT NULL,
-  `name` varchar(225) NOT NULL,
   `chucvu` varchar(225) NOT NULL,
   `capbac` varchar(255) NOT NULL,
-  `img_cty` varchar(255) NOT NULL,
-  `type_id` int(11) NOT NULL DEFAULT 1,
+  `job_code` varchar(255) NOT NULL,
   `id_nganhnghe` int(11) NOT NULL,
   `id_hinhthuc` int(11) NOT NULL,
   `soluong` int(11) NOT NULL,
   `id_kinhnghiem` int(255) NOT NULL,
-  `ngaydang` date NOT NULL DEFAULT current_timestamp(),
   `ngaycuoicung` date NOT NULL,
-  `ngaygan` date NOT NULL,
   `id_gioitinh` int(11) NOT NULL,
   `mucluong` varchar(250) NOT NULL,
   `diachi` varchar(250) NOT NULL,
@@ -195,8 +192,10 @@ CREATE TABLE `job` (
   `mota` text DEFAULT NULL,
   `yeucau` text DEFAULT NULL,
   `quyenloi` text DEFAULT NULL,
-  `cach_ungtuyen` text NOT NULL,
+  `thongtin_khac` text NOT NULL,
   `id_trangthai` int(11) NOT NULL DEFAULT 1,
+  `id_cty` int(11) NOT NULL,
+  `age` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -205,17 +204,8 @@ CREATE TABLE `job` (
 -- Đang đổ dữ liệu cho bảng `job`
 --
 
-INSERT INTO `job` (`id_job`, `name`, `chucvu`, `capbac`, `img_cty`, `type_id`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaydang`, `ngaycuoicung`, `ngaygan`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `cach_ungtuyen`, `id_trangthai`, `created_at`, `updated_at`) VALUES
-(1, 'Công Ty TNHH ABC 1', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, 2, '2023-10-02', '2023-10-02', '2023-10-02', 1, '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\r\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\r\nRachelor or Master degree level educational background.\r\n4 years relevant PHP dev experience.\r\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\r\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\r\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\r\nExecute all visual design stages from concept to final hand-off to engineering.', '', 0, '2023-09-28 03:52:10', '2023-12-08 10:04:26'),
-(2, 'Công ty TNHH Phân Phối Synnex FPT 2 sdada dasdasd đâsdad', 'Nhân Viên IT Helpdesk/ Support Tại Vĩnh Phúc (Thu Nhập 9 - 12 Triệu) ', 'Nhân viên', '1702394507p1.jpg', 2, 2, 2, 3, 1, '2023-10-02', '2023-10-13', '2023-10-11', 1, '9 - 12 triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+Ability to analyse, logical thinking. \r\n+Can use office software (Word, Excel, Outlook...) \r\n+At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', 'tret', 1, '2023-10-02 07:04:30', '2023-12-12 15:21:47'),
-(3, 'Công ty TNHH 33333333', 'quản lý', 'nhân viên', '1702031142slide-01.jpg', 1, 1, 1, 3, 6, '2023-10-02', '2023-12-30', '2023-10-17', 1, '12 triệu', 'HÀ NỘI', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+Ability to analyse, logical thinking. \r\n+Can use office software (Word, Excel, Outlook...) \r\n+At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '', 1, '2023-10-02 07:10:52', '2023-12-08 10:25:42'),
-(4, 'Công Ty TNHH ABC', 'Developer Website', 'Nhân Viên', '', 1, 1, 1, 2, 2, '2023-10-02', '2023-10-02', '2023-10-02', 1, '20-30 Triệu', 'HCM', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\r\n\r\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.', 'Must be able to communicate with others to convey information effectively.\r\nPersonally passionate and up to date with current trends and technologies, committed to quality and comfortable working with adult media.\r\nRachelor or Master degree level educational background.\r\n4 years relevant PHP dev experience.\r\nTroubleshooting, testing and maintaining the core product software and databases.', 'Establish and promote design guidelines, best practices and standards.\r\nAccurately estimate design tickets during planning sessions.\r\nPartnering with product and engineering to translate business and user goals into elegant and practical designs. that can deliver on key business and user metrics.\r\nCreate wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design.\r\nPresent and defend designs and key deliverables to peers and executive level stakeholders.\r\nExecute all visual design stages from concept to final hand-off to engineering.', '', 0, '2023-09-28 03:52:10', '2023-12-07 10:13:28'),
-(13, 'Công ty TNHH adddđ asd dasdsa dasdas đasadsad dsadsad ewqe', ' Helpdesk  77 dá ddasdqwewq 23e4234 ewtert', 'Nhân viên 7', '1702388642p1.jpg', 1, 8, 2, 5, 2, '2023-12-11', '2023-12-21', '0000-00-00', 4, '12 triệu', 'HÀ NỘI', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'ewee', 'rewrerer', 'ểwr', 'ẻwrer', 1, '2023-12-11 04:07:01', '2023-12-13 01:32:47'),
-(7, 'Công ty TNHH Concentrix Service Vietnam 777', ' Helpdesk  77', 'Nhân viên 7', '1702024878Screenshot (41).png', 1, 1, 1, 12, 5, '2023-10-02', '2023-10-03', '2023-10-17', 1, 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+ Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+ Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+ Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+ Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+ Ability to analyse, logical thinking. \r\n+ Can use office software (Word, Excel, Outlook...) \r\n+At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+ Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '', 1, '2023-10-02 07:10:52', '2023-12-11 01:15:59'),
-(9, 'Công ty TNHH Concentrix Service Vietnam 99', 'Nhân Viên IT Helpdesk ', 'Nhân viên', '1702257934p2.jpg', 1, 1, 1, 2, 1, '2023-10-02', '2023-10-19', '2023-10-17', 1, 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+ Provide support to end-users in regard to network connectivity and desktop computing. \r\n+Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+ Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+ Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+ Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', 'Good English: ability to write, read well. \r\n+Ability to analyse, logical thinking. \r\n+ Can use office software (Word, Excel, Outlook...) \r\n+ At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+ Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+ Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '+wwww\r\n+ddddd\r\n+tttttt', 1, '2023-10-02 07:10:52', '2023-12-12 03:29:11'),
-(10, 'Công ty TNHH Concentrix Service Vietnam10', 'Nhân Viên IT Helpdesk ', 'Nhân viên', '1702029612bground.jpg', 1, 1, 1, 2, 6, '2023-10-02', '2023-10-19', '2023-10-17', 1, 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+ Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+ Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+ Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+ Ability to analyse, logical thinking. \r\n+ Can use office software (Word, Excel, Outlook...) \r\n+ At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+ Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+ Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '', 1, '2023-10-02 07:10:52', '2023-12-11 01:26:33'),
-(12, 'Công ty TNHH Concentrix Service Vietnam 12', 'Nhân Viên IT Helpdesk ', 'Nhân viên', '1702258043p6.png', 1, 1, 1, 2, 1, '2023-10-02', '2023-10-19', '2023-10-17', 1, 'Tới 15 triệu', 'Hồ Chí Minh', '- Hồ Chí Minh: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+Provide support to end-users in regard to network connectivity and desktop computing. \r\n+ Maintain and support PC workstations and laptop. This will include troubleshooting and \r\nreplacing hardware components, performing upgrades to existing systems, and \r\ninstalling replacement system. \r\n+ Support also includes software support of the operating system, Microsoft Office, and \r\nother standard package used by Concentrix Group. \r\n+ Develop, implement and administer IT service, ensure the stability, integrity, and \r\nefficient operation of all information and production systems. \r\n+ Responsible for network-telecommunications function and to ensure compatibility and \r\ninteroperability of computer systems, telecommunication and office equipment.', '+Good English: ability to write, read well. \r\n+ Ability to analyse, logical thinking. \r\n+ Can use office software (Word, Excel, Outlook...) \r\n+ At least 2 years of Helpdesk Support', '+ 14 ngày phép/năm.\r\n+ Tham gia đầy đủ BHXH, BHYT, gói bảo hiểm tai nạn 24/7.\r\n+ Xét tăng lương hàng năm.\r\n+ Khám sức khỏe hằng năm.\r\n+ Lộ trình thăng tiến rõ ràng.\r\n+ Tham gia các khóa đào tạo về kỹ năng, nghiệp vụ.\r\n+ Môi trường làm việc quốc tế, hiện đại và chuyên nghiệp', '', 1, '2023-10-02 07:10:52', '2023-12-11 01:27:23'),
-(17, 'Công ty TNHH Concentrix Service Vietnam 99', 'quản lý', 'nhân viên', '1702350194ddd.jpg', 1, 7, 2, 50, 6, '2023-12-10', '2024-01-07', '0000-00-00', 3, 'Tới 20 triệu', 'hcm', 'bình thạnh, 123 , tp hcm', 'ewqe', 'ewqe', 'ewqeưqsss', 'aaaaaaaaaaaaaaaa', 1, '2023-12-10 03:03:14', '2023-12-12 04:42:56');
+INSERT INTO `job` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `created_at`, `updated_at`) VALUES
+(32, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'Quản lý cấp trung', 'VN01', 1, 1, 2, 2, '2024-01-05', 4, '20-30', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p><p>- Quản lý dịch vụ kho, dịch vụ vận chuyển do bên thứ 3 cung cấp tại TP.HCM;</p><p>- Tổng hợp kết quả giao hàng/kho vận theo tháng báo cáo cho Quản lý giao hàng-Kho vận Toàn quốc</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>3) Tương tác nội bộ:</p><p>- Làm việc với phòng Kinh doanh, Kế toán, Phát triển sản phẩm, Kiểm soát chất lượng, Thiết kế, … Báo cáo trực tiếp cho QLGiao hàng – Bảo hành Toàn quốc.</p><p>4) Tương tác bên ngoài:</p><p>- Làm việc với các đối tác nước ngoài và khách hàng.</p><p>5) Nơi làm việc: 123A Gò Dầu, Tân Quý, Tân Phú, TP.HCM</p><p>6) Thời gian làm việc: Thứ 2 đến thứ 6: từ 8h đến 17h (nghỉ trưa từ 12h đến 13h); Thứ 7: từ 8h sáng đến 12h trưa; Nghỉ chiều thứ 7, ngày chủ nhật, ngày Lễ, Tết theo Luật lao động.</p>', '<p>- Có tố chất lãnh đạo, quản lý và tinh thần làm chủ;</p><p>- Có tính cách liêm chính, thật thà, trung thực, tinh thần học hỏi, trách nhiệm và cầu tiến;</p><p>- Có kiến thức về kỹ thuật (để hiểu sản phẩm đồ dùng, máy móc ngành hàng mẹ và bé); Tốt nghiệp các trường trung cấp, cao đẳng trở lên chuyên ngành kỹ thuật;</p><p>- Giao tiếp tốt bằng tiếng Anh (đọc, hiểu, viết .....); sử dụng thành thạo máy tính</p><p>- Chịu được áp lực công việc.</p><p>- Ưu tiên ứng viên có kinh nghiệm</p><p>- Mong muốn làm việc và gắn bó lâu dài;</p>', '<p>- Thử việc 2 tháng, được hưởng 80% lương chính thức, được đào tạo qua công việc.</p><p>- Môi trường làm việc minh bạch, công bằng, rõ ràng, là một nơi để bạn có thể phát triển lâu dài.</p><p>- Lương cơ bản: thỏa thuận (tối thiểu là 20 triệu/tháng). Có Bảo hiểm Y tế, BHXH, BHTN, Bảo hiểm PVI. Lương tháng 13, thưởng hàng mới, thưởng đột xuất, phúc lợi, … theo chính sách Công ty.</p><p>- Được làm việc với các Quản lý giỏi, các đối tác nước ngoài;</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 1, 14, '20-30', '2023-12-16 12:58:32', '2023-12-16 13:04:42');
 
 -- --------------------------------------------------------
 
@@ -246,10 +236,37 @@ INSERT INTO `job_hinhthuc` (`id_hinhthuc`, `name_hinhthuc`, `img_hinhthuc`, `cre
 --
 
 CREATE TABLE `job_kysunb` (
-  `id_kysu` int(11) NOT NULL,
-  `name_kysu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `diachi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_job` int(11) NOT NULL,
+  `chucvu` varchar(225) NOT NULL,
+  `capbac` varchar(255) NOT NULL,
+  `job_code` varchar(255) NOT NULL,
+  `id_nganhnghe` int(11) NOT NULL,
+  `id_hinhthuc` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `id_kinhnghiem` int(255) NOT NULL,
+  `ngaycuoicung` date NOT NULL,
+  `id_gioitinh` int(11) NOT NULL,
+  `mucluong` varchar(250) NOT NULL,
+  `diachi` varchar(250) NOT NULL,
+  `diachi_cuthe` varchar(300) NOT NULL,
+  `mota` text DEFAULT NULL,
+  `yeucau` text DEFAULT NULL,
+  `quyenloi` text DEFAULT NULL,
+  `thongtin_khac` text NOT NULL,
+  `id_trangthai` int(11) NOT NULL DEFAULT 1,
+  `id_cty` int(11) NOT NULL,
+  `age` varchar(255) NOT NULL,
+  `ngonngu` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `job_kysunb`
+--
+
+INSERT INTO `job_kysunb` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `ngonngu`, `created_at`, `updated_at`) VALUES
+(23, 'Nhân Viên Tư Vấn Trả Góp Tại Cửa Hàng - Toàn Quốc', 'nhân viên', 'KS01', 7, 1, 5, 3, '2024-01-07', 4, '10-12', 'Hồ Chí Minh', 'Lầu 2, Ree Tower, 09 Đoàn Văn Bơ, Q. 4, Tp. Hcm', '<p>- Theo dõi quy trình bán hàng của VPBFC để tư vấn các sản phẩm của VPBFC đến khách hàng</p><p>- Xây dựng mối quan hệ tốt và duy trì mức độ hài lòng với các Đại lý</p><p>- Hoàn thành mục tiêu bán hàng &amp; làm báo cáo hàng ngày.</p><p>- Thiết lập các tiến độ thanh toán cho khách hàng để giảm Chi phí tổng thể bằng cách thanh lý các khoản vay, hợp đồng lãi suất cao, ngắn hạn trước.</p><p>- Đánh giá &amp; kiểm tra hồ sơ khách hàng để giảm thiểu sai lầm cho mỗi ứng dụng cũng như loại bỏ khách hàng lừa đảo</p><p>- Triển khai chiến dịch khuyến mãi mới để giúp Bộ phận bán hàng đạt được mục tiêu</p><p>- Kiểm soát POSM, xây dựng hình ảnh hiệu quả trong POS.</p><p>- Thực hiện các nhiệm vụ khác được giao bởi quản lý trực tiếp</p>', '<p>- Ít nhất 1 năm kinh nghiệm tại vị trí tư vấn bán hàng</p><p>- Kinh nghiệm bán hàng trong khu vực</p><p>- Hiểu biết về các sản phẩm và dịch vụ tài chính</p><p>- Kỹ năng giao tiếp và soạn thảo bằng văn bản tốt</p><p>- Thành thạo phần mềm Microsoft Office</p><p>- KHÔNG CÓ NỢ XẤU</p>', '<p>- Lương cứng + phụ cấp cơm (tùy khu vực)</p><p>- Thưởng hoa hồng không giới hạn</p><p>- Thử việc 100% lương + tất cả chế độ phúc lợi ngay khi nhận việc</p><p>- 15 ngày ngỉ phép năm, các ngày nghỉ lễ, tết</p><p>- Bảo hiểm theo quy định, có thêm thẻ bảo hiểm sức khỏe toàn diện</p><p>- Được đào tạo, cơ hội thăng tiến rộng mở</p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 1, 15, '20-30', 'Cấp độ N2', '2023-12-16 13:43:55', '2023-12-16 13:43:55');
 
 -- --------------------------------------------------------
 
@@ -335,24 +352,19 @@ INSERT INTO `job_trangthai` (`id_trangthai`, `name_trangthai`, `img_trangthai`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `job_xkld_nb`
+-- Cấu trúc bảng cho bảng `job_vietseiko`
 --
 
-CREATE TABLE `job_xkld_nb` (
+CREATE TABLE `job_vietseiko` (
   `id_job` int(11) NOT NULL,
-  `name` varchar(225) NOT NULL,
   `chucvu` varchar(225) NOT NULL,
   `capbac` varchar(255) NOT NULL,
-  `img_cty` varchar(255) NOT NULL,
-  `type_id` int(11) NOT NULL DEFAULT 2,
+  `job_code` varchar(255) NOT NULL,
   `id_nganhnghe` int(11) NOT NULL,
   `id_hinhthuc` int(11) NOT NULL,
   `soluong` int(11) NOT NULL,
   `id_kinhnghiem` int(255) NOT NULL,
-  `ngaydang` date NOT NULL DEFAULT current_timestamp(),
   `ngaycuoicung` date NOT NULL,
-  `hinhthuc_PV` varchar(255) NOT NULL,
-  `ngaygan` date NOT NULL,
   `id_gioitinh` int(11) NOT NULL,
   `mucluong` varchar(250) NOT NULL,
   `diachi` varchar(250) NOT NULL,
@@ -360,8 +372,49 @@ CREATE TABLE `job_xkld_nb` (
   `mota` text DEFAULT NULL,
   `yeucau` text DEFAULT NULL,
   `quyenloi` text DEFAULT NULL,
-  `cach_ungtuyen` text NOT NULL,
+  `thongtin_khac` text NOT NULL,
   `id_trangthai` int(11) NOT NULL DEFAULT 1,
+  `id_cty` int(11) NOT NULL,
+  `age` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `job_vietseiko`
+--
+
+INSERT INTO `job_vietseiko` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `created_at`, `updated_at`) VALUES
+(7, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'Quản lý cấp trung', 'Vsk01', 3, 1, 2, 6, '2024-03-16', 2, '20-30', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '<p>- Theo dõi quy trình bán hàng của VPBFC để tư vấn các sản phẩm của VPBFC đến khách hàng</p><p>- Xây dựng mối quan hệ tốt và duy trì mức độ hài lòng với các Đại lý</p><p>- Hoàn thành mục tiêu bán hàng &amp; làm báo cáo hàng ngày.</p><p>- Thiết lập các tiến độ thanh toán cho khách hàng để giảm Chi phí tổng thể bằng cách thanh lý các khoản vay, hợp đồng lãi suất cao, ngắn hạn trước.</p><p>- Đánh giá &amp; kiểm tra hồ sơ khách hàng để giảm thiểu sai lầm cho mỗi ứng dụng cũng như loại bỏ khách hàng lừa đảo</p><p>- Triển khai chiến dịch khuyến mãi mới để giúp Bộ phận bán hàng đạt được mục tiêu</p><p>- Kiểm soát POSM, xây dựng hình ảnh hiệu quả trong POS.</p><p>- Thực hiện các nhiệm vụ khác được giao bởi quản lý trực tiếp</p>', '<p>- Ít nhất 1 năm kinh nghiệm tại vị trí tư vấn bán hàng</p><p>- Kinh nghiệm bán hàng trong khu vực</p><p>- Hiểu biết về các sản phẩm và dịch vụ tài chính</p><p>- Kỹ năng giao tiếp và soạn thảo bằng văn bản tốt</p><p>- Thành thạo phần mềm Microsoft Office</p><p>- KHÔNG CÓ NỢ XẤU</p>', '<p>- Lương cứng + phụ cấp cơm (tùy khu vực)</p><p>- Thưởng hoa hồng không giới hạn</p><p>- Thử việc 100% lương + tất cả chế độ phúc lợi ngay khi nhận việc</p><p>- 15 ngày ngỉ phép năm, các ngày nghỉ lễ, tết</p><p>- Bảo hiểm theo quy định, có thêm thẻ bảo hiểm sức khỏe toàn diện</p><p>- Được đào tạo, cơ hội thăng tiến rộng mở</p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 1, 16, '20-30', '2023-12-16 13:48:59', '2023-12-16 13:48:59');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `job_xkld_nb`
+--
+
+CREATE TABLE `job_xkld_nb` (
+  `id_job` int(11) NOT NULL,
+  `chucvu` varchar(225) NOT NULL,
+  `capbac` varchar(255) NOT NULL,
+  `job_code` varchar(255) NOT NULL,
+  `id_nganhnghe` int(11) NOT NULL,
+  `id_hinhthuc` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `id_kinhnghiem` int(255) NOT NULL,
+  `ngaycuoicung` date NOT NULL,
+  `id_gioitinh` int(11) NOT NULL,
+  `mucluong` varchar(250) NOT NULL,
+  `diachi` varchar(250) NOT NULL,
+  `diachi_cuthe` varchar(300) NOT NULL,
+  `mota` text DEFAULT NULL,
+  `yeucau` text DEFAULT NULL,
+  `quyenloi` text DEFAULT NULL,
+  `thongtin_khac` text NOT NULL,
+  `id_trangthai` int(11) NOT NULL DEFAULT 1,
+  `id_cty` int(11) NOT NULL,
+  `age` varchar(255) NOT NULL,
+  `ngonngu` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -370,12 +423,8 @@ CREATE TABLE `job_xkld_nb` (
 -- Đang đổ dữ liệu cho bảng `job_xkld_nb`
 --
 
-INSERT INTO `job_xkld_nb` (`id_job`, `name`, `chucvu`, `capbac`, `img_cty`, `type_id`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaydang`, `ngaycuoicung`, `hinhthuc_PV`, `ngaygan`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `cach_ungtuyen`, `id_trangthai`, `created_at`, `updated_at`) VALUES
-(22, 'Công ty TNHH 33333333', 'Nhân Viên IT ', 'Nhân viên 7', '1702345094Untitled.jpg', 2, 9, 2, 3, 4, '2023-12-11', '2024-01-03', 'Online', '0000-00-00', 3, 'Tới 20 triệu', 'hcm', 'bình thạnh, 123 , tp hcm', 'fsdfsd', 'fsdfdsf', 'fdsfdsf', '', 1, '2023-12-11 14:14:30', '2023-12-12 01:38:14'),
-(23, 'dsadasd 23333 nb', 'Nhân Viên IT ', 'nhân viên', '1702343859images.jpg', 2, 3, 3, 3, 4, '2023-12-11', '2024-01-02', 'Offline', '0000-00-00', 2, '23', 'hcm', 'bình thạnh, 123 , tp hcm', '+đasa', '+dsad', '+dsadsad', '', 1, '2023-12-11 14:15:14', '2023-12-12 02:26:49'),
-(24, 'test nb 1234 34rer', 'Nhân Viên IT ', 'Nhân viên 7', '1702345296Untitled.jpg', 2, 5, 1, 12, 5, '2023-12-12', '2024-01-05', 'Offline', '0000-00-00', 4, '12 triệu', 'hcm', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '+dsadsad', '+dsfdfd', '+ewrerewr', '', 1, '2023-12-12 01:41:36', '2023-12-12 02:39:51'),
-(25, 'Công Ty TNHH Nnd Studio tttt', 'quẩn lý', 'Quản lý cấp trung', '1702349018Untitled.png', 2, 5, 3, 12, 3, '2023-12-12', '2024-01-07', '', '0000-00-00', 4, 'Tới 20 triệu', 'hcm', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '+fdfdsfdsf\r\n+fsdfdsf\r\n+fdsfdsfd', '+rewrwer\r\n+rewrewr\r\n+rewrewre', '+fdfdf\r\n+gdfgfdg\r\n+gdfgfdg', '', 1, '2023-12-12 02:43:38', '2023-12-12 02:44:17'),
-(26, 'Công ty TNHH adddđ', 'quản lý', 'Nhân viên 7', '1702351579images.jpg', 2, 4, 3, 23, 5, '2023-12-12', '2023-12-29', '', '0000-00-00', 3, 'Tới 20 triệu', 'hcm', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', 'đázxczx', 'czxcx', 'cxzc', 'aaaaaaaaabbbbbbbbb', 1, '2023-12-12 03:26:19', '2023-12-12 03:27:18');
+INSERT INTO `job_xkld_nb` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `ngonngu`, `created_at`, `updated_at`) VALUES
+(30, 'Nhân Viên Kinh Doanh', 'nhân viên', 'JP01', 5, 3, 5, 6, '2024-01-05', 1, '10-12', 'Hầ Nội', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '<p><i><strong>- Chăm sóc khách hàng:</strong></i></p><p>+&nbsp;Báo giá theo yêu cầu của khách hàng công ty</p><p>+ Soạn hợp đồng, hồ sơ liên quan</p><p>+ Kết nối thông tin giữa công ty với các khách hàng của công ty</p><p>+ Theo dõi công nợ bán hàng của khách hàng đang đảm trách để liên hệ nhắc khách hàng khi đến hạn thanh toán</p><p><i><strong>- Mua hàng- cung ứng</strong></i></p><p>Triển khai các đơn hàng sau khi bộ phận kinh doanh chót đơn hàng với khách hàng:</p><p>+&nbsp;Đặt mua hàng</p><p>+ Thuê xe vận chuyển (theo danh sách vận chuyển đang có) để vận chuyển hàng từ nhà máy hoặc nơi mua đến công trình</p><p>+ Theo dõi tiến độ giao hàng theo phương thức giao hàng của mỗi đơn hàng.</p><p>+ Nhận bộ chứng từ mua hàng, bán hàng kiểm tra đầy đủ theo qui&nbsp;định</p><p>+&nbsp;Theo dõi công nợ nhà cung cấp và đơn vị vận chuyển: Theo dõi công nợ và trình thanh toán theo kế hoạch thanh toán</p><p>+&nbsp;&nbsp;Theo dõi pháp lý mua hàng, vận chuyển</p>', '<p>-Tin học văn phòng: Thuần thạo word, excel</p><p>-Tính toán nhanh.</p><p>-Có khả năng suy luận logic, nghe hiểu vấn đề</p>', '<p><strong>- Lương:</strong>&nbsp;Từ 8.500.000đ đến 14.000.000đ : Tuỳ kinh nghiệm làm việc và năng lực của mỗi ứng viên&nbsp;</p><p><strong>- Thưởng:</strong>&nbsp;Theo qui chế công ty&nbsp;<strong>(&nbsp;</strong>Tối thiểu 1 tháng lương tháng 13 (lương thực nhận))</p><p><strong>- Chế độ khác</strong>: Nghỉ Lễ theo các ngày nghỉ nhà nước qui&nbsp;định</p><p><strong>- Bảo hiểm:&nbsp;</strong>Công ty đóng bảo hiểm ngay sau khi ký hợp đồng lao động chính thức</p><p><strong>Thời gian làm việc tại công ty:</strong>&nbsp;8h/ ngày (sáng:7h45 đến 11h45, chiều: 13h15 đến 17h15)</p><p>&nbsp;</p><p><i><strong>Khi nhân viên được tuyển vào làm việc thì có Anh/chị trong công ty sẽ hướng dẫn trực tiếp công việc đảm nhận</strong></i></p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 1, 14, '20-30', 'nn1', '2023-12-16 13:24:46', '2023-12-16 13:24:46');
 
 -- --------------------------------------------------------
 
@@ -457,18 +506,18 @@ INSERT INTO `nganh_ung_tuyen` (`id`, `ten_nganh`, `created_At`) VALUES
 
 CREATE TABLE `protypes` (
   `type_id` int(11) NOT NULL,
-  `type_name` varchar(255) NOT NULL,
-  `type_img` varchar(255) NOT NULL
+  `type_name` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `protypes`
 --
 
-INSERT INTO `protypes` (`type_id`, `type_name`, `type_img`) VALUES
-(1, 'Việc Làm Tại Việc Nam', ''),
-(2, 'Xuất Khẩu Lao Động Nhật Bản', ''),
-(3, 'Kỹ Sư & Thông Dịch Viên', '');
+INSERT INTO `protypes` (`type_id`, `type_name`) VALUES
+(1, 'Việc Làm Tại Việt Nam'),
+(2, 'Xuất Khẩu Lao Động Nhật Bản'),
+(3, 'Kỹ Sư & Thông Dịch Viên'),
+(4, 'Việc làm tại VietSeiko');
 
 -- --------------------------------------------------------
 
@@ -590,7 +639,7 @@ ALTER TABLE `job_hinhthuc`
 -- Chỉ mục cho bảng `job_kysunb`
 --
 ALTER TABLE `job_kysunb`
-  ADD PRIMARY KEY (`id_kysu`);
+  ADD PRIMARY KEY (`id_job`);
 
 --
 -- Chỉ mục cho bảng `job_nganhnghe`
@@ -609,6 +658,12 @@ ALTER TABLE `job_nhatban`
 --
 ALTER TABLE `job_trangthai`
   ADD PRIMARY KEY (`id_trangthai`);
+
+--
+-- Chỉ mục cho bảng `job_vietseiko`
+--
+ALTER TABLE `job_vietseiko`
+  ADD PRIMARY KEY (`id_job`);
 
 --
 -- Chỉ mục cho bảng `job_xkld_nb`
@@ -672,7 +727,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `cty`
 --
 ALTER TABLE `cty`
-  MODIFY `id_cty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `gioitinh`
@@ -690,13 +745,19 @@ ALTER TABLE `infomation_ung_tuyen`
 -- AUTO_INCREMENT cho bảng `job`
 --
 ALTER TABLE `job`
-  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `job_hinhthuc`
 --
 ALTER TABLE `job_hinhthuc`
   MODIFY `id_hinhthuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `job_kysunb`
+--
+ALTER TABLE `job_kysunb`
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `job_nganhnghe`
@@ -711,10 +772,16 @@ ALTER TABLE `job_nhatban`
   MODIFY `id_NB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `job_vietseiko`
+--
+ALTER TABLE `job_vietseiko`
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT cho bảng `job_xkld_nb`
 --
 ALTER TABLE `job_xkld_nb`
-  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `kinhnghiem`
@@ -732,7 +799,7 @@ ALTER TABLE `nganhnghe_nb`
 -- AUTO_INCREMENT cho bảng `protypes`
 --
 ALTER TABLE `protypes`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `protypes_congcu`
