@@ -2,15 +2,14 @@
 require_once 'header.php';
 require_once 'admin/models/gioi_tinh.php';
 
-$totalShow = 15;
+$totalShow = 5;
 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
 $typeJob = 'vn';
 if (isset($_GET['type'])) {
     $typeJob = $_GET['type'];
-
 }
-$totalPages = 10;
+$totalPages = 1;
 
 ?>
 <style>
@@ -310,7 +309,7 @@ $totalPages = 10;
                         <li class="tab-btn">
                             <a href="#4" class="tabbed-trigger
                             <?php
-                            if ($typeJob == 'vs') echo ' clicked' ?>" data-id="tabbed4" onclick="changeUrl_vs()" ;>
+                            if ($typeJob == 'vsk') echo ' clicked' ?>" data-id="tabbed4" onclick="changeUrl_vs()" ;>
                                 <span>Việc làm tại VietSeiko</span>
                             </a>
                         </li>
@@ -328,9 +327,10 @@ $totalPages = 10;
                         <?php
 
                         $list_of_job_vn = Job::getAllJob_andCreatePagination($currentPage, $totalShow);
-                        $list_all = Job::getAllJob();
+
+                        $list_all = count(Job::getAllJob());
                         if ($typeJob == 'vn') {
-                            $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                            $totalPages = ceil(floatval($list_all) / floatval($totalShow));
                         }
                         foreach ($list_of_job_vn as $key => $value) {
                         ?>
@@ -343,17 +343,16 @@ $totalPages = 10;
                                         </div>
                                         <div class="group-info">
                                             <div class="company-logo">
-                                            <?php echo $value['img_cty'] ?>
+                                                <?php echo $value['img_cty'] ?>
                                             </div>
                                             <div class="content">
-                                                <!-- href="job-detail.php?id= echo $value['id_job'] ?> -->
                                                 <div class="name_job">
                                                     <?php echo $value['name'] ?>
                                                 </div>
 
                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                     <i class="bi bi-cash"></i>
-                                                    <?php echo $value['mucluong'] ?>
+                                                    <?php echo $value['mucluong'] ?> triệu
                                                 </div>
                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                     <i class="bi bi-geo-alt"></i>
@@ -375,10 +374,10 @@ $totalPages = 10;
                     <div class="row">
                         <!-- Job Block - Replace with PHP loop -->
                         <?php
-                        $list_of_latestJob_NB = Job_NB::getAllJob_NB_andCreatePagination($currentPage, $totalShow);
-                        $list_all = Job_NB::getAllJob_NB();
+                        $list_of_latestJob_NB = Job_NB_f::getAllJob_andCreatePagination_admin($currentPage, $totalShow);
+                        $list_all = count(Job_NB_f::getAllJob());
                         if ($typeJob == 'nb') {
-                            $totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                            $totalPages = ceil(floatval($list_all) / floatval($totalShow));
                         }
                         foreach ($list_of_latestJob_NB as $key => $value) {
                         ?>
@@ -390,20 +389,18 @@ $totalPages = 10;
                                             <?php echo $value['chucvu'] ?>
                                         </div>
                                         <div class="group-info">
-                                            <div class="company-logo">
-                                                <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
+                                        <div class="company-logo">
+                                                <?php echo $value['img_cty'] ?>
                                             </div>
                                             <div class="content">
 
-                                                <!-- href="job-detail.php?id= echo $value['id_job'] ?> -->
                                                 <div class="name_job">
-
                                                     <?php echo $value['name'] ?>
                                                 </div>
 
                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                     <i class="bi bi-cash"></i>
-                                                    <?php echo $value['mucluong'] ?>
+                                                    <?php echo $value['mucluong'] ?> triệu
                                                 </div>
                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                     <i class="bi bi-geo-alt"></i>
@@ -422,42 +419,83 @@ $totalPages = 10;
 
                 <div class="tab animated fadeIn" id="tabbed3" style="<?php if ($typeJob == 'ks') echo 'display: block';
                                                                         else echo 'display: none' ?>">
-                    
-                </div>
-
-                <div class="tab animated fadeIn" id="tabbed4" style="<?php if ($typeJob == 'vs') echo 'display: block';
-                                                                        else echo 'display: none' ?>">
                     <div class="row">
                         <!-- Job Block - Replace with PHP loop -->
                         <?php
-
-                        $list_of_latestJob_NB = Job_NB::getAllJob_NB_andCreatePagination($currentPage, $totalShow);
-                        $list_all = Job_NB::getAllJob_NB();
-                        //$totalPages = ceil(floatval(count($list_all)) / floatval($totalShow));
+                         $list_of_latestJob_NB = Job_kysu_f::getAllJob_andCreatePagination_admin($currentPage, $totalShow);
+                         $list_all = count(Job_kysu_f::getAllJob());
+                        if ($typeJob == 'nb') {
+                            $totalPages = ceil(floatval($list_all) / floatval($totalShow));
+                        }
                         foreach ($list_of_latestJob_NB as $key => $value) {
                         ?>
                             <div class="col-lg-4 col-md-12 col-sm-12 ">
-                                <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>" style="display: block;">
+                                <a href="job-detail-kysunb.php?id=<?php echo $value['id_job'] ?>" style="display: block;">
 
                                     <div class="g-pr" id='job-vietnam'>
                                         <div class="chucvu">
                                             <?php echo $value['chucvu'] ?>
                                         </div>
                                         <div class="group-info">
-                                            <div class="company-logo">
-                                                <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
+                                        <div class="company-logo">
+                                                <?php echo $value['img_cty'] ?>
                                             </div>
                                             <div class="content">
 
-                                                <!-- href="job-detail.php?id= echo $value['id_job'] ?> -->
                                                 <div class="name_job">
-
                                                     <?php echo $value['name'] ?>
                                                 </div>
 
                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                     <i class="bi bi-cash"></i>
-                                                    <?php echo $value['mucluong'] ?>
+                                                    <?php echo $value['mucluong'] ?> triệu
+                                                </div>
+                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                    <?php echo $value['diachi'] ?>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <div class="tab animated fadeIn" id="tabbed4" style="<?php if ($typeJob == 'vsk') echo 'display: block';
+                                                                        else echo 'display: none' ?>">
+                     <div class="row">
+                        <!-- Job Block - Replace with PHP loop -->
+                        <?php
+                        $list_of_latestJob_NB = Vietseiko_f::getAllJob_andCreatePagination_admin($currentPage, $totalShow);
+                        $list_all = count(Vietseiko_f::getAllJob());
+                        if ($typeJob == 'nb') {
+                            $totalPages = ceil(floatval($list_all) / floatval($totalShow));
+                        }
+                        foreach ($list_of_latestJob_NB as $key => $value) {
+                        ?>
+                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                <a href="job-detail-vietseiko.php?id=<?php echo $value['id_job'] ?>" style="display: block;">
+
+                                    <div class="g-pr" id='job-vietnam'>
+                                        <div class="chucvu">
+                                            <?php echo $value['chucvu'] ?>
+                                        </div>
+                                        <div class="group-info">
+                                        <div class="company-logo">
+                                                <?php echo $value['img_cty'] ?>
+                                            </div>
+                                            <div class="content">
+
+                                                <div class="name_job">
+                                                    <?php echo $value['name'] ?>
+                                                </div>
+
+                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                    <i class="bi bi-cash"></i>
+                                                    <?php echo $value['mucluong'] ?> triệu
                                                 </div>
                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                     <i class="bi bi-geo-alt"></i>
@@ -485,7 +523,7 @@ $totalPages = 10;
                 $output = '';
                 $d = 1;
                 global $typeJob;
-            
+
                 if ($totalPages > 1) {
                     // Previous button
                     if ($currentPage > 1) {
@@ -885,7 +923,7 @@ $totalPages = 10;
 
     function changeUrl_vs() {
         var domain = new URL(window.location.href).pathname;
-        window.location.href = domain + '?type=vs';
+        window.location.href = domain + '?type=vsk';
     }
 </script>
 <?php

@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     echo "Khong nhan duoc ID";
 }
 
-$allJob = $job->getJob_Detail($id);
+$allJob = $job_vietseiko->getJob_Detail($id);
 $name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
 
 $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem']);
@@ -43,6 +43,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
                         <li><a href="index.php">Trang chủ</a></li>
+                        <li><a href="">Vietseiko</a></li>
                         <li>Chi tiết công việc</li>
                     </ul>
                 </div>
@@ -98,7 +99,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                         echo $formattedDate;
                                                         ?>
                                                        
-                                                    </span>
+                                                    </span>                                                    </span>
                                                 </div>
                                             </div>
 
@@ -175,7 +176,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <i class="bi bi-calendar-week"></i>
                                                     <span class="twm-title">Ngày đăng</span>
                                                     <div class="twm-s-info-discription">
-                                                        <?php 
+                                                    <?php 
                                                         $dateTime = new DateTime($allJob[0]['created_at']);
                                                         $formattedDate = $dateTime->format('d/m/y');
                                                         echo $formattedDate;
@@ -314,7 +315,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
         <div class="section-content">
             <div class="owl-carousel twm-related-jobs-carousel owl-btn-vertical-center owl-loaded owl-drag">
                 <?php
-                $list_of_latestJob = Job::getLatestJob(8);
+                $list_of_latestJob = Vietseiko_f::getLatestJob(8);
                 foreach ($list_of_latestJob as $key => $value) {
                 ?>
 
@@ -325,7 +326,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                             </div>
                             <span class="twm-job-post-duration">
                                 <?php
-                                $time = $job->timeAgo($value['created_at']);
+                                $time = $job_nb->timeAgo($value['created_at']);
                                 echo $time;
                                 ?>
                             </span>

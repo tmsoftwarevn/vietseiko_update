@@ -86,7 +86,8 @@ class Job extends Db
     {
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage;
-        $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc LIMIT $firstLink, $resultsPerPage");
+        // $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc LIMIT $firstLink, $resultsPerPage");
+        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty order by job.created_at desc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -97,29 +98,18 @@ class Job extends Db
      */
     static function getLatestJob($number_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job ORDER BY created_at DESC LIMIT 0, $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty ORDER BY created_at DESC LIMIT 0, $number_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    /**
-     * Lấy job theo id:
-     */
-    static function getJob_ByID($id)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_job = ?");
-        $sql->bind_param("i", $id);
-        $sql->execute();
-        $items = $sql->get_result()->fetch_assoc();
-        return $items;
-    }
-    /**
+    /*
      * Lấy chi tiết JOB:
      */
     function getJob_Detail($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_job = ?");
+        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE id_job = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();

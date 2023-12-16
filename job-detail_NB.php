@@ -1,34 +1,37 @@
 <?php
 include 'header.php';
+
 require_once "./admin/models/gioi_tinh.php";
 require_once "./admin/models/kinh_nghiem.php";
 $gioitinh = new Gioi_tinh;
 $kinh_nghiem = new Kinh_nghiem;
 
-$id = 0;
+$id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else {
     echo "Khong nhan duoc ID";
 }
 
-$allJob = $job_NB->getJob_Detail($id);
+$allJob = $job_nb->getJob_Detail($id);
 $name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
 
 $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem']);
-// $getNganhngheNB_Name = $nganhngheNB->getNganhngheNB_NameByID('1');
 
-/* $getNN_HTID = $job->getNN_HTID($id); */
-/* $getNganhNgheName = $nganhnghe->getNganhngheByID($getNN_HTID[0]['id_nganhnghe']);
-$getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID[0]['id_hinhthuc']); */
-/* var_dump(Hinhthuc::getAllHinhThuc()); */
-/* var_dump($allJob); */
 ?>
 <style>
     <?php include 'public/scss/custom.scss'; ?>#more {
         display: none;
     }
+
+    .ul-ct {
+        /* 
+        overflow: hidden !important;
+        list-style-position: inside !important; */
+    }
 </style>
+
+<title><?php echo $allJob[0]['chucvu'] ?></title>
 <!-- CONTENT START -->
 <div class="page-content" style="transform: none">
     <!-- INNER PAGE BANNER -->
@@ -40,7 +43,7 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
                         <li><a href="index.php">Trang chủ</a></li>
-                        <li>Chi tiết công việc tại Nhật Bản</li>
+                        <li>Chi tiết công việc</li>
                     </ul>
                 </div>
 
@@ -56,19 +59,19 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
             <!-- BLOG SECTION START -->
             <div class="section-content" style="transform: none">
                 <div class="row">
-                    <div class="col-md-12 col-lg-8 p-b90">
+                    <div class="col-md-12 col-lg-8 ">
                         <!-- Candidate detail START -->
                         <div class="cabdidate-de-info">
                             <div class="twm-job-self-wrap">
                                 <div class="twm-job-self-info">
                                     <div class="twm-job-self-top">
                                         <div class="twm-media-bg">
-                                            <img src="images/job-detail-bg.jpg" alt="#" />
+                                            <img src="images/job-detail-bg.jpg" alt="anh" />
                                         </div>
 
                                         <div class="twm-mid-content">
                                             <div class="twm-media">
-                                                <img src="./images/jobs-company/vietnam/<?php echo $allJob[0]['img_cty'] ?>" alt="#" />
+                                            <?php echo $allJob[0]['img_cty'] ?>
                                             </div>
 
                                             <h4 class="twm-job-title" style="font-size: 25px; padding-top: 20px;">
@@ -83,15 +86,17 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                                                 <div class="twm-job-self-mid-left">
                                                     <span style="font-weight: 500;"> Mức lương:</span>
                                                     <span style="color: #1967d2;">
-
-                                                        <?php echo $allJob[0]['mucluong'] ?>
+                                                        <?php echo $allJob[0]['mucluong'] ?> triệu
                                                     </span>
                                                 </div>
                                                 <div class="twm-job-apllication-area">
                                                     Hạn nộp hồ sơ:
                                                     <span class="twm-job-apllication-date">
-                                                        <?php echo $allJob[0]['ngaycuoicung'] ?>
-                                                    </span>
+                                                    <?php 
+                                                        $dateTime = new DateTime($allJob[0]['ngaycuoicung']);
+                                                        $formattedDate = $dateTime->format('d/m/y');
+                                                        echo $formattedDate;
+                                                        ?>                                                    </span>
                                                 </div>
                                             </div>
 
@@ -123,99 +128,32 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
 
                             <h4 class="twm-s-title">Mô tả công việc:</h4>
 
-                            <?php
-                            $str = $allJob[0]['mota'];
-                            $arr = (explode("+", $str));
-                            foreach ($arr as $key => $value) {
-                            ?>
-                                <div style="margin-bottom: 5px;">
-                                    <?php
-                                    if ($key == 0) continue;
-                                    echo '+' . $value;
-                                    ?>
-                                </div>
-                            <?php }
-                            ?>
+                             <?php
+
+                            echo  $allJob[0]['mota'];
+                            ?> 
 
                             <h4 class="twm-s-title">Yêu cầu:</h4>
-                            <ul class="description-list-2">
-                                <?php
-                                $str = $allJob[0]['yeucau'];
-                                $arr = (explode("+", $str));
-                                foreach ($arr as $key => $value) {
-                                ?>
-                                    <div style="margin-bottom: 5px;">
-                                        <?php
-                                        if ($key == 0) continue;
-                                        echo '+' . $value;
-                                        ?>
-                                    </div>
-                                <?php }
-                                ?>
-
-                            </ul>
+                            <?php  echo  $allJob[0]['mota']; ?>
 
                             <h4 class="twm-s-title">Quyền lợi:</h4>
-                            <ul class="description-list-2">
-                                <?php
-                                $str = $allJob[0]['quyenloi'];
-                                $arr = (explode("+", $str));
-                                foreach ($arr as $key => $value) {
-                                ?>
-                                    <div style="margin-bottom: 5px;">
-                                        <?php
-                                        if ($key == 0) continue;
-                                        echo '+' . $value;
-                                        ?>
-                                    </div>
-                                <?php }
-                                ?>
-                            </ul>
+                            <?php  echo  $allJob[0]['quyenloi']; ?>
                             <h4 class="twm-s-title">Thông tin thêm:</h4>
-                            <ul class="description-list-2">
-                                <?php
-                                $str = $allJob[0]['cach_ungtuyen'];
-                                $arr = (explode("+", $str));
-                                foreach ($arr as $key => $value) {
-                                ?>
-                                    <div style="margin-bottom: 5px;">
-                                        <?php
-                                        if ($key == 0) continue;
-                                        echo '+' . $value;
-                                        ?>
-                                    </div>
-                                <?php }
-                                ?>
-                            </ul>
+                            <?php  echo  $allJob[0]['thongtin_khac']; ?>
+                            <!-- // nut dang ki -->
                             <div class="btn-dangki-detail" id="openModalBtn-2">
                                 Ứng tuyển ngay
                             </div>
-                            <!-- <h4 class="twm-s-title">Share Profile</h4>
-                            <div class="twm-social-tags">
-                                <a href="javascript:void(0)" class="fb-clr">Facebook</a>
-                                <a href="javascript:void(0)" class="tw-clr">Twitter</a>
-                                <a href="javascript:void(0)" class="link-clr">Linkedin</a>
-                                <a href="javascript:void(0)" class="whats-clr">Whatsapp</a>
-                                <a href="javascript:void(0)" class="pinte-clr">Pinterest</a>
-                            </div> -->
-
-                            <!-- <h4 class="twm-s-title">Vị trí</h4>
-                            <div class="twm-m-map mb-5">
-                                <div class="twm-m-map-iframe">
-                                    <iframe height="310" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8534521658976!2d-118.2533646842856!3d34.073270780600225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6fd9829c6f3%3A0x6ecd11bcf4b0c23a!2s1363%20Sunset%20Blvd%2C%20Los%20Angeles%2C%20CA%2090026%2C%20USA!5e0!3m2!1sen!2sin!4v1620815366832!5m2!1sen!2sin"></iframe>
-                                </div>
-                            </div> -->
+                            
                         </div>
                     </div>
-
-                </div>
-                <div class="col-lg-4 col-md-12 rightSidebar" style="
+                    <div class="col-lg-4 col-md-12 rightSidebar" style="
                     position: relative;
                     overflow: visible;
                     box-sizing: border-box;
                     min-height: 1px;
                   ">
-                    <div class="theiaStickySidebar" style="
+                        <div class="theiaStickySidebar" style="
                       padding-top: 0px;
                       padding-bottom: 1px;
                       position: static;
@@ -223,201 +161,219 @@ $getRelatedJob = $job->getRelatedJob($getNN_HTID[0]['id_nganhnghe'], $getNN_HTID
                       top: 0px;
                       left: 903px;
                     ">
-                        <div class="side-bar mb-4">
-                            <div class="twm-s-info2-wrap mb-5">
-                                <div class="twm-s-info2">
-                                    <h4 class="section-head-small mb-4">
-                                        Thông tin việc làm
-                                    </h4>
-                                    <ul class="twm-job-hilites2">
-                                        <li>
-                                            <div class="twm-s-info-inner">
-                                                <i class="bi bi-calendar-week"></i>
-                                                <span class="twm-title">Ngày đăng</span>
-                                                <div class="twm-s-info-discription">
-                                                    <?php echo $allJob[0]['ngaydang'] ?>
+                            <div class="side-bar mb-4">
+                                <div class="twm-s-info2-wrap mb-5">
+                                    <div class="twm-s-info2">
+                                        <h4 class="section-head-small mb-4">
+                                            Thông tin việc làm
+                                        </h4>
+                                        <ul class="twm-job-hilites2">
+                                            <li>
+                                                <div class="twm-s-info-inner">
+                                                    <i class="bi bi-calendar-week"></i>
+                                                    <span class="twm-title">Ngày đăng</span>
+                                                    <div class="twm-s-info-discription">
+                                                    <?php 
+                                                        $dateTime = new DateTime($allJob[0]['created_at']);
+                                                        $formattedDate = $dateTime->format('d/m/y');
+                                                        echo $formattedDate;
+                                                        ?>                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
+                                            </li>
+                                            <li>
+                                                <div class="twm-s-info-inner">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                    <span class="twm-title">Địa chỉ</span>
+                                                    <div class="twm-s-info-discription">
+                                                        <?php echo $allJob[0]['diachi'] ?>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="twm-s-info-inner">
+                                                    <i class="bi bi-pin-map-fill"></i>
+                                                    <span class="twm-title">Cấp bậc</span>
+                                                    <div class="twm-s-info-discription">
+                                                        <?php echo $allJob[0]['capbac'] ?>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="twm-s-info-inner">
+                                                    <i class="bi bi-clock"></i>
+                                                    <span class="twm-title">Kinh nghiệm</span>
+                                                    <div class="twm-s-info-discription">
+                                                        <?php echo $name_kinhnghiem; ?>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="twm-s-info-inner">
+
+                                                    <i class="bi bi-gender-ambiguous"></i>
+                                                    <span class="twm-title">Giới tính</span>
+                                                    <div class="twm-s-info-discription">
+                                                        <?php echo $name_gioitinh ?>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="twm-s-info-inner">
+                                                    <i class="bi bi-briefcase"></i>
+                                                    <span class="twm-title">Số lượng tuyển</span>
+                                                    <div class="twm-s-info-discription">
+                                                        <?php echo $allJob[0]['soluong'] ?> Người
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="twm-s-info-inner">
+                                                <i class="bi bi-person"></i>
+                                                    <span class="twm-title">Độ tuổi</span>
+                                                    <div class="twm-s-info-discription">
+                                                        <?php echo $allJob[0]['age'] ?> tuổi
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="twm-s-info-inner">
+                                                <i class="bi bi-bookmark-dash"></i>
+                                                    <span class="twm-title">Ngôn ngữ</span>
+                                                    <div class="twm-s-info-discription">
+                                                        <?php echo $allJob[0]['ngonngu'] ?>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- Thông tin cty -->
+                            <div class="twm-s-info3-wrap mb-5">
+                                <div class="twm-s-info3">
+                                    <div class="twm-s-info-logo-section">
+                                        <div class="twm-media">
+                                        <?php echo $allJob[0]['img_cty'] ?>
+                                        </div>
+                                        <h4 class="twm-title">
+                                            <?php echo $allJob[0]['name'] ?>
+                                        </h4>
+                                    </div>
+                                    <ul>
                                         <li>
                                             <div class="twm-s-info-inner">
-                                                <i class="bi bi-geo-alt"></i>
+                                                <i class="bi bi-geo-alt-fill"></i>
                                                 <span class="twm-title">Địa chỉ</span>
                                                 <div class="twm-s-info-discription">
-                                                    <?php echo $allJob[0]['diachi'] ?>
+                                                <?php echo $allJob[0]['address'] ?>
                                                 </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="twm-s-info-inner">
-                                                <i class="bi bi-pin-map-fill"></i>
-                                                <span class="twm-title">Cấp bậc</span>
+                                                <i class="bi bi-people"></i>
+                                                <span class="twm-title">Quy mô</span>
                                                 <div class="twm-s-info-discription">
-                                                    <?php echo $allJob[0]['capbac'] ?>
+                                                <?php echo $allJob[0]['quymo'] ?> người
                                                 </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="twm-s-info-inner">
-                                                <i class="bi bi-clock"></i>
-                                                <span class="twm-title">Kinh nghiệm</span>
+                                                <i class="bi bi-card-text"></i>
+                                                <span class="twm-title">Thông tin</span>
                                                 <div class="twm-s-info-discription">
-                                                    <?php echo $name_kinhnghiem; ?>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="twm-s-info-inner">
-
-                                                <i class="bi bi-gender-ambiguous"></i>
-                                                <span class="twm-title">Giới tính</span>
-                                                <div class="twm-s-info-discription">
-                                                    <?php echo $name_gioitinh ?>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="twm-s-info-inner">
-                                                <i class="bi bi-briefcase"></i>
-                                                <span class="twm-title">Số lượng tuyển</span>
-                                                <div class="twm-s-info-discription">
-                                                    <?php echo $allJob[0]['soluong'] ?> Người
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="twm-s-info-inner">
-                                                <i class="bi bi-file-earmark-person"></i>
-                                                <span class="twm-title">Hình thức phỏng vấn</span>
-                                                <div class="twm-s-info-discription">
-                                                    <?php echo $allJob[0]['hinhthuc_PV'] ?>
+                                                    <!-- <p>Lorem ipsum dolor sit amet, consectetur nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa Sed dapibus pulvinar nibh tempor porta.</span></p> -->
+                                                    <?php echo $allJob[0]['about_cty'] ?> 
+                                                    <p onclick="myFunction()" id="myBtn" style="color: #1967d2; margin: 0 auto;width: fit-content;cursor: pointer;">Xem thêm</p>
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
-
                                 </div>
                             </div>
-
+                            
                         </div>
-                        <!-- Thông tin cty -->
-                        <div class="twm-s-info3-wrap mb-5">
-                            <div class="twm-s-info3">
-                                <div class="twm-s-info-logo-section">
-                                    <div class="twm-media">
-                                        <img src="images/jobs-company/pic1.jpg" alt="#" />
-                                    </div>
-                                    <h4 class="twm-title">
-                                        <?php echo $allJob[0]['name'] ?>
-                                    </h4>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <div class="twm-s-info-inner">
-                                            <i class="fas fa-building"></i>
-                                            <span class="twm-title">Địa chỉ</span>
-                                            <div class="twm-s-info-discription">
-                                                addressfdsf dsfds fdsfdsf fdfdsfff fff
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="twm-s-info-inner">
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            <span class="twm-title">Quy mô</span>
-                                            <div class="twm-s-info-discription">
-                                                50 -100 người
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="twm-s-info-inner">
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            <span class="twm-title">Thông tin</span>
-                                            <div class="twm-s-info-discription">
-                                                <p>Lorem ipsum dolor sit amet, consectetur  nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa Sed dapibus pulvinar nibh tempor porta.</span></p>
-                                                <p onclick="myFunction()" id="myBtn" style="color: #1967d2; margin: 0 auto;width: fit-content;cursor: pointer;">Xem thêm</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
-    <!-- OUR BLOG END -->
-    <!-- RELATED JOBS START -->
-    <div class="section-full p-t120 p-b90 site-bg-light-purple twm-related-jobs-carousel-wrap">
-        <!-- TITLE START-->
-        <div class="section-head center wt-small-separator-outer">
-            <div class="wt-small-separator site-text-primary">
-                <!-- <div>Top Jobs</div> -->
-            </div>
-            <h2 class="wt-title">Công Việc mới nhất</h2>
+</div>
+<!-- OUR BLOG END -->
+<!-- RELATED JOBS START -->
+<div class="section-full p-t120 p-b90 site-bg-light-purple twm-related-jobs-carousel-wrap">
+    <!-- TITLE START-->
+    <div class="section-head center wt-small-separator-outer">
+        <div class="wt-small-separator site-text-primary">
+            <!-- <div>Top Jobs</div> -->
         </div>
-        <!-- TITLE END-->
+        <h2 class="wt-title">Công Việc mới nhất</h2>
+    </div>
+    <!-- TITLE END-->
 
-        <div class="container">
-            <div class="section-content">
-                <div class="owl-carousel twm-related-jobs-carousel owl-btn-vertical-center owl-loaded owl-drag">
-                    <?php
-                    $list_of_latestJob = job_NB::getLatestJob_NB(9);
-                    foreach ($list_of_latestJob as $key => $value) {
-                    ?>
+    <div class="container">
+        <div class="section-content">
+            <div class="owl-carousel twm-related-jobs-carousel owl-btn-vertical-center owl-loaded owl-drag">
+                <?php
+                $list_of_latestJob = Job_NB_f::getLatestJob(8);
+                foreach ($list_of_latestJob as $key => $value) {
+                ?>
 
-                        <div class="item">
-                            <div class="twm-jobs-grid-style2">
-                                <div class="twm-media">
-                                    <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
-                                        <img src="./images/jobs-company/vietnam/<?php echo $value['img_cty'] ?>" alt="anh" />
-                                    </a>
-                                </div>
-                                <span class="twm-job-post-duration">
-                                    <?php
-                                    $time = $job->timeAgo($value['created_at']);
-                                    echo $time;
-                                    ?>
+                    <div class="item">
+                        <div class="twm-jobs-grid-style2">
+                            <div class="twm-media">
+                               <?php echo $value['img_cty'] ?>
+                            </div>
+                            <span class="twm-job-post-duration">
+                                <?php
+                                $time = $job_nb->timeAgo($value['created_at']);
+                                echo $time;
+                                ?>
+                            </span>
+                            <div class="twm-jobs-category green">
+                                <span class="twm-bg-sky">Mới nhất</span>
+                            </div>
+                            <div class="twm-mid-content">
+                                <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
+                                    <h4 class="twm-job-title" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+                                        <?php echo $value['chucvu'] ?>
+                                    </h4>
+                                </a>
+                                <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                          font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
+                                    <?php echo $value['capbac'] ?>
                                 </span>
-                                <div class="twm-jobs-category green">
-                                    <span class="twm-bg-sky">Mới nhất</span>
-                                </div>
-                                <div class="twm-mid-content">
-                                    <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
-                                        <h4 class="twm-job-title" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                                            <?php echo $value['chucvu'] ?>
-                                        </h4>
-                                    </a>
-                                    <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
+                                <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                           font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                        <?php echo $value['capbac'] ?>
-                                    </span>
-                                    <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
-                          font-size: 12px;font-weight: 500;line-height: 16px;padding: 4px 8px;">
-                                        <?php echo $value['diachi'] ?>
-                                    </span>
+                                    <?php echo $value['diachi'] ?>
+                                </span>
+                            </div>
+                            <div class="twm-right-content">
+                                <div class="twm-jobs-amount">
+                                    <?php echo $value['mucluong'] ?> triệu
                                 </div>
-                                <div class="twm-right-content">
-                                    <div class="twm-jobs-amount">
-                                        <?php echo $value['mucluong'] ?> 
-                                    </div>
-                                    <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
-                                </div>
+                                <a href="job-detail.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
                             </div>
                         </div>
+                    </div>
 
-                    <?php } ?>
+                <?php } ?>
 
-                </div>
             </div>
         </div>
     </div>
-    <!-- RELATED JOBS END -->
+</div>
+<!-- RELATED JOBS END -->
 </div>
 <!-- CONTENT END -->
+
+
+
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeModalBtn" style="text-align: end;margin-right: 10px;font-size: 35px;">&times;</span>

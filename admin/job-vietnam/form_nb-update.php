@@ -6,91 +6,45 @@ require "../config.php";
 require_once "../models/db.php";
 
 $job = new Job_NB;
-$nganhnghe = new Nganhnghe;
-$nganhngheAdmin = new Nganhnghe;
-$hinhthuc = new Hinhthuc;
-$hinhthucAdmin = new Hinhthuc;
 
-$final_path_image = $_POST['path-image'];
 ?>
-
 <?php
-if (isset($_POST['submit']) == TRUE) {
-   
-    //$final_path_image = $_POST['path-image'];
-    //$path_image = $_POST['path-image'];
-
-    $valiFile = TRUE;
-    $target_dir = "../../images/jobs-company/vietnam/";
-    $fileName = time() . $_FILES['fileUpload']['name'];
-    $fileTmpName = $_FILES['fileUpload']['tmp_name'];
-    $fileSize = $_FILES['fileUpload']['size'];
-    $fileError = $_FILES['fileUpload']['error'];
-    $fileType = $_FILES['fileUpload']['type'];
-
-    //check image đã có rồi ko import nữa
-
-    
-    if ($fileSize && $fileTmpName) {
-      
-        $final_path_image = $fileName;
-
-        // Giới hạn kích thước tối đa của file (5MB)
-        $allowed = array('jpeg', 'png', 'jpg');
-        $filenameCheck = $_FILES['fileUpload']['name'];
-        $ext = pathinfo($filenameCheck, PATHINFO_EXTENSION);
-
-        if (!$fileSize || !$fileTmpName ) {
-            echo 'không có file ảnh nào';
-            return;
-        }
-
-        if (!in_array($ext, $allowed)) {
-            echo 'chỉ được tải lên file gồm jpeg, png hoặc jpg';
-            return;
-        }
-        if ($fileSize > 5242880) {
-            $errors[] = 'Kích thước file không được vượt quá 5 MB';
-            return;
-        }
-        echo 'chekk path: ' . $final_path_image;
-        move_uploaded_file($fileTmpName, $target_dir . $fileName);
-    }
-}
-
-//Them du lieu vao CSDL: Neu upload duoc anh thi moi insert:
 
 $checkResult  = -1;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $id_job = $_POST['id_job'];
-    $name = $_POST['tencongty'];
-    $img_cty = $final_path_image;
-    $chucvu = $_POST['chucvu'];
-    $id_nganhnghe = $_POST['nganhnghe'];
-    $capbac = $_POST['capbac'];
-    $soluong = $_POST['soluong'];
-    $id_kinhnghiem = $_POST['kinhnghiem'];
-    $ngaycuoicung = $_POST['ngaycuoicung'];
-    $gioitinh = $_POST['gioitinh'];
-    $mucluong = $_POST['mucluong'];
+
+    $id_cty = $_POST['id_cty'];
     $diachi = $_POST['diachi'];
     $diachi_cuthe = $_POST['diachicuthe'];
+
+    $id_gioitinh = $_POST['gioitinh'];
     $id_hinhthuc = $_POST['hinhthuc'];
-    //$phongvan = $_POST['phongvan'];
-    $mota = htmlspecialchars($_POST['mota']);
-    $yeucau = htmlspecialchars($_POST['yeucau']);
-    $quyenloi = htmlspecialchars($_POST['quyenloi']);
-    $id_trangthai = $_POST['trangthai'];
-    $ungtuyen = htmlspecialchars($_POST['ungtuyen']);
-    //echo 'check ung tuyen: ' . $ungtuyen;
-    //echo 'check data' . $name . $chucvu . $id_nganhnghe . $capbac . $soluong . $kinhnghiem . $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe, $id_hinhthuc, $mota, $yeucau, $quyenloi, $id_trangthai;
-    $checkResult = Job_NB::updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty,$ungtuyen);
+    $ngaycuoicung = $_POST['ngaycuoicung'];
+
+    $chucvu = $_POST['chucvu'];
+    $capbac = $_POST['capbac'];
+    $soluong = $_POST['soluong'];
+    
+    $job_code = $_POST['job-code'];
+    $age = $_POST['age'];
+    $ngonngu = $_POST['ngonngu'];
+
+    $mucluong = $_POST['mucluong'];
+    $id_nganhnghe = $_POST['nganhnghe'];
+    $id_kinhnghiem = $_POST['kinhnghiem'];
+   
+    $mota = $_POST['mota'];
+    $yeucau = $_POST['yeucau'];
+    $quyenloi = $_POST['quyenloi'];
+    $other = $_POST['other'];
+
+    $checkResult = $job::updateJob($id_job,$chucvu, $capbac, $job_code, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $id_gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi, $other, $id_cty, $age, $ngonngu);
+    
 }
 
 $url =  $_SERVER['HTTP_REFERER'];
 
-// custom path để click 2 lần submit ko bị lỗi
 $path = $url;
 
 $parts = explode('&', $path);

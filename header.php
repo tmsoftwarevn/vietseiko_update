@@ -6,29 +6,34 @@ session_start();
 
 require_once 'config.php';
 require "models/db.php";
-require "models/jobs.php";
+
 require "models/hinhthuc.php";
 require "models/nganhnghe.php";
 require "models/protype.php";
-require "models/job_NB.php";
+
 require "models/nganhnghe_NB.php";
 require "models/blog.php";
 require "models/ban_tin.php";
 require "models/protypes_congcu.php";
-require "models/job_kysu.php";
 require "models/nganh_ung_tuyen.php";
 
+require "models/job_kysu.php";
+require "models/job_vietseiko.php";
+require "models/job_NB_f.php";
+require "models/jobs.php";
 $protypes_congcu = new Protypes_congcu;
 $ban_tin = new Ban_tin;
 $nganhnghe = new Nganhnghe;
 $nganhngheNB = new Nganhnghe_NB;
 $hinhthuc = new Hinhthuc;
 $protype = new Protype;
-$job = new Job;
-$job_NB = new Job_NB;
 $blog = new blog;
-$job_kysu = new Job_Kysu;
 $nganh_ung_tuyen = new Nganh_ung_tuyen;
+
+$job = new Job;
+$job_nb = new Job_NB_f;
+$job_kysu = new Job_kysu_f;
+$job_vietseiko = new Vietseiko_f;
 
 $nganh_ung_tuyen->fetch_tinh_thanh();
 

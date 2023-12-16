@@ -1,7 +1,75 @@
 <?php
 require_once "db.php";
-class Job_NB extends Db
+class Job_NB_f extends Db
 {
+    //lấy ngày ago
+    public function timeAgo($time_ago)
+    {
+        
+        $time_ago = strtotime($time_ago);
+        $cur_time   = time();
+        $time_elapsed   = $cur_time - $time_ago;
+        $seconds    = $time_elapsed ;
+        $minutes    = round($time_elapsed / 60 );
+        $hours      = round($time_elapsed / 3600);
+        $days       = round($time_elapsed / 86400 );
+        $weeks      = round($time_elapsed / 604800);
+        $months     = round($time_elapsed / 2600640 );
+        $years      = round($time_elapsed / 31207680 );
+        // Seconds
+        if($seconds <= 60){
+            return "Mới đăng";
+        }
+        //Minutes
+        else if($minutes <=60){
+            if($minutes==1){
+                return "1 phút trước";
+            }
+            else{
+                return "$minutes phút trước";
+            }
+        }
+        //Hours
+        else if($hours <=24){
+            if($hours==1){
+                return "1 giờ trước";
+            }else{
+                return "$hours giờ trước";
+            }
+        }
+        //Days
+        else if($days <= 7){
+            if($days==1){
+                return "1 ngày trước";
+            }else{
+                return "$days ngày trước";
+            }
+        }
+        //Weeks
+        else if($weeks <= 4.3){
+            if($weeks==1){
+                return "1 tuần trước";
+            }else{
+                return "$weeks tuần trước";
+            }
+        }
+        //Months
+        else if($months <=12){
+            if($months==1){
+                return "1 tháng trước";
+            }else{
+                return "$months tháng trước";
+            }
+        }
+        //Years
+        else{
+            if($years==1){
+                return "1 năm trước";
+            }else{
+                return "$years năm trước";
+            }
+        }
+    }
     /**
      * LẤY DỮ LIỆU BẢNG JOB
      */
@@ -20,7 +88,7 @@ class Job_NB extends Db
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT job_xkld_nb.*,cty.name FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty order by job_xkld_nb.created_at desc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT job_xkld_nb.*,cty.name,cty.img_cty FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty order by job_xkld_nb.created_at desc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -30,9 +98,9 @@ class Job_NB extends Db
     /**
      * Lấy ra các job mới nhất:
      */
-    static function getLatestJobNB($number_of_records)
+    static function getLatestJob($number_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb ORDER BY created_at DESC LIMIT 0, $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty ORDER BY created_at DESC LIMIT $number_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -42,12 +110,13 @@ class Job_NB extends Db
     /**
      * Lấy sản phẩm theo id:
      */
-    public function getJob_ByID_admin($id)
+    function getJob_Detail($id)
     {
-        $sql = self::$connection->prepare("SELECT job_xkld_nb.*,cty.name FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE id_job = ?");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE id_job = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
-        $items = $sql->get_result()->fetch_assoc();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
 

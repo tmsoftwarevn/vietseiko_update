@@ -970,7 +970,7 @@ $jobAdmin = new Job;
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="job-list.php">Công việc tại Việt Nam</a></li>
-                            <li><a href="job_nb_list.php">Công việc tại Nhật Bản</a></li>
+                            <li><a href="job_nb_list.php">Công việc XKLD tại Nhật Bản</a></li>
                             <li><a href="job_ksnb_list.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
                             <li><a href="job_vietseiko_list.php">Công việc tại VietSeiko</a></li>
                             <li><a href="company-list.php">Thông tin các công ty</a></li>

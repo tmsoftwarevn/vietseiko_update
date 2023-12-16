@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     echo "Khong nhan duoc ID";
 }
 
-$allJob = $job->getJob_Detail($id);
+$allJob = $job_kysu->getJob_Detail($id);
 $name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
 
 $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem']);
@@ -71,7 +71,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
                                         <div class="twm-mid-content">
                                             <div class="twm-media">
-                                            <?php echo $allJob[0]['img_cty'] ?>
+                                                <?php echo $allJob[0]['img_cty'] ?>
                                             </div>
 
                                             <h4 class="twm-job-title" style="font-size: 25px; padding-top: 20px;">
@@ -92,13 +92,13 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <div class="twm-job-apllication-area">
                                                     Hạn nộp hồ sơ:
                                                     <span class="twm-job-apllication-date">
-                                                    <?php 
+                                                        <?php
                                                         $dateTime = new DateTime($allJob[0]['ngaycuoicung']);
                                                         $formattedDate = $dateTime->format('d/m/y');
                                                         echo $formattedDate;
                                                         ?>
-                                                       
-                                                    </span>
+
+                                                    </span> </span>
                                                 </div>
                                             </div>
 
@@ -130,23 +130,23 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
                             <h4 class="twm-s-title">Mô tả công việc:</h4>
 
-                             <?php
+                            <?php
 
                             echo  $allJob[0]['mota'];
-                            ?> 
+                            ?>
 
                             <h4 class="twm-s-title">Yêu cầu:</h4>
-                            <?php  echo  $allJob[0]['mota']; ?>
+                            <?php echo  $allJob[0]['mota']; ?>
 
                             <h4 class="twm-s-title">Quyền lợi:</h4>
-                            <?php  echo  $allJob[0]['quyenloi']; ?>
+                            <?php echo  $allJob[0]['quyenloi']; ?>
                             <h4 class="twm-s-title">Thông tin thêm:</h4>
-                            <?php  echo  $allJob[0]['thongtin_khac']; ?>
+                            <?php echo  $allJob[0]['thongtin_khac']; ?>
                             <!-- // nut dang ki -->
                             <div class="btn-dangki-detail" id="openModalBtn-2">
                                 Ứng tuyển ngay
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 rightSidebar" style="
@@ -175,12 +175,11 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <i class="bi bi-calendar-week"></i>
                                                     <span class="twm-title">Ngày đăng</span>
                                                     <div class="twm-s-info-discription">
-                                                        <?php 
+                                                        <?php
                                                         $dateTime = new DateTime($allJob[0]['created_at']);
                                                         $formattedDate = $dateTime->format('d/m/y');
                                                         echo $formattedDate;
-                                                        ?>
-                                                    </div>
+                                                        ?> </div>
                                                 </div>
                                             </li>
                                             <li>
@@ -231,10 +230,19 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                             </li>
                                             <li>
                                                 <div class="twm-s-info-inner">
-                                                <i class="bi bi-person"></i>
+                                                    <i class="bi bi-person"></i>
                                                     <span class="twm-title">Độ tuổi</span>
                                                     <div class="twm-s-info-discription">
                                                         <?php echo $allJob[0]['age'] ?> tuổi
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="twm-s-info-inner">
+                                                <i class="bi bi-bookmark-dash"></i>
+                                                    <span class="twm-title">Ngôn ngữ</span>
+                                                    <div class="twm-s-info-discription">
+                                                        <?php echo $allJob[0]['ngonngu'] ?>
                                                     </div>
                                                 </div>
                                             </li>
@@ -249,7 +257,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <div class="twm-s-info3">
                                     <div class="twm-s-info-logo-section">
                                         <div class="twm-media">
-                                        <?php echo $allJob[0]['img_cty'] ?>
+                                            <?php echo $allJob[0]['img_cty'] ?>
                                         </div>
                                         <h4 class="twm-title">
                                             <?php echo $allJob[0]['name'] ?>
@@ -261,7 +269,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <i class="bi bi-geo-alt-fill"></i>
                                                 <span class="twm-title">Địa chỉ</span>
                                                 <div class="twm-s-info-discription">
-                                                <?php echo $allJob[0]['address'] ?>
+                                                    <?php echo $allJob[0]['address'] ?>
                                                 </div>
                                             </div>
                                         </li>
@@ -270,7 +278,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <i class="bi bi-people"></i>
                                                 <span class="twm-title">Quy mô</span>
                                                 <div class="twm-s-info-discription">
-                                                <?php echo $allJob[0]['quymo'] ?> người
+                                                    <?php echo $allJob[0]['quymo'] ?> người
                                                 </div>
                                             </div>
                                         </li>
@@ -280,7 +288,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <span class="twm-title">Thông tin</span>
                                                 <div class="twm-s-info-discription">
                                                     <!-- <p>Lorem ipsum dolor sit amet, consectetur nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa Sed dapibus pulvinar nibh tempor porta.</span></p> -->
-                                                    <?php echo $allJob[0]['about_cty'] ?> 
+                                                    <?php echo $allJob[0]['about_cty'] ?>
                                                     <p onclick="myFunction()" id="myBtn" style="color: #1967d2; margin: 0 auto;width: fit-content;cursor: pointer;">Xem thêm</p>
                                                 </div>
                                             </div>
@@ -288,7 +296,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                     </ul>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -314,18 +322,18 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
         <div class="section-content">
             <div class="owl-carousel twm-related-jobs-carousel owl-btn-vertical-center owl-loaded owl-drag">
                 <?php
-                $list_of_latestJob = Job::getLatestJob(8);
+                $list_of_latestJob = Job_kysu_f::getLatestJob(8);
                 foreach ($list_of_latestJob as $key => $value) {
                 ?>
 
                     <div class="item">
                         <div class="twm-jobs-grid-style2">
                             <div class="twm-media">
-                               <?php echo $value['img_cty'] ?>
+                                <?php echo $value['img_cty'] ?>
                             </div>
                             <span class="twm-job-post-duration">
                                 <?php
-                                $time = $job->timeAgo($value['created_at']);
+                                $time = $job_nb->timeAgo($value['created_at']);
                                 echo $time;
                                 ?>
                             </span>

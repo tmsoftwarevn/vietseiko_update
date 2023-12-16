@@ -54,7 +54,7 @@ $nganhnghe = new Nganhnghe;
               <thead>
                 <tr>
                   <th>Mã công việc</th>
-                  <th>Chức Vụ</th>
+                  <th>Tên công ty</th>
                   <th>Ngành Nghề</th>
                   <th>Ngày Đăng</th>
                 
@@ -70,15 +70,16 @@ $nganhnghe = new Nganhnghe;
                 if (isset($_GET['page']) == TRUE) {
                   $page = $_GET['page'];
                 }
-                //$list_of_job = Kysu_Thongdich::getAllJob();
+                
                 $list_of_job = Kysu_Thongdich::getAllJob_andCreatePagination($page, $resultsPerPage);
                 echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
                 $total = ceil(floatval($totalResults)/floatval($resultsPerPage));
+                            
                 foreach ($list_of_job as $key => $value) {
                 ?>
                   <tr>
                     <td><?php echo $value['job_code'] ?></td>
-                    <td><?php echo $value['chucvu'] ?></td>
+                    <td><?php echo $value['name'] ?></td>
                     <td><?php $nganhngheName = $jobAdmin->getNganhnghe($value['id_nganhnghe']);
                         foreach ($nganhngheName as $name => $num) echo $num['name_nganhnghe'] ?></td>
                     <td class="wspace-no"><?php echo $value['created_at'] ?></td>
@@ -95,7 +96,7 @@ $nganhnghe = new Nganhnghe;
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
 
-                        <a class="btn btn-success light mr-2 " href="job_nb_view.php?typeView=job-nb&id=<?php echo $value['id_job'] ?>">
+                        <a class="btn btn-success light mr-2 " href="job_ksnb_view.php?typeView=job-ksnb&id=<?php echo $value['id_job'] ?>">
 
                           <svg xmlns="http://www.w3.org/2000/svg" class="svg-main-icon" width="24px" height="24px" viewBox="0 0 32 32" x="0px" y="0px">
                             <g data-name="Layer 21">
@@ -105,7 +106,7 @@ $nganhnghe = new Nganhnghe;
                           </svg>
                         </a>
 
-                        <a href="job_nb_update.php?typeUpdate=job-nb&id=<?php echo $value['id_job'] ?>" class="btn btn-secondary light mr-2">
+                        <a href="job_ksnb_update.php?typeUpdate=ksnb&id=<?php echo $value['id_job'] ?>" class="btn btn-secondary light mr-2">
 
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -116,7 +117,7 @@ $nganhnghe = new Nganhnghe;
                           </svg>
                         </a>
 
-                        <a onclick="return confirm('Xác nhận muốn xóa công việc có id: <?php echo $value['id_job']; ?>?')" href="job-vietnam/delete_jobNb.php?id_job=<?php echo $value['id_job']; ?>"  class="btn btn-danger light">
+                        <a onclick="return confirm('Xác nhận muốn xóa công việc có Mã: <?php echo $value['job_code']; ?>?')" href="job-vietnam/delete_ksnb.php?id_job=<?php echo $value['id_job']; ?>"  class="btn btn-danger light">
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <rect x="0" y="0" width="24" height="24"></rect>
@@ -131,7 +132,14 @@ $nganhnghe = new Nganhnghe;
                 <?php } ?>
               </tbody>
             </table>
-            
+            <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
+              <span>Trang <?php echo $page . '/' . $total ?></span>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination my-2 my-md-0">
+                  <?php echo Kysu_Thongdich::paginate("job_ksnb_list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ class Kysu_Thongdich extends Db
     //Lấy danh sách tất cả job
     static function getAllJob()
     {
-        $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc");
+        $sql = self::$connection->prepare("SELECT * FROM job_kysunb order by created_at desc");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -16,7 +16,7 @@ class Kysu_Thongdich extends Db
     static function getAllJob_andCreatePagination($page, $resultsPerPage)
     {     
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty order by job_kysunb.created_at desc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT job_kysunb.*,cty.name,cty.img_cty FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty order by job_kysunb.created_at desc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -40,9 +40,9 @@ class Kysu_Thongdich extends Db
     /**
      * Lấy sản phẩm theo id:
      */
-    public function getJob_ByID($id)
+    public function getJob_KySu_ByID($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE id_job = ?");
+        $sql = self::$connection->prepare("SELECT job_kysunb.*,cty.name FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty WHERE id_job = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = $sql->get_result()->fetch_assoc();
@@ -142,7 +142,7 @@ class Kysu_Thongdich extends Db
      */
     static function deleteJob_ByTypeID($id_job)
     {
-        $sql = self::$connection->prepare("DELETE FROM job WHERE id_job = ?");
+        $sql = self::$connection->prepare("DELETE FROM job_kysunb WHERE id_job = ?");
         $sql->bind_param("i", $id_job);
         $sql->execute();
     }
@@ -157,11 +157,10 @@ class Kysu_Thongdich extends Db
         return $sql->execute();
     }
     // update job
-    static function updateJob($id_job, $name, $chucvu, $capbac,  $id_nganhnghe, $id_hinhthuc, $soluong, $kinhnghiem, $ngaycuoicung, $gioitinh, $mucluong, $diachi, $diachi_cuthe,  $mota, $yeucau, $quyenloi, $id_trangthai, $img_cty,$ungtuyen)
+    static function updateJob($id_job,$chucvu, $capbac, $job_code, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $id_gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi, $other, $id_cty, $age, $ngonngu)
     {
-        $sql = self::$connection->prepare("UPDATE `job` SET `name`='$name',`chucvu`='$chucvu',`capbac`='$capbac',`img_cty`='$img_cty',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',
-        `soluong`='$soluong',`id_kinhnghiem`='$kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$gioitinh',`mucluong`='$mucluong',
-        `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`cach_ungtuyen`='$ungtuyen',`id_trangthai`='$id_trangthai' WHERE id_job = $id_job");
+        $sql = self::$connection->prepare("UPDATE `job_kysunb` SET `chucvu`='$chucvu',`capbac`='$capbac',`job_code`='$job_code',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',`soluong`='$soluong',`id_kinhnghiem`='$id_kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$id_gioitinh',`mucluong`='$mucluong',
+        `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`thongtin_khac`='$other',`id_cty`='$id_cty',`age`='$age',`ngonngu`='$ngonngu' where id_job = $id_job");
 
         return $sql->execute();
     }

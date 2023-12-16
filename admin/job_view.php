@@ -6,7 +6,7 @@ require_once "models/hinhthuc.php";
 require_once "models/nganhnghe.php";
 require_once "models/gioi_tinh.php";
 require_once "models/kinh_nghiem.php";
-
+require_once "models/job.php";
 
 $job = new Job;
 $hinhthuc = new Hinhthuc;
@@ -62,142 +62,187 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
         <?php
         if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
         ?>
-            <div class="body-view-job" style="padding: 100px;">
-                <!-- detail cong viec -->
+
+            <div class="body-view-job" style="padding: 0 100px 50px 100px">
+
                 <div class="title-job" style="text-align: center; font-weight: 600; 
-                font-size: 20px; text-transform: capitalize;">
-                    <?php echo 'Mã công việc tại Việt Nam: ' . $job_modal['id_job'] ?>
+        font-size: 20px; text-transform: capitalize;">
+                    <?php echo 'Công việc tại Việt Nam mã: ' . $job_modal['job_code'] ?>
                 </div>
 
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Tên Công Ty :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['name']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Logo Cty :</label>
-                    <div style="width: 200px;">
-                    <p>
-                    <?php echo $job_modal['img_cty'] ?>
-                    </p>
-                        
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Chức vụ :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['chucvu']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Ngành nghề:</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $name_nganhnghe ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['capbac']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Số Lượng :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['soluong']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $name_kinhnghiem; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Ngày Đăng :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['ngaydang']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['ngaycuoicung']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $name_gioitinh; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Mức Lương :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['mucluong']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Địa Chỉ :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['diachi']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $job_modal['diachi_cuthe']; ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Hình thức:</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $name_hinhthuc ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Mô tả công việc</label>
-                    <div class="controls">
-                        <textarea rows="10" class="form-control" disabled><?php echo $job_modal['mota']; ?></textarea>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*Yêu cầu</label>
-                        <div class="controls">
-                            <textarea rows="10" class="form-control" disabled><?php echo $job_modal['yeucau']; ?></textarea>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*Quyền Lợi</label>
-                        <div class="controls">
-                            <textarea rows="10" class="form-control" disabled><?php echo $job_modal['quyenloi']; ?></textarea>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*Cách ứng tuyển</label>
-                        <div class="controls">
-                            <textarea rows="10" class="form-control" disabled><?php echo $job_modal['cach_ungtuyen']; ?></textarea>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*Trạng thái:</label>
-                        <div class="controls">
-                            <input type="text" value="<?php echo $name_trangthai ?>" class="form-control" disabled />
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Tên Công Ty :</label>
+                            <div class="controls">
+                                <input type="text" value="<?php echo $job_modal['name']; ?>" class="form-control" disabled />
+                            </div>
                         </div>
                     </div>
 
+                    <div class="col-6">
+
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['diachi_cuthe']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
+                            <div class="controls">
+                                <input type="text" value="<?php echo $name_gioitinh; ?>" class="form-control" disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
+                            <div class="controls">
+                                <input type="text" value="<?php echo $name_hinhthuc; ?>" class="form-control" disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['ngaycuoicung']; ?>" type="date" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Mã công việc:</label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['job_code']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Tuổi:</label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['age']; ?>" type="text" class="form-control" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['diachi']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-4">
+        <div class="control-group">
+            <label class="control-label" style="font-weight: 600;">*Ngôn ngữ</label>
+            <div class="controls">
+                <input disabled value="<?php echo $job_modal['ngonngu']; ?>" type="text" class="form-control" />
+            </div>
+        </div>
+    </div> -->
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['chucvu']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['capbac']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Số Lượng </label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['soluong']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Mức Lương </label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['mucluong']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
+                            <div class="controls">
+                                <input type="text" value="<?php echo $name_nganhnghe; ?>" class="form-control" disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
+                            <div class="controls">
+                                <input type="text" value="<?php echo $name_kinhnghiem; ?>" class="form-control" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
+                    <label class="control-label" style="font-weight: 600;">*Mô tả công việc:</label>
+                    <div style="border: 1px solid #ccc; background-color: #f4f4f4;padding: 20px 10px;">
+                        <?php echo $job_modal['mota'] ?>
+                    </div>
+
+                </div>
+                <div class="control-group">
+                    <label class="control-label" style="font-weight: 600;">*Yêu cầu </label>
+                    <div style="border: 1px solid #ccc; background-color: #f4f4f4;padding: 20px 10px;">
+                        <?php echo htmlspecialchars_decode($job_modal['yeucau']) ?>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" style="font-weight: 600;">*Quyền Lợi </label>
+                    <div style="border: 1px solid #ccc; background-color: #f4f4f4;padding: 20px 10px;">
+                        <?php echo htmlspecialchars_decode($job_modal['quyenloi']) ?>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" style="font-weight: 600;">*Thông tin khác </label>
+                    <div style="border: 1px solid #ccc; background-color: #f4f4f4;padding: 20px 10px;">
+                        <?php echo htmlspecialchars_decode($job_modal['thongtin_khac']) ?>
+                    </div>
                 </div>
 
             </div>
+
         <?php
         }
 
-
-
         ?>
     </div>
-
 
 </body>
 

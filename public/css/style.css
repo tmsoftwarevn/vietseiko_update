@@ -18624,7 +18624,7 @@ strong {
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid #efefef;
-  margin: 0px auto;
+  margin: 10px auto;
 }
 
 .twm-jobs-grid-style2 .twm-media img {
@@ -18632,7 +18632,7 @@ strong {
 }
 
 .twm-jobs-grid-style2 .twm-mid-content {
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 .twm-jobs-grid-style2 .twm-right-content {

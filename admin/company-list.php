@@ -68,6 +68,7 @@ $cty = new Congty;
                 if (isset($_GET['page']) == TRUE) {
                   $page = $_GET['page'];
                 }
+                
                 $list_of_job = $cty::getAllcty_andCreatePagination($page, $resultsPerPage);
                 
                 $total = ceil(floatval($totalResults)/floatval($resultsPerPage));
@@ -79,7 +80,7 @@ $cty = new Congty;
                     <td><?php echo $value['name'] ?></td>
                     <td><?php echo $value['address'] ?></td>                  
                     <td><?php echo $value['type_name'] ?></td>
-                    <td><?php echo $value['created_at'] ?></td>
+                    <td><?php echo $value['updated_at'] ?></td>
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
                         <a class="btn btn-success light mr-2 " href="company-view.php?typeView=cty&id=<?php echo $value['id_cty'] ?>">
