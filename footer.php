@@ -86,9 +86,9 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs hidden-sm">
                 <!-- start div facebook_content-->
                 <div class="facebook_content">
-                    <div class="facebook_content_title">
+                    <!-- <div class="facebook_content_title">
                         <img src="images/icon_face@2x.png" width="60" height="60" alt="icon_face@2x.png" />
-                    </div>
+                    </div> -->
                     <div class="facebook_content_cont">
                         <!-- start div facebook_content_nhipcau-->
                         <div class="facebook_content_nhipcau">

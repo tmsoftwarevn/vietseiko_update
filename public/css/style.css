@@ -119,7 +119,7 @@ This files [Table of contents] are outlined below
 ---------------------------------------------------
 */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
 
@@ -270,7 +270,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.2;
   color: #17171d;
 }
@@ -2153,7 +2153,7 @@ ol li {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
+  cursor: poRoboto;
   display: inline-table;
   background-color: #1967d2;
   border: none;
@@ -2240,7 +2240,7 @@ ol li {
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
+  cursor: poRoboto;
   display: inline-block;
   background-color: #000;
   border: none;
@@ -2505,7 +2505,7 @@ ol li {
   text-transform: uppercase;
   letter-spacing: 2px;
   display: inline-block;
-  cursor: pointer;
+  cursor: poRoboto;
   border-radius: 50%;
   opacity: 1;
   margin-right: 5px;
@@ -2546,7 +2546,7 @@ ol li {
   height: 12px;
   text-align: center;
   background-color: #1967d2;
-  cursor: pointer;
+  cursor: poRoboto;
   border-radius: 50%;
   opacity: 1;
   margin-right: 5px;
@@ -3120,7 +3120,7 @@ ol li {
   position: relative;
   margin: -10px 0px;
   padding: 10px 0px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 991px) {
@@ -3137,7 +3137,7 @@ ol li {
   color: #2f2f2f;
   font-size: 16px;
   padding: 15px 16px;
-  cursor: pointer;
+  cursor: poRoboto;
   margin: 0px 0px;
   font-weight: 400;
   display: block;
@@ -3364,7 +3364,7 @@ ol li {
   color: #000;
   background-color: transparent;
   z-index: 900;
-  cursor: pointer;
+  cursor: poRoboto;
   padding: 10px;
   font-size: 14px;
   display: none;
@@ -3910,7 +3910,7 @@ ol li {
   position: relative;
   margin: -10px 0px;
   padding: 10px 0px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 991px) {
@@ -3927,7 +3927,7 @@ ol li {
   color: #2f2f2f;
   font-size: 16px;
   padding: 15px 16px;
-  cursor: pointer;
+  cursor: poRoboto;
   margin: 0px 0px;
   font-weight: 400;
   display: block;
@@ -4153,7 +4153,7 @@ ol li {
   color: #000;
   background-color: transparent;
   z-index: 900;
-  cursor: pointer;
+  cursor: poRoboto;
   padding: 10px;
   font-size: 14px;
   display: none;
@@ -4693,7 +4693,7 @@ ol li {
   position: relative;
   margin: -10px 0px;
   padding: 10px 0px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 991px) {
@@ -4710,7 +4710,7 @@ ol li {
   color: #fff;
   font-size: 16px;
   padding: 15px 16px;
-  cursor: pointer;
+  cursor: poRoboto;
   margin: 0px 0px;
   font-weight: 400;
   display: block;
@@ -4937,7 +4937,7 @@ ol li {
   color: #000;
   background-color: transparent;
   z-index: 900;
-  cursor: pointer;
+  cursor: poRoboto;
   padding: 10px;
   font-size: 14px;
   display: none;
@@ -5210,7 +5210,7 @@ ol li {
   height: 36px;
   z-index: 1;
   border-radius: 50%;
-  cursor: pointer;
+  cursor: poRoboto;
   perspective: 1000;
 }
 
@@ -5295,7 +5295,7 @@ ol li {
 .custom-zoom-out {
   background-color: #1967d2;
   color: #fff;
-  cursor: pointer;
+  cursor: poRoboto;
   border-radius: 50%;
   margin: 5px 15px;
   transition: color 0.3s, background-color 0.3s;
@@ -5445,7 +5445,7 @@ ol li {
   z-index: 999;
   text-align: center;
   line-height: 29px;
-  cursor: pointer;
+  cursor: poRoboto;
   font-size: 15px;
   font-weight: 500;
   height: 29px;
@@ -5637,7 +5637,7 @@ ol li {
 
 /*Title separators*/
 .wt-small-separator {
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 10px;
   position: relative;
   display: inline-block;
@@ -5818,7 +5818,7 @@ ol li {
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 991px) {
@@ -5832,7 +5832,7 @@ ol li {
   font-size: 46px;
   line-height: 50px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 991px) {
@@ -5993,7 +5993,7 @@ ol li {
   color: #fff;
   background-color: #1967d2;
   border: none;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   padding: 9px 30px;
   border-radius: 0px 10px 10px 0px;
@@ -6072,7 +6072,7 @@ ol li {
 }
 
 .footer-dark .widget-title {
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #f0f6fe;
   font-weight: 400;
   font-size: 20px;
@@ -6186,7 +6186,7 @@ ol li {
   color: #fff;
   background-color: #1967d2;
   border: none;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   padding: 9px 30px;
   border-radius: 0px 10px 10px 0px;
@@ -6230,7 +6230,7 @@ ol li {
 }
 
 .footer-light .widget-title {
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #1967d2;
   font-weight: 400;
   font-size: 20px;
@@ -6421,7 +6421,7 @@ button.scroltop {
   text-transform: uppercase;
   margin: 0;
   padding: 0;
-  cursor: pointer;
+  cursor: poRoboto;
   display: none;
   text-align: center;
   z-index: 999;
@@ -6540,7 +6540,7 @@ button.scroltop span {
 }
 
 .pricing-table-1 .p-table-inner .p-table-price span {
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 38px;
   line-height: 56px;
   font-weight: 600;
@@ -6559,7 +6559,7 @@ button.scroltop span {
   font-size: 18px;
   margin-bottom: 0px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .pricing-table-1 .p-table-recommended {
@@ -6633,7 +6633,7 @@ button.scroltop span {
   position: relative;
   display: inline-block;
   font-size: 18px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   color: #1967d2;
 }
@@ -6976,7 +6976,7 @@ button.scroltop span {
   text-align: center;
   display: inline-block;
   transition: 0.5s all ease;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   border-radius: 10px;
 }
@@ -7107,7 +7107,7 @@ button.scroltop span {
   margin-left: 0px;
   padding: 0px;
   display: inline-block;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 600;
 }
@@ -7245,7 +7245,7 @@ ol.comment-list li.comment .fn {
   font-weight: 500;
   font-style: normal;
   margin-bottom: 10px;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 480px) {
@@ -7513,7 +7513,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
   padding: 50px 80px 30px 80px;
   position: relative;
   overflow: hidden;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 400px) {
@@ -7534,7 +7534,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
   font-size: 48px;
   line-height: 40px;
   display: inline-block;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   position: absolute;
   left: -20px;
   top: -20px;
@@ -7717,7 +7717,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
   font-size: 16px;
   line-height: 24px;
   color: #17171d;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 @media (max-width: 640px) {
@@ -8144,7 +8144,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 #search .close:hover:after,
 #search .close:hover:before {
-  cursor: pointer;
+  cursor: poRoboto;
 }
 
 /*Google map*/
@@ -9947,14 +9947,14 @@ ol.comment-list li.comment .comment-respond .comment-form p {
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-explore-content-2 .twm-explore-bottom-section .counter-outer-two .counter {
   font-size: 46px;
   line-height: 50px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-explore-content-2 .twm-explore-bottom-section .counter-outer-two .icon-content-info {
@@ -12637,14 +12637,14 @@ ol.comment-list li.comment .comment-respond .comment-form p {
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home1-banner-section .twm-bnr-blocks-3 .twm-content .tw-count-number .counter {
   font-size: 38px;
   line-height: 40px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home1-banner-section .twm-bnr-blocks-3 .twm-content .icon-content-info {
@@ -12775,7 +12775,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 .twm-s-info3 ul {
   list-style: none;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .twm-s-info3 ul li {
@@ -13169,7 +13169,7 @@ strong {
 .nav-btn-admin {
   font-size: 28px;
   line-height: 68px;
-  cursor: pointer;
+  cursor: poRoboto;
   display: block;
   color: #0f1221;
 }
@@ -13215,7 +13215,7 @@ strong {
   display: inline-block;
   margin-left: 25px;
   position: relative;
-  cursor: pointer;
+  cursor: poRoboto;
 }
 
 .header-widget-wrap .dropdown-menu {
@@ -13238,7 +13238,7 @@ strong {
 .listing-user {
   position: relative;
   display: inline-block;
-  cursor: pointer;
+  cursor: poRoboto;
 }
 
 .listing-user .dropdown-toggle {
@@ -13679,7 +13679,7 @@ strong {
   top: 10px;
   color: #fff;
   z-index: 1;
-  cursor: pointer;
+  cursor: poRoboto;
   padding: 7px;
   font-size: 16px;
   display: none;
@@ -13862,7 +13862,7 @@ strong {
   left: 0;
   bottom: 0;
   opacity: 0;
-  cursor: pointer;
+  cursor: poRoboto;
   width: 100%;
   display: block;
 }
@@ -14519,7 +14519,7 @@ strong {
 
 .wt-admin-dashboard-msg-2 .user-msg-list-btn-outer .user-msg-list-btn-open {
   display: inline-block;
-  cursor: pointer;
+  cursor: poRoboto;
   white-space: nowrap;
   background-color: #1967d2;
   border: none;
@@ -14532,7 +14532,7 @@ strong {
 }
 
 .wt-admin-dashboard-msg-2 .user-msg-list-btn-outer .user-msg-list-btn-close {
-  cursor: pointer;
+  cursor: poRoboto;
   white-space: nowrap;
   background-color: #1967d2;
   border: none;
@@ -15613,14 +15613,14 @@ strong {
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home3-banner-section .twm-bnr-bottom-section .twm-bnr-blocks-wrap .twm-bnr-blocks-3 .twm-content .tw-count-number .counter {
   font-size: 38px;
   line-height: 40px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home3-banner-section .twm-bnr-bottom-section .twm-bnr-blocks-wrap .twm-bnr-blocks-3 .twm-content .tw-count-number.text-clr-green {
@@ -16179,14 +16179,14 @@ strong {
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-for-employee-4 .twm-for-employee-content .twm-explore-right-section .counter-outer-two .counter {
   font-size: 46px;
   line-height: 50px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-for-employee-4 .twm-for-employee-content .twm-explore-right-section .counter-outer-two .icon-content-info {
@@ -16829,7 +16829,7 @@ strong {
   color: #fff;
   background-color: #1967d2;
   border: none;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   padding: 9px 30px;
   border-radius: 0px 10px 10px 0px;
@@ -17655,7 +17655,7 @@ strong {
   border: none;
   border-radius: 50px;
   padding: 10px 30px;
-  cursor: pointer;
+  cursor: poRoboto;
   text-align: center;
   background-color: #1877f2;
   transition: opacity 0.2s linear 0s;
@@ -17677,7 +17677,7 @@ strong {
   border: 1px solid #e1e2e6;
   border-radius: 50px;
   padding: 10px 30px;
-  cursor: pointer;
+  cursor: poRoboto;
   text-align: center;
   background-color: #f7faff;
   transition: opacity 0.2s linear 0s;
@@ -17714,7 +17714,7 @@ strong {
   padding: 14px 0px;
   position: relative;
   display: inline-block;
-  cursor: pointer;
+  cursor: poRoboto;
 }
 
 .twm-login-user-menu .user-name {
@@ -18006,7 +18006,7 @@ strong {
 
   .half-map-section .map-show-btn-open {
     display: inline-block;
-    cursor: pointer;
+    cursor: poRoboto;
     white-space: nowrap;
     background-color: #1967d2;
     border: none;
@@ -18023,7 +18023,7 @@ strong {
   }
 
   .half-map-section .map-show-btn-close {
-    cursor: pointer;
+    cursor: poRoboto;
     white-space: nowrap;
     background-color: #1967d2;
     border: none;
@@ -19371,7 +19371,7 @@ strong {
   font-size: 13px;
   color: #1967d2;
   text-transform: uppercase;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
 
@@ -19590,7 +19590,7 @@ strong {
 
 .twm-recruiters5-box .twm-rec-rating-wrap .twm-rec-rating span {
   display: inline;
-  cursor: pointer;
+  cursor: poRoboto;
 }
 
 .twm-recruiters5-box .twm-rec-rating-wrap .twm-rec-rating span i {
@@ -20137,7 +20137,7 @@ strong {
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home5-banner-section .row .twm-bnr-left-section {
@@ -21149,14 +21149,14 @@ strong {
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home-6-banner-section .twm-bnr-blocks-3 .twm-content .tw-count-number .counter {
   font-size: 38px;
   line-height: 40px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home-6-banner-section .twm-bnr-blocks-3 .twm-content .icon-content-info {
@@ -21550,7 +21550,7 @@ strong {
   font-size: 14px;
   color: #1967d2;
   text-transform: uppercase;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
 
@@ -21594,7 +21594,7 @@ strong {
 
 .twm-hpage-6-getintouch .twm-hpage-6-getintouch-title .wt-title-small {
   color: #fff;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   line-height: 40px;
   font-weight: 500;
@@ -23088,7 +23088,7 @@ strong {
   width: 56px;
   min-width: 56px;
   height: 56px;
-  cursor: pointer;
+  cursor: poRoboto;
 }
 
 .testimonial-outline-text span {
@@ -23426,7 +23426,7 @@ strong {
 }
 
 .twm-jobs-filter ul li {
-  cursor: pointer;
+  cursor: poRoboto;
   font-size: 16px;
   font-weight: 500;
   color: #1967d2;
@@ -25194,7 +25194,7 @@ Home page 11 banner
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home-11-banner-section .row .twm-bnr-left-section {
@@ -26169,14 +26169,14 @@ Home page 11 banner
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home3-banner-section.twm-bnr-hpage-14 .twm-home3-inner-section .twm-hpage-14-bnr-left-content .twm-bnr-blocks-wrap .twm-bnr-blocks-3 .twm-content .tw-count-number .counter {
   font-size: 38px;
   line-height: 40px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home3-banner-section.twm-bnr-hpage-14 .twm-home3-inner-section .twm-hpage-14-bnr-left-content .twm-bnr-blocks-wrap .twm-bnr-blocks-3 .twm-content .tw-count-number.text-clr-green {
@@ -26216,7 +26216,7 @@ Home page 11 banner
 /*Side bar navigation-------------------------*/
 .vnav-btn {
   color: #fff;
-  cursor: pointer;
+  cursor: poRoboto;
   display: block;
   font-size: 21px;
   height: 40px;
@@ -26334,7 +26334,7 @@ Home page 11 banner
 
 .twm-side-navigation-menu .nav>li {
   position: relative;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-side-navigation-menu .nav>li ul {
@@ -26350,7 +26350,7 @@ Home page 11 banner
   color: #2f2f2f;
   font-size: 18px;
   padding: 10px 16px;
-  cursor: pointer;
+  cursor: poRoboto;
   margin: 0px 0px;
   font-weight: 500;
   display: block;
@@ -26514,7 +26514,7 @@ Home page 11 banner
   color: #000;
   background-color: transparent;
   z-index: 900;
-  cursor: pointer;
+  cursor: poRoboto;
   padding: 10px;
   font-size: 14px;
   display: block;
@@ -26575,7 +26575,7 @@ Home page 11 banner
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  cursor: pointer;
+  cursor: poRoboto;
   background-color: #fff;
   box-shadow: 0px 4px 0px #ddd;
   white-space: nowrap;
@@ -26600,7 +26600,7 @@ Home page 11 banner
   border-radius: 4px;
   text-align: center;
   text-decoration: none;
-  cursor: pointer;
+  cursor: poRoboto;
   background-color: #82b440;
   box-shadow: 0px 4px 0px #6f9a37;
   white-space: nowrap;
@@ -26999,14 +26999,14 @@ HOME PAGE 15 START
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home1-banner-section.twm-bnr-hpage-15 .twm-bnr-blocks-3 .twm-content .tw-count-number .counter {
   font-size: 38px;
   line-height: 40px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home1-banner-section.twm-bnr-hpage-15 .twm-bnr-blocks-3 .twm-content .icon-content-info {
@@ -27517,14 +27517,14 @@ HOME PAGE 15 START
   font-size: 38px;
   line-height: 38px;
   font-weight: 700;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home16-banner-section .row .twm-h-page-16-bnr-right-section .twm-bnr-blocks-3 .twm-content .tw-count-number .counter {
   font-size: 38px;
   line-height: 40px;
   font-weight: 600;
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .twm-home16-banner-section .row .twm-h-page-16-bnr-right-section .twm-bnr-blocks-3 .twm-content .icon-content-info {

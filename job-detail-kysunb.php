@@ -287,8 +287,11 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <i class="bi bi-card-text"></i>
                                                 <span class="twm-title">Thông tin</span>
                                                 <div class="twm-s-info-discription">
-                                                    <!-- <p>Lorem ipsum dolor sit amet, consectetur nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa Sed dapibus pulvinar nibh tempor porta.</span></p> -->
-                                                    <?php echo $allJob[0]['about_cty'] ?>
+                                                <?php
+                                                     $middleSpacePosition = strpos($allJob[0]['about_cty'], ' ', strlen($allJob[0]['about_cty']) / 2);
+                                                     $randomTextWithSpan = substr_replace($allJob[0]['about_cty'], '<span id="dots">...</span><span id="more">', $middleSpacePosition, 0);
+                                                    echo $randomTextWithSpan;
+                                                    ?>
                                                     <p onclick="myFunction()" id="myBtn" style="color: #1967d2; margin: 0 auto;width: fit-content;cursor: pointer;">Xem thêm</p>
                                                 </div>
                                             </div>

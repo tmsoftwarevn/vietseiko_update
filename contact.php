@@ -42,8 +42,7 @@ require_once 'header.php';
                             </h3>
                             <h3 class="ft_title_ct"><span>
                                     <ion-icon name="podium-outline"></ion-icon> CÔNG TY
-                                    TRÁCH
-                                    NHIỆM HỮU HẠN VIETSEIKO
+                                    TNHH VIETSEIKO
                                 </span></h3>
 
                             <div class="ft_infos">
@@ -78,36 +77,29 @@ require_once 'header.php';
 
                                 <form action="mail.php" method="POST">
                                     <div class="form-contact pt-3">
-                                        <div class="row d-flex align-items-center">
+                                        <div class="row d-flex align-items-center mt-5">
                                             <div class="col-md-6">
                                                 <div class="name">
                                                     <input class="i-half" placeholder="Họ và tên" type="text" required name="name" />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="gender d-flex justify-content-evenly align-items-center">
-                                                    <div style="cursor: pointer;">
-                                                        <input type="radio" id="nam" name="gender" value="Nam" required>
-                                                        <label for="nam" style="margin: 0;">Nam</label><br>
-                                                    </div>
-                                                    <div style="cursor: pointer;">
-                                                        <input type="radio" id="nu" name="gender" value="Nữ" required>
-                                                        <label for="nu" style="margin: 0;">Nữ</label><br>
-                                                    </div>
-
+                                                <div class="email">
+                                                    <input name="email" class="i-half" type="email" placeholder="Nhập email" required />
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row d-flex justify-content-evenly align-items-center">
-                                            <div class="col-md-6">
-                                                <div class="birth-day" style="cursor: pointer;">
-                                                    <input name="birthday" required placeholder="Ngày sinh" class="i-half" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="birthday" />
-                                                </div>
-                                            </div>
+
                                             <div class="col-md-6">
                                                 <div class="phone">
                                                     <input name="phone" class="i-half" type="tel" placeholder="Số điện thoại" required pattern="(03|05|07|08|09)[0-9]{8}" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="luong">
+                                                    <input name="luong" class="i-half" type="text" placeholder="Mức lương mong muốn" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -133,74 +125,60 @@ require_once 'header.php';
                                                 <div class="kinh-nghiem">
                                                     <select class="i-half" required name="kinh-nghiem" style="cursor: pointer;">
 
-                                                        <option disabled selected value>-- Kinh nghiệm làm việc --</option>
-                                                        <option value="dưới 1 năm">dưới 1 năm
+                                                        <option disabled selected value>-- Nhóm việc làm --</option>
+                                                        <option value="1">Việc Làm Tại Việt Nam
                                                         </option>
-                                                        <option value="1 năm">1 năm </option>
-                                                        <option value="2 năm">2 năm </option>
-                                                        <option value="3 năm">3 năm </option>
-                                                        <option value="4 năm">4 năm </option>
-                                                        <option value=">4 năm">>4 năm </option>
+                                                        <option value="2">Xuất Khẩu Lao Động Nhật Bản </option>
+
+                                                        <option value="3">Kỹ Sư & Thông Dịch Viên Nhật Bản </option>
+                                                        <option value="4">Việc làm tại VietSeiko </option>
+
                                                     </select>
                                                 </div>
                                             </div>
 
                                         </div>
 
-                                        <div class="hoc-van d-flex justify-content-between align-items-center">
-                                            <div style="font-weight: 600;">Học vấn:</div>
-                                            <div>
-                                                <input type="radio" id="THPT" name="hoc-van" value="THPT" required>
-                                                  <label for="THPT" style="margin: 0;">THPT</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="address">
+                                                    <select class="i-half" required name="address" style="cursor: pointer;">
+                                                        <option disabled selected value>-- Khu vực hiện tại--</option>
+                                                        <?php
+                                                        foreach ($nganh_ung_tuyen->fetch_tinh_thanh() as $index => $item) {
+                                                        ?>
+                                                            <option value="<?php echo $item ?>">
+                                                                <?php echo $item ?>
+                                                            </option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <input type="radio" id="Trung cấp" name="hoc-van" value="Trung cấp" required>
-                                                  <label for="Trung cấp" style="margin: 0;">Trung cấp</label>
+                                            <div class="col-6">
+                                                <div class="address-hope">
+                                                    <!-- <select class="i-half" required name="address-h" style="cursor: pointer;">
+                                                        <option disabled selected value>-- Nơi mong muốn làm việc --</option>
+                                                        <?php
+                                                        foreach ($nganh_ung_tuyen->fetch_tinh_thanh() as $index => $item) {
+                                                        ?>
+                                                            <option value="<?php echo $item ?>">
+                                                                <?php echo $item ?>
+                                                            </option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select> -->
+                                                    <input name="address-h" class="i-half" type="text" placeholder="Nơi mong muốn làm việc" required />
+
+                                                </div>
                                             </div>
-
-                                            <div>
-                                                <input type="radio" id="Cao đẳng" name="hoc-van" value="Cao đẳng" required>
-                                                  <label for="Cao đẳng" style="margin: 0;">Cao đẳng</label>
-                                            </div>
-                                            <div>
-                                                <input type="radio" id="Đại học" name="hoc-van" value="Đại học" required>
-                                                  <label for="Đại học" style="margin: 0;">Đại học</label>
-                                            </div>
-
-
                                         </div>
 
-                                        <div class="email">
-                                            <input name="email" class="i-half" type="email" placeholder="Nhập email" required />
-                                        </div>
-                                        <div class="address">
-                                            <select class="i-half" required name="address" style="cursor: pointer;">
-                                                <option disabled selected value>-- Khu vực --</option>
-                                                <?php
-                                                foreach ($nganh_ung_tuyen->fetch_tinh_thanh() as $index => $item) {
-                                                ?>
-                                                    <option value="<?php echo $item ?>">
-                                                        <?php echo $item ?>
-                                                    </option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="luong">
-                                            <input name="luong" class="i-half" type="text" placeholder="Mức lương mong muốn" required />
-                                        </div>
-                                        <div class="des-kn">
-                                            <textarea name="des-kn" required class="i-half ta" placeholder="Mô tả kinh nghiệm làm việc của bạn" rows="4"></textarea>
-                                        </div>
-                                        <div class="muc-tieu">
-                                            <textarea name="muc-tieu" required class="i-half ta" placeholder="Mục tiêu nghề nghiệp" rows="4"></textarea>
-                                        </div>
-                                        <div class="ghi-chu">
-                                            <textarea name="ghi-chu" class="i-half ta" placeholder="Ghi chú" rows="4"></textarea>
-                                        </div>
+
                                     </div>
-                                    <input class="btn-form" type="submit" value="Gửi thông tin">
+                                    <input class="btn-form mt-5" type="submit" value="Gửi thông tin">
                                 </form>
 
                             </div>

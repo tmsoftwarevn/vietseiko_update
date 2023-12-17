@@ -975,8 +975,7 @@ $jobAdmin = new Job;
                             <li><a href="job_vietseiko_list.php">Công việc tại VietSeiko</a></li>
                             <li><a href="company-list.php">Thông tin các công ty</a></li>
                             <li><a href="#2">Apply Job</a></li>
-                            <li><a href="#3">New Job</a></li>
-                            <li><a href="#4">User Profile</a></li>
+                            
                         </ul>
                     </li>
                     <li>
@@ -986,14 +985,14 @@ $jobAdmin = new Job;
                             <span class="nav-text">Protypes</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="navbar.php">Navbar</a></li>
-                            <li><a href="nganhnghe.php">Ngành Nghề</a></li>
+                            
+                            <li><a href="model-other-list.php?type=nganhnghe">Ngành Nghề</a></li>
                             <li><a href="hinh-thuc.php">Loại Công Việc</a></li>
-                            <li><a href="job-trangthai.php">Trang Thái</a></li>
-                            <li><a href="blog.php">Blog</a></li>
+                            <!-- <li><a href="job-trangthai.php">Trang Thái</a></li>
+                            <li><a href="blog.php">Blog</a></li> -->
                         </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-041-graph"></i>
                             <span class="nav-text">Users Candidate</span>
@@ -1002,7 +1001,7 @@ $jobAdmin = new Job;
                             <li><a href="users-candidate.php">Users Candidate</a></li>
                             <li><a href="chart-morris.php">Add Candidate</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
                 <div class="copyright">
                     <p><strong>Jobick Job Admin</strong> © 2023 All Rights Reserved</p>

@@ -333,54 +333,28 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
                         <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
                             <ul class="nav navbar-nav">
                                 <li class="has-child">
-                                    <a href="about-us.php">Giới Thiệu</a>
+                                    <a href="about.php">Giới Thiệu</a>
                                 </li>
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <?php
-                                        $list_of_protypes = Protype::getAllProtypes();
-                                        foreach ($list_of_protypes as $key => $value) {
-                                        ?>
-                                            <li>
-                                                <a href="viec-lam?type_id=<?php echo $value['type_id']; ?>">
-                                                    <?php echo $value['type_name'] ?>
-                                                </a>
-                                            </li>
-
-                                        <?php } ?>
+                                        <li style="cursor: pointer;" > <a>Việc làm tại Việt Nam</a></li>
+                                        <li style="cursor: pointer;"><a>Xuất khẩu lao động Nhật Bản</a></li>
+                                        <li style="cursor: pointer;"><a>Kỹ sư & thông dịch viên Nhật Bản</a></li>
+                                        <li style="cursor: pointer;"><a>Việc làm tại Vietseiko</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child">
                                     <a href="blog-camnang.php" ;>Công Cụ</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <?php
-                                        $list_of_Protypes_congcu = Protypes_congcu::getAllProtypes_congcu();
-                                        foreach ($list_of_Protypes_congcu as $key => $value) {
-                                        ?>
-                                            <li>
-                                                <a href="cam-nang?id_congcu=<?php echo $value['id_congcu']; ?>">
-                                                    <?php echo $value['name_congcu'] ?>
-                                                </a>
-                                            </li>
-                                        <?php } ?>
+                                        <li style="cursor: pointer;"><a>Cẩm nang nghề nghiệp</a></li>
+                                        <li style="cursor: pointer;"><a>Tính lương Gross sang Net</a></li>
                                     </ul>
-                                </li><!-- 
-                                <li class="has-child">
-                                    <a href="javascript:;">Công Ty</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="employer.html">Danh Sách Công Ty</a>
-                                        </li>
-                                        <li><a href="employer-list.html">Top Công Ty</a></li>
-                                    </ul>
-                                </li> -->
+                                </li>
                                 <li class="has-child">
                                     <a href="tin-tuc">Tin Tức</a>
                                 </li>
-                                <!-- <li class="has-child">
-                                    <a href="lien-he">Liên Hệ</a>
-                                </li> -->
+
                                 <li class="has-child">
                                     <a href="contact.php">Liên Hệ</a>
                                 </li>
