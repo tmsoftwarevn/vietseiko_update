@@ -76,7 +76,16 @@ class Job_NB_f extends Db
     //Lấy danh sách tất cả job
     static function getAllJob()
     { 
-        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb order by created_at desc");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb  INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty where job_xkld_nb.id_trangthai = 1 order by created_at desc");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
+    function getJob_Detail($id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE id_job = ? AND job_xkld_nb.id_trangthai = 1");
+        $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -88,7 +97,7 @@ class Job_NB_f extends Db
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT job_xkld_nb.*,cty.name,cty.img_cty FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty order by job_xkld_nb.created_at desc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty order by job_xkld_nb.created_at desc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -110,15 +119,7 @@ class Job_NB_f extends Db
     /**
      * Lấy sản phẩm theo id:
      */
-    function getJob_Detail($id)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE id_job = ?");
-        $sql->bind_param("i", $id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
+    
 
     /**
      * LẤY DANH SÁCH JOB THEO id_nganhnghe

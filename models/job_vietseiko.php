@@ -76,7 +76,7 @@ class Vietseiko_f extends Db
     //Lấy danh sách tất cả job
     static function getAllJob()
     { 
-        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko order by created_at desc");
+        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty where job_vietseiko.id_trangthai = 1 order by created_at desc");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -88,7 +88,7 @@ class Vietseiko_f extends Db
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT job_vietseiko.*,cty.name,cty.img_cty FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty order by job_vietseiko.created_at desc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty order by job_vietseiko.created_at desc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -112,7 +112,7 @@ class Vietseiko_f extends Db
      */
     function getJob_Detail($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty WHERE id_job = ?");
+        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty WHERE id_job = ?  AND job_vietseiko.id_trangthai = 1");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();

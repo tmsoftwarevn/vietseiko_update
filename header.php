@@ -30,7 +30,7 @@ $protype = new Protype;
 $blog = new blog;
 $nganh_ung_tuyen = new Nganh_ung_tuyen;
 
-$job = new Job;
+$job = new Job_f;
 $job_nb = new Job_NB_f;
 $job_kysu = new Job_kysu_f;
 $job_vietseiko = new Vietseiko_f;
@@ -59,7 +59,8 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- PAGE TITLE HERE -->
     <!-- <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title> -->
 
@@ -338,10 +339,10 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;" > <a>Việc làm tại Việt Nam</a></li>
-                                        <li style="cursor: pointer;"><a>Xuất khẩu lao động Nhật Bản</a></li>
-                                        <li style="cursor: pointer;"><a>Kỹ sư & thông dịch viên Nhật Bản</a></li>
-                                        <li style="cursor: pointer;"><a>Việc làm tại Vietseiko</a></li>
+                                        <li style="cursor: pointer;" > <a href="job-list-vn.php">Việc làm tại Việt Nam</a></li>
+                                        <li style="cursor: pointer;"><a href="job-list-xkld.php">Xuất khẩu lao động Nhật Bản</a></li>
+                                        <li style="cursor: pointer;"><a href="job-list-ksnb.php">Kỹ sư & thông dịch viên Nhật Bản</a></li>
+                                        <li style="cursor: pointer;"><a href="job-list-vietseiko.php">Việc làm tại Vietseiko</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child">
@@ -363,61 +364,12 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
 
                         <!-- Header Right Section-->
                         <div class="extra-nav header-2-nav">
-                            <!-- Search -->
-                            <!-- <div class="extra-cell">
-                                <div class="header-search">
-                                    <a href="#search" class="header-search-icon"><i class="bi bi-search"></i></a>
-                                </div>
-                            </div> -->
+                           
+                           
                             <div class="extra-cell">
                                 <div class="header-nav-btn-section">
-                                    <?php
-                                    if (isset($_SESSION['user'])) {
-                                        $user = $_SESSION['user'];
-                                    ?>
-
-                                        <div id="main-wrapper">
-                                            <main class="main" role="main" id="main-content">
-                                                <div id="main-top-bar">
-                                                    <a href="https://rolecalljobs.com" class="main-logo"></a>
-                                                    <div class="user-menu">
-                                                        <div class="user-menu-item">
-                                                            <div class="user-image-wrapper">
-                                                                <span class="user-image">
-                                                                    <img src="/login/image/user.png">
-                                                                </span>
-                                                            </div>
-                                                            <div class="user-name-wrapper">
-                                                                <?php echo $user; ?> <i class="bi bi-caret-down-fill"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="user-dropdown">
-                                                            <a href="candidates/candidate-profile.html" class="dropdown-item"><span class="mr-3"><i class="bi bi-person-square"></i></span> Tài Khoản</a>
-                                                            <a href="logout.php" class="dropdown-item"><span class="mr-3"><i class="bi bi-box-arrow-right"></i></span> Đăng Xuất</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="shape"></div>
-                                                </div>
-                                            </main>
-                                        </div>
-
-                                    <?php
-                                    } else {
-                                    ?>
-                                        <div class="twm-nav-btn-left has-child">
-                                            <a class="twm-nav-sign-up" href="./login/login.php" role="button">
-                                                <i class="feather-log-in"></i> Đăng Nhập
-                                            </a>
-                                        </div>
-                                    <?php
-                                    }
-                                    ?>
-                                    <!-- Đăng nhập cho nhà tuyển dụng: -->
-                                    <!-- <div class="twm-nav-btn-right">
-                                        <a href="employer/dash-post-job.html" class="twm-nav-post-a-job">
-                                            <i class="bi bi-briefcase"></i> Đăng Tuyển & Tìm Hồ Sơ
-                                        </a>
-                                    </div> -->
+                                   
+                                   
                                     <!-- Chuyển đổi ngôn ngữ -->
                                     <div class="rounded cursor-pointer hover:bg[#341678]">
                                         <svg width="36" height="30" fill="currentColor" class="" stroke="unset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">

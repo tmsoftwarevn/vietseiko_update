@@ -1,5 +1,5 @@
 <?php
-class Job extends Db
+class Job_f extends Db
 {
     //lấy ngày ago
     public function timeAgo($time_ago)
@@ -69,13 +69,33 @@ class Job extends Db
             }
         }
     }
+    static function getJobCarousel($number)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty ORDER BY created_at DESC LIMIT $number");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
     /**
      * LẤY DỮ LIỆU BẢNG JOB
      */
     //Lấy danh sách tất cả sản phẩm:
     static function getAllJob()
     {
-        $sql = self::$connection->prepare("SELECT * FROM job ");
+        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty  where job.id_trangthai = 1 order by job.created_at desc");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
+    /*
+     * Lấy chi tiết JOB:
+     */
+    function getJob_Detail($id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE id_job = ? AND job.id_trangthai = 1");
+        $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -104,22 +124,11 @@ class Job extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    /*
-     * Lấy chi tiết JOB:
-     */
-    function getJob_Detail($id)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE id_job = ?");
-        $sql->bind_param("i", $id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
+    
     //
     function getNN_HTID($id)
     {
-        $sql = self::$connection->prepare("SELECT `id_nganhnghe`.`id_hinhthuc` FROM `job` WHERE job.ID = ?");
+        $sql = self::$connection->prepare("SELECT `id_nganhnghe`.`id_hinhthuc` FROM `job` WHERE job.ID = ? AND job_id.trangthai = 1");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();

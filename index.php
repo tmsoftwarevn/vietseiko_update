@@ -268,26 +268,368 @@ $totalPages = 1;
     <!-- HOW IT WORK SECTION END -->
 
     <!-- JOB POST START -->
+    <div class="test" style="display: none;"></div>
     <section>
         <div class="container">
-            <div class="job-vietnam mt-5 job">
+            <div class="job-vietnam  job">
                 <div class="img-bg">
-                    <img src="public/images/bg-job.jpg" alt="" />
+                    <img src="public/images/bg-job.jpg" alt="anh" />
                 </div>
-                <div class="g1">
-                    <div class="title d-flex justify-content-between">
-                        <div class="job-name">Việt làm tại Việt Nam</div>
-                        <span style="cursor: pointer;">Xem tất cả</span>
+
+                <div class="g1 mt-5">
+                    <div class="title ">
+                        <div class="job-name">
+                            <div>Việc làm tại Việt Nam</div>
+                        </div>
+                        <a href="job-list-vn.php">
+                            <span class="btn-view-all">Xem tất cả</span>
+                        </a>
                     </div>
-                    <div class="job-list"></div>
+                    <div class="job-list ">
+                        <div class="row">
+                            <?php
+                            $list_of_job_vn = Job_f::getAllJob();
+                            $new_list_of_job_vn = [];
+                            for ($i = 0; $i < 8; $i++) {
+                                $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
+                            }
+                            ?>
+                            <div class="owl-carousel carousel-job-list">
+                                <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += 9) : ?>
+                                    <div class="item">
+                                        <?php for ($j = 0; $j < 9 && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                                <a href="job-detail.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                    <div class="card" id='job-vietnam'>
+                                                        <div class="chucvu">
+                                                            <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
+                                                        </div>
+                                                        <div class="group-info">
+
+                                                            <?php
+                                                            if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                            ?>
+                                                                <div class="company-logo">
+                                                                    <img src="public/images/logo.png" />
+                                                                </div>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <div class="company-logo">
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['img_cty'] ?>
+                                                                </div>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                            <div class="content">
+                                                                <?php
+                                                                if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                                ?>
+                                                                    <div class="name_cty">
+                                                                        <?php echo $new_list_of_job_vn[$i + $j]['diachi_cuthe'] ?>
+                                                                    </div>
+                                                                <?php
+                                                                } else {
+                                                                ?>
+                                                                    <div class="name_cty">
+                                                                        <?php echo $new_list_of_job_vn[$i + $j]['name'] ?>
+                                                                    </div>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                                    <i class="bi bi-cash" style="margin-right: 5px;"></i>
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['mucluong'] ?>
+                                                                </div>
+                                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                                    <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['diachi'] ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        <?php endfor; ?>
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
-            <div class="job-nb mt-5 job">nhat ban</div>
-            <div class="job-ksnb mt-5 job"></div>
-            <div class="job-vietseiko mt-5 job"></div>
+            <div class="job-nb  job">
+                <div class="img-bg">
+                    <img src="public/images/bg-job.jpg" alt="" />
+                </div>
+                <div class="g1 mt-5">
+                    <div class="title ">
+                        <div class="job-name">
+                            <div>Việc làm XKLD tại Nhật Bản</div>
+                        </div>
+                        <a href="job-list-xkld.php">
+                            <span class="btn-view-all">Xem tất cả</span>
+                        </a>
+                    </div>
+                    <div class="job-list ">
+
+                        <div class="row">
+                            <?php
+                            $list_of_job_vn = Job_NB_f::getAllJob();
+                            $new_list_of_job_vn = [];
+                            for ($i = 0; $i < 8; $i++) {
+                                $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
+                            }
+
+                            ?>
+                            <div class="owl-carousel carousel-job-list">
+                                <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += 9) : ?>
+                                    <div class="item">
+                                        <?php for ($j = 0; $j < 9 && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                                <a href="job-detail_NB.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                    <div class="card" id='job-vietnam'>
+                                                        <div class="chucvu">
+                                                            <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
+                                                        </div>
+                                                        <div class="group-info">
+
+                                                            <?php
+                                                            if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                            ?>
+                                                                <div class="company-logo">
+                                                                    <img src="public/images/logo.png" />
+                                                                </div>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <div class="company-logo">
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['img_cty'] ?>
+                                                                </div>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                            <div class="content">
+                                                                <?php
+                                                                if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                                ?>
+                                                                    <div class="name_cty">
+                                                                        <?php echo $new_list_of_job_vn[$i + $j]['diachi_cuthe'] ?>
+                                                                    </div>
+                                                                <?php
+                                                                } else {
+                                                                ?>
+                                                                    <div class="name_cty">
+                                                                        <?php echo $new_list_of_job_vn[$i + $j]['name'] ?>
+                                                                    </div>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                                    <i class="bi bi-cash" style="margin-right: 5px;"></i>
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['mucluong'] ?>
+                                                                </div>
+                                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                                    <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['diachi'] ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        <?php endfor; ?>
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="job-ksnb job">
+                <div class="img-bg">
+                    <img src="public/images/bg-job.jpg" alt="" />
+                </div>
+                <div class="g1 mt-5">
+                    <div class="title ">
+                        <div class="job-name">
+                            <div>Việc làm Kỹ sư & thông dịch viên Nhật Bản</div>
+                        </div>
+                        <a href="job-list-ksnb.php">
+                            <span class="btn-view-all">Xem tất cả</span>
+                        </a>
+                    </div>
+                    <div class="job-list ">
+
+                        <div class="row">
+                            <?php
+                            $list_of_job_vn = Job_kysu_f::getAllJob();
+                            $new_list_of_job_vn = [];
+                            for ($i = 0; $i < 8; $i++) {
+                                $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
+                            }
+
+                            ?>
+                            <div class="owl-carousel carousel-job-list">
+                                <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += 9) : ?>
+                                    <div class="item">
+                                        <?php for ($j = 0; $j < 9 && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                                <a href="job-detail-kysunb.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                    <div class="card" id='job-vietnam'>
+                                                        <div class="chucvu">
+                                                            <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
+                                                        </div>
+                                                        <div class="group-info">
+
+                                                            <?php
+                                                            if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                            ?>
+                                                                <div class="company-logo">
+                                                                    <img src="public/images/logo.png" />
+                                                                </div>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <div class="company-logo">
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['img_cty'] ?>
+                                                                </div>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                            <div class="content">
+                                                                <?php
+                                                                if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                                ?>
+                                                                    <div class="name_cty">
+                                                                        <?php echo $new_list_of_job_vn[$i + $j]['diachi_cuthe'] ?>
+                                                                    </div>
+                                                                <?php
+                                                                } else {
+                                                                ?>
+                                                                    <div class="name_cty">
+                                                                        <?php echo $new_list_of_job_vn[$i + $j]['name'] ?>
+                                                                    </div>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                                    <i class="bi bi-cash" style="margin-right: 5px;"></i>
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['mucluong'] ?>
+                                                                </div>
+                                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                                    <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['diachi'] ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        <?php endfor; ?>
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="job-vietseiko job">
+                <div class="img-bg">
+                    <img src="public/images/bg-job.jpg" alt="" />
+                </div>
+                <div class="g1 mt-5">
+                    <div class="title ">
+                        <div class="job-name">
+                            <div>Việc làm tại Vietseiko</div>
+                        </div>
+                        <a href="job-list-vietseiko.php">
+                            <span class="btn-view-all">Xem tất cả</span>
+                        </a>
+                    </div>
+                    <div class="job-list ">
+
+                        <div class="row">
+                            <?php
+                            $list_of_job_vn = Vietseiko_f::getAllJob();
+                            $new_list_of_job_vn = [];
+                            for ($i = 0; $i < 5; $i++) {
+                                $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
+                            }
+
+                            ?>
+                            <div class="owl-carousel carousel-job-list">
+                                <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += 9) : ?>
+                                    <div class="item">
+                                        <?php for ($j = 0; $j < 9 && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                                <a href="job-detail-vietseiko.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                    <div class="card" id='job-vietnam'>
+                                                        <div class="chucvu">
+                                                            <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
+                                                        </div>
+                                                        <div class="group-info">
+
+                                                            <?php
+                                                            if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                            ?>
+                                                                <div class="company-logo">
+                                                                    <img src="public/images/logo.png" />
+                                                                </div>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <div class="company-logo">
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['img_cty'] ?>
+                                                                </div>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                            <div class="content">
+                                                                <?php
+                                                                if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                                ?>
+                                                                    <div class="name_cty">
+                                                                        <?php echo $new_list_of_job_vn[$i + $j]['diachi_cuthe'] ?>
+                                                                    </div>
+                                                                <?php
+                                                                } else {
+                                                                ?>
+                                                                    <div class="name_cty">
+                                                                        <?php echo $new_list_of_job_vn[$i + $j]['name'] ?>
+                                                                    </div>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                                    <i class="bi bi-cash" style="margin-right: 5px;"></i>
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['mucluong'] ?>
+                                                                </div>
+                                                                <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                                                    <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
+                                                                    <?php echo $new_list_of_job_vn[$i + $j]['diachi'] ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        <?php endfor; ?>
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
     <!-- JOB POST END -->
 
     <!-- EXPLORE NEW LIFE START -->
@@ -342,12 +684,12 @@ $totalPages = 1;
     <div class="section-full p-t50 site-bg-white twm-companies-wrap">
         <!-- TITLE START-->
         <div class="section-head center wt-small-separator-outer">
-            <h2 class="wt-title" style="font-size: 24px;">LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO MGƯỜI LAO ĐỘNG</h2>
+            <h2 class="wt-title" style="font-size: 24px;">LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO NGƯỜI LAO ĐỘNG</h2>
         </div>
         <!-- TITLE END-->
 
         <div class="container">
-            <div class="section-content">
+            <div class="section-content mt-5">
                 <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
                     <div class="item">
                         <div class="ow-client-logo">
@@ -435,11 +777,11 @@ $totalPages = 1;
                         <div class="section-head left wt-small-separator-outer">
                             <div class="wt-small-separator site-text-primary">
                                 <h2 style="font-size: 24px;font-family: 'Roboto', sans-serif !important;">
-                                    CẢM NHẬN CỦA NGƯỜI TUYỂN DỤNG
+                                    CẢM NHẬN CỦA NGƯỜI LAO ĐỘNG
                                 </h2>
-                                <a class="wt-title" style="font-family: 'Roboto', sans-serif;">
+                                <!-- <p style="font-family: 'Roboto', sans-serif; color: unset;">
                                     Mọi người nói gì về các dịch vụ mà Vietseiko cung cấp khi họ đến với công ty
-                                </a>
+                            </p> -->
                             </div>
 
                         </div>
@@ -466,8 +808,8 @@ $totalPages = 1;
                                         Bản. Rất phù hợp với các bạn tìm việc tiếng Nhật, xuất khẩu lao động Nhật Bản.
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Nikola Tesla</div>
-                                        <div class="twm-testi-position">Accountant</div>
+                                        <div class="twm-testi-name">anh Trung chia sẻ</div>
+                                        <!-- <div class="twm-testi-position">Accountant</div> -->
                                     </div>
                                 </div>
                             </div>
@@ -490,8 +832,8 @@ $totalPages = 1;
                                         nhân viên vui vẻ.
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Nikola Tesla</div>
-                                        <div class="twm-testi-position">Accountant</div>
+                                        <div class="twm-testi-name">Anh Nguyễn Văn A</div>
+                                        <!-- <div class="twm-testi-position">Accountant</div> -->
                                     </div>
                                 </div>
                             </div>
@@ -514,8 +856,8 @@ $totalPages = 1;
                                         tin tưởng, các bạn nên tham gia !!
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Nikola Tesla</div>
-                                        <div class="twm-testi-position">Accountant</div>
+                                        <div class="twm-testi-name">Chị Nguyễn Văn B</div>
+                                        <!-- <div class="twm-testi-position">Accountant</div> -->
                                     </div>
                                 </div>
                             </div>
@@ -537,8 +879,8 @@ $totalPages = 1;
                                         Công ty uy tín, hỗ trợ tôi rất nhiệt tình trong quá trình tư vấn công việc.
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Nikola Tesla</div>
-                                        <div class="twm-testi-position">Accountant</div>
+                                        <div class="twm-testi-name">Chị Nguyễn Văn D</div>
+                                        <!-- <div class="twm-testi-position">Accountant</div> -->
                                     </div>
                                 </div>
                             </div>
@@ -556,7 +898,7 @@ $totalPages = 1;
             <!-- TITLE START-->
             <div class="section-head center wt-small-separator-outer">
                 <div class="wt-small-separator site-text-primary">
-                    <div>Tin tức</div>
+                    <!-- <div>Tin tức</div> -->
                 </div>
                 <h2 class="wt-title">Tin mới nhất</h2>
             </div>

@@ -76,7 +76,19 @@ class Job_kysu_f extends Db
     //Lấy danh sách tất cả job
     static function getAllJob()
     { 
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb order by created_at desc");
+        $sql = self::$connection->prepare("SELECT * FROM job_kysunb  INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty order by created_at desc");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
+    /**
+     * Lấy sản phẩm theo id:
+     */
+    function getJob_Detail($id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty WHERE id_job = ? AND job_kysunb.id_trangthai = 1");
+        $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -107,18 +119,6 @@ class Job_kysu_f extends Db
         return $items;
     }
 
-    /**
-     * Lấy sản phẩm theo id:
-     */
-    function getJob_Detail($id)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty WHERE id_job = ?");
-        $sql->bind_param("i", $id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
 
     /**
      * LẤY DANH SÁCH JOB THEO id_nganhnghe

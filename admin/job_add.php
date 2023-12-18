@@ -263,7 +263,7 @@ $all_type = $type::getAllType();
                         </div>
                         <div class="col-4">
                             <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Địa Chỉ (ví dụ:Hồ Chí Minh)</label>
+                                <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
                                 <div class="controls">
                                     <input required name="diachi" type="text" class="form-control" />
                                 </div>
@@ -502,7 +502,7 @@ $all_type = $type::getAllType();
                         </div>
                         <div class="col-4">
                             <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Địa Chỉ (ví dụ:Hồ Chí Minh)</label>
+                                <label class="control-label" style="font-weight: 600;">*Địa Chỉ</label>
                                 <div class="controls">
                                     <input required name="diachi" type="text" class="form-control" />
                                 </div>
@@ -832,7 +832,7 @@ $all_type = $type::getAllType();
                         </div>
                         <div class="col-4">
                             <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Địa Chỉ (ví dụ:Hồ Chí Minh)</label>
+                                <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
                                 <div class="controls">
                                     <input required name="diachi" type="text" class="form-control" />
                                 </div>
@@ -1071,7 +1071,7 @@ $all_type = $type::getAllType();
                             </div>
                             <div class="col-4">
                                 <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Địa Chỉ (ví dụ:Hồ Chí Minh)</label>
+                                    <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
                                     <div class="controls">
                                         <input required name="diachi" type="text" class="form-control" />
                                     </div>

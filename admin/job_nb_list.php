@@ -55,9 +55,7 @@ $nganhnghe = new Nganhnghe;
                 <tr>
                   <th>Mã công việc</th>
                   <th>Tên công ty</th>
-                  <th>Ngành Nghề</th>
-                  <th>Ngày Đăng</th>
-                
+                  <th>Chức vụ</th>         
                   <th>Trạng Thái</th>
                   <th>Actions</th>
                 </tr>
@@ -80,9 +78,10 @@ $nganhnghe = new Nganhnghe;
                   <tr>
                     <td><?php echo $value['job_code'] ?></td>
                     <td><?php echo $value['name'] ?></td>
-                    <td><?php $nganhngheName = $jobAdmin->getNganhnghe($value['id_nganhnghe']);
-                        foreach ($nganhngheName as $name => $num) echo $num['name_nganhnghe'] ?></td>
-                    <td class="wspace-no"><?php echo $value['created_at'] ?></td>
+                    <!-- <td><?php $nganhngheName = $jobAdmin->getNganhnghe($value['id_nganhnghe']);
+                        foreach ($nganhngheName as $name => $num) echo $num['name_nganhnghe'] ?></td> -->
+                    <td><?php echo $value['chucvu'] ?></td>
+                    
                       
                     <td>
                       <span class="badge badge-success badge-lg light"

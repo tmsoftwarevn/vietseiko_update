@@ -1,3 +1,10 @@
+:root {
+    --main-color: #1967d2;
+    --bg-color: #f2f7ff;
+    --border-color: #b0c9ec;
+    --suport-main-color:#ed1b24;
+}
+
 .btn-dangki-detail {
     width: 100%;
     text-align: center;
@@ -59,58 +66,90 @@
 .form-control {
     height: 0 !important ;
 }
-/////// job vietnam index
+
+//// các job
 .test {
     display: none;
     color: white;
 }
-.g-pr {
-    padding: 15px 10px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin-bottom: 30px;
-    &:hover {
-        cursor: pointer;
-        border: 2px solid #7aa7e5;
-        border-radius: 8px;
-    }
-    .chucvu {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        font-weight: 500;
-        margin-bottom: 5px;
-    }
-    .group-info {
+.job{
+    margin-top: 100px;
+}
+.g1 {
+    border: 1px solid #b0c9ec;
+    border-radius: 5px;
+    padding-bottom: 25px;
+    .title {
+        background-color: var(--bg-color);
+        padding: 20px;
         display: flex;
         align-items: center;
-
-        .company-logo {
-            width: 60px;
-            img {
-                width: 100%;
+        justify-content: space-between;
+        border-radius: 5px;
+        .job-name {
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: capitalize;
+             
+        }
+        .btn-view-all {
+            font-size: 16px;
+            cursor: pointer;
+            color: #1967d2;
+            text-transform: uppercase;
+            &:hover{
+                color: var(--suport-main-color);
+                transition: 0.5s;
             }
         }
-        .content {
-            margin-left: 10px;
-            .name_job {
+    }
+    .job-list{
+        padding: 20px 20px 0 20px;
+        .card {
+            padding: 15px 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;          
+            margin-bottom: 30px;
+            &:hover {
+                cursor: pointer;
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                background-color: var(--bg-color);
+            }
+            .chucvu {
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
                 font-weight: 500;
-                width: 300px;
+                margin-bottom: 5px;
             }
-            span {
-                padding: 3px 8px;
-                background-color: #f4f5f5;
-                border-radius: 3px;
-                margin-right: 5px;
+            .group-info {
+                display: flex;
+                align-items: center;
+        
+                .company-logo {
+                    width: 60px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .content {
+                    margin-left: 10px;
+                    .name_cty {
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        font-weight: 500;
+                        max-width: 230px;
+                    }
+                    span {
+                        padding: 3px 8px;
+                        background-color: #f4f5f5;
+                        border-radius: 3px;
+                        margin-right: 5px;
+                    }
+                }
             }
         }
     }
 }
-
-
-//// các job 
-

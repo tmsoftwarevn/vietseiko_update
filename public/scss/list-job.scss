@@ -1,0 +1,83 @@
+:root {
+    --bg-color-full: #f9f9f9;
+    --main-color: #1967d2;
+    --bg-color-card: #f2f7ff;
+    --border-color: #b0c9ec;
+}
+.test {
+    color: red;
+    display: none;
+}
+.wt-bnr-inr {
+    height: 200px !important;
+}
+.job-vn {
+    background-color: var(--bg-color-full);
+}
+.title-1 {
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.h-des {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.content-list {
+    margin-top: 20px;
+    padding: 20px ;
+    background-color: #fff;
+   
+    .card {
+        padding: 15px 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        background-color: var(--bg-color-card);
+        position: relative;
+        .group-info {
+            display: flex;
+            align-items: center;
+            .company-logo {
+                width: 100px;
+                img {
+                    width: 100%;
+                }
+            }
+            .content {
+                margin-left: 25px;
+                .chucvu {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    font-weight: 500;
+                    font-size: 18px;
+                    text-transform: capitalize;
+                    max-width: 800px;
+                    &:hover{
+                        color: #1967d2;                        
+                    }
+                }
+                .name_cty {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    font-weight: 500;
+                    max-width: 800px;
+                    cursor: pointer;
+                    &:hover{
+                        color: #1967d2;                        
+                    }
+                }
+                
+            }
+        }
+        .salary{
+            position: absolute;
+            top:20px;
+            right: 20px;
+
+        }
+    }
+}

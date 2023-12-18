@@ -307,7 +307,7 @@ All JavaScript fuctions Start
   function home_client_carousel_2() {
     jQuery(".home-client-carousel2").owlCarousel({
       loop: true,
-      nav: true,
+      nav: false,
       dots: false,
       margin: 30,
       autoplay: true,
@@ -425,7 +425,35 @@ All JavaScript fuctions Start
       },
     });
   }
-
+  /// carousel job
+  function carousel_job_list() {
+    jQuery(".carousel-job-list").owlCarousel({
+      loop: true,
+      nav: false,
+      dots: true,
+      margin: 30,
+      //autoplay:true,
+      autoplayTimeout: 3000,
+      navText: [
+        '<i class="fa fa-angle-left"></i>',
+        '<i class="fa fa-angle-right"></i>',
+      ],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        480: {
+          items: 1,
+        },
+        767: {
+          items: 2,
+        },
+        1000: {
+          items: 1,
+        },
+      },
+    });
+  }
   //  Client logo Carousel function by = owl.carousel.js ========================== //
   function home_client_carousel_4() {
     jQuery(".home-client-carousel4").owlCarousel({
@@ -489,7 +517,7 @@ All JavaScript fuctions Start
   function twm_testimonial_1_carousel() {
     jQuery(".twm-testimonial-1-carousel").owlCarousel({
       loop: true,
-      nav: true,
+      nav: false,
       dots: false,
       margin: 30,
       autoplay: true,
@@ -1424,6 +1452,7 @@ All JavaScript fuctions Start
       home_client_carousel_6(),
       //  Related jobs Carousel function by = owl.carousel.js ========================== //
       twm_related_jobs_carousel(),
+      carousel_job_list(),
       //  Client logo Carousel function by = owl.carousel.js ========================== //
       home_client_carousel_4(),
       //  Trusted logo Carousel function by = owl.carousel.js ========================== //

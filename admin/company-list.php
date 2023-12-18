@@ -56,7 +56,7 @@ $cty = new Congty;
                   <th>Tên công ty</th>
                   <th>Địa chỉ</th>
                   <th>Type công ty</th>
-                  <th>Ngày cập nhật</th>
+                 
                   <th>Action</th>
                 </tr>
               </thead>
@@ -80,7 +80,7 @@ $cty = new Congty;
                     <td><?php echo $value['name'] ?></td>
                     <td><?php echo $value['address'] ?></td>                  
                     <td><?php echo $value['type_name'] ?></td>
-                    <td><?php echo $value['updated_at'] ?></td>
+                    
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
                         <a class="btn btn-success light mr-2 " href="company-view.php?typeView=cty&id=<?php echo $value['id_cty'] ?>">
