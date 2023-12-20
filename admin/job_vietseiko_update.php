@@ -86,7 +86,7 @@ $all_cty = $cty::getAllCty();
         <?php
         if (isset($_GET['typeUpdate']) == TRUE && $_GET['typeUpdate'] == "vietseiko") {
         ?>
- <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
+            <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
                 <?php
 
                 if (isset($_GET['checkResult']) == TRUE) {

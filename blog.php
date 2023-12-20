@@ -7,7 +7,6 @@ require_once 'header.php';
     ?>
 </style>
 <style>
-    
     form {
         display: flex;
         justify-content: center;
@@ -16,18 +15,20 @@ require_once 'header.php';
     }
 
     input[type="text"] {
-        padding: 10px;
+        padding: 8px;
         width: 300px;
+        width: 100%;
+        max-width: 300px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        margin-right: 10px;
+        margin-left: 10px;
     }
 
     select {
-        padding: 10px;
+        padding: 8px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        margin-right: 10px;
+
     }
 
     option {
@@ -35,7 +36,7 @@ require_once 'header.php';
     }
 
     .search {
-        padding: 10px 20px;
+        padding: 8px 20px;
         background-color: #1967d2;
         color: white;
         border: none;
@@ -66,69 +67,61 @@ require_once 'header.php';
         <!-- INNER PAGE BANNER -->
         <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image: url(images/banner/1.jpg)">
             <div class="overlay-main site-bg-white opacity-01"></div>
-
             <div class="container">
-
                 <div class="wt-bnr-inr-entry">
-                    <!-- <div class="banner-title-outer">
-                        <div class="banner-title-name">
-                            <h2 class="wt-title">Tin Tức</h2>
-                        </div>
-                    </div> -->
                     <!-- BREADCRUMB ROW -->
-
                     <div>
                         <ul class="wt-breadcrumb breadcrumb-style-2">
                             <li><a href="index.php">Trang chủ</a></li>
                             <li>Tin tức</li>
                         </ul>
                     </div>
+
+                    <!-- BREADCRUMB ROW END -->
                 </div>
-
-            </div>
-            <div class="container" style=" margin-top: 50px;">
-
-                <!-- // search cs -->
-                <form action="#" method="get">
-                    <input type="text" id="keyword" name="keyword" placeholder="Nhập từ khóa...">
-                    <select class="category" id="category">
-                        <option value="all">Tất cả tin tức</option>
-                        <option value="1">Việc Làm Tại Việt Nam</option>
-                        <option value="2">Xuất Khẩu Lao Động Tại Nhật Bản</option>
-                        <option value="3">Kỹ Sư & Thông Dịch Viên tại Nhật Bản</option>
-                        <option value="4">Việc làm tại VietSeiko</option>
-
-                    </select>
-                    <button type="submit" class="search">Tìm kiếm</button>
-                </form>
             </div>
         </div>
+
+        <div class="container" style=" margin-top: 50px;">
+
+            <!-- // search cs -->
+
+            <form action="#" method="get" style="display: flex; justify-content: start;">
+                <select class="category" id="category">
+                    <option value="all">Tất cả tin tức</option>
+                    <option value="1">Việc Làm Tại Việt Nam</option>
+                    <option value="2">Xuất Khẩu Lao Động Tại Nhật Bản</option>
+                    <option value="3">Kỹ Sư & Thông Dịch Viên tại Nhật Bản</option>
+                    <option value="4">Việc làm tại VietSeiko</option>
+
+                </select>
+                <input type="text" id="keyword" name="keyword" placeholder="Nhập từ khóa...">
+
+                <button type="submit" class="search">Tìm kiếm</button>
+            </form>
+        </div>
+
         <!-- INNER PAGE BANNER END -->
 
         <!-- OUR BLOG START -->
-        <div class="section-full p-t120 p-b90 site-bg-white" style="transform: none">
+        <div class="section-full p-t20 p-b90 site-bg-white" style="transform: none">
             <div class="container" style="transform: none">
                 <div class="row" style="transform: none">
                     <?php
                     $list_of_allBlog = Blog_f::getAllBlog();
                     foreach ($list_of_allBlog as $key => $value) {
                     ?>
-                        <div class="col-lg-4">
-                            <div class="blog-post twm-blog-post-1-outer">
-                                <div class="wt-post-media">
-                                    <img src="images/blog/latest/<?php echo $value['img_blog']; ?>" alt="" />
+                        <div class="col-xs-6 col-lg-4">
+                            <div class="blog-post">
+                                <div class="img_blog_l">
+                                    <?php echo $value['img_blog'] ?>
                                 </div>
-                                <div class="wt-post-info">
-                                    <div class="wt-post-meta">
-                                        <ul>
-                                            <li class="post-date" style="padding-left: 20px;">
-                                                <?php
-                                                $dateTime = new DateTime($value['created_at']);
-                                                $formattedDate = $dateTime->format('d/m/Y');
-                                                echo $formattedDate; ?>
-                                            </li>
-
-                                        </ul>
+                                <div class="blog-content">
+                                    <div class="date-custom">
+                                        <?php
+                                        $dateTime = new DateTime($value['created_at']);
+                                        $formattedDate = $dateTime->format('d/m/Y');
+                                        echo $formattedDate; ?>
                                     </div>
                                     <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
                                         <div class="name_blog">

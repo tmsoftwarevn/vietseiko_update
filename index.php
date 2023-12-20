@@ -13,8 +13,7 @@ $totalPages = 1;
 
 ?>
 <style>
-    <?php include 'public/scss/custom.scss'; ?>
-    select {
+    <?php include 'public/scss/custom.scss'; ?>select {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -110,7 +109,7 @@ $totalPages = 1;
                             </div>
                         </form>
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -868,21 +867,16 @@ $totalPages = 1;
                         foreach ($list_of_latestBlog as $key => $value) {
                         ?>
                             <div class="item">
-                                <div class="blog-post twm-blog-post-1-outer">
-                                    <div class="wt-post-media">
-                                        <img src="images/blog/latest/<?php echo $value['img_blog']; ?>" alt="" />
+                                <div class="blog-post" style="margin-top: 20px; margin-bottom: 20px;">
+                                    <div class="img_blog_l">
+                                        <?php echo $value['img_blog'] ?>
                                     </div>
-                                    <div class="wt-post-info">
-                                        <div class="wt-post-meta">
-                                            <ul>
-                                                <li class="post-date" style="padding-left: 20px;">
-                                                    <?php
-                                                    $dateTime = new DateTime($value['created_at']);
-                                                    $formattedDate = $dateTime->format('d/m/Y');
-                                                    echo $formattedDate; ?>
-                                                </li>
-
-                                            </ul>
+                                    <div class="blog-content">
+                                        <div class="date-custom">
+                                            <?php
+                                            $dateTime = new DateTime($value['created_at']);
+                                            $formattedDate = $dateTime->format('d/m/Y');
+                                            echo $formattedDate; ?>
                                         </div>
                                         <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
                                             <div class="name_blog">

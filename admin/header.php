@@ -960,13 +960,13 @@ $jobAdmin = new Job;
                     <li>
                         <a class="has-arrow" href="dashboard.php" aria-expanded="false">
                             <i class="flaticon-025-dashboard"></i>
-                            <span class="nav-text">Dashboard</span>
+                            <span class="nav-text">Thống kê</span>
                         </a>
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-093-waving"></i>
-                            <span class="nav-text">Jobs</span>
+                            <span class="nav-text">Quản lý công việc và công ty</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="job-list.php">Công việc tại Việt Nam</a></li>
@@ -979,34 +979,31 @@ $jobAdmin = new Job;
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
-                            <i class="fa-solid fa-gear"></i>
-
-                            <span class="nav-text">Protypes</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            
-                            <li><a href="model-other-list.php?type=nganhnghe">Ngành Nghề</a></li>
-                            <li><a href="hinh-thuc.php">Loại Công Việc</a></li>
-                            <!-- <li><a href="job-trangthai.php">Trang Thái</a></li>
-                            <li><a href="blog.php">Blog</a></li> -->
-                        </ul>
-                    </li>
-                    <!-- <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-041-graph"></i>
-                            <span class="nav-text">Users Candidate</span>
+                            <span class="nav-text">Tin tức</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="users-candidate.php">Users Candidate</a></li>
-                            <li><a href="chart-morris.php">Add Candidate</a></li>
+                            <li><a href="tintuc-list.php">Thông tin</a></li>
+                            
                         </ul>
-                    </li> -->
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                            <i class="fa-solid fa-gear"></i>
+                            <span class="nav-text">Cẩm nang</span>
+                        </a>
+                        <ul aria-expanded="false">                           
+                            <li><a href="#5">Thông tin</a></li>
+                                                    
+                        </ul>
+                    </li>
+                    
                 </ul>
                 <div class="copyright">
                     <p><strong>Jobick Job Admin</strong> © 2023 All Rights Reserved</p>
                     <p class="fs-12">
-                        Made with <span class="heart"></span> by Le Ngoc Hai
+                        Made with <span class="heart"></span> by TM
                     </p>
                 </div>
             </div>

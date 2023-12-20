@@ -12,8 +12,6 @@ require "models/nganhnghe.php";
 require "models/protype.php";
 
 require "models/blog.php";
-require "models/ban_tin.php";
-
 
 require "models/form-contact.php";
 
@@ -26,7 +24,6 @@ require_once "admin/models/gioi_tinh.php";
 
 $gioitinh = new Gioi_tinh;
 
-$ban_tin = new Ban_tin;
 
 $hinhthuc = new Hinhthuc;
 $protype = new Protype;
