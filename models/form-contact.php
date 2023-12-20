@@ -1,19 +1,19 @@
 <?php
-class Nganh_ung_tuyen extends Db
+class Form_contact extends Db
 {
 
     /* lấy dữ liệu từ bản Blog*/
 
     static function getAllNganh_ung_tuyen()
     {
-        $sql = self::$connection->prepare("SELECT * FROM nganh_ung_tuyen");
+        $sql = self::$connection->prepare("SELECT * FROM job_nganhnghe");
         $sql->execute();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
 
     /* lấy một bài viết dựa trên Id */
-    public function createInformationUser_UngTuyen(
+    public function createInformationUser_lienhe(
         $name,
         $gender,
         $email,

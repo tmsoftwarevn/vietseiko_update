@@ -32659,7 +32659,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 [data-typography="poppins"] {
-  font-family: "poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 [data-typography="cairo"] {

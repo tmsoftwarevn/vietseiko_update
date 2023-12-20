@@ -1,5 +1,5 @@
 <?php
-class Blog extends Db
+class Blog_f extends Db
 {
 
     /* lấy dữ liệu từ bản Blog*/
@@ -69,7 +69,7 @@ class Blog extends Db
      */
     static function getLatestBlog($numver_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM blog ORDER BY creat_at DESC LIMIT 0, $numver_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM blog ORDER BY created_at DESC LIMIT $numver_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

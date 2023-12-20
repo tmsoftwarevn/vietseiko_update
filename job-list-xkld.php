@@ -16,7 +16,48 @@ $allJob = $job_nb::getAllJob();
 <style>
     <?php include 'public/scss/list-job.scss'; ?>
 </style>
+<style>
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 
+    input[type="text"] {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    option {
+        font-size: 17px;
+    }
+
+    .search {
+        padding: 10px 20px;
+        background-color: #1967d2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+    .search:hover {
+        background-color: #b0c9ec;
+    }
+</style>
 <title>Việc làm XKLD tại Nhật Bản</title>
 <!-- CONTENT START -->
 
@@ -26,11 +67,67 @@ $allJob = $job_nb::getAllJob();
 </div>
 <div class="test">rew </div>
 
-<div class="job-vn">
-    <div class="container">
-        <div class="title-1">Việc làm tại Việt Nam</div>
+<div >
+<div class="container container-f">
+        <div class="title-1" style="margin-top: 20px;">Việc làm XKLD tại Nhật Bản</div>
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
+        <form action="#" method="get" style="display: flex; justify-content: start;margin-bottom: 0;">
+            <div class="box-search-f" style="display: flex; justify-content: space-between;">
+                <div class="row ">
+                    <div class="col-3">
+                        <select class="nganhnghe">
+                            <option value="all">Tất cả ngành nghề</option>
+                            <?php
+                            foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
+                            ?>
+                                <option value="<?php echo $value['id_nganhnghe'] ?>">
+                                    <?php echo $value['name_nganhnghe'] ?>
+                                </option>
+                            <?php } ?>
 
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select class="hinhthuc">
+                            <option value="all">Hình thức làm việc</option>
+                            <?php
+                            foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
+                                <option value="<?php echo $value['id_hinhthuc'] ?>">
+                                    <?php echo $value['name_hinhthuc'] ?>
+                                </option>
+                            <?php } ?>
+
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select class="kinhnghiem">
+                            <option value="all">Tất cả kinh nghiệm</option>
+                            <?php
+                            foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) { ?>
+                                <option value="<?php echo $value['id_kn'] ?>">
+                                    <?php echo $value['name_kn'] ?>
+                                </option>
+                            <?php } ?>
+
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select class="gioitinh">
+                            <option value="all">Tất cả giới tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                            <option value="3">Không yêu cầu</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="search">Tìm kiếm</button>
+            </div>
+        </form>
+
+    </div>
+    <div class="container">
+      
         <div class="content-list">
             <p style="font-weight: 500;">Có <span style="color: red;">500 </span> việc làm đang tuyển dụng</p>
             <?php
@@ -41,9 +138,11 @@ $allJob = $job_nb::getAllJob();
                         <?php
                         if ($value['id_cty'] == 1) {
                         ?>
+                       
                             <div class="company-logo">
                                 <img src="public/images/logo.png" />
                             </div>
+                        
                         <?php
                         } else {
                         ?>
@@ -63,15 +162,19 @@ $allJob = $job_nb::getAllJob();
                             <?php
                             if ($value['id_cty'] == 1) {
                             ?>
+                             <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
                                 <div class="name_cty">
                                     <?php echo $value['diachi_cuthe'] ?>
                                 </div>
+                             </a>
                             <?php
                             } else {
                             ?>
+                             <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
                                 <div class="name_cty">
                                     <?php echo $value['name'] ?>
                                 </div>
+                             </a>
                             <?php
                             }
                             ?>
@@ -92,7 +195,7 @@ $allJob = $job_nb::getAllJob();
                                 $ngayHienTai = new DateTime();
                                 $ngayDen = new DateTime($allJob[0]['ngaycuoicung']);
                                 $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
-                                echo 'Bạn còn ' . $soNgayConLai . ' để ứng tuyển';
+                                echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
                                 ?>
                             </div>
                         </div>

@@ -110,7 +110,7 @@ require_once 'header.php';
                                                     <select id="job-ct" class="i-half" required name="job" style="cursor: pointer;">
                                                         <option disabled selected value>-- Ngành bạn ứng tuyển --</option>
                                                         <?php
-                                                        foreach ($nganh_ung_tuyen->getAllNganh_ung_tuyen() as $key => $value) {
+                                                        foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
                                                         ?>
                                                             <option value="<?php echo $value['ten_nganh'] ?>">
                                                                 <?php echo $value['ten_nganh'] ?>
@@ -145,7 +145,7 @@ require_once 'header.php';
                                                     <select class="i-half" required name="address" style="cursor: pointer;">
                                                         <option disabled selected value>-- Khu vực hiện tại--</option>
                                                         <?php
-                                                        foreach ($nganh_ung_tuyen->fetch_tinh_thanh() as $index => $item) {
+                                                        foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
                                                         ?>
                                                             <option value="<?php echo $item ?>">
                                                                 <?php echo $item ?>
@@ -158,18 +158,7 @@ require_once 'header.php';
                                             </div>
                                             <div class="col-6">
                                                 <div class="address-hope">
-                                                    <!-- <select class="i-half" required name="address-h" style="cursor: pointer;">
-                                                        <option disabled selected value>-- Nơi mong muốn làm việc --</option>
-                                                        <?php
-                                                        foreach ($nganh_ung_tuyen->fetch_tinh_thanh() as $index => $item) {
-                                                        ?>
-                                                            <option value="<?php echo $item ?>">
-                                                                <?php echo $item ?>
-                                                            </option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select> -->
+                                                   
                                                     <input name="address-h" class="i-half" type="text" placeholder="Nơi mong muốn làm việc" required />
 
                                                 </div>

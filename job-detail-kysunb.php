@@ -42,7 +42,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 <!-- BREADCRUMB ROW -->
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="index.php">Trang chủ</a></li>
+                        <li><a href="job-list-kysunb.php">Việc làm Kỹ sư & Thông dịch tại Nhật Bản</a></li>
                         <li>Chi tiết công việc</li>
                     </ul>
                 </div>
@@ -413,9 +413,9 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
         <div class="bordered-element p-4 rounded shadow">
             <div class="card" style="padding: 10px;">
-                <p class="fw-bold text-primary mb-0" style="font-size: 13px;">Ứng Tuyển Vị Trí</p>
-                <h4 class="mt-2 mb-2"><?php echo $allJob[0]['chucvu'] ?></h4>
-                <p style="font-size: 12px;font-weight: 600; color: #333;"><?php echo $allJob[0]['diachi_cuthe'] ?></p>
+            <p class="fw-bold text-primary mb-0" style="font-size: 14px;">Ứng Tuyển Vào Vị Trí</p>
+                <h3 class="mt-2 mb-2"><?php echo $allJob[0]['chucvu'] ?></h3>
+                <p style="font-size: 13px;font-weight: 600; color: #333;"><?php echo $allJob[0]['diachi_cuthe'] ?></p>
             </div>
             <div class="card-body height-scroll">
                 <div class="group text-center mb-4">

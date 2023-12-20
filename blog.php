@@ -1,6 +1,63 @@
 <?php
 require_once 'header.php';
 ?>
+<style>
+    <?php include 'public/scss/custom.scss';
+    include 'public/scss/custom-select.scss'
+    ?>
+</style>
+<style>
+    
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    option {
+        font-size: 17px;
+    }
+
+    .search {
+        padding: 10px 20px;
+        background-color: #1967d2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+    .search:hover {
+        background-color: #b0c9ec;
+    }
+
+
+    .job-result {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+    }
+</style>
+<title><?php echo 'Tin tức' ?></title>
 
 <div class="page-wraper">
 
@@ -9,24 +66,41 @@ require_once 'header.php';
         <!-- INNER PAGE BANNER -->
         <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image: url(images/banner/1.jpg)">
             <div class="overlay-main site-bg-white opacity-01"></div>
+
             <div class="container">
+
                 <div class="wt-bnr-inr-entry">
-                    <div class="banner-title-outer">
+                    <!-- <div class="banner-title-outer">
                         <div class="banner-title-name">
                             <h2 class="wt-title">Tin Tức</h2>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- BREADCRUMB ROW -->
 
                     <div>
                         <ul class="wt-breadcrumb breadcrumb-style-2">
-                            <li><a href="index.html">Home</a></li>
-                            <li>Blog Grid</li>
+                            <li><a href="index.php">Trang chủ</a></li>
+                            <li>Tin tức</li>
                         </ul>
                     </div>
-
-                    <!-- BREADCRUMB ROW END -->
                 </div>
+
+            </div>
+            <div class="container" style=" margin-top: 50px;">
+
+                <!-- // search cs -->
+                <form action="#" method="get">
+                    <input type="text" id="keyword" name="keyword" placeholder="Nhập từ khóa...">
+                    <select class="category" id="category">
+                        <option value="all">Tất cả tin tức</option>
+                        <option value="1">Việc Làm Tại Việt Nam</option>
+                        <option value="2">Xuất Khẩu Lao Động Tại Nhật Bản</option>
+                        <option value="3">Kỹ Sư & Thông Dịch Viên tại Nhật Bản</option>
+                        <option value="4">Việc làm tại VietSeiko</option>
+
+                    </select>
+                    <button type="submit" class="search">Tìm kiếm</button>
+                </form>
             </div>
         </div>
         <!-- INNER PAGE BANNER END -->
@@ -35,254 +109,108 @@ require_once 'header.php';
         <div class="section-full p-t120 p-b90 site-bg-white" style="transform: none">
             <div class="container" style="transform: none">
                 <div class="row" style="transform: none">
-                    <div class="col-lg-8 col-md-12">
-                        <div class="masonry-wrap row d-flex" style="position: relative; height: 1866.28px">
-                            <?php
-                            $list_of_allBlog = Blog::getAllBlog();
-                            foreach ($list_of_allBlog as $post) {
-                                ?>
-                            <div class="masonry-item col-lg-6 col-md-12"
-                                style="position: absolute; left: 390px; top: 0px">
-                                <div class="blog-post twm-blog-post-1-outer">
-                                    <div class="wt-post-media">
-                                        <a href="blog-detail.html">
-                                            <img src="images/blog/latest/<?php echo $post['img_blog']; ?>" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="wt-post-info">
-                                        <div class="wt-post-meta">
-                                            <ul>
-                                                <li class="post-date">
-                                                    <?php echo $post['ngaydang']; ?>
-                                                </li>
-                                                <li class="post-author">
-                                                    By <a href="blog-detail.html">
-                                                        <?php echo $post['name_blog']; ?>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="wt-post-title">
-                                            <h4 class="post-title">
-                                                <a href="blog-single.html">
-                                                    <?php echo substr($post['tieude_blog'], 0, 50); ?>...
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div class="wt-post-text">
-                                            <p>
-                                                <?php echo substr($post['noidung_blog'], 0, 100); ?>...
-                                            </p>
-                                        </div>
-                                        <div class="wt-post-readmore">
-                                            <a href="blog-single.html" class="site-button-link site-text-primary">Read
-                                                More</a>
-                                        </div>
-                                    </div>
+                    <?php
+                    $list_of_allBlog = Blog_f::getAllBlog();
+                    foreach ($list_of_allBlog as $key => $value) {
+                    ?>
+                        <div class="col-lg-4">
+                            <div class="blog-post twm-blog-post-1-outer">
+                                <div class="wt-post-media">
+                                    <img src="images/blog/latest/<?php echo $value['img_blog']; ?>" alt="" />
                                 </div>
-                            </div>
-                            <?php } ?>
-                        </div>
-                        <!-- ////*** Phân Trang */ -->
-                        <div class="pagination-outer">
-                            <div class="pagination-style1">
-                                <ul class="clearfix">
-                                    <?php
-                                    $itemsPerPage = 10; // Số lượng bài viết hiển thị trên mỗi trang
-                                    $totalItems = count($list_of_allBlog); // Tổng số bài viết
-                                    
-                                    $totalPages = ceil($totalItems / $itemsPerPage); // Tính tổng số trang
-                                    $currentPage = isset($_GET['page']) ? max(1, min(intval($_GET['page']), $totalPages)) : 1; // Trang hiện tại
-                                    
-                                    $paginationLimit = 3;
-                                    $startPage = max(1, $currentPage - $paginationLimit);
-                                    $endPage = min($totalPages, $currentPage + $paginationLimit);
-
-                                    if ($currentPage > 1) {
-                                        echo '<li class="prev"><a href="?page=' . ($currentPage - 1) . '"><span> <i class="bi bi-chevron-left"></i> </span></a></li>';
-                                    }
-                                    for ($i = $startPage; $i <= $endPage; $i++) {
-                                        if ($i == $currentPage) {
-                                            echo '<li class="active"><a href="javascript:;">' . $i . '</a></li>';
-                                        } else {
-                                            echo '<li><a href="?page=' . $i . '">' . $i . '</a></li>';
-                                        }
-                                    }
-                                    if ($currentPage < $totalPages) {
-                                        echo '<li class="next"><a href="?page=' . ($currentPage + 1) . '"><span> <i class="bi bi-chevron-right"></i> </span></a></li>';
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-4 col-md-12 rightSidebar" style="
-                  position: relative;
-                  overflow: visible;
-                  box-sizing: border-box;
-                  min-height: 1px;
-                ">
-                        <div class="theiaStickySidebar" style="
-                    padding-top: 0px;
-                    padding-bottom: 1px;
-                    position: static;
-                    transform: none;
-                    top: 0px;
-                    left: 903px;
-                  ">
-                            <div class="side-bar">
-                                <div class="widget search-bx">
-                                    <form role="search" method="post">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search" />
-                                            <button class="btn" type="button" id="button-addon2">
-                                                <i class="feather-search"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div class="widget all_services_list">
-                                    <h4 class="section-head-small mb-4">Categories</h4>
-                                    <div class="all_services m-b30">
+                                <div class="wt-post-info">
+                                    <div class="wt-post-meta">
                                         <ul>
-                                            <li>
-                                                <a href="job-detail.html">Categories</a>
-                                                <span class="badge">08</span>
+                                            <li class="post-date" style="padding-left: 20px;">
+                                                <?php
+                                                $dateTime = new DateTime($value['created_at']);
+                                                $formattedDate = $dateTime->format('d/m/Y');
+                                                echo $formattedDate; ?>
                                             </li>
-                                            <li>
-                                                <a href="job-detail.html">Education</a>
-                                                <span class="badge">12</span>
-                                            </li>
-                                            <li>
-                                                <a href="job-detail.html">Information</a><span class="badge">15</span>
-                                            </li>
-                                            <li>
-                                                <a href="job-detail.html">Jobs</a><span class="badge">25</span>
-                                            </li>
-                                            <li>
-                                                <a href="job-detail.html">Learn</a><span class="badge">36</span>
-                                            </li>
-                                            <li>
-                                                <a href="job-detail.html">Skill</a><span class="badge">12</span>
-                                            </li>
+
                                         </ul>
-                                    </div> 
-                                </div> 
-
-                                <div class="widget recent-posts-entry">
-                                    <h4 class="section-head-small mb-4">Recent Article</h4>
-                                    <div class="section-content">
-                                        <div class="widget-post-bx">
-                                            <div class="widget-post clearfix">
-                                                <div class="wt-post-media">
-                                                    <img src="images/blog/recent-blog/pic1.jpg" alt="" />
-                                                </div>
-                                                <div class="wt-post-info">
-                                                    <div class="wt-post-header">
-                                                        <span class="post-date">April 08, 2023</span>
-                                                        <span class="post-title">
-                                                            <a href="blog-single.html">Equipment you can count on.
-                                                                People you can
-                                                                trust.</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="widget-post clearfix">
-                                                <div class="wt-post-media">
-                                                    <img src="images/blog/recent-blog/pic2.jpg" alt="" />
-                                                </div>
-                                                <div class="wt-post-info">
-                                                    <div class="wt-post-header">
-                                                        <span class="post-date">April 12, 2023</span>
-                                                        <span class="post-title">
-                                                            <a href="blog-single.html">Advanced Service Functions by
-                                                                Air
-                                                                Transport</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="widget-post clearfix">
-                                                <div class="wt-post-media">
-                                                    <img src="images/blog/recent-blog/pic3.jpg" alt="" />
-                                                </div>
-                                                <div class="wt-post-info">
-                                                    <div class="wt-post-header">
-                                                        <span class="post-date">April 15, 2023</span>
-                                                        <span class="post-title">
-                                                            <a href="blog-single.html">Proper arrangement for
-                                                                keeping the goods in
-                                                                the warehouse</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="widget-post clearfix">
-                                                <div class="wt-post-media">
-                                                    <img src="images/blog/recent-blog/pic4.jpg" alt="" />
-                                                </div>
-                                                <div class="wt-post-info">
-                                                    <div class="wt-post-header">
-                                                        <span class="post-date">April 18, 2023</span>
-                                                        <span class="post-title">
-                                                            <a href="blog-single.html">Equipment you can count on.
-                                                                People you can
-                                                                trust.</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="widget-post clearfix">
-                                                <div class="wt-post-media">
-                                                    <img src="images/blog/recent-blog/pic5.jpg" alt="" />
-                                                </div>
-                                                <div class="wt-post-info">
-                                                    <div class="wt-post-header">
-                                                        <span class="post-date">April 20, 2023</span>
-                                                        <span class="post-title">
-                                                            <a href="blog-single.html">Proper arrangement for
-                                                                keeping the goods in
-                                                                the warehouse</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
+                                    <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
+                                        <div class="name_blog">
+                                            <?php echo $value['tieude_blog'] ?>
 
-                                <div class="widget tw-sidebar-tags-wrap">
-                                    <h4 class="section-head-small mb-4">Tags</h4>
+                                        </div>
+                                    </a>
+                                    <div class="text-blog">
 
-                                    <div class="tagcloud">
-                                        <a href="job-list.html">General</a>
-                                        <a href="job-list.html">Jobs </a>
-                                        <a href="job-list.html">Payment</a>
-                                        <a href="job-list.html">Application </a>
-                                        <a href="job-list.html">Work</a>
-                                        <a href="job-list.html">Recruiting</a>
-                                        <a href="job-list.html">Employer</a>
-                                        <a href="job-list.html">Income</a>
-                                        <a href="job-list.html">Tips</a>
+                                        <?php echo $value['noidung_blog'] ?>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
         <!-- OUR BLOG END -->
+
     </div>
-    <!-- CONTENT END -->
+
+    <!-- page bootstrap -->
+    <?php
+    function generatePagination($currentPage, $totalPages)
+    {
+        $range = 2; // Number of pages before and after the current page to display
+        $output = '';
+        $d = 1;
+        global $typeJob;
+
+        if ($totalPages > 1) {
+            // Previous button
+            if ($currentPage > 1) {
+                $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
+                $output .= '<li class="page-item">';
+                $output .= '<a class="page-link" href="?page=' . $prevPage . '" aria-label="Previous">';
+                $output .= '<span aria-hidden="true">&laquo;</span>';
+                $output .= '</a>';
+                $output .= '</li>';
+            }
+
+            for ($i = 1; $i <= $totalPages; $i++) {
+
+                if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
+                    $output .= '<li class="page-item';
+                    $output .= ($i == $currentPage) ? ' active">' : '">';
+                    $output .= '<a class="page-link" href="?page=' . $i . '">' . $i . '</a>';
+                    $output .= '</li>';
+                } elseif (!strpos($output, '<li class="page-item dots">...</li>') || $d < 3) {
+                    if ($d > 2) {
+                        continue;
+                    }
+
+                    $d = $d + 1;
+                    $output .= '<li class="page-item dots">...</li>';
+                }
+            }
+            if ($currentPage < $totalPages) {
+                $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
+                $output .= '<li class="page-item">';
+                $output .= '<a class="page-link" href="?page=' . $nextPage . '" aria-label="Next">';
+                $output .= '<span aria-hidden="true">&raquo;</span>';
+                $output .= '</a>';
+                $output .= '</li>';
+            }
+        }
+
+        return $output;
+    }
+    $totalPages = 10; // Replace with the actual total number of pages
+    $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+    echo '<ul class="pagination justify-content-center pagination-lg" id="pagination">';
+    echo generatePagination($currentPage, $totalPages);
+    echo '</ul>';
+    echo '<div style="margin-bottom: 90px"> </div>'
+    ?>
+</div>
+
+<!-- CONTENT END -->
 <?php
 require_once "footer.php";
 ?>

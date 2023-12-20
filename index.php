@@ -14,6 +14,16 @@ $totalPages = 1;
 ?>
 <style>
     <?php include 'public/scss/custom.scss'; ?>
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    option {
+        font-size: 17px;
+    }
 </style>
 
 <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
@@ -37,7 +47,7 @@ $totalPages = 1;
                     </div>
 
                     <div class="twm-bnr-search-bar">
-                        <form action="rearch-result.php" method="get">
+                        <form action="search-list.php" method="get">
                             <div class="row">
                                 <!--Title-->
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
@@ -45,10 +55,10 @@ $totalPages = 1;
                                     <select class="form-select" style="cursor: pointer;">
                                         <option value="all">Tất cả</option>
                                         <?php
-                                        foreach ($nganh_ung_tuyen->getAllNganh_ung_tuyen() as $key => $value) {
+                                        foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
                                         ?>
-                                            <option value="<?php echo $value['id'] ?>">
-                                                <?php echo $value['ten_nganh'] ?>
+                                            <option value="<?php echo $value['id_nganhnghe'] ?>">
+                                                <?php echo $value['name_nganhnghe'] ?>
                                             </option>
                                         <?php } ?>
 
@@ -79,7 +89,7 @@ $totalPages = 1;
                                             <!-- <option disabled selected value>-- Tất cả --</option> -->
                                             <option value="all">Tất cả</option>
                                             <?php
-                                            foreach ($nganh_ung_tuyen->fetch_tinh_thanh() as $index => $item) {
+                                            foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
                                             ?>
                                                 <option value="<?php echo $item ?>">
                                                     <?php echo $item ?>
@@ -94,20 +104,13 @@ $totalPages = 1;
 
                                 <!--Find job btn-->
                                 <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
-                                    <input type="submit" name="submit" value="Search" class="site-button">
+                                    <input type="submit" name="submit" value="Tìm kiếm" class="site-button">
                                     </input>
                                 </div>
                             </div>
                         </form>
                     </div>
-
-                    <div class="twm-bnr-popular-search">
-                        <span class="twm-title">Popular Searches:</span>
-                        <a href="job-list.html">Developer</a> ,
-                        <a href="job-list.html">Designer</a> ,
-                        <a href="job-list.html">Architect</a> ,
-                        <a href="job-list.html">Engineer</a> ...
-                    </div>
+                   
                 </div>
             </div>
 
@@ -632,53 +635,6 @@ $totalPages = 1;
 
     <!-- JOB POST END -->
 
-    <!-- EXPLORE NEW LIFE START -->
-    <!-- <div class="section-full p-t20 p-b20 twm-explore-area bg-cover" style="background-image: url(images/background/bg-1.jpg)">
-        <div class="container">
-            <div class="section-content">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="twm-explore-media-wrap">
-                            <div class="twm-media" style="width: 70%; height: 70%;">
-                                <img src="images/gir-large.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-8 col-md-12">
-                        <div class="twm-explore-content-outer">
-                            <div class="twm-explore-content">
-                                <div class="twm-l-line-1"></div>
-                                <div class="twm-l-line-2"></div>
-
-                                <div class="twm-r-circle-1"></div>
-                                <div class="twm-r-circle-2"></div>
-
-                                <div class="twm-title-small">Explore New Life</div>
-                                <div class="twm-title-large">
-                                    <h2>
-                                        <span>Một CV tốt</span> mở ra cánh cửa dẫn đến thành công
-                                    </h2>
-                                    <p>
-                                        Dễ dàng tạo CV xịn, gây ấn tượng tốt với Nhà tuyển dụng và gia tăng
-                                        cơ hội được lựa chọn phỏng vấn
-                                    </p>
-                                </div>
-                                <div class="twm-upload-file">
-                                    <button type="button" class="site-button">
-                                        Tạo CV ngay <i class="feather-upload"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="twm-bold-circle-right"></div>
-                            <div class="twm-bold-circle-left"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- EXPLORE NEW LIFE END -->
 
     <!-- TOP COMPANIES START -->
     <div class="section-full p-t50 site-bg-white twm-companies-wrap">
@@ -694,7 +650,7 @@ $totalPages = 1;
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_olympus.png" alt="" /></a>
+                                <img src="images/client-logo/logo_olympus.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -702,7 +658,7 @@ $totalPages = 1;
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_lixil.jpg" alt="" /></a>
+                                <img src="images/client-logo/logo_lixil.jpg" alt="" />
                             </div>
                         </div>
                     </div>
@@ -710,7 +666,7 @@ $totalPages = 1;
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_Nakajima.jpg" alt="" /></a>
+                                <img src="images/client-logo/logo_Nakajima.jpg" alt="" />
                             </div>
                         </div>
                     </div>
@@ -718,7 +674,7 @@ $totalPages = 1;
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/shimizu_logo.png" alt="" /></a>
+                                <img src="images/client-logo/shimizu_logo.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -726,22 +682,14 @@ $totalPages = 1;
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_Sumitomo.png" alt="" /></a>
+                                <img src="images/client-logo/logo_Sumitomo.png" alt="" />
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_nidec.png" alt="" /></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_olympus.png" alt="" /></a>
+                                <img src="images/client-logo/logo_nidec.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -749,7 +697,7 @@ $totalPages = 1;
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_lixil.jpg" alt="" /></a>
+                                <img src="images/client-logo/logo_olympus.png" alt="" />
                             </div>
                         </div>
                     </div>
@@ -757,7 +705,15 @@ $totalPages = 1;
                     <div class="item">
                         <div class="ow-client-logo">
                             <div class="client-logo client-logo-media">
-                                <a href="employer-list.html"><img src="images/client-logo/logo_Nakajima.jpg" alt="" /></a>
+                                <img src="images/client-logo/logo_lixil.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="ow-client-logo">
+                            <div class="client-logo client-logo-media">
+                                <img src="images/client-logo/logo_Nakajima.jpg" alt="" />
                             </div>
                         </div>
                     </div>
@@ -908,43 +864,35 @@ $totalPages = 1;
                 <div class="twm-blog-post-1-outer-wrap">
                     <div class="owl-carousel twm-la-home-blog owl-btn-bottom-center">
                         <?php
-                        $list_of_latestBlog = Blog::getLatestBlog(6);
+                        $list_of_latestBlog = Blog_f::getLatestBlog(6);
                         foreach ($list_of_latestBlog as $key => $value) {
                         ?>
                             <div class="item">
                                 <div class="blog-post twm-blog-post-1-outer">
                                     <div class="wt-post-media">
-                                        <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
-                                            <img src="images/blog/latest/<?php echo $value['img_blog']; ?>" alt="" />
-                                        </a>
+                                        <img src="images/blog/latest/<?php echo $value['img_blog']; ?>" alt="" />
                                     </div>
                                     <div class="wt-post-info">
                                         <div class="wt-post-meta">
                                             <ul>
-                                                <li class="post-date">
-                                                    <?php echo $value['ngaydang']; ?>
+                                                <li class="post-date" style="padding-left: 20px;">
+                                                    <?php
+                                                    $dateTime = new DateTime($value['created_at']);
+                                                    $formattedDate = $dateTime->format('d/m/Y');
+                                                    echo $formattedDate; ?>
                                                 </li>
-                                                <li class="post-author">
-                                                    By <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
-                                                        <?php echo $value['name_blog']; ?>
-                                                    </a>
-                                                </li>
+
                                             </ul>
                                         </div>
-                                        <div class="wt-post-title">
-                                            <h4 class="post-title">
-                                                <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
-                                                    <?php echo substr($value['tieude_blog'], 0, 100); ?>...
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div class="wt-post-text">
-                                            <p>
-                                                <?php echo substr($value['noidung_blog'], 0, 200); ?>...
-                                            </p>
-                                        </div>
-                                        <div class="wt-post-readmore">
-                                            <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>" class="site-button-link site-text-primary">Read More</a>
+                                        <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
+                                            <div class="name_blog">
+                                                <?php echo $value['tieude_blog'] ?>
+
+                                            </div>
+                                        </a>
+                                        <div class="text-blog">
+
+                                            <?php echo $value['noidung_blog'] ?>
                                         </div>
                                     </div>
                                 </div>
@@ -962,6 +910,7 @@ $totalPages = 1;
     <!-- OUR BLOG END -->
 </div>
 <!-- CONTENT END -->
+
 <script>
     function changeUrl_vn() {
         var domain = new URL(window.location.href).pathname;

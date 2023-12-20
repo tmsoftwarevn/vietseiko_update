@@ -10,8 +10,8 @@ require 'PHPMailer/src/Exception.php';
 
 require_once 'config.php';
 require "models/db.php";
-require "models/nganh_ung_tuyen.php";
-$nganh_ung_tuyen = new Nganh_ung_tuyen;
+require "models/form-contact.php";
+$form_contact = new Form_contact;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   try {
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Chuyển hướng đến trang cảm ơn sau khi gửi email thành công
 
-    $nganh_ung_tuyen->createInformationUser_UngTuyen(
+    $form_contact->createInformationUser_lienhe(
       $name,
       $gender,
       $email,

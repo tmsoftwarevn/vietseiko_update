@@ -2,7 +2,7 @@
     --main-color: #1967d2;
     --bg-color: #f2f7ff;
     --border-color: #b0c9ec;
-    --suport-main-color:#ed1b24;
+    --suport-main-color: #ed1b24;
 }
 
 .btn-dangki-detail {
@@ -72,7 +72,7 @@
     display: none;
     color: white;
 }
-.job{
+.job {
     margin-top: 100px;
 }
 .g1 {
@@ -90,25 +90,24 @@
             font-size: 22px;
             font-weight: bold;
             text-transform: capitalize;
-             
         }
         .btn-view-all {
             font-size: 16px;
             cursor: pointer;
             color: #1967d2;
             text-transform: uppercase;
-            &:hover{
+            &:hover {
                 color: var(--suport-main-color);
                 transition: 0.5s;
             }
         }
     }
-    .job-list{
+    .job-list {
         padding: 20px 20px 0 20px;
         .card {
             padding: 15px 10px;
             border: 1px solid #ccc;
-            border-radius: 10px;          
+            border-radius: 10px;
             margin-bottom: 30px;
             &:hover {
                 cursor: pointer;
@@ -126,7 +125,7 @@
             .group-info {
                 display: flex;
                 align-items: center;
-        
+
                 .company-logo {
                     width: 60px;
                     img {
@@ -153,3 +152,89 @@
         }
     }
 }
+
+//tin tuc ở index
+
+.t {
+    color: white;
+}
+
+.name_blog {
+    line-height: 1.4;
+    font-weight: 600;
+    font-size: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    &:hover {
+        color: #1967d2;
+    }
+}
+.text-blog {
+    margin-top: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//detail blog
+
+.t {
+    color: white;
+}
+.img-blog-detail {
+    img {
+        width: 100%;
+    }
+}
+.pr-blog {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    
+    .img-detail-blog-new {
+        width: 70px;
+        margin-right: 10px;
+        
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+    }
+    .pr-r {
+        
+        .name-pr {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 250px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            color: #1967d2;
+            
+        }
+        .text-pr {
+           
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 250px;
+        }
+    }
+}
+
+// search index \
+.title-search{
+    font-size: 18px;
+}
+
+
+

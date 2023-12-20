@@ -2,7 +2,7 @@
 
 <?php
 
-class Nganhnghe extends Db
+class Nganhnghe_f extends Db
 {
     //Lấy ra tất cả bảng Nganhnghe
     function getAllNganhNghe()

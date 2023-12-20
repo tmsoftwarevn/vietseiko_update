@@ -11,31 +11,35 @@ require "models/hinhthuc.php";
 require "models/nganhnghe.php";
 require "models/protype.php";
 
-require "models/nganhnghe_NB.php";
 require "models/blog.php";
 require "models/ban_tin.php";
-require "models/protypes_congcu.php";
-require "models/nganh_ung_tuyen.php";
+
+
+require "models/form-contact.php";
 
 require "models/job_kysu.php";
 require "models/job_vietseiko.php";
 require "models/job_NB_f.php";
 require "models/jobs.php";
-$protypes_congcu = new Protypes_congcu;
+require_once "admin/models/kinh_nghiem.php";
+require_once "admin/models/gioi_tinh.php";
+
+$gioitinh = new Gioi_tinh;
+
 $ban_tin = new Ban_tin;
-$nganhnghe = new Nganhnghe;
-$nganhngheNB = new Nganhnghe_NB;
+
 $hinhthuc = new Hinhthuc;
 $protype = new Protype;
-$blog = new blog;
-$nganh_ung_tuyen = new Nganh_ung_tuyen;
+$blog = new blog_f;
 
+$form_contact = new Form_contact;
+//$nganh_nghe = new Nganhnghe_f;
+$kinh_nghiem = new Kinh_nghiem;
 $job = new Job_f;
 $job_nb = new Job_NB_f;
 $job_kysu = new Job_kysu_f;
 $job_vietseiko = new Vietseiko_f;
 
-$nganh_ung_tuyen->fetch_tinh_thanh();
 
 
 ?>
@@ -353,7 +357,7 @@ $nganh_ung_tuyen->fetch_tinh_thanh();
                                     </ul>
                                 </li>
                                 <li class="has-child">
-                                    <a href="tin-tuc">Tin Tức</a>
+                                    <a href="blog.php">Tin Tức</a>
                                 </li>
 
                                 <li class="has-child">
