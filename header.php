@@ -12,7 +12,7 @@ require "models/nganhnghe.php";
 require "models/protype.php";
 
 require "models/blog.php";
-
+require "models/cam-nang.php";
 require "models/form-contact.php";
 
 require "models/job_kysu.php";
@@ -28,6 +28,8 @@ $gioitinh = new Gioi_tinh;
 $hinhthuc = new Hinhthuc;
 $protype = new Protype;
 $blog = new blog_f;
+
+$cam_nang = new Cam_nang_f;
 
 $form_contact = new Form_contact;
 //$nganh_nghe = new Nganhnghe_f;
@@ -51,6 +53,7 @@ $job_vietseiko = new Vietseiko_f;
     <meta name="robots" content="" />
     <meta name="description" content="" />
 
+    <!-- <base href="http://localhost:3000/" /> -->
     <!-- FAVICONS ICON -->
     <link rel="icon" href="public/images/logo.png" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href="public/images/favicon.png" />
@@ -317,7 +320,7 @@ $job_vietseiko = new Vietseiko_f;
                     <div class="container-fluid clearfix">
                         <div class="logo-header">
                             <div class="logo-header-inner logo-header-one">
-                                <a href="trang-chu">
+                                <a href="index.php">
                                     <img src="public/images/logo.png" alt="" />
                                 </a>
                             </div>
@@ -340,7 +343,7 @@ $job_vietseiko = new Vietseiko_f;
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;" > <a href="job-list-vn.php">Việc làm tại Việt Nam</a></li>
+                                        <li style="cursor: pointer;" > <a href="/job-list-vn.php">Việc làm tại Việt Nam</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-xkld.php">Xuất khẩu lao động Nhật Bản</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-ksnb.php">Kỹ sư & thông dịch viên Nhật Bản</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-vietseiko.php">Việc làm tại Vietseiko</a></li>
@@ -349,7 +352,7 @@ $job_vietseiko = new Vietseiko_f;
                                 <li class="has-child">
                                     <a href="blog-camnang.php" ;>Công Cụ</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;"><a>Cẩm nang nghề nghiệp</a></li>
+                                        <li style="cursor: pointer;"><a href="cam-nang.php">Cẩm nang nghề nghiệp</a></li>
                                         <li style="cursor: pointer;"><a>Tính lương Gross sang Net</a></li>
                                     </ul>
                                 </li>

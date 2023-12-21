@@ -2,10 +2,10 @@
 require_once "header.php";
 
 require_once "models/db.php";
-require_once "models/tin-tuc.php";
+require_once "models/cam_nang.php";
 
 
-$totalResults = count(Tin_tuc::getAll_Blog());
+$totalResults = count(Cam_nang::getAll_Blog());
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +39,13 @@ $totalResults = count(Tin_tuc::getAll_Blog());
     <div class="content-body">
         <div class="container" style="padding:0 50px;">
             <div class="d-flex align-items-center mb-4 flex-wrap">
-                <h3 class="me-auto">Quản lý tin tức</h3>
+                <h3 class="me-auto">Quản lý cẩm nang</h3>
                 <div>
-                    <a href="tintuc-add.php?typeAdd=blog" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm tin tức mới</a>
+                    <a href="tintuc-add.php?typeAdd=cam-nang" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm cẩm nang mới</a>
                     
                 </div>
             </div>
-            <input type="text" placeholder="Từ khóa " class="search" />
-            <button class="btn btn-primary">Tìm kiếm</button>
+            
             <table id="jobsTable" class="display table table-striped">
                 <thead>
                     <tr>
@@ -66,7 +65,7 @@ $totalResults = count(Tin_tuc::getAll_Blog());
                         $page = $_GET['page'];
                     }
 
-                    $list_of_job = Tin_tuc::getAll_Blog_andCreatePagination($page, $resultsPerPage);
+                    $list_of_job = Cam_nang::getAll_Blog_andCreatePagination($page, $resultsPerPage);
                     echo "<p style=\"text-align:center;font-size: 18px\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
                     $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
                     foreach ($list_of_job as $key => $value) {
@@ -78,9 +77,7 @@ $totalResults = count(Tin_tuc::getAll_Blog());
                             <td><?php echo $value['created_at'] ?></td>
                             <td>
                                 <div class="action-buttons d-flex justify-content-end">
-
-                                    <a href="tintuc-update.php?typeUpdate=blog&id=<?php echo $value['id_blog'] ?>" class="btn btn-secondary light mr-2">
-
+                                    <a href="cam-nang-update.php?typeUpdate=cam-nang&id=<?php echo $value['id_blog'] ?>" class="btn btn-secondary light mr-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -90,7 +87,7 @@ $totalResults = count(Tin_tuc::getAll_Blog());
                                         </svg>
                                     </a>
 
-                                    <a onclick="return confirm('Xác nhận muốn xóa công việc có Mã: <?php echo $value['id_blog']; ?>?')" href="job-vietnam/delete_blog.php?id_blog=<?php echo $value['id_blog']; ?>" class="btn btn-danger light">
+                                    <a onclick="return confirm('Xác nhận muốn xóa công việc có Mã: <?php echo $value['id_blog']; ?>?')" href="job-vietnam/delete_cam-nang.php?id_blog=<?php echo $value['id_blog']; ?>" class="btn btn-danger light">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -109,7 +106,7 @@ $totalResults = count(Tin_tuc::getAll_Blog());
               <span>Trang <?php echo $page . '/' . $total ?></span>
               <nav aria-label="Page navigation example">
                 <ul class="pagination my-2 my-md-0">
-                  <?php echo Tin_tuc::paginate("tintuc-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
+                  <?php echo Cam_nang::paginate("cam-nang-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
                 </ul>
               </nav>
             </div>

@@ -79,7 +79,7 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-6">
 
                         <div class="control-group">
@@ -92,7 +92,7 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                 </div>
 
                 <div class="row mt-5">
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
                             <div class="controls">
@@ -100,7 +100,7 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
                             <div class="controls">
@@ -108,7 +108,10 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+
+                </div>
+                <div class="row mt-5">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
                             <div class="controls">
@@ -116,10 +119,17 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
+                    <div class="col-6">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['diachi']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
                 <div class="row mt-5">
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Mã công việc:</label>
                             <div class="controls">
@@ -127,7 +137,7 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Tuổi:</label>
                             <div class="controls">
@@ -136,15 +146,8 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="control-group">
-                            <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
-                            <div class="controls">
-                                <input disabled value="<?php echo $job_modal['diachi']; ?>" type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-4">
+
+                    <!-- <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Ngôn ngữ</label>
                             <div class="controls">
@@ -155,7 +158,7 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                 </div>
 
                 <div class="row mt-5">
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
                             <div class="controls">
@@ -163,7 +166,7 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
                             <div class="controls">
@@ -171,7 +174,10 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+
+                </div>
+                <div class="row mt-5">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Số Lượng </label>
                             <div class="controls">
@@ -179,26 +185,7 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row mt-5">
-                    <div class="col-4">
-                        <div class="control-group">
-                            <label class="control-label" style="font-weight: 600;">*Mức Lương </label>
-                            <div class="controls">
-                                <input disabled value="<?php echo $job_modal['mucluong']; ?>" type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="control-group">
-                            <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
-                            <div class="controls">
-                                <input type="text" value="<?php echo $name_nganhnghe; ?>" class="form-control" disabled />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="control-group">
                             <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
                             <div class="controls">
@@ -207,8 +194,25 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
                         </div>
                     </div>
                 </div>
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Mức Lương </label>
+                            <div class="controls">
+                                <input disabled value="<?php echo $job_modal['mucluong']; ?>" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
+                            <div class="controls">
+                                <input type="text" value="<?php echo $name_nganhnghe; ?>" class="form-control" disabled />
+                            </div>
+                        </div>
+                    </div>
 
-
+                </div>
 
                 <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Mô tả công việc:</label>

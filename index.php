@@ -867,7 +867,7 @@ $totalPages = 1;
                         foreach ($list_of_latestBlog as $key => $value) {
                         ?>
                             <div class="item">
-                                <div class="blog-post" style="margin-top: 20px; margin-bottom: 20px;">
+                                <div class="blog-post" style="margin-top: 20px; ">
                                     <div class="img_blog_l">
                                         <?php echo $value['img_blog'] ?>
                                     </div>

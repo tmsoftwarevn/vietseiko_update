@@ -1,12 +1,12 @@
 <?php
-class Blog_f extends Db
+class Cam_nang_f extends Db
 {
 
     /* lấy dữ liệu từ bản Blog*/
 
     static function getAllBlog()
     {
-        $sql = self::$connection->prepare("SELECT * FROM blog ");
+        $sql = self::$connection->prepare("SELECT * FROM cam_nang");
         $sql->execute();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
@@ -16,7 +16,7 @@ class Blog_f extends Db
     {
         $offset = ($page - 1) * $resultsPerPage;
 
-        $sql = self::$connection->prepare("SELECT * FROM blog ORDER BY created_at DESC LIMIT ?, ?");
+        $sql = self::$connection->prepare("SELECT * FROM cam_nang ORDER BY created_at DESC LIMIT ?, ?");
         $sql->bind_param("ii", $offset, $resultsPerPage);
         $sql->execute();
 
@@ -24,11 +24,13 @@ class Blog_f extends Db
 
         return $items;
     }
-    public function getRelatedBlog($type_id, $limit)
+    //Lay chi tiet blog:
+    function detail($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM blog WHERE type_id = ?  ORDER BY created_at desc LIMIT $limit");
-        $sql->bind_param("i", $type_id);
+        $sql = self::$connection->prepare("SELECT * FROM cam_nang  WHERE id_blog = ?");
+        $sql->bind_param("i", $id);
         $sql->execute();
+        $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
@@ -44,21 +46,15 @@ class Blog_f extends Db
         return $row['count'];
     }
 
-    /* lấy một bài viết dựa trên Id */
-    static function getBlogByID($id)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM blog WHERE id_blog = ?");
-        $sql->bind_param("i", $id);
-        $sql->execute();
 
-        if ($sql->execute()) {
-            $result = $sql->get_result();
-            $row = $result->fetch_assoc();
-            return $row;
-        } else {
-            // Xử lý lỗi nếu cần
-            return null;
-        }
+    /* lấy các bài viết liên quan dự trên ngành nghề và hình thức.*/
+    function getRelatedBlog($type_id, $limit)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM cam_nang WHERE type_id = ? ORDER BY created_at desc LIMIT $limit");
+        $sql->bind_param("i",$type_id);
+        $sql->execute();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
     }
 
     /**
@@ -66,17 +62,7 @@ class Blog_f extends Db
      */
     static function getLatestBlog($numver_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM blog ORDER BY created_at DESC LIMIT $numver_of_records");
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    //Lay chi tiet blog:
-    function detail($id)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM blog  WHERE id_blog = ?");
-        $sql->bind_param("i", $id);
+        $sql = self::$connection->prepare("SELECT * FROM cam_nang ORDER BY created_at DESC LIMIT $numver_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

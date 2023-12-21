@@ -77,7 +77,7 @@ $all_type = $type::getAllType();
         <?php
         //job vietnam
         if (isset($_GET['typeAdd']) == TRUE && $_GET['typeAdd'] == "job") {
-            ?>
+        ?>
             <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
                 <?php
 
@@ -97,14 +97,33 @@ $all_type = $type::getAllType();
                             font-size: 20px; text-transform: capitalize;">
                     <?php echo 'Thêm công việc mới tại Việt Nam ' ?>
                 </div>
-               
+
                 <form action="job-vietnam/form-add.php" method="POST" enctype="multipart/form-data">
 
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
+                                <label for="searchInput">Search:</label>
+                                <input type="text" id="searchInput" list="optionsList" oninput="filterOptions()">
+
+                                <!-- <datalist id="optionsList">
+                                    <option value="Option 1" label="Description 1">
+                                    <option value="Option 2" label="Description 2">
+                                    <option value="Option 3" label="Description 3">
+                                </datalist> -->
+                                <datalist required class="form-select" name="cty" id="optionsList">
+                                    <?php
+                                    foreach ($all_cty as $key => $value) {
+                                    ?>
+                                        <option value="<?php echo $value['id_cty'] ?>" label="<?php echo $value['name'] ?>">
+
+                                        <?php
+                                    }
+                                        ?>
+                                </datalist>
+                                <!-- Add more options as needed -->
                                 <label class="control-label" style="font-weight: 600;">*Công ty</label>
-                                <select required class="form-select" name="cty">
+                                <!-- <select required class="form-select" name="cty">
                                     <option disabled selected value>-- chọn công ty --</option>
                                     <?php
                                     foreach ($all_cty as $key => $value) {
@@ -115,10 +134,10 @@ $all_type = $type::getAllType();
                                     <?php
                                     }
                                     ?>
-                                </select>
+                                </select> -->
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group" aria-label="Default select example">
                                 <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
                                 <select required class="form-select" name="nganhnghe">
@@ -135,7 +154,10 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
                                 <select required class="form-select" name="kinhnghiem">
@@ -152,10 +174,17 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
+                                <div class="controls">
+                                    <input required name="ngaycuoicung" type="date" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
                                 <select required name="gioitinh" class="form-select">
@@ -172,7 +201,7 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
                                 <select required name="hinhthuc" class="form-select">
@@ -190,14 +219,7 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
-                                <div class="controls">
-                                    <input required name="ngaycuoicung" type="date" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row mt-5">
                         <div class="col-6">
@@ -216,7 +238,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-4">
+                        <!-- <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Ngôn ngữ</label>
                                 <div class="controls">
@@ -226,7 +248,7 @@ $all_type = $type::getAllType();
                         </div> -->
                     </div>
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
                                 <div class="controls">
@@ -234,7 +256,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
                                 <div class="controls">
@@ -242,7 +264,10 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Số Lượng (số)</label>
                                 <div class="controls">
@@ -250,10 +275,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Mức Lương (vd: 9-12 triệu)</label>
                                 <div class="controls">
@@ -261,7 +283,10 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                    </div>
+                    <div class="row mt-5">
+
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
                                 <div class="controls">
@@ -269,7 +294,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>
                                 <div class="controls">
@@ -316,7 +341,7 @@ $all_type = $type::getAllType();
         }
         // bảng job nhật bản
         if (isset($_GET['typeAdd']) == TRUE && $_GET['typeAdd'] == "job-nb") {
-            ?>
+        ?>
             <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
                 <?php
 
@@ -340,7 +365,7 @@ $all_type = $type::getAllType();
                 <form action="job-vietnam/form_nb-add.php" method="POST" enctype="multipart/form-data">
 
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Công ty</label>
                                 <select required class="form-select" name="cty">
@@ -357,7 +382,7 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group" aria-label="Default select example">
                                 <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
                                 <select required class="form-select" name="nganhnghe">
@@ -374,7 +399,10 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
                                 <select required class="form-select" name="kinhnghiem">
@@ -391,10 +419,17 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
+                                <div class="controls">
+                                    <input required name="ngaycuoicung" type="date" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
                                 <select required name="gioitinh" class="form-select">
@@ -411,7 +446,7 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
                                 <select required name="hinhthuc" class="form-select">
@@ -429,17 +464,10 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
-                                <div class="controls">
-                                    <input required name="ngaycuoicung" type="date" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Mã công việc:</label>
                                 <div class="controls">
@@ -447,7 +475,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Tuổi:</label>
                                 <div class="controls">
@@ -455,7 +483,10 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Ngôn ngữ</label>
                                 <div class="controls">
@@ -463,25 +494,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-4">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
-                                <div class="controls">
-                                    <input required name="chucvu" type="text" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
-                                <div class="controls">
-                                    <input required name="capbac" type="text" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Số Lượng (số)</label>
                                 <div class="controls">
@@ -490,9 +503,28 @@ $all_type = $type::getAllType();
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
+                                <div class="controls">
+                                    <input required name="chucvu" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
+                                <div class="controls">
+                                    <input required name="capbac" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Mức Lương (vd: 9-12 triệu)</label>
                                 <div class="controls">
@@ -500,7 +532,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Địa Chỉ</label>
                                 <div class="controls">
@@ -508,7 +540,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>
                                 <div class="controls">
@@ -579,7 +611,7 @@ $all_type = $type::getAllType();
                 <!-- cty add -->
                 <form action="job-vietnam/form-cty-add.php" method="POST" enctype="multipart/form-data">
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Tên Công Ty :</label>
                                 <div class="controls">
@@ -587,7 +619,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Quy mô:</label>
                                 <div class="controls">
@@ -595,7 +627,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Type công ty :</label>
 
@@ -670,7 +702,7 @@ $all_type = $type::getAllType();
                 <form action="job-vietnam/form-ksnb-add.php" method="POST" enctype="multipart/form-data">
 
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Công ty</label>
                                 <select required class="form-select" name="cty">
@@ -687,7 +719,7 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group" aria-label="Default select example">
                                 <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
                                 <select required class="form-select" name="nganhnghe">
@@ -704,7 +736,11 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
                                 <select required class="form-select" name="kinhnghiem">
@@ -721,10 +757,17 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
+                                <div class="controls">
+                                    <input required name="ngaycuoicung" type="date" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
                                 <select required name="gioitinh" class="form-select">
@@ -741,7 +784,7 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
                                 <select required name="hinhthuc" class="form-select">
@@ -759,17 +802,10 @@ $all_type = $type::getAllType();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
-                                <div class="controls">
-                                    <input required name="ngaycuoicung" type="date" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Mã công việc:</label>
                                 <div class="controls">
@@ -777,7 +813,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Tuổi:</label>
                                 <div class="controls">
@@ -785,7 +821,10 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Ngôn ngữ</label>
                                 <div class="controls">
@@ -793,25 +832,8 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-4">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
-                                <div class="controls">
-                                    <input required name="chucvu" type="text" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
-                                <div class="controls">
-                                    <input required name="capbac" type="text" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
+
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Số Lượng (số)</label>
                                 <div class="controls">
@@ -820,9 +842,28 @@ $all_type = $type::getAllType();
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
+                                <div class="controls">
+                                    <input required name="chucvu" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
+                                <div class="controls">
+                                    <input required name="capbac" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Mức Lương (vd: 9-12 triệu)</label>
                                 <div class="controls">
@@ -830,7 +871,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
                                 <div class="controls">
@@ -838,7 +879,7 @@ $all_type = $type::getAllType();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>
                                 <div class="controls">
@@ -885,146 +926,149 @@ $all_type = $type::getAllType();
         }
         // vietseiko
         if (isset($_GET['typeAdd']) == TRUE && $_GET['typeAdd'] == "job-vietseiko") {
-            ?>
-                <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
-                    <?php
-    
-                    if (isset($_GET['checkResult']) == TRUE) {
-    
-                        if ($_GET['checkResult'] > 0) {
-                            echo "<span style=\"color:green;\">" . "Thêm thành công." . "</span>";
-                        } else {
-                            echo "<span style=\"color:red;\">" . "Có lỗi từ server" . "</span>";
-                        }
+        ?>
+            <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
+                <?php
+
+                if (isset($_GET['checkResult']) == TRUE) {
+
+                    if ($_GET['checkResult'] > 0) {
+                        echo "<span style=\"color:green;\">" . "Thêm thành công." . "</span>";
+                    } else {
+                        echo "<span style=\"color:red;\">" . "Có lỗi từ server" . "</span>";
                     }
-                    ?>
-                </div>
-                <div class="body-view-job" style="padding: 0 100px 50px 100px">
-    
-                    <div class="title-job" style="text-align: center; font-weight: 600; 
+                }
+                ?>
+            </div>
+            <div class="body-view-job" style="padding: 0 100px 50px 100px">
+
+                <div class="title-job" style="text-align: center; font-weight: 600; 
                                 font-size: 20px; text-transform: capitalize;">
-                        <?php echo 'Thêm công việc mới Vietseiko ' ?>
+                    <?php echo 'Thêm công việc mới Vietseiko ' ?>
+                </div>
+
+                <form action="job-vietnam/form_vietseiko_add.php" method="POST" enctype="multipart/form-data">
+
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Công ty</label>
+                                <select required class="form-select" name="cty">
+                                    <option disabled selected value>-- chọn công ty --</option>
+                                    <?php
+                                    foreach ($all_cty as $key => $value) {
+                                    ?>
+                                        <option value="<?php echo $value['id_cty'] ?>">
+                                            <?php echo $value['name'] ?>
+                                        </option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="control-group" aria-label="Default select example">
+                                <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
+                                <select required class="form-select" name="nganhnghe">
+                                    <option disabled selected value>--Việc thuộc ngành nghề nào--</option>
+                                    <?php
+                                    foreach ($all_nganhnghe as $key => $value) {
+                                    ?>
+                                        <option value="<?php echo $value['id_nganhnghe'] ?>">
+                                            <?php echo $value['name_nganhnghe'] ?>
+                                        </option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
-                   
-                    <form action="job-vietnam/form_vietseiko_add.php" method="POST" enctype="multipart/form-data">
-    
-                        <div class="row mt-5">
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Công ty</label>
-                                    <select required class="form-select" name="cty">
-                                        <option disabled selected value>-- chọn công ty --</option>
-                                        <?php
-                                        foreach ($all_cty as $key => $value) {
-                                        ?>
-                                            <option value="<?php echo $value['id_cty'] ?>">
-                                                <?php echo $value['name'] ?>
-                                            </option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
+                                <select required class="form-select" name="kinhnghiem">
+                                    <option disabled selected value>-- Kinh nghiệm làm việc --</option>
+                                    <?php
+                                    foreach ($all_kinhnghiem as $key => $value) {
+                                    ?>
+                                        <option value="<?php echo $value['id_kn'] ?>">
+                                            <?php echo $value['name_kn'] ?>
+                                        </option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
-                            <div class="col-4">
-                                <div class="control-group" aria-label="Default select example">
-                                    <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
-                                    <select required class="form-select" name="nganhnghe">
-                                        <option disabled selected value>--Việc thuộc ngành nghề nào--</option>
-                                        <?php
-                                        foreach ($all_nganhnghe as $key => $value) {
-                                        ?>
-                                            <option value="<?php echo $value['id_nganhnghe'] ?>">
-                                                <?php echo $value['name_nganhnghe'] ?>
-                                            </option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
-                                    <select required class="form-select" name="kinhnghiem">
-                                        <option disabled selected value>-- Kinh nghiệm làm việc --</option>
-                                        <?php
-                                        foreach ($all_kinhnghiem as $key => $value) {
-                                        ?>
-                                            <option value="<?php echo $value['id_kn'] ?>">
-                                                <?php echo $value['name_kn'] ?>
-                                            </option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
+                        </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
+                                <div class="controls">
+                                    <input required name="ngaycuoicung" type="date" class="form-control" />
                                 </div>
                             </div>
                         </div>
-    
-                        <div class="row mt-5">
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
-                                    <select required name="gioitinh" class="form-select">
-                                        <option disabled selected value>-- Giới tính --</option>
-                                        <?php
-                                        foreach ($all_Gioitinh as $key => $value) {
-                                        ?>
-                                            <option value="<?php echo $value['id_gt'] ?>">
-                                                <?php echo $value['name_gt'] ?>
-                                            </option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
+                                <select required name="gioitinh" class="form-select">
+                                    <option disabled selected value>-- Giới tính --</option>
+                                    <?php
+                                    foreach ($all_Gioitinh as $key => $value) {
+                                    ?>
+                                        <option value="<?php echo $value['id_gt'] ?>">
+                                            <?php echo $value['name_gt'] ?>
+                                        </option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
-                                    <select required name="hinhthuc" class="form-select">
-                                        <option disabled selected value>-- Hình thức làm việc --</option>
-                                        <?php
-                                        foreach ($all_hinhthuc as $key => $value) {
-                                        ?>
-                                            <option value="<?php echo $value['id_hinhthuc'] ?>">
-                                                <?php echo $value['name_hinhthuc'] ?>
-                                            </option>
-                                        <?php
-                                        }
-                                        ?>
-    
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
+                                <select required name="hinhthuc" class="form-select">
+                                    <option disabled selected value>-- Hình thức làm việc --</option>
+                                    <?php
+                                    foreach ($all_hinhthuc as $key => $value) {
+                                    ?>
+                                        <option value="<?php echo $value['id_hinhthuc'] ?>">
+                                            <?php echo $value['name_hinhthuc'] ?>
+                                        </option>
+                                    <?php
+                                    }
+                                    ?>
+
+                                </select>
                             </div>
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
-                                    <div class="controls">
-                                        <input required name="ngaycuoicung" type="date" class="form-control" />
-                                    </div>
+                        </div>
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Mã công việc:</label>
+                                <div class="controls">
+                                    <input required name="job-code" type="text" class="form-control" />
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-5">
-                            <div class="col-6">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Mã công việc:</label>
-                                    <div class="controls">
-                                        <input required name="job-code" type="text" class="form-control" />
-                                    </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Tuổi:</label>
+                                <div class="controls">
+                                    <input required name="age" type="text" class="form-control" />
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Tuổi:</label>
-                                    <div class="controls">
-                                        <input required name="age" type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="col-4">
+                        </div>
+                        <!-- <div class="col-6">
                                 <div class="control-group">
                                     <label class="control-label" style="font-weight: 600;">*Ngôn ngữ</label>
                                     <div class="controls">
@@ -1032,96 +1076,99 @@ $all_type = $type::getAllType();
                                     </div>
                                 </div>
                             </div> -->
-                        </div>
-                        <div class="row mt-5">
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
-                                    <div class="controls">
-                                        <input required name="chucvu" type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
-                                    <div class="controls">
-                                        <input required name="capbac" type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Số Lượng (số)</label>
-                                    <div class="controls">
-                                        <input required name="soluong" type="text" class="form-control" />
-                                    </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
+                                <div class="controls">
+                                    <input required name="chucvu" type="text" class="form-control" />
                                 </div>
                             </div>
                         </div>
-    
-                        <div class="row mt-5">
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Mức Lương (vd: 9-12 triệu)</label>
-                                    <div class="controls">
-                                        <input required name="mucluong" type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
-                                    <div class="controls">
-                                        <input required name="diachi" type="text" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="control-group">
-                                    <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>
-                                    <div class="controls">
-                                        <input required name="diachicuthe" type="text" class="form-control" />
-                                    </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
+                                <div class="controls">
+                                    <input required name="capbac" type="text" class="form-control" />
                                 </div>
                             </div>
                         </div>
-    
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Số Lượng (số)</label>
+                                <div class="controls">
+                                    <input required name="soluong" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Mức Lương (vd: 9-12 triệu)</label>
+                                <div class="controls">
+                                    <input required name="mucluong" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
+                                <div class="controls">
+                                    <input required name="diachi" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>
+                                <div class="controls">
+                                    <input required name="diachicuthe" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" style="font-weight: 600;">*Mô tả công việc </label>
+                        <div class="controls">
+                            <textarea name="mota" id="mota" class="form-control"></textarea>
+                        </div>
                         <div class="control-group">
-                            <label class="control-label" style="font-weight: 600;">*Mô tả công việc </label>
+                            <label class="control-label" style="font-weight: 600;">*Yêu cầu </label>
                             <div class="controls">
-                                <textarea name="mota" id="mota" class="form-control"></textarea>
+                                <textarea name="yeucau" id="yeucau" class="form-control"></textarea>
                             </div>
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Yêu cầu </label>
-                                <div class="controls">
-                                    <textarea name="yeucau" id="yeucau" class="form-control"></textarea>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Quyền Lợi </label>
-                                <div class="controls">
-                                    <textarea name="quyenloi" id="quyenloi" class="form-control"></textarea>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Thông tin khác </label>
-                                <div class="controls">
-                                    <textarea name="other" id='other' class="form-control"></textarea>
-                                </div>
-                            </div>
-    
                         </div>
-                        <div class="d-flex justify-content-center">
-    
-                            <button style="font-size: 18px;" class="btn btn-primary" type="submit" name="submit">Thêm mới</button>
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Quyền Lợi </label>
+                            <div class="controls">
+                                <textarea name="quyenloi" id="quyenloi" class="form-control"></textarea>
+                            </div>
                         </div>
-                    </form>
-    
-    
-                </div>
-            <?php
-            }
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Thông tin khác </label>
+                            <div class="controls">
+                                <textarea name="other" id='other' class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-center">
+
+                        <button style="font-size: 18px;" class="btn btn-primary" type="submit" name="submit">Thêm mới</button>
+                    </div>
+                </form>
+
+
+            </div>
+        <?php
+        }
         ?>
     </div>
 </body>
@@ -1173,6 +1220,25 @@ $all_type = $type::getAllType();
         .catch(error => {
             console.error(error);
         });
+</script>
+
+<script>
+    function filterOptions() {
+        var input, filter, datalist, options;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        datalist = document.getElementById("optionsList");
+        options = datalist.getElementsByTagName("option");
+
+        for (var i = 0; i < options.length; i++) {
+            var optionText = options[i].value.toUpperCase();
+            if (optionText.indexOf(filter) > -1) {
+                options[i].style.display = "";
+            } else {
+                options[i].style.display = "none";
+            }
+        }
+    }
 </script>
 
 <?php

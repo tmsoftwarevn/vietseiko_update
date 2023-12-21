@@ -2,15 +2,22 @@
 include 'header.php';
 require_once "models/jobs.php";
 
-
 $id = 1;
 if (isset($_GET['page'])) {
     //$id = $_GET['id'];
 } else {
     //echo "Khong nhan duoc ID";
 }
-
 $allJob = $job::getAllJob();
+
+?>
+
+<?php
+if (isset($_GET["id_nganhnghe"])) {
+    
+} else {
+    echo 'rrrrrrrr';
+}
 
 ?>
 <style>
@@ -73,55 +80,55 @@ $allJob = $job::getAllJob();
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
         <form action="#" method="get" style="display: flex; justify-content: start;margin-bottom: 0;">
             <div class="box-search-f" style="display: flex; justify-content: space-between;">
-                <div class="row ">
-                    <div class="col-3">
-                        <select class="nganhnghe">
-                            <option value="all">Tất cả ngành nghề</option>
-                            <?php
-                            foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
-                            ?>
-                                <option value="<?php echo $value['id_nganhnghe'] ?>">
-                                    <?php echo $value['name_nganhnghe'] ?>
-                                </option>
-                            <?php } ?>
+                <form method="get" action="">
+                    <div class="row ">
+                        <div class="col-3">
+                            <select class="nganhnghe" name="id_nganhnghe">
+                                <option value="">Tất cả ngành nghề</option>
+                                <?php
+                                foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
+                                ?>
+                                    <option value="<?php echo $value['id_nganhnghe'] ?>">
+                                        <?php echo $value['name_nganhnghe'] ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <select class="selectpicker" data-live-search="true">
+                                <option value="">Hình thức làm việc</option>
+                                <?php
+                                foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
+                                    <option value="<?php echo $value['id_hinhthuc'] ?>">
+                                        <?php echo $value['name_hinhthuc'] ?>
+                                    </option>
+                                <?php } ?>
 
-                        </select>
-                    </div>
-                    <div class="col-3">
-                        <select class="hinhthuc">
-                            <option value="all">Hình thức làm việc</option>
-                            <?php
-                            foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
-                                <option value="<?php echo $value['id_hinhthuc'] ?>">
-                                    <?php echo $value['name_hinhthuc'] ?>
-                                </option>
-                            <?php } ?>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <select class="kinhnghiem">
+                                <option value="">Tất cả kinh nghiệm</option>
+                                <?php
+                                foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) { ?>
+                                    <option value="<?php echo $value['id_kn'] ?>">
+                                        <?php echo $value['name_kn'] ?>
+                                    </option>
+                                <?php } ?>
 
-                        </select>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <select class="gioitinh">
+                                <option value="">Tất cả giới tính</option>
+                                <option value="1">Nam</option>
+                                <option value="2">Nữ</option>
+                                <option value="3">Không yêu cầu</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <select class="kinhnghiem">
-                            <option value="all">Tất cả kinh nghiệm</option>
-                            <?php
-                            foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) { ?>
-                                <option value="<?php echo $value['id_kn'] ?>">
-                                    <?php echo $value['name_kn'] ?>
-                                </option>
-                            <?php } ?>
-
-                        </select>
-                    </div>
-                    <div class="col-3">
-                        <select class="gioitinh">
-                            <option value="all">Tất cả giới tính</option>
-                            <option value="1">Nam</option>
-                            <option value="2">Nữ</option>
-                            <option value="3">Không yêu cầu</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button type="submit" class="search">Tìm kiếm</button>
+                    <input type="submit" class="search" name="submit" value="Tìm kiếm">
+                </form>
             </div>
         </form>
 
@@ -136,6 +143,7 @@ $allJob = $job::getAllJob();
                 <div class="card" id='job-vietnam'>
                     <div class="group-info">
                         <?php
+
                         if ($value['id_cty'] == 1) {
                         ?>
                             <div class="company-logo">
@@ -151,7 +159,7 @@ $allJob = $job::getAllJob();
                         }
                         ?>
                         <div class="content">
-                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                            <a href="product">
                                 <div class="chucvu">
                                     <?php echo $value['chucvu'] ?>
                                 </div>

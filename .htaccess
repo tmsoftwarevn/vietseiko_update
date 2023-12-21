@@ -1,13 +1,5 @@
-RewriteEngine On
 
-RewriteRule "trang-chu" "index.php"
-RewriteRule "gioi-thieu" "about-us.php"
-RewriteRule "viec-lam" "job-list.php"
-RewriteRule "cam-nang" "blog-camnang.php"
-RewriteRule "tin-tuc" "blog.php"
-RewriteRule "lien-he" "contact.php"
-RewriteRule "detail" "job-detail.php"
-RewriteRule "loi-chao-tu-tong-Giam-Doc" "loi-chao-tu-tong-Giam-Doc.php"
-RewriteRule "detail-NB" "job-detail_NB.php"
 
-RewriteRule "viec-lam/([0-9]+).html$" "job-list?type_id=$1"
+RewriteEngine on
+RewriteCond %{REQUEST_URI} ^/product/([0-9]+)$ [NC]
+RewriteRule ^product/(.*)?$ job-detail.php?id=$1 [L,QSA]

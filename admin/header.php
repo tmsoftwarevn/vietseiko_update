@@ -979,13 +979,24 @@ $jobAdmin = new Job;
                         </ul>
                     </li>
                     <li>
+                        <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                            <i class="fa-solid fa-gear"></i>
+                            <span class="nav-text">Danh sách ứng viên</span>
+                        </a>
+                        <ul aria-expanded="false">                           
+                            <li><a href="#4">Công việc tại Việt Nam</a></li>  
+                            <li><a href="#4">Công việc XKLD tại Nhật Bản</a></li>                                                    
+                            <li><a href="#4">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>  
+                            <li><a href="#4">Công việc tại VietSeiko</a></li>  
+                        </ul>
+                    </li>
+                    <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-041-graph"></i>
                             <span class="nav-text">Tin tức</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="tintuc-list.php">Thông tin</a></li>
-                            
+                            <li><a href="tintuc-list.php">Thông tin</a></li>                            
                         </ul>
                     </li>
                     <li>
@@ -994,8 +1005,7 @@ $jobAdmin = new Job;
                             <span class="nav-text">Cẩm nang</span>
                         </a>
                         <ul aria-expanded="false">                           
-                            <li><a href="#5">Thông tin</a></li>
-                                                    
+                            <li><a href="cam-nang-list.php">Thông tin</a></li>                                                    
                         </ul>
                     </li>
                     

@@ -9,6 +9,7 @@ $kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    //echo 'check id: '. $id;
 } else {
     echo "Khong nhan duoc ID";
 }
@@ -409,7 +410,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
             <div class="card-body height-scroll">
                 <div class="group text-center mb-4">
                     <img src="images/apply-job.png" alt="" class="rounded-circle" style="width: 128px; height: 128px;">
-                    <p>File phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.</p>
+                    <p>File CV phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.</p>
                 </div>
                 <form action="./admin/file-cv/code/add_file_cv.php" method="POST" enctype="multipart/form-data">
 

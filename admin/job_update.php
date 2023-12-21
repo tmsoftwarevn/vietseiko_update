@@ -109,7 +109,7 @@ $all_cty = $cty::getAllCty();
 
                     <input name='id_job' value="<?php echo $job_modal['id_job'] ?>" style="display: none;" />
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Công ty</label>
                                 <select required name="id_cty" class="form-select">
@@ -126,7 +126,7 @@ $all_cty = $cty::getAllCty();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group" aria-label="Default select example">
                                 <label class="control-label" style="font-weight: 600;">*Ngành nghề :</label>
                                 <select required class="form-select" name="nganhnghe">
@@ -143,7 +143,10 @@ $all_cty = $cty::getAllCty();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Kinh Nghiệm :</label>
                                 <select required class="form-select" name="kinhnghiem">
@@ -160,11 +163,17 @@ $all_cty = $cty::getAllCty();
                                 </select>
                             </div>
                         </div>
-
+                        <div class="col-6">
+                            <div class="control-group">
+                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
+                                <div class="controls">
+                                    <input name="ngaycuoicung" value="<?php echo $job_modal['ngaycuoicung']; ?>" type="date" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Giới Tính :</label>
                                 <select required name="gioitinh" class="form-select">
@@ -181,7 +190,7 @@ $all_cty = $cty::getAllCty();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Hình thức :</label>
                                 <select required name="hinhthuc" class="form-select">
@@ -198,14 +207,7 @@ $all_cty = $cty::getAllCty();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="control-group">
-                                <label class="control-label" style="font-weight: 600;">*Ngày hết hạn :</label>
-                                <div class="controls">
-                                    <input name="ngaycuoicung" value="<?php echo $job_modal['ngaycuoicung']; ?>" type="date" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div class="row mt-5">
@@ -226,7 +228,7 @@ $all_cty = $cty::getAllCty();
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-4">
+                        <!-- <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Ngôn ngữ</label>
                                 <div class="controls">
@@ -237,7 +239,7 @@ $all_cty = $cty::getAllCty();
                     </div>
 
                     <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Chức vụ:</label>
                                 <div class="controls">
@@ -245,7 +247,7 @@ $all_cty = $cty::getAllCty();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Cấp Bậc:</label>
                                 <div class="controls">
@@ -253,7 +255,10 @@ $all_cty = $cty::getAllCty();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Số Lượng </label>
                                 <div class="controls">
@@ -261,10 +266,7 @@ $all_cty = $cty::getAllCty();
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row mt-5">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Mức Lương </label>
                                 <div class="controls">
@@ -272,7 +274,10 @@ $all_cty = $cty::getAllCty();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                    </div>
+                    <div class="row mt-5">
+
+                        <div class="col-6">
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Địa Chỉ </label>
                                 <div class="controls">
@@ -280,7 +285,7 @@ $all_cty = $cty::getAllCty();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
 
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Địa Chỉ Cụ Thể :</label>

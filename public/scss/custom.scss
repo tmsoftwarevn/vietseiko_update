@@ -153,13 +153,14 @@
     }
 }
 
-//tin tức ở index, blog list
+//tin tức ở index,
 
 .t {
     color: white;
 }
 
 .name_blog {
+    margin-top: 10px;
     line-height: 1.4;
     font-weight: 600;
     font-size: 18px;
@@ -182,29 +183,42 @@
     text-overflow: ellipsis;
 }
 .blog-post {
-    padding: 0 15px 15px;
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22), 0 5px 14px 0 rgba(0, 0, 0, .18);
-}
-.img_blog_l {
-    display: flex;
-    justify-content: center;
-    figure {
-       
-        height: 300px;
-        img {
+    box-shadow:
+        0 26px 58px 0 rgba(0, 0, 0, 0.22),
+        0 5px 14px 0 rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    .img_blog_l {
+        width: 100%;
+        figure {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
+            height: 250px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-top-left-radius: 7px;
+                border-top-right-radius: 7px;
+                box-sizing: border-box;
+                display: block;
+                
+            }
         }
     }
+    .blog-content {
+        padding: 0px 15px 15px;
+    }
 }
+
 .date-custom {
     background-color: #7a98bf;
     color: #fff;
     font-size: 14px;
     line-height: 28px;
     padding: 5px 15px 5px 20px;
-    margin-bottom: 15px;
+    //margin: 15px 0;
     position: relative;
     z-index: 1;
     width: fit-content;
@@ -213,7 +227,7 @@
         position: absolute;
         left: 0;
         bottom: -8px;
-        z-index: -1;    
+        z-index: -1;
         width: 0;
         height: 0;
         border-left: 9px solid transparent;
@@ -221,7 +235,24 @@
         border-top: 8px solid #6881a2;
     }
 }
-//detail blog
+
+//blog tất cả
+.t{
+
+}
+.blog-detail {
+    .tieude-detail{
+        margin-bottom: 10px;
+    }
+    .date-detail{
+        margin-bottom: 15px;
+        color: #a5a3a3;
+        font-size: 13px;
+        font-style: italic;
+    }
+    
+}
+//tin tức liên quan
 
 .t {
     color: white;
@@ -234,15 +265,17 @@
 .pr-blog {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 
     .img-detail-blog-new {
-        width: 70px;
+        margin: 0 auto;
+        width: 100px;
         margin-right: 10px;
-
         img {
             width: 100%;
-            border-radius: 8px;
+           
+            object-fit: cover;
+            border-radius: 5px;
         }
     }
     .pr-r {

@@ -28,6 +28,7 @@ $detail_Cty = $cty::getCty_byId($id);
         overflow: hidden;
         background-size: contain,
     }
+
     ul,
     ol,
     li {
@@ -70,10 +71,22 @@ $detail_Cty = $cty::getCty_byId($id);
                     <?php echo 'Chi tiết mã công ty: ' . $detail_Cty['id_cty'] ?>
                 </div>
 
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Tên Công Ty :</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $detail_Cty['name']; ?>" class="form-control" disabled />
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Tên Công Ty :</label>
+                            <div class="controls">
+                                <input type="text" value="<?php echo $detail_Cty['name']; ?>" class="form-control" disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="control-group">
+                            <label class="control-label" style="font-weight: 600;">*Quy mô:</label>
+                            <div class="controls">
+                                <input type="text" value="<?php echo $detail_Cty['quymo'] ?>" class="form-control" disabled />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="control-group">
@@ -84,46 +97,46 @@ $detail_Cty = $cty::getCty_byId($id);
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Quy mô:</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $detail_Cty['quymo'] ?>" class="form-control" disabled />
-                    </div>
-                </div>
-                <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Thông tin:</label>
                     <div style="border: 1px solid #ccc; background-color: #f4f4f4;padding: 20px 10px;">
                         <?php echo htmlspecialchars_decode($detail_Cty['about_cty']) ?>
                     </div>
-
                 </div>
+
+
                 <div class="control-group">
                     <label class="control-label" style="font-weight: 600;">*Địa chỉ :</label>
                     <div class="controls">
                         <input type="text" value="<?php echo $detail_Cty['address']; ?>" class="form-control" disabled />
                     </div>
                 </div>
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Type công ty :</label>
-
-                    <div class="controls">
-                        <input type="text" value="<?php echo $detail_Cty['type_name']; ?>" class="form-control" disabled />
+                <div class="row mt-5">
+                <div class="col-6">
+                    <div class="control-group">
+                        <label class="control-label" style="font-weight: 600;">*Type công ty :</label>
+                        <div class="controls">
+                            <input type="text" value="<?php echo $detail_Cty['type_name']; ?>" class="form-control" disabled />
+                        </div>
                     </div>
                 </div>
-
-                <div class="control-group">
-                    <label class="control-label" style="font-weight: 600;">*Ngày cập nhật gần nhất:</label>
-                    <div class="controls">
-                        <input type="text" value="<?php echo $detail_Cty['updated_at']; ?>" class="form-control" disabled />
+                <div class="col-6">
+                    <div class="control-group">
+                        <label class="control-label" style="font-weight: 600;">*Ngày cập nhật gần nhất:</label>
+                        <div class="controls">
+                            <input type="text" value="<?php echo $detail_Cty['updated_at']; ?>" class="form-control" disabled />
+                        </div>
                     </div>
                 </div>
-
+            </div>
             </div>
 
-        <?php
+    </div>
+
+<?php
         }
 
-        ?>
-    </div>
+?>
+</div>
 
 </body>
 

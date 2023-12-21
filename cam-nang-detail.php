@@ -7,8 +7,9 @@ if (isset($_GET['id'])) {
   echo "Khong nhan duoc ID";
 }
 
-$allBlog = $blog->detail($id);
-$relate_blog = $blog->getRelatedBlog($allBlog[0]['type_id'], 6);
+$allBlog = $cam_nang->detail($id);
+$relate_blog = $cam_nang->getRelatedBlog($allBlog[0]['type_id'], 6 );
+
 
 if ($allBlog[0]['type_id'] == 1) {
   $job_moinhat = $job::getLatestJob(8);
@@ -26,6 +27,7 @@ if ($allBlog[0]['type_id'] == 4) {
   $job_moinhat = $job_vietseiko::getLatestJob(8);
   $link = 'job-detail-vietseiko.php';
 }
+
 ?>
 <style>
   <?php include 'public/scss/custom.scss'; ?>
@@ -41,7 +43,7 @@ if ($allBlog[0]['type_id'] == 4) {
 
         <div>
           <ul class="wt-breadcrumb breadcrumb-style-2">
-            <li><a href="index.php">Tin tức</a></li>
+            <li><a href="index.php">Cẩm nang</a></li>
             <li><?php echo  $allBlog[0]['tieude_blog'] ?></li>
           </ul>
         </div>
@@ -102,7 +104,7 @@ if ($allBlog[0]['type_id'] == 4) {
                 <div class="widget recent-posts-entry">
                   <h4 class="section-head-small mb-5">Tin tức liên quan</h4>
                   <?php
-
+                 
                   foreach ($relate_blog as $key => $value) {
                   ?>
                     <div class="pr-blog">
@@ -110,7 +112,7 @@ if ($allBlog[0]['type_id'] == 4) {
                         <?php echo $value['img_blog'] ?>
                       </div>
                       <div class="pr-r">
-                        <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
+                        <a href="cam-nang-detail.php?id=<?php echo $value['id_blog']; ?>">
                           <div class="name-pr">
                             <?php echo $value['tieude_blog'] ?>
 
@@ -148,7 +150,7 @@ if ($allBlog[0]['type_id'] == 4) {
       <div class="section-content">
         <div class="owl-carousel twm-related-jobs-carousel owl-btn-vertical-center owl-loaded owl-drag">
           <?php
-
+         
           foreach ($job_moinhat as $key => $value) {
           ?>
 
@@ -179,7 +181,6 @@ if ($allBlog[0]['type_id'] == 4) {
                   <span class="twm-bg-sky">Mới nhất</span>
                 </div>
                 <div class="twm-mid-content">
-
                   <a href="<?php echo $link . '?id=' . $value['id_job'] ?>" class="twm-job-title">
                     <h5 class="twm-job-title" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
                       <?php echo $value['chucvu'] ?>
