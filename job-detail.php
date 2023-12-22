@@ -1,10 +1,14 @@
 <?php
-include 'header.php';
 
+include 'header.php';
 require_once "./admin/models/gioi_tinh.php";
 require_once "./admin/models/kinh_nghiem.php";
+require_once "./admin/models/apply.php";
+$apply_f = new Apply;
 $gioitinh = new Gioi_tinh;
 $kinh_nghiem = new Kinh_nghiem;
+
+
 
 $id = 1;
 if (isset($_GET['id'])) {
@@ -16,24 +20,58 @@ if (isset($_GET['id'])) {
 
 $allJob = $job->getJob_Detail($id);
 $name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
-
 $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem']);
 
+// if (isset($_POST['submit']) == TRUE && $_POST['submit'] == true) {
+
+//     $file_name = time() . $_FILES["file"]["name"];
+//     $file_type = $_FILES["file"]["type"];
+//     $fileTmpName = $_FILES["file"]["tmp_name"];
+//     $target_dir = "./admin/file-cv/list-file/";
+
+//     if ($file_name && $fileTmpName) {
+//         move_uploaded_file($fileTmpName, $target_dir . $file_name);
+//     }
+// }
+
+// $checkResult  = -1;
+// if (isset($_POST['submit']) == TRUE && $_POST['submit'] == true ) {
+
+//     $link_cv = $file_name;
+
+//     $name = $_POST['name'];
+//     $email = $_POST['email'];
+//     $phone = $_POST['phone'];
+
+//     $namsinh = $_POST['namsinh'];
+//     $mucluong = $_POST['mucluong'];
+//     $khuvuc = $_POST['khuvuc'];
+
+//     $vi_tri = $_POST['vitri'];
+//     $id_job = $_POST['id_job'];
+//     $checkResult = $apply_f->insert_apply($name, $email, $phone, $namsinh, $mucluong, $khuvuc, $vi_tri, $link_cv, $id_job);
+// }
+
 ?>
+
 <style>
     <?php include 'public/scss/custom.scss'; ?>#more {
         display: none;
     }
 
-    .ul-ct {
-        /* 
-        overflow: hidden !important;
-        list-style-position: inside !important; */
+    .centered-alert {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
     }
 </style>
 
 <title><?php echo $allJob[0]['chucvu'] ?></title>
+
 <!-- CONTENT START -->
+
 <div class="page-content" style="transform: none">
     <!-- INNER PAGE BANNER -->
     <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image: url(images/banner/1.jpg)">
@@ -54,8 +92,30 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
     </div>
     <!-- INNER PAGE BANNER END -->
 
+    <?php
+    if (isset($_SESSION['status'])) {
+        echo '<div class="centered-alert">
+            <div id="success-alert" class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                <strong>Thông báo</strong> Đã gửi cv thành công!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          </div>';
+
+
+        echo '<script>
+            $(document).ready(function(){
+                $("#success-alert").fadeTo(5000, 500).slideUp(500, function(){
+                    $("#success-alert").alert("close");
+                });
+            });
+          </script>';
+          unset($_SESSION['status']);
+    }
+    ?>
     <!-- OUR BLOG START -->
-    <div class="section-full p-t120 p-b90 bg-white" style="transform: none">
+    <div class="section-full p-t70 p-b90 bg-white" style="transform: none">
         <div class="container" style="transform: none">
             <!-- BLOG SECTION START -->
             <div class="section-content" style="transform: none">
@@ -98,7 +158,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <div class="twm-job-self-mid-left">
                                                     <span style="font-weight: 500;"> Mức lương:</span>
                                                     <span style="color: #1967d2;">
-                                                        <?php echo $allJob[0]['mucluong'] ?> 
+                                                        <?php echo $allJob[0]['mucluong'] ?>
                                                     </span>
                                                 </div>
                                                 <div class="twm-job-apllication-area">
@@ -312,12 +372,13 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
             </div>
 
+
         </div>
     </div>
 </div>
 <!-- OUR BLOG END -->
 <!-- RELATED JOBS START -->
-<div class="section-full p-t120 p-b90 site-bg-light-purple twm-related-jobs-carousel-wrap">
+<div class="section-full p-t80 p-b90 site-bg-light-purple twm-related-jobs-carousel-wrap">
     <!-- TITLE START-->
     <div class="section-head center wt-small-separator-outer">
         <div class="wt-small-separator site-text-primary">
@@ -337,7 +398,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
                     <div class="item">
                         <div class="twm-jobs-grid-style2">
-                        <?php
+                            <?php
                             if ($value['id_cty'] == 1) {
                             ?>
                                 <div class="twm-media">
@@ -395,8 +456,6 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 </div>
 <!-- CONTENT END -->
 
-
-
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeModalBtn" style="text-align: end;margin-right: 10px;font-size: 35px;">&times;</span>
@@ -413,9 +472,8 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <p>File CV phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.</p>
                 </div>
                 <form action="./admin/file-cv/code/add_file_cv.php" method="POST" enctype="multipart/form-data">
-
+                    <!-- <form action="" method="post" enctype="multipart/form-data"> -->
                     <button class="btn btn-info btn-block button-upload">
-
                         <label class="upload-option">
                             <input name="file" id="file" type="file" class="upload-input" accept=".pdf, .doc, .docx" required onchange="handleFileUpload(event)">
                             <span class="svicon-upload mr-2"></span>
@@ -424,24 +482,45 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <div id="error-message" class="text-danger mt-2"></div>
                     <p id="uploadSuccess" class="text-success mt-2"></p>
 
+                    <input name="id_job" value=<?php echo $allJob[0]['id_job'] ?> style="display: none;" />
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Họ Và Tên <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control rounded input-field" id="fullName" placeholder="Nhập họ và tên của bạn" required>
+                        <input name="name" type="text" class="form-control rounded input-field" id="fullName" required>
                         <span id="fullNameError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                        <input required type="email" class="form-control rounded input-field" id="email" placeholder="Nhập địa chỉ email của bạn">
+                        <input name="email" required type="email" class="form-control rounded input-field" id="email">
                         <span id="emailError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label">Số Điện Thoại <span class="text-danger">*</span></label>
-                        <input type="tel" class="form-control rounded input-field" id="phoneNumber" placeholder="Nhập số điện thoại của bạn" required pattern="(03|05|07|08|09)[0-9]{8}">
+                        <input name="phone" type="tel" class="form-control rounded input-field" id="phoneNumber" required pattern="(03|05|07|08|09)[0-9]{8}">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Năm sinh <span class="text-danger">*</span></label>
+                        <input required name="namsinh" type="text" class="form-control rounded input-field" id="phoneNumber">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Mức lương mong muốn <span class="text-danger">*</span></label>
+                        <input required name="mucluong" type="text" class="form-control rounded input-field" id="phoneNumber">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Khu vực mong muốn <span class="text-danger">*</span></label>
+                        <input required name="khuvuc" type="text" class="form-control rounded input-field" id="phoneNumber">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Vị trí ứng tuyển <span class="text-danger">*</span></label>
+                        <input required name="vitri" type="text" class="form-control rounded input-field" id="phoneNumber">
                         <span id="phoneNumberError" class="text-danger"></span>
                     </div>
                     <hr>
                     <div class="card-footer mt-3 d-flex justify-content-between align-items-center">
-                        <button class="btn btn-primary" type="submit" style="font-size: 14px;">Nộp Hồ Sơ</button>
+                        <button class="btn btn-primary" type="submit" name="submit" style="font-size: 14px;">Nộp Hồ Sơ</button>
                     </div>
                 </form>
             </div>
@@ -491,6 +570,12 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
         }
     }
 </script>
+
+<!-- <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script> -->
 <?php
 require_once 'footer.php';
 ?>

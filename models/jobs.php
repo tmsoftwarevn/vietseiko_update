@@ -106,7 +106,7 @@ class Job_f extends Db
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage;
         // $sql = self::$connection->prepare("SELECT * FROM job order by created_at desc LIMIT $firstLink, $resultsPerPage");
-        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty order by job.created_at desc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT job.*,cty.name,cty.img_cty FROM job INNER JOIN cty ON job.id_cty = cty.id_cty order by job.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -124,52 +124,74 @@ class Job_f extends Db
         return $items;
     }
 
-    static function test(){
-        $sql = self::$connection->prepare("SELECT * FROM job where id_job = 37");
-        //$sql->bind_param("i", $id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
 
+    // tổng số search được
     static function searchJob_vn($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)
     {
-        $sql = "SELECT * FROM job WHERE 1=1";
-
-        if ($id_nganhnghe != '') {
-            $sql .= " AND id_nganhnghe = ?";
+        
+        $sql = "SELECT * FROM job WHERE ";
+        $d = 0;
+        if ($id_nganhnghe !== '') {
+            $sql .= "id_nganhnghe = $id_nganhnghe ";
+            $d += 1;
         }
-        if ($id_hinhthuc != '') {
-            $sql .= " AND id_hinhthuc = ?";
+        
+        if ($id_hinhthuc !== '') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_hinhthuc = $id_hinhthuc ";
+            $d += 1;
         }
-        if ($id_kinhnghiem != '') {
-            $sql .= " AND id_kinhnghiem = ?";
+        
+        if ($id_kinhnghiem !== '') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_kinhnghiem = $id_kinhnghiem ";
         }
-        if ($id_gioitinh != '') {
-            $sql .= " AND id_gioitinh = ?";
+       
+        if ($id_gioitinh !== '') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_gioitinh = $id_gioitinh ";
         }
-
+        
         $stmt = self::$connection->prepare($sql);
-
-        if ($id_nganhnghe != '') {
-            $stmt->bind_param("s", $id_nganhnghe);
-        }
-        if ($id_hinhthuc != '') {
-            $stmt->bind_param("s", $id_hinhthuc);
-        }
-        if ($id_kinhnghiem != '') {
-            $stmt->bind_param("s", $id_kinhnghiem);
-        }
-        if ($id_gioitinh != '') {
-            $stmt->bind_param("s", $id_gioitinh);
-        }
-
         $stmt->execute();
         $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
         return $items;
     }
+    // phan trang search
+    static function searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page, $resultsPerPage)
+    {
+        $firstLink = ($page - 1) * $resultsPerPage;
+        $sql = "SELECT job.*,cty.name,cty.img_cty FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE ";
+        $d = 0;
+        if ($id_nganhnghe !== '') {
+            $sql .= "id_nganhnghe = $id_nganhnghe ";
+            $d += 1;
+        }
+        
+        if ($id_hinhthuc !== '') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_hinhthuc = $id_hinhthuc ";
+            $d += 1;
+        }
+        
+        if ($id_kinhnghiem !== '') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_kinhnghiem = $id_kinhnghiem ";
+        }
+       
+        if ($id_gioitinh !== '') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_gioitinh = $id_gioitinh ";
+        }
+        
+        $sql .= "ORDER BY job.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage";
+        $stmt = self::$connection->prepare($sql);
+        $stmt->execute();
+        $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
+        return $items;
+    }
     /**____________________________________________________________________________________________________
      * PAGINATE: ĐÁNH SỐ TRANG, TẠO LINK TỚI CÁC TRANG.
      */

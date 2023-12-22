@@ -2,21 +2,58 @@
 include 'header.php';
 require_once "models/jobs.php";
 
-$id = 1;
+
+$page = 1;
+$resultsPerPage =3;
+$url_save = $_SERVER['REQUEST_URI'];
+$path = $url_save;
+
+//custom path douple page
+$parts = explode('&', $path);
+
+if (count($parts) > 4) {
+    array_pop($parts);
+    $url_save = implode('&', $parts);
+    $not_search=false;
+} else {
+    
+}
+
 if (isset($_GET['page'])) {
-    //$id = $_GET['id'];
+    $page = $_GET['page'];
 } else {
     //echo "Khong nhan duoc ID";
 }
-$allJob = $job::getAllJob();
+
 
 ?>
 
 <?php
-if (isset($_GET["id_nganhnghe"])) {
-    
+$id_gioitinh = '';
+$allJob = [];
+$totalJob=1;
+if (
+    (isset($_GET['id_nganhnghe']) && !empty($_GET['id_nganhnghe'])) || (isset($_GET['id_hinhthuc']) && !empty($_GET['id_hinhthuc']))
+    || (isset($_GET['id_kinhnghiem']) && !empty($_GET['id_kinhnghiem'])) || (isset($_GET['id_gioitinh']) && !empty($_GET['id_gioitinh']))
+
+) {
+    $id_nganhnghe = $_GET['id_nganhnghe'];
+    $id_hinhthuc = $_GET['id_hinhthuc'];
+    $id_kinhnghiem = $_GET['id_kinhnghiem'];
+    $id_gioitinh = $_GET['id_gioitinh'];
+   
+    //search all, tính tổng
+    $kq = $job::searchJob_vn($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh);
+    $totalPages = ceil(floatval(count($kq)) / floatval($resultsPerPage));
+    // phân trang
+    $search_phantrang = $job::searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page,$resultsPerPage);
+    $allJob = $search_phantrang;
+    $totalJob = count($kq);
 } else {
-    echo 'rrrrrrrr';
+    $allJob = $job::getAllJob_andCreatePagination($page,$resultsPerPage);
+    $totalJob = count($job::getAllJob());
+    $totalPages = ceil(floatval($totalJob) / floatval($resultsPerPage));
+   
 }
 
 ?>
@@ -83,51 +120,64 @@ if (isset($_GET["id_nganhnghe"])) {
                 <form method="get" action="">
                     <div class="row ">
                         <div class="col-3">
-                            <select class="nganhnghe" name="id_nganhnghe">
+                            <select name="id_nganhnghe">
                                 <option value="">Tất cả ngành nghề</option>
                                 <?php
                                 foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
+                                    if ($value['id_nganhnghe'] == $id_nganhnghe) {
+                                        echo ('<option selected="selected" value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
+                                    } else {
+                                        echo ('<option value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
+                                    }
+                                }
+
                                 ?>
-                                    <option value="<?php echo $value['id_nganhnghe'] ?>">
-                                        <?php echo $value['name_nganhnghe'] ?>
-                                    </option>
-                                <?php } ?>
                             </select>
                         </div>
                         <div class="col-3">
-                            <select class="selectpicker" data-live-search="true">
-                                <option value="">Hình thức làm việc</option>
+                            <select name="id_hinhthuc">
+                                <option value="">Tất cả hình thức</option>
                                 <?php
-                                foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
-                                    <option value="<?php echo $value['id_hinhthuc'] ?>">
-                                        <?php echo $value['name_hinhthuc'] ?>
-                                    </option>
-                                <?php } ?>
+                                foreach ($hinhthuc->getAllHinhThuc() as $key => $value) {
+                                    if ($value['id_hinhthuc'] == $id_hinhthuc) {
+                                        echo ('<option selected="selected" value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
+                                    } else {
+                                        echo ('<option value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
+                                    }
+                                } ?>
 
                             </select>
                         </div>
                         <div class="col-3">
-                            <select class="kinhnghiem">
+                            <select name="id_kinhnghiem">
                                 <option value="">Tất cả kinh nghiệm</option>
                                 <?php
-                                foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) { ?>
-                                    <option value="<?php echo $value['id_kn'] ?>">
-                                        <?php echo $value['name_kn'] ?>
-                                    </option>
-                                <?php } ?>
+                                foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) {
+                                    if ($value['id_kn'] == $id_kinhnghiem) {
+                                        echo ('<option selected="selected" value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
+                                    } else {
+                                        echo ('<option value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
+                                    }
+                                } ?>
 
                             </select>
                         </div>
                         <div class="col-3">
-                            <select class="gioitinh">
+                            <select name="id_gioitinh">
                                 <option value="">Tất cả giới tính</option>
-                                <option value="1">Nam</option>
-                                <option value="2">Nữ</option>
-                                <option value="3">Không yêu cầu</option>
+                                <option <?php
+                                        if (1 == $id_gioitinh) echo 'selected="selected"'
+                                        ?> value="1">Nam</option>
+                                <option <?php
+                                        if ($id_gioitinh == 2) echo 'selected="selected"'
+                                        ?> value="2">Nữ</option>
+                                <option <?php
+                                        if ($id_gioitinh == 3) echo 'selected="selected"'
+                                        ?> value="3">Không yêu cầu</option>
                             </select>
                         </div>
                     </div>
-                    <input type="submit" class="search" name="submit" value="Tìm kiếm">
+                    <button type="submit" class="search">Tìm kiếm</button>
                 </form>
             </div>
         </form>
@@ -136,7 +186,7 @@ if (isset($_GET["id_nganhnghe"])) {
     <div class="container">
 
         <div class="content-list">
-            <p style="font-weight: 500;">Có <span style="color: red;">500 </span> việc làm đang tuyển dụng</p>
+            <p style="font-weight: 500;">Có <span style="color: red;"><?php echo $totalJob ?> </span> việc làm phù hợp</p>
             <?php
             foreach ($allJob as $key => $value) {
             ?>
@@ -191,7 +241,7 @@ if (isset($_GET["id_nganhnghe"])) {
                             </div>
                             <div style="font-weight: 500;color: #636e72;font-size: 13px;">
                                 <?php
-                                $dateTime = new DateTime($allJob[0]['updated_at']);
+                                $dateTime = new DateTime($value['updated_at']);
                                 $formattedDate = $dateTime->format('d/m/Y');
                                 echo 'Cập nhật: ' . $formattedDate;
                                 ?>
@@ -199,7 +249,7 @@ if (isset($_GET["id_nganhnghe"])) {
                             <div style="font-weight: 500;color: #636e72;font-size: 13px;">
                                 <?php
                                 $ngayHienTai = new DateTime();
-                                $ngayDen = new DateTime($allJob[0]['ngaycuoicung']);
+                                $ngayDen = new DateTime($value['ngaycuoicung']);
                                 $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
                                 echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
                                 ?>
@@ -222,14 +272,14 @@ if (isset($_GET["id_nganhnghe"])) {
             $range = 2; // Number of pages before and after the current page to display
             $output = '';
             $d = 1;
-            global $typeJob;
+            global $url_save;
 
             if ($totalPages > 1) {
                 // Previous button
                 if ($currentPage > 1) {
                     $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
                     $output .= '<li class="page-item">';
-                    $output .= '<a class="page-link" href="?page=' . $prevPage . '" aria-label="Previous">';
+                    $output .= '<a class="page-link" href="'. $url_save.'&page=' . $prevPage . '" aria-label="Previous">';
                     $output .= '<span aria-hidden="true">&laquo;</span>';
                     $output .= '</a>';
                     $output .= '</li>';
@@ -240,7 +290,7 @@ if (isset($_GET["id_nganhnghe"])) {
                     if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
                         $output .= '<li class="page-item';
                         $output .= ($i == $currentPage) ? ' active">' : '">';
-                        $output .= '<a class="page-link" href="?page=' . $i . '">' . $i . '</a>';
+                        $output .= '<a class="page-link" href="'. $url_save.'&page=' . $i . '">' . $i . '</a>';
                         $output .= '</li>';
                     } elseif (!strpos($output, '<li class="page-item dots">...</li>') || $d < 3) {
                         if ($d > 2) {
@@ -254,7 +304,7 @@ if (isset($_GET["id_nganhnghe"])) {
                 if ($currentPage < $totalPages) {
                     $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
                     $output .= '<li class="page-item">';
-                    $output .= '<a class="page-link" href="?page=' . $nextPage . '" aria-label="Next">';
+                    $output .= '<a class="page-link" href="'. $url_save.'&page=' . $nextPage . '" aria-label="Next">';
                     $output .= '<span aria-hidden="true">&raquo;</span>';
                     $output .= '</a>';
                     $output .= '</li>';
@@ -263,11 +313,11 @@ if (isset($_GET["id_nganhnghe"])) {
 
             return $output;
         }
-        $totalPages = 10; // Replace with the actual total number of pages
-        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-
+        // $totalPages = 10; // Replace with the actual total number of pages
+        // $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        // $totalPages = ceil(floatval($totalResults) / floatval($resultsPerPage));
         echo '<ul class="pagination justify-content-center pagination-lg" id="pagination">';
-        echo generatePagination($currentPage, $totalPages);
+        echo generatePagination($page, $totalPages);
         echo '</ul>';
         echo '<div style="margin-bottom: 90px"> </div>'
         ?>

@@ -54,7 +54,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
     <!-- INNER PAGE BANNER END -->
 
     <!-- OUR BLOG START -->
-    <div class="section-full p-t120 p-b90 bg-white" style="transform: none">
+    <div class="section-full p-t80 p-b90 bg-white" style="transform: none">
         <div class="container" style="transform: none">
             <!-- BLOG SECTION START -->
             <div class="section-content" style="transform: none">
@@ -327,7 +327,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 </div>
 <!-- OUR BLOG END -->
 <!-- RELATED JOBS START -->
-<div class="section-full p-t120 p-b90 site-bg-light-purple twm-related-jobs-carousel-wrap">
+<div class="section-full p-t80 p-b90 site-bg-light-purple twm-related-jobs-carousel-wrap">
     <!-- TITLE START-->
     <div class="section-head center wt-small-separator-outer">
         <div class="wt-small-separator site-text-primary">

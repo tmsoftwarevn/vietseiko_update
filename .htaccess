@@ -1,5 +1,11 @@
+# RewriteEngine On
+# RewriteBase /
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule . /index.php [L]
 
+# Options +FollowSymLinks
+# RewriteEngine On
 
-RewriteEngine on
-RewriteCond %{REQUEST_URI} ^/product/([0-9]+)$ [NC]
-RewriteRule ^product/(.*)?$ job-detail.php?id=$1 [L,QSA]
+# # Rewrite job/37 to job-detail.php?id=37
+# RewriteRule ^job/([0-9]+)$ /job-detail.php?id=$1 [QSA,L]

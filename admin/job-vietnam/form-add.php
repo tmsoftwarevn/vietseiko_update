@@ -12,6 +12,7 @@ $job = new Job;
 
 $checkResult  = -1;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   
     $id_cty = $_POST['cty'];
     $id_nganhnghe = $_POST['nganhnghe'];
     $id_kinhnghiem = $_POST['kinhnghiem'];

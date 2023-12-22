@@ -103,27 +103,20 @@ $all_type = $type::getAllType();
                     <div class="row mt-5">
                         <div class="col-6">
                             <div class="control-group">
-                                <label for="searchInput">Search:</label>
-                                <input type="text" id="searchInput" list="optionsList" oninput="filterOptions()">
-
-                                <!-- <datalist id="optionsList">
-                                    <option value="Option 1" label="Description 1">
-                                    <option value="Option 2" label="Description 2">
-                                    <option value="Option 3" label="Description 3">
-                                </datalist> -->
-                                <datalist required class="form-select" name="cty" id="optionsList">
+                                <!-- <label for="searchInput">Search:</label>
+                                <input type="text" value="test" id="searchInput" list="optionsList" name="selectedValue" oninput="filterOptions()">                               
+                                <datalist required   id="optionsList" >
                                     <?php
                                     foreach ($all_cty as $key => $value) {
                                     ?>
                                         <option value="<?php echo $value['id_cty'] ?>" label="<?php echo $value['name'] ?>">
-
                                         <?php
                                     }
                                         ?>
-                                </datalist>
+                                </datalist> -->
                                 <!-- Add more options as needed -->
                                 <label class="control-label" style="font-weight: 600;">*Công ty</label>
-                                <!-- <select required class="form-select" name="cty">
+                                <select required class="form-select" name="cty">
                                     <option disabled selected value>-- chọn công ty --</option>
                                     <?php
                                     foreach ($all_cty as $key => $value) {
@@ -134,7 +127,7 @@ $all_type = $type::getAllType();
                                     <?php
                                     }
                                     ?>
-                                </select> -->
+                                </select>
                             </div>
                         </div>
                         <div class="col-6">

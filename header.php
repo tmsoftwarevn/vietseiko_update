@@ -343,7 +343,7 @@ $job_vietseiko = new Vietseiko_f;
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;" > <a href="/job-list-vn.php">Việc làm tại Việt Nam</a></li>
+                                        <li style="cursor: pointer;" > <a href="job-list-vn.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Việc làm tại Việt Nam</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-xkld.php">Xuất khẩu lao động Nhật Bản</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-ksnb.php">Kỹ sư & thông dịch viên Nhật Bản</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-vietseiko.php">Việc làm tại Vietseiko</a></li>

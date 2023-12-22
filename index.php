@@ -283,7 +283,7 @@ $totalPages = 1;
                         <div class="job-name">
                             <div>Việc làm tại Việt Nam</div>
                         </div>
-                        <a href="job-list-vn.php">
+                        <a href="job-list-vn.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
                             <span class="btn-view-all">Xem tất cả</span>
                         </a>
                     </div>

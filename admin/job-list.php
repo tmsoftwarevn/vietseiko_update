@@ -58,7 +58,6 @@ $nganhnghe = new Nganhnghe;
                   <th>Mã công việc</th>
                   <th>Tên công ty</th>
                   <th>Chức vụ</th>
-                 
                   <th>Trạng Thái</th>
                   <th>Actions</th>
                 </tr>

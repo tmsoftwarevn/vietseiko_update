@@ -984,7 +984,7 @@ $jobAdmin = new Job;
                             <span class="nav-text">Danh sách ứng viên</span>
                         </a>
                         <ul aria-expanded="false">                           
-                            <li><a href="#4">Công việc tại Việt Nam</a></li>  
+                            <li><a href="cv-vn-list.php">Công việc tại Việt Nam</a></li>  
                             <li><a href="#4">Công việc XKLD tại Nhật Bản</a></li>                                                    
                             <li><a href="#4">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>  
                             <li><a href="#4">Công việc tại VietSeiko</a></li>  
