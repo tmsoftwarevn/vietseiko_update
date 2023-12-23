@@ -52,7 +52,28 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
         </div>
     </div>
     <!-- INNER PAGE BANNER END -->
+    <?php
+    if (isset($_SESSION['status'])) {
+        echo '<div class="centered-alert">
+            <div id="success-alert" class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                <strong>Thông báo</strong> Đã gửi cv thành công!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          </div>';
 
+
+        echo '<script>
+            $(document).ready(function(){
+                $("#success-alert").fadeTo(5000, 500).slideUp(500, function(){
+                    $("#success-alert").alert("close");
+                });
+            });
+          </script>';
+          unset($_SESSION['status']);
+    }
+    ?>
     <!-- OUR BLOG START -->
     <div class="section-full p-t80 p-b90 bg-white" style="transform: none">
         <div class="container" style="transform: none">
@@ -422,9 +443,8 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <p>File phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.</p>
                 </div>
                 <form action="./admin/file-cv/code/add_file_cv.php" method="POST" enctype="multipart/form-data">
-
+                    <!-- <form action="" method="post" enctype="multipart/form-data"> -->
                     <button class="btn btn-info btn-block button-upload">
-
                         <label class="upload-option">
                             <input name="file" id="file" type="file" class="upload-input" accept=".pdf, .doc, .docx" required onchange="handleFileUpload(event)">
                             <span class="svicon-upload mr-2"></span>
@@ -433,24 +453,46 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <div id="error-message" class="text-danger mt-2"></div>
                     <p id="uploadSuccess" class="text-success mt-2"></p>
 
+                    <input name="id_job" value=<?php echo $allJob[0]['id_job'] ?> style="display: none;" />
+                    <input name="type_id" value="2" style="display: none;" />
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Họ Và Tên <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control rounded input-field" id="fullName" placeholder="Nhập họ và tên của bạn" required>
+                        <input name="name" type="text" class="form-control rounded input-field" id="fullName" required>
                         <span id="fullNameError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                        <input required type="email" class="form-control rounded input-field" id="email" placeholder="Nhập địa chỉ email của bạn">
+                        <input name="email" required type="email" class="form-control rounded input-field" id="email">
                         <span id="emailError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label">Số Điện Thoại <span class="text-danger">*</span></label>
-                        <input type="tel" class="form-control rounded input-field" id="phoneNumber" placeholder="Nhập số điện thoại của bạn" required pattern="(03|05|07|08|09)[0-9]{8}">
+                        <input name="phone" type="tel" class="form-control rounded input-field" id="phoneNumber" required pattern="(03|05|07|08|09)[0-9]{8}">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Năm sinh <span class="text-danger">*</span></label>
+                        <input required name="namsinh" type="text" class="form-control rounded input-field" id="phoneNumber">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Mức lương mong muốn <span class="text-danger">*</span></label>
+                        <input required name="mucluong" type="text" class="form-control rounded input-field" id="phoneNumber">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Khu vực mong muốn <span class="text-danger">*</span></label>
+                        <input required name="khuvuc" type="text" class="form-control rounded input-field" id="phoneNumber">
+                        <span id="phoneNumberError" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Vị trí ứng tuyển <span class="text-danger">*</span></label>
+                        <input required name="vitri" type="text" class="form-control rounded input-field" id="phoneNumber">
                         <span id="phoneNumberError" class="text-danger"></span>
                     </div>
                     <hr>
                     <div class="card-footer mt-3 d-flex justify-content-between align-items-center">
-                        <button class="btn btn-primary" type="submit" style="font-size: 14px;">Nộp Hồ Sơ</button>
+                        <button class="btn btn-primary" type="submit" name="submit" style="font-size: 14px;">Nộp Hồ Sơ</button>
                     </div>
                 </form>
             </div>

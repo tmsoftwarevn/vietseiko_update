@@ -29,6 +29,8 @@ $cty = new Congty;
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -49,14 +51,14 @@ $cty = new Congty;
       <div class="row">
         <div class="col-xl-12">
           <div class="table-responsive">
-            <table class="table display mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
+            <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
               <thead>
                 <tr>
-                  <th>Mã id</th>
+                  <th>STT</th>
                   <th>Tên công ty</th>
                   <th>Địa chỉ</th>
                   <th>Type công ty</th>
-                 
+
                   <th>Action</th>
                 </tr>
               </thead>
@@ -68,19 +70,19 @@ $cty = new Congty;
                 if (isset($_GET['page']) == TRUE) {
                   $page = $_GET['page'];
                 }
-                
+
                 $list_of_job = $cty::getAllcty_andCreatePagination($page, $resultsPerPage);
-                
-                $total = ceil(floatval($totalResults)/floatval($resultsPerPage));
+
+                $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
                 echo "<p style=\"text-align:center;margin-bottom: 30px;\"><b>Danh sách có $totalResults công ty</b></p>";
                 foreach ($list_of_job as $key => $value) {
                 ?>
                   <tr>
-                    <td><?php echo $value['id_cty'] ?></td>
+                    <td><?php echo $key + 1 ?></td>
                     <td><?php echo $value['name'] ?></td>
-                    <td><?php echo $value['address'] ?></td>                  
+                    <td><?php echo $value['address'] ?></td>
                     <td><?php echo $value['type_name'] ?></td>
-                    
+
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
                         <a class="btn btn-success light mr-2 " href="company-view.php?typeView=cty&id=<?php echo $value['id_cty'] ?>">
@@ -103,7 +105,7 @@ $cty = new Congty;
                           </svg>
                         </a>
 
-                        <a onclick="return confirm('Xác nhận muốn xóa công ty có id: <?php echo $value['id_cty']; ?>?')" href="job-vietnam/delete_cty.php?id_cty=<?php echo $value['id_cty']; ?>" class="btn btn-danger light">
+                        <!-- <a onclick="return confirm('Xác nhận muốn xóa công ty có id: <?php echo $value['id_cty']; ?>?')" href="job-vietnam/delete_cty.php?id_cty=<?php echo $value['id_cty']; ?>" class="btn btn-danger light">
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <rect x="0" y="0" width="24" height="24"></rect>
@@ -111,7 +113,7 @@ $cty = new Congty;
                               <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
                             </g>
                           </svg>
-                        </a>
+                        </a> -->
                       </div>
                     </td>
                   </tr>
@@ -119,7 +121,7 @@ $cty = new Congty;
               </tbody>
             </table>
             <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
-              <span>Trang <?php echo $page . '/'. $total ?></span>
+              <span>Trang <?php echo $page . '/' . $total ?></span>
               <nav aria-label="Page navigation example">
                 <ul class="pagination my-2 my-md-0">
                   <?php echo $cty::paginate("company-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
@@ -135,7 +137,14 @@ $cty = new Congty;
   </div>
 
 
-
+  <script>
+    $('#jobsTable').DataTable({
+      "lengthChange": false,
+      //"searching": false,
+      "paging": false,
+      "info": false
+    });
+  </script>
 </body>
 
 </html>

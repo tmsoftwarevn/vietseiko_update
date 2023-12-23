@@ -28,10 +28,7 @@ $totalResults = count(Tin_tuc::getAll_Blog());
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 <style>
-    .search {
-        padding: 5px;
-        width: 300px;
-    }
+    
 </style>
 
 <body>
@@ -45,12 +42,11 @@ $totalResults = count(Tin_tuc::getAll_Blog());
                     
                 </div>
             </div>
-            <input type="text" placeholder="Từ khóa " class="search" />
-            <button class="btn btn-primary">Tìm kiếm</button>
+            
             <table id="jobsTable" class="display table table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Stt</th>
                         <th>Tên blog</th>
                         <th>Type công việc</th>
                         <th>Ngày đăng</th>
@@ -72,7 +68,7 @@ $totalResults = count(Tin_tuc::getAll_Blog());
                     foreach ($list_of_job as $key => $value) {
                     ?>
                         <tr>
-                            <td><?php echo $value['id_blog'] ?></td>
+                            <td><?php echo $key+1 ?></td>
                             <td><?php echo $value['tieude_blog'] ?></td>
                             <td><?php echo $value['type_name'] ?></td>
                             <td><?php echo $value['created_at'] ?></td>
@@ -90,7 +86,7 @@ $totalResults = count(Tin_tuc::getAll_Blog());
                                         </svg>
                                     </a>
 
-                                    <a onclick="return confirm('Xác nhận muốn xóa công việc có Mã: <?php echo $value['id_blog']; ?>?')" href="job-vietnam/delete_blog.php?id_blog=<?php echo $value['id_blog']; ?>" class="btn btn-danger light">
+                                    <a onclick="return confirm('Xác nhận muốn xóa công việc có stt: <?php echo $key+1; ?>?')" href="job-vietnam/delete_blog.php?id_blog=<?php echo $value['id_blog']; ?>" class="btn btn-danger light">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>

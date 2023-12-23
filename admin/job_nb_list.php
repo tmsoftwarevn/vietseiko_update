@@ -30,6 +30,8 @@ $nganhnghe = new Nganhnghe;
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -50,9 +52,10 @@ $nganhnghe = new Nganhnghe;
       <div class="row">
         <div class="col-xl-12">
           <div class="table-responsive">
-            <table class="table display mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
+            <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
               <thead>
                 <tr>
+                <th>STT</th>
                   <th>Mã công việc</th>
                   <th>Tên công ty</th>
                   <th>Chức vụ</th>         
@@ -76,10 +79,10 @@ $nganhnghe = new Nganhnghe;
                 foreach ($list_of_job as $key => $value) {
                 ?>
                   <tr>
+                  <td><?php echo $key+1 ?></td>
                     <td><?php echo $value['job_code'] ?></td>
                     <td><?php echo $value['name'] ?></td>
-                    <!-- <td><?php $nganhngheName = $jobAdmin->getNganhnghe($value['id_nganhnghe']);
-                        foreach ($nganhngheName as $name => $num) echo $num['name_nganhnghe'] ?></td> -->
+                    
                     <td><?php echo $value['chucvu'] ?></td>
                     
                       
@@ -146,7 +149,14 @@ $nganhnghe = new Nganhnghe;
     </div>
 
   </div>
-
+  <script>
+        $('#jobsTable').DataTable({
+            "lengthChange": false,
+            //"searching": false,
+            "paging": false,
+            "info": false
+        });
+    </script>
 </body>
 
 </html>

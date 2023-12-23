@@ -60,7 +60,7 @@ $name_gioitinh = $gioitinh->getGioitinh_byId($job_modal['id_gioitinh']);
 
     <div class="content-body">
         <?php
-        if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job") {
+        if (isset($_GET['typeView']) == TRUE && $_GET['typeView'] == "job" ) {
         ?>
 
             <div class="body-view-job" style="padding: 0 100px 50px 100px">

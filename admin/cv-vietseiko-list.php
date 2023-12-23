@@ -38,7 +38,7 @@ $apply = new Apply;
 
         <div class="container-fluid">
             <div class="d-flex align-items-center mb-4 flex-wrap">
-                <h3 class="me-auto">Thông tin ứng viên công việc Việt Nam</h3>
+                <h3 class="me-auto">Thông tin ứng viên công việc VietSeiko</h3>
 
             </div>
             <div class="row">
@@ -64,12 +64,12 @@ $apply = new Apply;
                                 <?php
                                 $page = 1;
                                 $resultsPerPage = 10;
-                                $totalResults = count(Apply::getAll_cv(1));
+                                $totalResults = count(Apply::getAll_cv(4));
                                 if (isset($_GET['page']) == TRUE) {
                                     $page = $_GET['page'];
                                 }
 
-                                $list_of_apply = Apply::getAll_CV_andCreatePagination($page, $resultsPerPage, 1);
+                                $list_of_apply = Apply::getAll_vietseiko_andCreatePagination($page, $resultsPerPage, 4);
                                 echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
                                 $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
 
@@ -77,7 +77,7 @@ $apply = new Apply;
                                 ?>
                                     <tr>
                                         <td>
-                                            <a href="job_view.php?typeView=job&id=<?php echo $value['id_job'] ?>">
+                                            <a href="job_vietseiko_view.php?typeView=job-vietseiko&id=<?php echo $value['id_job'] ?>">
                                                 <?php echo $value['job_code'] ?>
                                             </a>
                                         </td>
@@ -104,7 +104,7 @@ $apply = new Apply;
                             <span>Trang <?php echo $page . '/' . $total ?></span>
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination my-2 my-md-0">
-                                    <?php echo Apply::paginate("cv-vn-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
+                                    <?php echo Apply::paginate("cv-vietseiko-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
                                 </ul>
                             </nav>
                         </div>

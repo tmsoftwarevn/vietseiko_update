@@ -183,7 +183,7 @@ $allJob = $job_kysu::getAllJob();
                             </div>
                             <div style="font-weight: 500;color: #636e72;font-size: 13px;">
                                 <?php
-                                $dateTime = new DateTime($allJob[0]['updated_at']);
+                                $dateTime = new DateTime($value['updated_at']);
                                 $formattedDate = $dateTime->format('d/m/Y');
                                 echo 'Cập nhật: ' . $formattedDate;
                                 ?>
@@ -191,7 +191,7 @@ $allJob = $job_kysu::getAllJob();
                             <div style="font-weight: 500;color: #636e72;font-size: 13px;">
                                 <?php
                                 $ngayHienTai = new DateTime();
-                                $ngayDen = new DateTime($allJob[0]['ngaycuoicung']);
+                                $ngayDen = new DateTime($value['ngaycuoicung']);
                                 $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
                                 echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
                                 ?>

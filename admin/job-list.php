@@ -31,7 +31,7 @@ $nganhnghe = new Nganhnghe;
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -55,6 +55,7 @@ $nganhnghe = new Nganhnghe;
             <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
               <thead>
                 <tr>
+                  <th>STT</th>
                   <th>Mã công việc</th>
                   <th>Tên công ty</th>
                   <th>Chức vụ</th>
@@ -70,23 +71,21 @@ $nganhnghe = new Nganhnghe;
                 if (isset($_GET['page']) == TRUE) {
                   $page = $_GET['page'];
                 }
-                
+
                 $list_of_job = Job::getAllJob_andCreatePagination($page, $resultsPerPage);
                 echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
-                $total = ceil(floatval($totalResults)/floatval($resultsPerPage));
-                            
+                $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
+
                 foreach ($list_of_job as $key => $value) {
                 ?>
                   <tr>
+                    <td><?php echo $key + 1 ?></td>
                     <td><?php echo $value['job_code'] ?></td>
                     <td><?php echo $value['name'] ?></td>
                     <td><?php echo $value['chucvu'] ?></td>
-                   
+
                     <td>
-                      <span class="badge badge-success badge-lg light"
-                      <?php if($value['id_trangthai'] == '0') echo 'style="background-color: red;color: white"'?>
-                     
-                      >
+                      <span class="badge badge-success badge-lg light" <?php if ($value['id_trangthai'] == '0') echo 'style="background-color: red;color: white"' ?>>
                         <?php $trangthaiName = $trangthaiAdmin->getTrangThai($value['id_trangthai']);
                         foreach ($trangthaiName as $name => $num) echo $num['name_trangthai'] ?>
                       </span>
@@ -115,7 +114,7 @@ $nganhnghe = new Nganhnghe;
                           </svg>
                         </a>
 
-                        <a onclick="return confirm('Xác nhận muốn xóa công việc có Mã: <?php echo $value['job_code']; ?>?')" href="delete_job.php?id_job=<?php echo $value['id_job']; ?>"  class="btn btn-danger light">
+                        <a onclick="return confirm('Xác nhận muốn xóa công việc có Mã: <?php echo $value['job_code']; ?>?')" href="delete_job.php?id_job=<?php echo $value['id_job']; ?>" class="btn btn-danger light">
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <rect x="0" y="0" width="24" height="24"></rect>
@@ -146,13 +145,13 @@ $nganhnghe = new Nganhnghe;
 
   </div>
   <script>
-        $('#jobsTable').DataTable({
-            "lengthChange": false,
-            //"searching": false,
-            "paging": false,
-            "info": false
-        });
-    </script>
+    $('#jobsTable').DataTable({
+      "lengthChange": false,
+      //"searching": false,
+      "paging": false,
+      "info": false
+    });
+  </script>
 </body>
 
 </html>

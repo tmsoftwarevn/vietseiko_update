@@ -30,6 +30,8 @@ $nganhnghe = new Nganhnghe;
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -50,13 +52,15 @@ $nganhnghe = new Nganhnghe;
       <div class="row">
         <div class="col-xl-12">
           <div class="table-responsive">
-            <table class="table display mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
+            <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
               <thead>
                 <tr>
+                  <th>STT</th>
                   <th>Mã công việc</th>
-                  <th>Tên công ty</th>
-                  <th>Ngành Nghề</th>
-                  <th>Ngày Đăng</th>              
+
+                  <th>Chức vụ</th>
+                  
+                  <th>Số lượng</th>
                   <th>Trạng Thái</th>
                   <th>Actions</th>
                 </tr>
@@ -69,25 +73,22 @@ $nganhnghe = new Nganhnghe;
                 if (isset($_GET['page']) == TRUE) {
                   $page = $_GET['page'];
                 }
-                
+
                 $list_of_job = Vietseiko::getAllJob_andCreatePagination($page, $resultsPerPage);
                 echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults công việc.</b></p>";
-                $total = ceil(floatval($totalResults)/floatval($resultsPerPage));
-                            
+                $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
+
                 foreach ($list_of_job as $key => $value) {
                 ?>
                   <tr>
+                    <td><?php echo $key + 1 ?></td>
                     <td><?php echo $value['job_code'] ?></td>
-                    <td><?php echo $value['name'] ?></td>
-                    <td><?php $nganhngheName = $jobAdmin->getNganhnghe($value['id_nganhnghe']);
-                        foreach ($nganhngheName as $name => $num) echo $num['name_nganhnghe'] ?></td>
-                    <td class="wspace-no"><?php echo $value['created_at'] ?></td>
-                      
+                    <td><?php echo $value['chucvu'] ?></td>
+                    
+                    <td><?php echo $value['soluong'] ?></td>
+
                     <td>
-                      <span class="badge badge-success badge-lg light"
-                      <?php if($value['id_trangthai'] == '0') echo 'style="background-color: red;color: white"'?>
-                     
-                      >
+                      <span class="badge badge-success badge-lg light" <?php if ($value['id_trangthai'] == '0') echo 'style="background-color: red;color: white"' ?>>
                         <?php $trangthaiName = $trangthaiAdmin->getTrangThai($value['id_trangthai']);
                         foreach ($trangthaiName as $name => $num) echo $num['name_trangthai'] ?>
                       </span>
@@ -116,7 +117,7 @@ $nganhnghe = new Nganhnghe;
                           </svg>
                         </a>
 
-                        <a onclick="return confirm('Xác nhận muốn xóa công việc có Mã: <?php echo $value['job_code']; ?>?')" href="job-vietnam/delete_vietseiko.php?id_job=<?php echo $value['id_job']; ?>"  class="btn btn-danger light">
+                        <a onclick="return confirm('Xác nhận muốn xóa công việc có Mã: <?php echo $value['job_code']; ?>?')" href="job-vietnam/delete_vietseiko.php?id_job=<?php echo $value['id_job']; ?>" class="btn btn-danger light">
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <rect x="0" y="0" width="24" height="24"></rect>
@@ -146,7 +147,14 @@ $nganhnghe = new Nganhnghe;
     </div>
 
   </div>
-
+  <script>
+        $('#jobsTable').DataTable({
+            "lengthChange": false,
+            //"searching": false,
+            "paging": false,
+            "info": false
+        });
+    </script>
 </body>
 
 </html>

@@ -115,6 +115,7 @@ if (
     <div class="container container-f">
         <div class="title-1" style="margin-top: 20px;">Việc làm tại Việt Nam</div>
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
+        <!--form search -->
         <form action="#" method="get" style="display: flex; justify-content: start;margin-bottom: 0;">
             <div class="box-search-f" style="display: flex; justify-content: space-between;">
                 <form method="get" action="">

@@ -974,7 +974,7 @@ $jobAdmin = new Job;
                             <li><a href="job_ksnb_list.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
                             <li><a href="job_vietseiko_list.php">Công việc tại VietSeiko</a></li>
                             <li><a href="company-list.php">Thông tin các công ty</a></li>
-                            <li><a href="#2">Apply Job</a></li>
+                            
                             
                         </ul>
                     </li>
@@ -985,9 +985,9 @@ $jobAdmin = new Job;
                         </a>
                         <ul aria-expanded="false">                           
                             <li><a href="cv-vn-list.php">Công việc tại Việt Nam</a></li>  
-                            <li><a href="#4">Công việc XKLD tại Nhật Bản</a></li>                                                    
-                            <li><a href="#4">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>  
-                            <li><a href="#4">Công việc tại VietSeiko</a></li>  
+                            <li><a href="cv-xkld-list.php">Công việc XKLD tại Nhật Bản</a></li>                                                    
+                            <li><a href="cv-ksnb-list.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>  
+                            <li><a href="cv-vietseiko-list.php">Công việc tại VietSeiko</a></li>  
                         </ul>
                     </li>
                     <li>
@@ -1008,7 +1008,17 @@ $jobAdmin = new Job;
                             <li><a href="cam-nang-list.php">Thông tin</a></li>                                                    
                         </ul>
                     </li>
-                    
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-041-graph"></i>
+                            <span class="nav-text">Quản lý thông tin khác</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="tintuc-list.php">Danh sách Ngành nghề</a></li> 
+                            <li><a href="tintuc-list.php">Kinh nghiệm làm việc</a></li>  
+                            <li><a href="tintuc-list.php">Hình thức làm việc</a></li>                            
+                        </ul>
+                    </li>
                 </ul>
                 <div class="copyright">
                     <p><strong>Jobick Job Admin</strong> © 2023 All Rights Reserved</p>

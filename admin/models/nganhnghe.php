@@ -15,17 +15,8 @@ class Nganhnghe extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array.
     }
-    /**____________________________________________________________________________________________________
-     * LẤY Ngành nghề THEO id:
-     */
-    static function getBrand($id_nganhnghe)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job_nganhnghe  WHERE id_nganhnghe = ?");
-        $sql->bind_param("i", $id_nganhnghe);
-        $sql->execute();
-        $brand = $sql->get_result()->fetch_assoc();
-        return $brand['name_nganhnghe'];
-    }
+    
+   
 
     //Lấy danh sách tất cả job nganhnghe và Phân trang:
     static function getAllNganhnghe_andCreatePagination($page, $resultsPerPage)

@@ -76,7 +76,7 @@ class Job_NB_f extends Db
     //Lấy danh sách tất cả job
     static function getAllJob()
     { 
-        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb  INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty where job_xkld_nb.id_trangthai = 1 order by created_at desc");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb  where job_xkld_nb.id_trangthai = 1 ");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -84,7 +84,7 @@ class Job_NB_f extends Db
     }
     function getJob_Detail($id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE id_job = ? AND job_xkld_nb.id_trangthai = 1");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE id_job = ?");
         $sql->bind_param("i", $id);
         $sql->execute();
         $items = array();
@@ -92,12 +92,12 @@ class Job_NB_f extends Db
         return $items;
     }
     //Lấy danh sách tất cả sản phẩm và phân trang:
-    static function getAllJob_andCreatePagination_admin($page, $resultsPerPage)
+    static function getAllJob_andCreatePagination($page, $resultsPerPage)
     {
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty order by job_xkld_nb.created_at desc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty where job_xkld_nb.id_trangthai = 1 order by job_xkld_nb.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -109,156 +109,83 @@ class Job_NB_f extends Db
      */
     static function getLatestJob($number_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty ORDER BY created_at DESC LIMIT $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty where job_xkld_nb.id_trangthai = 1 ORDER BY created_at DESC LIMIT $number_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
 
-    /**
-     * Lấy sản phẩm theo id:
-     */
+   // tổng số search được
+   static function searchJob_vn($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)
+   {
+       
+       $sql = "SELECT * FROM job_xkld_nb WHERE ";
+       $d = 0;
+       if ($id_nganhnghe !== '') {
+           $sql .= "id_nganhnghe = $id_nganhnghe ";
+           $d += 1;
+       }
+       
+       if ($id_hinhthuc !== '') {
+           if ($d > 0) $sql .= 'AND ';
+           $sql .= "id_hinhthuc = $id_hinhthuc ";
+           $d += 1;
+       }
+       
+       if ($id_kinhnghiem !== '') {
+           if ($d > 0) $sql .= 'AND ';
+           $sql .= "id_kinhnghiem = $id_kinhnghiem ";
+       }
+      
+       if ($id_gioitinh !== '') {
+           if ($d > 0) $sql .= 'AND ';
+           $sql .= "id_gioitinh = $id_gioitinh ";
+       }
+       $sql .= "AND id_trangthai = 1";
+       $stmt = self::$connection->prepare($sql);
+       $stmt->execute();
+       $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+       return $items;
+   }
+   // phan trang search
+   static function searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page, $resultsPerPage)
+   {
+       $firstLink = ($page - 1) * $resultsPerPage;
+       $sql = "SELECT job_xkld_nb.*,cty.name,cty.img_cty FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE ";
+       $d = 0;
+       if ($id_nganhnghe !== '') {
+           $sql .= "id_nganhnghe = $id_nganhnghe ";
+           $d += 1;
+       }
+       
+       if ($id_hinhthuc !== '') {
+           if ($d > 0) $sql .= 'AND ';
+           $sql .= "id_hinhthuc = $id_hinhthuc ";
+           $d += 1;
+       }
+       
+       if ($id_kinhnghiem !== '') {
+           if ($d > 0) $sql .= 'AND ';
+           $sql .= "id_kinhnghiem = $id_kinhnghiem ";
+       }
+      
+       if ($id_gioitinh !== '') {
+           if ($d > 0) $sql .= 'AND ';
+           $sql .= "id_gioitinh = $id_gioitinh ";
+       }
+       
+       $sql .= "AND id_trangthai = 1 ORDER BY job_xkld_nb.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage";
+       $stmt = self::$connection->prepare($sql);
+       $stmt->execute();
+       $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+       return $items;
+   }
+   
+
     
-
-    /**
-     * LẤY DANH SÁCH JOB THEO id_nganhnghe
-     */
-    static function getJobNB_ByNganhNgheID($nganhnghe_id)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb WHERE id_nganhnghe like ?");
-        $sql->bind_param("i", $nganhnghe_id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    public function getNganhNgheNB($id)
-    {
-        $sql = self::$connection->prepare("SELECT name_nn_NB FROM nganhnghe_NB WHERE id_nganhnghe_NB = ?");
-        $sql->bind_param('i', $id);
-        $items = array();
-        $sql->execute();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    //Lấy ra các job cùng một cty và phân trang:
-    static function getJob_ByNganhNgheID_andCreatePagination($nganhnghe_id, $page, $resultsPerPage)
-    {
-        //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
-        $firstLink = ($page - 1) * $resultsPerPage;
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_nganhnghe = ? LIMIT $firstLink, $resultsPerPage");
-        $sql->bind_param("i", $nganhnghe_id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-
-    /**
-     * LẤY DANH SÁCH JOB THEO id_hinhthuc và id_nganhnghe
-     */
-    static function getJob_ByHinhthucAndNganhnghe($id_hinhthuc, $id_nganhnghe)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_hinhthuc like ? AND id_nganhnghe like ?");
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    //Lấy ra các job cùng một cty và phân trang:
-    static function getJob_ByHinhthucAndNganhnghe_andCreatePagination(
-        $id_hinhthuc,
-        $id_nganhnghe,
-        $page,
-        $resultPerPage
-    ) {
-        $firstLink = ($page - 1) * $resultPerPage;
-        $sql = self::$connection
-            ->prepare("SELECT * FROM job WHERE id_hinhthuc like ? AND id_nganhnghe like ? LIMIT $firstLink, $resultPerPage");
-        $sql->bind_param("ii", $id_hinhthuc, $id_nganhnghe);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-
-    /**
-     * LẤY DANH SÁCH JOB THEO id_hinhthuc
-     */
-    static function getJob_ByHinhthucID($id_hinhthuc)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_hinhthuc like ?");
-        $sql->bind_param("i", $id_hinhthuc);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    //Lấy ra các job cùng mọt hình thức và phân trang:
-    static function getJob_ByHinhthucID_andCreatePagination($id_hinhthuc, $page, $resultPerPage)
-    {
-        //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
-        $firstLink = ($page - 1) * $resultPerPage;
-        //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_hinhthuc = ? LIMIT $firstLink, $resultPerPage");
-        $sql->bind_param("i", $id_hinhthuc);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-
-    /**
-     * XÓA JOB THEO id
-     */
-    static function deleteJobByID($id_job)
-    {
-        $sql = self::$connection->prepare("DELETE FROM job_xkld_nb WHERE id_job = ?");
-        $sql->bind_param("i", $id_job);
-        $sql->execute();
-    }
-
-    // Thêm JOB:
-    public function insertJob($chucvu, $capbac, $job_code, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $id_gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi, $other, $id_cty, $age, $ngonngu)
-    {
-        $sql = self::$connection->prepare("INSERT INTO `job_xkld_nb`( `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_cty`, `age`, `ngonngu`) 
-        VALUES ('$chucvu','$capbac','$job_code','$id_nganhnghe','$id_hinhthuc','$soluong','$id_kinhnghiem','$ngaycuoicung','$id_gioitinh','$mucluong','$diachi','$diachi_cuthe','$mota','$yeucau','$quyenloi','$other','$id_cty','$age','$ngonngu')");
-        return $sql->execute();
-    }
-    // update job
-    static function updateJob($id_job,$chucvu, $capbac, $job_code, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $id_gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi, $other, $id_cty, $age, $ngonngu)
-    {
-        $sql = self::$connection->prepare("UPDATE `job_xkld_nb` SET `chucvu`='$chucvu',`capbac`='$capbac',`job_code`='$job_code',`id_nganhnghe`='$id_nganhnghe',`id_hinhthuc`='$id_hinhthuc',`soluong`='$soluong',`id_kinhnghiem`='$id_kinhnghiem',`ngaycuoicung`='$ngaycuoicung',`id_gioitinh`='$id_gioitinh',`mucluong`='$mucluong',
-        `diachi`='$diachi',`diachi_cuthe`='$diachi_cuthe',`mota`='$mota',`yeucau`='$yeucau',`quyenloi`='$quyenloi',`thongtin_khac`='$other',`id_cty`='$id_cty',`age`='$age',`ngonngu`='$ngonngu' where id_job = $id_job");
-
-        return $sql->execute();
-    }
-    
-    /**
-     * SEARCHING
-     */
-    //(SEARCHING) Tìm kiếm job:
-    static function searchJob($keyword)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE name like '%$keyword%'");
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    //(SEARCHING + Paging/Pagination) Tìm kiếm job và Phân trang:
-    static function secarchJob_andCreatePagination($keyword, $page, $resultPerPage)
-    {
-        //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
-        $firstLink = ($page - 1) * $resultPerPage;
-        //Dùng LIMIT để giới hạn số lượng kết quả hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE name like '%$keyword% LIMIT $firstLink, $resultPerPage");
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
  /**____________________________________________________________________________________________________
      * PAGINATE: ĐÁNH SỐ TRANG, TẠO LINK TỚI CÁC TRANG.
      */

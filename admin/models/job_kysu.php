@@ -49,94 +49,7 @@ class Kysu_Thongdich extends Db
         return $items;
     }
 
-    /**
-     * LẤY DANH SÁCH JOB THEO id_nganhnghe
-     */
-    static function getJob_ByNganhNgheID($nganhnghe_id)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_nganhnghe like ?");
-        $sql->bind_param("i", $nganhnghe_id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    public function getNganhNghe($id)
-    {
-        $sql = self::$connection->prepare("SELECT name_nganhnghe FROM job_nganhnghe WHERE id_nganhnghe = ?");
-        $sql->bind_param('i', $id);
-        $items = array();
-        $sql->execute();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    //Lấy ra các job cùng một cty và phân trang:
-    static function getJob_ByNganhNgheID_andCreatePagination($nganhnghe_id, $page, $resultsPerPage)
-    {
-        //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
-        $firstLink = ($page - 1) * $resultsPerPage;
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_nganhnghe = ? LIMIT $firstLink, $resultsPerPage");
-        $sql->bind_param("i", $nganhnghe_id);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-
-    /**
-     * LẤY DANH SÁCH JOB THEO id_hinhthuc và id_nganhnghe
-     */
-    static function getJob_ByHinhthucAndNganhnghe($id_hinhthuc, $id_nganhnghe)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_hinhthuc like ? AND id_nganhnghe like ?");
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    //Lấy ra các job cùng một cty và phân trang:
-    static function getJob_ByHinhthucAndNganhnghe_andCreatePagination(
-        $id_hinhthuc,
-        $id_nganhnghe,
-        $page,
-        $resultPerPage
-    ) {
-        $firstLink = ($page - 1) * $resultPerPage;
-        $sql = self::$connection
-            ->prepare("SELECT * FROM job WHERE id_hinhthuc like ? AND id_nganhnghe like ? LIMIT $firstLink, $resultPerPage");
-        $sql->bind_param("ii", $id_hinhthuc, $id_nganhnghe);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-
-    /**
-     * LẤY DANH SÁCH JOB THEO id_hinhthuc
-     */
-    static function getJob_ByHinhthucID($id_hinhthuc)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_hinhthuc like ?");
-        $sql->bind_param("i", $id_hinhthuc);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-    //Lấy ra các job cùng mọt hình thức và phân trang:
-    static function getJob_ByHinhthucID_andCreatePagination($id_hinhthuc, $page, $resultPerPage)
-    {
-        //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
-        $firstLink = ($page - 1) * $resultPerPage;
-        //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE id_hinhthuc = ? LIMIT $firstLink, $resultPerPage");
-        $sql->bind_param("i", $id_hinhthuc);
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
-
+   
     /**
      * XÓA JOB THEO id
      */
@@ -164,18 +77,8 @@ class Kysu_Thongdich extends Db
 
         return $sql->execute();
     }
-    /**
-     * SEARCHING
-     */
-    //(SEARCHING) Tìm kiếm job:
-    static function searchJob($keyword)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM job WHERE name like '%$keyword%'");
-        $sql->execute();
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items;
-    }
+    
+    
     //(SEARCHING + Paging/Pagination) Tìm kiếm job và Phân trang:
     static function secarchJob_andCreatePagination($keyword, $page, $resultPerPage)
     {

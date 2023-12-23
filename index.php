@@ -290,7 +290,7 @@ $totalPages = 1;
                     <div class="job-list ">
                         <div class="row">
                             <?php
-                            $list_of_job_vn = Job_f::getAllJob();
+                            $list_of_job_vn = Job_f::getLatestJob(27);
                             $new_list_of_job_vn = [];
                             for ($i = 0; $i < 8; $i++) {
                                 $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
@@ -371,7 +371,7 @@ $totalPages = 1;
                         <div class="job-name">
                             <div>Việc làm XKLD tại Nhật Bản</div>
                         </div>
-                        <a href="job-list-xkld.php">
+                        <a href="job-list-xkld.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
                             <span class="btn-view-all">Xem tất cả</span>
                         </a>
                     </div>
@@ -379,7 +379,7 @@ $totalPages = 1;
 
                         <div class="row">
                             <?php
-                            $list_of_job_vn = Job_NB_f::getAllJob();
+                            $list_of_job_vn = Job_NB_f::getLatestJob(27);
                             $new_list_of_job_vn = [];
                             for ($i = 0; $i < 8; $i++) {
                                 $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
@@ -460,7 +460,7 @@ $totalPages = 1;
                         <div class="job-name">
                             <div>Việc làm Kỹ sư & thông dịch viên Nhật Bản</div>
                         </div>
-                        <a href="job-list-ksnb.php">
+                        <a href="job-list-ksnb.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
                             <span class="btn-view-all">Xem tất cả</span>
                         </a>
                     </div>
@@ -549,7 +549,7 @@ $totalPages = 1;
                         <div class="job-name">
                             <div>Việc làm tại Vietseiko</div>
                         </div>
-                        <a href="job-list-vietseiko.php">
+                        <a href="job-list-vietseiko.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
                             <span class="btn-view-all">Xem tất cả</span>
                         </a>
                     </div>

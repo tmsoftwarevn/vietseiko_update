@@ -13584,9 +13584,9 @@ strong {
 
 /*Admin Nav*/
 .admin-nav.scrollbar-macosx {
-  height: calc(100vh - 150px);
+  /* height: calc(100vh - 150px);
   padding-left: 30px;
-  overflow-y: scroll;
+  overflow-y: scroll; */
 }
 
 .admin-nav ul {
@@ -13937,8 +13937,8 @@ strong {
 
 /*dashboard message*/
 .dashboard-messages-box-scroll {
-  height: 394px;
-  overflow-y: scroll;
+  /* height: 394px;
+  overflow-y: scroll; */
 }
 
 .dashboard-messages-box {

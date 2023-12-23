@@ -37,8 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $vi_tri = $_POST['vitri'];
     $id_job = $_POST['id_job'];
-    
-    $checkResult = $apply->insert_apply($name,$email,$phone,$namsinh,$mucluong,$khuvuc,$vi_tri,$link_cv,$id_job);
+    $type_id = $_POST['type_id'];
+
+    $checkResult = $apply->insert_apply($name,$email,$phone,$namsinh,$mucluong,$khuvuc,$vi_tri,$link_cv,$id_job, $type_id);
 }
 
 if($checkResult >0){

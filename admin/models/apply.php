@@ -2,28 +2,62 @@
 
 class Apply extends Db
 {
-
-    static function getAll_cv()
+    // đếm tổng
+    static function getAll_cv($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * from ung_tuyen");
-        $sql->execute();
-      
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen WHERE type_id = ?");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();      
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; 
     }
-    public function insert_apply($name, $email, $phone, $namsinh, $mucluong, $khuvuc, $vi_tri, $link_cv, $id_job)
+    // insert dùng chung 4 job, qua id
+    public function insert_apply($name, $email, $phone, $namsinh, $mucluong, $khuvuc, $vi_tri, $link_cv, $id_job, $type_id)
     {
         $sql = self::$connection->prepare("INSERT INTO `ung_tuyen`(`name`, `email`, `phone`, `nam_sinh`, `muc_luong`, `khu_vuc`, `vi_tri_ung_tuyen`, `link_cv`, `id_job`, `type_id`) 
-        VALUES ('$name','$email','$phone','$namsinh','$mucluong','$khuvuc','$vi_tri','$link_cv','$id_job','1')");
+        VALUES ('$name','$email','$phone','$namsinh','$mucluong','$khuvuc','$vi_tri','$link_cv','$id_job',' $type_id')");
         return $sql->execute();
     }
-
-    static function getAll_CV_andCreatePagination($page, $resultsPerPage)
+    // chia ra 4 job
+    static function getAll_CV_andCreatePagination($page, $resultsPerPage,$type_id)
     {
-        //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
-        $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang)
-        //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang: order by updated_at desc LIMIT $firstLink, $resultsPerPage
-        $sql = self::$connection->prepare("SELECT ung_tuyen.*,job.job_code from ung_tuyen INNER JOIN job ON ung_tuyen.id_job=job.id_job LIMIT $firstLink, $resultsPerPage; ");
+  
+        $firstLink = ($page - 1) * $resultsPerPage; 
+        $sql = self::$connection->prepare("SELECT ung_tuyen.*,job.job_code,job.id_job from ung_tuyen INNER JOIN job ON ung_tuyen.id_job=job.id_job where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array.
+    }
+    static function getAll_xkld_andCreatePagination($page, $resultsPerPage,$type_id)
+    {
+  
+        $firstLink = ($page - 1) * $resultsPerPage; 
+        $sql = self::$connection->prepare("SELECT ung_tuyen.*,job_xkld_nb.job_code,job_xkld_nb.id_job from ung_tuyen INNER JOIN job_xkld_nb ON ung_tuyen.id_job=job_xkld_nb.id_job where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array.
+    }
+    static function getAll_kysunb_andCreatePagination($page, $resultsPerPage,$type_id)
+    {
+  
+        $firstLink = ($page - 1) * $resultsPerPage; 
+        $sql = self::$connection->prepare("SELECT ung_tuyen.*,job_kysunb.job_code,job_kysunb.id_job from ung_tuyen INNER JOIN job_kysunb ON ung_tuyen.id_job=job_kysunb.id_job where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array.
+    }
+    static function getAll_vietseiko_andCreatePagination($page, $resultsPerPage,$type_id)
+    {
+  
+        $firstLink = ($page - 1) * $resultsPerPage; 
+        $sql = self::$connection->prepare("SELECT ung_tuyen.*,job_vietseiko.job_code,job_vietseiko.id_job from ung_tuyen INNER JOIN job_vietseiko ON ung_tuyen.id_job=job_vietseiko.id_job where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
+        $sql->bind_param("i", $type_id);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
