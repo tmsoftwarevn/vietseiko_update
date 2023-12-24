@@ -47,6 +47,7 @@ $apply = new Apply;
                         <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
                             <thead>
                                 <tr>
+                                <th>Stt</th>
                                     <th>Mã job</th>
                                     <th>Họ tên</th>
                                     <th>Email</th>
@@ -76,6 +77,7 @@ $apply = new Apply;
                                 foreach ($list_of_apply as $key => $value) {
                                 ?>
                                     <tr>
+                                    <td><?php echo $key +1 ?></td>
                                         <td>
                                             <a href="job_view.php?typeView=job&id=<?php echo $value['id_job'] ?>">
                                                 <?php echo $value['job_code'] ?>

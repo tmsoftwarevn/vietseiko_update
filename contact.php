@@ -105,23 +105,7 @@ require_once 'header.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="job">
-                                                    <select id="job-ct" class="i-half" required name="job" style="cursor: pointer;">
-                                                        <option disabled selected value>-- Ngành bạn ứng tuyển --</option>
-                                                        <?php
-                                                        foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
-                                                        ?>
-                                                            <option value="<?php echo $value['ten_nganh'] ?>">
-                                                                <?php echo $value['ten_nganh'] ?>
-                                                            </option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                        <div class="col-md-6">
                                                 <div class="kinh-nghiem">
                                                     <select class="i-half" required name="kinh-nghiem" style="cursor: pointer;">
 
@@ -136,7 +120,23 @@ require_once 'header.php';
                                                     </select>
                                                 </div>
                                             </div>
-
+                                            <div class="col-md-6">
+                                                <div class="job">
+                                                    <select id="job-ct" class="i-half" required name="job" style="cursor: pointer;">
+                                                        <option disabled selected value>-- Ngành bạn ứng tuyển --</option>
+                                                        <?php
+                                                        foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
+                                                        ?>
+                                                            <option value="<?php echo $value['id_nganhnghe'] ?>">
+                                                                <?php echo $value['name_nganhnghe'] ?>
+                                                            </option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                           
                                         </div>
 
                                         <div class="row">
@@ -158,7 +158,7 @@ require_once 'header.php';
                                             </div>
                                             <div class="col-6">
                                                 <div class="address-hope">
-                                                   
+
                                                     <input name="address-h" class="i-half" type="text" placeholder="Nơi mong muốn làm việc" required />
 
                                                 </div>
@@ -178,49 +178,7 @@ require_once 'header.php';
         </div>
     </div>
 
-    <!-- <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                if (empty($_POST["your-name"])) {
-                    echo "<span style='color:red;'>Error: Họ tên bắt buộc phải nhập.</span>";
-                } else {
-                    $name = $_POST["your-name"];
-                    if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-                        echo "<span style='color:red;'>Họ tên chỉ chấp nhận chữ và khoảng trắng.</span>";
-                    } else {
-                        echo $name;
-                    }
-                }
-                if (empty($_POST["your-email"])) {
-                    echo "<span style='color:red;'>Email bắt không được để trống.</span>";
-                } else {
-                    $email = $_POST["your-email"];
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        echo "<span style='color:red;'>Email bạn nhập không đúng định dạng.</span>";
-                    } else {
-                        echo $email;
-                    }
-                }
-                if (empty($_POST["your-tel"])) {
-                    echo "<span style='color:red;'>Số điện thoại bắt buộc phải nhập</span>";
-                } else {
-                    $tel = $_POST["your-tel"];
 
-                    $telPattern = "/^\d{10,12}$/";
-                    if (!preg_match($telPattern, $tel)) {
-                        echo "<span style='color:red;'>Số điện thoại không đúng định dạng</span>";
-                    } else {
-                        echo $tel;
-                    }
-                }
-                if (empty($_POST["your-company"])) {
-                    echo "<span style='color:red;'>Nơi đăng ký không được để trống</span>";
-                }
-
-                if (empty($_POST["your-message"])) {
-                    echo "<span style='color:red;'>Nội dung không được để trống</span>";
-                }
-            }
-            ?> -->
 
 </div>
 

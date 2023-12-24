@@ -18,4 +18,22 @@ class Kinh_nghiem extends Db
         $kq = $sql->get_result()->fetch_assoc();
         return $kq['name_kn'];
     }
+    static function deleteKinhnghiem($id)
+    {
+        $sql = self::$connection->prepare("DELETE FROM kinhnghiem WHERE id_kn = ?");
+        $sql->bind_param("i", $id);
+        $sql->execute();
+    }
+    static function insertKinhnghiem($name) {
+        $sql = self::$connection->prepare("INSERT INTO kinhnghiem(name_kn) VALUES('$name')");
+        return $sql->execute();
+    }
+    /**
+     * Sửa Job hinhthuc
+     */
+    static function updateKinhnghiem($id, $name)
+    {
+        $sql = self::$connection->prepare("UPDATE kinhnghiem SET name_kn ='$name' WHERE id_kn=$id");
+        return $sql->execute();
+    }
 }

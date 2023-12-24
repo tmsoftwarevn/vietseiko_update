@@ -4,8 +4,10 @@ require_once "../models/db.php";
 require_once "../models/tin-tuc.php";
 
 $blog = new Tin_tuc;
+if (isset($_GET['id_blog']) == TRUE) {
+    $blog::deleteBlog_ByTypeID($_GET['id_blog']);
+}
 
-$blog::deleteBlog_ByTypeID($_GET['id_blog']);
 $url =  $_SERVER['HTTP_REFERER'];
 
 $path = $url;

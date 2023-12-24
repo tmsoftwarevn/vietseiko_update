@@ -984,10 +984,10 @@ $jobAdmin = new Job;
                             <span class="nav-text">Danh sách ứng viên</span>
                         </a>
                         <ul aria-expanded="false">                           
-                            <li><a href="cv-vn-list.php">Công việc tại Việt Nam</a></li>  
-                            <li><a href="cv-xkld-list.php">Công việc XKLD tại Nhật Bản</a></li>                                                    
-                            <li><a href="cv-ksnb-list.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>  
-                            <li><a href="cv-vietseiko-list.php">Công việc tại VietSeiko</a></li>  
+                            <li><a href="cv-vn-list.php">Ứng viên tại Việt Nam</a></li>  
+                            <li><a href="cv-xkld-list.php">Ứng viên XKLD tại Nhật Bản</a></li>                                                    
+                            <li><a href="cv-ksnb-list.php"> Ứng viên Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>  
+                            <li><a href="cv-vietseiko-list.php">Ứng viên tại VietSeiko</a></li>  
                         </ul>
                     </li>
                     <li>
@@ -1014,9 +1014,9 @@ $jobAdmin = new Job;
                             <span class="nav-text">Quản lý thông tin khác</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="tintuc-list.php">Danh sách Ngành nghề</a></li> 
-                            <li><a href="tintuc-list.php">Kinh nghiệm làm việc</a></li>  
-                            <li><a href="tintuc-list.php">Hình thức làm việc</a></li>                            
+                            <li><a href="table-other.php?type=nganhnghe">Ngành nghề</a></li> 
+                            <li><a href="table-other.php?type=kinhnghiem">Kinh nghiệm</a></li>  
+                            <li><a href="table-other.php?type=hinhthuc">Hình thức</a></li>                            
                         </ul>
                     </li>
                 </ul>

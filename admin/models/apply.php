@@ -5,7 +5,32 @@ class Apply extends Db
     // đếm tổng
     static function getAll_cv($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * from ung_tuyen WHERE type_id = ?");
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen INNER JOIN job ON ung_tuyen.id_job=job.id_job WHERE type_id = ?");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();      
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; 
+    }
+    static function getAll_cv_vietseiko($type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen INNER JOIN job_vietseiko ON ung_tuyen.id_job=job_vietseiko.id_job WHERE type_id = ?");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();      
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; 
+    }
+    static function getAll_cv_xkld($type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen INNER JOIN job_xkld_nb ON ung_tuyen.id_job=job_xkld_nb.id_job WHERE type_id = ?");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();      
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; 
+    }
+    
+    static function getAll_cv_ksnb($type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen INNER JOIN job_kysunb ON ung_tuyen.id_job=job_kysunb.id_job WHERE type_id = ?");
         $sql->bind_param("i", $type_id);
         $sql->execute();      
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -41,6 +66,7 @@ class Apply extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array.
     }
+   
     static function getAll_kysunb_andCreatePagination($page, $resultsPerPage,$type_id)
     {
   

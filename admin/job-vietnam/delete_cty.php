@@ -5,7 +5,10 @@ require_once "../models/cty.php";
 
 $cty = new Congty;
 
-$cty::delete_Cty($_GET['id_cty']);
+if (isset($_GET['id_cty']) == TRUE) {
+    $cty::delete_Cty($_GET['id_cty']);
+}
+
 $url =  $_SERVER['HTTP_REFERER'];
 
 $path = $url;

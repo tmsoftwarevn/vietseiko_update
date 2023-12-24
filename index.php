@@ -54,7 +54,7 @@ $totalPages = 1;
                                     <select class="form-select" style="cursor: pointer;">
                                         <option value="all">Tất cả</option>
                                         <?php
-                                        foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
+                                        foreach ($form_contact::getAllNganh_ung_tuyen() as $key => $value) {
                                         ?>
                                             <option value="<?php echo $value['id_nganhnghe'] ?>">
                                                 <?php echo $value['name_nganhnghe'] ?>

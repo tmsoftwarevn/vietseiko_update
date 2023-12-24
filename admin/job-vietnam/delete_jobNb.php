@@ -4,8 +4,10 @@ require_once "../models/db.php";
 require_once "../models/job_NB.php";
 
 $jobNb = new Job_NB;
+if (isset($_GET['id_job']) == TRUE) {
+    $jobNb->deleteJobByID($_GET['id_job']);
+}
 
-$jobNb->deleteJobByID($_GET['id_job']);
 $url =  $_SERVER['HTTP_REFERER'];
 
 $path = $url;

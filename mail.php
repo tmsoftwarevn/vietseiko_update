@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->Port = 465;
     $mail->isHTML(true);
 
-    // Điền thông tin email của bạn vào dòng dưới đây
+    // Điền thông tin email của nguoi lien he vào dòng dưới đây
     $mail->Username = 'khongtenzzz1111@gmail.com';
     $mail->Password = 'pmoe okjr homu kzzf';
 
