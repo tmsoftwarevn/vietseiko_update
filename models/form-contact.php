@@ -15,21 +15,16 @@ class Form_contact extends Db
     /* lấy một bài viết dựa trên Id */
     public function createInformationUser_lienhe(
         $name,
-        $gender,
         $email,
         $phone,
-        $birthday,
-        $job,
-        $kinh_nghiem,
-        $hoc_van,
-        $address,
         $luong,
-        $des_kn,
-        $muc_tieu,
-        $ghi_chu
+        $type,  
+        $nganhnghe,
+        $address,
+        $address_h,
     ) {
-        $sql = self::$connection->prepare("INSERT INTO `infomation_ung_tuyen`(`name`, `gender`, `email`, `phone`, `ngay-sinh`, `job`, `kinh-nghiem`, `hoc-van`, `address`, `luong`, `des-kn`, `muctieu`, `ghi-chu`) 
-        VALUES ('$name','$gender',' $email','$phone','$birthday','$job','$kinh_nghiem','$hoc_van','$address','$luong','$des_kn','$muc_tieu','$ghi_chu')");
+        $sql = self::$connection->prepare("INSERT INTO `contact`(`name`, `email`, `phone`, `muc_luong`, `khu_vuc_hien_tai`, `khu_vuc_mong_muon`, `nganhnghe`, `type_id`)
+        VALUES ('$name','$email','$phone','$luong','$address','$address_h','$nganhnghe','$type')");
         $sql->execute();
 
         // echo ("checkkk" . $sql);

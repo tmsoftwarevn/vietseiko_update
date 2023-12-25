@@ -105,66 +105,61 @@ require_once 'header.php';
                                         </div>
 
                                         <div class="row">
-                                        <div class="col-md-6">
-                                                <div class="kinh-nghiem">
-                                                    <select class="i-half" required name="kinh-nghiem" style="cursor: pointer;">
+                                            <div class="col-md-6">
 
-                                                        <option disabled selected value>-- Nhóm việc làm --</option>
-                                                        <option value="1">Việc Làm Tại Việt Nam
-                                                        </option>
-                                                        <option value="2">Xuất Khẩu Lao Động Nhật Bản </option>
+                                                <select class="i-half" required name="type" style="cursor: pointer;">
 
-                                                        <option value="3">Kỹ Sư & Thông Dịch Viên Nhật Bản </option>
-                                                        <option value="4">Việc làm tại VietSeiko </option>
+                                                    <option disabled selected value>-- Nhóm việc làm --</option>
+                                                    <option value="1">Việc Làm Tại Việt Nam
+                                                    </option>
+                                                    <option value="2">Xuất Khẩu Lao Động Nhật Bản </option>
 
-                                                    </select>
-                                                </div>
+                                                    <option value="3">Kỹ Sư & Thông Dịch Viên Nhật Bản </option>
+                                                    <option value="4">Việc làm tại VietSeiko </option>
+
+                                                </select>
+
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="job">
-                                                    <select id="job-ct" class="i-half" required name="job" style="cursor: pointer;">
-                                                        <option disabled selected value>-- Ngành bạn ứng tuyển --</option>
-                                                        <?php
-                                                        foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
-                                                        ?>
-                                                            <option value="<?php echo $value['id_nganhnghe'] ?>">
-                                                                <?php echo $value['name_nganhnghe'] ?>
-                                                            </option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
+
+                                                <select id="job-ct" class="i-half" required name="nganhnghe" style="cursor: pointer;">
+                                                    <option disabled selected value>-- Ngành bạn ứng tuyển --</option>
+                                                    <?php
+                                                    foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
+                                                    ?>
+                                                        <option value="<?php echo $value['id_nganhnghe'] ?>">
+                                                            <?php echo $value['name_nganhnghe'] ?>
+                                                        </option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
+
                                             </div>
-                                           
+
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-6">
-                                                <div class="address">
-                                                    <select class="i-half" required name="address" style="cursor: pointer;">
-                                                        <option disabled selected value>-- Khu vực hiện tại--</option>
-                                                        <?php
-                                                        foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
-                                                        ?>
-                                                            <option value="<?php echo $item ?>">
-                                                                <?php echo $item ?>
-                                                            </option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
+                                            <div class="col-md-6">
+
+                                                <select class="i-half" required name="address" style="cursor: pointer;">
+                                                    <option disabled selected value>-- Khu vực hiện tại--</option>
+                                                    <?php
+                                                    foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
+                                                    ?>
+                                                        <option value="<?php echo $item ?>">
+                                                            <?php echo $item ?>
+                                                        </option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
+
                                             </div>
-                                            <div class="col-6">
-                                                <div class="address-hope">
-
-                                                    <input name="address-h" class="i-half" type="text" placeholder="Nơi mong muốn làm việc" required />
-
-                                                </div>
+                                            <div class="col-md-6">
+                                                <input name="address-h" class="i-half" type="text" placeholder="Nơi mong muốn làm việc" required />
                                             </div>
                                         </div>
-
 
                                     </div>
                                     <input class="btn-form mt-5" type="submit" value="Gửi thông tin">

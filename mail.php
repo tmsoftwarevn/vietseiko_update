@@ -17,18 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   try {
     // Lấy dữ liệu từ biểu mẫu liên hệ
     $name = $_POST['name'];
-    $gender = $_POST['gender'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $birthday = $_POST['birthday'];
-    $job = $_POST['job'];
-    $kinh_nghiem = $_POST['kinh-nghiem'];
-    $hoc_van = $_POST['hoc-van'];
-    $address = $_POST['address'];
     $luong = $_POST['luong'];
-    $des_kn = $_POST['des-kn'];
-    $muc_tieu = $_POST['muc-tieu'];
-    $ghi_chu = $_POST['ghi-chu'];
+
+    $type = $_POST['type'];
+    $nganhnghe = $_POST['nganhnghe'];
+
+    $address = $_POST['address'];
+    $address_h = $_POST['address-h'];
 
 
     // return;
@@ -71,18 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $form_contact->createInformationUser_lienhe(
       $name,
-      $gender,
       $email,
       $phone,
-      $birthday,
-      $job,
-      $kinh_nghiem,
-      $hoc_van,
-      $address,
       $luong,
-      $des_kn,
-      $muc_tieu,
-      $ghi_chu
+      $type,
+      $nganhnghe,
+      $address,
+      $address_h,
     );
     header('Location: thank-you.php');
 

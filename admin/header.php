@@ -974,14 +974,13 @@ $jobAdmin = new Job;
                             <li><a href="job_ksnb_list.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
                             <li><a href="job_vietseiko_list.php">Công việc tại VietSeiko</a></li>
                             <li><a href="company-list.php">Thông tin các công ty</a></li>
-                            
-                            
+                                                        
                         </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
                             <i class="fa-solid fa-gear"></i>
-                            <span class="nav-text">Danh sách ứng viên</span>
+                            <span class="nav-text">Quản lý ứng viên</span>
                         </a>
                         <ul aria-expanded="false">                           
                             <li><a href="cv-vn-list.php">Ứng viên tại Việt Nam</a></li>  
@@ -993,7 +992,7 @@ $jobAdmin = new Job;
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-041-graph"></i>
-                            <span class="nav-text">Tin tức</span>
+                            <span class="nav-text">Quản lý Tin tức</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="tintuc-list.php">Thông tin</a></li>                            
@@ -1002,10 +1001,22 @@ $jobAdmin = new Job;
                     <li>
                         <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
                             <i class="fa-solid fa-gear"></i>
-                            <span class="nav-text">Cẩm nang</span>
+                            <span class="nav-text">Quản lý Cẩm nang</span>
                         </a>
                         <ul aria-expanded="false">                           
                             <li><a href="cam-nang-list.php">Thông tin</a></li>                                                    
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-041-graph"></i>
+                            <span class="nav-text">Quản lý liên hệ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="contact-list.php?type=vn">Liên hệ tại Việt Nam</a></li> 
+                            <li><a href="contact-list.php?type=xkld">Liên hệ XKLD Nhật Bản</a></li> 
+                            <li><a href="contact-list.php?type=ksnb">Liên hệ Kỹ sư & thông dịch Nhật Bản</a></li>                            
+                            <li><a href="contact-list.php?type=vietseiko">Liên hệ tại VietSeiko</a></li> 
                         </ul>
                     </li>
                     <li>

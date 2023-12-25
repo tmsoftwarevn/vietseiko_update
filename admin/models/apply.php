@@ -46,7 +46,6 @@ class Apply extends Db
     // chia ra 4 job
     static function getAll_CV_andCreatePagination($page, $resultsPerPage,$type_id)
     {
-  
         $firstLink = ($page - 1) * $resultsPerPage; 
         $sql = self::$connection->prepare("SELECT ung_tuyen.*,job.job_code,job.id_job from ung_tuyen INNER JOIN job ON ung_tuyen.id_job=job.id_job where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
         $sql->bind_param("i", $type_id);
