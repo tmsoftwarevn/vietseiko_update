@@ -4,7 +4,7 @@ require_once "models/jobs.php";
 
 
 $page = 1;
-$resultsPerPage =3;
+$resultsPerPage = 3;
 $url_save = $_SERVER['REQUEST_URI'];
 $path = $url_save;
 
@@ -14,9 +14,8 @@ $parts = explode('&', $path);
 if (count($parts) > 4) {
     array_pop($parts);
     $url_save = implode('&', $parts);
-    $not_search=false;
+    $not_search = false;
 } else {
-    
 }
 
 if (isset($_GET['page'])) {
@@ -31,7 +30,7 @@ if (isset($_GET['page'])) {
 <?php
 $id_gioitinh = '';
 $allJob = [];
-$totalJob=1;
+$totalJob = 1;
 if (
     (isset($_GET['id_nganhnghe']) && !empty($_GET['id_nganhnghe'])) || (isset($_GET['id_hinhthuc']) && !empty($_GET['id_hinhthuc']))
     || (isset($_GET['id_kinhnghiem']) && !empty($_GET['id_kinhnghiem'])) || (isset($_GET['id_gioitinh']) && !empty($_GET['id_gioitinh']))
@@ -41,19 +40,18 @@ if (
     $id_hinhthuc = $_GET['id_hinhthuc'];
     $id_kinhnghiem = $_GET['id_kinhnghiem'];
     $id_gioitinh = $_GET['id_gioitinh'];
-   
+
     //search all, tính tổng
     $kq = $job::searchJob_vn($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh);
     $totalPages = ceil(floatval(count($kq)) / floatval($resultsPerPage));
     // phân trang
-    $search_phantrang = $job::searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page,$resultsPerPage);
+    $search_phantrang = $job::searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $page, $resultsPerPage);
     $allJob = $search_phantrang;
     $totalJob = count($kq);
 } else {
-    $allJob = $job::getAllJob_andCreatePagination($page,$resultsPerPage);
+    $allJob = $job::getAllJob_andCreatePagination($page, $resultsPerPage);
     $totalJob = count($job::getAllJob());
     $totalPages = ceil(floatval($totalJob) / floatval($resultsPerPage));
-   
 }
 
 ?>
@@ -107,12 +105,24 @@ if (
 
 <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image: url(images/banner/1.jpg)">
     <div class="overlay-main site-bg-white opacity-01"></div>
+    <div class="container">
+        <div class="wt-bnr-inr-entry">
+            <!-- BREADCRUMB ROW -->
+            <div>
+                <ul class="wt-breadcrumb breadcrumb-style-2">
+                    <li><a href="index.php">Trang chủ</a></li>
+                    <li>Việc làm tại Việt Nam</li>
+                </ul>
+            </div>
 
+            <!-- BREADCRUMB ROW END -->
+        </div>
+    </div>
 </div>
 <div class="test"> </div>
 
 <div>
-    <div class="container container-f">
+    <div class="container-css container-bg">
         <div class="title-1" style="margin-top: 20px;">Việc làm tại Việt Nam</div>
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
         <!--form search -->
@@ -184,14 +194,14 @@ if (
         </form>
 
     </div>
-    <div class="container">
+    <div class="container-css">
 
         <div class="content-list">
             <p style="font-weight: 500;">Có <span style="color: red;"><?php echo $totalJob ?> </span> việc làm phù hợp</p>
             <?php
             foreach ($allJob as $key => $value) {
             ?>
-                <div class="card" id='job-vietnam'>
+                <div class="card-list" id='job-vietnam'>
                     <div class="group-info">
                         <?php
 
@@ -280,7 +290,7 @@ if (
                 if ($currentPage > 1) {
                     $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
                     $output .= '<li class="page-item">';
-                    $output .= '<a class="page-link" href="'. $url_save.'&page=' . $prevPage . '" aria-label="Previous">';
+                    $output .= '<a class="page-link" href="' . $url_save . '&page=' . $prevPage . '" aria-label="Previous">';
                     $output .= '<span aria-hidden="true">&laquo;</span>';
                     $output .= '</a>';
                     $output .= '</li>';
@@ -291,7 +301,7 @@ if (
                     if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
                         $output .= '<li class="page-item';
                         $output .= ($i == $currentPage) ? ' active">' : '">';
-                        $output .= '<a class="page-link" href="'. $url_save.'&page=' . $i . '">' . $i . '</a>';
+                        $output .= '<a class="page-link" href="' . $url_save . '&page=' . $i . '">' . $i . '</a>';
                         $output .= '</li>';
                     } elseif (!strpos($output, '<li class="page-item dots">...</li>') || $d < 3) {
                         if ($d > 2) {
@@ -305,7 +315,7 @@ if (
                 if ($currentPage < $totalPages) {
                     $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
                     $output .= '<li class="page-item">';
-                    $output .= '<a class="page-link" href="'. $url_save.'&page=' . $nextPage . '" aria-label="Next">';
+                    $output .= '<a class="page-link" href="' . $url_save . '&page=' . $nextPage . '" aria-label="Next">';
                     $output .= '<span aria-hidden="true">&raquo;</span>';
                     $output .= '</a>';
                     $output .= '</li>';

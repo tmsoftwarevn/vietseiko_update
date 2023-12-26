@@ -106,12 +106,24 @@ if (
 
 <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image: url(images/banner/1.jpg)">
     <div class="overlay-main site-bg-white opacity-01"></div>
+    <div class="container">
+        <div class="wt-bnr-inr-entry">
+            <!-- BREADCRUMB ROW -->
+            <div>
+                <ul class="wt-breadcrumb breadcrumb-style-2">
+                    <li><a href="index.php">Trang chủ</a></li>
+                    <li>Việc làm XKLD tại Nhật Bản</li>
+                </ul>
+            </div>
 
+            <!-- BREADCRUMB ROW END -->
+        </div>
+    </div>
 </div>
 <div class="test">rew </div>
 
 <div >
-<div class="container container-f">
+<div class="container-css container-bg">
         <div class="title-1" style="margin-top: 20px;">Việc làm XKLD tại Nhật Bản</div>
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
         <form action="#" method="get" style="display: flex; justify-content: start;margin-bottom: 0;">
@@ -182,14 +194,14 @@ if (
         </form>
 
     </div>
-    <div class="container">
+    <div class="container-css">
       
         <div class="content-list">
         <p style="font-weight: 500;">Có <span style="color: red;"><?php echo $totalJob ?> </span> việc làm phù hợp</p>
             <?php
             foreach ($allJob as $key => $value) {
             ?>
-                <div class="card" id='job-vietnam'>
+                <div class="card-list" id='job-vietnam'>
                     <div class="group-info">
                         <?php
                         if ($value['id_cty'] == 1) {

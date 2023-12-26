@@ -413,13 +413,13 @@ All JavaScript fuctions Start
         0: {
           items: 1,
         },
-        480: {
-          items: 1,
-        },
-        767: {
+        420: {
           items: 2,
         },
-        1000: {
+        767: {
+          items: 3,
+        },
+        992: {
           items: 4,
         },
       },
@@ -446,7 +446,7 @@ All JavaScript fuctions Start
           items: 1,
         },
         767: {
-          items: 2,
+          items: 1,
         },
         1000: {
           items: 1,
@@ -758,8 +758,8 @@ All JavaScript fuctions Start
         0: {
           items: 1,
         },
-        480: {
-          items: 1,
+        577: {
+          items: 2,
         },
         991: {
           items: 2,

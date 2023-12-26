@@ -5,6 +5,8 @@ require "../models/hinhthuc.php";
 require "../config.php";
 require_once "../models/db.php";
 
+require "../models/slug.php";
+$slug = new TextUtil;
 $job = new Job_NB;
 
 ?>
@@ -37,7 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quyenloi = $_POST['quyenloi'];
     $other = $_POST['other'];
 
-    $checkResult = $job->insertJob($chucvu, $capbac, $job_code, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $id_gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi, $other, $id_cty, $age, $ngonngu);
+    $slug_custom = $slug::sanitize($chucvu);
+    $checkResult = $job->insertJob($chucvu, $capbac, $job_code, $id_nganhnghe, $id_hinhthuc, $soluong, $id_kinhnghiem, $ngaycuoicung, $id_gioitinh, $mucluong, $diachi, $diachi_cuthe, $mota, $yeucau, $quyenloi, $other, $id_cty, $age, $ngonngu,$slug_custom);
     
 }
 

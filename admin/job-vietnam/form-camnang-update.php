@@ -3,6 +3,8 @@
 require "../config.php";
 require_once "../models/db.php";
 require "../models/cam_nang.php";
+require "../models/slug.php";
+$slug = new TextUtil;
 $blog  = new Cam_nang;
 
 ?>
@@ -17,7 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $noidung = $_POST['noidung'];
     $type = $_POST['type'];
 
-    $checkResult =$blog->updateBlog($id_blog,$img_blog, $name, $noidung, $type);
+    $slug_custom = $slug::sanitize($name);
+
+    $checkResult =$blog->updateBlog($id_blog,$img_blog, $name, $noidung, $type,$slug_custom);
+    
     $url =  $_SERVER['HTTP_REFERER'];
 
     // custom path để click 2 lần submit ko bị lỗi

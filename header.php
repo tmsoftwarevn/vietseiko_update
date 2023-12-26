@@ -103,7 +103,7 @@ $job_vietseiko = new Vietseiko_f;
     <!-- Swiper Slider -->
     <link rel="stylesheet" type="text/css" href="public/css/style.css" />
     <!-- MAIN STYLE SHEET ////////////dong lai ---------------------- -->
-    <link rel="stylesheet" type="text/css" href="public/css/style2.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="public/css/style2.css" /> -->
     <!-- Thêm liên kết đến tệp CSS -->
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -317,7 +317,7 @@ $job_vietseiko = new Vietseiko_f;
         <header class="site-header header-style-3 mobile-sider-drawer-menu">
             <div class="sticky-header main-bar-wraper navbar-expand-lg">
                 <div class="main-bar">
-                    <div class="container-fluid clearfix">
+                    <div class="container clearfix">
                         <div class="logo-header">
                             <div class="logo-header-inner logo-header-one">
                                 <a href="index.php">
@@ -336,6 +336,7 @@ $job_vietseiko = new Vietseiko_f;
 
                         <!-- MAIN Vav -->
                         <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
+                            <!-- <img src="public/images/logo.png" alt="" /> -->
                             <ul class="nav navbar-nav">
                                 <li class="has-child">
                                     <a href="about.php">Giới Thiệu</a>
@@ -343,7 +344,7 @@ $job_vietseiko = new Vietseiko_f;
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;" > <a href="job-list-vn.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Việc làm tại Việt Nam</a></li>
+                                        <li style="cursor: pointer;"> <a href="job-list-vn.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Việc làm tại Việt Nam</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-xkld.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Xuất khẩu lao động Nhật Bản</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-ksnb.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Kỹ sư & thông dịch viên Nhật Bản</a></li>
                                         <li style="cursor: pointer;"><a href="job-list-vietseiko.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Việc làm tại Vietseiko</a></li>
@@ -368,12 +369,12 @@ $job_vietseiko = new Vietseiko_f;
 
                         <!-- Header Right Section-->
                         <div class="extra-nav header-2-nav">
-                           
-                           
+
+
                             <div class="extra-cell">
                                 <div class="header-nav-btn-section">
-                                   
-                                   
+
+
                                     <!-- Chuyển đổi ngôn ngữ -->
                                     <div class="rounded cursor-pointer hover:bg[#341678]">
                                         <svg width="36" height="30" fill="currentColor" class="" stroke="unset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
@@ -405,4 +406,15 @@ $job_vietseiko = new Vietseiko_f;
                 </div>
             </div>
         </header>
-        <!-- HEADER END -->
+    </div>
+
+    <script>
+        document.cookie = "width = " + window.innerWidth
+    </script>
+    
+
+</body>
+
+</html>
+
+<!-- HEADER END -->

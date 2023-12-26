@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="public/css/style2.css" />
+<!-- <link rel="stylesheet" type="text/css" href="public/css/style2.css" /> -->
 <!-- FOOTER START -->
 <div class="footer">
     <div class="container">
@@ -213,9 +213,10 @@
                             <ion-icon name="logo-whatsapp"></ion-icon><span>Tel:</span>(028) 3636.9996,
                             0363.212.627
                         </span>
-                        <span class="address_content_Email">
+                        <!-- <span class="address_content_Email">
                             <ion-icon name="mail-outline"></ion-icon>
                             <span>E-mail:</span>hello.quykhachhang@vietseiko.com
+                        </span> -->
                     </div>
                 </div>
                 <br />
@@ -239,9 +240,10 @@
                         <span class="address_content_tel">
                             <ion-icon name="logo-whatsapp"></ion-icon><span> 担当者の電話番号:</span>080-5401-5365
                         </span>
-                        <span class="address_content_Email">
+                        <!-- <span class="address_content_Email">
                             <ion-icon name="mail-outline"></ion-icon>
                             <span>E-mail:</span>hello.quykhachhang@vietseiko.com
+                        </span> -->
                     </div>
                 </div>
             </div>
@@ -262,9 +264,10 @@
                         <span class="address_content_tel">
                             <ion-icon name="logo-whatsapp"></ion-icon><span> 担当者の電話番号:</span>084-965-0831
                         </span>
-                        <span class="address_content_Email">
+                        <!-- <span class="address_content_Email">
                             <ion-icon name="mail-outline"></ion-icon>
                             <span>E-mail:</span>hello.quykhachhang@vietseiko.com
+                        </span> -->
                     </div>
                 </div>
             </div>

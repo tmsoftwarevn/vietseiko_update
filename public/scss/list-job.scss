@@ -3,13 +3,14 @@
     --main-color: #1967d2;
     --bg-color-card: #f2f7ff;
     --border-color: #b0c9ec;
+    --suport-main-color: #ed1b24;
 }
 .test {
     color: red;
     display: none;
 }
 .wt-bnr-inr {
-    height: 200px !important;
+    //height: 200px !important;
 }
 .job-vn {
     background-color: var(--bg-color-full);
@@ -26,10 +27,10 @@
 
 .content-list {
     margin-top: 20px;
-    //padding: 20px;
+    padding: 10px;
     background-color: #fff;
 
-    .card {
+    .card-list {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 6px;
@@ -40,13 +41,15 @@
             display: flex;
             align-items: center;
             .company-logo {
-                width: 100px;
+                width: 80px;
                 img {
                     width: 100%;
                 }
             }
             .content {
-                margin-left: 25px;
+                margin-left: 15px;
+                max-width: calc(100% - 80px);
+                           
                 .chucvu {
                     white-space: nowrap;
                     text-overflow: ellipsis;
@@ -54,7 +57,9 @@
                     font-weight: 500;
                     font-size: 18px;
                     text-transform: capitalize;
-                    max-width: 800px;
+                    
+                    max-width: 100%;
+                    box-sizing: content-box;                   
                     &:hover {
                         color: #1967d2;
                     }
@@ -64,7 +69,7 @@
                     text-overflow: ellipsis;
                     overflow: hidden;
                     font-weight: 500;
-                    max-width: 800px;
+                    max-width: 100%;
                     cursor: pointer;
                     &:hover {
                         color: #1967d2;
@@ -74,13 +79,24 @@
         }
         .salary {
             position: absolute;
-            top: 20px;
+            bottom: 10px;
             right: 20px;
+            color: var(--suport-main-color);
+            @media only screen and (max-width: 576px) {
+                display: none;
+            }
         }
     }
 }
-.container-f{
+// lỗi thu vien fix lai 
+
+.container-bg{
     background-color: var(--bg-color-card);
+}
+.container-css{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
 }
 .box-search-f {
     display: flex;

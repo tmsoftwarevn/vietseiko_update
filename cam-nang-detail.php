@@ -138,12 +138,12 @@ if ($allBlog[0]['type_id'] == 4) {
     </div>
   </div>
   <!-- OUR BLOG END -->
-  <div class="section-full p-t120 p-b90 site-bg-light-purple twm-related-jobs-carousel-wrap">
+  <div class="section-full p-t30 p-b90 site-bg-light-purple twm-related-jobs-carousel-wrap">
     <div class="section-head center wt-small-separator-outer">
       <div class="wt-small-separator site-text-primary">
         <!-- <div>Top Jobs</div> -->
       </div>
-      <h2 class="wt-title">Công việc mới nhất</h2>
+      <h2 class="wt-title" style="margin-bottom: 30px;">Công việc mới nhất</h2>
     </div>
     <div class="container">
 
@@ -177,14 +177,21 @@ if ($allBlog[0]['type_id'] == 4) {
                   echo $time;
                   ?>
                 </span>
-                <div class="twm-jobs-category green">
+                <!-- <div class="twm-jobs-category green">
                   <span class="twm-bg-sky">Mới nhất</span>
-                </div>
+                </div> -->
                 <div class="twm-mid-content">
                   <a href="<?php echo $link . '?id=' . $value['id_job'] ?>" class="twm-job-title">
-                    <h5 class="twm-job-title" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-                      <?php echo $value['chucvu'] ?>
-                    </h5>
+                  <h5 class="twm-job-title" style="margin: 10px auto;max-width: 250px; align-items: center;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    height: 39px;
+                                    ">
+                                        <?php echo $value['chucvu'] ?>
+                                    </h5>
                   </a>
                   <span class="icon" style="background: #f4f5f5; border-radius: 4px;color: #212f3f;display: inline-block;
                           font-size: 13px;font-weight: 500;line-height: 16px;padding: 4px 8px;">

@@ -10,8 +10,20 @@ if (isset($_GET['type'])) {
     $typeJob = $_GET['type'];
 }
 $totalPages = 1;
+// res 4 row carousel
+$perItemCarousel = 9;
+if (isset($_COOKIE['width'])) {
+    $myPhpVar = $_COOKIE['width'];
+   
+    if ((int)$myPhpVar < 992) {
+        $perItemCarousel = 4;
+    }
+}
 
 ?>
+
+<!-- ------------ -->
+
 <style>
     <?php include 'public/scss/custom.scss'; ?>select {
         padding: 10px;
@@ -49,7 +61,7 @@ $totalPages = 1;
                         <form action="search-list.php" method="get">
                             <div class="row">
                                 <!--Title-->
-                                <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
+                                <div class="form-group1 col-xl-3 col-lg-3 col-md-12">
                                     <label>Chọn ngành</label>
                                     <select class="form-select" style="cursor: pointer;">
                                         <option value="all">Tất cả</option>
@@ -66,7 +78,7 @@ $totalPages = 1;
 
                                 <!--All Category-->
                                 <!-- class="wt-search-bar-select selectpicker" data-live-search="true" title="" id="j-All_Category" data-bv-field="size" -->
-                                <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
+                                <div class="form-group1 col-xl-3 col-lg-3 col-md-12 ">
                                     <label>Hình thức</label>
                                     <select class="form-select" style="cursor: pointer;">
                                         <option value="all">Tất cả</option>
@@ -80,7 +92,7 @@ $totalPages = 1;
                                 </div>
 
                                 <!--Location-->
-                                <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
+                                <div class="form-group1 col-xl-3 col-lg-3 col-md-12">
                                     <label>Khu vực</label>
                                     <div class="twm-inputicon-box">
                                         <!-- <input name="keyword" type="text" required class="form-control" placeholder="Search..." /> -->
@@ -101,8 +113,8 @@ $totalPages = 1;
                                     </div>
                                 </div>
 
-                                <!--Find job btn-->
-                                <div class="form-group1 col-xl-3 col-lg-6 col-md-6">
+                                <!--Find job btn col-xl-3 col-lg-3 col-md-12        -->
+                                <div class="form-group1 col-xl-3 col-lg-3 col-md-12">
                                     <input type="submit" name="submit" value="Tìm kiếm" class="site-button">
                                     </input>
                                 </div>
@@ -272,8 +284,8 @@ $totalPages = 1;
     <!-- JOB POST START -->
     <div class="test" style="display: none;"></div>
     <section>
-        <div class="container">
-            <div class="job-vietnam  job">
+        <div class="container" >
+            <div class="job-vietnam job">
                 <div class="img-bg">
                     <img src="public/images/bg-job.jpg" alt="anh" />
                 </div>
@@ -288,21 +300,24 @@ $totalPages = 1;
                         </a>
                     </div>
                     <div class="job-list ">
-                        <div class="row">
-                            <?php
-                            $list_of_job_vn = Job_f::getLatestJob(27);
-                            $new_list_of_job_vn = [];
-                            for ($i = 0; $i < 8; $i++) {
-                                $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
-                            }
-                            ?>
-                            <div class="owl-carousel carousel-job-list">
-                                <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += 9) : ?>
-                                    <div class="item">
-                                        <?php for ($j = 0; $j < 9 && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
-                                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+
+                        <?php
+
+
+                        $list_of_job_vn = Job_f::getLatestJob(27);
+                        $new_list_of_job_vn = [];
+                        for ($i = 0; $i < 4; $i++) {
+                            $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
+                        }
+                        ?>
+                        <div class="owl-carousel carousel-job-list">
+                            <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += $perItemCarousel) : ?>
+                                <div class="row">
+                                    <div class="item ">
+                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                            <div class="col-12 col-sm-12 col-lg-4">
                                                 <a href="job-detail.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
-                                                    <div class="card" id='job-vietnam'>
+                                                    <div class="card-job">
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
                                                         </div>
@@ -353,9 +368,10 @@ $totalPages = 1;
                                                 </a>
                                             </div>
                                         <?php endfor; ?>
+
                                     </div>
-                                <?php endfor; ?>
-                            </div>
+                                </div>
+                            <?php endfor; ?>
                         </div>
 
                     </div>
@@ -377,22 +393,22 @@ $totalPages = 1;
                     </div>
                     <div class="job-list ">
 
-                        <div class="row">
-                            <?php
-                            $list_of_job_vn = Job_NB_f::getLatestJob(27);
-                            $new_list_of_job_vn = [];
-                            for ($i = 0; $i < 8; $i++) {
-                                $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
-                            }
+                        <?php
+                        $list_of_job_vn = Job_NB_f::getLatestJob(27);
+                        $new_list_of_job_vn = [];
+                        for ($i = 0; $i < 4; $i++) {
+                            $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
+                        }
 
-                            ?>
-                            <div class="owl-carousel carousel-job-list">
-                                <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += 9) : ?>
+                        ?>
+                        <div class="owl-carousel carousel-job-list">
+                            <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += $perItemCarousel) : ?>
+                                <div class="row">
                                     <div class="item">
-                                        <?php for ($j = 0; $j < 9 && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
-                                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                            <div class="col-12 col-sm-12 col-lg-4">
                                                 <a href="job-detail_NB.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
-                                                    <div class="card" id='job-vietnam'>
+                                                    <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
                                                         </div>
@@ -444,9 +460,10 @@ $totalPages = 1;
                                             </div>
                                         <?php endfor; ?>
                                     </div>
-                                <?php endfor; ?>
-                            </div>
+                                </div>
+                            <?php endfor; ?>
                         </div>
+
 
                     </div>
                 </div>
@@ -465,23 +482,22 @@ $totalPages = 1;
                         </a>
                     </div>
                     <div class="job-list ">
+                        <?php
+                        $list_of_job_vn = Job_kysu_f::getAllJob();
+                        $new_list_of_job_vn = [];
+                        for ($i = 0; $i < 4; $i++) {
+                            $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
+                        }
 
-                        <div class="row">
-                            <?php
-                            $list_of_job_vn = Job_kysu_f::getAllJob();
-                            $new_list_of_job_vn = [];
-                            for ($i = 0; $i < 8; $i++) {
-                                $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
-                            }
-
-                            ?>
-                            <div class="owl-carousel carousel-job-list">
-                                <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += 9) : ?>
+                        ?>
+                        <div class="owl-carousel carousel-job-list">
+                            <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += $perItemCarousel) : ?>
+                                <div class="row">
                                     <div class="item">
-                                        <?php for ($j = 0; $j < 9 && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
-                                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                            <div class="col-12 col-sm-12 col-lg-4">
                                                 <a href="job-detail-kysunb.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
-                                                    <div class="card" id='job-vietnam'>
+                                                    <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
                                                         </div>
@@ -533,8 +549,8 @@ $totalPages = 1;
                                             </div>
                                         <?php endfor; ?>
                                     </div>
-                                <?php endfor; ?>
-                            </div>
+                                </div>
+                            <?php endfor; ?>
                         </div>
 
                     </div>
@@ -555,22 +571,22 @@ $totalPages = 1;
                     </div>
                     <div class="job-list ">
 
-                        <div class="row">
-                            <?php
-                            $list_of_job_vn = Vietseiko_f::getAllJob();
-                            $new_list_of_job_vn = [];
-                            for ($i = 0; $i < 5; $i++) {
-                                $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
-                            }
+                        <?php
+                        $list_of_job_vn = Vietseiko_f::getAllJob();
+                        $new_list_of_job_vn = [];
+                        for ($i = 0; $i < 4; $i++) {
+                            $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
+                        }
 
-                            ?>
-                            <div class="owl-carousel carousel-job-list">
-                                <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += 9) : ?>
+                        ?>
+                        <div class="owl-carousel carousel-job-list">
+                            <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += $perItemCarousel) : ?>
+                                <div class="row">
                                     <div class="item">
-                                        <?php for ($j = 0; $j < 9 && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
-                                            <div class="col-lg-4 col-md-12 col-sm-12 ">
+                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                            <div class="col-12 col-sm-12 col-lg-4">
                                                 <a href="job-detail-vietseiko.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
-                                                    <div class="card" id='job-vietnam'>
+                                                    <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
                                                         </div>
@@ -622,8 +638,8 @@ $totalPages = 1;
                                             </div>
                                         <?php endfor; ?>
                                     </div>
-                                <?php endfor; ?>
-                            </div>
+                                </div>
+                            <?php endfor; ?>
                         </div>
 
                     </div>
@@ -905,27 +921,7 @@ $totalPages = 1;
 </div>
 <!-- CONTENT END -->
 
-<script>
-    function changeUrl_vn() {
-        var domain = new URL(window.location.href).pathname;
-        window.location.href = domain + '?type=vn';
-    }
 
-    function changeUrl_nb() {
-        var domain = new URL(window.location.href).pathname;
-        window.location.href = domain + '?type=nb';
-    }
-
-    function changeUrl_ks() {
-        var domain = new URL(window.location.href).pathname;
-        window.location.href = domain + '?type=ks';
-    }
-
-    function changeUrl_vs() {
-        var domain = new URL(window.location.href).pathname;
-        window.location.href = domain + '?type=vsk';
-    }
-</script>
 <?php
 require_once 'footer.php';
 ?>

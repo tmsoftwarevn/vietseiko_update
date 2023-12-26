@@ -2150,7 +2150,7 @@ ol li {
   outline: none;
   color: #fff;
   padding: 15px 30px;
-  border-radius: 10px;
+  border-radius: 5px;
   position: relative;
   overflow: hidden;
   cursor: poRoboto;
@@ -2975,7 +2975,7 @@ ol li {
   padding-top: 10px;
   padding-bottom: 10px;
   background: transparent;
-  max-width: 1270px;
+  max-width: 1200px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -5719,7 +5719,7 @@ ol li {
 }
 
 .section-head.center.wt-small-separator-outer {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   text-align: center;
   max-width: 645px;
   margin-left: auto;
@@ -6589,7 +6589,8 @@ button.scroltop span {
 
 @media (max-width: 767px) {
   .wt-bnr-inr {
-    height: 290px;
+    /* height: 290px; */
+    height: 200px;
   }
 }
 
@@ -7006,7 +7007,7 @@ button.scroltop span {
 /*Blog Side Bar*/
 .side-bar {
   background-color: #fcfcfc;
-  padding: 30px;
+  padding: 0px 30px 30px;
   border-radius: 10px;
 }
 
@@ -9258,7 +9259,11 @@ ol.comment-list li.comment .comment-respond .comment-form p {
   padding: 5px 12px;
   white-space: nowrap;
 }
-
+@media (max-width: 576px) {
+  .twm-jobs-category span {
+    display: none;
+  }
+}
 @media (max-width: 767px) {
   .twm-jobs-category span {
     display: inline-block;
@@ -10537,7 +10542,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 .twm-bnr-search-bar .site-button {
   display: block;
   width: 100%;
-  padding: 15px 8px;
+  padding: 10px 8px;
 }
 
 .twm-inputicon-box {
@@ -11546,11 +11551,24 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 @media (max-width: 420px) {
   .twm-job-self-wrap .twm-job-self-info .twm-job-self-top .twm-media {
-    left: auto;
+    /* left: auto;
     top: auto;
     margin-bottom: 20px;
     margin-top: 20px;
-    position: inherit;
+    position: inherit; */
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px rgba(56, 152, 226, 0.3);
+    position: absolute;
+    top: -40px;
+    left: 20px;
+    overflow: hidden;
+    margin-bottom: -20px;
   }
 }
 
@@ -11580,7 +11598,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 @media (max-width: 767px) {
   .twm-job-self-wrap .twm-job-self-info .twm-job-self-top .twm-job-self-mid {
-    display: block;
+    /* display: block; */
   }
 }
 
@@ -11615,7 +11633,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 @media (max-width: 420px) {
   .twm-job-self-wrap .twm-job-self-info .twm-job-self-top .twm-mid-content {
-    padding-top: 0px;
+    padding-top: 30px;
   }
 }
 
@@ -11641,7 +11659,12 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 .twm-job-self-wrap .twm-job-self-info .twm-job-self-bottom a:last-child {
   margin-right: 0px;
 }
-
+@media (max-width: 576px){
+  .twm-job-self-wrap .twm-job-self-info .twm-job-self-bottom a:last-child{
+    width: 100%;
+    text-align: center;
+  }
+}
 .twm-job-self-wrap.twm-job-detail-v2 .twm-job-self-info .twm-job-self-top .twm-media-bg {
   position: relative;
 }
@@ -18583,7 +18606,7 @@ strong {
   border: 10px;
   border: 1px solid #efefef;
   position: relative;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   width: 100%;
   text-align: center;
@@ -18636,18 +18659,19 @@ strong {
 }
 
 .twm-jobs-grid-style2 .twm-mid-content {
-  padding-top: 15px;
+  /* padding-top: 15px; */
 }
 
 .twm-jobs-grid-style2 .twm-right-content {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 @media (max-width: 420px) {
   .twm-jobs-grid-style2 .twm-right-content {
-    display: block;
+    /* display: block; */
   }
 }
 
@@ -18658,7 +18682,7 @@ strong {
 .twm-jobs-grid-style2 .twm-right-content .twm-jobs-amount {
   font-weight: 500;
   color: #17171d;
-  margin: 20px 0px 10px 0px;
+  /* margin: 20px 0px 10px 0px; */
 }
 
 .twm-jobs-grid-style2 .twm-right-content .twm-jobs-amount span {
@@ -18671,8 +18695,9 @@ strong {
 }
 
 .twm-jobs-grid-style2 .twm-job-post-duration {
-  color: #2db346;
+  color: #1967d2;
   font-size: 14px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 420px) {

@@ -66,16 +66,16 @@ class Cam_nang extends Db
     /**
      * Thêm mới JOB:
      */
-    public function insertBlog($img_blog, $name, $noidung, $type)
+    public function insertBlog($img_blog, $name, $noidung, $type,$slug_custom)
     {
-        $sql = self::$connection->prepare("INSERT INTO `cam_nang`( `img_blog`, `tieude_blog`, `noidung_blog`, `type_id`) 
-        VALUES ('$img_blog','$name','$noidung','$type')");
+        $sql = self::$connection->prepare("INSERT INTO `cam_nang`( `img_blog`, `tieude_blog`, `noidung_blog`, `type_id`,`slug`) 
+        VALUES ('$img_blog','$name','$noidung','$type','$slug_custom')");
         return $sql->execute();
     }
     // update job
-    static function updateBlog($id_blog,$img_blog, $name, $noidung, $type)
+    static function updateBlog($id_blog,$img_blog, $name, $noidung, $type,$slug_custom)
     {
-        $sql = self::$connection->prepare("UPDATE `blog` SET `img_blog`='$img_blog',`tieude_blog`='$name',`noidung_blog`='$noidung',`type_id`='$type' where id_blog = $id_blog");
+        $sql = self::$connection->prepare("UPDATE `cam_nang` SET `img_blog`='$img_blog',`tieude_blog`='$name',`noidung_blog`='$noidung',`type_id`='$type',`slug`='$slug_custom' where id_blog = $id_blog");
 
         return $sql->execute();
     }

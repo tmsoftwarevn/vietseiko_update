@@ -86,7 +86,7 @@ $all_type = $type::getAllType();
                     <?php echo 'cập nhật Blog mã: ' . $detail_blog['id_blog'] ?>
                 </div>
 
-                <form action="job-vietnam/form-blog-update.php" method="POST" enctype="multipart/form-data">
+                <form action="job-vietnam/form-camnang-update.php" method="POST" enctype="multipart/form-data">
                     <input style="display: none;" name='id_blog' value="<?php echo $detail_blog['id_blog'] ?>" />
                     <div class="row mt-5">
                         <div class="col-6">

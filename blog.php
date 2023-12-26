@@ -14,41 +14,36 @@ require_once 'header.php';
         margin-bottom: 20px;
     }
 
-    input[type="text"] {
-        padding: 8px;
-        width: 300px;
-        width: 100%;
-        max-width: 300px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-left: 10px;
-    }
 
     select {
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 5px;
-
+        font-size: 14px;
     }
 
     option {
         font-size: 17px;
     }
 
-    .search {
+    #search-input-blog {
         padding: 8px 20px;
-        background-color: #1967d2;
         color: white;
         border: none;
         border-radius: 5px;
-        cursor: pointer;
+       
         margin-left: 20px;
+        border: 1px solid #ccc;
     }
 
-    .search:hover {
-        background-color: #b0c9ec;
+    #icon-search {
+        font-size: 16px;
+        margin-left: 15px;
+        padding: 8px;
+        border: none;
+       
+        cursor: pointer;
     }
-
 
     .job-result {
         border: 1px solid #ccc;
@@ -58,6 +53,7 @@ require_once 'header.php';
         background-color: white;
     }
 </style>
+
 <title><?php echo 'Tin tức' ?></title>
 
 <div class="page-wraper">
@@ -95,9 +91,8 @@ require_once 'header.php';
                     <option value="4">Việc làm tại VietSeiko</option>
 
                 </select>
-                <input type="text" id="keyword" name="keyword" placeholder="Nhập từ khóa...">
-
-                <button type="submit" class="search">Tìm kiếm</button>
+                <input type="text" id="search-input-blog" name="search-input-blog" placeholder="Nhập từ khóa...">
+                <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
             </form>
         </div>
 
