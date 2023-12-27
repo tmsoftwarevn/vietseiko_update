@@ -10,7 +10,7 @@ if (isset($_GET['page'])) {
     //echo "Khong nhan duoc ID";
 }
 
-$allJob = $job::getAllJob();
+$allJob = $job::getAllJob_andCreatePagination(1,10);
 
 ?>
 <style>
@@ -34,7 +34,7 @@ $allJob = $job::getAllJob();
         <?php
         foreach ($allJob as $key => $value) {
         ?>
-            <div class="card" id='job-vietnam'>
+            <div class="card-list" >
                 <div class="group-info">
                     <?php
                     if ($value['id_cty'] == 1) {

@@ -79,7 +79,7 @@ $allJob = $job_kysu::getAllJob();
 </div>
 <div class="test">rew </div>
 
-<div class="job-vn">
+<div >
     <div class="container-css container-bg">
         <div class="title-1" style="margin-top: 20px;">Việc làm Kỹ sư & thông dịch viên tại Nhật Bản</div>
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
@@ -139,7 +139,6 @@ $allJob = $job_kysu::getAllJob();
 
     </div>
     <div class="container-css">
-
         <div class="content-list">
             <p style="font-weight: 500;">Có <span style="color: red;">500 </span> việc làm đang tuyển dụng</p>
             <?php

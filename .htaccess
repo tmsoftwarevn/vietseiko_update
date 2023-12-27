@@ -1,5 +1,5 @@
 RewriteEngine On
-#RewriteBase /
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^([^.]+)$ .php [NC,L]
 
- RewriteRule ^location(/.*)?$ about.php [L,NC]
-#RewriteRule "gioi-thieu" "about.php"
+file gốc: about.php -> f5 'about' ko hoạt động, trả về index

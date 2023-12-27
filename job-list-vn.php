@@ -14,7 +14,7 @@ $parts = explode('&', $path);
 if (count($parts) > 4) {
     array_pop($parts);
     $url_save = implode('&', $parts);
-    $not_search = false;
+    
 } else {
 }
 
@@ -23,7 +23,6 @@ if (isset($_GET['page'])) {
 } else {
     //echo "Khong nhan duoc ID";
 }
-
 
 ?>
 
@@ -95,7 +94,13 @@ if (
         cursor: pointer;
         margin-left: 20px;
     }
-
+    #icon-search {
+        font-size: 16px;
+        margin-left: 15px;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+    }
     .search:hover {
         background-color: #b0c9ec;
     }
@@ -188,7 +193,9 @@ if (
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="search">Tìm kiếm</button>
+                    <!-- <button type="submit" class="search">Tìm kiếm</button> -->
+                    <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
+                
                 </form>
             </div>
         </form>

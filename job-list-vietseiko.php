@@ -79,8 +79,8 @@ $allJob = $job_vietseiko::getAllJob();
 </div>
 <div class="test">rew </div>
 
-<div class="job-vn">
-<div class="container-css container-bg">
+<div >
+    <div class="container-css container-bg">
         <div class="title-1" style="margin-top: 20px;">Việc làm tại VietSeiko</div>
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
         <form action="#" method="get" style="display: flex; justify-content: start;margin-bottom: 0;">
@@ -139,7 +139,7 @@ $allJob = $job_vietseiko::getAllJob();
 
     </div>
     <div class="container-css">
-        
+
         <div class="content-list">
             <p style="font-weight: 500;">Có <span style="color: red;">500 </span> việc làm đang tuyển dụng</p>
             <?php
@@ -172,19 +172,19 @@ $allJob = $job_vietseiko::getAllJob();
                             <?php
                             if ($value['id_cty'] == 1) {
                             ?>
-                             <a href="job-detail-vietseiko.php?id=<?php echo $value['id_job'] ?>">
-                                <div class="name_cty">
-                                    <?php echo $value['diachi_cuthe'] ?>
-                                </div>
-                             </a>
+                                <a href="job-detail-vietseiko.php?id=<?php echo $value['id_job'] ?>">
+                                    <div class="name_cty">
+                                        <?php echo $value['diachi_cuthe'] ?>
+                                    </div>
+                                </a>
                             <?php
                             } else {
                             ?>
-                            <a href="job-detail-vietseiko.php?id=<?php echo $value['id_job'] ?>">
-                                <div class="name_cty">
-                                    <?php echo $value['name'] ?>
-                                </div>
-                            </a>
+                                <a href="job-detail-vietseiko.php?id=<?php echo $value['id_job'] ?>">
+                                    <div class="name_cty">
+                                        <?php echo $value['name'] ?>
+                                    </div>
+                                </a>
                             <?php
                             }
                             ?>
@@ -218,7 +218,7 @@ $allJob = $job_vietseiko::getAllJob();
             }
             ?>
         </div>
-        
+
         <!-- page bootstrap -->
         <?php
         function generatePagination($currentPage, $totalPages)

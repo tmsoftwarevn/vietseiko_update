@@ -88,7 +88,7 @@ require_once 'header.php';
                     <option value="4">Việc làm tại VietSeiko</option>
 
                 </select>
-                <input type="text" id="search-input-blog" name="search-input-blog" placeholder="Nhập từ khóa...">
+                <!-- <input type="text" id="search-input-blog" name="search-input-blog" placeholder="Nhập từ khóa..."> -->
                 <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
             </form>
         </div>

@@ -181,6 +181,9 @@
 
                 .company-logo {
                     width: 60px;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
                     img {
                         width: 100%;
                     }
@@ -263,6 +266,11 @@
     border-radius: 10px;
     margin-bottom: 20px;
     width: 100%;
+    border: 1px solid transparent;
+    cursor: pointer;
+    &:hover{
+        border: 1px solid var(--main-color);
+    }
     .img_blog_l {
         width: 100%;
         figure {
@@ -291,8 +299,8 @@
     color: #fff;
     font-size: 14px;
     line-height: 28px;
-    padding: 5px 15px 5px 20px;
-    //margin: 15px 0;
+    padding: 3px 10px;
+    
     position: relative;
     z-index: 1;
     width: fit-content;
