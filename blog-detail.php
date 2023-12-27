@@ -1,8 +1,9 @@
 <?php
 require_once "header.php";
-$id = 0;
+$id = 1;
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
+  echo 'id blog la:'.$id;
 } else {
   echo "Khong nhan duoc ID";
 }
@@ -12,19 +13,20 @@ $relate_blog = $blog->getRelatedBlog($allBlog[0]['type_id'], 6);
 
 if ($allBlog[0]['type_id'] == 1) {
   $job_moinhat = $job::getLatestJob(8);
-  $link = 'job-detail.php';
+  $link = 'viec-lam-tai-viet-nam/';
+  
 }
 if ($allBlog[0]['type_id'] == 2) {
   $job_moinhat = $job_nb::getLatestJob(8);
-  $link = 'job-detail_NB.php';
+  $link = 'viec-lam-xkld-nhat-ban/';
 }
 if ($allBlog[0]['type_id'] == 3) {
   $job_moinhat = $job_kysu::getLatestJob(8);
-  $link = 'job-detail-kysunb.php';
+  $link = 'viec-lam-ky-su-va-thong-dich-nhat-ban/';
 }
 if ($allBlog[0]['type_id'] == 4) {
   $job_moinhat = $job_vietseiko::getLatestJob(8);
-  $link = 'job-detail-vietseiko.php';
+  $link = 'viec-lam-tai-vietseiko/';
 }
 ?>
 <style>
@@ -41,8 +43,8 @@ if ($allBlog[0]['type_id'] == 4) {
 
         <div>
           <ul class="wt-breadcrumb breadcrumb-style-2">
-            <li><a href="index.php">Tin tức</a></li>
-            <li><?php echo  $allBlog[0]['tieude_blog'] ?></li>
+            <li><a href="trang-chu">Tin tức</a></li>
+            <li>Chi tiết tin tức</li>
           </ul>
         </div>
 
@@ -110,7 +112,7 @@ if ($allBlog[0]['type_id'] == 4) {
                         <?php echo $value['img_blog'] ?>
                       </div>
                       <div class="pr-r">
-                        <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
+                      <a href="<?php echo 'tin-tuc/' . $value['slug'] ?>/<?php echo $value['id_blog'] ?>">
                           <div class="name-pr">
                             <?php echo $value['tieude_blog'] ?>
 
@@ -180,7 +182,7 @@ if ($allBlog[0]['type_id'] == 4) {
                 </div> -->
                 <div class="twm-mid-content">
 
-                  <a href="<?php echo $link . '?id=' . $value['id_job'] ?>" class="twm-job-title">
+                  <a href="<?php echo $link .  $value['slug'] .'/'.$value['id_job'] ?>" class="twm-job-title">
                   <h5 class="twm-job-title" style="margin: 10px auto;max-width: 250px; align-items: center;
                                     display: -webkit-box;
                                     -webkit-line-clamp: 2;
@@ -205,7 +207,7 @@ if ($allBlog[0]['type_id'] == 4) {
                   <div class="twm-jobs-amount">
                     <?php echo $value['mucluong'] ?>
                   </div>
-                  <a href="<?php echo $link . '?id=' . $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
+                  <a href="<?php echo $link .  $value['slug'] .'/'.$value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
                 </div>
               </div>
             </div>

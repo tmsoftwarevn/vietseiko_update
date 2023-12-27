@@ -21,7 +21,7 @@ class Form_contact extends Db
         $type,  
         $nganhnghe,
         $address,
-        $address_h,
+        $address_h
     ) {
         $sql = self::$connection->prepare("INSERT INTO `contact`(`name`, `email`, `phone`, `muc_luong`, `khu_vuc_hien_tai`, `khu_vuc_mong_muon`, `nganhnghe`, `type_id`)
         VALUES ('$name','$email','$phone','$luong','$address','$address_h','$nganhnghe','$type')");

@@ -111,7 +111,7 @@ require_once 'header.php';
 
                         <div>
                             <ul class="wt-breadcrumb breadcrumb-style-2">
-                                <li><a href="index.php">Trang chủ</a></li>
+                                <li><a href="trang-chu">Trang chủ</a></li>
                                 <li>Giới thiệu</li>
                             </ul>
                         </div>

@@ -58,7 +58,7 @@ $allJob = $job_kysu::getAllJob();
         background-color: #b0c9ec;
     }
 </style>
-<title>Việc làm Kỹ sư & thông dịch viên tại Nhật Bản</title>
+<title>Việc làm tại VietSeiko</title>
 <!-- CONTENT START -->
 
 <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image: url(images/banner/1.jpg)">
@@ -68,8 +68,8 @@ $allJob = $job_kysu::getAllJob();
             <!-- BREADCRUMB ROW -->
             <div>
                 <ul class="wt-breadcrumb breadcrumb-style-2">
-                    <li><a href="index.php">Trang chủ</a></li>
-                    <li>Việc làm Kỹ sư và thông dịch viên tại Nhật Bản</li>
+                    <li><a href="trang-chu">Trang chủ</a></li>
+                    <li>Việc làm kỹ sư và thông dịch tại Nhật Bản</li>
                 </ul>
             </div>
 
@@ -79,9 +79,9 @@ $allJob = $job_kysu::getAllJob();
 </div>
 <div class="test">rew </div>
 
-<div >
+<div>
     <div class="container-css container-bg">
-        <div class="title-1" style="margin-top: 20px;">Việc làm Kỹ sư & thông dịch viên tại Nhật Bản</div>
+        <div class="title-1" style="margin-top: 20px;">Việc làm tại VietSeiko</div>
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
         <form action="#" method="get" style="display: flex; justify-content: start;margin-bottom: 0;">
             <div class="box-search-f" style="display: flex; justify-content: space-between;">
@@ -138,7 +138,9 @@ $allJob = $job_kysu::getAllJob();
         </form>
 
     </div>
+    
     <div class="container-css">
+
         <div class="content-list">
             <p style="font-weight: 500;">Có <span style="color: red;">500 </span> việc làm đang tuyển dụng</p>
             <?php
@@ -162,7 +164,7 @@ $allJob = $job_kysu::getAllJob();
                         }
                         ?>
                         <div class="content">
-                            <a href="job-detail-kysunb.php?id=<?php echo $value['id_job'] ?>">
+                            <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
                                 <div class="chucvu">
                                     <?php echo $value['chucvu'] ?>
                                 </div>
@@ -171,7 +173,7 @@ $allJob = $job_kysu::getAllJob();
                             <?php
                             if ($value['id_cty'] == 1) {
                             ?>
-                                <a href="job-detail-kysunb.php?id=<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
                                     <div class="name_cty">
                                         <?php echo $value['diachi_cuthe'] ?>
                                     </div>
@@ -179,7 +181,7 @@ $allJob = $job_kysu::getAllJob();
                             <?php
                             } else {
                             ?>
-                                <a href="job-detail-kysunb.php?id=<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
                                     <div class="name_cty">
                                         <?php echo $value['name'] ?>
                                     </div>

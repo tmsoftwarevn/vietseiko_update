@@ -15,7 +15,7 @@
     </div>
 
     <div class="back-home">
-        <a href="index.php">Quay lại trang chủ</a>
+        <a href="trang-chu">Quay lại trang chủ</a>
     </div>
 
 

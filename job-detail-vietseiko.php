@@ -9,6 +9,7 @@ $kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    echo 'id vsk: '.$id;
 } else {
     echo "Khong nhan duoc ID";
 }
@@ -402,7 +403,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <span class="twm-bg-sky">Mới nhất</span>
                             </div> -->
                             <div class="twm-mid-content">
-                                <a href="job-detail-vietseiko.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
+                            <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>" class="twm-job-title">
                                 <h5 class="twm-job-title" style="margin: 10px auto;max-width: 250px; align-items: center;
                                     display: -webkit-box;
                                     -webkit-line-clamp: 2;
@@ -427,7 +428,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <div class="twm-jobs-amount">
                                     <?php echo $value['mucluong'] ?>
                                 </div>
-                                <a href="job-detail-vietseiko.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
+                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ $totalPages = 1;
 $perItemCarousel = 9;
 if (isset($_COOKIE['width'])) {
     $myPhpVar = $_COOKIE['width'];
-   
+
     if ((int)$myPhpVar < 992) {
         $perItemCarousel = 4;
     }
@@ -42,25 +42,26 @@ if (isset($_COOKIE['width'])) {
 <div class="test" style="display: none;">v</div>
 <div class="page-content">
     <!--Banner Start-->
+
     <div class="twm-home1-banner-section site-bg-gray bg-cover" style="background-image: url(images/main-slider/slider1/bg1.jpg)">
         <div class="row">
-            <!--Left Section-->
+
             <div class="col-xl-6 col-lg-6 col-md-12">
                 <div class="twm-bnr-left-section">
-                    <div class="twm-bnr-title-small">
+                    <!-- <div class="twm-bnr-title-small">
                         Chúng ta có <span class="site-text-primary">208,000+</span> Việc làm trực tiếp
+                    </div> -->
+                    <div class="twm-bnr-title-large" style="text-align: center;">
+                        Tìm <span class="site-text-primary">công việc</span> phù hợp với nhu cầu của bạn
                     </div>
-                    <div class="twm-bnr-title-large">
-                        Tìm <span class="site-text-primary">công việc</span> phù hợp với cuộc sống của bạn
-                    </div>
-                    <div class="twm-bnr-discription">
-                        Nhập từ khóa của bạn, sau đó nhấp vào tìm kiếm để tìm công việc hoàn hảo của bạn.
-                    </div>
+                    <!-- <div class="twm-bnr-discription">
+                        Tìm kiếm để tìm công việc hoàn hảo của bạn.
+                    </div> -->
 
                     <div class="twm-bnr-search-bar">
                         <form action="search-list.php" method="get">
                             <div class="row">
-                                <!--Title-->
+
                                 <div class="form-group1 col-xl-3 col-lg-3 col-md-12">
                                     <label>Chọn ngành</label>
                                     <select class="form-select" style="cursor: pointer;">
@@ -76,8 +77,6 @@ if (isset($_COOKIE['width'])) {
                                     </select>
                                 </div>
 
-                                <!--All Category-->
-                                <!-- class="wt-search-bar-select selectpicker" data-live-search="true" title="" id="j-All_Category" data-bv-field="size" -->
                                 <div class="form-group1 col-xl-3 col-lg-3 col-md-12 ">
                                     <label>Hình thức</label>
                                     <select class="form-select" style="cursor: pointer;">
@@ -91,13 +90,11 @@ if (isset($_COOKIE['width'])) {
                                     </select>
                                 </div>
 
-                                <!--Location-->
+
                                 <div class="form-group1 col-xl-3 col-lg-3 col-md-12">
                                     <label>Khu vực</label>
                                     <div class="twm-inputicon-box">
-                                        <!-- <input name="keyword" type="text" required class="form-control" placeholder="Search..." /> -->
                                         <select class="form-select" required name="location" style="cursor: pointer;">
-                                            <!-- <option disabled selected value>-- Tất cả --</option> -->
                                             <option value="all">Tất cả</option>
                                             <?php
                                             foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
@@ -109,12 +106,10 @@ if (isset($_COOKIE['width'])) {
                                             }
                                             ?>
                                         </select>
-                                        <!-- <i class="twm-input-icon bi bi-geo-alt"></i> -->
                                     </div>
                                 </div>
 
-                                <!--Find job btn col-xl-3 col-lg-3 col-md-12        -->
-                                <div class="form-group1 col-xl-3 col-lg-3 col-md-12">
+                                <div class="col-xl-3 col-lg-3 col-md-12">
                                     <input type="submit" name="submit" value="Tìm kiếm" class="site-button">
                                     </input>
                                 </div>
@@ -125,7 +120,6 @@ if (isset($_COOKIE['width'])) {
                 </div>
             </div>
 
-            <!--right Section-->
             <div class="col-xl-6 col-lg-6 col-md-12 twm-bnr-right-section">
                 <div class="twm-bnr-right-content">
                     <div class="twm-img-bg-circle-area">
@@ -154,8 +148,8 @@ if (isset($_COOKIE['width'])) {
                             </div>
                         </div>
 
-                        <div class="twm-bnr-blocks-position-wrap">
-                            <!--icon-block-1-->
+                        <!-- <div class="twm-bnr-blocks-position-wrap">
+                            
                             <div class="twm-bnr-blocks twm-bnr-blocks-position-1">
                                 <div class="twm-icon">
                                     <img src="images/main-slider/slider1/icon-1.png" alt="" />
@@ -167,8 +161,7 @@ if (isset($_COOKIE['width'])) {
                                     <p class="icon-content-info">Companies Jobs</p>
                                 </div>
                             </div>
-
-                            <!--icon-block-2-->
+                           
                             <div class="twm-bnr-blocks twm-bnr-blocks-position-2">
                                 <div class="twm-icon">
                                     <img src="images/main-slider/slider1/icon-2.png" alt="" />
@@ -180,8 +173,7 @@ if (isset($_COOKIE['width'])) {
                                     <p class="icon-content-info">Job For Countries</p>
                                 </div>
                             </div>
-
-                            <!--icon-block-3-->
+  
                             <div class="twm-bnr-blocks-3 twm-bnr-blocks-position-3">
                                 <div class="twm-pics">
                                     <span><img src="images/main-slider/slider1/user/u-1.jpg" alt="" /></span>
@@ -198,10 +190,10 @@ if (isset($_COOKIE['width'])) {
                                     <p class="icon-content-info">Jobs Done</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
-                    <!--Samll Ring Left-->
+
                     <div class="twm-small-ring-l slide-top-animation"></div>
                     <div class="twm-small-ring-2 slide-top-animation"></div>
                 </div>
@@ -209,20 +201,21 @@ if (isset($_COOKIE['width'])) {
         </div>
         <div class="twm-gradient-text">Jobs</div>
     </div>
+
     <!--Banner End-->
 
     <!-- HOW IT WORK SECTION START -->
-    <div class="section-full p-t50 site-bg-white twm-how-it-work-area">
+
+    <!-- <div class="section-full p-t50 site-bg-white twm-how-it-work-area">
         <div class="container">
-            <!-- TITLE START-->
+          
             <div class="section-head center wt-small-separator-outer">
                 <div class="wt-small-separator site-text-primary">
                     <div>Working Process</div>
                 </div>
                 <h2 class="wt-title">How It Works</h2>
             </div>
-            <!-- TITLE END-->
-
+           
             <div class="twm-how-it-work-section">
                 <div class="row">
                     <div class="col-xl-4 col-lg-6 col-md-6">
@@ -278,13 +271,14 @@ if (isset($_COOKIE['width'])) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
     <!-- HOW IT WORK SECTION END -->
 
     <!-- JOB POST START -->
     <div class="test" style="display: none;"></div>
     <section>
-        <div class="container" >
+        <div class="container">
             <div class="job-vietnam job">
                 <div class="img-bg">
                     <img src="public/images/bg-job.jpg" alt="anh" />
@@ -316,7 +310,8 @@ if (isset($_COOKIE['width'])) {
                                     <div class="item ">
                                         <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="job-detail.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $new_list_of_job_vn[$i + $j]['slug'] ?>/<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                    <!-- <a href="job-detail.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>"> -->
                                                     <div class="card-job">
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
@@ -407,7 +402,7 @@ if (isset($_COOKIE['width'])) {
                                     <div class="item">
                                         <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="job-detail_NB.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $new_list_of_job_vn[$i + $j]['slug'] ?>/<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
@@ -496,7 +491,7 @@ if (isset($_COOKIE['width'])) {
                                     <div class="item">
                                         <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="job-detail-kysunb.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $new_list_of_job_vn[$i + $j]['slug'] ?>/<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
@@ -545,6 +540,7 @@ if (isset($_COOKIE['width'])) {
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </a>
                                             </div>
                                         <?php endfor; ?>
@@ -563,7 +559,7 @@ if (isset($_COOKIE['width'])) {
                 <div class="g1 mt-5">
                     <div class="title ">
                         <div class="job-name">
-                            <div>Việc làm tại Vietseiko</div>
+                            <div>Việc làm tại VietSeiko</div>
                         </div>
                         <a href="job-list-vietseiko.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
                             <span class="btn-view-all">Xem tất cả</span>
@@ -585,7 +581,7 @@ if (isset($_COOKIE['width'])) {
                                     <div class="item">
                                         <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="job-detail-vietseiko.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $new_list_of_job_vn[$i + $j]['slug'] ?>/<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>

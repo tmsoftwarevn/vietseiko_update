@@ -10,7 +10,7 @@ if (isset($_GET['page'])) {
     //echo "Khong nhan duoc ID";
 }
 
-$allJob = $job::getAllJob_andCreatePagination(1,10);
+$allJob = $job::getAllJob_andCreatePagination(1, 10);
 
 ?>
 <style>
@@ -34,7 +34,7 @@ $allJob = $job::getAllJob_andCreatePagination(1,10);
         <?php
         foreach ($allJob as $key => $value) {
         ?>
-            <div class="card-list" >
+            <div class="card-list">
                 <div class="group-info">
                     <?php
                     if ($value['id_cty'] == 1) {
@@ -52,7 +52,7 @@ $allJob = $job::getAllJob_andCreatePagination(1,10);
                     }
                     ?>
                     <div class="content">
-                        <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                        <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
                             <div class="chucvu">
                                 <?php echo $value['chucvu'] ?>
                             </div>
@@ -61,7 +61,7 @@ $allJob = $job::getAllJob_andCreatePagination(1,10);
                         <?php
                         if ($value['id_cty'] == 1) {
                         ?>
-                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                            <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
                                 <div class="name_cty">
                                     <?php echo $value['diachi_cuthe'] ?>
                                 </div>
@@ -69,7 +69,7 @@ $allJob = $job::getAllJob_andCreatePagination(1,10);
                         <?php
                         } else {
                         ?>
-                            <a href="job-detail.php?id=<?php echo $value['id_job'] ?>">
+                            <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
                                 <div class="name_cty">
                                     <?php echo $value['name'] ?>
                                 </div>

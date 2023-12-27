@@ -321,6 +321,11 @@
 //blog tất cả
 .t {
 }
+.twm-job-title{
+    &:hover{
+        color: #1967d2;
+    }
+}
 .blog-detail {
     .tieude-detail {
         margin-bottom: 10px;
@@ -340,6 +345,7 @@
 .img-blog-detail {
     img {
         width: 100%;
+        
     }
 }
 .pr-blog {

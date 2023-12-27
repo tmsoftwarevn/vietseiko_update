@@ -1,5 +1,25 @@
 RewriteEngine On
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteRule ^([^.]+)$ .php [NC,L]
 
-file gốc: about.php -> f5 'about' ko hoạt động, trả về index
+RewriteRule ^trang-chu index.php [QSA]
+RewriteRule ^gioi-thieu about.php [QSA]
+RewriteRule ^lien-he contact.php [QSA]
+
+#chi tiết các job
+RewriteRule viec-lam-tai-viet-nam/(.*)/([0-9]+)$ job-detail.php?id=$2 [QSA,L]
+RewriteRule viec-lam-xkld-nhat-ban/(.*)/([0-9]+)$ job-detail_NB.php?id=$2 [QSA,L]
+RewriteRule viec-lam-ky-su-va-thong-dich-nhat-ban/(.*)/([0-9]+)$ job-detail-kysunb.php?id=$2 [QSA,L]
+RewriteRule viec-lam-tai-vietseiko/(.*)/([0-9]+)$ job-detail-vietseiko.php?id=$2 [QSA,L]
+
+#danh sách các job
+RewriteRule ^viec-lam-tai-viet-nam job-list-vn.php [QSA]
+RewriteRule ^viec-lam-xkld-nhat-ban job-list-xkld.php [QSA]
+RewriteRule ^viec-lam-ky-su-va-thong-dich-nhat-ban job-list-ksnb.php [QSA]
+RewriteRule ^viec-lam-tai-vietseiko job-list-vietseiko.php [QSA]
+
+#tin tuc, cam nang
+RewriteRule tin-tuc/(.*)/([0-9]+)$ blog-detail.php?id=$2 [QSA,L]
+RewriteRule ^tin-tuc blog.php [QSA]
+
+RewriteRule cam-nang/(.*)/([0-9]+)$ camnang-detail.php?id=$2 [QSA,L]
+RewriteRule cam-nang cam-nang.php [QSA]
+

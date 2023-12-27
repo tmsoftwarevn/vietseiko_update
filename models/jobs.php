@@ -129,23 +129,23 @@ class Job_f extends Db
         
         $sql = "SELECT * FROM job WHERE ";
         $d = 0;
-        if ($id_nganhnghe !== '') {
+        if ($id_nganhnghe !== 'all') {
             $sql .= "id_nganhnghe = $id_nganhnghe ";
             $d += 1;
         }
         
-        if ($id_hinhthuc !== '') {
+        if ($id_hinhthuc !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_hinhthuc = $id_hinhthuc ";
             $d += 1;
         }
         
-        if ($id_kinhnghiem !== '') {
+        if ($id_kinhnghiem !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_kinhnghiem = $id_kinhnghiem ";
         }
        
-        if ($id_gioitinh !== '') {
+        if ($id_gioitinh !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_gioitinh = $id_gioitinh ";
         }
@@ -162,23 +162,23 @@ class Job_f extends Db
         $firstLink = ($page - 1) * $resultsPerPage;
         $sql = "SELECT job.*,cty.name,cty.img_cty FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE ";
         $d = 0;
-        if ($id_nganhnghe !== '') {
+        if ($id_nganhnghe !== 'all') {
             $sql .= "id_nganhnghe = $id_nganhnghe ";
             $d += 1;
         }
         
-        if ($id_hinhthuc !== '') {
+        if ($id_hinhthuc !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_hinhthuc = $id_hinhthuc ";
             $d += 1;
         }
         
-        if ($id_kinhnghiem !== '') {
+        if ($id_kinhnghiem !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_kinhnghiem = $id_kinhnghiem ";
         }
        
-        if ($id_gioitinh !== '') {
+        if ($id_gioitinh !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_gioitinh = $id_gioitinh ";
         }

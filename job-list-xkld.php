@@ -109,7 +109,7 @@ if (
             <!-- BREADCRUMB ROW -->
             <div>
                 <ul class="wt-breadcrumb breadcrumb-style-2">
-                    <li><a href="index.php">Trang chủ</a></li>
+                    <li><a href="trang-chu">Trang chủ</a></li>
                     <li>Việc làm XKLD tại Nhật Bản</li>
                 </ul>
             </div>
@@ -219,7 +219,8 @@ if (
                         }
                         ?>
                         <div class="content">
-                            <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
+                            <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+
                                 <div class="chucvu">
                                     <?php echo $value['chucvu'] ?>
                                 </div>
@@ -228,7 +229,7 @@ if (
                             <?php
                             if ($value['id_cty'] == 1) {
                             ?>
-                                <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
                                     <div class="name_cty">
                                         <?php echo $value['diachi_cuthe'] ?>
                                     </div>
@@ -236,7 +237,7 @@ if (
                             <?php
                             } else {
                             ?>
-                                <a href="job-detail_NB.php?id=<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
                                     <div class="name_cty">
                                         <?php echo $value['name'] ?>
                                     </div>

@@ -9,6 +9,7 @@ $kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    echo 'id ksnb: '.$id;
 } else {
     echo "Khong nhan duoc ID";
 }
@@ -71,7 +72,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 });
             });
           </script>';
-          unset($_SESSION['status']);
+        unset($_SESSION['status']);
     }
     ?>
     <!-- OUR BLOG START -->
@@ -91,7 +92,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                         </div>
 
                                         <div class="twm-mid-content">
-                                        <?php
+                                            <?php
                                             if ($allJob[0]['id_cty'] == 1) {
                                             ?>
                                                 <div class="twm-media">
@@ -119,7 +120,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <div class="twm-job-self-mid-left">
                                                     <span style="font-weight: 500;"> Mức lương:</span>
                                                     <span style="color: #1967d2;">
-                                                        <?php echo $allJob[0]['mucluong'] ?> 
+                                                        <?php echo $allJob[0]['mucluong'] ?>
                                                     </span>
                                                 </div>
                                                 <div class="twm-job-apllication-area">
@@ -196,7 +197,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                       top: 0px;
                       left: 903px;
                     ">
-                             <div class="side-bar mb-4">
+                            <div class="side-bar mb-4">
                                 <div class="twm-s-info2-wrap mb-5">
                                     <div class="twm-s-info2">
                                         <h4 class="section-head-small mb-4">
@@ -385,7 +386,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
                     <div class="item">
                         <div class="twm-jobs-grid-style2">
-                        <?php
+                            <?php
                             if ($value['id_cty'] == 1) {
                             ?>
                                 <div class="twm-media">
@@ -410,8 +411,8 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <span class="twm-bg-sky">Mới nhất</span>
                             </div> -->
                             <div class="twm-mid-content">
-                                <a href="job-detail-kysunb.php?id=<?php echo $value['id_job'] ?>" class="twm-job-title">
-                                <h5 class="twm-job-title" style="margin: 10px auto;max-width: 250px; align-items: center;
+                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>" class="twm-job-title">
+                                    <h5 class="twm-job-title" style="margin: 10px auto;max-width: 250px; align-items: center;
                                     display: -webkit-box;
                                     -webkit-line-clamp: 2;
                                     -webkit-box-orient: vertical;
@@ -435,7 +436,8 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <div class="twm-jobs-amount">
                                     <?php echo $value['mucluong'] ?>
                                 </div>
-                                <a href="job-detail-kysunb.php?id=<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
+
+                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
                             </div>
                         </div>
                     </div>
@@ -458,7 +460,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
         <div class="bordered-element p-4 rounded shadow">
             <div class="card" style="padding: 10px;">
-            <p class="fw-bold text-primary mb-0" style="font-size: 14px;">Ứng Tuyển Vào Vị Trí</p>
+                <p class="fw-bold text-primary mb-0" style="font-size: 14px;">Ứng Tuyển Vào Vị Trí</p>
                 <h3 class="mt-2 mb-2"><?php echo $allJob[0]['chucvu'] ?></h3>
                 <p style="font-size: 13px;font-weight: 600; color: #333;"><?php echo $allJob[0]['diachi_cuthe'] ?></p>
             </div>

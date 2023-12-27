@@ -1,5 +1,24 @@
 <?php
 require_once 'header.php';
+
+$page = 1;
+$type = 'all';
+$resultsPerPage = 10;
+$totalJob = 1;
+$totalPages = 1;
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+}
+if (isset($_GET['type'])) {
+    $type = $_GET['type'];
+}
+
+$allBlog = $blog::getLatestBlogWithPagination_byid($page, $resultsPerPage, $type);
+$totalJob = $blog::count_AllBlog_byId($type);
+
+$totalPages = ceil($totalJob / floatval($resultsPerPage));
+
+
 ?>
 <style>
     <?php include 'public/scss/custom.scss';
@@ -13,7 +32,6 @@ require_once 'header.php';
         align-items: center;
         margin-bottom: 20px;
     }
-
 
     select {
         padding: 8px;
@@ -31,7 +49,7 @@ require_once 'header.php';
         color: white;
         border: none;
         border-radius: 5px;
-       
+
         margin-left: 20px;
         border: 1px solid #ccc;
     }
@@ -41,7 +59,7 @@ require_once 'header.php';
         margin-left: 15px;
         padding: 8px;
         border: none;
-       
+
         cursor: pointer;
     }
 
@@ -68,7 +86,7 @@ require_once 'header.php';
                     <!-- BREADCRUMB ROW -->
                     <div>
                         <ul class="wt-breadcrumb breadcrumb-style-2">
-                            <li><a href="index.php">Trang chủ</a></li>
+                            <li><a href="trang-chu">Trang chủ</a></li>
                             <li>Tin tức</li>
                         </ul>
                     </div>
@@ -81,17 +99,24 @@ require_once 'header.php';
         <div class="container" style=" margin-top: 50px;">
 
             <!-- // search cs -->
-
-            <form action="#" method="get" style="display: flex; justify-content: start;">
-                <select class="category" id="category">
+            <form action="" method="get" style="display: flex; justify-content: start;">
+                <input type="hidden" name="page" value="1">
+                <select name="type">
                     <option value="all">Tất cả tin tức</option>
-                    <option value="1">Việc Làm Tại Việt Nam</option>
-                    <option value="2">Xuất Khẩu Lao Động Tại Nhật Bản</option>
-                    <option value="3">Kỹ Sư & Thông Dịch Viên tại Nhật Bản</option>
-                    <option value="4">Việc làm tại VietSeiko</option>
-
+                    <option <?php
+                            if (1 == $type) echo 'selected="selected"'
+                            ?> value="1">Việc Làm Tại Việt Nam</option>
+                    <option <?php
+                            if ($type == 2) echo 'selected="selected"'
+                            ?> value="2">Xuất Khẩu Lao Động Tại Nhật Bản</option>
+                    <option <?php
+                            if ($type == 3) echo 'selected="selected"'
+                            ?> value="3">Kỹ Sư & Thông Dịch Viên tại Nhật Bản</option>
+                    <option <?php
+                            if ($type == 4) echo 'selected="selected"'
+                            ?> value="3">Việc làm tại VietSeiko</option>
                 </select>
-                <input type="text" id="search-input-blog" name="search-input-blog" placeholder="Nhập từ khóa...">
+                <!-- <input type="text" id="search-input-blog" name="search-input-blog" placeholder="Nhập từ khóa..."> -->
                 <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
             </form>
         </div>
@@ -103,8 +128,7 @@ require_once 'header.php';
             <div class="container" style="transform: none">
                 <div class="row" style="transform: none">
                     <?php
-                    $list_of_allBlog = Blog_f::getAllBlog();
-                    foreach ($list_of_allBlog as $key => $value) {
+                    foreach ($allBlog as $key => $value) {
                     ?>
                         <div class="col-xs-6 col-lg-4">
                             <div class="blog-post">
@@ -118,7 +142,8 @@ require_once 'header.php';
                                         $formattedDate = $dateTime->format('d/m/Y');
                                         echo $formattedDate; ?>
                                     </div>
-                                    <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
+                                    <a href="<?php echo 'tin-tuc/' . $value['slug'] ?>/<?php echo $value['id_blog'] ?>">
+
                                         <div class="name_blog">
                                             <?php echo $value['tieude_blog'] ?>
 
@@ -147,25 +172,32 @@ require_once 'header.php';
         $range = 2; // Number of pages before and after the current page to display
         $output = '';
         $d = 1;
-        global $typeJob;
 
+        $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
+        $queryString = $_SERVER["QUERY_STRING"];
         if ($totalPages > 1) {
+            // Get the current URL without the query string
+            $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
+
+            // Get the current query parameters
+            $queryString = $_SERVER["QUERY_STRING"];
+
             // Previous button
             if ($currentPage > 1) {
                 $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
                 $output .= '<li class="page-item">';
-                $output .= '<a class="page-link" href="?page=' . $prevPage . '" aria-label="Previous">';
+                $output .= '<a class="page-link" href="' . $currentUrl . '?' . getNewQueryString($queryString, 'page', $prevPage) . '" aria-label="Previous">';
                 $output .= '<span aria-hidden="true">&laquo;</span>';
                 $output .= '</a>';
                 $output .= '</li>';
             }
 
             for ($i = 1; $i <= $totalPages; $i++) {
-
+                $newQueryString = getNewQueryString($queryString, 'page', $i);
                 if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
                     $output .= '<li class="page-item';
                     $output .= ($i == $currentPage) ? ' active">' : '">';
-                    $output .= '<a class="page-link" href="?page=' . $i . '">' . $i . '</a>';
+                    $output .= '<a class="page-link" href="' . $currentUrl . '?' . $newQueryString . '">' . $i . '</a>';
                     $output .= '</li>';
                 } elseif (!strpos($output, '<li class="page-item dots">...</li>') || $d < 3) {
                     if ($d > 2) {
@@ -176,10 +208,11 @@ require_once 'header.php';
                     $output .= '<li class="page-item dots">...</li>';
                 }
             }
+
             if ($currentPage < $totalPages) {
                 $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
                 $output .= '<li class="page-item">';
-                $output .= '<a class="page-link" href="?page=' . $nextPage . '" aria-label="Next">';
+                $output .= '<a class="page-link" href="' . $currentUrl . '?' . getNewQueryString($queryString, 'page', $nextPage) . '" aria-label="Next">';
                 $output .= '<span aria-hidden="true">&raquo;</span>';
                 $output .= '</a>';
                 $output .= '</li>';
@@ -188,13 +221,21 @@ require_once 'header.php';
 
         return $output;
     }
-    $totalPages = 10; // Replace with the actual total number of pages
-    $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-
     echo '<ul class="pagination justify-content-center pagination-lg" id="pagination">';
-    echo generatePagination($currentPage, $totalPages);
+    echo generatePagination($page, $totalPages);
     echo '</ul>';
     echo '<div style="margin-bottom: 90px"> </div>'
+    ?>
+    <?php
+
+    // Function to generate a new query string by replacing or adding a parameter
+    function getNewQueryString($queryString, $parameter, $value)
+    {
+        parse_str($queryString, $params);
+        $params[$parameter] = $value;
+        return http_build_query($params);
+    }
+
     ?>
 </div>
 

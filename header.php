@@ -39,11 +39,23 @@ $job_nb = new Job_NB_f;
 $job_kysu = new Job_kysu_f;
 $job_vietseiko = new Vietseiko_f;
 
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 
+// Get the current domain
+$domain = $_SERVER['HTTP_HOST'];
+
+// Construct the full URL of the current request
+$currentUrl = $protocol . '://' . $domain . $_SERVER['REQUEST_URI'];
+
+// Extract the domain from the URL
+$domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($currentUrl, PHP_URL_HOST);
 
 ?>
 
 <head>
+
+    <base href=<?php echo $domainFromUrl ?> />
+
     <!-- <meta http-equiv="refresh" content="3"> -->
     <!-- META -->
     <meta charset="utf-8" />
@@ -53,7 +65,6 @@ $job_vietseiko = new Vietseiko_f;
     <meta name="robots" content="" />
     <meta name="description" content="" />
 
-    <!-- <base href="http://localhost:3000/" /> -->
     <!-- FAVICONS ICON -->
     <link rel="icon" href="public/images/logo.png" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href="public/images/favicon.png" />
@@ -320,7 +331,7 @@ $job_vietseiko = new Vietseiko_f;
                     <div class="container clearfix">
                         <div class="logo-header">
                             <div class="logo-header-inner logo-header-one">
-                                <a href="index.php">
+                                <a href="trang-chu">
                                     <img src="public/images/logo.png" alt="" />
                                 </a>
                             </div>
@@ -339,30 +350,30 @@ $job_vietseiko = new Vietseiko_f;
                             <!-- <img src="public/images/logo.png" alt="" /> -->
                             <ul class="nav navbar-nav">
                                 <li class="has-child">
-                                    <a href="about.php">Giới Thiệu</a>
+                                    <a href="gioi-thieu">Giới Thiệu</a>
                                 </li>
                                 <li class="has-child">
                                     <a href="javascript:;">Việc Làm</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;"> <a href="job-list-vn.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Việc làm tại Việt Nam</a></li>
-                                        <li style="cursor: pointer;"><a href="job-list-xkld.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Xuất khẩu lao động Nhật Bản</a></li>
-                                        <li style="cursor: pointer;"><a href="job-list-ksnb.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Kỹ sư & thông dịch viên Nhật Bản</a></li>
-                                        <li style="cursor: pointer;"><a href="job-list-vietseiko.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">Việc làm tại Vietseiko</a></li>
+                                        <li style="cursor: pointer;"> <a href="/viec-lam-tai-viet-nam">Việc làm tại Việt Nam</a></li>
+                                        <li style="cursor: pointer;"><a href="/viec-lam-xkld-nhat-ban">Xuất khẩu lao động Nhật Bản</a></li>
+                                        <li style="cursor: pointer;"><a href="/viec-lam-ky-su-va-thong-dich-nhat-ban">Kỹ sư & thông dịch viên Nhật Bản</a></li>
+                                        <li style="cursor: pointer;"><a href="/viec-lam-tai-vietseiko">Việc làm tại Vietseiko</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child">
                                     <a href="blog-camnang.php" ;>Công Cụ</a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;"><a href="cam-nang.php">Cẩm nang nghề nghiệp</a></li>
+                                        <li style="cursor: pointer;"><a href="cam-nang">Cẩm nang nghề nghiệp</a></li>
                                         <li style="cursor: pointer;"><a>Tính lương Gross sang Net</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child">
-                                    <a href="blog.php">Tin Tức</a>
+                                    <a href="tin-tuc">Tin Tức</a>
                                 </li>
 
                                 <li class="has-child">
-                                    <a href="contact.php">Liên Hệ</a>
+                                    <a href="lien-he">Liên Hệ</a>
                                 </li>
                             </ul>
                         </div>
@@ -370,10 +381,8 @@ $job_vietseiko = new Vietseiko_f;
                         <!-- Header Right Section-->
                         <div class="extra-nav header-2-nav">
 
-
                             <div class="extra-cell">
                                 <div class="header-nav-btn-section">
-
 
                                     <!-- Chuyển đổi ngôn ngữ -->
                                     <div class="rounded cursor-pointer hover:bg[#341678]">
