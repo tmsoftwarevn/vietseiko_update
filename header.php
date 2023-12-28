@@ -135,6 +135,12 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
 
+        @media (min-width: 992px) {
+            .logo-mobile-f {
+                display: none !important;
+            }
+        }
+
         .mr-3 {
             margin-right: 1rem !important;
         }
@@ -328,7 +334,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         <header class="site-header header-style-3 mobile-sider-drawer-menu">
             <div class="sticky-header main-bar-wraper navbar-expand-lg">
                 <div class="main-bar">
-                    <div class="container clearfix">
+                    <div class="container clearfix ">
                         <div class="logo-header">
                             <div class="logo-header-inner logo-header-one">
                                 <a href="trang-chu">
@@ -346,9 +352,14 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                         </button>
 
                         <!-- MAIN Vav -->
-                        <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
-                            <!-- <img src="public/images/logo.png" alt="" /> -->
-                            <ul class="nav navbar-nav">
+                        <div class="nav-animation header-nav navbar-collapse collapse " style="display: block;">
+
+                            <ul class="nav navbar-nav " style="margin: 0 auto;">
+                                <a href="trang-chu">
+                                    <div class="d-flex justify-content-center logo-mobile-f">
+                                        <img src="public/images/logo.png" alt="logo" width="150px" height="150px" />
+                                    </div>
+                                </a>
                                 <li class="has-child">
                                     <a href="gioi-thieu">Giới Thiệu</a>
                                 </li>
@@ -362,7 +373,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                     </ul>
                                 </li>
                                 <li class="has-child">
-                                    <a href="blog-camnang.php" ;>Công Cụ</a>
+                                    <a href="javascript:;" ;>Công Cụ</a>
                                     <ul class="sub-menu" style="width: 270px;">
                                         <li style="cursor: pointer;"><a href="cam-nang">Cẩm nang nghề nghiệp</a></li>
                                         <li style="cursor: pointer;"><a>Tính lương Gross sang Net</a></li>
@@ -420,7 +431,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     <script>
         document.cookie = "width = " + window.innerWidth
     </script>
-    
+
 
 </body>
 

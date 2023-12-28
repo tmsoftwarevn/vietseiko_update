@@ -9,7 +9,7 @@ $kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    echo 'id ksnb: '.$id;
+    //echo 'id ksnb: '.$id;
 } else {
     echo "Khong nhan duoc ID";
 }
@@ -43,7 +43,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 <!-- BREADCRUMB ROW -->
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="job-list-kysunb.php">Việc làm Kỹ sư & Thông dịch tại Nhật Bản</a></li>
+                        <li><a href="viec-lam-ky-su-va-thong-dich-nhat-ban">Việc làm Kỹ sư & Thông dịch tại Nhật Bản</a></li>
                         <li>Chi tiết công việc</li>
                     </ul>
                 </div>

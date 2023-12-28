@@ -6,10 +6,10 @@ require_once "models/hinhthuc.php";
 require_once "models/nganhnghe.php";
 require_once "models/job_kysu.php";
 
-
 $hinhthuc = new Hinhthuc;
 $nganhnghe = new Nganhnghe;
 
+$resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
 
 ?>
 
@@ -28,11 +28,21 @@ $nganhnghe = new Nganhnghe;
   <script src='main.js'></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
+
+<style>
+  .results {
+    margin-bottom: 20px;
+  }
+
+  label {
+    margin-right: 10px;
+  }
+</style>
 
 <body>
 
@@ -40,15 +50,36 @@ $nganhnghe = new Nganhnghe;
 
     <div class="container-fluid">
       <div class="d-flex align-items-center mb-4 flex-wrap">
-        <h3 class="me-auto">Job Kỹ Sư & thông dịch tại Nhật Bản</h3>
+        <h3 class="me-auto">Kỹ sư và thông dịch viên tại Nhật Bản</h3>
         <div>
           <a href="job_add.php?typeAdd=job-ksnb" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm công việc mới</a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3">
-            <i class="fas fa-envelope"></i></a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3"><i class="fas fa-phone-alt"></i></a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm"><i class="fas fa-info"></i></a>
         </div>
       </div>
+      <form action="#" method="get">
+        <input type="hidden" name="page" value="1">
+        <label>Số kết quả trong 1 trang</label>
+        <select style="width: 100px;" class="regular-select form-select" name="per">
+          <option <?php
+                  if ($resultsPerPage == 2) echo 'selected="selected"'
+                  ?> value="2">2</option>
+          <option <?php
+                  if ($resultsPerPage == 10) echo 'selected="selected"'
+                  ?> value="10">10</option>
+          <option <?php
+                  if ($resultsPerPage == 20) echo 'selected="selected"'
+                  ?> value="20">20</option>
+          <option <?php
+                  if ($resultsPerPage == 50) echo 'selected="selected"'
+                  ?> value="50">50</option>
+          <option <?php
+                  if ($resultsPerPage == 100) echo 'selected="selected"'
+                  ?> value="100">100</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+      </form>
+
+      <!-- ttttttttt -->
       <div class="row">
         <div class="col-xl-12">
           <div class="table-responsive">
@@ -57,9 +88,9 @@ $nganhnghe = new Nganhnghe;
                 <tr>
                   <th>STT</th>
                   <th>Mã công việc</th>
-                  <th>Tên công ty</th>
                   <th>Chức vụ</th>
-
+                  <th>Ngày thêm</th>
+                  <th>Ngày cập nhật</th>
                   <th>Trạng Thái</th>
                   <th>Actions</th>
                 </tr>
@@ -67,9 +98,9 @@ $nganhnghe = new Nganhnghe;
               <tbody>
                 <?php
                 $page = 1;
-                $resultsPerPage = 10;
+                //$resultsPerPage = 1;
                 $totalResults = count(Kysu_Thongdich::getAllJob());
-                if (isset($_GET['page']) == TRUE) {
+                if (isset($_GET['page']) == TRUE && !empty($_GET['page'])) {
                   $page = $_GET['page'];
                 }
 
@@ -82,9 +113,9 @@ $nganhnghe = new Nganhnghe;
                   <tr>
                     <td><?php echo $key + 1 ?></td>
                     <td><?php echo $value['job_code'] ?></td>
-                    <td><?php echo $value['name'] ?></td>
-
                     <td><?php echo $value['chucvu'] ?></td>
+                    <td><?php echo $value['created_at'] ?></td>
+                    <td><?php echo $value['updated_at'] ?></td>
                     <td>
                       <span class="badge badge-success badge-lg light" <?php if ($value['id_trangthai'] == '0') echo 'style="background-color: red;color: white"' ?>>
                         <?php $trangthaiName = $trangthaiAdmin->getTrangThai($value['id_trangthai']);
@@ -134,7 +165,7 @@ $nganhnghe = new Nganhnghe;
               <span>Trang <?php echo $page . '/' . $total ?></span>
               <nav aria-label="Page navigation example">
                 <ul class="pagination my-2 my-md-0">
-                  <?php echo Kysu_Thongdich::paginate("job_ksnb_list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
+                  <?php echo Kysu_Thongdich::paginate("job_ksnb_list.php?per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
                 </ul>
               </nav>
             </div>
@@ -147,10 +178,15 @@ $nganhnghe = new Nganhnghe;
   </div>
   <script>
     $('#jobsTable').DataTable({
-      "lengthChange": false,
-      //"searching": false,
+
       "paging": false,
       "info": false
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Destroy Select2 for the element with the 'regular-select' class
+      $('.regular-select').select2('destroy');
     });
   </script>
 </body>

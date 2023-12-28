@@ -270,6 +270,7 @@
     cursor: pointer;
     &:hover{
         border: 1px solid var(--main-color);
+        transition: 0.5s;
     }
     .img_blog_l {
         width: 100%;
@@ -354,22 +355,21 @@
     margin-bottom: 30px;
 
     .img-detail-blog-new {
-        margin: 0 auto;
-        width: 100px;
+        width: 110px;
         margin-right: 10px;
         img {
             width: 100%;
-
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 3px;
         }
     }
     .pr-r {
+        max-width: calc(100% - 110px);
         .name-pr {
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
-            width: 250px;
+            max-width: 100%;
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
@@ -381,7 +381,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            width: 250px;
+            max-width: 100%;
         }
     }
 }

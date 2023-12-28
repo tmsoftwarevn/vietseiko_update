@@ -13,7 +13,7 @@ require_once 'header.php';
             <div class="wt-bnr-inr-entry">
                 <div class="banner-title-outer">
                     <div class="banner-title-name">
-                        <h2 class="wt-title">Liên hệ</h2>
+                        <!-- <h2 class="wt-title">Liên hệ</h2> -->
                     </div>
                 </div>
                 <!-- BREADCRUMB ROW -->
@@ -32,11 +32,11 @@ require_once 'header.php';
     <br />
     <!-- CONTENT JOBS-->
     <div class="contact_page">
-        <div class="container">
+        <div class="container-css">
             <div class="col_contact">
                 <div class="entry_content">
                     <div class="row">
-                        <div class="col-md-6 bordered-element">
+                        <div class="col-lg-6 bordered-element">
                             <h3 class="ft_title">
                                 <ion-icon name="ribbon-outline"></ion-icon> VĂN PHÒNG CHÍNH
                             </h3>
@@ -71,19 +71,19 @@ require_once 'header.php';
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3033.524927092567!2d106.77114615693199!3d10.835620625226769!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175270c34838b03%3A0xd7a2ad66e58afeac!2sC%C3%B4ng%20Ty%20TNHH%20VIETSEIKO!5e0!3m2!1svi!2s!4v1648175501035!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
-                        <div class="col-md-6 bordered-element">
+                        <div class="col-lg-6 bordered-element">
                             <div class="contact_form qcol form_info_customer">
                                 <h3 class="ft_title">LIÊN HỆ VỚI CHÚNG TÔI</h3>
 
                                 <form action="mail.php" method="POST">
-                                    <div class="form-contact pt-3">
+                                    <div class="form-contact">
                                         <div class="row d-flex align-items-center mt-5">
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6">
                                                 <div class="name">
                                                     <input class="i-half" placeholder="Họ và tên" type="text" required name="name" />
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6">
                                                 <div class="email">
                                                     <input name="email" class="i-half" type="email" placeholder="Nhập email" required />
                                                 </div>
@@ -92,12 +92,12 @@ require_once 'header.php';
 
                                         <div class="row d-flex justify-content-evenly align-items-center">
 
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6">
                                                 <div class="phone">
                                                     <input name="phone" class="i-half" type="tel" placeholder="Số điện thoại" required pattern="(03|05|07|08|09)[0-9]{8}" />
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6">
                                                 <div class="luong">
                                                     <input name="luong" class="i-half" type="text" placeholder="Mức lương mong muốn" required />
                                                 </div>
@@ -105,7 +105,7 @@ require_once 'header.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6">
 
                                                 <select class="i-half" required name="type" style="cursor: pointer;">
 
@@ -120,7 +120,7 @@ require_once 'header.php';
                                                 </select>
 
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6">
 
                                                 <select id="job-ct" class="i-half" required name="nganhnghe" style="cursor: pointer;">
                                                     <option disabled selected value>-- Ngành bạn ứng tuyển --</option>
@@ -140,7 +140,7 @@ require_once 'header.php';
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6">
 
                                                 <select class="i-half" required name="address" style="cursor: pointer;">
                                                     <option disabled selected value>-- Khu vực hiện tại--</option>
@@ -156,7 +156,7 @@ require_once 'header.php';
                                                 </select>
 
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6">
                                                 <input name="address-h" class="i-half" type="text" placeholder="Nơi mong muốn làm việc" required />
                                             </div>
                                         </div>

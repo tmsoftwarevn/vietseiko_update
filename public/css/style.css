@@ -3138,7 +3138,7 @@ ol li {
 
 .header-style-3 .header-nav .nav>li>a {
   color: #2f2f2f;
-  font-size: 16px;
+  font-size: 18px;
   padding: 15px 16px;
   cursor: poRoboto;
   margin: 0px 0px;
@@ -6579,7 +6579,7 @@ button.scroltop span {
 
 /*inner page banner*/
 .wt-bnr-inr {
-  height: 290px;
+  height: 280px;
   background-size: cover;
   background-position: center center;
   display: table;
@@ -6587,7 +6587,7 @@ button.scroltop span {
   position: relative;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .wt-bnr-inr {
     /* height: 290px; */
     height: 200px;

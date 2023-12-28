@@ -25,7 +25,8 @@ if (isset($_COOKIE['width'])) {
 <!-- ------------ -->
 
 <style>
-    <?php include 'public/scss/custom.scss'; ?>select {
+    <?php include 'public/scss/custom.scss';
+    include 'public/scss/banner.scss'; ?>select {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -40,6 +41,9 @@ if (isset($_COOKIE['width'])) {
 <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <!-- CONTENT START -->
 <div class="test" style="display: none;">v</div>
+<!-- <div class="banner-home">
+    <img src="images/banner/banner-xanh.webp" />
+</div> -->
 <div class="page-content">
     <!--Banner Start-->
 
@@ -48,15 +52,11 @@ if (isset($_COOKIE['width'])) {
 
             <div class="col-xl-6 col-lg-6 col-md-12">
                 <div class="twm-bnr-left-section">
-                    <!-- <div class="twm-bnr-title-small">
-                        Chúng ta có <span class="site-text-primary">208,000+</span> Việc làm trực tiếp
-                    </div> -->
+                   
                     <div class="twm-bnr-title-large" style="text-align: center;">
                         Tìm <span class="site-text-primary">công việc</span> phù hợp với nhu cầu của bạn
                     </div>
-                    <!-- <div class="twm-bnr-discription">
-                        Tìm kiếm để tìm công việc hoàn hảo của bạn.
-                    </div> -->
+                    
 
                     <div class="twm-bnr-search-bar">
                         <form action="search-list.php" method="get">
@@ -148,49 +148,7 @@ if (isset($_COOKIE['width'])) {
                             </div>
                         </div>
 
-                        <!-- <div class="twm-bnr-blocks-position-wrap">
-                            
-                            <div class="twm-bnr-blocks twm-bnr-blocks-position-1">
-                                <div class="twm-icon">
-                                    <img src="images/main-slider/slider1/icon-1.png" alt="" />
-                                </div>
-                                <div class="twm-content">
-                                    <div class="tw-count-number text-clr-sky">
-                                        <span class="counter">12</span>K+
-                                    </div>
-                                    <p class="icon-content-info">Companies Jobs</p>
-                                </div>
-                            </div>
-                           
-                            <div class="twm-bnr-blocks twm-bnr-blocks-position-2">
-                                <div class="twm-icon">
-                                    <img src="images/main-slider/slider1/icon-2.png" alt="" />
-                                </div>
-                                <div class="twm-content">
-                                    <div class="tw-count-number text-clr-pink">
-                                        <span class="counter">98</span> +
-                                    </div>
-                                    <p class="icon-content-info">Job For Countries</p>
-                                </div>
-                            </div>
-  
-                            <div class="twm-bnr-blocks-3 twm-bnr-blocks-position-3">
-                                <div class="twm-pics">
-                                    <span><img src="images/main-slider/slider1/user/u-1.jpg" alt="" /></span>
-                                    <span><img src="images/main-slider/slider1/user/u-2.jpg" alt="" /></span>
-                                    <span><img src="images/main-slider/slider1/user/u-3.jpg" alt="" /></span>
-                                    <span><img src="images/main-slider/slider1/user/u-4.jpg" alt="" /></span>
-                                    <span><img src="images/main-slider/slider1/user/u-5.jpg" alt="" /></span>
-                                    <span><img src="images/main-slider/slider1/user/u-6.jpg" alt="" /></span>
-                                </div>
-                                <div class="twm-content">
-                                    <div class="tw-count-number text-clr-green">
-                                        <span class="counter">3</span>K+
-                                    </div>
-                                    <p class="icon-content-info">Jobs Done</p>
-                                </div>
-                            </div>
-                        </div> -->
+                       
                     </div>
 
 
@@ -289,7 +247,7 @@ if (isset($_COOKIE['width'])) {
                         <div class="job-name">
                             <div>Việc làm tại Việt Nam</div>
                         </div>
-                        <a href="job-list-vn.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
+                        <a href="/viec-lam-tai-viet-nam">
                             <span class="btn-view-all">Xem tất cả</span>
                         </a>
                     </div>
@@ -382,7 +340,7 @@ if (isset($_COOKIE['width'])) {
                         <div class="job-name">
                             <div>Việc làm XKLD tại Nhật Bản</div>
                         </div>
-                        <a href="job-list-xkld.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
+                        <a href="viec-lam-xkld-nhat-ban">
                             <span class="btn-view-all">Xem tất cả</span>
                         </a>
                     </div>
@@ -472,7 +430,7 @@ if (isset($_COOKIE['width'])) {
                         <div class="job-name">
                             <div>Việc làm Kỹ sư & thông dịch viên Nhật Bản</div>
                         </div>
-                        <a href="job-list-ksnb.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
+                        <a href="viec-lam-ky-su-va-thong-dich-nhat-ban">
                             <span class="btn-view-all">Xem tất cả</span>
                         </a>
                     </div>
@@ -561,7 +519,7 @@ if (isset($_COOKIE['width'])) {
                         <div class="job-name">
                             <div>Việc làm tại VietSeiko</div>
                         </div>
-                        <a href="job-list-vietseiko.php?id_nganhnghe=&id_hinhthuc=&id_kinhnghiem=&id_gioitinh=">
+                        <a href="viec-lam-tai-vietseiko">
                             <span class="btn-view-all">Xem tất cả</span>
                         </a>
                     </div>

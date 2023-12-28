@@ -3,6 +3,28 @@
 :root {
     --color-main: #3498db;
 }
+.t {
+}
+.twm-home1-banner-section .twm-bnr-right-section .twm-img-bg-circle-area .twm-img-bg-circle2 span {
+    @media only screen and (max-width: 768px) {
+        display: none !important;
+    }
+}
+.twm-home1-banner-section .twm-bnr-right-section .twm-img-bg-circle-area .twm-img-bg-circle1 span {
+    @media only screen and (max-width: 768px) {
+        display: none !important;
+    }
+}
+.container {
+    @media only screen and (min-width: 576px) {
+        max-width: 1200px;
+    }
+}
+.container-css{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
 .form-contact {
     .i-half {
         width: 100%;

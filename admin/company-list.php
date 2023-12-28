@@ -42,10 +42,7 @@ $cty = new Congty;
         <h3 class="me-auto">Danh sách công ty</h3>
         <div>
           <a href="job_add.php?typeAdd=cty" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm công ty mới</a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3">
-            <i class="fas fa-envelope"></i></a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3"><i class="fas fa-phone-alt"></i></a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm"><i class="fas fa-info"></i></a>
+          
         </div>
       </div>
       <div class="row">

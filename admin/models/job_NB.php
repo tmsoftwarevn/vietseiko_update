@@ -15,7 +15,7 @@ class Job_NB extends Db
         return $items;
     }
     //Lấy danh sách tất cả sản phẩm và phân trang:
-    static function getAllJob_andCreatePagination_admin($page, $resultsPerPage)
+    static function getAllJob_andCreatePagination($page, $resultsPerPage)
     {
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).

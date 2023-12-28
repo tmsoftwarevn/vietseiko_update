@@ -215,10 +215,15 @@ All JavaScript fuctions Start
   // > Nav submenu show hide on mobile by = custom.js
   function mobile_nav() {
     jQuery(".sub-menu, .mega-menu").parent("li").addClass("has-child");
-    jQuery("<div class='fa fa-angle-right submenu-toogle'></div>").insertAfter(
-      ".has-child > a"
-    );
-
+    // jQuery("<div class='fa fa-angle-right submenu-toogle'></div>").insertAfter(
+    //   ".has-child > a"
+    // );
+    jQuery(".has-child > a").each(function(index) {
+      // Check if it's the second or third element (index 1 or 2, considering 0-based indexing)
+      if (index === 1 || index === 2) {
+          jQuery("<div class='fa fa-angle-right submenu-toogle'></div>").insertAfter(this);
+      }
+  });
     jQuery(".has-child a+.submenu-toogle").on("click", function (ev) {
       jQuery(this)
         .parent()

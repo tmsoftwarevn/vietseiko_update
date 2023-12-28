@@ -6,10 +6,10 @@ require_once "models/hinhthuc.php";
 require_once "models/nganhnghe.php";
 require_once "models/job.php";
 
-
 $hinhthuc = new Hinhthuc;
 $nganhnghe = new Nganhnghe;
 
+$resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
 
 ?>
 
@@ -34,6 +34,16 @@ $nganhnghe = new Nganhnghe;
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 
+<style>
+  .results {
+    margin-bottom: 20px;
+  }
+
+  label {
+    margin-right: 10px;
+  }
+</style>
+
 <body>
 
   <div class="content-body">
@@ -43,12 +53,33 @@ $nganhnghe = new Nganhnghe;
         <h3 class="me-auto">Công việc tại Việt Nam</h3>
         <div>
           <a href="job_add.php?typeAdd=job" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm công việc mới</a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3">
-            <i class="fas fa-envelope"></i></a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm me-3"><i class="fas fa-phone-alt"></i></a>
-          <a href="javascript:void(0);" class="btn btn-secondary btn-sm"><i class="fas fa-info"></i></a>
         </div>
       </div>
+      <form action="#" method="get">
+        <input type="hidden" name="page" value="1">
+        <label>Số kết quả trong 1 trang</label>
+        <select style="width: 100px;" class="regular-select form-select" name="per">          
+          <option <?php
+                  if ($resultsPerPage == 2) echo 'selected="selected"'
+                  ?> value="2">2</option>
+          <option <?php
+                  if ($resultsPerPage == 10) echo 'selected="selected"'
+                  ?> value="10">10</option>
+          <option <?php
+                  if ($resultsPerPage == 20) echo 'selected="selected"'
+                  ?> value="20">20</option>
+          <option <?php
+                  if ($resultsPerPage == 50) echo 'selected="selected"'
+                  ?> value="50">50</option>
+          <option <?php
+                  if ($resultsPerPage == 100) echo 'selected="selected"'
+                  ?> value="100">100</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+      </form>
+
+      <!-- ttttttttt -->
       <div class="row">
         <div class="col-xl-12">
           <div class="table-responsive">
@@ -57,8 +88,9 @@ $nganhnghe = new Nganhnghe;
                 <tr>
                   <th>STT</th>
                   <th>Mã công việc</th>
-                  <th>Tên công ty</th>
                   <th>Chức vụ</th>
+                  <th>Ngày thêm</th>
+                  <th>Ngày cập nhật</th>
                   <th>Trạng Thái</th>
                   <th>Actions</th>
                 </tr>
@@ -66,9 +98,9 @@ $nganhnghe = new Nganhnghe;
               <tbody>
                 <?php
                 $page = 1;
-                $resultsPerPage = 10;
+                //$resultsPerPage = 1;
                 $totalResults = count(Job::getAllJob());
-                if (isset($_GET['page']) == TRUE) {
+                if (isset($_GET['page']) == TRUE&& !empty($_GET['page'])) {
                   $page = $_GET['page'];
                 }
 
@@ -81,9 +113,9 @@ $nganhnghe = new Nganhnghe;
                   <tr>
                     <td><?php echo $key + 1 ?></td>
                     <td><?php echo $value['job_code'] ?></td>
-                    <td><?php echo $value['name'] ?></td>
                     <td><?php echo $value['chucvu'] ?></td>
-
+                    <td><?php echo $value['created_at'] ?></td>
+                    <td><?php echo $value['updated_at'] ?></td>
                     <td>
                       <span class="badge badge-success badge-lg light" <?php if ($value['id_trangthai'] == '0') echo 'style="background-color: red;color: white"' ?>>
                         <?php $trangthaiName = $trangthaiAdmin->getTrangThai($value['id_trangthai']);
@@ -92,9 +124,7 @@ $nganhnghe = new Nganhnghe;
                     </td>
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
-
                         <a class="btn btn-success light mr-2 " href="job_view.php?typeView=job&id=<?php echo $value['id_job'] ?>">
-
                           <svg xmlns="http://www.w3.org/2000/svg" class="svg-main-icon" width="24px" height="24px" viewBox="0 0 32 32" x="0px" y="0px">
                             <g data-name="Layer 21">
                               <path d="M29,14.47A15,15,0,0,0,3,14.47a3.07,3.07,0,0,0,0,3.06,15,15,0,0,0,26,0A3.07,3.07,0,0,0,29,14.47ZM16,21a5,5,0,1,1,5-5A5,5,0,0,1,16,21Z" fill="#000000" fill-rule="nonzero"></path>
@@ -104,7 +134,6 @@ $nganhnghe = new Nganhnghe;
                         </a>
 
                         <a href="job_update.php?typeUpdate=job&id=<?php echo $value['id_job'] ?>" class="btn btn-secondary light mr-2">
-
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                               <rect x="0" y="0" width="24" height="24"></rect>
@@ -123,6 +152,7 @@ $nganhnghe = new Nganhnghe;
                             </g>
                           </svg>
                         </a>
+
                       </div>
                     </td>
                   </tr>
@@ -133,7 +163,7 @@ $nganhnghe = new Nganhnghe;
               <span>Trang <?php echo $page . '/' . $total ?></span>
               <nav aria-label="Page navigation example">
                 <ul class="pagination my-2 my-md-0">
-                  <?php echo Job::paginate("job-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
+                  <?php echo Job::paginate("job-list.php?per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
                 </ul>
               </nav>
             </div>
@@ -146,10 +176,15 @@ $nganhnghe = new Nganhnghe;
   </div>
   <script>
     $('#jobsTable').DataTable({
-      "lengthChange": false,
-      //"searching": false,
+
       "paging": false,
       "info": false
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Destroy Select2 for the element with the 'regular-select' class
+      $('.regular-select').select2('destroy');
     });
   </script>
 </body>

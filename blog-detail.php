@@ -3,7 +3,7 @@ require_once "header.php";
 $id = 1;
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
-  echo 'id blog la:'.$id;
+  //echo 'id blog la:'.$id;
 } else {
   echo "Khong nhan duoc ID";
 }
@@ -97,7 +97,7 @@ if ($allBlog[0]['type_id'] == 4) {
                       position: static;
                       transform: none;
                       top: 0px;
-                      left: 903px;
+                      
                     ">
               <div style="margin-top: 20px;">
 

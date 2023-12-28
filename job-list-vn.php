@@ -247,13 +247,13 @@ if (
 
                                 <?php echo $value['diachi'] ?>
                             </div>
-                            <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+                            <!-- <div style="font-weight: 500;color: #636e72;font-size: 13px;">
                                 <?php
                                 $dateTime = new DateTime($value['updated_at']);
                                 $formattedDate = $dateTime->format('d/m/Y');
                                 echo 'Cập nhật: ' . $formattedDate;
                                 ?>
-                            </div>
+                            </div> -->
                             <div style="font-weight: 500;color: #636e72;font-size: 13px;">
                                 <?php
                                 $ngayHienTai = new DateTime();

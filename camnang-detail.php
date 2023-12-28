@@ -3,7 +3,7 @@ require_once "header.php";
 $id = 1;
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
-  echo 'id blog la:'.$id;
+  //echo 'id blog la:'.$id;
 } else {
   echo "Khong nhan duoc ID";
 }
@@ -60,7 +60,7 @@ if ($allBlog[0]['type_id'] == 4) {
       <!-- BLOG SECTION START -->
       <div class="section-content" style="transform: none">
         <div class="row d-flex justify-content-center" style="transform: none">
-          <div class="col-lg-8 col-md-12">
+          <div class="col-md-12 col-lg-8">
             <!-- BLOG START -->
             <div class="blog-detail">
 
@@ -97,7 +97,7 @@ if ($allBlog[0]['type_id'] == 4) {
                       position: static;
                       transform: none;
                       top: 0px;
-                      left: 903px;
+                      
                     ">
               <div style="margin-top: 20px;">
 

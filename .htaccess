@@ -3,7 +3,7 @@ RewriteEngine On
 RewriteRule ^trang-chu index.php [QSA]
 RewriteRule ^gioi-thieu about.php [QSA]
 RewriteRule ^lien-he contact.php [QSA]
-
+RewriteRule ^cam-on thank-you.php [QSA]
 #chi tiết các job
 RewriteRule viec-lam-tai-viet-nam/(.*)/([0-9]+)$ job-detail.php?id=$2 [QSA,L]
 RewriteRule viec-lam-xkld-nhat-ban/(.*)/([0-9]+)$ job-detail_NB.php?id=$2 [QSA,L]

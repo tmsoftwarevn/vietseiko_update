@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->Port = 465;
     $mail->isHTML(true);
 
-    // Điền thông tin email của nguoi lien he vào dòng dưới đây
+    // thông tin mk mail console
     $mail->Username = 'khongtenzzz1111@gmail.com';
     $mail->Password = 'pmoe okjr homu kzzf';
 
@@ -48,12 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->CharSet = "UTF-8";
 
     $mail->Subject = 'Mail từ website VietSeiko';
-    $mail->Body = "Bạn nhận được liên hệ từ website<br><br>";
+    $mail->Body = "Bạn nhận được liên hệ từ <br><br>";
     $mail->Body .= "Họ tên: $name<br>";
     $mail->Body .= "Email: $email<br>";
-    $mail->Body .= "SĐT: $phone<br>";
-    $mail->Body .= "Ngành ứng tuyển: $job<br><br>";
-    $mail->Body .= "Kinh nghiệm:<br>$kinh_nghiem";
+    $mail->Body .= "Số điện thoại: $phone<br>";
+    
     ///
 
     // Điền địa chỉ email của người nhận vào dòng dưới đây

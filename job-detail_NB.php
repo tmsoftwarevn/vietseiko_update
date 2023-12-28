@@ -9,7 +9,7 @@ $kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    echo 'id nhat ban: '.$id;
+   // echo 'id nhat ban: '.$id;
 } else {
     echo "Khong nhan duoc ID";
 }
@@ -43,7 +43,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 <!-- BREADCRUMB ROW -->
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="job-list-xkld.php">Việc làm XKLD Nhật Bản</a></li>
+                        <li><a href="viec-lam-xkld-nhat-ban">Việc làm XKLD Nhật Bản</a></li>
                         <li>Chi tiết công việc</li>
                     </ul>
                 </div>
@@ -438,7 +438,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                     <?php echo $value['mucluong'] ?>
                                 </div>
                                 
-                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
+                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
                             </div>
                         </div>
                     </div>

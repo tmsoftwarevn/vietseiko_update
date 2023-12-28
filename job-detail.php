@@ -82,7 +82,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 <!-- BREADCRUMB ROW -->
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="job-list-vn.php">Việc làm tại Việt Nam</a></li>
+                        <li><a href="viec-lam-tai-viet-nam">Việc làm tại Việt Nam</a></li>
                         <li>Chi tiết công việc</li>
                     </ul>
                 </div>

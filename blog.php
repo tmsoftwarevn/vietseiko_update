@@ -130,7 +130,7 @@ $totalPages = ceil($totalJob / floatval($resultsPerPage));
                     <?php
                     foreach ($allBlog as $key => $value) {
                     ?>
-                        <div class="col-xs-6 col-lg-4">
+                        <div class="col-sm-6 col-md-6 col-lg-4">
                             <div class="blog-post">
                                 <div class="img_blog_l">
                                     <?php echo $value['img_blog'] ?>
