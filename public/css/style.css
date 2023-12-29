@@ -7007,7 +7007,7 @@ button.scroltop span {
 /*Blog Side Bar*/
 .side-bar {
   background-color: #fcfcfc;
-  padding: 0px 30px 30px;
+  /* padding: 0px 30px 30px; */
   border-radius: 10px;
 }
 
@@ -7019,7 +7019,7 @@ button.scroltop span {
 
 @media (max-width: 575px) {
   .side-bar {
-    padding: 15px;
+    /* padding: 15px; */
   }
 }
 

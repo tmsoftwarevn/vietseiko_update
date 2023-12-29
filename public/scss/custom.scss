@@ -104,6 +104,21 @@
         max-width: 1200px ;
     }
 }
+.mobile-info{
+    @media only screen and (min-width: 991px) {
+        display: none;
+    }
+}
+.scr_big-info{
+    @media only screen and (max-width: 991px) {
+        display: none;
+    }
+}
+.scr_big-info{
+    @media only screen and (min-width: 991px) {
+        margin-left: 30px;
+    }
+}
 //// các job ở index
 .test {
     display: none;

@@ -187,7 +187,106 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                     </div>
                                 </div>
                             </div>
+                            <!-- -------responsive -------- -->
+                            <div class="side-bar mb-4 mobile-info">
+                                <div class="twm-s-info2-wrap mb-5">
+                                    <div class="twm-s-info2">
+                                        <h2 class="job-detail__information-detail--title" style="
+                        border-left: 6px solid #1967d2;
+                        color: #212f3f;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 700;
+                        letter-spacing: -0.2px;
+                        line-height: 28px;
+                        margin: 0;
+                        padding-left: 10px;
+                      ">
+                                            Thông tin việc làm
+                                        </h2>
+                                        <ul class="twm-job-hilites2">
+                                            <div class="row">
+                                                <div class="col-6 col-sm-6 col-lg-12 mt-3">
+                                                    <li>
+                                                        <div class="twm-s-info-inner">
+                                                            <i class="bi bi-calendar-week"></i>
+                                                            <span class="twm-title">Ngày đăng</span>
+                                                            <div class="twm-s-info-discription">
+                                                                <?php
+                                                                $dateTime = new DateTime($allJob[0]['created_at']);
+                                                                $formattedDate = $dateTime->format('d/m/Y');
+                                                                echo $formattedDate;
+                                                                ?>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                                <div class="col-6 col-sm-6 col-lg-12 mt-3">
+                                                    <li>
+                                                        <div class="twm-s-info-inner ">
+                                                            <i class="bi bi-pin-map-fill"></i>
+                                                            <span class="twm-title">Cấp bậc</span>
+                                                            <div class="twm-s-info-discription">
+                                                                <?php echo $allJob[0]['capbac'] ?>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 col-sm-6 col-lg-12 mt-3">
+                                                    <li>
+                                                        <div class="twm-s-info-inner">
+                                                            <i class="bi bi-clock"></i>
+                                                            <span class="twm-title">Kinh nghiệm</span>
+                                                            <div class="twm-s-info-discription">
+                                                                <?php echo $name_kinhnghiem; ?>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                                <div class="col-6 col-sm-6 col-lg-12 mt-3">
+                                                    <li>
+                                                        <div class="twm-s-info-inner">
 
+                                                            <i class="bi bi-gender-ambiguous"></i>
+                                                            <span class="twm-title">Giới tính</span>
+                                                            <div class="twm-s-info-discription">
+                                                                <?php echo $name_gioitinh ?>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 col-sm-6 col-lg-12 mt-3">
+                                                    <li>
+                                                        <div class="twm-s-info-inner">
+                                                            <i class="bi bi-briefcase"></i>
+                                                            <span class="twm-title">Số lượng tuyển</span>
+                                                            <div class="twm-s-info-discription">
+                                                                <?php echo $allJob[0]['soluong'] ?>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                                <div class="col-6 col-sm-6 col-lg-12 mt-3">
+                                                    <li>
+                                                        <div class="twm-s-info-inner">
+                                                            <i class="bi bi-person"></i>
+                                                            <span class="twm-title">Độ tuổi</span>
+                                                            <div class="twm-s-info-discription">
+                                                                <?php echo $allJob[0]['age'] ?>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ----------------------- -->
                             <h2 class="job-detail__information-detail--title" style="
                         border-left: 6px solid #1967d2;
                         color: #212f3f;
@@ -240,12 +339,22 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                       left: 903px;
                       
                     ">
-                            <div class="side-bar mb-4">
+                            <div class="side-bar mb-4 scr_big-info">
                                 <div class="twm-s-info2-wrap mb-5">
                                     <div class="twm-s-info2">
-                                        <h4 class="section-head-small mb-4">
+                                        <h2 class="job-detail__information-detail--title" style="
+                        border-left: 6px solid #1967d2;
+                        color: #212f3f;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 700;
+                        letter-spacing: -0.2px;
+                        line-height: 28px;
+                        margin: 0;
+                        padding-left: 10px;
+                      ">
                                             Thông tin việc làm
-                                        </h4>
+                                        </h2>
                                         <ul class="twm-job-hilites2">
                                             <div class="row">
                                                 <div class="col-6 col-sm-6 col-lg-12 mt-3">

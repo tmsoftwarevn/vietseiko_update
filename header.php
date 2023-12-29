@@ -130,6 +130,8 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
 
+       
+
         @media (min-width: 992px) {
             .logo-mobile-f {
                 display: none !important;
@@ -371,7 +373,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                     <a href="javascript:;" ;>Công Cụ</a>
                                     <ul class="sub-menu" style="width: 270px;">
                                         <li style="cursor: pointer;"><a href="cam-nang">Cẩm nang nghề nghiệp</a></li>
-                                        <li style="cursor: pointer;"><a>Tính lương Gross sang Net</a></li>
+                                        <li style="cursor: pointer;"><a href="gross-net.php">Tính lương Gross sang Net</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child">
@@ -422,12 +424,12 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
             </div>
         </header>
     </div>
-
+   
     <script>
         document.cookie = "width = " + window.innerWidth
     </script>
 
-
+    
 </body>
 
 </html>
