@@ -9,7 +9,7 @@ $kinh_nghiem = new Kinh_nghiem;
 $id = 1;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    echo 'id vsk: '.$id;
+    //echo 'id vsk: '.$id;
 } else {
     echo "Khong nhan duoc ID";
 }

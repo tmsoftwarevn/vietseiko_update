@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $address,
       $address_h,
     );
-    header('Location: thank-you.php');
+    header('Location: cam-on');
 
     exit();
   } catch (Exception $e) {

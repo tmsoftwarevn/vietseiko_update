@@ -59,7 +59,7 @@
                   <div class="thankyou-wrapper">
                       <h1><img src="http://montco.happeningmag.com/wp-content/uploads/2014/11/thankyou.png" alt="thanks" /></h1>
                         <p style="max-width: 600px; text-align: center;margin: 0 auto">Cảm ơn bạn đã liên hệ với chúng tôi. VieiSeiko sẽ liên lạc với bạn trong thời gian sớm nhất </p>
-                        <a href="index.html">Trang chủ</a>
+                        <a href="trang-chu">Trang chủ</a>
                         <div class="clr"></div>
                     </div>
                     <div class="clr"></div>

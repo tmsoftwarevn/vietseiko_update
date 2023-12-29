@@ -8,6 +8,11 @@ require_once "models/nganhnghe.php";
 $contact = new Contact;
 $nganhnghe = new Nganhnghe;
 
+$resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
+if (isset($_GET['type']) == TRUE) {
+    $type = $_GET['type'];
+}
+
 ?>
 
 <!--**********************************
@@ -30,6 +35,15 @@ $nganhnghe = new Nganhnghe;
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
+<style>
+    .results {
+        margin-bottom: 20px;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+</style>
 
 <body>
 
@@ -43,6 +57,30 @@ $nganhnghe = new Nganhnghe;
                 <div class="d-flex align-items-center mb-4 flex-wrap">
                     <h3 class="me-auto">Liên hệ công việc tại Việt Nam</h3>
                 </div>
+                <form action="#" method="get">
+                    <input type="hidden" name="type" value="<?php echo $type ?>">
+                    <input type="hidden" name="page" value="1">
+
+                    <label>Số kết quả trong 1 trang</label>
+                    <select style="width: 100px;" class="regular-select form-select" name="per">
+                        <option <?php
+                                if ($resultsPerPage == 2) echo 'selected="selected"'
+                                ?> value="2">2</option>
+                        <option <?php
+                                if ($resultsPerPage == 10) echo 'selected="selected"'
+                                ?> value="10">10</option>
+                        <option <?php
+                                if ($resultsPerPage == 20) echo 'selected="selected"'
+                                ?> value="20">20</option>
+                        <option <?php
+                                if ($resultsPerPage == 50) echo 'selected="selected"'
+                                ?> value="50">50</option>
+                        <option <?php
+                                if ($resultsPerPage == 100) echo 'selected="selected"'
+                                ?> value="100">100</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+                </form>
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="table-responsive">
@@ -64,7 +102,7 @@ $nganhnghe = new Nganhnghe;
                                 <tbody>
                                     <?php
                                     $page = 1;
-                                    $resultsPerPage = 10;
+                                    //$resultsPerPage = 10;
                                     $totalResults = count(Contact::getAll_lh(1));
                                     if (isset($_GET['page']) == TRUE) {
                                         $page = $_GET['page'];
@@ -112,7 +150,7 @@ $nganhnghe = new Nganhnghe;
                                 <span>Trang <?php echo $page . '/' . $total ?></span>
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination my-2 my-md-0">
-                                        <?php echo Contact::paginate("contact-list.php?type=vn&", $page, $totalResults, $resultsPerPage, 1) ?>
+                                        <?php echo Contact::paginate("contact-list.php?type=vn&per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
                                     </ul>
                                 </nav>
                             </div>
@@ -130,6 +168,29 @@ $nganhnghe = new Nganhnghe;
                 <div class="d-flex align-items-center mb-4 flex-wrap">
                     <h3 class="me-auto">Liên hệ XKLD Nhật Bản</h3>
                 </div>
+                <form action="#" method="get">
+                    <input type="hidden" name="type" value="<?php echo $type ?>">
+                    <input type="hidden" name="page" value="1">
+                    <label>Số kết quả trong 1 trang</label>
+                    <select style="width: 100px;" class="regular-select form-select" name="per">
+                        <option <?php
+                                if ($resultsPerPage == 2) echo 'selected="selected"'
+                                ?> value="2">2</option>
+                        <option <?php
+                                if ($resultsPerPage == 10) echo 'selected="selected"'
+                                ?> value="10">10</option>
+                        <option <?php
+                                if ($resultsPerPage == 20) echo 'selected="selected"'
+                                ?> value="20">20</option>
+                        <option <?php
+                                if ($resultsPerPage == 50) echo 'selected="selected"'
+                                ?> value="50">50</option>
+                        <option <?php
+                                if ($resultsPerPage == 100) echo 'selected="selected"'
+                                ?> value="100">100</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+                </form>
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="table-responsive">
@@ -151,7 +212,7 @@ $nganhnghe = new Nganhnghe;
                                 <tbody>
                                     <?php
                                     $page = 1;
-                                    $resultsPerPage = 10;
+                                    //$resultsPerPage = 10;
                                     $totalResults = count(Contact::getAll_lh(2));
                                     if (isset($_GET['page']) == TRUE) {
                                         $page = $_GET['page'];
@@ -199,7 +260,7 @@ $nganhnghe = new Nganhnghe;
                                 <span>Trang <?php echo $page . '/' . $total ?></span>
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination my-2 my-md-0">
-                                        <?php echo Contact::paginate("contact-list.php?type=xkld&", $page, $totalResults, $resultsPerPage, 1) ?>
+                                        <?php echo Contact::paginate("contact-list.php?type=xkld&per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
                                     </ul>
                                 </nav>
                             </div>
@@ -212,61 +273,84 @@ $nganhnghe = new Nganhnghe;
         }
         // ksnb
         if (isset($_GET['type']) == TRUE && $_GET['type'] == "ksnb") {
-            ?>
-                <div class="container-fluid">
-                    <div class="d-flex align-items-center mb-4 flex-wrap">
-                        <h3 class="me-auto">Liên hệ XKLD Nhật Bản</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="table-responsive">
-                                <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
-                                    <thead>
+        ?>
+            <div class="container-fluid">
+                <div class="d-flex align-items-center mb-4 flex-wrap">
+                    <h3 class="me-auto">Liên hệ XKLD Nhật Bản</h3>
+                </div>
+                <form action="#" method="get">
+                    <input type="hidden" name="type" value="<?php echo $type ?>">
+                    <input type="hidden" name="page" value="1">
+                    <label>Số kết quả trong 1 trang</label>
+                    <select style="width: 100px;" class="regular-select form-select" name="per">
+                        <option <?php
+                                if ($resultsPerPage == 2) echo 'selected="selected"'
+                                ?> value="2">2</option>
+                        <option <?php
+                                if ($resultsPerPage == 10) echo 'selected="selected"'
+                                ?> value="10">10</option>
+                        <option <?php
+                                if ($resultsPerPage == 20) echo 'selected="selected"'
+                                ?> value="20">20</option>
+                        <option <?php
+                                if ($resultsPerPage == 50) echo 'selected="selected"'
+                                ?> value="50">50</option>
+                        <option <?php
+                                if ($resultsPerPage == 100) echo 'selected="selected"'
+                                ?> value="100">100</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+                </form>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="table-responsive">
+                            <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
+                                <thead>
+                                    <tr>
+                                        <th>Stt</th>
+                                        <th>Họ tên</th>
+                                        <th>Email</th>
+                                        <th>SĐT</th>
+                                        <th>Mức lương</th>
+                                        <th>Khu vực hiện tại</th>
+                                        <th>Nơi mong muốn làm việc</th>
+                                        <th>Ngành nghề</th>
+                                        <th>Ngày liên hệ</th>
+                                        <!-- <th>Action</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $page = 1;
+                                    //$resultsPerPage = 10;
+                                    $totalResults = count(Contact::getAll_lh(3));
+                                    if (isset($_GET['page']) == TRUE) {
+                                        $page = $_GET['page'];
+                                    }
+
+                                    $list_of_apply = Contact::getAll_lh_andCreatePagination($page, $resultsPerPage, 3);
+                                    echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
+                                    $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
+
+                                    foreach ($list_of_apply as $key => $value) {
+                                    ?>
                                         <tr>
-                                            <th>Stt</th>
-                                            <th>Họ tên</th>
-                                            <th>Email</th>
-                                            <th>SĐT</th>
-                                            <th>Mức lương</th>
-                                            <th>Khu vực hiện tại</th>
-                                            <th>Nơi mong muốn làm việc</th>
-                                            <th>Ngành nghề</th>
-                                            <th>Ngày liên hệ</th>
-                                            <!-- <th>Action</th> -->
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $page = 1;
-                                        $resultsPerPage = 10;
-                                        $totalResults = count(Contact::getAll_lh(3));
-                                        if (isset($_GET['page']) == TRUE) {
-                                            $page = $_GET['page'];
-                                        }
-    
-                                        $list_of_apply = Contact::getAll_lh_andCreatePagination($page, $resultsPerPage, 3);
-                                        echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
-                                        $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
-    
-                                        foreach ($list_of_apply as $key => $value) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $key + 1 ?></td>
-    
-                                                <td><?php echo $value['name'] ?></td>
-                                                <td><?php echo $value['email'] ?></td>
-                                                <td><?php echo $value['phone'] ?></td>
-    
-                                                <td><?php echo $value['muc_luong'] ?></td>
-                                                <td><?php echo $value['khu_vuc_hien_tai'] ?></td>
-                                                <td><?php echo $value['khu_vuc_mong_muon'] ?></td>
-                                                <td>
-                                                    <?php
-                                                    $name = $nganhnghe::getNganhngheName($value['nganhnghe']);
-                                                    echo $name;
-                                                    ?></td>
-                                                <td><?php echo $value['created_at'] ?></td>
-                                                <!-- <td>
+                                            <td><?php echo $key + 1 ?></td>
+
+                                            <td><?php echo $value['name'] ?></td>
+                                            <td><?php echo $value['email'] ?></td>
+                                            <td><?php echo $value['phone'] ?></td>
+
+                                            <td><?php echo $value['muc_luong'] ?></td>
+                                            <td><?php echo $value['khu_vuc_hien_tai'] ?></td>
+                                            <td><?php echo $value['khu_vuc_mong_muon'] ?></td>
+                                            <td>
+                                                <?php
+                                                $name = $nganhnghe::getNganhngheName($value['nganhnghe']);
+                                                echo $name;
+                                                ?></td>
+                                            <td><?php echo $value['created_at'] ?></td>
+                                            <!-- <td>
                                                         <a onclick="return confirm('Xác nhận muốn xóa liên hệ có stt: <?php echo $key + 1 ?>?')" href="job-vietnam/delete_contact.php?id_contact=<?php echo $value['id_contact']; ?>" class="btn btn-danger light">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -277,83 +361,106 @@ $nganhnghe = new Nganhnghe;
                                                             </svg>
                                                         </a>
                                                     </td> -->
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-    
-                                <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
-                                    <span>Trang <?php echo $page . '/' . $total ?></span>
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination my-2 my-md-0">
-                                            <?php echo Contact::paginate("contact-list.php?type=ksnb&", $page, $totalResults, $resultsPerPage, 1) ?>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
+                                <span>Trang <?php echo $page . '/' . $total ?></span>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination my-2 my-md-0">
+                                        <?php echo Contact::paginate("contact-list.php?type=ksnb&per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
-    
                 </div>
-            <?php
-            }
+
+            </div>
+        <?php
+        }
         // vietseiko
         if (isset($_GET['type']) == TRUE && $_GET['type'] == "vietseiko") {
-            ?>
-                <div class="container-fluid">
-                    <div class="d-flex align-items-center mb-4 flex-wrap">
-                        <h3 class="me-auto">Liên hệ XKLD Nhật Bản</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="table-responsive">
-                                <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
-                                    <thead>
+        ?>
+            <div class="container-fluid">
+                <div class="d-flex align-items-center mb-4 flex-wrap">
+                    <h3 class="me-auto">Liên hệ XKLD Nhật Bản</h3>
+                </div>
+                <form action="#" method="get">
+                    <input type="hidden" name="type" value="<?php echo $type ?>">
+                    <input type="hidden" name="page" value="1">
+                    <label>Số kết quả trong 1 trang</label>
+                    <select style="width: 100px;" class="regular-select form-select" name="per">
+                        <option <?php
+                                if ($resultsPerPage == 2) echo 'selected="selected"'
+                                ?> value="2">2</option>
+                        <option <?php
+                                if ($resultsPerPage == 10) echo 'selected="selected"'
+                                ?> value="10">10</option>
+                        <option <?php
+                                if ($resultsPerPage == 20) echo 'selected="selected"'
+                                ?> value="20">20</option>
+                        <option <?php
+                                if ($resultsPerPage == 50) echo 'selected="selected"'
+                                ?> value="50">50</option>
+                        <option <?php
+                                if ($resultsPerPage == 100) echo 'selected="selected"'
+                                ?> value="100">100</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+                </form>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="table-responsive">
+                            <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
+                                <thead>
+                                    <tr>
+                                        <th>Stt</th>
+                                        <th>Họ tên</th>
+                                        <th>Email</th>
+                                        <th>SĐT</th>
+                                        <th>Mức lương</th>
+                                        <th>Khu vực hiện tại</th>
+                                        <th>Nơi mong muốn làm việc</th>
+                                        <th>Ngành nghề</th>
+                                        <th>Ngày liên hệ</th>
+                                        <!-- <th>Action</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $page = 1;
+                                    //$resultsPerPage = 10;
+                                    $totalResults = count(Contact::getAll_lh(4));
+                                    if (isset($_GET['page']) == TRUE) {
+                                        $page = $_GET['page'];
+                                    }
+
+                                    $list_of_apply = Contact::getAll_lh_andCreatePagination($page, $resultsPerPage, 4);
+                                    echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
+                                    $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
+
+                                    foreach ($list_of_apply as $key => $value) {
+                                    ?>
                                         <tr>
-                                            <th>Stt</th>
-                                            <th>Họ tên</th>
-                                            <th>Email</th>
-                                            <th>SĐT</th>
-                                            <th>Mức lương</th>
-                                            <th>Khu vực hiện tại</th>
-                                            <th>Nơi mong muốn làm việc</th>
-                                            <th>Ngành nghề</th>
-                                            <th>Ngày liên hệ</th>
-                                            <!-- <th>Action</th> -->
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $page = 1;
-                                        $resultsPerPage = 10;
-                                        $totalResults = count(Contact::getAll_lh(4));
-                                        if (isset($_GET['page']) == TRUE) {
-                                            $page = $_GET['page'];
-                                        }
-    
-                                        $list_of_apply = Contact::getAll_lh_andCreatePagination($page, $resultsPerPage, 4);
-                                        echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
-                                        $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
-    
-                                        foreach ($list_of_apply as $key => $value) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $key + 1 ?></td>
-    
-                                                <td><?php echo $value['name'] ?></td>
-                                                <td><?php echo $value['email'] ?></td>
-                                                <td><?php echo $value['phone'] ?></td>
-    
-                                                <td><?php echo $value['muc_luong'] ?></td>
-                                                <td><?php echo $value['khu_vuc_hien_tai'] ?></td>
-                                                <td><?php echo $value['khu_vuc_mong_muon'] ?></td>
-                                                <td>
-                                                    <?php
-                                                    $name = $nganhnghe::getNganhngheName($value['nganhnghe']);
-                                                    echo $name;
-                                                    ?></td>
-                                                <td><?php echo $value['created_at'] ?></td>
-                                                <!-- <td>
+                                            <td><?php echo $key + 1 ?></td>
+
+                                            <td><?php echo $value['name'] ?></td>
+                                            <td><?php echo $value['email'] ?></td>
+                                            <td><?php echo $value['phone'] ?></td>
+
+                                            <td><?php echo $value['muc_luong'] ?></td>
+                                            <td><?php echo $value['khu_vuc_hien_tai'] ?></td>
+                                            <td><?php echo $value['khu_vuc_mong_muon'] ?></td>
+                                            <td>
+                                                <?php
+                                                $name = $nganhnghe::getNganhngheName($value['nganhnghe']);
+                                                echo $name;
+                                                ?></td>
+                                            <td><?php echo $value['created_at'] ?></td>
+                                            <!-- <td>
                                                         <a onclick="return confirm('Xác nhận muốn xóa liên hệ có stt: <?php echo $key + 1 ?>?')" href="job-vietnam/delete_contact.php?id_contact=<?php echo $value['id_contact']; ?>" class="btn btn-danger light">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -364,38 +471,43 @@ $nganhnghe = new Nganhnghe;
                                                             </svg>
                                                         </a>
                                                     </td> -->
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-    
-                                <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
-                                    <span>Trang <?php echo $page . '/' . $total ?></span>
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination my-2 my-md-0">
-                                            <?php echo Contact::paginate("contact-list.php?type=vietseiko&", $page, $totalResults, $resultsPerPage, 1) ?>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
+                                <span>Trang <?php echo $page . '/' . $total ?></span>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination my-2 my-md-0">
+                                        <?php echo Contact::paginate("contact-list.php?type=vietseiko&per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
-    
                 </div>
-            <?php
-            }
+
+            </div>
+        <?php
+        }
         ?>
 
     </div>
     <script>
         $('#jobsTable').DataTable({
-            "lengthChange": false,
+            //"lengthChange": false,
 
             "paging": false,
             "info": false
         });
     </script>
-
+    <script>
+        $(document).ready(function() {
+            // Destroy Select2 for the element with the 'regular-select' class
+            $('.regular-select').select2('destroy');
+        });
+    </script>
 </body>
 
 </html>

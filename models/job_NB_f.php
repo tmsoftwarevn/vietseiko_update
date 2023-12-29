@@ -116,75 +116,73 @@ class Job_NB_f extends Db
         return $items;
     }
 
-   // tổng số search được
-   static function searchJob_vn($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)
-   {
+    // tổng số search được
+    static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)
+    {
+        
+        $sql = "SELECT * FROM job_xkld_nb WHERE ";
+        $d = 0;
+        if ($id_nganhnghe !== 'all') {
+            $sql .= "id_nganhnghe = $id_nganhnghe ";
+            $d += 1;
+        }
+        
+        if ($id_hinhthuc !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_hinhthuc = $id_hinhthuc ";
+            $d += 1;
+        }
+        
+        if ($id_kinhnghiem !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_kinhnghiem = $id_kinhnghiem ";
+        }
        
-       $sql = "SELECT * FROM job_xkld_nb WHERE ";
-       $d = 0;
-       if ($id_nganhnghe !== '') {
-           $sql .= "id_nganhnghe = $id_nganhnghe ";
-           $d += 1;
-       }
-       
-       if ($id_hinhthuc !== '') {
-           if ($d > 0) $sql .= 'AND ';
-           $sql .= "id_hinhthuc = $id_hinhthuc ";
-           $d += 1;
-       }
-       
-       if ($id_kinhnghiem !== '') {
-           if ($d > 0) $sql .= 'AND ';
-           $sql .= "id_kinhnghiem = $id_kinhnghiem ";
-       }
-      
-       if ($id_gioitinh !== '') {
-           if ($d > 0) $sql .= 'AND ';
-           $sql .= "id_gioitinh = $id_gioitinh ";
-       }
-       $sql .= "AND id_trangthai = 1";
-       $stmt = self::$connection->prepare($sql);
-       $stmt->execute();
-       $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if ($id_gioitinh !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_gioitinh = $id_gioitinh ";
+        }
+        $sql .= "AND id_trangthai = 1";
+        $stmt = self::$connection->prepare($sql);
+        $stmt->execute();
+        $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-       return $items;
-   }
-   // phan trang search
-   static function searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page, $resultsPerPage)
-   {
-       $firstLink = ($page - 1) * $resultsPerPage;
-       $sql = "SELECT job_xkld_nb.*,cty.name,cty.img_cty FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE ";
-       $d = 0;
-       if ($id_nganhnghe !== '') {
-           $sql .= "id_nganhnghe = $id_nganhnghe ";
-           $d += 1;
-       }
+        return $items;
+    }
+    // phan trang search
+    static function searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page, $resultsPerPage)
+    {
+        $firstLink = ($page - 1) * $resultsPerPage;
+        $sql = "SELECT job_xkld_nb.*,cty.name,cty.img_cty FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE ";
+        $d = 0;
+        if ($id_nganhnghe !== 'all') {
+            $sql .= "id_nganhnghe = $id_nganhnghe ";
+            $d += 1;
+        }
+        
+        if ($id_hinhthuc !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_hinhthuc = $id_hinhthuc ";
+            $d += 1;
+        }
+        
+        if ($id_kinhnghiem !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_kinhnghiem = $id_kinhnghiem ";
+        }
        
-       if ($id_hinhthuc !== '') {
-           if ($d > 0) $sql .= 'AND ';
-           $sql .= "id_hinhthuc = $id_hinhthuc ";
-           $d += 1;
-       }
-       
-       if ($id_kinhnghiem !== '') {
-           if ($d > 0) $sql .= 'AND ';
-           $sql .= "id_kinhnghiem = $id_kinhnghiem ";
-       }
-      
-       if ($id_gioitinh !== '') {
-           if ($d > 0) $sql .= 'AND ';
-           $sql .= "id_gioitinh = $id_gioitinh ";
-       }
-       
-       $sql .= "AND id_trangthai = 1 ORDER BY job_xkld_nb.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage";
-       $stmt = self::$connection->prepare($sql);
-       $stmt->execute();
-       $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if ($id_gioitinh !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "id_gioitinh = $id_gioitinh ";
+        }
+        
+        $sql .= "AND id_trangthai = 1 ORDER BY job_xkld_nb.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage";
+        $stmt = self::$connection->prepare($sql);
+        $stmt->execute();
+        $items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-       return $items;
-   }
-   
-
+        return $items;
+    }
     
  /**____________________________________________________________________________________________________
      * PAGINATE: ĐÁNH SỐ TRANG, TẠO LINK TỚI CÁC TRANG.

@@ -39,15 +39,10 @@ $job_nb = new Job_NB_f;
 $job_kysu = new Job_kysu_f;
 $job_vietseiko = new Vietseiko_f;
 
+// fix lỗi thư mục css
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
-
-// Get the current domain
 $domain = $_SERVER['HTTP_HOST'];
-
-// Construct the full URL of the current request
 $currentUrl = $protocol . '://' . $domain . $_SERVER['REQUEST_URI'];
-
-// Extract the domain from the URL
 $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($currentUrl, PHP_URL_HOST);
 
 ?>

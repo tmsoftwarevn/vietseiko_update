@@ -1,22 +1,11 @@
 <?php
 include 'header.php';
-require_once "models/jobs.php";
+require_once "models/job_NB_f.php";
 
-
+$totalJob = 1;
 $page = 1;
 $resultsPerPage = 3;
-$url_save = $_SERVER['REQUEST_URI'];
-$path = $url_save;
 
-//custom path douple page
-$parts = explode('&', $path);
-
-if (count($parts) > 4) {
-    array_pop($parts);
-    $url_save = implode('&', $parts);
-    $not_search = false;
-} else {
-}
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -31,8 +20,8 @@ $id_gioitinh = '';
 $allJob = [];
 $totalJob = 1;
 if (
-    (isset($_GET['id_nganhnghe']) && !empty($_GET['id_nganhnghe'])) || (isset($_GET['id_hinhthuc']) && !empty($_GET['id_hinhthuc']))
-    || (isset($_GET['id_kinhnghiem']) && !empty($_GET['id_kinhnghiem'])) || (isset($_GET['id_gioitinh']) && !empty($_GET['id_gioitinh']))
+    (isset($_GET['id_nganhnghe']) && $_GET['id_nganhnghe'] != 'all') || (isset($_GET['id_hinhthuc']) && $_GET['id_hinhthuc'] != 'all')
+    || (isset($_GET['id_kinhnghiem']) && $_GET['id_kinhnghiem'] != 'all') || (isset($_GET['id_gioitinh']) && $_GET['id_gioitinh'] != 'all')
 
 ) {
     $id_nganhnghe = $_GET['id_nganhnghe'];
@@ -41,10 +30,10 @@ if (
     $id_gioitinh = $_GET['id_gioitinh'];
 
     //search all, tính tổng
-    $kq = $job_nb::searchJob_vn($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh);
+    $kq = $job_nb::searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh);
     $totalPages = ceil(floatval(count($kq)) / floatval($resultsPerPage));
     // phân trang
-    $search_phantrang = $job_nb::searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $page, $resultsPerPage);
+    $search_phantrang = $job_nb::searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $page, $resultsPerPage);
     $allJob = $search_phantrang;
     $totalJob = count($kq);
 } else {
@@ -95,6 +84,14 @@ if (
         margin-left: 20px;
     }
 
+    #icon-search {
+        font-size: 16px;
+        margin-left: 15px;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+    }
+
     .search:hover {
         background-color: #b0c9ec;
     }
@@ -118,78 +115,80 @@ if (
         </div>
     </div>
 </div>
-<div class="test">rew </div>
+<div class="test"> </div>
 
 <div>
     <div class="container-css container-bg">
         <div class="title-1" style="margin-top: 20px;">Việc làm XKLD tại Nhật Bản</div>
         <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
-        <form action="#" method="get" style="display: flex; justify-content: start;margin-bottom: 0;">
-            <div class="box-search-f" style="display: flex; justify-content: space-between;">
-                <form method="get" action="">
-                    <div class="row ">
-                        <div class="col-3">
-                            <select name="id_nganhnghe">
-                                <option value="">Tất cả ngành nghề</option>
-                                <?php
-                                foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
-                                    if ($value['id_nganhnghe'] == $id_nganhnghe) {
-                                        echo ('<option selected="selected" value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
-                                    } else {
-                                        echo ('<option value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
-                                    }
+        <!--form search -->
+        <div class="box-search-f" style="display: flex; justify-content: space-between;">
+            <form method="get" action="">
+                <input type="hidden" name="page" value="1">
+                <div class="row ">
+                    <div class="col-3">
+                        <select name="id_nganhnghe">
+                            <option value="all">Tất cả ngành nghề</option>
+                            <?php
+                            foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
+                                if ($value['id_nganhnghe'] == $id_nganhnghe) {
+                                    echo ('<option selected="selected" value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
+                                } else {
+                                    echo ('<option value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
                                 }
+                            }
 
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <select name="id_hinhthuc">
-                                <option value="">Tất cả hình thức</option>
-                                <?php
-                                foreach ($hinhthuc->getAllHinhThuc() as $key => $value) {
-                                    if ($value['id_hinhthuc'] == $id_hinhthuc) {
-                                        echo ('<option selected="selected" value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
-                                    } else {
-                                        echo ('<option value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
-                                    }
-                                } ?>
-
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <select name="id_kinhnghiem">
-                                <option value="">Tất cả kinh nghiệm</option>
-                                <?php
-                                foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) {
-                                    if ($value['id_kn'] == $id_kinhnghiem) {
-                                        echo ('<option selected="selected" value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
-                                    } else {
-                                        echo ('<option value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
-                                    }
-                                } ?>
-
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <select name="id_gioitinh">
-                                <option value="">Tất cả giới tính</option>
-                                <option <?php
-                                        if (1 == $id_gioitinh) echo 'selected="selected"'
-                                        ?> value="1">Nam</option>
-                                <option <?php
-                                        if ($id_gioitinh == 2) echo 'selected="selected"'
-                                        ?> value="2">Nữ</option>
-                                <option <?php
-                                        if ($id_gioitinh == 3) echo 'selected="selected"'
-                                        ?> value="3">Không yêu cầu</option>
-                            </select>
-                        </div>
+                            ?>
+                        </select>
                     </div>
-                    <button type="submit" class="search">Tìm kiếm</button>
-                </form>
-            </div>
-        </form>
+                    <div class="col-3">
+                        <select name="id_hinhthuc">
+                            <option value="all">Tất cả hình thức</option>
+                            <?php
+                            foreach ($hinhthuc->getAllHinhThuc() as $key => $value) {
+                                if ($value['id_hinhthuc'] == $id_hinhthuc) {
+                                    echo ('<option selected="selected" value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
+                                } else {
+                                    echo ('<option value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
+                                }
+                            } ?>
+
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select name="id_kinhnghiem">
+                            <option value="all">Tất cả kinh nghiệm</option>
+                            <?php
+                            foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) {
+                                if ($value['id_kn'] == $id_kinhnghiem) {
+                                    echo ('<option selected="selected" value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
+                                } else {
+                                    echo ('<option value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
+                                }
+                            } ?>
+
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select name="id_gioitinh">
+                            <option value="all">Tất cả giới tính</option>
+                            <option <?php
+                                    if (1 == $id_gioitinh) echo 'selected="selected"'
+                                    ?> value="1">Nam</option>
+                            <option <?php
+                                    if ($id_gioitinh == 2) echo 'selected="selected"'
+                                    ?> value="2">Nữ</option>
+                            <option <?php
+                                    if ($id_gioitinh == 3) echo 'selected="selected"'
+                                    ?> value="3">Không yêu cầu</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <button type="submit" class="search">Tìm kiếm</button> -->
+                <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
+
+            </form>
+        </div>
 
     </div>
     <div class="container-css">
@@ -202,13 +201,12 @@ if (
                 <div class="card-list" id='job-vietnam'>
                     <div class="group-info">
                         <?php
+
                         if ($value['id_cty'] == 1) {
                         ?>
-
                             <div class="company-logo">
                                 <img src="public/images/logo.png" />
                             </div>
-
                         <?php
                         } else {
                         ?>
@@ -220,7 +218,6 @@ if (
                         ?>
                         <div class="content">
                             <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
-
                                 <div class="chucvu">
                                     <?php echo $value['chucvu'] ?>
                                 </div>
@@ -283,39 +280,47 @@ if (
             $range = 2; // Number of pages before and after the current page to display
             $output = '';
             $d = 1;
-            global $url_save;
-
+    
+            $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
+            $queryString = $_SERVER["QUERY_STRING"];
             if ($totalPages > 1) {
+                // Get the current URL without the query string
+                $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
+            
+                // Get the current query parameters
+                $queryString = $_SERVER["QUERY_STRING"];
+            
                 // Previous button
                 if ($currentPage > 1) {
                     $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
                     $output .= '<li class="page-item">';
-                    $output .= '<a class="page-link" href="' . $url_save . '&page=' . $prevPage . '" aria-label="Previous">';
+                    $output .= '<a class="page-link" href="' . $currentUrl . '?' . getNewQueryString($queryString, 'page', $prevPage) . '" aria-label="Previous">';
                     $output .= '<span aria-hidden="true">&laquo;</span>';
                     $output .= '</a>';
                     $output .= '</li>';
                 }
-
+            
                 for ($i = 1; $i <= $totalPages; $i++) {
-
+                    $newQueryString = getNewQueryString($queryString, 'page', $i);
                     if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
                         $output .= '<li class="page-item';
                         $output .= ($i == $currentPage) ? ' active">' : '">';
-                        $output .= '<a class="page-link" href="' . $url_save . '&page=' . $i . '">' . $i . '</a>';
+                        $output .= '<a class="page-link" href="' . $currentUrl . '?' . $newQueryString . '">' . $i . '</a>';
                         $output .= '</li>';
                     } elseif (!strpos($output, '<li class="page-item dots">...</li>') || $d < 3) {
                         if ($d > 2) {
                             continue;
                         }
-
+            
                         $d = $d + 1;
                         $output .= '<li class="page-item dots">...</li>';
                     }
                 }
+            
                 if ($currentPage < $totalPages) {
                     $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
                     $output .= '<li class="page-item">';
-                    $output .= '<a class="page-link" href="' . $url_save . '&page=' . $nextPage . '" aria-label="Next">';
+                    $output .= '<a class="page-link" href="' . $currentUrl . '?' . getNewQueryString($queryString, 'page', $nextPage) . '" aria-label="Next">';
                     $output .= '<span aria-hidden="true">&raquo;</span>';
                     $output .= '</a>';
                     $output .= '</li>';
@@ -324,13 +329,21 @@ if (
 
             return $output;
         }
-        // $totalPages = 10; // Replace with the actual total number of pages
-        // $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        // $totalPages = ceil(floatval($totalResults) / floatval($resultsPerPage));
         echo '<ul class="pagination justify-content-center pagination-lg" id="pagination">';
         echo generatePagination($page, $totalPages);
         echo '</ul>';
         echo '<div style="margin-bottom: 90px"> </div>'
+        ?>
+        <?php
+
+        // Function to generate a new query string by replacing or adding a parameter
+        function getNewQueryString($queryString, $parameter, $value)
+        {
+            parse_str($queryString, $params);
+            $params[$parameter] = $value;
+            return http_build_query($params);
+        }
+
         ?>
     </div>
 </div>

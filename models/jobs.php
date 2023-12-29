@@ -124,7 +124,7 @@ class Job_f extends Db
 
 
     // tổng số search được
-    static function searchJob_vn($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)
+    static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)
     {
         
         $sql = "SELECT * FROM job WHERE ";
@@ -157,7 +157,7 @@ class Job_f extends Db
         return $items;
     }
     // phan trang search
-    static function searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page, $resultsPerPage)
+    static function searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page, $resultsPerPage)
     {
         $firstLink = ($page - 1) * $resultsPerPage;
         $sql = "SELECT job.*,cty.name,cty.img_cty FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE ";

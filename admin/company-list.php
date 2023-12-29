@@ -10,6 +10,10 @@ $job = new Job;
 $hinhthuc = new Hinhthuc;
 $nganhnghe = new Nganhnghe;
 $cty = new Congty;
+
+$resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
+
+
 ?>
 
 <!--**********************************
@@ -32,7 +36,15 @@ $cty = new Congty;
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
+<style>
+  .results {
+    margin-bottom: 20px;
+  }
 
+  label {
+    margin-right: 10px;
+  }
+</style>
 <body>
 
   <div class="content-body">
@@ -45,6 +57,29 @@ $cty = new Congty;
           
         </div>
       </div>
+      <form action="#" method="get">
+        <input type="hidden" name="page" value="1">
+        <label>Số kết quả trong 1 trang</label>
+        <select style="width: 100px;" class="regular-select form-select" name="per">          
+          <option <?php
+                  if ($resultsPerPage == 2) echo 'selected="selected"'
+                  ?> value="2">2</option>
+          <option <?php
+                  if ($resultsPerPage == 10) echo 'selected="selected"'
+                  ?> value="10">10</option>
+          <option <?php
+                  if ($resultsPerPage == 20) echo 'selected="selected"'
+                  ?> value="20">20</option>
+          <option <?php
+                  if ($resultsPerPage == 50) echo 'selected="selected"'
+                  ?> value="50">50</option>
+          <option <?php
+                  if ($resultsPerPage == 100) echo 'selected="selected"'
+                  ?> value="100">100</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+      </form>
       <div class="row">
         <div class="col-xl-12">
           <div class="table-responsive">
@@ -61,13 +96,12 @@ $cty = new Congty;
               </thead>
               <tbody>
                 <?php
-                $page = 1;
-                $resultsPerPage = 10;
+               
+                $page = 1;            
                 $totalResults = count($cty::getAllCty());
-                if (isset($_GET['page']) == TRUE) {
+                if (isset($_GET['page']) == TRUE&& !empty($_GET['page'])) {
                   $page = $_GET['page'];
                 }
-
                 $list_of_job = $cty::getAllcty_andCreatePagination($page, $resultsPerPage);
 
                 $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
@@ -121,7 +155,7 @@ $cty = new Congty;
               <span>Trang <?php echo $page . '/' . $total ?></span>
               <nav aria-label="Page navigation example">
                 <ul class="pagination my-2 my-md-0">
-                  <?php echo $cty::paginate("company-list.php?", $page, $totalResults, $resultsPerPage, 1) ?>
+                  <?php echo $cty::paginate("company-list.php?per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
                 </ul>
               </nav>
             </div>
@@ -136,10 +170,15 @@ $cty = new Congty;
 
   <script>
     $('#jobsTable').DataTable({
-      "lengthChange": false,
-      //"searching": false,
+      
       "paging": false,
       "info": false
+    });
+  </script>
+   <script>
+    $(document).ready(function() {
+      // Destroy Select2 for the element with the 'regular-select' class
+      $('.regular-select').select2('destroy');
     });
   </script>
 </body>

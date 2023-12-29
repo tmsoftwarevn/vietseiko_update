@@ -75,9 +75,13 @@ require_once 'header.php';
     <!-- // link -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Công ty ABC</title>
+    <title>VietSeiko</title>
 </head>
-
+<style>@media (min-width: 992px) {
+            .logo-mobile-f {
+                display: none !important;
+            }
+        } </style>
 <body>
     <!-- LOADING AREA START ===== -->
     <div class="loading-area" style="display: none">

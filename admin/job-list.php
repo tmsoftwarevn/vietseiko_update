@@ -55,6 +55,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
           <a href="job_add.php?typeAdd=job" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm công việc mới</a>
         </div>
       </div>
+      
       <form action="#" method="get">
         <input type="hidden" name="page" value="1">
         <label>Số kết quả trong 1 trang</label>
@@ -75,7 +76,6 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                   if ($resultsPerPage == 100) echo 'selected="selected"'
                   ?> value="100">100</option>
         </select>
-
         <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
       </form>
 

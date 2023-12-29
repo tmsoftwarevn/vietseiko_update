@@ -30,10 +30,10 @@ if (
     $id_gioitinh = $_GET['id_gioitinh'];
 
     //search all, tính tổng
-    $kq = $job::searchJob_vn($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh);
+    $kq = $job::searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh);
     $totalPages = ceil(floatval(count($kq)) / floatval($resultsPerPage));
     // phân trang
-    $search_phantrang = $job::searchJob_vn_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $page, $resultsPerPage);
+    $search_phantrang = $job::searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $page, $resultsPerPage);
     $allJob = $search_phantrang;
     $totalJob = count($kq);
 } else {
