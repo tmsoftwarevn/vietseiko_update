@@ -2,7 +2,9 @@
 
 <html lang="en">
 <?php
+
 session_start();
+require 'setting-language.php';
 
 require_once 'config.php';
 require "models/db.php";
@@ -74,6 +76,8 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     <!-- PAGE TITLE HERE -->
     <!-- <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title> -->
 
+    <!-- flag -icon jp -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -130,7 +134,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
 
-       
+
 
         @media (min-width: 992px) {
             .logo-mobile-f {
@@ -358,30 +362,31 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                     </div>
                                 </a>
                                 <li class="has-child">
-                                    <a href="gioi-thieu">Giới Thiệu</a>
+                                    <!-- <a href="gioi-thieu">Giới Thiệu</a> -->
+                                    <a href="gioi-thieu"><?= __('Giới thiệu') ?></a>
                                 </li>
                                 <li class="has-child">
-                                    <a href="javascript:;">Việc Làm</a>
+                                    <a href="javascript:;"><?= __('Việc làm') ?></a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;"> <a href="/viec-lam-tai-viet-nam">Việc làm tại Việt Nam</a></li>
-                                        <li style="cursor: pointer;"><a href="/viec-lam-xkld-nhat-ban">Xuất khẩu lao động Nhật Bản</a></li>
-                                        <li style="cursor: pointer;"><a href="/viec-lam-ky-su-va-thong-dich-nhat-ban">Kỹ sư & thông dịch viên Nhật Bản</a></li>
-                                        <li style="cursor: pointer;"><a href="/viec-lam-tai-vietseiko">Việc làm tại Vietseiko</a></li>
+                                        <li style="cursor: pointer;"> <a href="/viec-lam-tai-viet-nam"><?= __('Việc làm tại Việt Nam') ?></a></li>
+                                        <li style="cursor: pointer;"><a href="/viec-lam-xkld-nhat-ban"><?= __('Xuất khẩu lao động Nhật Bản') ?></a></li>
+                                        <li style="cursor: pointer;"><a href="/viec-lam-ky-su-va-thong-dich-nhat-ban"><?= __('Kỹ sư & thông dịch viên tại Nhật Bản') ?></a></li>
+                                        <li style="cursor: pointer;"><a href="/viec-lam-tai-vietseiko"><?= __('Việc làm tại Vietseiko') ?></a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child">
-                                    <a href="javascript:;" ;>Công Cụ</a>
+                                    <a href="javascript:;" ;><?= __('Công cụ') ?></a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;"><a href="cam-nang">Cẩm nang nghề nghiệp</a></li>
-                                        <li style="cursor: pointer;"><a href="gross-net.php">Tính lương Gross sang Net</a></li>
+                                        <li style="cursor: pointer;"><a href="cam-nang"><?= __('Cẩm nang nghề nghiệp') ?></a></li>
+                                        <li style="cursor: pointer;"><a href="gross-net.php"><?= __('Tính lương Gross sang Net') ?></a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child">
-                                    <a href="tin-tuc">Tin Tức</a>
+                                    <a href="tin-tuc"><?= __('Tin tức') ?></a>
                                 </li>
 
                                 <li class="has-child">
-                                    <a href="lien-he">Liên Hệ</a>
+                                    <a href="lien-he"><?= __('Liên hệ') ?></a>
                                 </li>
                             </ul>
                         </div>
@@ -393,16 +398,12 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                 <div class="header-nav-btn-section">
 
                                     <!-- Chuyển đổi ngôn ngữ -->
-                                    <div class="rounded cursor-pointer hover:bg[#341678]">
-                                        <svg width="36" height="30" fill="currentColor" class="" stroke="unset" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-                                            <path fill="#ECEFF1" d="M1.998 10H45.998V37H1.998z"></path>
-                                            <path fill="#F44336" d="M2 10H46V13H2zM2 16H46V19H2zM2 22H46V25H2zM2 28H46V31H2zM2 34H46V37H2z"></path>
-                                            <path fill="#3F51B5" d="M2 10H23V25H2z"></path>
-                                            <g>
-                                                <path fill="#FFF" d="M4.25 12L4.713 12.988 5.75 13.146 5 13.916 5.178 15 4.25 14.488 3.322 15 3.5 13.916 2.75 13.146 3.787 12.988zM8.25 12L8.713 12.988 9.75 13.146 9 13.916 9.178 15 8.25 14.488 7.322 15 7.5 13.916 6.75 13.146 7.787 12.988zM12.25 12L12.713 12.988 13.75 13.146 13 13.916 13.178 15 12.25 14.488 11.322 15 11.5 13.916 10.75 13.146 11.787 12.988zM16.25 12L16.713 12.988 17.75 13.146 17 13.916 17.178 15 16.25 14.488 15.322 15 15.5 13.916 14.75 13.146 15.787 12.988zM20 12L20.463 12.988 21.5 13.146 20.75 13.916 20.928 15 20 14.488 19.072 15 19.25 13.916 18.5 13.146 19.537 12.988zM4.25 20L4.713 20.988 5.75 21.146 5 21.916 5.178 23 4.25 22.488 3.322 23 3.5 21.916 2.75 21.146 3.787 20.988zM8.25 20L8.713 20.988 9.75 21.146 9 21.916 9.178 23 8.25 22.488 7.322 23 7.5 21.916 6.75 21.146 7.787 20.988zM12.25 20L12.713 20.988 13.75 21.146 13 21.916 13.178 23 12.25 22.488 11.322 23 11.5 21.916 10.75 21.146 11.787 20.988zM16.25 20L16.713 20.988 17.75 21.146 17 21.916 17.178 23 16.25 22.488 15.322 23 15.5 21.916 14.75 21.146 15.787 20.988zM20 20L20.463 20.988 21.5 21.146 20.75 21.916 20.928 23 20 22.488 19.072 23 19.25 21.916 18.5 21.146 19.537 20.988zM5.25 16L5.713 16.988 6.75 17.146 6 17.916 6.178 19 5.25 18.488 4.322 19 4.5 17.916 3.75 17.146 4.787 16.988zM9.25 16L9.713 16.988 10.75 17.146 10 17.916 10.178 19 9.25 18.488 8.322 19 8.5 17.916 7.75 17.146 8.787 16.988zM13.25 16L13.713 16.988 14.75 17.146 14 17.916 14.178 19 13.25 18.488 12.322 19 12.5 17.916 11.75 17.146 12.787 16.988zM17.25 16L17.713 16.988 18.75 17.146 18 17.916 18.178 19 17.25 18.488 16.322 19 16.5 17.916 15.75 17.146 16.787 16.988zM21 16L21.463 16.988 22.5 17.146 21.75 17.916 21.928 19 21 18.488 20.072 19 20.25 17.916 19.5 17.146 20.537 16.988z"></path>
-                                            </g>
-                                        </svg>
-                                    </div>
+                                    <a href="?lang=jp" <?php if ($_SESSION['lang'] == 'jp') echo 'style="display: none;"'; ?>>
+                                        <span style="font-size: 22px;" class="fi fi-jp"></span> <span class="fi fi-Japan"></span>
+                                    </a>
+                                    <a href="?lang=vn" <?php if ($_SESSION['lang'] == 'vn') echo 'style="display: none;"'; ?>>
+                                        <span style="font-size: 22px;" class="fi fi-vn"></span> <span class="fi fi-Vietnam"></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -424,12 +425,12 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
             </div>
         </header>
     </div>
-   
+
     <script>
         document.cookie = "width = " + window.innerWidth
     </script>
 
-    
+
 </body>
 
 </html>

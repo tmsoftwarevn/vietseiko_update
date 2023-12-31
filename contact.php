@@ -114,7 +114,7 @@ require_once 'header.php';
                                                     </option>
                                                     <option value="2">Xuất Khẩu Lao Động Nhật Bản </option>
 
-                                                    <option value="3">Kỹ Sư & Thông Dịch Viên Nhật Bản </option>
+                                                    <option value="3">Kỹ sư & thông dịch viên tại Nhật Bản </option>
                                                     <option value="4">Việc làm tại VietSeiko </option>
 
                                                 </select>

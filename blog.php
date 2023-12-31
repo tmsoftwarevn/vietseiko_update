@@ -86,8 +86,8 @@ $totalPages = ceil($totalJob / floatval($resultsPerPage));
                     <!-- BREADCRUMB ROW -->
                     <div>
                         <ul class="wt-breadcrumb breadcrumb-style-2">
-                            <li><a href="trang-chu">Trang chủ</a></li>
-                            <li>Tin tức</li>
+                            <li><a href="trang-chu"><?= __('Trang chủ') ?></a></li>
+                            <li><?= __('Tin tức') ?></li>
                         </ul>
                     </div>
 

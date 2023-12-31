@@ -52,11 +52,11 @@ if (isset($_COOKIE['width'])) {
 
             <div class="col-xl-6 col-lg-6 col-md-12">
                 <div class="twm-bnr-left-section">
-                   
+
                     <div class="twm-bnr-title-large" style="text-align: center;">
                         Tìm <span class="site-text-primary">công việc</span> phù hợp với nhu cầu của bạn
                     </div>
-                    
+
 
                     <div class="twm-bnr-search-bar">
                         <form action="search-list.php" method="get">
@@ -148,7 +148,7 @@ if (isset($_COOKIE['width'])) {
                             </div>
                         </div>
 
-                       
+
                     </div>
 
 
@@ -245,16 +245,15 @@ if (isset($_COOKIE['width'])) {
                 <div class="g1 mt-5">
                     <div class="title ">
                         <div class="job-name">
-                            <div>Việc làm tại Việt Nam</div>
+                            <div><?= __('Việc làm tại Việt Nam') ?></div>
                         </div>
                         <a href="/viec-lam-tai-viet-nam">
-                            <span class="btn-view-all">Xem tất cả</span>
+                            <span class="btn-view-all"><?= __('Xem tất cả') ?></span>
                         </a>
                     </div>
                     <div class="job-list ">
 
                         <?php
-
 
                         $list_of_job_vn = Job_f::getLatestJob(27);
                         $new_list_of_job_vn = [];
@@ -338,10 +337,10 @@ if (isset($_COOKIE['width'])) {
                 <div class="g1 mt-5">
                     <div class="title ">
                         <div class="job-name">
-                            <div>Việc làm XKLD tại Nhật Bản</div>
+                            <div><?= __('Xuất khẩu lao động Nhật Bản') ?></div>
                         </div>
                         <a href="viec-lam-xkld-nhat-ban">
-                            <span class="btn-view-all">Xem tất cả</span>
+                            <span class="btn-view-all"><?= __('Xem tất cả') ?></span>
                         </a>
                     </div>
                     <div class="job-list ">
@@ -428,10 +427,10 @@ if (isset($_COOKIE['width'])) {
                 <div class="g1 mt-5">
                     <div class="title ">
                         <div class="job-name">
-                            <div>Việc làm Kỹ sư & thông dịch viên Nhật Bản</div>
+                            <div><?= __('Kỹ sư & thông dịch viên tại Nhật Bản') ?></div>
                         </div>
                         <a href="viec-lam-ky-su-va-thong-dich-nhat-ban">
-                            <span class="btn-view-all">Xem tất cả</span>
+                            <span class="btn-view-all"><?= __('Xem tất cả') ?></span>
                         </a>
                     </div>
                     <div class="job-list ">
@@ -517,10 +516,10 @@ if (isset($_COOKIE['width'])) {
                 <div class="g1 mt-5">
                     <div class="title ">
                         <div class="job-name">
-                            <div>Việc làm tại VietSeiko</div>
+                            <div><?= __('Việc làm tại Vietseiko') ?></div>
                         </div>
                         <a href="viec-lam-tai-vietseiko">
-                            <span class="btn-view-all">Xem tất cả</span>
+                            <span class="btn-view-all"><?= __('Xem tất cả') ?></span>
                         </a>
                     </div>
                     <div class="job-list ">
@@ -609,7 +608,7 @@ if (isset($_COOKIE['width'])) {
     <div class="section-full p-t50 site-bg-white twm-companies-wrap">
         <!-- TITLE START-->
         <div class="section-head center wt-small-separator-outer">
-            <h2 class="wt-title" style="font-size: 24px;">LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO NGƯỜI LAO ĐỘNG</h2>
+            <h2 class="wt-title" style="font-size: 24px;"><?= __('LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO NGƯỜI LAO ĐỘNG') ?></h2>
         </div>
         <!-- TITLE END-->
 
@@ -701,8 +700,8 @@ if (isset($_COOKIE['width'])) {
                         <!-- TITLE START-->
                         <div class="section-head left wt-small-separator-outer">
                             <div class="wt-small-separator site-text-primary">
-                                <h2 style="font-size: 24px;font-family: 'Roboto', sans-serif !important;">
-                                    CẢM NHẬN CỦA NGƯỜI LAO ĐỘNG
+                                <h2 style="font-size: 24px;font-family: 'Roboto', sans-serif !important;color:#1967d2">
+                                    <?= __('CẢM NHẬN CỦA NGƯỜI LAO ĐỘNG') ?>
                                 </h2>
                                 <!-- <p style="font-family: 'Roboto', sans-serif; color: unset;">
                                     Mọi người nói gì về các dịch vụ mà Vietseiko cung cấp khi họ đến với công ty
@@ -729,11 +728,11 @@ if (isset($_COOKIE['width'])) {
                                         <img src="images/quote-dark.png" alt="" />
                                     </div>
                                     <div class="twm-testi-info">
-                                        Với đội ngũ nhân viên nhiệt tình, có quan hệ tốt với nhiều doanh nghiệp Nhật
-                                        Bản. Rất phù hợp với các bạn tìm việc tiếng Nhật, xuất khẩu lao động Nhật Bản.
+                                        <?= __('Với đội ngũ nhân viên nhiệt tình, có quan hệ tốt với nhiều doanh nghiệp Nhật Bản.
+	 Rất phù hợp với các bạn tìm việc tiếng Nhật, xuất khẩu lao động Nhật Bản') ?>
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">anh Trung chia sẻ</div>
+                                        <div class="twm-testi-name">Mr Trung</div>
                                         <!-- <div class="twm-testi-position">Accountant</div> -->
                                     </div>
                                 </div>
@@ -753,11 +752,11 @@ if (isset($_COOKIE['width'])) {
                                         <img src="images/quote-dark.png" alt="" />
                                     </div>
                                     <div class="twm-testi-info">
-                                        Tỷ lệ chọi thấp, uy tín, luôn quan tâm đến học viên, nhiệt tình trong tư vấn,
-                                        nhân viên vui vẻ.
+                                        <?= __('Tỷ lệ chọi thấp, uy tín, luôn quan tâm đến học viên, nhiệt tình trong tư vấn,
+	nhân viên vui vẻ.') ?>
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Anh Nguyễn Văn A</div>
+                                        <div class="twm-testi-name">Ms Nguyễn Thị B</div>
                                         <!-- <div class="twm-testi-position">Accountant</div> -->
                                     </div>
                                 </div>
@@ -777,11 +776,11 @@ if (isset($_COOKIE['width'])) {
                                         <img src="images/quote-dark.png" alt="" />
                                     </div>
                                     <div class="twm-testi-info">
-                                        Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình nên mình rất
-                                        tin tưởng, các bạn nên tham gia !!
+                                        <?= __('Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình nên mình rất
+	tin tưởng, các bạn nên tham gia') ?>
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Chị Nguyễn Văn B</div>
+                                        <div class="twm-testi-name">Mr Nguyễn Văn B</div>
                                         <!-- <div class="twm-testi-position">Accountant</div> -->
                                     </div>
                                 </div>
@@ -801,10 +800,10 @@ if (isset($_COOKIE['width'])) {
                                         <img src="images/quote-dark.png" alt="" />
                                     </div>
                                     <div class="twm-testi-info">
-                                        Công ty uy tín, hỗ trợ tôi rất nhiệt tình trong quá trình tư vấn công việc.
+                                        <?= __('Công ty uy tín, hỗ trợ tôi rất nhiệt tình trong quá trình tư vấn công việc.') ?>
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Chị Nguyễn Văn D</div>
+                                        <div class="twm-testi-name">Ms Nguyễn Văn D</div>
                                         <!-- <div class="twm-testi-position">Accountant</div> -->
                                     </div>
                                 </div>
@@ -825,7 +824,7 @@ if (isset($_COOKIE['width'])) {
                 <div class="wt-small-separator site-text-primary">
                     <!-- <div>Tin tức</div> -->
                 </div>
-                <h2 class="wt-title">Tin mới nhất</h2>
+                <h2 class="wt-title"><?= __('Tin mới nhất') ?></h2>
             </div>
             <!-- TITLE END-->
 

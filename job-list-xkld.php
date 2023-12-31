@@ -96,7 +96,7 @@ if (
         background-color: #b0c9ec;
     }
 </style>
-<title>Việc làm XKLD tại Nhật Bản</title>
+<title><?= __('Xuất khẩu lao động Nhật Bản') ?></title>
 <!-- CONTENT START -->
 
 <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image: url(images/banner/1.jpg)">
@@ -106,8 +106,8 @@ if (
             <!-- BREADCRUMB ROW -->
             <div>
                 <ul class="wt-breadcrumb breadcrumb-style-2">
-                    <li><a href="trang-chu">Trang chủ</a></li>
-                    <li>Việc làm XKLD tại Nhật Bản</li>
+                    <li><a href="trang-chu"><?= __('Trang chủ') ?></a></li>
+                    <li><?= __('Xuất khẩu lao động Nhật Bản') ?></li>
                 </ul>
             </div>
 
@@ -119,8 +119,8 @@ if (
 
 <div>
     <div class="container-css container-bg">
-        <div class="title-1" style="margin-top: 20px;">Việc làm XKLD tại Nhật Bản</div>
-        <p class="h-des">Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!</p>
+        <div class="title-1" style="margin-top: 20px;"><?= __('Xuất khẩu lao động Nhật Bản') ?></div>
+        <p class="h-des"><?= __('Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!') ?></p>
         <!--form search -->
         <div class="box-search-f" style="display: flex; justify-content: space-between;">
             <form method="get" action="">
@@ -194,7 +194,7 @@ if (
     <div class="container-css">
 
         <div class="content-list">
-            <p style="font-weight: 500;">Có <span style="color: red;"><?php echo $totalJob ?> </span> việc làm phù hợp</p>
+            <p style="font-weight: 500;"><span style="color: red;"><?php echo $totalJob ?> </span> <?= __('việc làm phù hợp') ?></p>
             <?php
             foreach ($allJob as $key => $value) {
             ?>

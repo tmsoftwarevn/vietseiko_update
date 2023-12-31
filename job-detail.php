@@ -82,8 +82,8 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 <!-- BREADCRUMB ROW -->
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="viec-lam-tai-viet-nam">Việc làm tại Việt Nam</a></li>
-                        <li>Chi tiết công việc</li>
+                        <li><a href="viec-lam-tai-viet-nam"><?= __('Việc làm tại Việt Nam') ?></a></li>
+                        <li><?= __('Chi tiết công việc') ?></li>
                     </ul>
                 </div>
 
@@ -103,7 +103,6 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 </button>
             </div>
           </div>';
-
 
         echo '<script>
             $(document).ready(function(){
@@ -152,19 +151,19 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <?php echo $allJob[0]['chucvu'] ?>
                                             </h4>
                                             <p class="twm-job-address">
-                                                <span style="font-weight: 500;">Địa điểm làm việc: </span>
+                                                <!-- <span style="font-weight: 500;">Địa điểm làm việc: </span> -->
                                                 <i class="feather-map-pin"></i>
                                                 <?php echo $allJob[0]['diachi_cuthe'] ?>
                                             </p>
                                             <div class="twm-job-self-mid">
                                                 <div class="twm-job-self-mid-left">
-                                                    <span style="font-weight: 500;"> Mức lương:</span>
+                                                    <span style="font-weight: 500;"> <?= __('Mức lương: ') ?></span>
                                                     <span style="color: #1967d2;">
                                                         <?php echo $allJob[0]['mucluong'] ?>
                                                     </span>
                                                 </div>
                                                 <div class="twm-job-apllication-area">
-                                                    Hạn nộp hồ sơ:
+                                                    <?= __('Hạn nộp hồ sơ: ') ?>
                                                     <span class="twm-job-apllication-date">
                                                         <?php
                                                         $dateTime = new DateTime($allJob[0]['ngaycuoicung']);
@@ -178,7 +177,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
                                             <div class="twm-job-self-bottom" id="openModalBtn">
                                                 <a class="site-button" role="button">
-                                                    <i class="feather-log-in"></i> Ứng tuyển ngay
+                                                    <i class="feather-log-in"></i> <?= __('Ứng tuyển ngay ') ?>
                                                 </a>
 
                                                 </a>
@@ -202,7 +201,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                         margin: 0;
                         padding-left: 10px;
                       ">
-                                            Thông tin việc làm
+                                            <?= __('Thông tin việc làm') ?>
                                         </h2>
                                         <ul class="twm-job-hilites2">
                                             <div class="row">
@@ -210,7 +209,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner">
                                                             <i class="bi bi-calendar-week"></i>
-                                                            <span class="twm-title">Ngày đăng</span>
+                                                            <span class="twm-title"> <?= __('Ngày đăng') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php
                                                                 $dateTime = new DateTime($allJob[0]['created_at']);
@@ -225,7 +224,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner ">
                                                             <i class="bi bi-pin-map-fill"></i>
-                                                            <span class="twm-title">Cấp bậc</span>
+                                                            <span class="twm-title"><?= __('Cấp bậc') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $allJob[0]['capbac'] ?>
                                                             </div>
@@ -238,7 +237,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner">
                                                             <i class="bi bi-clock"></i>
-                                                            <span class="twm-title">Kinh nghiệm</span>
+                                                            <span class="twm-title"><?= __('Kinh nghiệm') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $name_kinhnghiem; ?>
                                                             </div>
@@ -250,7 +249,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                         <div class="twm-s-info-inner">
 
                                                             <i class="bi bi-gender-ambiguous"></i>
-                                                            <span class="twm-title">Giới tính</span>
+                                                            <span class="twm-title"><?= __('Giới tính') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $name_gioitinh ?>
                                                             </div>
@@ -263,7 +262,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner">
                                                             <i class="bi bi-briefcase"></i>
-                                                            <span class="twm-title">Số lượng tuyển</span>
+                                                            <span class="twm-title"><?= __('Số lượng tuyển') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $allJob[0]['soluong'] ?>
                                                             </div>
@@ -274,7 +273,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner">
                                                             <i class="bi bi-person"></i>
-                                                            <span class="twm-title">Độ tuổi</span>
+                                                            <span class="twm-title"><?= __('Độ tuổi') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $allJob[0]['age'] ?>
                                                             </div>
@@ -298,26 +297,26 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                         margin: 0;
                         padding-left: 10px;
                       ">
-                                Chi tiết tuyển dụng
+                               <?= __('Chi tiết tuyển dụng') ?>
                             </h2>
 
-                            <h4 class="twm-s-title">Mô tả công việc:</h4>
+                            <h4 class="twm-s-title"><?= __('Mô tả công việc:') ?></h4>
 
                             <?php
 
                             echo  $allJob[0]['mota'];
                             ?>
 
-                            <h4 class="twm-s-title">Yêu cầu:</h4>
-                            <?php echo  $allJob[0]['mota']; ?>
+                            <h4 class="twm-s-title"><?= __('Yêu cầu:') ?></h4>
+                            <?php echo  $allJob[0]['yeucau']; ?>
 
-                            <h4 class="twm-s-title">Quyền lợi:</h4>
+                            <h4 class="twm-s-title"><?= __('Quyền lợi:') ?></h4>
                             <?php echo  $allJob[0]['quyenloi']; ?>
-                            <h4 class="twm-s-title">Thông tin thêm:</h4>
+                            <h4 class="twm-s-title"><?= __('Thông tin thêm:') ?></h4>
                             <?php echo  $allJob[0]['thongtin_khac']; ?>
                             <!-- // nut dang ki -->
                             <div class="btn-dangki-detail" id="openModalBtn-2">
-                                Ứng tuyển ngay
+                                <?= __('Ứng tuyển ngay ') ?>
                             </div>
 
                         </div>
@@ -353,7 +352,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                         margin: 0;
                         padding-left: 10px;
                       ">
-                                            Thông tin việc làm
+                                            <?= __('Thông tin việc làm') ?>
                                         </h2>
                                         <ul class="twm-job-hilites2">
                                             <div class="row">
@@ -361,7 +360,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner">
                                                             <i class="bi bi-calendar-week"></i>
-                                                            <span class="twm-title">Ngày đăng</span>
+                                                            <span class="twm-title"> <?= __('Ngày đăng') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php
                                                                 $dateTime = new DateTime($allJob[0]['created_at']);
@@ -376,7 +375,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner ">
                                                             <i class="bi bi-pin-map-fill"></i>
-                                                            <span class="twm-title">Cấp bậc</span>
+                                                            <span class="twm-title"><?= __('Cấp bậc') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $allJob[0]['capbac'] ?>
                                                             </div>
@@ -389,7 +388,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner">
                                                             <i class="bi bi-clock"></i>
-                                                            <span class="twm-title">Kinh nghiệm</span>
+                                                            <span class="twm-title"><?= __('Kinh nghiệm') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $name_kinhnghiem; ?>
                                                             </div>
@@ -401,7 +400,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                         <div class="twm-s-info-inner">
 
                                                             <i class="bi bi-gender-ambiguous"></i>
-                                                            <span class="twm-title">Giới tính</span>
+                                                            <span class="twm-title"><?= __('Giới tính') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $name_gioitinh ?>
                                                             </div>
@@ -414,7 +413,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner">
                                                             <i class="bi bi-briefcase"></i>
-                                                            <span class="twm-title">Số lượng tuyển</span>
+                                                            <span class="twm-title"><?= __('Số lượng tuyển') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $allJob[0]['soluong'] ?>
                                                             </div>
@@ -425,7 +424,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     <li>
                                                         <div class="twm-s-info-inner">
                                                             <i class="bi bi-person"></i>
-                                                            <span class="twm-title">Độ tuổi</span>
+                                                            <span class="twm-title"><?= __('Độ tuổi') ?></span>
                                                             <div class="twm-s-info-discription">
                                                                 <?php echo $allJob[0]['age'] ?>
                                                             </div>
@@ -461,7 +460,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                             <li>
                                                 <div class="twm-s-info-inner">
                                                     <i class="bi bi-geo-alt-fill"></i>
-                                                    <span class="twm-title">Địa chỉ</span>
+                                                    <span class="twm-title"><?= __('Địa chỉ') ?></span>
                                                     <div class="twm-s-info-discription">
                                                         <?php echo $allJob[0]['address'] ?>
                                                     </div>
@@ -470,16 +469,16 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                             <li>
                                                 <div class="twm-s-info-inner">
                                                     <i class="bi bi-people"></i>
-                                                    <span class="twm-title">Quy mô</span>
+                                                    <span class="twm-title"><?= __('Quy mô') ?></span>
                                                     <div class="twm-s-info-discription">
-                                                        <?php echo $allJob[0]['quymo'] ?> người
+                                                        <?php echo $allJob[0]['quymo'] ?>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="twm-s-info-inner">
                                                     <i class="bi bi-card-text"></i>
-                                                    <span class="twm-title">Thông tin</span>
+                                                    <span class="twm-title"><?= __('Thông tin') ?></span>
                                                     <div class="twm-s-info-discription">
                                                         <?php
                                                         $middleSpacePosition = strpos($allJob[0]['about_cty'], ' ', strlen($allJob[0]['about_cty']) / 2);
@@ -514,7 +513,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
         <div class="wt-small-separator site-text-primary">
             <!-- <div>Top Jobs</div> -->
         </div>
-        <h2 class="wt-title" style="margin-bottom: 30px;">Công việc mới nhất</h2>
+        <h2 class="wt-title" style="margin-bottom: 30px;"><?= __('Công việc mới nhất') ?></h2>
     </div>
     <!-- TITLE END-->
 
@@ -576,7 +575,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <div class="twm-jobs-amount">
                                     <?php echo $value['mucluong'] ?>
                                 </div>
-                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
+                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>" class="twm-jobs-browse site-text-primary"><?= __('Chi tiết') ?></a>
                             </div>
                         </div>
 
@@ -598,14 +597,14 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
 
         <div class="bordered-element p-4 rounded shadow">
             <div class="card" style="padding: 10px;">
-                <p class="fw-bold text-primary mb-0" style="font-size: 14px;">Ứng Tuyển Vào Vị Trí</p>
+                <p class="fw-bold text-primary mb-0" style="font-size: 14px;"><?= __('Ứng Tuyển Vào Vị Trí') ?></p>
                 <h3 class="mt-2 mb-2"><?php echo $allJob[0]['chucvu'] ?></h3>
                 <p style="font-size: 13px;font-weight: 600; color: #333;"><?php echo $allJob[0]['diachi_cuthe'] ?></p>
             </div>
             <div class="card-body height-scroll">
                 <div class="group text-center mb-4">
                     <img src="images/apply-job.png" alt="" class="rounded-circle" style="width: 128px; height: 128px;">
-                    <p>File CV phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.</p>
+                    <p><?= __('File CV phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.') ?></p>
                 </div>
                 <form action="./admin/file-cv/code/add_file_cv.php" method="POST" enctype="multipart/form-data">
                     <!-- <form action="" method="post" enctype="multipart/form-data"> -->
@@ -621,7 +620,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <input name="id_job" value=<?php echo $allJob[0]['id_job'] ?> style="display: none;" />
                     <input name="type_id" value="1" style="display: none;" />
                     <div class="mb-3">
-                        <label for="fullName" class="form-label">Họ Và Tên <span class="text-danger">*</span></label>
+                        <label for="fullName" class="form-label"><?= __('Họ Và Tên') ?> <span class="text-danger">*</span></label>
                         <input name="name" type="text" class="form-control rounded input-field" id="fullName" required>
                         <span id="fullNameError" class="text-danger"></span>
                     </div>
@@ -631,33 +630,33 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                         <span id="emailError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Số Điện Thoại <span class="text-danger">*</span></label>
+                        <label for="phoneNumber" class="form-label"><?= __('Số Điện Thoại') ?> <span class="text-danger">*</span></label>
                         <input name="phone" type="tel" class="form-control rounded input-field" id="phoneNumber" required pattern="(03|05|07|08|09)[0-9]{8}">
                         <span id="phoneNumberError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Năm sinh <span class="text-danger">*</span></label>
+                        <label for="phoneNumber" class="form-label"><?= __('Năm sinh') ?> <span class="text-danger">*</span></label>
                         <input required name="namsinh" type="text" class="form-control rounded input-field" id="phoneNumber">
                         <span id="phoneNumberError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Mức lương mong muốn <span class="text-danger">*</span></label>
+                        <label for="phoneNumber" class="form-label"><?= __('Mức lương mong muốn') ?> <span class="text-danger">*</span></label>
                         <input required name="mucluong" type="text" class="form-control rounded input-field" id="phoneNumber">
                         <span id="phoneNumberError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Khu vực mong muốn <span class="text-danger">*</span></label>
+                        <label for="phoneNumber" class="form-label"><?= __('Khu vực mong muốn') ?> <span class="text-danger">*</span></label>
                         <input required name="khuvuc" type="text" class="form-control rounded input-field" id="phoneNumber">
                         <span id="phoneNumberError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Vị trí ứng tuyển <span class="text-danger">*</span></label>
+                        <label for="phoneNumber" class="form-label"><?= __('Vị trí ứng tuyển') ?> <span class="text-danger">*</span></label>
                         <input required name="vitri" type="text" class="form-control rounded input-field" id="phoneNumber">
                         <span id="phoneNumberError" class="text-danger"></span>
                     </div>
                     <hr>
                     <div class="card-footer mt-3 d-flex justify-content-between align-items-center">
-                        <button class="btn btn-primary" type="submit" name="submit" style="font-size: 14px;">Nộp Hồ Sơ</button>
+                        <button class="btn btn-primary" type="submit" name="submit" style="font-size: 14px;"><?= __('Nộp Hồ Sơ') ?></button>
                     </div>
                 </form>
             </div>
