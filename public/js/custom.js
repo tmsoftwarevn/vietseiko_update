@@ -430,6 +430,34 @@ All JavaScript fuctions Start
       },
     });
   }
+  function carousel_banner_home() {
+    jQuery(".carousel-banner-home").owlCarousel({
+      loop: true,
+      nav: false,
+      dots: true,
+      margin: 30,
+      autoplay:true,
+      autoplayTimeout: 6000,
+      navText: [
+        '<i class="fa fa-angle-left"></i>',
+        '<i class="fa fa-angle-right"></i>',
+      ],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        480: {
+          items: 1,
+        },
+        767: {
+          items: 1,
+        },
+        1000: {
+          items: 1,
+        },
+      },
+    });
+  }
   /// carousel job
   function carousel_job_list() {
     jQuery(".carousel-job-list").owlCarousel({
@@ -1458,6 +1486,7 @@ All JavaScript fuctions Start
       //  Related jobs Carousel function by = owl.carousel.js ========================== //
       twm_related_jobs_carousel(),
       carousel_job_list(),
+      carousel_banner_home(),
       //  Client logo Carousel function by = owl.carousel.js ========================== //
       home_client_carousel_4(),
       //  Trusted logo Carousel function by = owl.carousel.js ========================== //

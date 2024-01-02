@@ -1,70 +1,30 @@
-/* element.style {} */
-/* //phan body */
-.body_child_content {
-    background: #f3f7fa;
+body {
+    font-family: 'math', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
-.page_child .content_jobs {
-    padding-top: 0px;
-}
+/* body a:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+} */
 
-.content_jobs {
-    float: left;
-    display: block;
-    width: 100%;
-    background: #fff;
-    position: relative;
-    padding-top: 5px;
-}
-
-.content_banner_aboutus {
-    background: url(../images/bg1.jpg) no-repeat left top;
-    background-size: 100%;
-    background-attachment: fixed !important;
-    height: 220px;
-}
-
-.content_banner_aboutus_title {
-    text-align: center;
-    font-size: 24px;
-    text-transform: uppercase;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 8%;
-    line-height: 30px;
-}
-
-.content_banner_aboutus_title h4 {
-    text-align: center;
-    font-size: 20px;
-    font-family: "Times New Roman", Times, serif;
-}
-
-
-.col-lg-3 {
-    width: 25%;
-}
-
-@media (min-width: 992px) {
-    .col-lg-3 {
-        flex: 0 0 auto;
-    }
-}
-
-
-/* Css cột bên trái */
-@media only screen and (min-width: 1200px) {
-    .left_container {
-        padding: 15px;
-    }
+.custom-bg {
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px
 }
 
 .left_container {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     background: #ffffff;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    padding: 15px;
+    /* padding: 15px; */
 }
 
 .left_container_title {
@@ -77,7 +37,7 @@
     -webkit-border-radius: 5px 5px 0px 0px;
     font-family: 'Tinos', serif;
     font-size: 20px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .left_container_title_ch {
@@ -87,6 +47,22 @@
     line-height: 0px;
 }
 
+/* Reset some default styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.panel-title,
+.collapse_large,
+.collapse_small {
+    font-family: inherit;
+    font-weight: 500;
+    color: inherit;
+}
+
+/* Global styles */
 .content_banner_aboutus_title,
 .left_container,
 .left_container_title,
@@ -95,12 +71,6 @@
 .panel-heading,
 .collapse_large,
 .collapse_small,
-#gioithieucongty ul li,
-#gioithieubophan ul li,
-#thuvienmedia ul li,
-#gioithieucongty ul li a,
-#gioithieubophan ul li a,
-#thuvienmedia ul li a,
 .left_container_maz,
 .left_container_maz_cont .carousel-item-maz,
 .left_container_maz,
@@ -114,189 +84,78 @@
     margin-bottom: 20px;
 }
 
-.left_container_content .panel-default {
-    border-color: #f0f0f0;
-    float: left;
-    display: block;
-    width: 100%;
-    border-radius: 0px;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-    border-bottom: 1px solid #d4d4d4;
-}
-
-.left_container_content .panel {
-    background-color: #f0f0f0;
-}
-
-.panel-group .panel {
-    margin-bottom: -5px;
-}
-
 .panel {
     margin-bottom: 20px;
     background-color: #fff;
     border: 1px solid transparent;
     border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-.panel-title {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 16px;
-    color: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-    font-family: inherit;
-    font-weight: 500;
-    line-height: 1.1;
-    color: inherit;
-}
-
 .panel-heading {
-    padding: 10px 15px;
+    padding: 10px 20px;
+    border-radius: 0;
+    background-color: #f0f0f0;
     border-bottom: 1px solid transparent;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
 }
 
-.panel-default>.panel-heading {
-    border-color: #c56060;
-    border-radius: 0px;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-    border-bottom: 0px;
-    padding: 10px 10px 10px 20px;
-    color: #333;
-    background-color: #f0f0f0;
+.panel-heading span {
+    font-size: 16px;
+    font-family: math;
+
+}
+
+.panel-title {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Specific styling for panel and headings */
+.panel-default {
     border-color: #f0f0f0;
 }
 
-
-.panel-group .panel-heading {
-    border-bottom: 0;
+.panel-default>.panel-heading {
+    color: #0b0b0b;
 }
 
-span.collapse_small {
-    color: #898989;
-    display: block;
-    font-size: 12px;
-    font-family: "Times New Roman", Times, serif;
-    margin: 0px 0px 5px;
-
+/* Thiết lập cho icon và span */
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    /* Hiệu ứng phóng to */
 }
 
-span.collapse_large {
-    width: 201.17px;
-    font-weight: bold;
-    height: 20px;
-    color: #333;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-
+.icon-wrapper:hover {
+    transform: scale(1.1);
+    /* Phóng to 110% khi rê chuột vào */
 }
 
-/* //gioi thiêu */
-#gioithieucongty,
-#gioithieubophan,
-#thuvienmedia {
-    float: left;
-    width: 100%;
+/* Cập nhật CSS cho icon và span */
+.icon-wrapper i {
+    margin-right: 10px;
 }
 
-.collapse.in {
-    display: block;
+.collapse_large {
+    font-size: 16px;
+    color: #0b0b0b;
 }
 
-#gioithieucongty .panel-body,
-#gioithieubophan .panel-body,
-#thuvienmedia .panel-body {
-    float: left;
-    width: 100%;
-    padding-top: 0px;
+/* Tùy chỉnh cho hiệu ứng phóng to */
+.collapse_large:hover {
+    font-size: 18px;
+    color: #BE030C;
 }
 
-.panel-default>.panel-heading+.panel-collapse>.panel-body {
-    border-top-color: #f0f0f0;
-}
-
-.panel-group .panel-heading+.panel-collapse>.panel-body {
-    border-top: 1px solid #ddd;
-}
-
-.panel-body {
-    padding: 15px 10px;
-}
-
-#gioithieucongty ul li a,
-#gioithieubophan ul li a,
-#thuvienmedia ul li a {
-    color: #333333;
-    line-height: 20px;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-
-}
-
-#gioithieucongty ul li.active a,
-#gioithieubophan ul li.active a,
-#thuvienmedia ul li.active a {
-    color: #be030c;
-    text-decoration: none;
-}
-
-
-#gioithieucongty ul li,
-#gioithieubophan ul li,
-#thuvienmedia ul li {
-    list-style-type: none;
-    border-bottom: 1px solid #d4d4d4;
-    background: url(/images/icon_muiten.png) no-repeat 20px 13px;
-    background-size: 6px 10px;
-    padding: 8px 0px 8px 40px;
-}
-
-#gioithieucongty ul,
-#gioithieubophan ul,
-#thuvienmedia ul {
-    float: left;
-    width: 100%;
-    display: block;
-    background: #fff;
-    border: 1px solid #d4d4d4;
-    border-radius: 2px;
-    -moz-border-radius: 2x;
-    -webkit-border-radius: 2px;
-    padding: 0px;
-    list-style: none;
-    margin-bottom: 0px;
-}
-
-ul,
-ol {
-    margin-top: 0;
-}
-
+/* Styling for collapse elements */
 .collapse_small {
     font-size: 13px;
     color: #888c87;
     transition: color 0.3s;
 }
 
+/* Hover effects */
 .collapse_large:hover {
     color: #BE030C;
 }
@@ -305,51 +164,60 @@ ol {
     color: #009979;
 }
 
-.col-lg-9 {
-    width: 75%;
+img {
+    border-style: none;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
-/* //trang giới thiệu
- */
-
-body {
-    background-color: #f8f9fa;
-    padding-top: 2px;
+/* //col-md-9 clo-sm-12 */
+/* Định dạng phần tử chứa tiêu đề và nội dung */
+.custom-bg {
+    padding: 16px;
 }
 
-.right_container {
-    background-color: #fff;
-    border: 20px solid #f3f7fa;
-    ;
-    border-radius: 5px;
-    padding: 25px;
-    margin-bottom: 20px;
+/* Định dạng tiêu đề */
+.bg-secondary h2 {
+    padding: 10px;
+    transition: font-size 0.3s;
 }
 
-h1,
-h2 {
-    color: #007bff;
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
+/* Hiệu ứng khi rê chuột vào tiêu đề */
+.bg-secondary h2:hover {
+    font-size: 2em;
+    cursor: pointer;
 }
 
+/* Sử dụng font-family: math; */
+body,
+table,
 th,
 td {
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
-
+    font-family: math;
 }
 
-th {
-    background-color: #007bff;
-    color: #fff;
+/* Hiệu ứng khi rê chuột vào */
+.custom-table th,
+.custom-table td {
+    transition: all 0.3s ease-in-out;
+    /* Hiệu ứng chuyển đổi mượt mà */
 }
 
-ul {
-    padding-left: 0;
-    list-style: none;
+.custom-table th:hover,
+.custom-table td:hover {
+    transform: scale(1.1);
+    /* Phóng to khi rê chuột vào */
+    font-weight: bold;
+    /* Có thể thêm font-weight nếu bạn muốn */
 }
 
-ul li {
-    margin-bottom: 5px;
+p img {
+    transition: box-shadow 0.3s ease;
+    /* Hiệu ứng chuyển đổi độ bóng trong 0.3 giây */
+}
+
+p img:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Tạo độ bóng cho hình ảnh khi rê chuột vào */
 }

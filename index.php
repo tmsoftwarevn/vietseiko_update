@@ -36,18 +36,37 @@ if (isset($_COOKIE['width'])) {
     option {
         font-size: 17px;
     }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+        min-width: 100%;
+    }
 </style>
 
 <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <!-- CONTENT START -->
 <div class="test" style="display: none;">v</div>
-<!-- <div class="banner-home">
-    <img src="images/banner/banner-xanh.webp" />
-</div> -->
+<div class="owl-carousel carousel-banner-home banner-home">
+
+    <div class="item">
+        <img src="images/banner/banner-xanh.webp" />
+    </div>
+    <div class="item">
+        <img src="images/banner/slide-01.jpg" />
+    </div>
+    <div class="item">
+        <img src="images/banner/slide-02.jpg" />
+    </div>
+
+</div>
 <div class="page-content">
     <!--Banner Start-->
 
-    <div class="twm-home1-banner-section site-bg-gray bg-cover" style="background-image: url(images/main-slider/slider1/bg1.jpg)">
+    <!-- <div class="twm-home1-banner-section site-bg-gray bg-cover" style="background-image: url(images/main-slider/slider1/bg1.jpg)">
         <div class="row">
 
             <div class="col-xl-6 col-lg-6 col-md-12">
@@ -158,7 +177,7 @@ if (isset($_COOKIE['width'])) {
             </div>
         </div>
         <div class="twm-gradient-text">Jobs</div>
-    </div>
+    </div> -->
 
     <!--Banner End-->
 
@@ -237,7 +256,7 @@ if (isset($_COOKIE['width'])) {
     <div class="test" style="display: none;"></div>
     <section>
         <div class="container">
-            <div class="job-vietnam job">
+            <div class="mt-5">
                 <div class="img-bg">
                     <img src="public/images/bg-job.jpg" alt="anh" />
                 </div>
@@ -330,7 +349,7 @@ if (isset($_COOKIE['width'])) {
                 </div>
 
             </div>
-            <div class="job-nb  job">
+            <div class="mt-5">
                 <div class="img-bg">
                     <img src="public/images/bg-job.jpg" alt="" />
                 </div>
@@ -420,7 +439,7 @@ if (isset($_COOKIE['width'])) {
                     </div>
                 </div>
             </div>
-            <div class="job-ksnb job">
+            <div class="mt-5">
                 <div class="img-bg">
                     <img src="public/images/bg-job.jpg" alt="" />
                 </div>
@@ -509,7 +528,7 @@ if (isset($_COOKIE['width'])) {
                     </div>
                 </div>
             </div>
-            <div class="job-vietseiko job">
+            <div class="mt-5">
                 <div class="img-bg">
                     <img src="public/images/bg-job.jpg" alt="" />
                 </div>

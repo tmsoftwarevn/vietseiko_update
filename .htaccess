@@ -1,7 +1,7 @@
 RewriteEngine On
 
 RewriteRule ^trang-chu index.php [QSA]
-RewriteRule ^gioi-thieu about.php [QSA]
+RewriteRule ^gioi-thieu about-us.php [QSA]
 RewriteRule ^lien-he contact.php [QSA]
 RewriteRule ^cam-on thank-you.php [QSA]
 #chi tiết các job
@@ -23,3 +23,13 @@ RewriteRule ^tin-tuc blog.php [QSA]
 RewriteRule cam-nang/(.*)/([0-9]+)$ camnang-detail.php?id=$2 [QSA,L]
 RewriteRule cam-nang cam-nang.php [QSA]
 
+
+#gioi thiệu
+
+RewriteRule ^thu-ngo thungo.php [QSA]
+RewriteRule ^ve-chung-toi Vechungtoi.php [QSA]
+RewriteRule ^tam-nhin-va-su-menh tamnhinvasumenh.php [QSA]
+RewriteRule ^nguyen-tac nguyentac.php [QSA]
+RewriteRule ^gia-tri-van-hoa nhunggiatrivanhoa.php [QSA]
+RewriteRule ^gia-tri-cot-loi nhunggiatricotloi.php [QSA]
+RewriteRule ^hinh-anh-va-video hinhanh-video.php [QSA]
