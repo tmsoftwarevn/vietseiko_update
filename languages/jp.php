@@ -5,18 +5,18 @@ $lang = [
 
 	//header
 	'Giới thiệu' => '導入',
-	'Việc làm' => 'Sobre',
+	'Việc làm' => '仕事',
 	'Việc làm tại Việt Nam' => 'ベトナムでの仕事',
 	'Xuất khẩu lao động Nhật Bản' => '日本への労働力輸出',
 	'Kỹ sư & thông dịch viên tại Nhật Bản' => '日本人エンジニア＆通訳',
 	'Việc làm tại Vietseiko' => 'ベトセイコでの仕事',
 
-	'Công cụ' => 'Contacta',
-	'Cẩm nang nghề nghiệp' => 'sdfdsf',
-	'Tính lương Gross sang Net' => 'wqewqe',
+	'Công cụ' => 'ツール',
+	'Cẩm nang nghề nghiệp' => 'キャリアハンドブック',
+	'Tính lương Gross sang Net' => '総給与を純額まで計算する',
 
-	'Tin tức' => 'Acceso',
-	'Liên hệ' => "Qstrarse",
+	'Tin tức' => 'ニュース',
+	'Liên hệ' => "接触",
 
 	//index
 	'Xem tất cả' => 'すべてを見る',

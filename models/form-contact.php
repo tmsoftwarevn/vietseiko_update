@@ -31,33 +31,15 @@ class Form_contact extends Db
     }
     public function fetch_tinh_thanh()
     {
-        // $curl = curl_init();
-        // // Thiết lập các tùy chọn cho yêu cầu cURL
-        // curl_setopt($curl, CURLOPT_URL, 'https://provinces.open-api.vn/api/'); // URL của API cần gửi yêu cầu đến
-        // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // Trả về kết quả thay vì in ra
-        // // Thực thi yêu cầu cURL và lưu kết quả vào biến
-        // $response = curl_exec($curl);
-        // // Kiểm tra xem có lỗi xảy ra trong quá trình yêu cầu không
-        // if ($response === false) {
-        //     echo 'Lỗi cURL: ' . curl_error($curl);
-        // }
-        // curl_close($curl);
-
-        // if ($response) {
-        //     // Xử lý và hiển thị dữ liệu từ kết quả
-        //     $data = json_decode($response, true); // Giả sử API trả về dữ liệu JSON
-        //     $array_ = [];
-        //     foreach ($data as $index => $item) {
-        //         array_push($array_, $item['name']);
-        //     }
-        //     $t = var_dump($array_);
-        //     //$t = $array_;
-        //     //echo 'tinh custom' . $t;
-        //     return $t;
-        // } else {
-        //     // Xử lý khi không nhận được kết quả từ API
-        //     echo 'Không nhận được dữ liệu từ API';
-        // }
+        function cutPrefix($name) {
+            $prefixes = ['Tỉnh', 'Thành phố'];
+        
+            foreach ($prefixes as $prefix) {
+                $name = preg_replace("/^$prefix\s+/i", '', $name);
+            }
+        
+            return trim($name);
+        }
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -69,7 +51,9 @@ class Form_contact extends Db
 
         $array_ = [];
         foreach ($obj as $index => $item) {
-            array_push($array_, $item['name']);
+            //array_push($array_, $item['name']);
+           
+            array_push($array_,  cutPrefix($item['name']));
         }
 
         //echo 'tinh custom' . print_r($array_);

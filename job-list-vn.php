@@ -183,6 +183,9 @@ if (
                                     ?> value="3">Không yêu cầu</option>
                         </select>
                     </div>
+                    <!-- <div class="col-3">
+                        <input placeholder="Nh" />
+                    </div> -->
                 </div>
                 <!-- <button type="submit" class="search">Tìm kiếm</button> -->
                 <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>

@@ -53,7 +53,7 @@ if (isset($_COOKIE['width'])) {
 <div class="owl-carousel carousel-banner-home banner-home">
 
     <div class="item">
-        <img src="images/banner/banner-xanh.webp" />
+        <img src="images/banner/slide-03.jpg" />
     </div>
     <div class="item">
         <img src="images/banner/slide-01.jpg" />
