@@ -14,7 +14,14 @@ class Nganhnghe_f extends Db
         return $items;
     }
     //
-    
+    function getNganhngheName($id_nganhnghe)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM job_nganhnghe WHERE id_nganhnghe = ?");
+        $sql->bind_param("i", $id_nganhnghe);
+        $sql->execute();
+        $type = $sql->get_result()->fetch_assoc();
+        return $type['name_nganhnghe'];
+    }
     //
     function getNganhngheNameID($id_nganhnghe)
     {

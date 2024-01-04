@@ -81,7 +81,7 @@ $all_type = $type::getAllType();
                             <div class="control-group">
                                 <label class="control-label" style="font-weight: 600;">*Quy mô:</label>
                                 <div class="controls">
-                                    <input  required type="text" value="<?php echo $detail_Cty['quymo']; ?>" class="form-control" name="quymo" />
+                                    <input required type="text" value="<?php echo $detail_Cty['quymo']; ?>" class="form-control" name="quymo" />
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ $all_type = $type::getAllType();
                             </div>
                         </div>
                     </div>
-                    <input name="id_cty" value=" <?php echo $detail_Cty['id_cty'] ?>" style="display: none;"/>
+                    <input name="id_cty" value=" <?php echo $detail_Cty['id_cty'] ?>" style="display: none;" />
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Tên Công Ty :</label>
                         <div class="controls">
@@ -117,7 +117,7 @@ $all_type = $type::getAllType();
                     </div>
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Logo Cty hiện tại:</label>
-                        
+
                         <div class="controls">
                             <textarea class="form-control" id="logo" name='logo'><?php echo $detail_Cty['img_cty'] ?></textarea>
                         </div>
@@ -153,12 +153,12 @@ $all_type = $type::getAllType();
 ***********************************-->
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
-ClassicEditor
+    ClassicEditor
         .create(document.querySelector('#thongtin'))
         .catch(error => {
             console.error(error);
         });
-        ClassicEditor
+    ClassicEditor
         .create(document.querySelector('#logo'), {
             ckfinder: {
                 uploadUrl: 'job-vietnam/upload-logo.php'

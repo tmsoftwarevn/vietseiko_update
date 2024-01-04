@@ -996,6 +996,15 @@ $jobAdmin = new Job;
                         </ul>
                     </li>
                     <li>
+                        <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                            <i class="fa-solid fa-gear"></i>
+                            <span class="nav-text">Quản lý cảm nhận khách hàng</span>
+                        </a>
+                        <ul aria-expanded="false">                           
+                            <li><a href="review-list.php">Thông tin</a></li>                                                    
+                        </ul>
+                    </li>
+                    <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-041-graph"></i>
                             <span class="nav-text">Quản lý liên hệ</span>

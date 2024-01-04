@@ -217,7 +217,7 @@ if (
                         }
                         ?>
                         <div class="content">
-                            <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                            <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                 <div class="chucvu">
                                     <?php echo $value['chucvu'] ?>
                                 </div>
@@ -226,7 +226,7 @@ if (
                             <?php
                             if ($value['id_cty'] == 1) {
                             ?>
-                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                     <div class="name_cty">
                                         <?php echo $value['diachi_cuthe'] ?>
                                     </div>
@@ -234,7 +234,7 @@ if (
                             <?php
                             } else {
                             ?>
-                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                     <div class="name_cty">
                                         <?php echo $value['name'] ?>
                                     </div>
@@ -258,8 +258,12 @@ if (
                                 <?php
                                 $ngayHienTai = new DateTime();
                                 $ngayDen = new DateTime($value['ngaycuoicung']);
-                                $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
-                                echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
+
+                                $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%r%a');
+                                if ($soNgayConLai <= 0) {
+                                    echo 'Ngày cuối cùng để ứng tuyển';
+                                } else
+                                    echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
                                 ?>
                             </div>
                         </div>
@@ -280,16 +284,16 @@ if (
             $range = 2; // Number of pages before and after the current page to display
             $output = '';
             $d = 1;
-    
+
             $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
             $queryString = $_SERVER["QUERY_STRING"];
             if ($totalPages > 1) {
                 // Get the current URL without the query string
                 $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
-            
+
                 // Get the current query parameters
                 $queryString = $_SERVER["QUERY_STRING"];
-            
+
                 // Previous button
                 if ($currentPage > 1) {
                     $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
@@ -299,7 +303,7 @@ if (
                     $output .= '</a>';
                     $output .= '</li>';
                 }
-            
+
                 for ($i = 1; $i <= $totalPages; $i++) {
                     $newQueryString = getNewQueryString($queryString, 'page', $i);
                     if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
@@ -311,12 +315,12 @@ if (
                         if ($d > 2) {
                             continue;
                         }
-            
+
                         $d = $d + 1;
                         $output .= '<li class="page-item dots">...</li>';
                     }
                 }
-            
+
                 if ($currentPage < $totalPages) {
                     $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
                     $output .= '<li class="page-item">';

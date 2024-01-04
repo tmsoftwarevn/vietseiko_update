@@ -2,6 +2,7 @@
 include 'header.php';
 require_once "models/jobs.php";
 
+
 $totalJob = 1;
 $page = 1;
 $resultsPerPage = 3;
@@ -65,7 +66,7 @@ if (
     select {
         width: 100%;
         padding: 10px;
-        border: 1px solid #ccc;
+        border: 1px solid #1967d2;
         border-radius: 5px;
         margin-right: 10px;
     }
@@ -126,7 +127,7 @@ if (
             <form method="get" action="">
                 <input type="hidden" name="page" value="1">
                 <div class="row ">
-                    <div class="col-3">
+                    <div class="col-2">
                         <select name="id_nganhnghe">
                             <option value="all">Tất cả ngành nghề</option>
                             <?php
@@ -141,7 +142,7 @@ if (
                             ?>
                         </select>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <select name="id_hinhthuc">
                             <option value="all">Tất cả hình thức</option>
                             <?php
@@ -155,7 +156,7 @@ if (
 
                         </select>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <select name="id_kinhnghiem">
                             <option value="all">Tất cả kinh nghiệm</option>
                             <?php
@@ -169,7 +170,7 @@ if (
 
                         </select>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <select name="id_gioitinh">
                             <option value="all">Tất cả giới tính</option>
                             <option <?php
@@ -183,13 +184,26 @@ if (
                                     ?> value="3">Không yêu cầu</option>
                         </select>
                     </div>
-                    <!-- <div class="col-3">
-                        <input placeholder="Nh" />
-                    </div> -->
+                    <div class="col-2">
+                        <select name="address">
+                            <option value="all">Tất cả khu vực</option>
+                            <?php
+                            foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
+                            ?>
+                                <option value="<?php echo $item ?>">
+                                    <?php echo $item ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
+                    </div>
                 </div>
-                <!-- <button type="submit" class="search">Tìm kiếm</button> -->
-                <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
 
+                <!-- <button type="submit" id="icon-search"><i class="bi bi-search"></i></button> -->
             </form>
         </div>
 
@@ -220,7 +234,7 @@ if (
                         }
                         ?>
                         <div class="content">
-                            <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                            <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                 <div class="chucvu">
                                     <?php echo $value['chucvu'] ?>
                                 </div>
@@ -229,7 +243,7 @@ if (
                             <?php
                             if ($value['id_cty'] == 1) {
                             ?>
-                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                     <div class="name_cty">
                                         <?php echo $value['diachi_cuthe'] ?>
                                     </div>
@@ -237,7 +251,7 @@ if (
                             <?php
                             } else {
                             ?>
-                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                     <div class="name_cty">
                                         <?php echo $value['name'] ?>
                                     </div>
@@ -283,16 +297,16 @@ if (
             $range = 2; // Number of pages before and after the current page to display
             $output = '';
             $d = 1;
-    
+
             $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
             $queryString = $_SERVER["QUERY_STRING"];
             if ($totalPages > 1) {
                 // Get the current URL without the query string
                 $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
-            
+
                 // Get the current query parameters
                 $queryString = $_SERVER["QUERY_STRING"];
-            
+
                 // Previous button
                 if ($currentPage > 1) {
                     $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
@@ -302,7 +316,7 @@ if (
                     $output .= '</a>';
                     $output .= '</li>';
                 }
-            
+
                 for ($i = 1; $i <= $totalPages; $i++) {
                     $newQueryString = getNewQueryString($queryString, 'page', $i);
                     if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
@@ -314,12 +328,12 @@ if (
                         if ($d > 2) {
                             continue;
                         }
-            
+
                         $d = $d + 1;
                         $output .= '<li class="page-item dots">...</li>';
                     }
                 }
-            
+
                 if ($currentPage < $totalPages) {
                     $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
                     $output .= '<li class="page-item">';

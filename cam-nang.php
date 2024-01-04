@@ -142,7 +142,7 @@ $totalPages = ceil($totalJob / floatval($resultsPerPage));
                                         $formattedDate = $dateTime->format('d/m/Y');
                                         echo $formattedDate; ?>
                                     </div>
-                                    <a href="<?php echo 'cam-nang/' . $value['slug'] ?>/<?php echo $value['id_blog'] ?>">
+                                    <a href="<?php echo 'cam-nang/' . $value['slug'] ?>-<?php echo $value['id_blog'] ?>.html">
                                         <div class="name_blog">
                                             <?php echo $value['tieude_blog'] ?>
 

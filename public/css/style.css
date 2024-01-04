@@ -8735,6 +8735,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 }
 
 .twm-testimonial-1 .twm-testimonial-1-content .twm-testi-media {
+  height: 100%;
   width: 235px;
   max-width: 235px;
   display: table-cell;
@@ -8754,6 +8755,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 .twm-testimonial-1 .twm-testimonial-1-content .twm-testi-content {
   display: table-cell;
   padding: 50px 30px 50px 30px;
+  /* min-height: 330px; */
 }
 
 @media (max-width: 575px) {

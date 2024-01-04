@@ -70,7 +70,7 @@ class Job_f extends Db
     }
     static function getJobCarousel($number)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty ORDER BY created_at DESC LIMIT $number");
+        $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty where id_trangthai=1 ORDER BY created_at DESC LIMIT $number");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -121,7 +121,6 @@ class Job_f extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-
 
     // tổng số search được
     static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)

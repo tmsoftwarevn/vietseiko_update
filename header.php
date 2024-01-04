@@ -21,11 +21,13 @@ require "models/job_kysu.php";
 require "models/job_vietseiko.php";
 require "models/job_NB_f.php";
 require "models/jobs.php";
+require "models/review.php";
+
 require_once "admin/models/kinh_nghiem.php";
 require_once "admin/models/gioi_tinh.php";
 
+$review = new Review_f;
 $gioitinh = new Gioi_tinh;
-
 
 $hinhthuc = new Hinhthuc;
 $protype = new Protype;

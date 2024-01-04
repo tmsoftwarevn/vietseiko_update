@@ -217,7 +217,7 @@ if (
                         }
                         ?>
                         <div class="content">
-                            <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                            <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                 <div class="chucvu">
                                     <?php echo $value['chucvu'] ?>
                                 </div>
@@ -226,7 +226,7 @@ if (
                             <?php
                             if ($value['id_cty'] == 1) {
                             ?>
-                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                     <div class="name_cty">
                                         <?php echo $value['diachi_cuthe'] ?>
                                     </div>
@@ -234,7 +234,7 @@ if (
                             <?php
                             } else {
                             ?>
-                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>">
+                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
                                     <div class="name_cty">
                                         <?php echo $value['name'] ?>
                                     </div>

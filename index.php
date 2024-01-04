@@ -286,7 +286,7 @@ if (isset($_COOKIE['width'])) {
                                     <div class="item ">
                                         <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $new_list_of_job_vn[$i + $j]['slug'] ?>/<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $new_list_of_job_vn[$i + $j]['slug'] ?>-<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>.html">
                                                     <!-- <a href="job-detail.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>"> -->
                                                     <div class="card-job">
                                                         <div class="chucvu">
@@ -378,7 +378,7 @@ if (isset($_COOKIE['width'])) {
                                     <div class="item">
                                         <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $new_list_of_job_vn[$i + $j]['slug'] ?>/<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $new_list_of_job_vn[$i + $j]['slug'] ?>-<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>.html">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
@@ -467,7 +467,7 @@ if (isset($_COOKIE['width'])) {
                                     <div class="item">
                                         <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $new_list_of_job_vn[$i + $j]['slug'] ?>/<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $new_list_of_job_vn[$i + $j]['slug'] ?>-<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>.html">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
@@ -557,7 +557,7 @@ if (isset($_COOKIE['width'])) {
                                     <div class="item">
                                         <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $new_list_of_job_vn[$i + $j]['slug'] ?>/<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>">
+                                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $new_list_of_job_vn[$i + $j]['slug'] ?>-<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>.html">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
                                                             <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
@@ -635,75 +635,40 @@ if (isset($_COOKIE['width'])) {
             <div class="section-content mt-5">
                 <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
                     <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_olympus.png" alt="" />
-                            </div>
+                        <div class="logo-slide">
+                            <img src="images/client-logo/logo_olympus.png" alt="" />
                         </div>
                     </div>
 
                     <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_lixil.jpg" alt="" />
-                            </div>
+                        <div class="logo-slide">
+                            <img src="images/client-logo/logo_lixil.jpg" alt="" />
                         </div>
                     </div>
 
                     <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_Nakajima.jpg" alt="" />
-                            </div>
+                        <div class="logo-slide">
+                            <img src="images/client-logo/logo_Nakajima.jpg" alt="" />
                         </div>
                     </div>
 
                     <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/shimizu_logo.png" alt="" />
-                            </div>
+                        <div class="logo-slide">
+                            <img src="images/client-logo/shimizu_logo.png" alt="" />
                         </div>
                     </div>
 
                     <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_Sumitomo.png" alt="" />
-                            </div>
+                        <div class="logo-slide">
+                            <img src="images/client-logo/logo_Sumitomo.png" alt="" />
                         </div>
                     </div>
                     <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_nidec.png" alt="" />
-                            </div>
+                        <div class="logo-slide">
+                            <img src="images/client-logo/logo_nidec.png" alt="" />
                         </div>
                     </div>
 
-                    <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_olympus.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_lixil.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="ow-client-logo">
-                            <div class="client-logo client-logo-media">
-                                <img src="images/client-logo/logo_Nakajima.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -736,79 +701,39 @@ if (isset($_COOKIE['width'])) {
             <div class="section-content">
                 <div class="owl-carousel twm-testimonial-1-carousel owl-btn-bottom-center">
                     <!-- COLUMNS 1 -->
-                    <div class="item">
-                        <div class="twm-testimonial-1">
-                            <div class="twm-testimonial-1-content">
-                                <div class="twm-testi-media">
-                                    <img src="images/testimonials/pic-3.png" alt="#">
-                                </div>
-                                <div class="twm-testi-content">
-                                    <div class="twm-quote">
-                                        <img src="images/quote-dark.png" alt="" />
+                    <?php
+                    $list_review = $review::getAll_review();
+                    foreach ($list_review as $key => $value) {
+                    ?>
+                        <div class="item">
+                            <div class="twm-testimonial-1">
+                                <div class="twm-testimonial-1-content">
+                                    <div class="twm-testi-media">
+                                        <?php echo $value['img_review'] ?>
                                     </div>
-                                    <div class="twm-testi-info">
-                                        <?= __('Với đội ngũ nhân viên nhiệt tình, có quan hệ tốt với nhiều doanh nghiệp Nhật Bản.
-	 Rất phù hợp với các bạn tìm việc tiếng Nhật, xuất khẩu lao động Nhật Bản') ?>
-                                    </div>
-                                    <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Mr Trung</div>
-                                        <!-- <div class="twm-testi-position">Accountant</div> -->
+
+                                    <div class="twm-testi-content">
+                                        <div class="twm-quote">
+                                            <img src="images/quote-dark.png" alt="" />
+                                        </div>
+                                        <div class="twm-testi-info">
+                                            <?php echo $value['mota'] ?>
+                                        </div>
+                                        <div class="twm-testi-detail">
+                                            <div class="twm-testi-name">
+                                                <?php echo $value['name'] ?>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
 
-                    <!-- COLUMNS 2 -->
-                    <div class="item">
-                        <div class="twm-testimonial-1">
-                            <div class="twm-testimonial-1-content">
-                                <div class="twm-testi-media">
-                                    <img src="images/testimonials/pic-2.png" alt="#" />
-                                </div>
-                                <div class="twm-testi-content">
-                                    <div class="twm-quote">
-                                        <img src="images/quote-dark.png" alt="" />
-                                    </div>
-                                    <div class="twm-testi-info">
-                                        <?= __('Tỷ lệ chọi thấp, uy tín, luôn quan tâm đến học viên, nhiệt tình trong tư vấn,
-	nhân viên vui vẻ.') ?>
-                                    </div>
-                                    <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Ms Nguyễn Thị B</div>
-                                        <!-- <div class="twm-testi-position">Accountant</div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- COLUMNS 3 -->
-                    <div class="item">
-                        <div class="twm-testimonial-1">
-                            <div class="twm-testimonial-1-content">
-                                <div class="twm-testi-media">
-                                    <img src="images/testimonials/pic-1.png" alt="#" />
-                                </div>
-                                <div class="twm-testi-content">
-                                    <div class="twm-quote">
-                                        <img src="images/quote-dark.png" alt="" />
-                                    </div>
-                                    <div class="twm-testi-info">
-                                        <?= __('Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình nên mình rất
-	tin tưởng, các bạn nên tham gia') ?>
-                                    </div>
-                                    <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Mr Nguyễn Văn B</div>
-                                        <!-- <div class="twm-testi-position">Accountant</div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- COLUMNS 4 -->
-                    <div class="item">
+                    <!-- <div class="item">
                         <div class="twm-testimonial-1">
                             <div class="twm-testimonial-1-content">
                                 <div class="twm-testi-media">
@@ -822,13 +747,12 @@ if (isset($_COOKIE['width'])) {
                                         <?= __('Công ty uy tín, hỗ trợ tôi rất nhiệt tình trong quá trình tư vấn công việc.') ?>
                                     </div>
                                     <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Ms Nguyễn Văn D</div>
-                                        <!-- <div class="twm-testi-position">Accountant</div> -->
+                                        <div class="twm-testi-name">Ms Nguyễn Văn D</div>                                       
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -866,7 +790,7 @@ if (isset($_COOKIE['width'])) {
                                             $formattedDate = $dateTime->format('d/m/Y');
                                             echo $formattedDate; ?>
                                         </div>
-                                        <a href="blog-detail.php?id=<?php echo $value['id_blog']; ?>">
+                                        <a href="<?php echo 'tin-tuc/' . $value['slug'] ?>-<?php echo $value['id_blog'] ?>.html">
                                             <div class="name_blog">
                                                 <?php echo $value['tieude_blog'] ?>
 

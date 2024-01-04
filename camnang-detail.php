@@ -112,7 +112,7 @@ if ($allBlog[0]['type_id'] == 4) {
                         <?php echo $value['img_blog'] ?>
                       </div>
                       <div class="pr-r">
-                      <a href="<?php echo 'cam-nang/' . $value['slug'] ?>/<?php echo $value['id_blog'] ?>">
+                      <a href="<?php echo 'cam-nang/' . $value['slug'] ?>-<?php echo $value['id_blog'] ?>.html">
                           <div class="name-pr">
                             <?php echo $value['tieude_blog'] ?>
 
