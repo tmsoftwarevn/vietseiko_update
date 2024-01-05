@@ -25,7 +25,9 @@ require "models/review.php";
 
 require_once "admin/models/kinh_nghiem.php";
 require_once "admin/models/gioi_tinh.php";
+require_once "admin/models/image.php";
 
+$img_f = new Image_f;
 $review = new Review_f;
 $gioitinh = new Gioi_tinh;
 
@@ -36,7 +38,7 @@ $blog = new blog_f;
 $cam_nang = new Cam_nang_f;
 
 $form_contact = new Form_contact;
-//$nganh_nghe = new Nganhnghe_f;
+
 $kinh_nghiem = new Kinh_nghiem;
 $job = new Job_f;
 $job_nb = new Job_NB_f;

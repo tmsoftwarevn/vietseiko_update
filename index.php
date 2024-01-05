@@ -19,6 +19,13 @@ if (isset($_COOKIE['width'])) {
         $perItemCarousel = 4;
     }
 }
+// get image banner
+
+$list_banner = $img_f->getAll_imgBy_id(0);
+$vn = $img_f->getAll_imgBy_id(1);
+$xkld = $img_f->getAll_imgBy_id(2);
+$ksnb = $img_f->getAll_imgBy_id(3);
+$vsk = $img_f->getAll_imgBy_id(4);
 
 ?>
 
@@ -52,7 +59,7 @@ if (isset($_COOKIE['width'])) {
 <div class="test" style="display: none;">v</div>
 <div class="owl-carousel carousel-banner-home banner-home">
 
-    <div class="item">
+    <!-- <div class="item">
         <img src="images/banner/slide-03.jpg" />
     </div>
     <div class="item">
@@ -60,7 +67,18 @@ if (isset($_COOKIE['width'])) {
     </div>
     <div class="item">
         <img src="images/banner/slide-02.jpg" />
-    </div>
+    </div> -->
+    <?php
+    foreach ($list_banner as $key => $value) {
+    ?>
+        <div class="item">
+            <?php
+            echo $value['img'];
+            ?>
+        </div>
+    <?php
+    }
+    ?>
 
 </div>
 <div class="page-content">
@@ -258,7 +276,8 @@ if (isset($_COOKIE['width'])) {
         <div class="container">
             <div class="mt-5">
                 <div class="img-bg">
-                    <img src="public/images/bg-job.jpg" alt="anh" />
+                    <!-- <img src="public/images/bg-job.jpg" alt="anh" /> -->
+                    <?php echo $vn[0]['img'] ?>
                 </div>
 
                 <div class="g1 mt-5">
@@ -351,7 +370,7 @@ if (isset($_COOKIE['width'])) {
             </div>
             <div class="mt-5">
                 <div class="img-bg">
-                    <img src="public/images/bg-job.jpg" alt="" />
+                    <?php echo $xkld[0]['img'] ?>
                 </div>
                 <div class="g1 mt-5">
                     <div class="title ">

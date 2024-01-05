@@ -78,7 +78,10 @@ $lang = [
 	'Mức lương mong muốn'=>'希望する給与',
 	'Khu vực mong muốn'=>'ご希望のエリア',
 	'Vị trí ứng tuyển'=>'候補者',
-	'Nộp Hồ Sơ'=>'提出する'
+	'Nộp Hồ Sơ'=>'提出する',
+
+	//contact
+	'LIÊN HỆ VỚI CHÚNG TÔI'=>'お問い合わせ',
 
 
 

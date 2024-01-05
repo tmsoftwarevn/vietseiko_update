@@ -65,9 +65,10 @@ $jobAdmin = new Job;
 </head>
 <style>
     .sub-menu {
-            display: none;
-        }
+        display: none;
+    }
 </style>
+
 <body>
     <!--*******************
         Preloader start
@@ -962,11 +963,11 @@ $jobAdmin = new Job;
                         </a>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-1','span-1')">
                             <i class="flaticon-093-waving"></i>
-                            <span class="nav-text">Quản lý công việc và công ty</span>
+                            <span id="span-1" class="nav-text">Quản lý công việc và công ty</span>
                         </a>
-                        <ul aria-expanded="false">
+                        <ul class="sub-menu" id="sub-menu-1">
                             <li><a href="job-list.php">Công việc tại Việt Nam</a></li>
                             <li><a href="job_nb_list.php">Công việc XKLD tại Nhật Bản</a></li>
                             <li><a href="job_ksnb_list.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
@@ -976,11 +977,11 @@ $jobAdmin = new Job;
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void(0);" onclick="toggleSubMenu('sub-menu-1')" >
-                            <i class="fa-solid fa-gear"></i>
-                            <span class="nav-text">Quản lý ứng viên</span>
+                        <a class="has-arrow" href="javascript:void(0);" onclick="toggleSubMenu('sub-menu-2','span-2')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-2" class="nav-text">Quản lý ứng viên</span>
                         </a>
-                        <ul  class="sub-menu" id="sub-menu-1">
+                        <ul class="sub-menu" id="sub-menu-2">
                             <li><a href="cv-vn-list.php">Ứng viên tại Việt Nam</a></li>
                             <li><a href="cv-xkld-list.php">Ứng viên XKLD tại Nhật Bản</a></li>
                             <li><a href="cv-ksnb-list.php"> Ứng viên Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
@@ -988,38 +989,38 @@ $jobAdmin = new Job;
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-041-graph"></i>
-                            <span class="nav-text">Quản lý Tin tức</span>
+                        <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-3','span-3')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-3" class="nav-text">Quản lý Tin tức</span>
                         </a>
-                        <ul aria-expanded="false">
+                        <ul class="sub-menu" id="sub-menu-3">
                             <li><a href="tintuc-list.php">Thông tin</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
-                            <i class="fa-solid fa-gear"></i>
-                            <span class="nav-text">Quản lý Cẩm nang</span>
+                        <a class="has-arrow" href="javascript:void(0);" onclick="toggleSubMenu('sub-menu-4','span-4')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-4" class="nav-text">Quản lý Cẩm nang</span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="admin-list-camnang.php">Thông tin</a></li>
+                        <ul class="sub-menu" id="sub-menu-4">
+                            <li><a href="admin-list-camnang.php">Danh sách</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
-                            <i class="fa-solid fa-gear"></i>
-                            <span class="nav-text">Quản lý cảm nhận khách hàng</span>
+                        <a class="has-arrow" href="javascript:void(0);" onclick="toggleSubMenu('sub-menu-5','span-5')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-5" class="nav-text">Quản lý cảm nhận khách hàng</span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="review-list.php">Thông tin</a></li>
+                        <ul class="sub-menu" id="sub-menu-5">
+                            <li><a href="review-list.php">Danh sách</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-041-graph"></i>
-                            <span class="nav-text">Quản lý liên hệ</span>
+                        <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-6','span-6')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-6" class="nav-text">Quản lý liên hệ</span>
                         </a>
-                        <ul aria-expanded="false">
+                        <ul class="sub-menu" id="sub-menu-6">
                             <li><a href="contact-list.php?type=vn">Liên hệ tại Việt Nam</a></li>
                             <li><a href="contact-list.php?type=xkld">Liên hệ XKLD Nhật Bản</a></li>
                             <li><a href="contact-list.php?type=ksnb">Liên hệ Kỹ sư & thông dịch Nhật Bản</a></li>
@@ -1027,14 +1028,23 @@ $jobAdmin = new Job;
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-041-graph"></i>
-                            <span class="nav-text">Quản lý thông tin khác</span>
+                        <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-7','span-7')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-7" class="nav-text">Quản lý thông tin khác</span>
                         </a>
-                        <ul aria-expanded="false">
+                        <ul class="sub-menu" id="sub-menu-7">
                             <li><a href="table-other.php?type=nganhnghe">Ngành nghề</a></li>
                             <li><a href="table-other.php?type=kinhnghiem">Kinh nghiệm</a></li>
                             <li><a href="table-other.php?type=hinhthuc">Hình thức</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-8','span-8')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-8" class="nav-text">Quản lý hình ảnh</span>
+                        </a>
+                        <ul class="sub-menu" id="sub-menu-8">
+                            <li><a href="img-list.php">Danh sách</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -1049,12 +1059,85 @@ $jobAdmin = new Job;
         <!-- // fixxx -->
     </div>
 
+
     <script>
-        function toggleSubMenu(subMenuId) {
+        document.addEventListener("DOMContentLoaded", function() {
+            var subMenus = document.querySelectorAll('.sub-menu');
+            subMenus.forEach(function(subMenu) {
+                subMenu.style.display = 'none';
+            });
+
+            // Retrieve and set the state on page load
+            var storedState = localStorage.getItem('submenuState');
+            if (storedState) {
+                var state = JSON.parse(storedState);
+                state.forEach(function(item) {
+                    var subMenu = document.getElementById(item.subMenuId);
+                    var spanElement = document.getElementById(item.spanId);
+
+                    if (item.spanColor === 'red') {
+                        subMenu.style.display = 'block';
+                        spanElement.style.color = 'red';
+                    } else {
+                        subMenu.style.display = 'none';
+                        spanElement.style.color = 'black';
+                    }
+                });
+            }
+        });
+
+        function toggleSubMenu(subMenuId, spanId) {
             var subMenu = document.getElementById(subMenuId);
-            subMenu.style.display = (subMenu.style.display === 'block') ? 'none' : 'block';
+            var spanElement = document.getElementById(spanId);
+
+            // Reset color for all spans
+            var allSpans = document.querySelectorAll('.nav-text');
+            allSpans.forEach(function(otherSpan) {
+                otherSpan.style.color = 'black';
+            });
+
+            // Reset display for all sub-menus
+            var allSubMenus = document.querySelectorAll('.sub-menu');
+            allSubMenus.forEach(function(otherSubMenu) {
+                otherSubMenu.style.display = 'none';
+            });
+
+            if (subMenu.style.display === 'none') {
+                subMenu.style.display = 'block';
+                spanElement.style.color = 'red';
+            } else {
+                subMenu.style.display = 'none';
+                spanElement.style.color = 'black';
+                localStorage.removeItem('submenuState'); // Remove localStorage on collapse
+            }
+
+            // Update and store the state in localStorage
+            var storedState = localStorage.getItem('submenuState');
+            var currentState = storedState ? JSON.parse(storedState) : [];
+            var existingIndex = currentState.findIndex(item => item.subMenuId === subMenuId);
+
+            if (existingIndex !== -1) {
+                currentState[existingIndex] = {
+                    subMenuId: subMenuId,
+                    spanId: spanId,
+                    displayStyle: subMenu.style.display,
+                    spanColor: spanElement.style.color
+                };
+            } else {
+                currentState = [{
+                    subMenuId: subMenuId,
+                    spanId: spanId,
+                    displayStyle: subMenu.style.display,
+                    spanColor: spanElement.style.color
+                }];
+            }
+
+            localStorage.setItem('submenuState', JSON.stringify(currentState));
         }
     </script>
+
+
+
 </body>
 
 </html>

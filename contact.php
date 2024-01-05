@@ -20,8 +20,8 @@ require_once 'header.php';
 
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="trang-chu">Home</a></li>
-                        <li>Liên hệ</li>
+                        <li><a href="trang-chu"><?= __('Trang chủ') ?></a></li>
+                        <li><?= __('Liên hệ') ?></li>
                     </ul>
                 </div>
 
@@ -73,7 +73,7 @@ require_once 'header.php';
                         </div>
                         <div class="col-lg-6 bordered-element">
                             <div class="contact_form qcol form_info_customer">
-                                <h3 class="ft_title">LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                                <h3 class="ft_title"><?= __('LIÊN HỆ VỚI CHÚNG TÔI') ?></h3>
 
                                 <form action="mail.php" method="POST">
                                     <div class="form-contact">

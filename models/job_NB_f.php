@@ -136,16 +136,19 @@ class Job_NB_f extends Db
         if ($id_kinhnghiem !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_kinhnghiem = $id_kinhnghiem ";
+            $d += 1;
         }
        
         if ($id_gioitinh !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_gioitinh = $id_gioitinh ";
+            $d += 1;
         }
         
         if ($diachi !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "diachi LIKE '%$diachi%'";
+            
         }
 
         $sql .= "AND id_trangthai = 1";
@@ -175,11 +178,13 @@ class Job_NB_f extends Db
         if ($id_kinhnghiem !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_kinhnghiem = $id_kinhnghiem ";
+            $d += 1;
         }
        
         if ($id_gioitinh !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_gioitinh = $id_gioitinh ";
+            $d += 1;
         }
         if ($diachi !== 'all') {
             if ($d > 0) $sql .= 'AND ';

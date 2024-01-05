@@ -538,7 +538,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <div class="twm-jobs-amount">
                                     <?php echo $value['mucluong'] ?>
                                 </div>
-                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>/<?php echo $value['id_job'] ?>.html" class="twm-jobs-browse site-text-primary"><?= __('Chi tiết') ?></a>
+                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html" class="twm-jobs-browse site-text-primary"><?= __('Chi tiết') ?></a>
                             </div>
                         </div>
                     </div>
