@@ -2,11 +2,12 @@
 include 'header.php';
 require_once "models/jobs.php";
 
+$list_custom_tinhthanh = $form_contact->list_tinh();
+$id_diachi = 'all';
 
 $totalJob = 1;
 $page = 1;
 $resultsPerPage = 3;
-
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -18,23 +19,32 @@ if (isset($_GET['page'])) {
 
 <?php
 $id_gioitinh = '';
+
 $allJob = [];
 $totalJob = 1;
 if (
-    (isset($_GET['id_nganhnghe']) && $_GET['id_nganhnghe'] != 'all') || (isset($_GET['id_hinhthuc']) && $_GET['id_hinhthuc'] != 'all')
-    || (isset($_GET['id_kinhnghiem']) && $_GET['id_kinhnghiem'] != 'all') || (isset($_GET['id_gioitinh']) && $_GET['id_gioitinh'] != 'all')
-
+    (isset($_GET['id_nganhnghe']) && $_GET['id_nganhnghe'] != 'all')
+    || (isset($_GET['id_hinhthuc']) && $_GET['id_hinhthuc'] != 'all')
+    || (isset($_GET['id_kinhnghiem']) && $_GET['id_kinhnghiem'] != 'all')
+    || (isset($_GET['id_gioitinh']) && $_GET['id_gioitinh'] != 'all')
+    || (isset($_GET['id_diachi']) && $_GET['id_diachi'] != 'all')
 ) {
     $id_nganhnghe = $_GET['id_nganhnghe'];
     $id_hinhthuc = $_GET['id_hinhthuc'];
     $id_kinhnghiem = $_GET['id_kinhnghiem'];
     $id_gioitinh = $_GET['id_gioitinh'];
 
+    $id_diachi = $_GET['id_diachi'];
+    // get name dia chi
+    $diachi = 'all';
+    if ($id_diachi != 'all')
+        $diachi = $list_custom_tinhthanh[$id_diachi];
+
     //search all, tính tổng
-    $kq = $job::searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh);
+    $kq = $job::searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi);
     $totalPages = ceil(floatval(count($kq)) / floatval($resultsPerPage));
     // phân trang
-    $search_phantrang = $job::searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $page, $resultsPerPage);
+    $search_phantrang = $job::searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $page, $resultsPerPage);
     $allJob = $search_phantrang;
     $totalJob = count($kq);
 } else {
@@ -185,12 +195,15 @@ if (
                         </select>
                     </div>
                     <div class="col-2">
-                        <select name="address">
+
+                        <select name="id_diachi">
                             <option value="all">Tất cả khu vực</option>
                             <?php
-                            foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
+                            foreach ($list_custom_tinhthanh as $index => $item) {
                             ?>
-                                <option value="<?php echo $item ?>">
+                                <option <?php
+                                        if ($id_diachi == $index) echo 'selected="selected"'
+                                        ?> value="<?php echo $index ?>">
                                     <?php echo $item ?>
                                 </option>
                             <?php
@@ -202,8 +215,6 @@ if (
                         <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
                     </div>
                 </div>
-
-                <!-- <button type="submit" id="icon-search"><i class="bi bi-search"></i></button> -->
             </form>
         </div>
 
@@ -276,7 +287,10 @@ if (
                                 $ngayHienTai = new DateTime();
                                 $ngayDen = new DateTime($value['ngaycuoicung']);
                                 $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
-                                echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
+                                if ($soNgayConLai <= 0) {
+                                    echo 'Ngày cuối cùng để ứng tuyển';
+                                } else
+                                    echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
                                 ?>
                             </div>
                         </div>

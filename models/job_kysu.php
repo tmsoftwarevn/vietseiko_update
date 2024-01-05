@@ -119,7 +119,7 @@ class Job_kysu_f extends Db
     }
 
     // tổng số search được
-    static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)
+    static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi)
     {
         $sql = "SELECT * FROM job_kysunb WHERE ";
         $d = 0;
@@ -143,6 +143,12 @@ class Job_kysu_f extends Db
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_gioitinh = $id_gioitinh ";
         }
+
+        if ($diachi !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "diachi LIKE '%$diachi%'";
+        }
+
         $sql .= "AND id_trangthai = 1";
         $stmt = self::$connection->prepare($sql);
         $stmt->execute();
@@ -151,7 +157,7 @@ class Job_kysu_f extends Db
         return $items;
     }
     // phan trang search
-    static function searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $page, $resultsPerPage)
+    static function searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $page, $resultsPerPage)
     {
         $firstLink = ($page - 1) * $resultsPerPage;
         $sql = "SELECT job_kysunb.*,cty.name,cty.img_cty FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty WHERE ";
@@ -175,6 +181,11 @@ class Job_kysu_f extends Db
         if ($id_gioitinh !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_gioitinh = $id_gioitinh ";
+        }
+
+        if ($diachi !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "diachi LIKE '%$diachi%'";
         }
 
         $sql .= "AND id_trangthai = 1 ORDER BY job_kysunb.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage";

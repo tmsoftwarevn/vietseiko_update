@@ -53,11 +53,21 @@ $jobAdmin = new Job;
     <!-- Globle CSS -->
     <link href="css/style.css" rel="stylesheet" />
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script> -->
-    <!-- <script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script> -->
-</head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+    <!-- Include MetisMenu CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/3.0.6/metisMenu.min.css" integrity="sha512-cz36v2XU3wP+g6N9ClmsqWQE5q9/0zi2Mu+AP1wrR/q/2WajIcNcGJDeQxUJLgT3vwEflqT5H7JsjRJCIYCXgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/3.0.6/metisMenu.min.js" integrity="sha512-ODsgr0r0s5b5ZoIYdU3zuklsTU3smnT8K1I54vbq6Dl3R72BKfnZ/VFXpbz+W7HsCQD1FTjln8AP3MZg6aHfrUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- /////// -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<style>
+    .sub-menu {
+            display: none;
+        }
+</style>
 <body>
     <!--*******************
         Preloader start
@@ -81,7 +91,7 @@ $jobAdmin = new Job;
         ***********************************-->
         <div class="nav-header">
             <a href="dashboard.php" class="brand-logo">
-                <img src="images/profile/logo.png" width="100px"/>
+                <img src="images/profile/logo.png" width="100px" />
             </a>
             <div class="nav-control">
                 <div class="hamburger">
@@ -906,7 +916,7 @@ $jobAdmin = new Job;
                     <div class="dropdown header-profile2">
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                             <div class="header-info2 d-flex align-items-center">
-                                <img src="images/profile/logo.png" alt="" style="width: 70px;"/>
+                                <!-- <img src="images/profile/logo.png" alt="" style="width: 70px;" /> -->
                                 <div class="d-flex align-items-center sidebar-info">
                                     <div>
                                         <span class="font-w400 d-block"><?php echo $user; ?></span>
@@ -962,19 +972,19 @@ $jobAdmin = new Job;
                             <li><a href="job_ksnb_list.php">Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
                             <li><a href="job_vietseiko_list.php">Công việc tại VietSeiko</a></li>
                             <li><a href="company-list.php">Thông tin các công ty</a></li>
-                                                        
+
                         </ul>
                     </li>
                     <li>
-                        <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                        <a class="has-arrow" href="javascript:void(0);" onclick="toggleSubMenu('sub-menu-1')" >
                             <i class="fa-solid fa-gear"></i>
                             <span class="nav-text">Quản lý ứng viên</span>
                         </a>
-                        <ul aria-expanded="false">                           
-                            <li><a href="cv-vn-list.php">Ứng viên tại Việt Nam</a></li>  
-                            <li><a href="cv-xkld-list.php">Ứng viên XKLD tại Nhật Bản</a></li>                                                    
-                            <li><a href="cv-ksnb-list.php"> Ứng viên Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>  
-                            <li><a href="cv-vietseiko-list.php">Ứng viên tại VietSeiko</a></li>  
+                        <ul  class="sub-menu" id="sub-menu-1">
+                            <li><a href="cv-vn-list.php">Ứng viên tại Việt Nam</a></li>
+                            <li><a href="cv-xkld-list.php">Ứng viên XKLD tại Nhật Bản</a></li>
+                            <li><a href="cv-ksnb-list.php"> Ứng viên Kỹ sư & Thông dịch viên tại Nhật Bản</a></li>
+                            <li><a href="cv-vietseiko-list.php">Ứng viên tại VietSeiko</a></li>
                         </ul>
                     </li>
                     <li>
@@ -983,7 +993,7 @@ $jobAdmin = new Job;
                             <span class="nav-text">Quản lý Tin tức</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="tintuc-list.php">Thông tin</a></li>                            
+                            <li><a href="tintuc-list.php">Thông tin</a></li>
                         </ul>
                     </li>
                     <li>
@@ -991,8 +1001,8 @@ $jobAdmin = new Job;
                             <i class="fa-solid fa-gear"></i>
                             <span class="nav-text">Quản lý Cẩm nang</span>
                         </a>
-                        <ul aria-expanded="false">                           
-                            <li><a href="admin-list-camnang.php">Thông tin</a></li>                                                    
+                        <ul aria-expanded="false">
+                            <li><a href="admin-list-camnang.php">Thông tin</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1000,8 +1010,8 @@ $jobAdmin = new Job;
                             <i class="fa-solid fa-gear"></i>
                             <span class="nav-text">Quản lý cảm nhận khách hàng</span>
                         </a>
-                        <ul aria-expanded="false">                           
-                            <li><a href="review-list.php">Thông tin</a></li>                                                    
+                        <ul aria-expanded="false">
+                            <li><a href="review-list.php">Thông tin</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1010,10 +1020,10 @@ $jobAdmin = new Job;
                             <span class="nav-text">Quản lý liên hệ</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="contact-list.php?type=vn">Liên hệ tại Việt Nam</a></li> 
-                            <li><a href="contact-list.php?type=xkld">Liên hệ XKLD Nhật Bản</a></li> 
-                            <li><a href="contact-list.php?type=ksnb">Liên hệ Kỹ sư & thông dịch Nhật Bản</a></li>                            
-                            <li><a href="contact-list.php?type=vietseiko">Liên hệ tại VietSeiko</a></li> 
+                            <li><a href="contact-list.php?type=vn">Liên hệ tại Việt Nam</a></li>
+                            <li><a href="contact-list.php?type=xkld">Liên hệ XKLD Nhật Bản</a></li>
+                            <li><a href="contact-list.php?type=ksnb">Liên hệ Kỹ sư & thông dịch Nhật Bản</a></li>
+                            <li><a href="contact-list.php?type=vietseiko">Liên hệ tại VietSeiko</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1022,9 +1032,9 @@ $jobAdmin = new Job;
                             <span class="nav-text">Quản lý thông tin khác</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="table-other.php?type=nganhnghe">Ngành nghề</a></li> 
-                            <li><a href="table-other.php?type=kinhnghiem">Kinh nghiệm</a></li>  
-                            <li><a href="table-other.php?type=hinhthuc">Hình thức</a></li>                            
+                            <li><a href="table-other.php?type=nganhnghe">Ngành nghề</a></li>
+                            <li><a href="table-other.php?type=kinhnghiem">Kinh nghiệm</a></li>
+                            <li><a href="table-other.php?type=hinhthuc">Hình thức</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -1036,4 +1046,15 @@ $jobAdmin = new Job;
                 </div>
             </div>
         </div>
-   
+        <!-- // fixxx -->
+    </div>
+
+    <script>
+        function toggleSubMenu(subMenuId) {
+            var subMenu = document.getElementById(subMenuId);
+            subMenu.style.display = (subMenu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+
+</html>

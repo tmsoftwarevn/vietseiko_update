@@ -624,7 +624,7 @@ if (isset($_COOKIE['width'])) {
 
 
     <!-- TOP COMPANIES START -->
-    <div class="section-full p-t50 site-bg-white twm-companies-wrap">
+    <div class="section-full p-t100 site-bg-white twm-companies-wrap">
         <!-- TITLE START-->
         <div class="section-head center wt-small-separator-outer">
             <h2 class="wt-title" style="font-size: 24px;"><?= __('LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO NGƯỜI LAO ĐỘNG') ?></h2>
@@ -680,11 +680,11 @@ if (isset($_COOKIE['width'])) {
         <div class="container">
             <div class="wt-separator-two-part">
                 <div class="row wt-separator-two-part-row">
-                    <div class="col-xl-5 col-lg-6 col-md-12 wt-separator-two-part-left">
+                    <div class=" wt-separator-two-part-left">
                         <!-- TITLE START-->
                         <div class="section-head left wt-small-separator-outer">
                             <div class="wt-small-separator site-text-primary">
-                                <h2 style="font-size: 24px;font-family: 'Roboto', sans-serif !important;color:#1967d2">
+                                <h2 style="font-size: 24px;font-family: 'Roboto', sans-serif !important;margin: 130px 0 20px;display: flex; align-items: center;justify-content: center;">
                                     <?= __('CẢM NHẬN CỦA NGƯỜI LAO ĐỘNG') ?>
                                 </h2>
                                 <!-- <p style="font-family: 'Roboto', sans-serif; color: unset;">

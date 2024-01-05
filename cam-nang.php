@@ -124,7 +124,7 @@ $totalPages = ceil($totalJob / floatval($resultsPerPage));
         <!-- INNER PAGE BANNER END -->
 
         <!-- OUR BLOG START -->
-        <div class="section-full p-t20 p-b90 site-bg-white" style="transform: none">
+        <div class="section-full p-t20  site-bg-white" style="transform: none">
             <div class="container" style="transform: none">
                 <div class="row" style="transform: none">
                     <?php

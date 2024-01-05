@@ -36,3 +36,8 @@ RewriteRule ^nguyen-tac nguyentac.php [QSA]
 RewriteRule ^gia-tri-van-hoa nhunggiatrivanhoa.php [QSA]
 RewriteRule ^gia-tri-cot-loi nhunggiatricotloi.php [QSA]
 RewriteRule ^hinh-anh-va-video hinhanh-video.php [QSA]
+
+#footer
+
+RewriteRule ^giay-phep-hoat-dong giayphephoatdongdichvuvieclam.php [QSA]
+RewriteRule ^giay-phep-kinh-doanh giayphepkinhdoanh.php [QSA]

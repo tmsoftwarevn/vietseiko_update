@@ -62,7 +62,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <meta name="robots" content="" />
-    <meta name="description" content="" />
+    <meta name="description" content="Tìm việc xkld nhật bản tại VietSeiko" />
 
     <!-- FAVICONS ICON -->
     <link rel="icon" href="public/images/logo.png" type="image/x-icon" />

@@ -1,660 +1,638 @@
-<!-- <link rel="stylesheet" type="text/css" href="public/css/style2.css" /> -->
-<!-- FOOTER START -->
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <div class="logo_content hidden-xs hidden-sm">
-                    <span class="logo_content_kaizen">
-                        <a href="https://www.vietseiko.com/" target="_blank">
-                            <img src="images/logo.png" width="205" alt="" />
-                        </a>
-                    </span>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>congty</title>
+    <!-- Link đến Bootstrap CSS -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        footer {
+            background-image: url('images/Footer/clound.jpg');
+            background-color: #f8f9fa;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 20px 0;
+        }
+
+        /* Định dạng cơ bản cho các phần tử */
+        .col-lg-4,
+        .col-md-4,
+        .col-sm-12,
+        .col-xs-12 {
+            padding: 10px;
+        }
+
+        /* Định dạng hình ảnh logo */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Định dạng chung cho các phần tử giấy phép */
+        .giayphep-content-col-tile,
+        .giayphep-content-col-title {
+            font-family: roboto;
+            color: orange;
+            text-align: center;
+            padding: 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        /* Định dạng cho container giấy phép */
+        .giayphep-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        /* Định dạng cho từng giấy phép */
+        .giayphep-content-col {
+            flex: 0 0 calc(50% - 0px);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            padding: 5px;
+            border: 1px solid #ffc107;
+            border-radius: 2px;
+        }
+
+        /* Định dạng hình ảnh trong giấy phép */
+        .giayphep-content-col-img img {
+            width: 80px;
+            /* height: 100px; */
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            /* Khoảng cách giữa các item */
+        }
+
+        .hotline-icon {
+            width: 75px;
+            margin-right: 10px;
+            height: auto;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            font-size: 15px;
+            /* Kích thước font cho tiêu đề */
+            color: #c50000;
+            /* Màu sắc cho tiêu đề */
+        }
+
+        .number {
+            font-size: 20px;
+            /* Kích thước font cho số hotline */
+        }
+
+        .social-media .social-link {
+            margin-right: 10px;
+            /* Khoảng cách giữa các biểu tượng mạng xã hội */
+        }
+
+        .mxh {
+            margin-right: 15px;
+        }
+
+        /* Common styles for text inside both footer-item2 blocks */
+        .footer-item2 p {
+            margin: 0;
+            /* Reset default margins */
+        }
+
+        .c50000 {
+            color: #c50000;
+            font-size: 18px;
+            font-family: roboto;
+        }
+
+        .font20px {
+            font-size: 20px;
+            font-family: roboto;
+        }
+
+
+        .mx-2 {
+            margin: 0 10px;
+        }
+
+        .mxh img {
+            width: 45px;
+            /* Adjust icon width */
+        }
+
+        /* Remove default list styles from anchor tags */
+        .mxh {
+            list-style-type: none;
+        }
+
+        /* Optional: Add hover effects for social media icons */
+        .mxh img:hover {
+            opacity: 0.8;
+        }
+
+        .facebook_content {
+            padding-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .facebook_content_title {
+            float: left;
+            display: block;
+            width: 10%;
+        }
+
+        .facebook_content_cont {
+            float: left;
+            display: block;
+            width: 90%;
+        }
+
+
+        .facebook_content_nhipcau {
+            width: 20%;
+        }
+
+        .facebook_content_vietsiko,
+        .facebook_content_thuduc,
+        .facebook_content_tiengnhat,
+        .facebook_content_Hr,
+        .facebook_content_oden,
+        .facebook_content_nhipcau {
+            float: right;
+            display: block;
+            background: #fff;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            margin-right: 1px;
+            padding: 8px 10px;
+            color: #163774;
+            font-size: 15px;
+            font-family: roboto;
+        }
+
+        .facebook_content_vietsiko_img,
+        .facebook_content_thuduc_img {
+            float: left;
+            display: block;
+            width: 50px;
+            padding-right: 10px;
+        }
+
+        .facebook_content_vietsiko_cont a,
+        .facebook_content_thuduc_cont a,
+        .facebook_content_thuduc_cont a {
+            color: #163774;
+        }
+
+        element.style {
+            border: none;
+            overflow: hidden;
+        }
+
+
+        .facebook_content_oden {
+            width: 19%;
+        }
+
+
+        .facebook_content_tiengnhat,
+        .facebook_content_Hr {
+            width: 20.5%;
+        }
+
+
+
+        .facebook_content_thuduc {
+            width: 17%;
+        }
+
+        a {
+            color: #17171d;
+            outline: 0px none;
+            text-decoration: none;
+        }
+
+        .address_title {
+            font-weight: bold;
+            font-size: 24px;
+            font-family: roboto;
+        }
+
+        /* Định nghĩa font chữ cho nội dung */
+        .address_content,
+        .address_content_label,
+        .address_content_add,
+        .address_content_tel,
+        .address_content_Email {
+            font-size: 15px;
+            font-family: roboto;
+            transition: all 0.3s ease;
+        }
+
+        /* Hiệu ứng khi re chuột vào các phần tử */
+        .address_content_label:hover,
+        .address_content_add:hover,
+        .address_content_tel:hover,
+        .address_content_Email:hover {
+            color: #ff6600;
+            transform: scale(1.05);
+        }
+
+        .add_cont {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .address_content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .address_content span {
+            display: flex;
+            align-items: center;
+        }
+
+        .copy_right {
+            background: #000;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .copy_right p {
+            margin-bottom: 0;
+            text-align: center;
+            font-size: 14px;
+            font-family: roboto;
+        }
+
+        .footer-item2.mt-3 {
+            margin-top: 20px;
+        }
+
+        .facebook_content_thuduc_cont a {
+            text-decoration: none;
+            color: #000;
+            /* Màu chữ mặc định */
+            transition: color 0.3s ease;
+        }
+
+        .facebook_content_thuduc_cont a:hover {
+            text-decoration: none;
+            /* Vẫn giữ ẩn dấu gạch chân */
+            /* Bạn có thể thay đổi màu chữ hoặc thêm hiệu ứng khác tại đây nếu muốn */
+        }
+
+
+        /* Khi rê chuột vào */
+        .facebook_content_thuduc_cont a:hover {
+            text-decoration: none;
+            color: #4b24f9;
+
+        }
+
+        .no-decoration {
+            text-decoration: none;
+            /* Loại bỏ kiểu trang trí văn bản của liên kết */
+        }
+
+        .no-decoration:hover {
+            text-decoration: none;
+            /* Giữ cho liên kết không có dấu gạch chân khi rê chuột vào */
+        }
+    </style>
+</head>
+
+<body>
+
+    <footer style="margin-top: 20px;">
+        <div class="container mt-5">
+            <!-- Dòng chứa các cột -->
+            <div class="row">
+                <!-- Cột 1 -->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center">
+                    <img src="images/logo.png" alt="Company Logo" class="img-fluid">
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div class="giayphep_content">
-                    <div class="giayphep_content_col">
-                        <a href="https://www.vietseiko.com/giay-phep" target="_blank">
-                            <span class="giayphep_content_col_img">
-                                <img src="images/icon_giayphep@3x.png" width="80" height="80" alt="Giấy phép <br/>đưa NLĐ đi làm việc <br/>ở nước ngoài" />
-                            </span>
-                            <span class="giayphep_content_col_tile">
-                                7907-ldtbxh-gp
-                            </span>
-                            <span class="giayphep_content_col_tite">
-                                Giấy Phép Hoạt
-                                <br />Động <br /> Dịch Vụ Việc Làm </span>
-                        </a>
-                    </div>
 
-                    <div class="giayphep_content_col">
-                        <a href="https://www.vietseiko.com/giay-phep-kinh-doanh" target="_blank">
-                            <span class="giayphep_content_col_img">
-                                <img src="images/icon_giayphep@2x.png" width="80" height="80" alt="Giấy phép <br/>Đào tạo" />
-                            </span>
-                            <span class="giayphep_content_col_tile">
-                                7907-ldtbxh-gp
-                            </span>
-                            <span class="giayphep_content_col_tite">
-                                Giấy Phép <br />Kinh Doanh </span>
-                        </a>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <!-- start div newsletter_content-->
-                <div class="newsletter_content">
-                    <div class="newsletter_title">
-                        BẢN TIN VIETSEIKO</div>
-                    <div class="newsletter_cont">
-                        <span class="newsletter_cont_label">
-                            Nhập email của bạn để nhận được các thông tin, kinh nghiệm sống, văn hóa Nhật
-                            Bản từ VietSeiko.</span>
-                        <div class="newsletter_cont_cont">
-                            <form>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Nhập email của bạn vào đây" name="email_dangky_email" id="email_dk">
-                                    <button type="button" class="hvr-sweep-to-right" id="gui_email">Gửi</button>
+                <!-- Cột 2 -->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="giayphep-content">
+                        <!-- Giấy phép đưa NLĐ đi làm việc ở nước ngoài -->
+                        <div class="giayphep-content-col">
+                            <a href="giay-phep-hoat-dong" class="no-decoration">
+                                <!-- Thay YOUR_LINK_1_HERE bằng đường dẫn bạn muốn đặt liên kết -->
+                                <div class="giayphep-content-col-img">
+                                    <img src="images/icon_giayphep@3x.png" width="80" height="80"
+                                        alt="Giấy phép đưa NLĐ đi làm việc ở nước ngoài">
                                 </div>
-                                <div class="span_email_bantin email_error">
+                                <div class="giayphep-content-col-tile">
+                                    7907-ldtbxh-gp
                                 </div>
-                            </form>
+                                <div class="giayphep-content-col-title">
+                                    Giấy Phép Hoạt Động Dịch Vụ Việc Làm
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="giayphep-content-col">
+                            <a href="giay-phep-kinh-doanh" class="no-decoration">
+                                <!-- Thay YOUR_LINK_2_HERE bằng đường dẫn bạn muốn đặt liên kết -->
+                                <div class="giayphep-content-col-img">
+                                    <img src="images/icon_giayphep@2x.png" width="80" height="80"
+                                        alt="Giấy phép Đào tạo">
+                                </div>
+                                <div class="giayphep-content-col-tile">
+                                    7907-ldtbxh-gp
+                                </div>
+                                <div class="giayphep-content-col-title">
+                                    Giấy Phép Kinh Doanh
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="newsletter_content">
-                    <h4>Kết nối với VietSeiko</h4>
-                    <div class="newsletter_content_right">
-                        <a class="ketnoi_youtube" target="_blank" href="https://www.youtube.com/@congtytnhhvietseiko7739">
-                            <i class="bi bi-youtube"></i>
-                        </a>
-                        <a class="ketnoi_face" target="_blank" href="https://www.facebook.com/Cty.TNHH.Vietseiko/">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a class="ketnoi_face" target="_blank" href="https://www.tiktok.com/@vietseiko.hr?lang=en">
-                            <i class="bi bi-tiktok"></i>
-                        </a>
+
+                <!-- Cột 3 - Bạn có thể thêm nội dung hoặc các thành phần khác ở đây -->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <!-- Nội dung của cột 3 -->
+                    <div class="footer-section">
+                        <!-- Footer Item 1: Hotline -->
+                        <div class="footer-item hotline-item d-flex align-items-center">
+                            <img alt="hotline" class="hotline-icon lazyload" src="images/Footer/phone.png">
+                            <div class="info ml-2">
+                                <p class="title c50000 f15 mb-0"><strong>Hotline</strong></p>
+                                <p class="number font20px mb-0"><strong>090 397 2626</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Footer Item 2: Social Media Links -->
+                        <div class="footer-item social-media mt-3">
+                            <a href="https://www.facebook.com/Cty.TNHH.Vietseiko" rel="nofollow" title="fb_vieseiko"
+                                target="_blank" class="mxh">
+                                <img alt="Facebook" src="images/Footer/fb.png">
+                            </a>
+                            <a href="" rel="nofollow" title="intergram_vietseiko" target="_blank" class="mxh">
+                                <img alt="mxh" src="images/Footer/intergram.png">
+                            </a>
+                            <a href="https://www.tiktok.com/@vietseiko.hr" rel="nofollow" title="tiktok_vietseiko"
+                                target="_blank" class="mxh">
+                                <img alt="mxh" src="images/Footer/tiktok.png">
+                            </a>
+                            <a href="https://www.youtube.com/@congtytnhhvietseiko7739" rel="nofollow"
+                                title="youtube_vietseiko" target="_blank" class="mxh">
+                                <img alt="mxh" src="images/Footer/youtube.png">
+                            </a>
+                        </div>
                     </div>
+
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs hidden-sm">
-                <!-- start div facebook_content-->
-                <div class="facebook_content">
-                    <!-- <div class="facebook_content_title">
-                        <img src="images/icon_face@2x.png" width="60" height="60" alt="icon_face@2x.png" />
-                    </div> -->
-                    <div class="facebook_content_cont">
-                        <!-- start div facebook_content_nhipcau-->
-                        <div class="facebook_content_nhipcau">
-                            <div class="facebook_content_kaizen_img hidden-md">
-                                <a href="https://www.facebook.com/vietlamuytinvietseiko" target="_blank">
-                                    <img src="images/fanpage1.png" width="40" height="40" alt="icon_face_ncdh@2x.png" />
-                                </a>
-                            </div>
-                            <div class="facebook_content_kaizen_cont">
-                                <span>
+            <!-- Kết thúc dòng chứa các cột -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs hidden-sm">
+                    <!-- start div facebook_content-->
+                    <div class="facebook_content">
+                        <div class="facebook_content_title">
+                            <img src="images/icon_face@2x.png" width="60" height="60" alt="icon_face@2x.png" />
+                        </div>
+                        <div class="facebook_content_cont">
+                            <!-- start div facebook_content_nhipcau-->
+                            <div class="facebook_content_nhipcau">
+                                <div class="facebook_content_thuduc_img hidden-md">
                                     <a href="https://www.facebook.com/vietlamuytinvietseiko" target="_blank">
-                                        Việc Làm Tiếng Nhật TP.HCM
+                                        <img src="images/fanpage1.png" width="40" height="40"
+                                            alt="icon_face_ncdh@2x.png" />
                                     </a>
-                                </span>
-                                <span>
-                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Vi%E1%BB%87c-L%C3%A0m-Ti%E1%BA%BFng-Nh%E1%BA%ADt-TPHCM-Vietseiko-105744628103928;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                </span>
+                                </div>
+                                <div class="facebook_content_thuduc_cont">
+                                    <span>
+                                        <a href="https://www.facebook.com/vietlamuytinvietseiko" target="_blank">
+                                            Việc Làm Tiếng Nhật TP.HCM
+                                        </a>
+                                    </span>
+                                    <!-- <span>
+                                        <iframe
+                                            src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Vi%E1%BB%87c-L%C3%A0m-Ti%E1%BA%BFng-Nh%E1%BA%ADt-TPHCM-Vietseiko-105744628103928;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
+                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
+                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    </span> -->
+                                </div>
                             </div>
-                        </div>
-                        <!-- end div facebook_content_nhipcau-->
+                            <!-- end div facebook_content_oden-->
 
-                        <!-- start div facebook_content_oden-->
-                        <div class="facebook_content_oden">
-                            <div class="facebook_content_kaizen_img hidden-md">
-                                <a href="https://www.facebook.com/vieclamnhanhvietseiko" target="_blank">
-                                    <img src="images/fanpage3.jpg" width="40" height="40" alt="icon_face_oden@2x.png" />
-                                </a>
-                            </div>
-                            <div class="facebook_content_kaizen_cont">
-                                <span>
+                            <!-- start div facebook_content_Hr-->
+                            <div class="facebook_content_oden">
+                                <div class="facebook_content_thuduc_img hidden-md">
                                     <a href="https://www.facebook.com/vieclamnhanhvietseiko" target="_blank">
-                                        HR- Việc Làm Nhanh
+                                        <img src="images/fanpage3.jpg" width="40" height="40"
+                                            alt="icon_face_oden@2x.png" />
                                     </a>
-                                </span>
-                                <span>
-                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/HR-Vietseiko-Vi%E1%BB%87c-L%C3%A0m-Nhanh-108428324645270;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                </span>
+                                </div>
+                                <div class="facebook_content_thuduc_cont">
+                                    <span>
+                                        <a href="https://www.facebook.com/vieclamnhanhvietseiko" target="_blank">
+                                            HR- Việc Làm Nhanh
+                                        </a>
+                                    </span>
+                                    <!-- <span>
+                                        <iframe
+                                            src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/HR-Vietseiko-Vi%E1%BB%87c-L%C3%A0m-Nhanh-108428324645270;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
+                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
+                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    </span> -->
+                                </div>
                             </div>
-                        </div>
+                            <!-- end div facebook_content_Hr-->
 
-                        <div class="facebook_content_vieclamjapan">
-                            <div class="facebook_content_kaizen_img hidden-md">
-                                <a href="https://www.facebook.com/xuatkhaulaodongnhatbanVietseiko" target="_blank">
-                                    <img src="images/fanpage4.jpg" width="40" height="40" alt="icon_face_vljp@2x.png" />
-                                </a>
-                            </div>
-                            <div class="facebook_content_kaizen_cont">
-                                <span>
+                            <!-- start div facebook_content_tiengnhat-->
+                            <div class="facebook_content_Hr">
+                                <div class="facebook_content_thuduc_img hidden-md">
                                     <a href="https://www.facebook.com/xuatkhaulaodongnhatbanVietseiko" target="_blank">
-                                        Xuất Khẩu Lao Động Nhật Bản
-                                    </a>
-                                </span>
-                                <span>
-                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- end div facebook_content_vieclamjapan-->
+                                        <img src="images/fanpage4.jpg" width="40" height="40"
+                                            alt="icon_face_vljp@2x.png" />
 
-                        <!-- start div facebook_content_tts-->
-                        <div class="facebook_content_tts">
-                            <div class="facebook_content_kaizen_img hidden-md">
-                                <a href="https://www.facebook.com/vietlamtiengnhatthuducvietseiko" target="_blank">
-                                    <img src="images/fanpage2.png" width="40" height="40" alt="icon_face_tts@2x.png" />
-                                </a>
+
+                                    </a>
+                                </div>
+                                <div class="facebook_content_thuduc_cont">
+                                    <span>
+                                        <a href="https://www.facebook.com/xuatkhaulaodongnhatbanVietseiko"
+                                            target="_blank">
+                                            Xuất Khẩu Lao Động Nhật Bản
+                                        </a>
+                                    </span>
+                                    <!-- <span>
+                                        <iframe
+                                            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
+                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
+                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    </span> -->
+                                </div>
                             </div>
-                            <div class="facebook_content_kaizen_cont">
-                                <span>
+                            <!-- end div facebook_content_Hr-->
+
+                            <!-- start div facebook_content_tiengnhat-->
+                            <div class="facebook_content_tiengnhat">
+                                <div class="facebook_content_thuduc_img hidden-md">
                                     <a href="https://www.facebook.com/vietlamtiengnhatthuducvietseiko" target="_blank">
-                                        Việc làm tiếng Nhật TP. Thủ Đức
+                                        <img src="images/fanpage2.png" width="40" height="40"
+                                            alt="icon_face_tiengnhat@2x.png" />
                                     </a>
-                                </span>
-                                <span>
-                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- end div facebook_content_tts-->
+                                </div>
+                                <div class="facebook_content_thuduc_cont">
+                                    <span>
+                                        <a href="https://www.facebook.com/vietlamtiengnhatthuducvietseiko"
+                                            target="_blank">
+                                            Việc làm tiếng Nhật TP. Thủ Đức
+                                        </a>
 
-                        <!-- start div facebook_content_kaizen-->
-                        <div class="facebook_content_kaizen">
-                            <div class="facebook_content_kaizen_img hidden-md">
-                                <a href="https://www.facebook.com/Cty.TNHH.Vietseiko/" target="_blank">
-                                    <img src="images/fanpage1 (1).png" width="40" height="40" alt="icon_face_kaizen@2x.png" />
-                                </a>
+                                    </span>
+                                    <!-- <span>
+                                        <iframe
+                                            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
+                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
+                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    </span> -->
+                                </div>
                             </div>
-                            <div class="facebook_content_kaizen_cont">
-                                <span>
+                            <!-- start div facebook_content_thuduc-->
+                            <div class="facebook_content_thuduc">
+                                <div class="facebook_content_thuduc_img hidden-md">
                                     <a href="https://www.facebook.com/Cty.TNHH.Vietseiko/" target="_blank">
-                                        Vietseiko Co., Ltd
+                                        <img src="images/fanpage1 (1).png" width="40" height="40"
+                                            alt="icon_face_thuduc@2x.png" />
                                     </a>
-                                </span>
-                                <span>
-                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCty.TNHH.Vietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533" width="81" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                </span>
+                                </div>
+                                <div class="facebook_content_thuduc_cont">
+                                    <span>
+                                        <a href="https://www.facebook.com/Cty.TNHH.Vietseiko/" target="_blank">
+                                            Vietseiko Co., Ltd
+                                        </a>
+                                    </span>
+                                    <!-- <span>
+                                        <iframe
+                                            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCty.TNHH.Vietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
+                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
+                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                    </span> -->
+                                </div>
                             </div>
+                            <!-- end div facebook_content_vietsiko-->
                         </div>
                     </div>
-                </div>
-                <!--end div footer-->
-            </div>
-        </div>
-
-        <div class="row footer_add">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <!-- start div add_cont-->
-                <div class="add_cont">
-                    <div class="address_title">
-                        <ion-icon name="podium-outline"></ion-icon> CÔNG TY TNHH VIETSEIKO
-                    </div>
-                    <div class="address_content">
-                        <span class="address_content_label">
-                            <ion-icon name="ribbon-outline"></ion-icon> Văn phòng chính
-                        </span>
-                        <span class="address_content_add">
-                            <ion-icon name="location-outline"></ion-icon> Số 108/17, Đường 79, Phường Tăng
-                            Nhơn
-                            Phú B,
-                            TP.Thủ Đức, TP.HCM
-                        </span>
-                        <span class="address_content_tel">
-                            <ion-icon name="logo-whatsapp"></ion-icon><span>Tel:</span>(028) 3636.9996,
-                            0363.212.627
-                        </span>
-                        <!-- <span class="address_content_Email">
-                            <ion-icon name="mail-outline"></ion-icon>
-                            <span>E-mail:</span>hello.quykhachhang@vietseiko.com
-                        </span> -->
-                    </div>
-                </div>
-                <br />
-                <!-- end div add_cont-->
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <!-- start div add_cont-->
-                <div class="add_cont add_cont_t">
-                    <div class="address_title">
-                        <ion-icon name="podium-outline"></ion-icon> VĂN PHÒNG TẠI NHẬT BẢN
-                    </div>
-                    <div class="address_content">
-                        <span class="address_content_label">
-                            <ion-icon name="ribbon-outline"></ion-icon>Văn phòng tại TOKYO (東京)
-                        </span>
-                        <span class="address_content_add">
-                            <ion-icon name="location-outline"></ion-icon>日本の駐住事務所: 〒170-0013東京都豊島区 <br>
-                            東池袋1丁目34番5号いちご東池袋ビル6階
-                        </span>
-                        <span class="address_content_tel">
-                            <ion-icon name="logo-whatsapp"></ion-icon><span> 担当者の電話番号:</span>080-5401-5365
-                        </span>
-                        <!-- <span class="address_content_Email">
-                            <ion-icon name="mail-outline"></ion-icon>
-                            <span>E-mail:</span>hello.quykhachhang@vietseiko.com
-                        </span> -->
-                    </div>
+                    <!--end div footer-->
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <!-- start div add_cont-->
-                <div class="add_cont add_cont_t">
-                    <div class="address_title">
-                        <ion-icon name="podium-outline"></ion-icon> VĂN PHÒNG TẠI NHẬT BẢN
-                    </div>
-                    <div class="address_content">
-                        <span class="address_content_label">
-                            <ion-icon name="ribbon-outline"></ion-icon>Văn phòng tại HIROSHIMA (広島)
-                        </span>
-                        <span class="address_content_add">
-                            <ion-icon name="location-outline"></ion-icon>日本の駐住事務所：広島県福山市神辺町 下御 領1332-5
-                        </span>
-                        <span class="address_content_tel">
-                            <ion-icon name="logo-whatsapp"></ion-icon><span> 担当者の電話番号:</span>084-965-0831
-                        </span>
-                        <!-- <span class="address_content_Email">
-                            <ion-icon name="mail-outline"></ion-icon>
-                            <span>E-mail:</span>hello.quykhachhang@vietseiko.com
-                        </span> -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="copy_right">
-                <div class="container">
-                    <div class="copy">
-                        <p>© Copyright © 2023 VIETSEIKO. All rights reserved</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Model Popup Section End-->
-</div>
-<!-- FOOTER END -->
-<!-- BUTTON TOP START -->
-<button class="scroltop">
-    <span class="relative" id="btn-vibrate"><i class="bi bi-arrow-up-circle"></i></span>
-</button>
-
-<!-- apply job popup -->
-<div class="modal fade" aria-hidden="true" id="apply_job_popup" style="display: none;" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered" style="margin-top: 0px;">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h4 class="modal-title" id="sign_up_popupLabel">Apply For This Job</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <div class="apl-job-inpopup">
-                    <!--Basic Information-->
-                    <div class="panel panel-default">
-
-                        <div class="panel-body wt-panel-body p-a20 ">
-
-                            <div class="twm-tabs-style-1">
-
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label>Your Name</label>
-                                            <div class="ls-inputicon-box">
-                                                <input class="form-control" name="company_name" type="text" placeholder="Devid Smith">
-                                                <i class="fs-input-icon fa fa-user "></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label>Email Address</label>
-                                            <div class="ls-inputicon-box">
-                                                <input class="form-control" name="company_Email" type="email" placeholder="Devid@example.com">
-                                                <i class="fs-input-icon fas fa-at"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Message</label>
-                                            <textarea class="form-control" rows="3" placeholder="Message sent to the employer"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label>Upload Resume</label>
-                                            <form action="upload.php" class="dropzone dz-clickable">
-                                                <div class="dz-default dz-message"><span><i class="sl sl-icon-plus"></i>
-                                                        Click here or drop files to upload</span></div>
-                                            </form>
-                                            <small>If you do not have a resume document, you may write your brief
-                                                professional profile <a class="site-text-primary" href="javascript:void(0);">here</a></small>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <div class="text-left">
-                                            <button type="submit" class="site-button">Send Application</button>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-
+            <div class="row footer_add">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <!-- start div add_cont-->
+                    <div class="add_cont">
+                        <div class="address_title">
+                            <ion-icon name="podium-outline"></ion-icon> CÔNG TY TNHH VIETSEIKO
+                        </div>
+                        <div class="address_content">
+                            <span class="address_content_label">
+                                <ion-icon name="ribbon-outline"></ion-icon>Văn phòng chính
+                            </span>
+                            <span class="address_content_add">
+                                <ion-icon name="location-outline"></ion-icon> Số 108/17, Đường 79, Phường Tăng Nhơn Phú
+                                B, TP.Thủ Đức, TP.HCM
+                            </span>
+                            <span class="address_content_tel">
+                                <ion-icon name="logo-whatsapp"></ion-icon> Tel: (028) 3636.9996, 0363.212.627
+                            </span>
+                            <span class="address_content_Email">
+                                <ion-icon name="mail-outline"></ion-icon> E-mail: hello.quykhachhang@vietseiko.com
+                            </span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!--Model Popup Section Start-->
-<!--Signup popup -->
-<div class="modal fade twm-sign-up" id="sign_up_popup" aria-hidden="true" aria-labelledby="sign_up_popupLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h2 class="modal-title" id="sign_up_popupLabel">Sign Up</h2>
-                    <p>Sign Up and get access to all the features of Jobzilla</p>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- end div add_cont-->
                 </div>
 
-                <div class="modal-body">
-                    <div class="twm-tabs-style-2">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <!--Signup Candidate-->
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#sign-candidate" type="button">
-                                    <i class="bi bi-people"></i>Ứng Viên
-                                </button>
-                            </li>
-                            <!--Signup Employer-->
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sign-Employer" type="button">
-                                    <i class="bi bi-building"></i>Nhà Tuyển Dụng
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <!--Signup Candidate Content-->
-                            <div class="tab-pane fade show active" id="sign-candidate">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required="" placeholder="Email*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required="" placeholder="Phone*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="agree1" />
-                                                <label class="form-check-label" for="agree1">I agree to the
-                                                    <a href="javascript:;">Terms and conditions</a></label>
-                                                <p>
-                                                    Already registered?
-                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2" data-bs-toggle="modal" data-bs-dismiss="modal">
-                                                        Log in here
-                                                    </button>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <button type="submit" class="site-button">
-                                            Sign Up
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Signup Employer Content-->
-                            <div class="tab-pane fade" id="sign-Employer">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required="" placeholder="Email*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="phone" type="text" class="form-control" required="" placeholder="Phone*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="agree2" />
-                                                <label class="form-check-label" for="agree2">I agree to the
-                                                    <a href="javascript:;">Terms and conditions</a></label>
-                                                <p>
-                                                    Already registered?
-                                                    <button class="twm-backto-login" data-bs-target="#sign_up_popup2" data-bs-toggle="modal" data-bs-dismiss="modal">
-                                                        Log in here
-                                                    </button>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <button type="submit" class="site-button">
-                                            Sign Up
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <!-- start div add_cont-->
+                    <div class="add_cont add_cont_t">
+                        <div class="address_title">
+                            <ion-icon name="podium-outline"></ion-icon> VĂN PHÒNG TẠI NHẬT BẢN
+                        </div>
+                        <div class="address_content">
+                            <span class="address_content_label">
+                                <ion-icon name="ribbon-outline"></ion-icon>Văn phòng tại TOKYO (東京)
+                            </span>
+                            <span class="address_content_add">
+                                <ion-icon name="location-outline"></ion-icon>日本の駐住事務所: 〒170-0013東京都豊島区 <br>
+                                東池袋1丁目34番5号いちご東池袋ビル6階
+                            </span>
+                            <span class="address_content_tel">
+                                <ion-icon name="logo-whatsapp"></ion-icon><span> 担当者の電話番号:</span>080-5401-5365
+                            </span>
+                            <span class="address_content_Email">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <span>E-mail:</span>hello.quykhachhang@vietseiko.com
                         </div>
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <span class="modal-f-title">Login or Sign up with</span>
-                    <ul class="twm-modal-social">
-                        <li>
-                            <a href="javascript" class="facebook-clr"><i class="bi bi-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript" class="twitter-clr"><i class="bi bi-youtube"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript" class="linkedin-clr"><i class="bi bi-linkedin"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript" class="google-clr"><i class="bi bi-tiktok"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!--Login popup -->
-<div class="modal fade twm-sign-up" id="sign_up_popup2" aria-hidden="true" aria-labelledby="sign_up_popupLabel2" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h2 class="modal-title" id="sign_up_popupLabel2">Người tìm việc</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="twm-tabs-style-2">
-                        <ul class="nav nav-tabs" id="myTab2" role="tablist">
-                            <!--Login Candidate-->
-                            <li class="nav-item">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#login-candidate" type="button">
-                                    <i class="bi bi-people"></i>Ứng Viên
-                                </button>
-                            </li>
-                            <!--Login Employer-->
-                            <li class="nav-item">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#login-Employer" type="button">
-                                    <i class="bi bi-building"></i>Nhà Tuyển Dụng
-                                </button>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content" id="myTab2Content">
-                            <!--Login Candidate Content-->
-                            <div class="tab-pane fade show active" id="login-candidate">
-                                <div class="row">
-                                    <form action="login.php" method="post">
-                                        <div class="col-lg-12">
-                                            <div class="form-group mb-3">
-                                                <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" required />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group mb-3">
-                                                <input name="email" type="text" class="form-control" required="" placeholder="Password*" required />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group mb-3">
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="Password3" />
-                                                    <label class="form-check-label rem-forgot" for="Password3">Remember
-                                                        me
-                                                        <a href="javascript:;">Forgot Password</a></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" class="site-button">
-                                                Log in
-                                            </button>
-                                            <div class="mt-3 mb-3">
-                                                Don't have an account ?
-                                                <button class="twm-backto-login" data-bs-target="#sign_up_popup" data-bs-toggle="modal" data-bs-dismiss="modal">
-                                                    Sign Up
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!--Login Employer Content-->
-                            <div class="tab-pane fade" id="login-Employer">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="username" type="text" required="" class="form-control" placeholder="Usearname*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <input name="email" type="text" class="form-control" required="" placeholder="Password*" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-3">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="Password4" />
-                                                <label class="form-check-label rem-forgot" for="Password4">Remember me
-                                                    <a href="javascript:;">Forgot Password</a></label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <button type="submit" class="site-button">
-                                            Log in
-                                        </button>
-                                        <div class="mt-3 mb-3">
-                                            Don't have an account ?
-                                            <button class="twm-backto-login" data-bs-target="#sign_up_popup" data-bs-toggle="modal" data-bs-dismiss="modal">
-                                                Sign Up
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <!-- start div add_cont-->
+                    <div class="add_cont add_cont_t">
+                        <div class="address_title">
+                            <ion-icon name="podium-outline"></ion-icon> VĂN PHÒNG TẠI NHẬT BẢN
+                        </div>
+                        <div class="address_content">
+                            <span class="address_content_label">
+                                <ion-icon name="ribbon-outline"></ion-icon>Văn phòng tại HIROSHIMA (広島)
+                            </span>
+                            <span class="address_content_add">
+                                <ion-icon name="location-outline"></ion-icon>日本の駐住事務所：広島県福山市神辺町 下御 領1332-5
+                            </span>
+                            <span class="address_content_tel">
+                                <ion-icon name="logo-whatsapp"></ion-icon><span> 担当者の電話番号:</span>084-965-0831
+                            </span>
+                            <span class="address_content_Email">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <span>E-mail:</span>hello.quykhachhang@vietseiko.com
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <span class="modal-f-title">Login or Sign up with</span>
-                    <ul class="twm-modal-social">
-                        <li>
-                            <a href="javascript" class="facebook-clr"><i class="bi bi-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript" class="twitter-clr"><i class="bi bi-youtube"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript" class="linkedin-clr"><i class="bi bi-linkedin"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript" class="google-clr"><i class="bi bi-tiktok"></i></a>
-                        </li>
-                    </ul>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="copy_right">
+                        <div class="copy">
+                            <p>© Copyright © VIETSEIKO. All rights reserved</p>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
+            </div><!-- Kết thúc container -->
+    </footer>
 
-<!--Model Popup Section End-->
-</div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-<script>
+    <script>
     //tabbed
     document.addEventListener("DOMContentLoaded", function() {
         const trigger = document.querySelectorAll('.tabbed-trigger');
@@ -761,5 +739,4 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

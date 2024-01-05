@@ -123,30 +123,34 @@ class Job_f extends Db
     }
 
     // tổng số search được
-    static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh)
+    static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi)
     {
-        
+
         $sql = "SELECT * FROM job WHERE ";
         $d = 0;
         if ($id_nganhnghe !== 'all') {
             $sql .= "id_nganhnghe = $id_nganhnghe ";
             $d += 1;
         }
-        
+
         if ($id_hinhthuc !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_hinhthuc = $id_hinhthuc ";
             $d += 1;
         }
-        
+
         if ($id_kinhnghiem !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_kinhnghiem = $id_kinhnghiem ";
         }
-       
+
         if ($id_gioitinh !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_gioitinh = $id_gioitinh ";
+        }
+        if ($diachi !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "diachi LIKE '%$diachi%'";
         }
         $sql .= "AND id_trangthai = 1";
         $stmt = self::$connection->prepare($sql);
@@ -156,7 +160,7 @@ class Job_f extends Db
         return $items;
     }
     // phan trang search
-    static function searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$page, $resultsPerPage)
+    static function searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $page, $resultsPerPage)
     {
         $firstLink = ($page - 1) * $resultsPerPage;
         $sql = "SELECT job.*,cty.name,cty.img_cty FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE ";
@@ -165,23 +169,26 @@ class Job_f extends Db
             $sql .= "id_nganhnghe = $id_nganhnghe ";
             $d += 1;
         }
-        
+
         if ($id_hinhthuc !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_hinhthuc = $id_hinhthuc ";
             $d += 1;
         }
-        
+
         if ($id_kinhnghiem !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_kinhnghiem = $id_kinhnghiem ";
         }
-       
+
         if ($id_gioitinh !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "id_gioitinh = $id_gioitinh ";
         }
-        
+        if ($diachi !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "diachi LIKE '%$diachi%'";
+        }
         $sql .= "AND id_trangthai = 1 ORDER BY job.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage";
         $stmt = self::$connection->prepare($sql);
         $stmt->execute();

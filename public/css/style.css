@@ -5643,7 +5643,7 @@ ol li {
   font-family: "Roboto", sans-serif;
   margin-bottom: 10px;
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
   color: #1967d2;
   font-size: 18px;
   line-height: 40px;
@@ -5909,7 +5909,7 @@ ol li {
 /*Client carousel 2*/
 .home-client-carousel2 {
   padding: 0px;
-  margin-bottom: 120px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 991px) {

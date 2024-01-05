@@ -145,7 +145,7 @@ require_once 'header.php';
                                                 <select class="i-half" required name="address" style="cursor: pointer;">
                                                     <option disabled selected value>-- Khu vực hiện tại--</option>
                                                     <?php
-                                                    foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
+                                                    foreach ($form_contact->list_tinh() as $index => $item) {
                                                     ?>
                                                         <option value="<?php echo $item ?>">
                                                             <?php echo $item ?>
