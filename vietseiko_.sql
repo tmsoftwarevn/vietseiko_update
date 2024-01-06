@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 02, 2024 lúc 04:27 AM
+-- Thời gian đã tạo: Th1 06, 2024 lúc 08:05 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -33,6 +33,34 @@ CREATE TABLE `admin` (
   `password_admin` varchar(40) NOT NULL,
   `permission` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `anh_banner`
+--
+
+CREATE TABLE `anh_banner` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `anh_banner`
+--
+
+INSERT INTO `anh_banner` (`id`, `name`, `img`, `type_id`, `created_at`, `updated_at`) VALUES
+(1, 'banner 1 2222', '<figure class=\"image\"><img src=\"../../images/banner/1704477981tryty.png\"></figure>', 0, '2024-01-05', '2024-01-05 18:06:22'),
+(2, 'banner 2', '<figure class=\"image\"><img src=\"../../images/banner/1704477994ytrytyt.png\"></figure>', 0, '2024-01-05', '2024-01-05 18:06:35'),
+(3, 'banner 3', '<figure class=\"image\"><img src=\"../../images/banner/1704478015jhgj.png\"></figure>', 0, '2024-01-05', '2024-01-05 18:06:56'),
+(4, 'job vn', '<figure class=\"image\"><img src=\"../../images/banner/1704476858banner ewr.jpg\"></figure>', 1, '2024-01-05', '2024-01-05 17:47:40'),
+(5, 'job xkld', '<figure class=\"image\"><img src=\"../../images/banner/1704477128fdf.jpg\"></figure>', 2, '2024-01-05', '2024-01-05 17:52:09'),
+(6, 'job ksnb', '<figure class=\"image\"><img src=\"../../images/banner/1704476316fdf.jpg\"></figure>', 3, '2024-01-05', '2024-01-05 17:38:37'),
+(7, 'job vietseiko', '<figure class=\"image\"><img src=\"../../images/banner/1704512837tryty.png\"></figure>', 4, '2024-01-05', '2024-01-06 03:47:19');
 
 -- --------------------------------------------------------
 
@@ -95,16 +123,16 @@ INSERT INTO `cam_nang` (`id_blog`, `img_blog`, `tieude_blog`, `noidung_blog`, `t
 
 CREATE TABLE `contact` (
   `id_contact` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `muc_luong` varchar(255) NOT NULL,
-  `khu_vuc_hien_tai` varchar(255) NOT NULL,
-  `khu_vuc_mong_muon` varchar(255) NOT NULL,
-  `nganhnghe` varchar(255) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `muc_luong` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `khu_vuc_hien_tai` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `khu_vuc_mong_muon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nganhnghe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `type_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `contact`
@@ -126,7 +154,13 @@ INSERT INTO `contact` (`id_contact`, `name`, `email`, `phone`, `muc_luong`, `khu
 (80, 'teesst', 'test@gmail.com', '0533333334', 'ewqe', 'Tỉnh Vĩnh Phúc', 'ewdsfd', '2', 2, '2023-12-28 02:31:13'),
 (81, 'vsk', 'test@gmail.com', '0333333333', '12', 'Tỉnh Phú Thọ', 'ewdsfd', '6', 4, '2023-12-29 01:27:14'),
 (82, 'teesst', 'test@gmail.com', '0533333334', 'ewqe', 'Tỉnh Vĩnh Phúc', 'ewdsfd', '2', 2, '2023-12-28 02:31:13'),
-(83, 'vsk', 'test@gmail.com', '0333333333', '12', 'Tỉnh Phú Thọ', 'ewdsfd', '6', 4, '2023-12-29 01:27:14');
+(83, 'vsk', 'test@gmail.com', '0333333333', '12', 'Tỉnh Phú Thọ', 'ewdsfd', '6', 4, '2023-12-29 01:27:14'),
+(84, '3 1 ttt', 'test@gmail.com', '0533333334', '12', 'Tỉnh Yên Bái', 'ewdsfd', '4', 3, '2024-01-03 01:39:43'),
+(85, 'custom', 'rwerwe@gmail.com', '0533333334', '12', 'Tuyên Quang', 'ha noi', '1', 1, '2024-01-03 01:59:35'),
+(86, '1234', 'ewq@krwej.com', '0333333333', '12', 'Bắc Giang', 'ewdsfd', '1', 1, '2024-01-03 02:12:48'),
+(87, 'teesst', 'test@gmail.com', '0333333333', '12', 'Bắc Kạn', 'ewdsfd', '3', 1, '2024-01-03 02:25:14'),
+(88, 'rqwe', 'rwerwe@gmail.com', '0533333334', '12', 'Hoà Bình', 'ewdsfd', '7', 3, '2024-01-03 02:33:42'),
+(89, 'gsdfg', 'ewq@krwej.com', '0333333333', '12', 'Phú Thọ', 'ha noi', '8', 3, '2024-01-03 02:41:39');
 
 -- --------------------------------------------------------
 
@@ -212,10 +246,10 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `slug`, `created_at`, `updated_at`) VALUES
-(38, 'Nhân Viên Tư Vấn Kinh Doanh ', 'nhân viên', 'vn5657', 5, 1, 3, 4, '2023-12-21', 2, '20-30 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 1, 17, '20-30', 'nhan-vien-tu-van-kinh-doanh', '2023-12-17 02:38:42', '2023-12-29 08:15:28'),
-(48, 'quản lý', 'nhân viên', 'vn9546', 5, 1, 3, 4, '2024-01-07', 2, '20-30', 'hcm', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 1, 1, '20-30', 'quan-ly', '2023-12-17 02:38:42', '2023-12-28 10:07:35'),
-(50, 'quản lý', 'nhân viên', 'vn9546', 5, 1, 3, 4, '2023-12-08', 2, '20-30', 'hcm', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 0, 1, '20-30', 'quan-ly', '2023-12-17 02:38:42', '2023-12-28 10:09:57'),
-(51, 'quản lý', 'nhân viên', 'vn9546', 5, 1, 3, 4, '2024-01-01', 2, '20-30', 'hcm', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 0, 1, '20-30', 'quan-ly', '2023-12-17 02:38:42', '2023-12-28 10:12:48');
+(38, 'Nhân Viên Tư Vấn Kinh Doanh ', 'nhân viên', 'vn5657', 5, 1, 3, 4, '2024-01-31', 2, '20-30 triệu', 'cao bang', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 1, 17, '20-30', 'nhan-vien-tu-van-kinh-doanh', '2023-12-17 02:38:42', '2024-01-04 07:28:59'),
+(48, 'quản lý', 'nhân viên', 'vn9546', 5, 1, 3, 4, '2024-01-07', 2, '20-30', 'Hà Nội', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 1, 1, '20-30', 'quan-ly', '2023-12-17 02:38:42', '2024-01-04 03:42:32'),
+(50, 'quản lý', 'nhân viên', 'vn9546', 5, 1, 3, 4, '2024-01-27', 2, '20-30', 'vĩnh phúc', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 1, 1, '20-30', 'quan-ly', '2023-12-17 02:38:42', '2024-01-04 03:42:51'),
+(51, 'quản lý', 'nhân viên', 'vn9546', 5, 1, 3, 4, '2024-02-15', 2, '20-30', 'cao bằng', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '<p>1) Công việc Quản lý bảo hành:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ bảo hành của các nhân viên bảo hành Khu vực Miền Nam, bao gồm: tiếp nhận thông tin sản phẩm lỗi, sửa chữa sản phẩm lỗi và giao lại cho khách hàng.</p><p>- Đào tạo, phát triển, đánh giá và quản lý hiệu suất làm việc các nhân viên bảo hành Miền Nam;</p><p>- Làm việc với các đối tác nước ngoài về lỗi, cách xử lý lỗi …</p><p>- Tổng hợp linh phụ kiện bảo hành cần gửi QLBH Toàn quốc.</p><p>- Tổng hợp kết quả bảo hành sản phẩm theo tuần/tháng để báo cáo QLBH Toàn quốc;</p><p>- Các công việc khác theo yêu cầu của cấp trên;</p><p>2) Công việc Kho vận:</p><p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi tháng ít nhất 01 lần; Chủ động báo cáo, đưa ra hướng xử lý hàng sắp hết date, hàng bị móp méo không xuất bán được ra thị trường;</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<p>- Phân công công việc, quản lý tiến độ và chất lượng dịch vụ giao hàng của các nhân viên khu vực Miền Nam, bao gồm: giao hàng đầy đủ, đúng hạn, đúng địa chỉ, …</p><p>- Kiểm tra và phê duyệt chi phí chành xe chính xác, tiết kiệm và hợp lý.</p><p>- Đánh giá, lựa chọn các nhà xe, chành xe đi tỉnh để có dịch vụ tốt, chi phí hợp lý, có hóa đơn VAT;</p><p>- Đặt in tem, nhãn - quản lý việc dán tem, nhãn đảm bảo hàng hóa đầy đủ tem nhãn trước khi ra khỏi kho</p><p>- Quản lý hàng hóa xuất/nhập và tồn trong kho: chính xác, sạch sẽ, đúng quy định</p><p>- Kiểm kê kho mỗi thán</p>', '<ul><li>-Cách ứng tuyển: Phỏng vấn trực tiếp</li><li>-Số điện thoại: 0363212627</li><li>-Email: tuyendungjapan@vietseiko.com</li><li>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</li><li>-Hạn nhận hồ sơ: 30-01-2024</li></ul>', 1, 1, '20-30', 'quan-ly', '2023-12-17 02:38:42', '2024-01-04 03:43:08');
 
 -- --------------------------------------------------------
 
@@ -237,8 +271,7 @@ INSERT INTO `job_hinhthuc` (`id_hinhthuc`, `name_hinhthuc`, `created_at`) VALUES
 (1, 'Toàn thời gian', '2023-12-19 08:32:10'),
 (2, 'Bán thời gian', '2023-12-19 08:34:54'),
 (3, 'Hợp đồng tư vấn', '2023-12-19 08:33:12'),
-(9, 'Thực tập', '2023-12-19 08:33:38'),
-(11, '1234', '2023-12-24 15:49:15');
+(9, 'Thực tập', '2023-12-19 08:33:38');
 
 -- --------------------------------------------------------
 
@@ -278,10 +311,10 @@ CREATE TABLE `job_kysunb` (
 --
 
 INSERT INTO `job_kysunb` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `ngonngu`, `slug`, `created_at`, `updated_at`) VALUES
-(28, ' Helpdesk  77 dá ddasdqwewq 23e4234 ewtert', 'nhân viên', '444', 2, 2, 2, 4, '2024-01-03', 1, 'tret', 'rewr', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 17, '25', 'nn123', 'helpdesk-77-da-ddasdqwewq-23e4234-ewtert', '2023-12-23 11:43:27', '2023-12-26 15:27:32'),
-(29, 'Nhân Viên IT ', 'nhân viên', '444', 2, 2, 2, 4, '2024-01-03', 1, 'tret', 'rewr', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 17, '25', 'nn123', 'nhan-vien-it', '2023-12-23 11:43:27', '2023-12-27 08:20:30'),
-(27, 'Nhân Viên IT ', 'nhân viên', '444', 2, 2, 2, 4, '2024-01-03', 1, 'tret', 'rewr', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 17, '25', 'nn123', 'nhan-vien-it', '2023-12-23 11:43:27', '2023-12-27 08:20:42'),
-(30, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'jp ksnb', 3, 9, 50, 2, '2023-12-14', 1, '20-30', 'Hồ Chí Minh', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 21, '20-30', 'nn123', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', '2023-12-26 15:28:18', '2023-12-28 08:10:56');
+(28, ' Helpdesk  77 dá ddasdqwewq 23e4234 ewtert', 'nhân viên', '444', 2, 2, 2, 4, '2024-02-17', 1, 'tret', 'rewr', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 17, '25', 'nn123', 'helpdesk-77-da-ddasdqwewq-23e4234-ewtert', '2023-12-23 11:43:27', '2024-01-05 02:31:04'),
+(29, 'Nhân Viên IT ', 'nhân viên', '444', 2, 2, 2, 4, '2024-02-29', 1, 'tret', 'rewr', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 17, '25', 'nn123', 'nhan-vien-it', '2023-12-23 11:43:27', '2024-01-05 02:31:04'),
+(27, 'Nhân Viên IT ', 'nhân viên', '444', 2, 2, 2, 4, '2024-03-06', 1, 'tret', 'rewr', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 17, '25', 'nn123', 'nhan-vien-it', '2023-12-23 11:43:27', '2024-01-05 02:31:04'),
+(30, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'jp ksnb', 3, 9, 50, 2, '2024-01-23', 1, '20-30', 'Hồ Chí Minh', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 21, '20-30', 'nn123', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', '2023-12-26 15:28:18', '2024-01-05 02:31:04');
 
 -- --------------------------------------------------------
 
@@ -371,8 +404,8 @@ INSERT INTO `job_vietseiko` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganh
 (14, ' Helpdesk  77 dá ddasdqwewq 23e4234 ewtert', 'nhân viên', 'jp12222222', 6, 2, 2, 2, '2024-01-06', 2, 'Tới 20 triệu', 'HÀ NỘI', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 1, '25', 'helpdesk-77-da-ddasdqwewq-23e4234-ewtert', '2023-12-18 04:59:47', '2023-12-26 15:29:11'),
 (15, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'Quản lý cấp trung', 'Vsk01', 3, 1, 2, 6, '2024-03-16', 2, '20-30', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '<p>- Theo dõi quy trình bán hàng của VPBFC để tư vấn các sản phẩm của VPBFC đến khách hàng</p><p>- Xây dựng mối quan hệ tốt và duy trì mức độ hài lòng với các Đại lý</p><p>- Hoàn thành mục tiêu bán hàng &amp; làm báo cáo hàng ngày.</p><p>- Thiết lập các tiến độ thanh toán cho khách hàng để giảm Chi phí tổng thể bằng cách thanh lý các khoản vay, hợp đồng lãi suất cao, ngắn hạn trước.</p><p>- Đánh giá &amp; kiểm tra hồ sơ khách hàng để giảm thiểu sai lầm cho mỗi ứng dụng cũng như loại bỏ khách hàng lừa đảo</p><p>- Triển khai chiến dịch khuyến mãi mới để giúp Bộ phận bán hàng đạt được mục tiêu</p><p>- Kiểm soát POSM, xây dựng hình ảnh hiệu quả trong POS.</p><p>- Thực hiện các nhiệm vụ khác được giao bởi quản lý trực tiếp</p>', '<p>- Ít nhất 1 năm kinh nghiệm tại vị trí tư vấn bán hàng</p><p>- Kinh nghiệm bán hàng trong khu vực</p><p>- Hiểu biết về các sản phẩm và dịch vụ tài chính</p><p>- Kỹ năng giao tiếp và soạn thảo bằng văn bản tốt</p><p>- Thành thạo phần mềm Microsoft Office</p><p>- KHÔNG CÓ NỢ XẤU</p>', '<p>- Lương cứng + phụ cấp cơm (tùy khu vực)</p><p>- Thưởng hoa hồng không giới hạn</p><p>- Thử việc 100% lương + tất cả chế độ phúc lợi ngay khi nhận việc</p><p>- 15 ngày ngỉ phép năm, các ngày nghỉ lễ, tết</p><p>- Bảo hiểm theo quy định, có thêm thẻ bảo hiểm sức khỏe toàn diện</p><p>- Được đào tạo, cơ hội thăng tiến rộng mở</p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 1, 17, '20-30', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', '2023-12-16 13:48:59', '2023-12-27 08:21:40'),
 (16, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'Quản lý cấp trung', 'Vsk01', 3, 1, 2, 6, '2024-03-16', 2, '20-30', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '<p>- Theo dõi quy trình bán hàng của VPBFC để tư vấn các sản phẩm của VPBFC đến khách hàng</p><p>- Xây dựng mối quan hệ tốt và duy trì mức độ hài lòng với các Đại lý</p><p>- Hoàn thành mục tiêu bán hàng &amp; làm báo cáo hàng ngày.</p><p>- Thiết lập các tiến độ thanh toán cho khách hàng để giảm Chi phí tổng thể bằng cách thanh lý các khoản vay, hợp đồng lãi suất cao, ngắn hạn trước.</p><p>- Đánh giá &amp; kiểm tra hồ sơ khách hàng để giảm thiểu sai lầm cho mỗi ứng dụng cũng như loại bỏ khách hàng lừa đảo</p><p>- Triển khai chiến dịch khuyến mãi mới để giúp Bộ phận bán hàng đạt được mục tiêu</p><p>- Kiểm soát POSM, xây dựng hình ảnh hiệu quả trong POS.</p><p>- Thực hiện các nhiệm vụ khác được giao bởi quản lý trực tiếp</p>', '<p>- Ít nhất 1 năm kinh nghiệm tại vị trí tư vấn bán hàng</p><p>- Kinh nghiệm bán hàng trong khu vực</p><p>- Hiểu biết về các sản phẩm và dịch vụ tài chính</p><p>- Kỹ năng giao tiếp và soạn thảo bằng văn bản tốt</p><p>- Thành thạo phần mềm Microsoft Office</p><p>- KHÔNG CÓ NỢ XẤU</p>', '<p>- Lương cứng + phụ cấp cơm (tùy khu vực)</p><p>- Thưởng hoa hồng không giới hạn</p><p>- Thử việc 100% lương + tất cả chế độ phúc lợi ngay khi nhận việc</p><p>- 15 ngày ngỉ phép năm, các ngày nghỉ lễ, tết</p><p>- Bảo hiểm theo quy định, có thêm thẻ bảo hiểm sức khỏe toàn diện</p><p>- Được đào tạo, cơ hội thăng tiến rộng mở</p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 1, 17, '20-30', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', '2023-12-16 13:48:59', '2023-12-27 08:21:26'),
-(17, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'Nhân viên 7', '444', 3, 2, 5, 4, '2024-01-04', 2, '10-12 triệu', 'HÀ NỘI', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 21, '20-30', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', '2023-12-26 15:30:05', '2023-12-26 15:30:05'),
-(18, ' Helpdesk  77', 'nhân viên', 'vsk tttt', 4, 1, 12, 3, '2024-01-07', 1, 'Tới 20 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 21, '20-30', 'helpdesk-77', '2023-12-28 08:17:32', '2023-12-28 08:17:32');
+(17, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'Nhân viên 7', '444', 3, 2, 5, 4, '2024-01-10', 2, '10-12 triệu', 'HÀ NỘI', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '', '', '', '', 1, 21, '20-30', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', '2023-12-26 15:30:05', '2024-01-03 06:19:10'),
+(18, ' Helpdesk  77', 'nhân viên', 'vsk tttt', 4, 1, 12, 3, '2024-01-08', 1, 'Tới 20 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 21, '20-30', 'helpdesk-77', '2023-12-28 08:17:32', '2024-01-03 06:23:13');
 
 -- --------------------------------------------------------
 
@@ -412,10 +445,10 @@ CREATE TABLE `job_xkld_nb` (
 --
 
 INSERT INTO `job_xkld_nb` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `ngonngu`, `slug`, `created_at`, `updated_at`) VALUES
-(30, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'JP01', 5, 3, 5, 6, '2024-01-05', 1, '10-12', 'Hầ Nội', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '<p><i><strong>- Chăm sóc khách hàng:</strong></i></p><p>+&nbsp;Báo giá theo yêu cầu của khách hàng công ty</p><p>+ Soạn hợp đồng, hồ sơ liên quan</p><p>+ Kết nối thông tin giữa công ty với các khách hàng của công ty</p><p>+ Theo dõi công nợ bán hàng của khách hàng đang đảm trách để liên hệ nhắc khách hàng khi đến hạn thanh toán</p><p><i><strong>- Mua hàng- cung ứng</strong></i></p><p>Triển khai các đơn hàng sau khi bộ phận kinh doanh chót đơn hàng với khách hàng:</p><p>+&nbsp;Đặt mua hàng</p><p>+ Thuê xe vận chuyển (theo danh sách vận chuyển đang có) để vận chuyển hàng từ nhà máy hoặc nơi mua đến công trình</p><p>+ Theo dõi tiến độ giao hàng theo phương thức giao hàng của mỗi đơn hàng.</p><p>+ Nhận bộ chứng từ mua hàng, bán hàng kiểm tra đầy đủ theo qui&nbsp;định</p><p>+&nbsp;Theo dõi công nợ nhà cung cấp và đơn vị vận chuyển: Theo dõi công nợ và trình thanh toán theo kế hoạch thanh toán</p><p>+&nbsp;&nbsp;Theo dõi pháp lý mua hàng, vận chuyển</p>', '<p>-Tin học văn phòng: Thuần thạo word, excel</p><p>-Tính toán nhanh.</p><p>-Có khả năng suy luận logic, nghe hiểu vấn đề</p>', '<p><strong>- Lương:</strong>&nbsp;Từ 8.500.000đ đến 14.000.000đ : Tuỳ kinh nghiệm làm việc và năng lực của mỗi ứng viên&nbsp;</p><p><strong>- Thưởng:</strong>&nbsp;Theo qui chế công ty&nbsp;<strong>(&nbsp;</strong>Tối thiểu 1 tháng lương tháng 13 (lương thực nhận))</p><p><strong>- Chế độ khác</strong>: Nghỉ Lễ theo các ngày nghỉ nhà nước qui&nbsp;định</p><p><strong>- Bảo hiểm:&nbsp;</strong>Công ty đóng bảo hiểm ngay sau khi ký hợp đồng lao động chính thức</p><p><strong>Thời gian làm việc tại công ty:</strong>&nbsp;8h/ ngày (sáng:7h45 đến 11h45, chiều: 13h15 đến 17h15)</p><p>&nbsp;</p><p><i><strong>Khi nhân viên được tuyển vào làm việc thì có Anh/chị trong công ty sẽ hướng dẫn trực tiếp công việc đảm nhận</strong></i></p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 0, 17, '20-30', 'nn1', '', '2023-12-16 13:24:46', '2023-12-23 14:27:12'),
-(36, 'Nhân Viên Telesales Nhà Tốt (Nghỉ Thứ 7,)', 'nhân viên', '4652', 4, 9, 3, 4, '2024-01-06', 2, '10-12', 'rew', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 17, '20-30', 'nn1', 'nhan-vien-telesales-nha-tot-nghi-thu-7', '2023-12-26 15:25:13', '2023-12-27 06:33:36'),
-(33, 'Nhân Viên IT ', 'ewqr', 'jp12222222', 3, 3, 23, 4, '2023-12-28', 3, '10-12', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '<p>ưq</p>', '', '', '', 1, 1, '20-30', 'nn123', 'nhan-vien-it', '2023-12-18 04:16:56', '2023-12-26 15:27:00'),
-(34, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'JP01', 5, 3, 5, 6, '2024-01-05', 1, '10-12', 'Hầ Nội', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '<p><i><strong>- Chăm sóc khách hàng:</strong></i></p><p>+&nbsp;Báo giá theo yêu cầu của khách hàng công ty</p><p>+ Soạn hợp đồng, hồ sơ liên quan</p><p>+ Kết nối thông tin giữa công ty với các khách hàng của công ty</p><p>+ Theo dõi công nợ bán hàng của khách hàng đang đảm trách để liên hệ nhắc khách hàng khi đến hạn thanh toán</p><p><i><strong>- Mua hàng- cung ứng</strong></i></p><p>Triển khai các đơn hàng sau khi bộ phận kinh doanh chót đơn hàng với khách hàng:</p><p>+&nbsp;Đặt mua hàng</p><p>+ Thuê xe vận chuyển (theo danh sách vận chuyển đang có) để vận chuyển hàng từ nhà máy hoặc nơi mua đến công trình</p><p>+ Theo dõi tiến độ giao hàng theo phương thức giao hàng của mỗi đơn hàng.</p><p>+ Nhận bộ chứng từ mua hàng, bán hàng kiểm tra đầy đủ theo qui&nbsp;định</p><p>+&nbsp;Theo dõi công nợ nhà cung cấp và đơn vị vận chuyển: Theo dõi công nợ và trình thanh toán theo kế hoạch thanh toán</p><p>+&nbsp;&nbsp;Theo dõi pháp lý mua hàng, vận chuyển</p>', '<p>-Tin học văn phòng: Thuần thạo word, excel</p><p>-Tính toán nhanh.</p><p>-Có khả năng suy luận logic, nghe hiểu vấn đề</p>', '<p><strong>- Lương:</strong>&nbsp;Từ 8.500.000đ đến 14.000.000đ : Tuỳ kinh nghiệm làm việc và năng lực của mỗi ứng viên&nbsp;</p><p><strong>- Thưởng:</strong>&nbsp;Theo qui chế công ty&nbsp;<strong>(&nbsp;</strong>Tối thiểu 1 tháng lương tháng 13 (lương thực nhận))</p><p><strong>- Chế độ khác</strong>: Nghỉ Lễ theo các ngày nghỉ nhà nước qui&nbsp;định</p><p><strong>- Bảo hiểm:&nbsp;</strong>Công ty đóng bảo hiểm ngay sau khi ký hợp đồng lao động chính thức</p><p><strong>Thời gian làm việc tại công ty:</strong>&nbsp;8h/ ngày (sáng:7h45 đến 11h45, chiều: 13h15 đến 17h15)</p><p>&nbsp;</p><p><i><strong>Khi nhân viên được tuyển vào làm việc thì có Anh/chị trong công ty sẽ hướng dẫn trực tiếp công việc đảm nhận</strong></i></p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 1, 21, '20-30', 'nn1', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', '2023-12-16 13:24:46', '2023-12-27 06:32:59');
+(30, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'JP01', 5, 3, 5, 6, '2024-01-05', 1, '10-12', 'Hầ Nội', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '<p><i><strong>- Chăm sóc khách hàng:</strong></i></p><p>+&nbsp;Báo giá theo yêu cầu của khách hàng công ty</p><p>+ Soạn hợp đồng, hồ sơ liên quan</p><p>+ Kết nối thông tin giữa công ty với các khách hàng của công ty</p><p>+ Theo dõi công nợ bán hàng của khách hàng đang đảm trách để liên hệ nhắc khách hàng khi đến hạn thanh toán</p><p><i><strong>- Mua hàng- cung ứng</strong></i></p><p>Triển khai các đơn hàng sau khi bộ phận kinh doanh chót đơn hàng với khách hàng:</p><p>+&nbsp;Đặt mua hàng</p><p>+ Thuê xe vận chuyển (theo danh sách vận chuyển đang có) để vận chuyển hàng từ nhà máy hoặc nơi mua đến công trình</p><p>+ Theo dõi tiến độ giao hàng theo phương thức giao hàng của mỗi đơn hàng.</p><p>+ Nhận bộ chứng từ mua hàng, bán hàng kiểm tra đầy đủ theo qui&nbsp;định</p><p>+&nbsp;Theo dõi công nợ nhà cung cấp và đơn vị vận chuyển: Theo dõi công nợ và trình thanh toán theo kế hoạch thanh toán</p><p>+&nbsp;&nbsp;Theo dõi pháp lý mua hàng, vận chuyển</p>', '<p>-Tin học văn phòng: Thuần thạo word, excel</p><p>-Tính toán nhanh.</p><p>-Có khả năng suy luận logic, nghe hiểu vấn đề</p>', '<p><strong>- Lương:</strong>&nbsp;Từ 8.500.000đ đến 14.000.000đ : Tuỳ kinh nghiệm làm việc và năng lực của mỗi ứng viên&nbsp;</p><p><strong>- Thưởng:</strong>&nbsp;Theo qui chế công ty&nbsp;<strong>(&nbsp;</strong>Tối thiểu 1 tháng lương tháng 13 (lương thực nhận))</p><p><strong>- Chế độ khác</strong>: Nghỉ Lễ theo các ngày nghỉ nhà nước qui&nbsp;định</p><p><strong>- Bảo hiểm:&nbsp;</strong>Công ty đóng bảo hiểm ngay sau khi ký hợp đồng lao động chính thức</p><p><strong>Thời gian làm việc tại công ty:</strong>&nbsp;8h/ ngày (sáng:7h45 đến 11h45, chiều: 13h15 đến 17h15)</p><p>&nbsp;</p><p><i><strong>Khi nhân viên được tuyển vào làm việc thì có Anh/chị trong công ty sẽ hướng dẫn trực tiếp công việc đảm nhận</strong></i></p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 0, 17, '20-30', 'nn1', '', '2023-12-16 13:24:46', '2024-01-05 02:31:04'),
+(36, 'Nhân Viên Telesales Nhà Tốt (Nghỉ Thứ 7,)', 'nhân viên', '4652', 4, 9, 3, 4, '2024-01-06', 2, '10-12', 'wate', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 17, '20-30', 'nn1', 'nhan-vien-telesales-nha-tot-nghi-thu-7', '2023-12-26 15:25:13', '2024-01-04 07:12:26'),
+(33, 'Nhân Viên IT ', 'ewqr', 'jp12222222', 3, 3, 23, 4, '2023-12-28', 3, '10-12', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '<p>ưq</p>', '', '', '', 0, 1, '20-30', 'nn123', 'nhan-vien-it', '2023-12-18 04:16:56', '2024-01-03 06:15:13'),
+(34, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'JP01', 5, 3, 5, 6, '2024-01-05', 1, '10-12', 'Hầ Nội', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '<p><i><strong>- Chăm sóc khách hàng:</strong></i></p><p>+&nbsp;Báo giá theo yêu cầu của khách hàng công ty</p><p>+ Soạn hợp đồng, hồ sơ liên quan</p><p>+ Kết nối thông tin giữa công ty với các khách hàng của công ty</p><p>+ Theo dõi công nợ bán hàng của khách hàng đang đảm trách để liên hệ nhắc khách hàng khi đến hạn thanh toán</p><p><i><strong>- Mua hàng- cung ứng</strong></i></p><p>Triển khai các đơn hàng sau khi bộ phận kinh doanh chót đơn hàng với khách hàng:</p><p>+&nbsp;Đặt mua hàng</p><p>+ Thuê xe vận chuyển (theo danh sách vận chuyển đang có) để vận chuyển hàng từ nhà máy hoặc nơi mua đến công trình</p><p>+ Theo dõi tiến độ giao hàng theo phương thức giao hàng của mỗi đơn hàng.</p><p>+ Nhận bộ chứng từ mua hàng, bán hàng kiểm tra đầy đủ theo qui&nbsp;định</p><p>+&nbsp;Theo dõi công nợ nhà cung cấp và đơn vị vận chuyển: Theo dõi công nợ và trình thanh toán theo kế hoạch thanh toán</p><p>+&nbsp;&nbsp;Theo dõi pháp lý mua hàng, vận chuyển</p>', '<p>-Tin học văn phòng: Thuần thạo word, excel</p><p>-Tính toán nhanh.</p><p>-Có khả năng suy luận logic, nghe hiểu vấn đề</p>', '<p><strong>- Lương:</strong>&nbsp;Từ 8.500.000đ đến 14.000.000đ : Tuỳ kinh nghiệm làm việc và năng lực của mỗi ứng viên&nbsp;</p><p><strong>- Thưởng:</strong>&nbsp;Theo qui chế công ty&nbsp;<strong>(&nbsp;</strong>Tối thiểu 1 tháng lương tháng 13 (lương thực nhận))</p><p><strong>- Chế độ khác</strong>: Nghỉ Lễ theo các ngày nghỉ nhà nước qui&nbsp;định</p><p><strong>- Bảo hiểm:&nbsp;</strong>Công ty đóng bảo hiểm ngay sau khi ký hợp đồng lao động chính thức</p><p><strong>Thời gian làm việc tại công ty:</strong>&nbsp;8h/ ngày (sáng:7h45 đến 11h45, chiều: 13h15 đến 17h15)</p><p>&nbsp;</p><p><i><strong>Khi nhân viên được tuyển vào làm việc thì có Anh/chị trong công ty sẽ hướng dẫn trực tiếp công việc đảm nhận</strong></i></p>', '<p>-Cách ứng tuyển: Phỏng vấn trực tiếp</p><p>-Số điện thoại: 0363212627</p><p>-Email: tuyendungjapan@vietseiko.com</p><p>-Yêu cầu hồ sơ: Tiếng nhật giao tiếp tốt</p><p>-Hạn nhận hồ sơ: 30-01-2024</p>', 0, 21, '20-30', 'nn1', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', '2023-12-16 13:24:46', '2024-01-05 02:31:04');
 
 -- --------------------------------------------------------
 
@@ -466,23 +499,47 @@ INSERT INTO `protypes` (`type_id`, `type_name`, `img-type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `review`
+--
+
+CREATE TABLE `review` (
+  `id` int(11) NOT NULL,
+  `img_review` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `mota` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `review`
+--
+
+INSERT INTO `review` (`id`, `img_review`, `name`, `mota`, `updated_at`) VALUES
+(1, '<figure class=\"image\"><img src=\"../../images/review/1704273606kkj.png\"></figure>', 'nguyễn văn quang 21321', 'Tỷ lệ chọi thấp, uy tín, luôn quan tâm đến học viên, nhiệt tình trong tư vấn', '2024-01-03 09:20:08'),
+(2, '<figure class=\"image\"><img src=\"../../images/review/1704273673tytr.jpg\"></figure>', 'nguyễn thị a', 'Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình nên mình rất tin tưởng,các bạn nên tham gia', '2024-01-04 01:50:26'),
+(3, '<figure class=\"image\"><img src=\"../../images/review/1704273898ewr.jpg\"></figure>', 'nguyễn thị kim', 'Tỷ lệ chọi thấp, uy tín, luôn quan tâm đến học viên, nhiệt tình trong tư vấn', '2024-01-03 09:25:03'),
+(4, '<figure class=\"image\"><img src=\"../../images/review/1704273941fdsf.jpg\"></figure>', 'nguyễn thị c', 'Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình ', '2024-01-03 09:25:48');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `ung_tuyen`
 --
 
 CREATE TABLE `ung_tuyen` (
   `id_ungtuyen` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `nam_sinh` varchar(100) NOT NULL,
-  `muc_luong` varchar(255) NOT NULL,
-  `khu_vuc` varchar(255) NOT NULL,
-  `vi_tri_ung_tuyen` varchar(255) NOT NULL,
-  `link_cv` varchar(255) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nam_sinh` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `muc_luong` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `khu_vuc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `vi_tri_ung_tuyen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `link_cv` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `id_job` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `ung_tuyen`
@@ -535,19 +592,6 @@ INSERT INTO `user` (`id`, `username`, `address`, `img`, `password`, `gioitinh`, 
 (3, 'admin', NULL, '', '25f9e794323b453885f5181f1b624d0b', '', '', 0, '', '2023-11-13 09:09:41', 1),
 (4, 'admin2', NULL, '', '123456', '', '', 0, '', '2023-11-28 15:26:23', 1);
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `user_employer`
---
-
-CREATE TABLE `user_employer` (
-  `id_employer` int(11) NOT NULL,
-  `username_employer` varchar(225) NOT NULL,
-  `password_employer` varchar(40) NOT NULL,
-  `permission_employer` varchar(30) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -557,6 +601,12 @@ CREATE TABLE `user_employer` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Chỉ mục cho bảng `anh_banner`
+--
+ALTER TABLE `anh_banner`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `blog`
@@ -643,6 +693,12 @@ ALTER TABLE `protypes`
   ADD PRIMARY KEY (`type_id`);
 
 --
+-- Chỉ mục cho bảng `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `ung_tuyen`
 --
 ALTER TABLE `ung_tuyen`
@@ -655,12 +711,6 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `user_employer`
---
-ALTER TABLE `user_employer`
-  ADD PRIMARY KEY (`id_employer`);
-
---
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -669,6 +719,12 @@ ALTER TABLE `user_employer`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `anh_banner`
+--
+ALTER TABLE `anh_banner`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `blog`
@@ -686,7 +742,7 @@ ALTER TABLE `cam_nang`
 -- AUTO_INCREMENT cho bảng `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT cho bảng `cty`
@@ -749,6 +805,12 @@ ALTER TABLE `protypes`
   MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT cho bảng `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT cho bảng `ung_tuyen`
 --
 ALTER TABLE `ung_tuyen`
@@ -759,12 +821,6 @@ ALTER TABLE `ung_tuyen`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT cho bảng `user_employer`
---
-ALTER TABLE `user_employer`
-  MODIFY `id_employer` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

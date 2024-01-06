@@ -56,7 +56,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
 
 <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <!-- CONTENT START -->
-<div class="test" style="display: none;">v</div>
+<div class="test" style="display: none;"></div>
 <div class="owl-carousel carousel-banner-home banner-home">
 
     <!-- <div class="item">
@@ -460,7 +460,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
             </div>
             <div class="mt-5">
                 <div class="img-bg">
-                    <img src="public/images/bg-job.jpg" alt="" />
+                <?php echo $ksnb[0]['img'] ?>
                 </div>
                 <div class="g1 mt-5">
                     <div class="title ">
@@ -549,7 +549,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
             </div>
             <div class="mt-5">
                 <div class="img-bg">
-                    <img src="public/images/bg-job.jpg" alt="" />
+                <?php echo $vsk[0]['img'] ?>
                 </div>
                 <div class="g1 mt-5">
                     <div class="title ">
