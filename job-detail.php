@@ -82,7 +82,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                 <!-- BREADCRUMB ROW -->
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
-                        <li><a href="viec-lam-tai-viet-nam"><?= __('Việc làm tại Việt Nam') ?></a></li>
+                        <li><a href="viec-lam-tai-viet-nam"><?= __('Việc làm tại Việt Nam - Headhunter') ?></a></li>
                         <li><?= __('Chi tiết công việc') ?></li>
                     </ul>
                 </div>
@@ -297,7 +297,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                         margin: 0;
                         padding-left: 10px;
                       ">
-                               <?= __('Chi tiết tuyển dụng') ?>
+                                <?= __('Chi tiết tuyển dụng') ?>
                             </h2>
 
                             <h4 class="twm-s-title"><?= __('Mô tả công việc:') ?></h4>

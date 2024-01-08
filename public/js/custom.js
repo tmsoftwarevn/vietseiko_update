@@ -314,7 +314,7 @@ All JavaScript fuctions Start
       loop: true,
       nav: false,
       dots: false,
-      margin: 30,
+      margin: 7,
       autoplay: true,
       navText: [
         '<i class="fa fa-angle-left"></i>',

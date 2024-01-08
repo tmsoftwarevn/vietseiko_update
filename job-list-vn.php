@@ -107,6 +107,33 @@ if (
         background-color: #b0c9ec;
     }
 </style>
+
+<style>
+    .icon-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .icon-container i {
+        font-size: 24px;
+     
+        color: #3498db;
+        
+        cursor: pointer;
+        transition: color 0.3s;
+        animation: pulse 2s infinite;
+    }
+
+    .icon-container:hover {
+        color: #1967d2;
+        cursor: pointer;
+    }
+    @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+</style>
 <title><?= __('Việc làm tại Việt Nam') ?></title>
 <!-- CONTENT START -->
 
@@ -118,11 +145,15 @@ if (
             <div>
                 <ul class="wt-breadcrumb breadcrumb-style-2">
                     <li><a href="trang-chu"><?= __('Trang chủ') ?></a></li>
-                    <li><?= __('Việc làm tại Việt Nam') ?></li>
+                    <li><?= __('Việc làm tại Việt Nam - Headhunter') ?></li>
                 </ul>
             </div>
-
-            <!-- BREADCRUMB ROW END -->
+            <a href="quy-trinh-viec-lam-tai-viet-nam">
+                <div class="icon-container mt-4">
+                    Quy trình
+                    <i style="margin-left: 7px;" class="fas fa-cogs"></i>
+                </div>
+            </a>
         </div>
     </div>
 </div>
@@ -130,8 +161,9 @@ if (
 
 <div>
     <div class="container-css container-bg">
-        <div class="title-1" style="margin-top: 20px;"><?= __('Việc làm tại Việt Nam') ?></div>
+        <div class="title-1" style="margin-top: 20px;"><?= __('Việc làm tại Việt Nam - Headhunter') ?></div>
         <p class="h-des"><?= __('Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!') ?></p>
+
         <!--form search -->
         <div class="box-search-f" style="display: flex; justify-content: space-between;">
             <form method="get" action="">
@@ -223,6 +255,7 @@ if (
 
         <div class="content-list">
             <p style="font-weight: 500;"><span style="color: red;"><?php echo $totalJob ?> </span><?= __('việc làm phù hợp') ?></p>
+
             <?php
             foreach ($allJob as $key => $value) {
             ?>

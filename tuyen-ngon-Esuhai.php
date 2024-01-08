@@ -39,17 +39,15 @@ require_once 'header.php';
                     <!-- Cột bên trái -->
                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                         <div class="left_container">
-                            <div class="left_container_title hidden-md hidden-xs hidden-sm">
-                                <span class="left_container_title_label">ABOUT US</span><span
-                                    class="left_container_title_ch">...</span>
+                            <div class="left_container_title ">
+                                <span class="left_container_title_label">ABOUT US</span><span class="left_container_title_ch">...</span>
                             </div>
-                            <div class="left_container_content hidden-md hidden-xs hidden-sm">
+                            <div class="left_container_content ">
                                 <div class="panel-group" id="accordion">
                                     <div class="panel panel-default active">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion"
-                                                    href="#gioithieucongty" aria-expanded="false" class="collapsed">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#gioithieucongty" aria-expanded="false" class="collapsed">
                                                     <span class="collapse_large">GIỚI THIỆU CÔNG TY</span><br>
                                                     <span class="collapse_small">Liên tục trưởng thành</span>
                                                 </a>
@@ -86,8 +84,7 @@ require_once 'header.php';
                                     <div class="panel panel-default ">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion"
-                                                    href="#gioithieubophan">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#gioithieubophan">
                                                     <span class="collapse_large">GIỚI THIỆU CÁC BỘ
                                                         PHẬN</span><br>
                                                     <span class="collapse_small">Chuyên nghiệp + tinh thần cống
@@ -197,8 +194,7 @@ require_once 'header.php';
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a href="#" target="_blank">
-                                                    <span class="collapse_large">BẢN TIN KAIZEN <span
-                                                            class="hidden-sm">SỐ
+                                                    <span class="collapse_large">BẢN TIN KAIZEN <span class="hidden-sm">SỐ
                                                             121</span></span>
                                                     <span class="collapse_small">Kinh nghiệm sống tại Nhật
                                                         Bản</span>
@@ -210,8 +206,7 @@ require_once 'header.php';
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a href="#" target="_blank">
-                                                    <span class="collapse_large">ĐỐI TÁC LIÊN KẾT <span
-                                                            class="hidden-md"> - VIỆC LÀM NHẬT
+                                                    <span class="collapse_large">ĐỐI TÁC LIÊN KẾT <span class="hidden-md"> - VIỆC LÀM NHẬT
                                                             BẢN</span></span><br><br>
 
                                                     <span class="collapse_small">Cơ hội việc làm tại Nhật cho
@@ -256,7 +251,7 @@ require_once 'header.php';
                                         </div>
                                     </div>
                                 </div>
-                                <div class="left_container left_container_maz hidden-md hidden-xs hidden-sm">
+                                <div class="left_container left_container_maz ">
                                     <div class="left_container_maza">
                                         <h4>
                                             magazine
@@ -269,10 +264,8 @@ require_once 'header.php';
 
                                                     <div class="carousel-item">
                                                         <div class="carousel-item-maz">
-                                                            <a href="/magazine/3D38C/esuhai-group-lookback-2022-kien-nghiep-thanh-cong.html"
-                                                                target="_blank">
-                                                                <img src="/upload/fck_new/image/9Magazines/avatar/167230345262.jpg"
-                                                                    width="240" height="100" alt="" />
+                                                            <a href="/magazine/3D38C/esuhai-group-lookback-2022-kien-nghiep-thanh-cong.html" target="_blank">
+                                                                <img src="/upload/fck_new/image/9Magazines/avatar/167230345262.jpg" width="240" height="100" alt="" />
                                                             </a>
                                                         </div>
                                                     </div>
@@ -298,8 +291,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Chính sách
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         policy
                                                     </div>
                                                 </div>
@@ -329,8 +321,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Tầm nhìn
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         vision
                                                     </div>
                                                 </div>
@@ -343,8 +334,7 @@ require_once 'header.php';
                                             <div class="tuyenngon_vietseiko_row_right">
                                                 <div class="tuyenngon_vietseiko_row_right_content">
                                                     <div class="tuyenngon_vietseiko_row_right_content_img">
-                                                        <img src="images/img_10nam@2x.png" width="360" height="62"
-                                                            alt="" />
+                                                        <img src="images/img_10nam@2x.png" width="360" height="62" alt="" />
                                                     </div>
                                                     <div class="tuyenngon_vietseiko_row_right_content_ct">
                                                         <ul>
@@ -366,8 +356,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Sứ mệnh
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         mission
                                                     </div>
                                                 </div>
@@ -382,8 +371,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_content_ct">
                                                         <ul>
                                                             <li>Phát triển <span class="tuyenngon_red">năng
-                                                                    lực</span> từng cá nhân để phát huy <span
-                                                                    class="tuyenngon_bold">cơ hội việc
+                                                                    lực</span> từng cá nhân để phát huy <span class="tuyenngon_bold">cơ hội việc
                                                                     làm</span> tốt nhất.</li>
                                                             <li>Góp phần xây dựng một xã hội năng động và phát
                                                                 triển bền vững.</li>
@@ -401,8 +389,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Nguyên tắc
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         principle
                                                     </div>
                                                 </div>
@@ -455,8 +442,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Triết lý
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         philosophy
                                                     </div>
                                                 </div>
@@ -470,8 +456,7 @@ require_once 'header.php';
                                                 <div class="tuyenngon_vietseiko_row_right_content">
                                                     <div class="tuyenngon_vietseiko_t">
                                                         Hạnh phúc của mình <span class="tuyenngon_red">chính là
-                                                            đem đến được</span> hạnh phúc <span
-                                                            class="tuyenngon_bold">cho người khác</span>.
+                                                            đem đến được</span> hạnh phúc <span class="tuyenngon_bold">cho người khác</span>.
                                                     </div>
                                                 </div>
                                             </div>
@@ -485,8 +470,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Khẩu hiệu
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         slogan
                                                     </div>
                                                 </div>
@@ -515,8 +499,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Tiêu chuẩn ứng xử
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         behavior standard
                                                     </div>
                                                 </div>
@@ -557,8 +540,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Thương hiệu
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         brand
                                                     </div>
                                                 </div>
@@ -573,15 +555,13 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_content_ct">
                                                         <ul>
                                                             <li><span class="tuyenngon_red">Thương hiệu số 1
-                                                                    trong lĩnh vực</span> <span
-                                                                    class="tuyenngon_bold">đào tạo nguồn nhân
+                                                                    trong lĩnh vực</span> <span class="tuyenngon_bold">đào tạo nguồn nhân
                                                                     lực và phát triển cơ hội việc làm</span> tại
                                                                 Việt Nam & Nhật Bản. </li>
                                                             <li>Là công ty có <span class="tuyenngon_red">môi
                                                                     trường</span> và <span class="tuyenngon_red">điều
                                                                     kiện làm việc tốt
-                                                                    nhất</span>, luôn thu hút được <span
-                                                                    class="tuyenngon_bold">nguồn nhân lực giỏi
+                                                                    nhất</span>, luôn thu hút được <span class="tuyenngon_bold">nguồn nhân lực giỏi
                                                                     nhất</span>, để <span class="tuyenngon_red">cống
                                                                     hiến tối đa mọi
                                                                     tiềm năng.</span></li>
@@ -599,8 +579,7 @@ require_once 'header.php';
                                                     <div class="tuyenngon_vietseiko_row_right_left">
                                                         Sáng tạo trong quản lý
                                                     </div>
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
+                                                    <div class="tuyenngon_vietseiko_row_right_right hidden-xs hidden-sm">
                                                         management innovation
                                                     </div>
                                                 </div>
@@ -612,8 +591,7 @@ require_once 'header.php';
                                             </div>
                                             <div class="tuyenngon_vietseiko_row_right">
                                                 <div class="tuyenngon_vietseiko_row_right_content">
-                                                    <div
-                                                        class="tuyenngon_vietseiko_row_right_content_ct nguyentac quanly">
+                                                    <div class="tuyenngon_vietseiko_row_right_content_ct nguyentac quanly">
                                                         <ul>
                                                             <li>
                                                                 <span>1</span><span class="nguyentac_label">Quy

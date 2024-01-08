@@ -15,33 +15,34 @@ include "header.php";
     <link rel="stylesheet" href="public/css/about-us.css">
 </head>
 <style>
-     @media (min-width: 992px) {
-            .logo-mobile-f {
-                display: none !important;
-            }
+    @media (min-width: 992px) {
+        .logo-mobile-f {
+            display: none !important;
         }
-@media (max-width: 768px) {
-    .custom-bg {
-        background-color: #ffffff;
     }
-}
 
-/* Dành cho thiết bị có độ rộng màn hình từ 768px đến 992px */
-@media (min-width: 768px) and (max-width: 992px) {
-    .custom-bg {
-        background-color: #ffffff;
+    @media (max-width: 768px) {
+        .custom-bg {
+            background-color: #ffffff;
+        }
     }
-}
+
+    /* Dành cho thiết bị có độ rộng màn hình từ 768px đến 992px */
+    @media (min-width: 768px) and (max-width: 992px) {
+        .custom-bg {
+            background-color: #ffffff;
+        }
+    }
 </style>
 
 <body>
     <!-- LOADING AREA START ===== -->
-   
+
     <!-- LOADING AREA  END ====== -->
 
     <div class="page-wraper">
         <!-- HEADER START -->
-       
+
         <!-- HEADER END -->
 
         <!-- CONTENT START -->
@@ -51,7 +52,7 @@ include "header.php";
                 <div class="overlay-main site-bg-white opacity-01"></div>
                 <div class="container">
                     <div class="wt-bnr-inr-entry">
-                        
+
                         <!-- BREADCRUMB ROW -->
                         <div>
                             <ul class="wt-breadcrumb breadcrumb-style-2">
@@ -67,13 +68,13 @@ include "header.php";
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-12  custom-bg">
-                    <div class="left_container">
-                            <div class="left_container_title hidden-md hidden-xs hidden-sm">
+                        <div class="left_container">
+                            <div class="left_container_title ">
                                 <span class="left_container_title_label">ABOUT US</span>
                                 <span class="left_container_title_ch">...</span>
                             </div>
                             <!-- //Giới thiệu -->
-                            <div class="left_container_content hidden-md hidden-xs hidden-sm">
+                            <div class="left_container_content ">
                                 <div class="panel-group" id="accordion">
                                     <!-- GIỚI THIỆU CÔNG TY -->
                                     <div class="panel panel-default active">
@@ -202,8 +203,7 @@ include "header.php";
                                         <div class="row">
                                             <div class="col-12 thungo">
                                                 <div style="margin-left: 20px;">
-                                                    <img class="img-thungo" typeof="foaf:Image"
-                                                        src="images/thungo/Ceo.jpg" height="1220">
+                                                    <img class="img-thungo" typeof="foaf:Image" src="images/thungo/Ceo.jpg" height="1220">
                                                     <p class="text-center"><i>CEO.GIÁM ĐỐC PHẠM HỮU ĐẠO</i>
                                                     </p>
                                                     <p align=justify style="font-size:14pt;line-height:2.1em;">
@@ -284,5 +284,5 @@ include "header.php";
 
 </html>
 <?php
-    include "footer.php";
+include "footer.php";
 ?>

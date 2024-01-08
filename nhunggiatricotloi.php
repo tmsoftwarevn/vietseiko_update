@@ -15,45 +15,46 @@ include "header.php";
     <link rel="stylesheet" href="public/css/about-us.css">
 </head>
 <style>
-     @media (min-width: 992px) {
-            .logo-mobile-f {
-                display: none !important;
-            }
+    @media (min-width: 992px) {
+        .logo-mobile-f {
+            display: none !important;
         }
-@media (max-width: 768px) {
-    .item-giatricotloi_box img {
-        max-width: 93%;
     }
-}
 
-@media (max-width: 768px) {
-    .custom-bg {
-        background-color: #ffffff;
+    @media (max-width: 768px) {
+        .item-giatricotloi_box img {
+            max-width: 93%;
+        }
     }
-}
 
-/* Dành cho thiết bị có độ rộng màn hình từ 768px đến 992px */
-@media (min-width: 768px) and (max-width: 992px) {
-    .custom-bg {
-        background-color: #ffffff;
+    @media (max-width: 768px) {
+        .custom-bg {
+            background-color: #ffffff;
+        }
     }
-}
 
-img {
-    border-style: none;
-    height: auto;
-    max-width: 99%;
-    vertical-align: middle;
-}
+    /* Dành cho thiết bị có độ rộng màn hình từ 768px đến 992px */
+    @media (min-width: 768px) and (max-width: 992px) {
+        .custom-bg {
+            background-color: #ffffff;
+        }
+    }
+
+    img {
+        border-style: none;
+        height: auto;
+        max-width: 99%;
+        vertical-align: middle;
+    }
 </style>
 
 <body>
     <!-- LOADING AREA START ===== -->
-   
+
 
     <div class="page-wraper">
         <!-- HEADER START -->
-       
+
         <!-- HEADER END -->
 
         <!-- CONTENT START -->
@@ -63,7 +64,7 @@ img {
                 <div class="overlay-main site-bg-white opacity-01"></div>
                 <div class="container">
                     <div class="wt-bnr-inr-entry">
-                        
+
                         <!-- BREADCRUMB ROW -->
                         <div>
                             <ul class="wt-breadcrumb breadcrumb-style-2">
@@ -79,13 +80,13 @@ img {
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12 custom-bg">
-                    <div class="left_container">
-                            <div class="left_container_title hidden-md hidden-xs hidden-sm">
+                        <div class="left_container">
+                            <div class="left_container_title ">
                                 <span class="left_container_title_label">ABOUT US</span>
                                 <span class="left_container_title_ch">...</span>
                             </div>
                             <!-- //Giới thiệu -->
-                            <div class="left_container_content hidden-md hidden-xs hidden-sm">
+                            <div class="left_container_content ">
                                 <div class="panel-group" id="accordion">
                                     <!-- GIỚI THIỆU CÔNG TY -->
                                     <div class="panel panel-default active">
@@ -240,5 +241,5 @@ img {
 
 </html>
 <?php
-    include "footer.php";
+include "footer.php";
 ?>

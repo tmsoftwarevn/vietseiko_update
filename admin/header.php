@@ -1041,15 +1041,26 @@ $jobAdmin = new Job;
                     <li>
                         <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-8','span-8')">
                             <i class="flaticon-093-waving"></i>
-                            <span id="span-8" class="nav-text">Quản lý hình ảnh</span>
+                            <span id="span-8" class="nav-text">Quản lý banner</span>
                         </a>
                         <ul class="sub-menu" id="sub-menu-8">
                             <li><a href="img-list.php">Danh sách</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-9','span-9')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-9" class="nav-text">Quản lý hình ảnh & video</span>
+                        </a>
+                        <ul class="sub-menu" id="sub-menu-9">
+                            <li><a href="hinhanh-list.php">Hình ảnh</a></li>
+                            <li><a href="logo-list.php">Logo</a></li>
+                            <li><a href="video-list.php">Video</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <div class="copyright">
-                    <p><strong>Jobick Job Admin</strong> © 2023 All Rights Reserved</p>
+                    <p><strong>Jobick Job Admin</strong> © All Rights Reserved</p>
                     <p class="fs-12">
                         Made with <span class="heart"></span> by TM
                     </p>

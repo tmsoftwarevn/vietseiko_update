@@ -1,5 +1,5 @@
 <?php
-require "header.php"
+    require "header.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,24 +7,21 @@ require "header.php"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giấy phép</title>
-    <link rel="icon" href="public/images/logo.png" type="image/x-icon" />
+    <title>Quy trình</title>
     <!-- Link Bootstrap CSS -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 
 <body>
 
-    <div class="container" style="margin-top: 130px;">
+    <div class="container" style="margin-top: 140px;">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="license">
                     <div class="license1"></div>
                     <div class="license2">
                         <!-- Thay đổi URL hình ảnh tại đây nếu cần -->
-                        <img src="images/giayphep/giayphep1.jpg" class="img-fluid" alt="Giấy phép" width="650px"
-                            height="846px">
-                        <img src="images/giayphep/giayphep2.jpg" class="img-fluid" alt="Giấy phép" width="650px"
+                        <img src="images/quytrinh/quytrinh.jpg" class="img-fluid" alt="Giấy phép" width="650px"
                             height="846px">
                     </div>
                     <div class="license3"></div>
@@ -41,6 +38,7 @@ require "header.php"
 </body>
 
 </html>
+
 <?php
-require "footer.php"
+    require "footer.php";
 ?>

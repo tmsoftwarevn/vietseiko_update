@@ -138,8 +138,6 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300&display=swap');
 
-
-
         @media (min-width: 992px) {
             .logo-mobile-f {
                 display: none !important;
@@ -320,6 +318,73 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
             font-family: 'Roboto', sans-serif !important;
         }
     </style>
+    <!-- ccs search -->
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #1967d2;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        option {
+            font-size: 17px;
+        }
+
+        .search {
+            padding: 10px 20px;
+            background-color: #1967d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        #icon-search {
+            font-size: 16px;
+            margin-left: 15px;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search:hover {
+            background-color: #b0c9ec;
+        }
+    </style>
+
+    <style>
+        .icon-zalo {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        @media only screen and (max-width: 576px) {
+            .icon-zalo {
+                bottom: 70px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -372,7 +437,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                 <li class="has-child">
                                     <a href="javascript:;"><?= __('Việc làm') ?></a>
                                     <ul class="sub-menu" style="width: 270px;">
-                                        <li style="cursor: pointer;"> <a href="/viec-lam-tai-viet-nam"><?= __('Việc làm tại Việt Nam') ?></a></li>
+                                        <li style="cursor: pointer;"> <a href="/viec-lam-tai-viet-nam"><?= __('Việc làm tại Việt Nam - Headhunter') ?></a></li>
                                         <li style="cursor: pointer;"><a href="/viec-lam-xkld-nhat-ban"><?= __('Xuất khẩu lao động Nhật Bản') ?></a></li>
                                         <li style="cursor: pointer;"><a href="/viec-lam-ky-su-va-thong-dich-nhat-ban"><?= __('Kỹ sư & thông dịch viên tại Nhật Bản') ?></a></li>
                                         <li style="cursor: pointer;"><a href="/viec-lam-tai-vietseiko"><?= __('Việc làm tại Vietseiko') ?></a></li>
@@ -382,7 +447,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                     <a href="javascript:;" ;><?= __('Công cụ') ?></a>
                                     <ul class="sub-menu" style="width: 270px;">
                                         <li style="cursor: pointer;"><a href="cam-nang"><?= __('Cẩm nang nghề nghiệp') ?></a></li>
-                                        <li style="cursor: pointer;"><a href="gross-net.php"><?= __('Tính lương Gross sang Net') ?></a></li>
+                                        <li style="cursor: pointer;"><a href="tinh-luong-gross-net"><?= __('Tính lương Gross sang Net') ?></a></li>
                                     </ul>
                                 </li>
                                 <li class="has-child">
@@ -402,31 +467,107 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                 <div class="header-nav-btn-section">
 
                                     <!-- Chuyển đổi ngôn ngữ -->
-                                    <a href="?lang=jp" <?php if ($_SESSION['lang'] == 'jp') echo 'style="display: none;"'; ?>>
-                                        <span style="font-size: 22px;" class="fi fi-jp"></span> <span class="fi fi-Japan"></span>
+                                    <a href="?lang=jp">
+                                        <span style="font-size: 20px; margin-right: 5px;  border: 1px solid #bdc3c7;" class="fi fi-jp"></span>
                                     </a>
-                                    <a href="?lang=vn" <?php if ($_SESSION['lang'] == 'vn') echo 'style="display: none;"'; ?>>
-                                        <span style="font-size: 22px;" class="fi fi-vn"></span> <span class="fi fi-Vietnam"></span>
+                                    <a href="?lang=vn">
+                                        <span style="font-size: 20px;" class="fi fi-vn"></span>
                                     </a>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
+
                 </div>
 
-                <!-- SITE Search -->
-                <div id="search">
-                    <span class="close"></span>
-                    <form role="search" id="searchform" action="/search" method="get" class="radius-xl">
-                        <input class="form-control" value="" name="q" type="search" placeholder="Type to search" />
-                        <span class="input-group-append">
-                            <button type="button" class="search-btn">
-                                <i class="bi bi-send"></i>
-                            </button>
-                        </span>
-                    </form>
-                </div>
             </div>
+            <!-- // form search -->
+            <!-- <div class="box-search-f" style="display: flex; justify-content: space-between;">
+                <form method="get" action="">
+                    <input type="hidden" name="page" value="1">
+                    <div class="row ">
+                        <div class="col-2">
+                            <select name="id_nganhnghe">
+                                <option value="all">Tất cả ngành nghề</option>
+                                <?php
+                                foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
+                                    if ($value['id_nganhnghe'] == $id_nganhnghe) {
+                                        echo ('<option selected="selected" value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
+                                    } else {
+                                        echo ('<option value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
+                                    }
+                                }
+
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <select name="id_hinhthuc">
+                                <option value="all">Tất cả hình thức</option>
+                                <?php
+                                foreach ($hinhthuc->getAllHinhThuc() as $key => $value) {
+                                    if ($value['id_hinhthuc'] == $id_hinhthuc) {
+                                        echo ('<option selected="selected" value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
+                                    } else {
+                                        echo ('<option value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
+                                    }
+                                } ?>
+
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <select name="id_kinhnghiem">
+                                <option value="all">Tất cả kinh nghiệm</option>
+                                <?php
+                                foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) {
+                                    if ($value['id_kn'] == $id_kinhnghiem) {
+                                        echo ('<option selected="selected" value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
+                                    } else {
+                                        echo ('<option value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
+                                    }
+                                } ?>
+
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <select name="id_gioitinh">
+                                <option value="all">Tất cả giới tính</option>
+                                <option <?php
+                                        if (1 == $id_gioitinh) echo 'selected="selected"'
+                                        ?> value="1">Nam</option>
+                                <option <?php
+                                        if ($id_gioitinh == 2) echo 'selected="selected"'
+                                        ?> value="2">Nữ</option>
+                                <option <?php
+                                        if ($id_gioitinh == 3) echo 'selected="selected"'
+                                        ?> value="3">Không yêu cầu</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+
+                            <select name="id_diachi">
+                                <option value="all">Tất cả khu vực</option>
+                                <?php
+                                foreach ($list_custom_tinhthanh as $index => $item) {
+                                ?>
+                                    <option <?php
+                                            if ($id_diachi == $index) echo 'selected="selected"'
+                                            ?> value="<?php echo $index ?>">
+                                        <?php echo $item ?>
+                                    </option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div> -->
         </header>
     </div>
 
@@ -434,7 +575,43 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         document.cookie = "width = " + window.innerWidth
     </script>
 
+    <div class="icon-zalo">
+        <a href="https://chat.zalo.me/" target="_blank">
+            <img src="https://page.widget.zalo.me/static/images/2.0/Logo.svg" />
+        </a>
 
+    </div>
+
+    <!-- // import messager -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "608369259596065");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v18.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 </body>
 
 </html>

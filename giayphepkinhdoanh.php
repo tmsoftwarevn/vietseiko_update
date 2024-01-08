@@ -1,3 +1,6 @@
+<?php
+    require "header.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,12 +10,12 @@
     <title>Giấy phép</title>
     <link rel="icon" href="public/images/logo.png" type="image/x-icon" />
     <!-- Link Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 
 <body>
 
-    <div class="container mt-5">
+    <div class="container " style="margin-top: 130px;">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="license">
@@ -38,3 +41,6 @@
 </body>
 
 </html>
+<?php
+    require "footer.php";
+?>

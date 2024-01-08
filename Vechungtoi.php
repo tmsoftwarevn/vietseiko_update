@@ -17,10 +17,11 @@ include "header.php";
 <style>
     @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
     @media (min-width: 992px) {
-            .logo-mobile-f {
-                display: none !important;
-            }
+        .logo-mobile-f {
+            display: none !important;
         }
+    }
+
     .snip1477 {
         position: relative;
         overflow: hidden;
@@ -216,12 +217,12 @@ include "header.php";
 
 <body>
     <!-- LOADING AREA START ===== -->
-    
+
     <!-- LOADING AREA  END ====== -->
 
     <div class="page-wraper">
         <!-- HEADER START -->
-       
+
         <!-- HEADER END -->
 
         <!-- CONTENT START -->
@@ -251,13 +252,13 @@ include "header.php";
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12 custom-bg">
-                    <div class="left_container">
-                            <div class="left_container_title hidden-md hidden-xs hidden-sm">
+                        <div class="left_container">
+                            <div class="left_container_title ">
                                 <span class="left_container_title_label">ABOUT US</span>
                                 <span class="left_container_title_ch">...</span>
                             </div>
                             <!-- //Giới thiệu -->
-                            <div class="left_container_content hidden-md hidden-xs hidden-sm">
+                            <div class="left_container_content ">
                                 <div class="panel-group" id="accordion">
                                     <!-- GIỚI THIỆU CÔNG TY -->
                                     <div class="panel panel-default active">
@@ -409,8 +410,7 @@ include "header.php";
                                                     <!-- Cố Vấn Chiến Lược -->
                                                     <div class="col-md-4 mb-4">
                                                         <figure class="snip1477">
-                                                            <img src="images/profile/ozaki.jpg"
-                                                                alt="Mr.OZAKI AKITOSHI (Người Nhật Bản)">
+                                                            <img src="images/profile/ozaki.jpg" alt="Mr.OZAKI AKITOSHI (Người Nhật Bản)">
                                                             <div class="title">
                                                                 <div>
                                                                     <h4>Mr.OZAKI AKITOSHI <br>(Người Nhật Bản)</h4>
@@ -428,8 +428,7 @@ include "header.php";
                                                     <!-- Phó Giám Đốc -->
                                                     <div class="col-md-4 mb-4">
                                                         <figure class="snip1477">
-                                                            <img src="images/profile/ueno.jpg"
-                                                                alt="Mr.UENO TAKASHI (Người Nhật Bản)">
+                                                            <img src="images/profile/ueno.jpg" alt="Mr.UENO TAKASHI (Người Nhật Bản)">
                                                             <div class="title">
                                                                 <div>
                                                                     <h4>Mr.UENO TAKASHI <br>(Người Nhật Bản)</h4>
@@ -502,5 +501,5 @@ include "header.php";
 
 </html>
 <?php
-    include "footer.php";
+include "footer.php";
 ?>

@@ -52,35 +52,31 @@ $vsk = $img_f->getAll_imgBy_id(4);
     .slide {
         min-width: 100%;
     }
+
+    .col-lg-4 {
+        padding: 5px !important;
+    }
 </style>
 
 <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <!-- CONTENT START -->
 <div class="test" style="display: none;"></div>
-<div class="owl-carousel carousel-banner-home banner-home">
-
-    <!-- <div class="item">
-        <img src="images/banner/slide-03.jpg" />
+<div class="container">
+    <div class="owl-carousel carousel-banner-home banner-home">
+        <?php
+        foreach ($list_banner as $key => $value) {
+        ?>
+            <div class="item">
+                <?php
+                echo $value['img'];
+                ?>
+            </div>
+        <?php
+        }
+        ?>
     </div>
-    <div class="item">
-        <img src="images/banner/slide-01.jpg" />
-    </div>
-    <div class="item">
-        <img src="images/banner/slide-02.jpg" />
-    </div> -->
-    <?php
-    foreach ($list_banner as $key => $value) {
-    ?>
-        <div class="item">
-            <?php
-            echo $value['img'];
-            ?>
-        </div>
-    <?php
-    }
-    ?>
-
 </div>
+
 <div class="page-content">
     <!--Banner Start-->
 
@@ -283,7 +279,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                 <div class="g1 mt-5">
                     <div class="title ">
                         <div class="job-name">
-                            <div><?= __('Việc làm tại Việt Nam') ?></div>
+                            <div><?= __('Việc làm tại Việt Nam - Headhunter') ?></div>
                         </div>
                         <a href="/viec-lam-tai-viet-nam">
                             <span class="btn-view-all"><?= __('Xem tất cả') ?></span>
@@ -460,7 +456,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
             </div>
             <div class="mt-5">
                 <div class="img-bg">
-                <?php echo $ksnb[0]['img'] ?>
+                    <?php echo $ksnb[0]['img'] ?>
                 </div>
                 <div class="g1 mt-5">
                     <div class="title ">
@@ -549,7 +545,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
             </div>
             <div class="mt-5">
                 <div class="img-bg">
-                <?php echo $vsk[0]['img'] ?>
+                    <?php echo $vsk[0]['img'] ?>
                 </div>
                 <div class="g1 mt-5">
                     <div class="title ">
@@ -650,7 +646,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
         </div>
         <!-- TITLE END-->
 
-        <div class="container">
+        <div class="container" style="margin-top: 30px;">
             <div class="section-content mt-5">
                 <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
                     <div class="item">

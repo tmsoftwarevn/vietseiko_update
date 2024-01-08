@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-   
+    <title>congty</title>
     <!-- Link đến Bootstrap CSS -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -14,6 +14,9 @@
             background-repeat: no-repeat;
             background-size: cover;
             padding: 20px 0;
+            border-top: 1px solid #4b9331;
+            padding-top: 20px;
+            margin-bottom: 20px;
         }
 
         /* Định dạng cơ bản cho các phần tử */
@@ -21,7 +24,7 @@
         .col-md-4,
         .col-sm-12,
         .col-xs-12 {
-            padding: 10px;
+            padding: 20px;
         }
 
         /* Định dạng hình ảnh logo */
@@ -35,7 +38,6 @@
         /* Định dạng chung cho các phần tử giấy phép */
         .giayphep-content-col-tile,
         .giayphep-content-col-title {
-            font-family: roboto;
             color: orange;
             text-align: center;
             padding: 10px;
@@ -49,6 +51,7 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+
         }
 
         /* Định dạng cho từng giấy phép */
@@ -56,9 +59,10 @@
             flex: 0 0 calc(50% - 0px);
             margin-bottom: 20px;
             box-sizing: border-box;
-            padding: 5px;
+            padding: 20px;
             border: 1px solid #ffc107;
             border-radius: 2px;
+
         }
 
         /* Định dạng hình ảnh trong giấy phép */
@@ -81,7 +85,7 @@
         }
 
         .hotline-icon {
-            width: 75px;
+            width: 65px;
             margin-right: 10px;
             height: auto;
         }
@@ -121,12 +125,10 @@
         .c50000 {
             color: #c50000;
             font-size: 18px;
-            font-family: roboto;
         }
 
         .font20px {
             font-size: 20px;
-            font-family: roboto;
         }
 
 
@@ -135,8 +137,13 @@
         }
 
         .mxh img {
-            width: 45px;
+            width: 40px;
             /* Adjust icon width */
+        }
+
+        .mxhhd img {
+            width: 64px;
+            height: 37px;
         }
 
         /* Remove default list styles from anchor tags */
@@ -152,6 +159,7 @@
         .facebook_content {
             padding-top: 10px;
             margin-bottom: 10px;
+
         }
 
         .facebook_content_title {
@@ -187,7 +195,6 @@
             padding: 8px 10px;
             color: #163774;
             font-size: 15px;
-            font-family: roboto;
         }
 
         .facebook_content_vietsiko_img,
@@ -234,8 +241,7 @@
 
         .address_title {
             font-weight: bold;
-            font-size: 24px;
-            font-family: roboto;
+            font-size: 23px;
         }
 
         /* Định nghĩa font chữ cho nội dung */
@@ -245,7 +251,6 @@
         .address_content_tel,
         .address_content_Email {
             font-size: 15px;
-            font-family: roboto;
             transition: all 0.3s ease;
         }
 
@@ -284,7 +289,6 @@
             margin-bottom: 0;
             text-align: center;
             font-size: 14px;
-            font-family: roboto;
         }
 
         .footer-item2.mt-3 {
@@ -321,26 +325,31 @@
             text-decoration: none;
             /* Giữ cho liên kết không có dấu gạch chân khi rê chuột vào */
         }
+
+        .img-fluid {
+            max-width: 80%;
+            height: auto;
+        }
     </style>
 </head>
 
 <body>
 
-    <footer style="margin-top: 20px;">
-        <div class="container mt-5">
+    <footer>
+        <div class="container">
             <!-- Dòng chứa các cột -->
             <div class="row">
                 <!-- Cột 1 -->
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center">
+                <div
+                    class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center company-logo-bg">
                     <img src="images/logo.png" alt="Company Logo" class="img-fluid">
                 </div>
-
                 <!-- Cột 2 -->
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="giayphep-content">
                         <!-- Giấy phép đưa NLĐ đi làm việc ở nước ngoài -->
                         <div class="giayphep-content-col">
-                            <a href="giay-phep-hoat-dong" class="no-decoration">
+                            <a href="giayphephoatdongdichvuvieclam.html" class="no-decoration">
                                 <!-- Thay YOUR_LINK_1_HERE bằng đường dẫn bạn muốn đặt liên kết -->
                                 <div class="giayphep-content-col-img">
                                     <img src="images/icon_giayphep@3x.png" width="80" height="80"
@@ -356,7 +365,7 @@
                         </div>
 
                         <div class="giayphep-content-col">
-                            <a href="giay-phep-kinh-doanh" class="no-decoration">
+                            <a href="giayphepkinhdoanh.html" class="no-decoration">
                                 <!-- Thay YOUR_LINK_2_HERE bằng đường dẫn bạn muốn đặt liên kết -->
                                 <div class="giayphep-content-col-img">
                                     <img src="images/icon_giayphep@2x.png" width="80" height="80"
@@ -392,8 +401,8 @@
                                 target="_blank" class="mxh">
                                 <img alt="Facebook" src="images/Footer/fb.png">
                             </a>
-                            <a href="" rel="nofollow" title="intergram_vietseiko" target="_blank" class="mxh">
-                                <img alt="mxh" src="images/Footer/intergram.png">
+                            <a href="" rel="nofollow" title="zalo_vietseiko" target="_blank" class="mxh">
+                                <img alt="mxh" src="images/footer/Zalo.png">
                             </a>
                             <a href="https://www.tiktok.com/@vietseiko.hr" rel="nofollow" title="tiktok_vietseiko"
                                 target="_blank" class="mxh">
@@ -402,6 +411,10 @@
                             <a href="https://www.youtube.com/@congtytnhhvietseiko7739" rel="nofollow"
                                 title="youtube_vietseiko" target="_blank" class="mxh">
                                 <img alt="mxh" src="images/Footer/youtube.png">
+                            </a>
+                            <a href="https://www.linkedin.com/company/vietseiko/" rel="nofollow"
+                                title="youtube_vietseiko" target="_blank" class="mxhhd">
+                                <img alt="mxhhd" src="images/Footer/linkedin.jpg">
                             </a>
                         </div>
                     </div>
@@ -431,12 +444,12 @@
                                             Việc Làm Tiếng Nhật TP.HCM
                                         </a>
                                     </span>
-                                    <!-- <span>
+                                    <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Vi%E1%BB%87c-L%C3%A0m-Ti%E1%BA%BFng-Nh%E1%BA%ADt-TPHCM-Vietseiko-105744628103928;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
+                                    </span>
                                 </div>
                             </div>
                             <!-- end div facebook_content_oden-->
@@ -455,12 +468,12 @@
                                             HR- Việc Làm Nhanh
                                         </a>
                                     </span>
-                                    <!-- <span>
+                                    <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/HR-Vietseiko-Vi%E1%BB%87c-L%C3%A0m-Nhanh-108428324645270;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
+                                    </span>
                                 </div>
                             </div>
                             <!-- end div facebook_content_Hr-->
@@ -482,12 +495,12 @@
                                             Xuất Khẩu Lao Động Nhật Bản
                                         </a>
                                     </span>
-                                    <!-- <span>
+                                    <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
+                                    </span>
                                 </div>
                             </div>
                             <!-- end div facebook_content_Hr-->
@@ -508,12 +521,12 @@
                                         </a>
 
                                     </span>
-                                    <!-- <span>
+                                    <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
+                                    </span>
                                 </div>
                             </div>
                             <!-- start div facebook_content_thuduc-->
@@ -530,12 +543,12 @@
                                             Vietseiko Co., Ltd
                                         </a>
                                     </span>
-                                    <!-- <span>
+                                    <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCty.TNHH.Vietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
+                                    </span>
                                 </div>
                             </div>
                             <!-- end div facebook_content_vietsiko-->
@@ -622,7 +635,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="copy_right">
                         <div class="copy">
-                            <p>© Copyright © VIETSEIKO. All rights reserved</p>
+                            <p>© Copyright © 2023 VIETSEIKO. All rights reserved</p>
                         </div>
                     </div>
                 </div>
@@ -657,23 +670,6 @@
         });
     });
 
-    //dropdown
-    /* const dropdownBtn = document.querySelector(".dropdown__button");
-    const dropdownItems = document.querySelector(".dropdown__items");
-
-    let isOpen = false;
-
-    const openDropdown = () => {
-      isOpen = !isOpen;
-
-      if (isOpen) {
-        dropdownItems.classList.replace("dropdown--hide", "dropdown--show");
-      } else {
-        dropdownItems.classList.replace("dropdown--show", "dropdown--hide");
-      }
-    };
-
-    dropdownBtn.addEventListener("click", openDropdown); */
 
     $(".user-menu").click(function() {
         $(this).toggleClass("show");
@@ -736,7 +732,5 @@
 
 <link rel="stylesheet" href=" https://www.vietseiko.com/public/admin/bower_components/jvectormap/jquery-jvectormap.css">
 
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

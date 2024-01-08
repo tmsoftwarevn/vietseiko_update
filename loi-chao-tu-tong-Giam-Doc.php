@@ -50,17 +50,15 @@ require_once 'header.php';
                     <!-- Cột bên trái -->
                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                         <div class="left_container">
-                            <div class="left_container_title hidden-md hidden-xs hidden-sm">
-                                <span class="left_container_title_label">ABOUT US</span><span
-                                    class="left_container_title_ch">...</span>
+                            <div class="left_container_title ">
+                                <span class="left_container_title_label">ABOUT US</span><span class="left_container_title_ch">...</span>
                             </div>
-                            <div class="left_container_content hidden-md hidden-xs hidden-sm">
+                            <div class="left_container_content ">
                                 <div class="panel-group" id="accordion">
                                     <div class="panel panel-default active">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion"
-                                                    href="#gioithieucongty" aria-expanded="false" class="collapsed">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#gioithieucongty" aria-expanded="false" class="collapsed">
                                                     <span class="collapse_large">GIỚI THIỆU CÔNG TY</span><br>
                                                     <span class="collapse_small">Liên tục trưởng thành</span>
                                                 </a>
@@ -97,8 +95,7 @@ require_once 'header.php';
                                     <div class="panel panel-default ">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion"
-                                                    href="#gioithieubophan">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#gioithieubophan">
                                                     <span class="collapse_large">GIỚI THIỆU CÁC BỘ
                                                         PHẬN</span><br>
                                                     <span class="collapse_small">Chuyên nghiệp + tinh thần cống
@@ -208,8 +205,7 @@ require_once 'header.php';
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a href="#" target="_blank">
-                                                    <span class="collapse_large">BẢN TIN KAIZEN <span
-                                                            class="hidden-sm">SỐ
+                                                    <span class="collapse_large">BẢN TIN KAIZEN <span class="hidden-sm">SỐ
                                                             121</span></span>
                                                     <span class="collapse_small">Kinh nghiệm sống tại Nhật
                                                         Bản</span>
@@ -221,8 +217,7 @@ require_once 'header.php';
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a href="#" target="_blank">
-                                                    <span class="collapse_large">ĐỐI TÁC LIÊN KẾT <span
-                                                            class="hidden-md"> - VIỆC LÀM NHẬT
+                                                    <span class="collapse_large">ĐỐI TÁC LIÊN KẾT <span class="hidden-md"> - VIỆC LÀM NHẬT
                                                             BẢN</span></span><br><br>
 
                                                     <span class="collapse_small">Cơ hội việc làm tại Nhật cho
@@ -267,7 +262,7 @@ require_once 'header.php';
                                         </div>
                                     </div>
                                 </div>
-                                <div class="left_container left_container_maz hidden-md hidden-xs hidden-sm">
+                                <div class="left_container left_container_maz ">
                                     <div class="left_container_maza">
                                         <h4>
                                             magazine
@@ -280,10 +275,8 @@ require_once 'header.php';
 
                                                     <div class="carousel-item">
                                                         <div class="carousel-item-maz">
-                                                            <a href="/magazine/3D38C/esuhai-group-lookback-2022-kien-nghiep-thanh-cong.html"
-                                                                target="_blank">
-                                                                <img src="/upload/fck_new/image/9Magazines/avatar/167230345262.jpg"
-                                                                    width="240" height="100" alt="" />
+                                                            <a href="/magazine/3D38C/esuhai-group-lookback-2022-kien-nghiep-thanh-cong.html" target="_blank">
+                                                                <img src="/upload/fck_new/image/9Magazines/avatar/167230345262.jpg" width="240" height="100" alt="" />
                                                             </a>
                                                         </div>
                                                     </div>

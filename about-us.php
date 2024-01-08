@@ -75,12 +75,12 @@ include "header.php";
                 <div class="row">
                     <div class="col-md-3 col-sm-12  col-xs-12 custom-bg">
                         <div class="left_container">
-                            <div class="left_container_title hidden-md hidden-xs hidden-sm">
+                            <div class="left_container_title ">
                                 <span class="left_container_title_label">ABOUT US</span>
                                 <span class="left_container_title_ch">...</span>
                             </div>
                             <!-- //Giới thiệu -->
-                            <div class="left_container_content hidden-md hidden-xs hidden-sm">
+                            <div class="left_container_content ">
                                 <div class="panel-group" id="accordion">
                                     <!-- GIỚI THIỆU CÔNG TY -->
                                     <div class="panel panel-default active">
