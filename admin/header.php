@@ -1050,7 +1050,7 @@ $jobAdmin = new Job;
                     <li>
                         <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-9','span-9')">
                             <i class="flaticon-093-waving"></i>
-                            <span id="span-9" class="nav-text">Quản lý hình ảnh & video</span>
+                            <span id="span-9" class="nav-text">Quản lý hình ảnh ,logo & video</span>
                         </a>
                         <ul class="sub-menu" id="sub-menu-9">
                             <li><a href="hinhanh-list.php">Hình ảnh</a></li>

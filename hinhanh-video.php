@@ -1,5 +1,25 @@
 <?php
 include "header.php";
+
+//domain
+$baseURL = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$baseURL .= "://" . $_SERVER['HTTP_HOST'];
+
+$page = 1;
+$resultsPerPage = 15;
+
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    //echo "Khong nhan duoc ID";
+}
+
+$type = 'all';
+
+if (isset($_GET['type'])) {
+    $type = $_GET['type'];
+} else {
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,17 +29,18 @@ include "header.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giới thiệu</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/about-us.css">
 </head>
 <style>
-     @media (min-width: 992px) {
-            .logo-mobile-f {
-                display: none !important;
-            }
+    @media (min-width: 992px) {
+        .logo-mobile-f {
+            display: none !important;
         }
+    }
+
     ul.tm-gallery-links {
         list-style-type: none;
         padding: 0;
@@ -127,12 +148,12 @@ include "header.php";
 
 <body>
     <!-- LOADING AREA START ===== -->
-    
+
     <!-- LOADING AREA  END ====== -->
 
     <div class="page-wraper">
         <!-- HEADER START -->
-       
+
         <!-- HEADER END -->
 
         <!-- CONTENT START -->
@@ -142,7 +163,7 @@ include "header.php";
                 <div class="overlay-main site-bg-white opacity-01"></div>
                 <div class="container">
                     <div class="wt-bnr-inr-entry">
-                        
+
                         <!-- BREADCRUMB ROW -->
                         <div>
                             <ul class="wt-breadcrumb breadcrumb-style-2">
@@ -158,7 +179,7 @@ include "header.php";
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12 custom-bg">
-                    <div class="left_container">
+                        <div class="left_container">
                             <div class="left_container_title ">
                                 <span class="left_container_title_label">ABOUT US</span>
                                 <span class="left_container_title_ch">...</span>
@@ -294,192 +315,141 @@ include "header.php";
                                             <!-- TM Parallax Section -->
                                             <div class="col">
                                                 <div class="tm-section-wrap">
-                                                    <div class="tm-parallax" data-parallax="scroll"
-                                                        data-image-src="img/img-02.jpg"></div>
+                                                    <div class="tm-parallax" data-parallax="scroll" data-image-src="img/img-02.jpg"></div>
                                                     <!-- Gallery Section -->
                                                     <section id="gallery" class="tm-section">
                                                         <!-- Gallery Links -->
                                                         <ul class="tm-gallery-links row">
                                                             <li class="col-md-3 col-sm-6">
-                                                                <a href="javascript:void(0);"
-                                                                    class="active tm-gallery-link" data-filter="*">
-                                                                    <i
-                                                                        class="fas fa-layer-group tm-gallery-link-icon"></i>
+                                                                <a href="<?php echo $baseURL . '/hinh-anh-va-video' ?>?page=1&type=all" class="active tm-gallery-link" data-filter="*">
+                                                                    <i class="fas fa-layer-group tm-gallery-link-icon"></i>
                                                                     Tất cả
                                                                 </a>
                                                             </li>
                                                             <li class="col-md-3 col-sm-6">
-                                                                <a href="javascript:void(0);" class="tm-gallery-link"
-                                                                    data-filter="nature">
+                                                                <a href="<?php echo $baseURL . '/hinh-anh-va-video' ?>?page=1&type=2" class="active tm-gallery-link" data-filter="*">
                                                                     <i class="fas fa-leaf tm-gallery-link-icon"></i>
                                                                     Logo công ty
                                                                 </a>
                                                             </li>
                                                             <li class="col-md-3 col-sm-6">
-                                                                <a href="javascript:void(0);" class="tm-gallery-link"
-                                                                    data-filter="portrait">
+                                                                <a href="<?php echo $baseURL . '/hinh-anh-va-video' ?>?page=1&type=1" class="active tm-gallery-link" data-filter="*">
                                                                     <i class="fas fa-portrait tm-gallery-link-icon"></i>
                                                                     Hình ảnh hoạt động công ty
                                                                 </a>
                                                             </li>
                                                             <li class="col-md-3 col-sm-6">
-                                                                <a href="javascript:void(0);" class="tm-gallery-link"
-                                                                    data-filter="nature">
+                                                                <a href="<?php echo $baseURL . '/hinh-anh-va-video' ?>?page=1&type=3" class="active tm-gallery-link" data-filter="*">
                                                                     <i class="fas fa-video tm-gallery-link-icon"></i>
                                                                     Video công ty
                                                                 </a>
                                                             </li>
                                                         </ul>
-                                                        <hr class="mb-5">
-                                                        <!-- Gallery Items -->
-                                                        <div class="tm-gallery row">
-                                                            <!-- Replace with your gallery items as needed -->
-                                                            <!-- Example Image Gallery Item -->
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh1.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh1.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh3.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh3.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <video controls width="100%" height="auto" loop muted
-                                                                    playsinline>
-                                                                    <source src="images/VietSeiko/video8.mp4"
-                                                                        type="video/mp4">
-                                                                </video>
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/video8.mp4">View more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh4.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh4.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
+                                                        <!-- // render image -->
+                                                        <div class="row">
 
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh5.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh5.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh7.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh7.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh10.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh10.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh12.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh12.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh13.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh13.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh14.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh14.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh15.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh15.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh17.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh17.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh18.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh18.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh19.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh19.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <img src="images/VietSeiko/hinh20.jpg" alt="Image" />
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/hinh20.jpg">View
-                                                                        more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <video controls width="100%" height="auto" loop muted
-                                                                    playsinline>
-                                                                    <source src="images/VietSeiko/video1.mp4"
-                                                                        type="video/mp4">
-                                                                </video>
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/video1.mp4">View more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <video controls width="100%" height="auto" loop muted
-                                                                    playsinline>
-                                                                    <source src="images/VietSeiko/video6.mp4"
-                                                                        type="video/mp4">
-                                                                </video>
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/video6.mp4">View more</a>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <figure class="effect-honey tm-gallery-item nature">
-                                                                <video controls width="100%" height="auto" loop muted
-                                                                    playsinline>
-                                                                    <source src="images/VietSeiko/video7.mp4"
-                                                                        type="video/mp4">
-                                                                </video>
-                                                                <figcaption>
-                                                                    <a href="images/VietSeiko/video7.mp4">View more</a>
-                                                                </figcaption>
-                                                            </figure>
+                                                            <?php
+                                                            $list = $hinhanh_video->getAll_hinhanh_video_andCreatePagination_byType($page, $resultsPerPage, $type);
+                                                            foreach ($list as $index => $value) {
+                                                            ?>
+                                                                <div class="<?php if ($type == 3) echo 'col-sm-6 col-md-6 mt-4';
+                                                                            else echo 'col-sm-6 col-md-4' ?>">
+                                                                    <?php
+                                                                    if ($value['type'] == 3) {
+                                                                        $id_video = $hinhanh_video->getVideoId($value['path']);
+                                                                        $iframe_code = '<iframe width="875" height="492" src="https://www.youtube.com/embed/' . $id_video . '"  frameborder="0" allowfullscreen></iframe>';
+                                                                        echo $iframe_code;
+                                                                    } else {
+                                                                        echo $value['path'];
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                            <?php
+                                                            }
+                                                            ?>
                                                         </div>
+                                                        <!-- page bootstrap -->
+                                                        <?php
+                                                        function generatePagination($currentPage, $totalPages)
+                                                        {
+                                                            $range = 2; // Number of pages before and after the current page to display
+                                                            $output = '';
+                                                            $d = 1;
+                                                            global $totalPages;
+                                                            $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
+                                                            $queryString = $_SERVER["QUERY_STRING"];
+                                                            if ($totalPages > 1) {
+                                                                // Get the current URL without the query string
+                                                                $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
+
+                                                                // Get the current query parameters
+                                                                $queryString = $_SERVER["QUERY_STRING"];
+
+                                                                // Previous button
+                                                                if ($currentPage > 1) {
+                                                                    $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
+                                                                    $output .= '<li class="page-item">';
+                                                                    $output .= '<a class="page-link" href="' . $currentUrl . '?' . getNewQueryString($queryString, 'page', $prevPage) . '" aria-label="Previous">';
+                                                                    $output .= '<span aria-hidden="true">&laquo;</span>';
+                                                                    $output .= '</a>';
+                                                                    $output .= '</li>';
+                                                                }
+
+                                                                for ($i = 1; $i <= $totalPages; $i++) {
+                                                                    $newQueryString = getNewQueryString($queryString, 'page', $i);
+                                                                    if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
+                                                                        $output .= '<li class="page-item';
+                                                                        $output .= ($i == $currentPage) ? ' active">' : '">';
+                                                                        $output .= '<a class="page-link" href="' . $currentUrl . '?' . $newQueryString . '">' . $i . '</a>';
+                                                                        $output .= '</li>';
+                                                                    } elseif (!strpos($output, '<li class="page-item dots">...</li>') || $d < 3) {
+                                                                        if ($d > 2) {
+                                                                            continue;
+                                                                        }
+
+                                                                        $d = $d + 1;
+                                                                        $output .= '<li class="page-item dots">...</li>';
+                                                                    }
+                                                                }
+
+                                                                if ($currentPage < $totalPages) {
+                                                                    $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
+                                                                    $output .= '<li class="page-item">';
+                                                                    $output .= '<a class="page-link" href="' . $currentUrl . '?' . getNewQueryString($queryString, 'page', $nextPage) . '" aria-label="Next">';
+                                                                    $output .= '<span aria-hidden="true">&raquo;</span>';
+                                                                    $output .= '</a>';
+                                                                    $output .= '</li>';
+                                                                }
+                                                            }
+
+                                                            return $output;
+                                                        }
+                                                        $total = count($hinhanh_video->getAll_hinhanh_video_byType($type));
+                                                        $totalPages = ceil(floatval($total) / floatval($resultsPerPage));
+                                                        echo '<ul class="pagination justify-content-center pagination-lg" id="pagination">';
+                                                        echo generatePagination($page, $totalPages);
+                                                        echo '</ul>';
+                                                        echo '<div style="margin-bottom: 20px"> </div>'
+                                                        ?>
+                                                        <?php
+
+                                                        // Function to generate a new query string by replacing or adding a parameter
+                                                        function getNewQueryString($queryString, $parameter, $value)
+                                                        {
+                                                            parse_str($queryString, $params);
+                                                            $params[$parameter] = $value;
+                                                            return http_build_query($params);
+                                                        }
+
+                                                        ?>
                                                     </section>
+
                                                 </div>
+
                                             </div>
+
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -493,11 +463,11 @@ include "header.php";
     <!-- Bootstrap JS và các thư viện liên quan -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
 </body>
 
 </html>
 <?php
-    include "footer.php";
+include "footer.php";
 ?>

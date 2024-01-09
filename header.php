@@ -22,11 +22,13 @@ require "models/job_vietseiko.php";
 require "models/job_NB_f.php";
 require "models/jobs.php";
 require "models/review.php";
+require "models/hinhanh-video-f.php";
 
 require_once "admin/models/kinh_nghiem.php";
 require_once "admin/models/gioi_tinh.php";
 require_once "admin/models/image.php";
 
+$hinhanh_video = new Hinhanh_Video_f;
 $img_f = new Image_f;
 $review = new Review_f;
 $gioitinh = new Gioi_tinh;
@@ -319,57 +321,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         }
     </style>
     <!-- ccs search -->
-    <style>
-        form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #1967d2;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        option {
-            font-size: 17px;
-        }
-
-        .search {
-            padding: 10px 20px;
-            background-color: #1967d2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-left: 20px;
-        }
-
-        #icon-search {
-            font-size: 16px;
-            margin-left: 15px;
-            padding: 8px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .search:hover {
-            background-color: #b0c9ec;
-        }
-    </style>
-
+    
     <style>
         .icon-zalo {
             position: fixed;
@@ -389,14 +341,14 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
 
 <body>
     <!-- LOADING AREA START ===== -->
-    <div class="loading-area">
+    <!-- <div class="loading-area">
         <div class="loading-box"></div>
         <div class="loading-pic">
             <div class="wrapper">
                 <div class="cssload-loader"></div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- LOADING AREA  END ====== -->
 
     <div class="page-wraper">

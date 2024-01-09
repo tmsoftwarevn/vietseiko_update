@@ -77,10 +77,7 @@ if (isset($_GET['type']) == TRUE && $_GET['type'] == "kinhnghiem") {
       <div class="container-fluid">
         <div class="d-flex align-items-center mb-4 flex-wrap">
           <h3 class="me-auto">Ngành nghề</h3>
-          <div>
-            <a href="job_add.php?typeAdd=job-nb" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm ngành nghề mới</a>
-
-          </div>
+          
         </div>
         <form action="" method="post">
           <input type="text" name="name" placeholder="Thêm ngành nghề mới" style="padding: 6px; width: 300px" />

@@ -1,68 +1,59 @@
-
 <?php
 
 $lang = [
 
 	//header
-	'Giới thiệu' => '導入',
+	'Giới thiệu' => 'ご紹介',
 	'Việc làm' => '仕事',
-	'Việc làm tại Việt Nam - Headhunter' => 'ベトナムでの仕事',
-	'Xuất khẩu lao động Nhật Bản' => '日本への労働力輸出',
-	'Kỹ sư & thông dịch viên tại Nhật Bản' => '日本人エンジニア＆通訳',
-	'Việc làm tại Vietseiko' => 'ベトセイコでの仕事',
+	'Việc làm tại Việt Nam - Headhunter' => 'ベトナムでの仕事をご紹介',
+	'Xuất khẩu lao động Nhật Bản' => '技能実習生やエンジニアなど送り出し機関',
+	'Kỹ sư & thông dịch viên tại Nhật Bản' => '日本で高度な人材と通訳者をご紹介',
+	'Việc làm tại Vietseiko' => 'ベトセイコーで従業員を採用する',
 
-	'Công cụ' => 'ツール',
-	'Cẩm nang nghề nghiệp' => 'キャリアハンドブック',
+	'Công cụ' => '関数',
+	'Cẩm nang nghề nghiệp' => '作業ハンドブック',
 	'Tính lương Gross sang Net' => '総給与を純額まで計算する',
 
 	'Tin tức' => 'ニュース',
-	'Liên hệ' => "接触",
+	'Liên hệ' => '連絡先',
 
 	//index
 	'Xem tất cả' => 'すべてを見る',
-	'LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO NGƯỜI LAO ĐỘNG' => '企業と提携 - 従業員に仕事の機会を創出',
-	'CẢM NHẬN CỦA NGƯỜI LAO ĐỘNG' => '従業員の認識',
-	'Với đội ngũ nhân viên nhiệt tình, có quan hệ tốt với nhiều doanh nghiệp Nhật Bản.
-	 Rất phù hợp với các bạn tìm việc tiếng Nhật, xuất khẩu lao động Nhật Bản' => '
-	 熱心なスタッフのチームがあり、多くの日本企業と良好な関係を築いています。日本人求職者や日本の労働力輸出業者に非常に適しています。',
-	'Tỷ lệ chọi thấp, uy tín, luôn quan tâm đến học viên, nhiệt tình trong tư vấn,
-	nhân viên vui vẻ.' => 'マッチング率が低い、評判が良い、常に学生に興味がある、コンサルティングが熱心、スタッフが明るい。',
-	'Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình nên mình rất
-	tin tưởng, các bạn nên tham gia' => '現実的なイメージと熱心なコンサルタントチームを持っているので、ぜひ入社してほしいと思います。',
-	'Công ty uy tín, hỗ trợ tôi rất nhiệt tình trong quá trình tư vấn công việc.' => '評判の良い会社で、仕事のコンサルティングの過程で非常に熱心にサポートしてくれます。',
+	'LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO NGƯỜI LAO ĐỘNG' => '企業との連携 - 労働者に仕事の機会を創出',
+	'CẢM NHẬN CỦA NGƯỜI LAO ĐỘNG' => '労働者の気持ち',
 
 	'Tin mới nhất' => '最新ニュース',
 
 	// tất cả các công việc
 	'Trang chủ' => 'ホームページ',
-	'Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!' => '高給与、フレンドリーな同僚、素晴らしい報酬を備えた良い仕事が何千件もあります',
-	'việc làm phù hợp' => '適職',
+	'Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!' => '高給与、同僚と仲良くなやすい、優れた報酬を備えた数千の良い仕事',
+	'việc làm phù hợp' => '仕事に合う',
 
 	//cam nang
 	'Cẩm nang' => 'ハンドブック',
 	'Tin tức' => 'ニュース',
 
 	// chi tiet cong viec
-	'Chi tiết công việc' => '仕事の詳細',
-	'Mức lương: ' => '賃金：',
-	'Hạn nộp hồ sơ: ' => '提出期限：',
-	'Ứng tuyển ngay ' => '今すぐお申し込みください',
+	'Chi tiết công việc' => '仕事内容',
+	'Mức lương: ' => '給料：',
+	'Hạn nộp hồ sơ: ' => '提出納期：',
+	'Ứng tuyển ngay ' => 'すぐ応募します',
 	'Thông tin việc làm' => '求人情報',
-	'Ngày đăng' => '提出日',
-	'Cấp bậc' => 'ランク',
+	'Ngày đăng' => '求人票を載せる日',
+	'Cấp bậc' => '位置',
 	'Kinh nghiệm' => '経験',
-	'Giới tính' => 'セックス',
-	'Số lượng tuyển' => '採用者数',
-	'Độ tuổi' => '年',
+	'Giới tính' => '性別',
+	'Số lượng tuyển' => '採用人数',
+	'Độ tuổi' => '年齢',
 	'Ngôn ngữ' => '言語',
 
-	'Chi tiết tuyển dụng' => '募集内容',
+	'Chi tiết tuyển dụng' => '募集詳細',
 	'Mô tả công việc:' => '仕事内容：',
-	'Yêu cầu:' => 'リクエスト：',
-	'Quyền lợi:' => '右：',
-	'Thông tin thêm:' => '詳しくは：',
+	'Yêu cầu:' => '条件：',
+	'Quyền lợi:' => '福祉：',
+	'Thông tin thêm:' => '詳しく：',
 
-	'Địa chỉ' => '住所',
+	'Địa chỉ' => '場所',
 	'Quy mô' => '規模',
 	'Thông tin' => '情報',
 
@@ -70,20 +61,17 @@ $lang = [
 	'Chi tiết' => '詳細',
 
 	// form ung tuyen
-	'Ứng Tuyển Vào Vị Trí' => 'ポジションへの応募',
-	'File CV phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.' => 'CV ファイルは .pdf、.doc、.docx 形式で、容量は 2MB 以下である必要があります',
-	'Họ Và Tên' => '名前と苗字',
+	'Ứng Tuyển Vào Vị Trí' => '位置お申し込み',
+	'File CV phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.' => '履歴書ファイルは：pdf, .doc, .docx容量 <= 2MB',
+	'Họ Và Tên' => '名前',
 	'Số Điện Thoại' => '電話番号',
-	'Năm sinh' => '生年',
+	'Năm sinh' => '生年月日',
 	'Mức lương mong muốn' => '希望する給与',
 	'Khu vực mong muốn' => 'ご希望のエリア',
-	'Vị trí ứng tuyển' => '候補者',
-	'Nộp Hồ Sơ' => '提出する',
+	'Vị trí ứng tuyển' => '位置お申し込み',
+	'Nộp Hồ Sơ' => '登録して申請書を提出する',
 
 	//contact
 	'LIÊN HỆ VỚI CHÚNG TÔI' => 'お問い合わせ',
-
-
-
 
 ];

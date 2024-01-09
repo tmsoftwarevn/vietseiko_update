@@ -5,7 +5,7 @@ class Apply extends Db
     // đếm tổng
     static function getAll_cv($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * from ung_tuyen INNER JOIN job ON ung_tuyen.id_job=job.id_job WHERE type_id = ?");
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen  WHERE type_id = ?");
         $sql->bind_param("i", $type_id);
         $sql->execute();      
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -13,7 +13,7 @@ class Apply extends Db
     }
     static function getAll_cv_vietseiko($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * from ung_tuyen INNER JOIN job_vietseiko ON ung_tuyen.id_job=job_vietseiko.id_job WHERE type_id = ?");
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen WHERE type_id = ?");
         $sql->bind_param("i", $type_id);
         $sql->execute();      
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -21,7 +21,7 @@ class Apply extends Db
     }
     static function getAll_cv_xkld($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * from ung_tuyen INNER JOIN job_xkld_nb ON ung_tuyen.id_job=job_xkld_nb.id_job WHERE type_id = ?");
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen WHERE type_id = ?");
         $sql->bind_param("i", $type_id);
         $sql->execute();      
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -30,7 +30,7 @@ class Apply extends Db
     
     static function getAll_cv_ksnb($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * from ung_tuyen INNER JOIN job_kysunb ON ung_tuyen.id_job=job_kysunb.id_job WHERE type_id = ?");
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen WHERE type_id = ?");
         $sql->bind_param("i", $type_id);
         $sql->execute();      
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -47,7 +47,7 @@ class Apply extends Db
     static function getAll_CV_andCreatePagination($page, $resultsPerPage,$type_id)
     {
         $firstLink = ($page - 1) * $resultsPerPage; 
-        $sql = self::$connection->prepare("SELECT ung_tuyen.*,job.job_code,job.id_job from ung_tuyen INNER JOIN job ON ung_tuyen.id_job=job.id_job where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
         $sql->bind_param("i", $type_id);
         $sql->execute();
         $items = array();
@@ -58,7 +58,7 @@ class Apply extends Db
     {
   
         $firstLink = ($page - 1) * $resultsPerPage; 
-        $sql = self::$connection->prepare("SELECT ung_tuyen.*,job_xkld_nb.job_code,job_xkld_nb.id_job from ung_tuyen INNER JOIN job_xkld_nb ON ung_tuyen.id_job=job_xkld_nb.id_job where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
+        $sql = self::$connection->prepare("SELECT * from ung_tuyen where ung_tuyen.type_id = ? order by ung_tuyen.created_at desc LIMIT $firstLink, $resultsPerPage; ");
         $sql->bind_param("i", $type_id);
         $sql->execute();
         $items = array();

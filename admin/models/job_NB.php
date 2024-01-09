@@ -2,10 +2,16 @@
 require_once "db.php";
 class Job_NB extends Db
 {
-    /**
-     * LẤY DỮ LIỆU BẢNG JOB
-     */
-    //Lấy danh sách tất cả job
+    static function get_jobcode($id)
+    {
+        // echo 'check idđ: '.$id;
+        $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb WHERE id_job = ?");
+        $sql->bind_param("i", $id);
+        $sql->execute();
+        $type = $sql->get_result()->fetch_assoc();
+        return $type;
+       
+    }
     static function getAllJob()
     { 
         $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb order by created_at desc");

@@ -349,7 +349,7 @@
                     <div class="giayphep-content">
                         <!-- Giấy phép đưa NLĐ đi làm việc ở nước ngoài -->
                         <div class="giayphep-content-col">
-                            <a href="giayphephoatdongdichvuvieclam.html" class="no-decoration">
+                            <a href="giay-phep-hoat-dong" class="no-decoration">
                                 <!-- Thay YOUR_LINK_1_HERE bằng đường dẫn bạn muốn đặt liên kết -->
                                 <div class="giayphep-content-col-img">
                                     <img src="images/icon_giayphep@3x.png" width="80" height="80"
@@ -365,7 +365,7 @@
                         </div>
 
                         <div class="giayphep-content-col">
-                            <a href="giayphepkinhdoanh.html" class="no-decoration">
+                            <a href="giay-phep-kinh-doanh" class="no-decoration">
                                 <!-- Thay YOUR_LINK_2_HERE bằng đường dẫn bạn muốn đặt liên kết -->
                                 <div class="giayphep-content-col-img">
                                     <img src="images/icon_giayphep@2x.png" width="80" height="80"

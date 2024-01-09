@@ -4,7 +4,7 @@ require_once "header.php";
 require_once "models/db.php";
 
 require_once "models/apply.php";
-
+require_once "models/job_NB.php";
 
 $apply = new Apply;
 $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
@@ -96,12 +96,12 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                                 <?php
                                 $page = 1;
                                 //$resultsPerPage = 10;
-                                $totalResults = count(Apply::getAll_cv_xkld(2));
+                                $totalResults = count(Apply::getAll_cv(2));
                                 if (isset($_GET['page']) == TRUE) {
                                     $page = $_GET['page'];
                                 }
 
-                                $list_of_apply = Apply::getAll_xkld_andCreatePagination($page, $resultsPerPage, 2);
+                                $list_of_apply = Apply::getAll_CV_andCreatePagination($page, $resultsPerPage, 2);
                                 echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
                                 $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
 
@@ -111,7 +111,11 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                                         <td><?php echo $key + 1 ?></td>
                                         <td>
                                             <a href="job_nb_view.php?typeView=job-nb&id=<?php echo $value['id_job'] ?>">
-                                                <?php echo $value['job_code'] ?>
+                                            <?php
+                                                $get_jobcode = Job_NB::get_jobcode($value['id_job']);
+                                                if (!empty($get_jobcode))
+                                                    echo $get_jobcode['job_code'];
+                                                ?>
                                             </a>
                                         </td>
                                         <td><?php echo $value['name'] ?></td>

@@ -87,7 +87,7 @@ class Vietseiko_f extends Db
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty order by job_vietseiko.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty where job_vietseiko.id_trangthai = 1 order by job_vietseiko.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -99,7 +99,7 @@ class Vietseiko_f extends Db
      */
     static function getLatestJob($number_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty ORDER BY created_at DESC LIMIT $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty  where job_vietseiko.id_trangthai = 1 ORDER BY created_at DESC LIMIT $number_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

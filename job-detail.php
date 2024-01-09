@@ -21,36 +21,6 @@ $allJob = $job->getJob_Detail($id);
 $name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
 $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem']);
 
-// if (isset($_POST['submit']) == TRUE && $_POST['submit'] == true) {
-
-//     $file_name = time() . $_FILES["file"]["name"];
-//     $file_type = $_FILES["file"]["type"];
-//     $fileTmpName = $_FILES["file"]["tmp_name"];
-//     $target_dir = "./admin/file-cv/list-file/";
-
-//     if ($file_name && $fileTmpName) {
-//         move_uploaded_file($fileTmpName, $target_dir . $file_name);
-//     }
-// }
-
-// $checkResult  = -1;
-// if (isset($_POST['submit']) == TRUE && $_POST['submit'] == true ) {
-
-//     $link_cv = $file_name;
-
-//     $name = $_POST['name'];
-//     $email = $_POST['email'];
-//     $phone = $_POST['phone'];
-
-//     $namsinh = $_POST['namsinh'];
-//     $mucluong = $_POST['mucluong'];
-//     $khuvuc = $_POST['khuvuc'];
-
-//     $vi_tri = $_POST['vitri'];
-//     $id_job = $_POST['id_job'];
-//     $checkResult = $apply_f->insert_apply($name, $email, $phone, $namsinh, $mucluong, $khuvuc, $vi_tri, $link_cv, $id_job);
-// }
-
 ?>
 
 <style>
@@ -607,7 +577,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <p><?= __('File CV phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.') ?></p>
                 </div>
                 <form action="./admin/file-cv/code/add_file_cv.php" method="POST" enctype="multipart/form-data">
-                    <!-- <form action="" method="post" enctype="multipart/form-data"> -->
+                
                     <button class="btn btn-info btn-block button-upload">
                         <label class="upload-option">
                             <input name="file" id="file" type="file" class="upload-input" accept=".pdf, .doc, .docx" required onchange="handleFileUpload(event)">
@@ -707,11 +677,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
     }
 </script>
 
-<!-- <script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
-</script> -->
+
 <?php
 require_once 'footer.php';
 ?>

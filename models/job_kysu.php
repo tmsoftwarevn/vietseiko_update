@@ -99,7 +99,7 @@ class Job_kysu_f extends Db
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT job_kysunb.*,cty.name,cty.img_cty FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty order by job_kysunb.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT job_kysunb.*,cty.name,cty.img_cty FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty where job_kysunb.id_trangthai = 1 order by job_kysunb.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -111,7 +111,7 @@ class Job_kysu_f extends Db
      */
     static function getLatestJob($number_of_records)
     {
-        $sql = self::$connection->prepare("SELECT * FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty ORDER BY created_at DESC LIMIT $number_of_records");
+        $sql = self::$connection->prepare("SELECT * FROM job_kysunb INNER JOIN cty ON job_kysunb.id_cty = cty.id_cty where job_kysunb.id_trangthai = 1 ORDER BY created_at DESC LIMIT $number_of_records");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

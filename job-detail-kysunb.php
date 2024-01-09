@@ -598,7 +598,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <p id="uploadSuccess" class="text-success mt-2"></p>
 
                     <input name="id_job" value=<?php echo $allJob[0]['id_job'] ?> style="display: none;" />
-                    <input name="type_id" value="1" style="display: none;" />
+                    <input name="type_id" value="3" style="display: none;" />
                     <div class="mb-3">
                         <label for="fullName" class="form-label"><?= __('Họ Và Tên') ?> <span class="text-danger">*</span></label>
                         <input name="name" type="text" class="form-control rounded input-field" id="fullName" required>

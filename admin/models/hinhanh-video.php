@@ -12,12 +12,13 @@ class Hinhanh_Video extends Db
         return $items;
     }
     //Lấy danh sách tất cả sản phẩm và phân trang:
-    static function getAll_hinhanh_video_andCreatePagination($page, $resultsPerPage)
+    public function getAll_hinhanh_video_andCreatePagination($page, $resultsPerPage,$type)
     {
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM hinhanh_video  order by created_at desc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT * FROM hinhanh_video WHERE `type` = ? order by created_at desc LIMIT $firstLink, $resultsPerPage;");
+        $sql->bind_param("i", $type);
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -29,13 +30,20 @@ class Hinhanh_Video extends Db
      */
     public function get_hinhanh_video_ByType($type)
     {
-        $sql = self::$connection->prepare("SELECT * FROM hinhanh_video WHERE type = ?");
+        $sql = self::$connection->prepare("SELECT * FROM hinhanh_video WHERE `type` = ? order by created_at desc ");
         $sql->bind_param("i", $type);
         $sql->execute();
-        $items = $sql->get_result()->fetch_assoc();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-
+    public function get_hinhanh_video_ById($id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM hinhanh_video WHERE id = ?");
+        $sql->bind_param("i", $id);
+        $sql->execute();
+        $item = $sql->get_result()->fetch_assoc();
+        return $item;
+    }
 
     /**
      * XÓA JOB THEO id
@@ -50,16 +58,16 @@ class Hinhanh_Video extends Db
     /**
      * Thêm mới JOB:
      */
-    public function insert_hinhanh_video($img, $video, $logo, $type)
+    public function insert_hinhanh_video($path,$type)
     {
-        $sql = self::$connection->prepare("INSERT INTO `hinhanh_video`(`path_img`, `path_video`, `path_logo`, `type`) 
-        VALUES ('$img','$video','$logo','$type')");
+        $sql = self::$connection->prepare("INSERT INTO `hinhanh_video`(`path`,`type`) 
+        VALUES ('$path','$type')");
         return $sql->execute();
     }
     // update job
-    static function update_hinhanh_video($id, $img, $video, $logo, $type)
+    public function update_hinhanh_video($id, $path)
     {
-        $sql = self::$connection->prepare("UPDATE `hinhanh_video` SET `path_img`='$img',`path_video`='$video',`path_logo`='$logo',`type`='$type' WHERE id = $id");
+        $sql = self::$connection->prepare("UPDATE `hinhanh_video` SET `path`='$path' WHERE id = $id");
 
         return $sql->execute();
     }

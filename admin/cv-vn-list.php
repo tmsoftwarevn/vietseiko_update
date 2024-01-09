@@ -4,7 +4,7 @@ require_once "header.php";
 require_once "models/db.php";
 
 require_once "models/apply.php";
-
+require_once "models/job.php";
 
 $apply = new Apply;
 
@@ -110,7 +110,12 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                                         <td><?php echo $key + 1 ?></td>
                                         <td>
                                             <a href="job_view.php?typeView=job&id=<?php echo $value['id_job'] ?>">
-                                                <?php echo $value['job_code'] ?>
+
+                                                <?php
+                                                $get_jobcode = Job::get_jobcode($value['id_job']);
+                                                if (!empty($get_jobcode))
+                                                    echo $get_jobcode['job_code'];
+                                                ?>
                                             </a>
                                         </td>
                                         <td><?php echo $value['name'] ?></td>

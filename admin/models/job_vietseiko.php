@@ -2,7 +2,16 @@
 require_once "db.php";
 class Vietseiko extends Db
 {
-    
+    static function get_jobcode($id)
+    {
+        // echo 'check idđ: '.$id;
+        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko WHERE id_job = ?");
+        $sql->bind_param("i", $id);
+        $sql->execute();
+        $type = $sql->get_result()->fetch_assoc();
+        return $type;
+       
+    }
     //Lấy danh sách tất cả job
     static function getAllJob()
     {

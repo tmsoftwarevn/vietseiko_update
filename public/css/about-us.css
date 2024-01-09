@@ -1,5 +1,5 @@
 body {
-    font-family: 'math', sans-serif;
+    font-family: 'roboto', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
@@ -57,7 +57,7 @@ h6,
 .panel-title,
 .collapse_large,
 .collapse_small {
-    font-family: inherit;
+    font-family: roboto;
     font-weight: 500;
     color: inherit;
 }
@@ -101,7 +101,7 @@ h6,
 
 .panel-heading span {
     font-size: 16px;
-    font-family: math;
+    font-family: roboto;
 
 }
 
@@ -189,12 +189,12 @@ img {
     cursor: pointer;
 }
 
-/* Sử dụng font-family: math; */
+/* Sử dụng font-family: roboto; */
 body,
 table,
 th,
 td {
-    font-family: math;
+    font-family: roboto;
 }
 
 /* Hiệu ứng khi rê chuột vào */

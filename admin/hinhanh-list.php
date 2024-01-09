@@ -4,10 +4,11 @@ require_once "header.php";
 require_once "models/hinhanh-video.php";
 
 $hinhanh_video = new Hinhanh_Video;
+$resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($_POST['add-img'])) {
-    $img = $_POST['image_f'];
-    $image::insert($name, $img, 0);
+    $anh = $_POST['image_f'];
+    $hinhanh_video->insert_hinhanh_video($anh, 1);
 }
 ?>
 
@@ -26,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 <style>
     .results {
@@ -38,6 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
     }
 </style>
 <style>
+    .image {
+        width: 100px;
+    }
+
+    img {
+        width: 100%;
+    }
+
     .ck-editor__editable[role="textbox"] {
         /* editing area */
         min-height: 300px !important;
@@ -65,46 +75,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
             </div>
 
             <form action="" method="post" class="mt-4">
-              
+
                 <textarea class="form-control" id="image_f" name='image_f'></textarea>
                 <button type="submit" name="add-img" class="btn btn-primary m-5">Thêm ảnh</button>
             </form>
+            <form action="#" method="get">
+                <input type="hidden" name="page" value="1">
+                <label>Số kết quả trong 1 trang</label>
+                <select style="width: 100px;" class="regular-select form-select" name="per">
+                    <option <?php
+                            if ($resultsPerPage == 2) echo 'selected="selected"'
+                            ?> value="2">2</option>
+                    <option <?php
+                            if ($resultsPerPage == 10) echo 'selected="selected"'
+                            ?> value="10">10</option>
+                    <option <?php
+                            if ($resultsPerPage == 20) echo 'selected="selected"'
+                            ?> value="20">20</option>
+                    <option <?php
+                            if ($resultsPerPage == 50) echo 'selected="selected"'
+                            ?> value="50">50</option>
+                    <option <?php
+                            if ($resultsPerPage == 100) echo 'selected="selected"'
+                            ?> value="100">100</option>
+                </select>
 
+                <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+            </form>
             <table id="jobsTable" class="display table table-striped">
                 <thead>
                     <tr>
                         <th>STT</th>
                         <th>Ngày đăng</th>
                         <th>Ngày cập nhật</th>
+                        <th>ảnh</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $list = $hinhanh_video::getAll_hinhanh_video();
-                    foreach ($list_image as $index => $value) {
+                    $page = 1;
+                    //$resultsPerPage = 10;
+                    $totalResults = count($hinhanh_video->get_hinhanh_video_ByType(1));
+                    if (isset($_GET['page']) == TRUE && !empty($_GET['page'])) {
+                        $page = $_GET['page'];
+                    }
+
+                    $list = $hinhanh_video->getAll_hinhanh_video_andCreatePagination($page, $resultsPerPage, 1);
+                    echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
+                    $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
+
+                    foreach ($list as $index => $value) {
                     ?>
                         <tr>
                             <td><?php echo $index + 1 ?></td>
-                            <td><?php echo $value['name'] ?></td>
-                            <td>
-                                <?php
-                                foreach ($all_type as $ind => $item) {
-                                    if ($item['type_id'] == $value['type_id']) {
-                                        echo $item['type_name'];
-                                    }
-                                }
-                                if ($value['type_id'] == 0) {
-                                    echo 'ảnh banner';
-                                }
-                                ?>
-
-                            </td>
                             <td><?php echo $value['created_at'] ?></td>
                             <td><?php echo $value['updated_at'] ?></td>
+                            <td><?php echo $value['path'] ?></td>
                             <td>
                                 <div class="action-buttons d-flex justify-content-end">
-                                    <a href="img-updated.php?id=<?php echo $value['id'] ?>" class="btn btn-secondary light mr-2">
+                                    <a href="hinhanh-update.php?id=<?php echo $value['id'] ?>" class="btn btn-secondary light mr-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
@@ -113,21 +143,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
                                             </g>
                                         </svg>
                                     </a>
-                                    <?php
-                                    if ($value['type_id'] == 0) {
-                                    ?>
-                                        <a onclick="return confirm('Xác nhận muốn xóa Ngành nghề có Stt: <?php echo $index + 1 ?>?')" href="job-vietnam/delete_banner.php?id_banner=<?php echo $value['id']; ?>" class="btn btn-danger light">
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"></rect>
-                                                    <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"></path>
-                                                    <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
-                                                </g>
-                                            </svg>
-                                        </a>
-                                    <?php
-                                    }
-                                    ?>
+
+                                    <a onclick="return confirm('Xác nhận muốn xóa ảnh có Stt: <?php echo $index + 1 ?>?')" href="job-vietnam/delete_hinhanh_video.php?id=<?php echo $value['id']; ?>" class="btn btn-danger light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"></path>
+                                                <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"></path>
+                                            </g>
+                                        </svg>
+                                    </a>
 
                                 </div>
                             </td>
@@ -138,15 +163,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
 
                 </tbody>
             </table>
+            <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
+                <span>Trang <?php echo $page . '/' . $total ?></span>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination my-2 my-md-0">
+                        <?php echo $hinhanh_video::paginate("hinhanh-list.php?per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
     <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+        $('#jobsTable').DataTable({
+
+            "paging": false,
+            "info": false
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Destroy Select2 for the element with the 'regular-select' class
+            $('.regular-select').select2('destroy');
+        });
+    </script>
+    <script>
         ClassicEditor
             .create(document.querySelector('#image_f'), {
                 ckfinder: {
-                    uploadUrl: 'job-vietnam/upload-banner.php'
+                    uploadUrl: 'job-vietnam/upload-hinhanh-video.php'
                 },
             })
             .then(editor => {
