@@ -68,6 +68,18 @@ class Job_f extends Db
             }
         }
     }
+    // max 20 job, asc : ngày gần hết nhất lên đầu.
+    static function getJob_tuyen_gap($number)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM job
+        INNER JOIN cty ON job.id_cty = cty.id_cty
+        WHERE id_trangthai = 1 AND ngaycuoicung <= DATE_ADD(CURDATE(), INTERVAL 15 DAY)
+        ORDER BY created_at ASC LIMIT $number");
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items;
+    }
     static function getJobCarousel($number)
     {
         $sql = self::$connection->prepare("SELECT * FROM job INNER JOIN cty ON job.id_cty = cty.id_cty where id_trangthai=1 ORDER BY created_at DESC LIMIT $number");
@@ -104,7 +116,7 @@ class Job_f extends Db
     static function getAllJob_andCreatePagination($page, $resultsPerPage)
     {
         $firstLink = ($page - 1) * $resultsPerPage;
-        $sql = self::$connection->prepare("SELECT job.*,cty.name,cty.img_cty FROM job INNER JOIN cty ON job.id_cty = cty.id_cty where job.id_trangthai = 1 order by job.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT job.*,cty.name,cty.img_cty FROM job INNER JOIN cty ON job.id_cty = cty.id_cty where job.id_trangthai = 1 order by job.updated_at desc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

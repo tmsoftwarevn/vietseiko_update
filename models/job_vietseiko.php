@@ -69,9 +69,18 @@ class Vietseiko_f extends Db
             }
         }
     }
-    /**
-     * LẤY DỮ LIỆU BẢNG JOB
-     */
+     // max 20 job, asc : ngày gần hết nhất lên đầu.
+     static function getJob_tuyen_gap($number)
+     {
+         $sql = self::$connection->prepare("SELECT * FROM job_vietseiko
+         INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty
+         WHERE id_trangthai = 1 AND ngaycuoicung <= DATE_ADD(CURDATE(), INTERVAL 15 DAY)
+         ORDER BY created_at ASC LIMIT $number");
+         $sql->execute();
+         $items = array();
+         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+         return $items;
+     }
     //Lấy danh sách tất cả job
     static function getAllJob()
     {
@@ -87,7 +96,7 @@ class Vietseiko_f extends Db
         //Tính xem nên bắt đầu hiển thị từ trang có số thứ tự là bao nhiêu:
         $firstLink = ($page - 1) * $resultsPerPage; //(Trang hiện tại - 1) * (Số kết quả hiển thị trên 1 trang).
         //Dùng LIMIT để giới hạn số lượng kết quả được hiển thị trên 1 trang:
-        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty where job_vietseiko.id_trangthai = 1 order by job_vietseiko.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage;");
+        $sql = self::$connection->prepare("SELECT * FROM job_vietseiko INNER JOIN cty ON job_vietseiko.id_cty = cty.id_cty where job_vietseiko.id_trangthai = 1 order by job_vietseiko.updated_at desc LIMIT $firstLink, $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

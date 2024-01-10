@@ -6,9 +6,9 @@ $id_diachi = 'all';
 
 $totalJob = 1;
 $page = 1;
-$resultsPerPage = 3;
+$resultsPerPage = 8;
 
-
+$job_tyen_gap = $job_nb::getJob_tuyen_gap(20);
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 } else {
@@ -39,12 +39,12 @@ if (
     $diachi = 'all';
     if ($id_diachi != 'all')
         $diachi = $list_custom_tinhthanh[$id_diachi];
-        echo 'check dc: '.$diachi;
+    echo 'check dc: ' . $diachi;
     //search all, tính tổng
-    $kq = $job_nb::searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$diachi);
+    $kq = $job_nb::searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi);
     $totalPages = ceil(floatval(count($kq)) / floatval($resultsPerPage));
     // phân trang
-    $search_phantrang = $job_nb::searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh,$diachi, $page, $resultsPerPage);
+    $search_phantrang = $job_nb::searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $page, $resultsPerPage);
     $allJob = $search_phantrang;
     $totalJob = count($kq);
 } else {
@@ -55,7 +55,8 @@ if (
 
 ?>
 <style>
-    <?php include 'public/scss/list-job.scss'; ?>
+    <?php include 'public/scss/list-job.scss';
+    include 'public/scss/job-viec-lam-gap.scss'; ?>
 </style>
 <style>
     form {
@@ -95,10 +96,12 @@ if (
         cursor: pointer;
         font-size: 14px;
     }
+
     .btn-search i {
         margin-right: 10px;
         font-size: 18px;
     }
+
     .btn-search:hover {
         background-color: #195191;
     }
@@ -208,7 +211,7 @@ if (
                         </select>
                     </div>
                     <div class="col-md-2 mt-3 d-flex justify-content-center">
-                    <button type="submit" class="btn-search"><i class="bi bi-search"></i>Tìm việc</button>
+                        <button type="submit" class="btn-search"><i class="bi bi-search"></i>Tìm việc</button>
                     </div>
                 </div>
             </form>
@@ -218,86 +221,148 @@ if (
     <div class="container-css">
 
         <div class="content-list">
-            <p style="font-weight: 500;"><span style="color: red;"><?php echo $totalJob ?> </span> <?= __('việc làm phù hợp') ?></p>
-            <?php
-            foreach ($allJob as $key => $value) {
-            ?>
-                <div class="card-list" id='job-vietnam'>
-                    <div class="group-info">
-                        <?php
+            <div class="row">
+                <div class="col-md-9" style="margin-top: 30px;">
+                    <p style="font-weight: 500;"><span style="color: red;"><?php echo $totalJob ?> </span> <?= __('việc làm phù hợp') ?></p>
+                    <?php
+                    foreach ($allJob as $key => $value) {
+                    ?>
+                        <div class="card-list" id='job-vietnam'>
+                            <div class="group-info">
+                                <?php
 
-                        if ($value['id_cty'] == 1) {
-                        ?>
-                            <div class="company-logo">
-                                <img src="public/images/logo.png" />
-                            </div>
-                        <?php
-                        } else {
-                        ?>
-                            <div class="company-logo">
-                                <?php echo $value['img_cty'] ?>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                        <div class="content">
-                            <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
-                                <div class="chucvu">
-                                    <?php echo $value['chucvu'] ?>
-                                </div>
-                            </a>
-
-                            <?php
-                            if ($value['id_cty'] == 1) {
-                            ?>
-                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
-                                    <div class="name_cty">
-                                        <?php echo $value['diachi_cuthe'] ?>
+                                if ($value['id_cty'] == 1) {
+                                ?>
+                                    <div class="company-logo">
+                                        <img src="public/images/logo.png" />
                                     </div>
-                                </a>
-                            <?php
-                            } else {
-                            ?>
-                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
-                                    <div class="name_cty">
-                                        <?php echo $value['name'] ?>
+                                <?php
+                                } else {
+                                ?>
+                                    <div class="company-logo">
+                                        <?php echo $value['img_cty'] ?>
                                     </div>
-                                </a>
-                            <?php
-                            }
-                            ?>
+                                <?php
+                                }
+                                ?>
+                                <div class="content">
+                                    <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
+                                        <div class="chucvu">
+                                            <?php echo $value['chucvu'] ?>
+                                        </div>
+                                    </a>
 
-                            <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+                                    <?php
+                                    if ($value['id_cty'] == 1) {
+                                    ?>
+                                        <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
+                                            <div class="name_cty">
+                                                <?php echo $value['diachi_cuthe'] ?>
+                                            </div>
+                                        </a>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
+                                            <div class="name_cty">
+                                                <?php echo $value['name'] ?>
+                                            </div>
+                                        </a>
+                                    <?php
+                                    }
+                                    ?>
 
-                                <?php echo $value['diachi'] ?>
-                            </div>
-                            <!-- <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+                                    <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+
+                                        <?php echo $value['diachi'] ?>
+                                    </div>
+                                    <!-- <div style="font-weight: 500;color: #636e72;font-size: 13px;">
                                 <?php
                                 $dateTime = new DateTime($value['updated_at']);
                                 $formattedDate = $dateTime->format('d/m/Y');
                                 echo 'Cập nhật: ' . $formattedDate;
                                 ?>
                             </div> -->
-                            <div style="font-weight: 500;color: #636e72;font-size: 13px;">
-                                <?php
-                                $ngayHienTai = new DateTime();
-                                $ngayDen = new DateTime($value['ngaycuoicung']);
-                                $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
-                                if ($soNgayConLai <= 0) {
-                                    echo 'Ngày cuối cùng để ứng tuyển';
-                                } else
-                                    echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
-                                ?>
+                                    <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+                                        <?php
+                                        $ngayHienTai = new DateTime();
+                                        $ngayDen = new DateTime($value['ngaycuoicung']);
+                                        $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
+                                        if ($soNgayConLai <= 0) {
+                                            echo 'Ngày cuối cùng để ứng tuyển';
+                                        } else
+                                            echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="salary">
+                                <?php echo $value['mucluong'] ?>
                             </div>
                         </div>
-                    </div>
-                    <div class="salary">
-                        <?php echo $value['mucluong'] ?>
-                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
-            <?php
-            }
-            ?>
+                <div class="col-md-3" style="margin-top: 30px;">
+                    <div class="title-tuyen-gap">Công việc tuyển gấp</div>
+                    <?php
+                    foreach ($job_tyen_gap as $key => $value) {
+                    ?>
+                        <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
+
+                            <div class="card-job-gap mt-3">
+                                <div class="chucvu">
+                                    <?php echo $value['chucvu'] ?>
+                                </div>
+                                <div class="group-info">
+
+                                    <?php
+                                    if ($value['id_cty'] == 1) {
+                                    ?>
+                                        <div class="company-logo">
+                                            <img src="public/images/logo.png" />
+                                        </div>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <div class="company-logo">
+                                            <?php echo $value['img_cty'] ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <div class="content">
+                                        <?php
+                                        if ($value['id_cty'] == 1) {
+                                        ?>
+                                            <div class="name_cty">
+                                                <?php echo $value['diachi_cuthe'] ?>
+                                            </div>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <div class="name_cty">
+                                                <?php echo $value['name'] ?>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                        <div style="font-weight: 500;color: #636e72;font-size: 14px;">
+                                            <i class="bi bi-cash" style="margin-right: 5px;"></i>
+                                            <?php echo $value['mucluong'] ?>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
         </div>
 
         <!-- page bootstrap -->
@@ -307,16 +372,16 @@ if (
             $range = 2; // Number of pages before and after the current page to display
             $output = '';
             $d = 1;
-    
+
             $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
             $queryString = $_SERVER["QUERY_STRING"];
             if ($totalPages > 1) {
                 // Get the current URL without the query string
                 $currentUrl = strtok($_SERVER["REQUEST_URI"], '?');
-            
+
                 // Get the current query parameters
                 $queryString = $_SERVER["QUERY_STRING"];
-            
+
                 // Previous button
                 if ($currentPage > 1) {
                     $prevPage = ($currentPage > 1) ? $currentPage - 1 : 1;
@@ -326,7 +391,7 @@ if (
                     $output .= '</a>';
                     $output .= '</li>';
                 }
-            
+
                 for ($i = 1; $i <= $totalPages; $i++) {
                     $newQueryString = getNewQueryString($queryString, 'page', $i);
                     if ($i == 1 || $i == $totalPages || ($i >= $currentPage - $range && $i <= $currentPage + $range)) {
@@ -338,12 +403,12 @@ if (
                         if ($d > 2) {
                             continue;
                         }
-            
+
                         $d = $d + 1;
                         $output .= '<li class="page-item dots">...</li>';
                     }
                 }
-            
+
                 if ($currentPage < $totalPages) {
                     $nextPage = ($currentPage < $totalPages) ? $currentPage + 1 : $totalPages;
                     $output .= '<li class="page-item">';

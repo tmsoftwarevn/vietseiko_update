@@ -1,0 +1,86 @@
+:root {
+    --main-color: #1967d2;
+    --bg-color: #f2f7ff;
+    --border-color: #b0c9ec;
+    --suport-main-color: #ed1b24;
+}
+.title-tuyen-gap{
+    border-left: 6px solid #1967d2;
+    color: #212f3f;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    line-height: 28px;
+    //margin: 60px 0 20px;
+    padding-left: 10px;
+}
+.card-job-gap {
+    padding: 14px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    //height: 121px;
+    &:hover {
+        cursor: pointer;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background-color: var(--bg-color);
+        //background-color: #3f6eaf;
+    }
+    .chucvu {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+    .group-info {
+        display: flex;
+        align-items: center;
+
+        .company-logo {
+            width: 50px;
+            display: flex;
+            align-items: center;
+            img {
+                width: 100%;
+            }
+        }
+        .content {
+            margin-left: 10px;
+            max-width: calc(100% - 60px);
+            .name_cty {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-weight: 500;
+                @media only screen and (max-width: 576px) {
+                    max-width: 100%;
+                    box-sizing: content-box;
+                }
+                @media only screen and (min-width: 577px) and (max-width: 767px) {
+                    max-width: 100%;
+                    box-sizing: content-box;
+                }
+                @media only screen and (min-width: 768px) and (max-width: 991px) {
+                    max-width: 100%;
+                    box-sizing: content-box;
+                }
+                @media only screen and (min-width: 992px) and (max-width: 1199px) {
+                    max-width: 100%;
+                    box-sizing: content-box;
+                }
+                @media only screen and (min-width: 1200px) {
+                    max-width: 100%;
+                    box-sizing: content-box;
+                }
+            }
+            span {
+                padding: 3px 8px;
+                background-color: #f4f5f5;
+                border-radius: 3px;
+                margin-right: 5px;
+            }
+        }
+    }
+}
