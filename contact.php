@@ -4,6 +4,7 @@ require_once 'header.php';
 <style>
     <?php include 'scss-client/contact.scss'; ?>
 </style>
+<title>Liên hệ</title>
 <!-- CONTENT START -->
 <div class="page-content">
     <!-- INNER PAGE BANNER -->

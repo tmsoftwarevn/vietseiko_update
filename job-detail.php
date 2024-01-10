@@ -4,6 +4,9 @@ include 'header.php';
 require_once "./admin/models/gioi_tinh.php";
 require_once "./admin/models/kinh_nghiem.php";
 require_once "./admin/models/apply.php";
+
+$banner = $img_f->getAll_imgBy_id(1);
+
 $apply_f = new Apply;
 $gioitinh = new Gioi_tinh;
 $kinh_nghiem = new Kinh_nghiem;
@@ -98,7 +101,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <div class="twm-job-self-info">
                                     <div class="twm-job-self-top">
                                         <div class="twm-media-bg">
-                                            <img src="images/job-detail-bg.jpg" alt="anh" />
+                                            <?php echo $banner[0]['img'] ?>
                                         </div>
 
                                         <div class="twm-mid-content">
@@ -607,22 +610,22 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label"><?= __('Năm sinh') ?> <span class="text-danger">*</span></label>
                         <input required name="namsinh" type="text" class="form-control rounded input-field" id="phoneNumber">
-                        <span id="phoneNumberError" class="text-danger"></span>
+                       
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label"><?= __('Mức lương mong muốn') ?> <span class="text-danger">*</span></label>
                         <input required name="mucluong" type="text" class="form-control rounded input-field" id="phoneNumber">
-                        <span id="phoneNumberError" class="text-danger"></span>
+                     
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label"><?= __('Khu vực mong muốn') ?> <span class="text-danger">*</span></label>
                         <input required name="khuvuc" type="text" class="form-control rounded input-field" id="phoneNumber">
-                        <span id="phoneNumberError" class="text-danger"></span>
+                        
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label"><?= __('Vị trí ứng tuyển') ?> <span class="text-danger">*</span></label>
                         <input required name="vitri" type="text" class="form-control rounded input-field" id="phoneNumber">
-                        <span id="phoneNumberError" class="text-danger"></span>
+                       
                     </div>
                     <hr>
                     <div class="card-footer mt-3 d-flex justify-content-between align-items-center">

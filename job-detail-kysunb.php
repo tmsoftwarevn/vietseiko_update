@@ -3,6 +3,8 @@ include 'header.php';
 
 require_once "./admin/models/gioi_tinh.php";
 require_once "./admin/models/kinh_nghiem.php";
+
+$banner = $img_f->getAll_imgBy_id(3);
 $gioitinh = new Gioi_tinh;
 $kinh_nghiem = new Kinh_nghiem;
 
@@ -88,7 +90,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <div class="twm-job-self-info">
                                     <div class="twm-job-self-top">
                                         <div class="twm-media-bg">
-                                            <img src="images/job-detail-bg.jpg" alt="anh" />
+                                        <?php echo $banner[0]['img'] ?>
                                         </div>
 
                                         <div class="twm-mid-content">

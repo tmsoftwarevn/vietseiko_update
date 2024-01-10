@@ -2,6 +2,7 @@
 include 'header.php';
 require_once "models/jobs.php";
 
+
 $list_custom_tinhthanh = $form_contact->list_tinh();
 $id_diachi = 'all';
 
@@ -57,6 +58,7 @@ if (
 <style>
     <?php include 'public/scss/list-job.scss'; ?>
 </style>
+
 <style>
     form {
         display: flex;
@@ -84,28 +86,6 @@ if (
     option {
         font-size: 17px;
     }
-
-    .search {
-        padding: 10px 20px;
-        background-color: #1967d2;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-left: 20px;
-    }
-
-    #icon-search {
-        font-size: 16px;
-        margin-left: 15px;
-        padding: 8px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .search:hover {
-        background-color: #b0c9ec;
-    }
 </style>
 
 <style>
@@ -116,9 +96,9 @@ if (
 
     .icon-container i {
         font-size: 24px;
-     
+
         color: #3498db;
-        
+
         cursor: pointer;
         transition: color 0.3s;
         animation: pulse 2s infinite;
@@ -128,11 +108,40 @@ if (
         color: #1967d2;
         cursor: pointer;
     }
+
     @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+        0% {
+            transform: scale(1);
         }
+
+        50% {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .btn-search {
+        width: 100%;
+        background-color: #1967d2;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .btn-search i {
+        margin-right: 10px;
+        font-size: 18px;
+    }
+
+    .btn-search:hover {
+        background-color: #195191;
+    }
 </style>
 <title><?= __('Việc làm tại Việt Nam') ?></title>
 <!-- CONTENT START -->
@@ -169,7 +178,7 @@ if (
             <form method="get" action="">
                 <input type="hidden" name="page" value="1">
                 <div class="row ">
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
                         <select name="id_nganhnghe">
                             <option value="all">Tất cả ngành nghề</option>
                             <?php
@@ -184,7 +193,7 @@ if (
                             ?>
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
                         <select name="id_hinhthuc">
                             <option value="all">Tất cả hình thức</option>
                             <?php
@@ -198,7 +207,7 @@ if (
 
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
                         <select name="id_kinhnghiem">
                             <option value="all">Tất cả kinh nghiệm</option>
                             <?php
@@ -212,7 +221,7 @@ if (
 
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
                         <select name="id_gioitinh">
                             <option value="all">Tất cả giới tính</option>
                             <option <?php
@@ -226,7 +235,7 @@ if (
                                     ?> value="3">Không yêu cầu</option>
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
 
                         <select name="id_diachi">
                             <option value="all">Tất cả khu vực</option>
@@ -243,8 +252,8 @@ if (
                             ?>
                         </select>
                     </div>
-                    <div class="col-2">
-                        <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
+                    <div class="col-md-2 mt-3 d-flex justify-content-center">
+                        <button type="submit" class="btn-search"><i class="bi bi-search"></i>Tìm việc</button>
                     </div>
                 </div>
             </form>
@@ -254,87 +263,91 @@ if (
     <div class="container-css">
 
         <div class="content-list">
-            <p style="font-weight: 500;"><span style="color: red;"><?php echo $totalJob ?> </span><?= __('việc làm phù hợp') ?></p>
-
-            <?php
-            foreach ($allJob as $key => $value) {
-            ?>
-                <div class="card-list" id='job-vietnam'>
-                    <div class="group-info">
-                        <?php
-
-                        if ($value['id_cty'] == 1) {
-                        ?>
-                            <div class="company-logo">
-                                <img src="public/images/logo.png" />
-                            </div>
-                        <?php
-                        } else {
-                        ?>
-                            <div class="company-logo">
-                                <?php echo $value['img_cty'] ?>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                        <div class="content">
-                            <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
-                                <div class="chucvu">
-                                    <?php echo $value['chucvu'] ?>
-                                </div>
-                            </a>
-
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4"></div>
+                
+                <p style="font-weight: 500;"><span style="color: red;"><?php echo $totalJob ?> </span><?= __('việc làm phù hợp') ?></p>
+                <?php
+                foreach ($allJob as $key => $value) {
+                ?>
+                    <div class="card-list" id='job-vietnam'>
+                        <div class="group-info">
                             <?php
+
                             if ($value['id_cty'] == 1) {
                             ?>
-                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
-                                    <div class="name_cty">
-                                        <?php echo $value['diachi_cuthe'] ?>
-                                    </div>
-                                </a>
+                                <div class="company-logo">
+                                    <img src="public/images/logo.png" />
+                                </div>
                             <?php
                             } else {
                             ?>
-                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
-                                    <div class="name_cty">
-                                        <?php echo $value['name'] ?>
-                                    </div>
-                                </a>
+                                <div class="company-logo">
+                                    <?php echo $value['img_cty'] ?>
+                                </div>
                             <?php
                             }
                             ?>
+                            <div class="content">
+                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
+                                    <div class="chucvu">
+                                        <?php echo $value['chucvu'] ?>
+                                    </div>
+                                </a>
 
-                            <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+                                <?php
+                                if ($value['id_cty'] == 1) {
+                                ?>
+                                    <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
+                                        <div class="name_cty">
+                                            <?php echo $value['diachi_cuthe'] ?>
+                                        </div>
+                                    </a>
+                                <?php
+                                } else {
+                                ?>
+                                    <a href="<?php echo 'viec-lam-tai-viet-nam/' . $value['slug'] ?>-<?php echo $value['id_job'] ?>.html">
+                                        <div class="name_cty">
+                                            <?php echo $value['name'] ?>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
 
-                                <?php echo $value['diachi'] ?>
-                            </div>
-                            <!-- <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+                                <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+
+                                    <?php echo $value['diachi'] ?>
+                                </div>
+                                <!-- <div style="font-weight: 500;color: #636e72;font-size: 13px;">
                                 <?php
                                 $dateTime = new DateTime($value['updated_at']);
                                 $formattedDate = $dateTime->format('d/m/Y');
                                 echo 'Cập nhật: ' . $formattedDate;
                                 ?>
                             </div> -->
-                            <div style="font-weight: 500;color: #636e72;font-size: 13px;">
-                                <?php
-                                $ngayHienTai = new DateTime();
-                                $ngayDen = new DateTime($value['ngaycuoicung']);
-                                $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
-                                if ($soNgayConLai <= 0) {
-                                    echo 'Ngày cuối cùng để ứng tuyển';
-                                } else
-                                    echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
-                                ?>
+                                <div style="font-weight: 500;color: #636e72;font-size: 13px;">
+                                    <?php
+                                    $ngayHienTai = new DateTime();
+                                    $ngayDen = new DateTime($value['ngaycuoicung']);
+                                    $soNgayConLai = $ngayHienTai->diff($ngayDen)->format('%a');
+                                    if ($soNgayConLai <= 0) {
+                                        echo 'Ngày cuối cùng để ứng tuyển';
+                                    } else
+                                        echo 'Bạn còn ' . '<span style="color: #ed1b24">' . $soNgayConLai . '</span>' . ' ngày để ứng tuyển';
+                                    ?>
+                                </div>
                             </div>
                         </div>
+                        <div class="salary">
+                            <?php echo $value['mucluong'] ?>
+                        </div>
                     </div>
-                    <div class="salary">
-                        <?php echo $value['mucluong'] ?>
-                    </div>
-                </div>
-            <?php
-            }
-            ?>
+                <?php
+                }
+                ?>
+            </div>
         </div>
 
         <!-- page bootstrap -->

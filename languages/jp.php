@@ -74,4 +74,9 @@ $lang = [
 	//contact
 	'LIÊN HỆ VỚI CHÚNG TÔI' => 'お問い合わせ',
 
+	'Chi tiết cẩm nang' =>'ハンドブックの詳細',
+	'Chi tiết tin tức' =>'ニュース詳細',
+	'Tin tức liên quan' =>'関連ニュース',
+	'Cẩm nang liên quan'=>'関連ハンドブック'
+
 ];

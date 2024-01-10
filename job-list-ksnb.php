@@ -86,26 +86,23 @@ if (
         font-size: 17px;
     }
 
-    .search {
-        padding: 10px 20px;
+   
+    .btn-search {
+        width: 100%;
         background-color: #1967d2;
         color: white;
+        padding: 5px 20px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        margin-left: 20px;
+        font-size: 14px;
     }
-
-    #icon-search {
-        font-size: 16px;
-        margin-left: 15px;
-        padding: 8px;
-        border: none;
-        cursor: pointer;
+    .btn-search i {
+        margin-right: 10px;
+        font-size: 18px;
     }
-
-    .search:hover {
-        background-color: #b0c9ec;
+    .btn-search:hover {
+        background-color: #195191;
     }
 </style>
 <title>Việc làm kỹ sư và thông dịch tại Nhật Bản</title>
@@ -138,7 +135,7 @@ if (
             <form method="get" action="">
                 <input type="hidden" name="page" value="1">
                 <div class="row ">
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
                         <select name="id_nganhnghe">
                             <option value="all">Tất cả ngành nghề</option>
                             <?php
@@ -153,7 +150,7 @@ if (
                             ?>
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
                         <select name="id_hinhthuc">
                             <option value="all">Tất cả hình thức</option>
                             <?php
@@ -167,7 +164,7 @@ if (
 
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
                         <select name="id_kinhnghiem">
                             <option value="all">Tất cả kinh nghiệm</option>
                             <?php
@@ -181,7 +178,7 @@ if (
 
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
                         <select name="id_gioitinh">
                             <option value="all">Tất cả giới tính</option>
                             <option <?php
@@ -195,7 +192,7 @@ if (
                                     ?> value="3">Không yêu cầu</option>
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 mt-3">
 
                         <select name="id_diachi">
                             <option value="all">Tất cả khu vực</option>
@@ -212,11 +209,10 @@ if (
                             ?>
                         </select>
                     </div>
-                    <div class="col-2">
-                        <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
+                    <div class="col-md-2 mt-3 d-flex justify-content-center">
+                    <button type="submit" class="btn-search"><i class="bi bi-search"></i>Tìm việc</button>
                     </div>
                 </div>
-
             </form>
         </div>
 

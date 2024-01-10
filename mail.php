@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $address = $_POST['address'];
     $address_h = $_POST['address-h'];
 
-    $get_name_nn = $name_nganhnghe ->getNganhngheName($nganhnghe);
+    $get_name_nn = $name_nganhnghe->getNganhngheName($nganhnghe);
 
-  
+
     // return;
     // Tạo đối tượng PHPMailer
     $mail = new PHPMailer();
@@ -45,27 +45,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->isHTML(true);
 
     // thông tin mk mail console
-    $mail->Username = 'khongtenzzz1111@gmail.com';
-    $mail->Password = 'pmoe okjr homu kzzf';
+    
+    $mail->Username = 'vietseikohanhdong@gmail.com';
+    $mail->Password = 'vpoi kpzu brou firt';
 
     //thông tin người gửi
     $mail->setFrom($email, $name);
 
     //email người nhận
 
-    //$recipientEmail = 'admin@vietseiko.com';
-    $recipientEmail = 'khongtenzzz1111@gmail.com';
-    
-    $recipientName = 'khongten';
+    $recipientEmail = 'admin@vietseiko.com';
+    $recipientName = 'vietseiko';
+
+
     $mail->addAddress($recipientEmail, $recipientName);
 
     $mail->CharSet = "UTF-8";
-    if($type== 1) $job_name = 'Việc làm tại Việt Nam';
-    if($type== 2) $job_name = 'XKLD Nhật Bản';
-    if($type== 3) $job_name = 'Kỹ sư và thông dịch viên Nhật Bản';
-    if($type== 4) $job_name = 'Việc làm tại VietSeiko';
+    if ($type == 1) $job_name = 'Việc làm tại Việt Nam';
+    if ($type == 2) $job_name = 'XKLD Nhật Bản';
+    if ($type == 3) $job_name = 'Kỹ sư và thông dịch viên Nhật Bản';
+    if ($type == 4) $job_name = 'Việc làm tại VietSeiko';
 
-    $mail->Subject = 'Mail từ website VietSeiko';
+    $mail->Subject = 'Mail từ website VietSeiko: Liên Hệ';
     $mail->Body = "Bạn nhận được liên hệ công việc thuộc: $job_name <br><br>";
     $mail->Body .= "Họ tên: $name<br>";
     $mail->Body .= "Email: $email<br>";

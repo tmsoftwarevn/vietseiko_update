@@ -27,42 +27,175 @@ $xkld = $img_f->getAll_imgBy_id(2);
 $ksnb = $img_f->getAll_imgBy_id(3);
 $vsk = $img_f->getAll_imgBy_id(4);
 
+//// get all name job to search
+
+$list = $search_f->search_custom($job::getAllJob(), $job_nb::getAllJob(), $job_kysu::getAllJob(), $job_vietseiko::getAllJob());
+$list_search = json_encode($list);
+
 ?>
 
 <!-- ------------ -->
 
 <style>
     <?php include 'public/scss/custom.scss';
-    include 'public/scss/banner.scss'; ?>select {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-right: 10px;
-    }
-
-    option {
-        font-size: 17px;
-    }
-
-    .slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .slide {
-        min-width: 100%;
-    }
-
-    .col-lg-4 {
+    include 'public/scss/banner.scss'; ?>.col-lg-4 {
         padding: 5px !important;
     }
 </style>
+<!-- /// search---------- -->
+<!-- <style>
+    .card-search {
+        margin-top: 130px;
+    }
 
+    .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        z-index: 99;
+    }
+
+    @media only screen and (max-width: 576px) {
+        .card-search {
+            margin-top: 80px;
+        }
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .search-input:focus {
+        border-color: red;
+    }
+
+    .search-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #555;
+    }
+
+    .search-results {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1;
+    }
+
+    .search-results-item {
+        text-align: left;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .search-results-item:hover {
+        background-color: #f0f0f0;
+    }
+</style> -->
+<style>
+    .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input,
+        .search-select {
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus,
+        .search-select:focus {
+            border-color: #3498db;
+        }
+
+        .search-button {
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .search-button:hover {
+            background-color: #2980b9;
+        }
+</style>
 <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <!-- CONTENT START -->
 <div class="test" style="display: none;"></div>
 <div class="container">
-    <div class="owl-carousel carousel-banner-home banner-home">
+    <!-- // form search -->
+    <!-- <div class="card-search">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Tìm kiếm" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div> -->
+    <form class="flex" style="margin-top: 150px;">
+        <div class="search-container">
+            <label for="search-input" class="sr-only">Search</label>
+            <input type="search" id="search-input" class="search-input" placeholder="Search...">
+        </div>
+        <div class="search-container">
+            <label for="category-select" class="sr-only">Category</label>
+            <select id="category-select" class="search-select">
+                <option value="category1">Category 1</option>
+                <option value="category2">Category 2</option>
+                <option value="category3">Category 3</option>
+            </select>
+        </div>
+        <div class="search-container">
+            <label for="location-select" class="sr-only">Location</label>
+            <select id="location-select" class="search-select">
+                <option value="location1">Location 1</option>
+                <option value="location2">Location 2</option>
+                <option value="location3">Location 3</option>
+            </select>
+        </div>
+        <button type="submit" class="search-button">
+            Search
+        </button>
+    </form>
+    <div class="owl-carousel carousel-banner-home banner-home mt-5">
         <?php
         foreach ($list_banner as $key => $value) {
         ?>
@@ -78,195 +211,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
 </div>
 
 <div class="page-content">
-    <!--Banner Start-->
 
-    <!-- <div class="twm-home1-banner-section site-bg-gray bg-cover" style="background-image: url(images/main-slider/slider1/bg1.jpg)">
-        <div class="row">
-
-            <div class="col-xl-6 col-lg-6 col-md-12">
-                <div class="twm-bnr-left-section">
-
-                    <div class="twm-bnr-title-large" style="text-align: center;">
-                        Tìm <span class="site-text-primary">công việc</span> phù hợp với nhu cầu của bạn
-                    </div>
-
-
-                    <div class="twm-bnr-search-bar">
-                        <form action="search-list.php" method="get">
-                            <div class="row">
-
-                                <div class="form-group1 col-xl-3 col-lg-3 col-md-12">
-                                    <label>Chọn ngành</label>
-                                    <select class="form-select" style="cursor: pointer;">
-                                        <option value="all">Tất cả</option>
-                                        <?php
-                                        foreach ($form_contact::getAllNganh_ung_tuyen() as $key => $value) {
-                                        ?>
-                                            <option value="<?php echo $value['id_nganhnghe'] ?>">
-                                                <?php echo $value['name_nganhnghe'] ?>
-                                            </option>
-                                        <?php } ?>
-
-                                    </select>
-                                </div>
-
-                                <div class="form-group1 col-xl-3 col-lg-3 col-md-12 ">
-                                    <label>Hình thức</label>
-                                    <select class="form-select" style="cursor: pointer;">
-                                        <option value="all">Tất cả</option>
-                                        <?php
-                                        foreach ($hinhthuc->getAllHinhThuc() as $key => $value) { ?>
-                                            <option value="<?php echo $value['id_hinhthuc'] ?>">
-                                                <?php echo $value['name_hinhthuc'] ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-
-
-                                <div class="form-group1 col-xl-3 col-lg-3 col-md-12">
-                                    <label>Khu vực</label>
-                                    <div class="twm-inputicon-box">
-                                        <select class="form-select" required name="location" style="cursor: pointer;">
-                                            <option value="all">Tất cả</option>
-                                            <?php
-                                            foreach ($form_contact->fetch_tinh_thanh() as $index => $item) {
-                                            ?>
-                                                <option value="<?php echo $item ?>">
-                                                    <?php echo $item ?>
-                                                </option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-3 col-lg-3 col-md-12">
-                                    <input type="submit" name="submit" value="Tìm kiếm" class="site-button">
-                                    </input>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-xl-6 col-lg-6 col-md-12 twm-bnr-right-section">
-                <div class="twm-bnr-right-content">
-                    <div class="twm-img-bg-circle-area">
-                        <div class="twm-img-bg-circle1 rotate-center">
-                            <span></span>
-                        </div>
-                        <div class="twm-img-bg-circle2 rotate-center-reverse">
-                            <span></span>
-                        </div>
-                        <div class="twm-img-bg-circle3"><span></span></div>
-                    </div>
-
-                    <div class="twm-bnr-right-carousel">
-                        <div class="owl-carousel twm-h1-bnr-carousal">
-                            <div class="item">
-                                <div class="slide-img">
-                                    <img src="images/main-slider/slider1/r-img1.png" alt="#" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="slide-img">
-                                    <div class="slide-img">
-                                        <img src="images/main-slider/slider1/r-img2.png" alt="#" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="twm-small-ring-l slide-top-animation"></div>
-                    <div class="twm-small-ring-2 slide-top-animation"></div>
-                </div>
-            </div>
-        </div>
-        <div class="twm-gradient-text">Jobs</div>
-    </div> -->
-
-    <!--Banner End-->
-
-    <!-- HOW IT WORK SECTION START -->
-
-    <!-- <div class="section-full p-t50 site-bg-white twm-how-it-work-area">
-        <div class="container">
-          
-            <div class="section-head center wt-small-separator-outer">
-                <div class="wt-small-separator site-text-primary">
-                    <div>Working Process</div>
-                </div>
-                <h2 class="wt-title">How It Works</h2>
-            </div>
-           
-            <div class="twm-how-it-work-section">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="twm-w-process-steps">
-                            <span class="twm-large-number">01</span>
-                            <div class="twm-w-pro-top bg-clr-sky">
-                                <div class="twm-media">
-                                    <span><img src="images/work-process/icon1.png" alt="icon1" /></span>
-                                </div>
-                                <h4 class="twm-title">Register<br />Your Account</h4>
-                            </div>
-                            <p>
-                                You need to create an account to find the best and
-                                preferred job.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="twm-w-process-steps">
-                            <span class="twm-large-number">02</span>
-                            <div class="twm-w-pro-top bg-clr-pink">
-                                <div class="twm-media">
-                                    <span><img src="images/work-process/icon2.png" alt="icon1" /></span>
-                                </div>
-                                <h4 class="twm-title">
-                                    Apply <br />
-                                    For Dream Job
-                                </h4>
-                            </div>
-                            <p>
-                                You need to create an account to find the best and
-                                preferred job.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="twm-w-process-steps">
-                            <span class="twm-large-number">03</span>
-                            <div class="twm-w-pro-top bg-clr-green">
-                                <div class="twm-media">
-                                    <span><img src="images/work-process/icon3.png" alt="icon1" /></span>
-                                </div>
-                                <h4 class="twm-title">Upload <br />Your Resume</h4>
-                            </div>
-                            <p>
-                                You need to create an account to find the best and
-                                preferred job.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <!-- HOW IT WORK SECTION END -->
-
-    <!-- JOB POST START -->
     <div class="test" style="display: none;"></div>
     <section>
         <div class="container">
@@ -289,28 +234,28 @@ $vsk = $img_f->getAll_imgBy_id(4);
 
                         <?php
 
-                        $list_of_job_vn = Job_f::getLatestJob(27);
-                        $new_list_of_job_vn = [];
-                        for ($i = 0; $i < 4; $i++) {
-                            $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
-                        }
+                        $list_carousel = Job_f::getLatestJob(27);
+                        // $list_carousel = [];
+                        // for ($i = 0; $i < 4; $i++) {
+                        //     $list_carousel = array_merge($list_carousel, $list_of_job_vn);
+                        // }
                         ?>
                         <div class="owl-carousel carousel-job-list">
-                            <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += $perItemCarousel) : ?>
+                            <?php for ($i = 0; $i < count($list_carousel); $i += $perItemCarousel) : ?>
                                 <div class="row">
                                     <div class="item ">
-                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($list_carousel); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $new_list_of_job_vn[$i + $j]['slug'] ?>-<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>.html">
-                                                    <!-- <a href="job-detail.php?id=<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>"> -->
+                                                <a href="<?php echo 'viec-lam-tai-viet-nam/' . $list_carousel[$i + $j]['slug'] ?>-<?php echo $list_carousel[$i + $j]['id_job'] ?>.html">
+
                                                     <div class="card-job">
                                                         <div class="chucvu">
-                                                            <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
+                                                            <?php echo $list_carousel[$i + $j]['chucvu'] ?>
                                                         </div>
                                                         <div class="group-info">
 
                                                             <?php
-                                                            if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                            if ($list_carousel[$i + $j]['id_cty'] == 1) {
                                                             ?>
                                                                 <div class="company-logo">
                                                                     <img src="public/images/logo.png" />
@@ -319,34 +264,34 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                                             } else {
                                                             ?>
                                                                 <div class="company-logo">
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['img_cty'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['img_cty'] ?>
                                                                 </div>
                                                             <?php
                                                             }
                                                             ?>
                                                             <div class="content">
                                                                 <?php
-                                                                if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                                if ($list_carousel[$i + $j]['id_cty'] == 1) {
                                                                 ?>
                                                                     <div class="name_cty">
-                                                                        <?php echo $new_list_of_job_vn[$i + $j]['diachi_cuthe'] ?>
+                                                                        <?php echo $list_carousel[$i + $j]['diachi_cuthe'] ?>
                                                                     </div>
                                                                 <?php
                                                                 } else {
                                                                 ?>
                                                                     <div class="name_cty">
-                                                                        <?php echo $new_list_of_job_vn[$i + $j]['name'] ?>
+                                                                        <?php echo $list_carousel[$i + $j]['name'] ?>
                                                                     </div>
                                                                 <?php
                                                                 }
                                                                 ?>
                                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                                     <i class="bi bi-cash" style="margin-right: 5px;"></i>
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['mucluong'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['mucluong'] ?>
                                                                 </div>
                                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                                     <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['diachi'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['diachi'] ?>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -380,28 +325,28 @@ $vsk = $img_f->getAll_imgBy_id(4);
                     <div class="job-list ">
 
                         <?php
-                        $list_of_job_vn = Job_NB_f::getLatestJob(27);
-                        $new_list_of_job_vn = [];
-                        for ($i = 0; $i < 4; $i++) {
-                            $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
-                        }
+                        $list_carousel = Job_NB_f::getLatestJob(27);
+                        // $list_carousel = [];
+                        // for ($i = 0; $i < 4; $i++) {
+                        //     $list_carousel = array_merge($list_carousel, $list_of_job_vn);
+                        // }
 
                         ?>
                         <div class="owl-carousel carousel-job-list">
-                            <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += $perItemCarousel) : ?>
+                            <?php for ($i = 0; $i < count($list_carousel); $i += $perItemCarousel) : ?>
                                 <div class="row">
                                     <div class="item">
-                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($list_carousel); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $new_list_of_job_vn[$i + $j]['slug'] ?>-<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>.html">
+                                                <a href="<?php echo 'viec-lam-xkld-nhat-ban/' . $list_carousel[$i + $j]['slug'] ?>-<?php echo $list_carousel[$i + $j]['id_job'] ?>.html">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
-                                                            <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
+                                                            <?php echo $list_carousel[$i + $j]['chucvu'] ?>
                                                         </div>
                                                         <div class="group-info">
 
                                                             <?php
-                                                            if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                            if ($list_carousel[$i + $j]['id_cty'] == 1) {
                                                             ?>
                                                                 <div class="company-logo">
                                                                     <img src="public/images/logo.png" />
@@ -410,34 +355,34 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                                             } else {
                                                             ?>
                                                                 <div class="company-logo">
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['img_cty'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['img_cty'] ?>
                                                                 </div>
                                                             <?php
                                                             }
                                                             ?>
                                                             <div class="content">
                                                                 <?php
-                                                                if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                                if ($list_carousel[$i + $j]['id_cty'] == 1) {
                                                                 ?>
                                                                     <div class="name_cty">
-                                                                        <?php echo $new_list_of_job_vn[$i + $j]['diachi_cuthe'] ?>
+                                                                        <?php echo $list_carousel[$i + $j]['diachi_cuthe'] ?>
                                                                     </div>
                                                                 <?php
                                                                 } else {
                                                                 ?>
                                                                     <div class="name_cty">
-                                                                        <?php echo $new_list_of_job_vn[$i + $j]['name'] ?>
+                                                                        <?php echo $list_carousel[$i + $j]['name'] ?>
                                                                     </div>
                                                                 <?php
                                                                 }
                                                                 ?>
                                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                                     <i class="bi bi-cash" style="margin-right: 5px;"></i>
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['mucluong'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['mucluong'] ?>
                                                                 </div>
                                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                                     <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['diachi'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['diachi'] ?>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -469,28 +414,28 @@ $vsk = $img_f->getAll_imgBy_id(4);
                     </div>
                     <div class="job-list ">
                         <?php
-                        $list_of_job_vn = Job_kysu_f::getAllJob();
-                        $new_list_of_job_vn = [];
-                        for ($i = 0; $i < 4; $i++) {
-                            $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
-                        }
+                        $list_carousel = Job_kysu_f::getLatestJob(27);
+                        // $list_carousel = [];
+                        // for ($i = 0; $i < 4; $i++) {
+                        //     $list_carousel = array_merge($list_carousel, $list_of_job_vn);
+                        // }
 
                         ?>
                         <div class="owl-carousel carousel-job-list">
-                            <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += $perItemCarousel) : ?>
+                            <?php for ($i = 0; $i < count($list_carousel); $i += $perItemCarousel) : ?>
                                 <div class="row">
                                     <div class="item">
-                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($list_carousel); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $new_list_of_job_vn[$i + $j]['slug'] ?>-<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>.html">
+                                                <a href="<?php echo 'viec-lam-ky-su-va-thong-dich-nhat-ban/' . $list_carousel[$i + $j]['slug'] ?>-<?php echo $list_carousel[$i + $j]['id_job'] ?>.html">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
-                                                            <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
+                                                            <?php echo $list_carousel[$i + $j]['chucvu'] ?>
                                                         </div>
                                                         <div class="group-info">
 
                                                             <?php
-                                                            if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                            if ($list_carousel[$i + $j]['id_cty'] == 1) {
                                                             ?>
                                                                 <div class="company-logo">
                                                                     <img src="public/images/logo.png" />
@@ -499,34 +444,34 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                                             } else {
                                                             ?>
                                                                 <div class="company-logo">
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['img_cty'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['img_cty'] ?>
                                                                 </div>
                                                             <?php
                                                             }
                                                             ?>
                                                             <div class="content">
                                                                 <?php
-                                                                if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                                if ($list_carousel[$i + $j]['id_cty'] == 1) {
                                                                 ?>
                                                                     <div class="name_cty">
-                                                                        <?php echo $new_list_of_job_vn[$i + $j]['diachi_cuthe'] ?>
+                                                                        <?php echo $list_carousel[$i + $j]['diachi_cuthe'] ?>
                                                                     </div>
                                                                 <?php
                                                                 } else {
                                                                 ?>
                                                                     <div class="name_cty">
-                                                                        <?php echo $new_list_of_job_vn[$i + $j]['name'] ?>
+                                                                        <?php echo $list_carousel[$i + $j]['name'] ?>
                                                                     </div>
                                                                 <?php
                                                                 }
                                                                 ?>
                                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                                     <i class="bi bi-cash" style="margin-right: 5px;"></i>
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['mucluong'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['mucluong'] ?>
                                                                 </div>
                                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                                     <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['diachi'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['diachi'] ?>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -559,28 +504,28 @@ $vsk = $img_f->getAll_imgBy_id(4);
                     <div class="job-list ">
 
                         <?php
-                        $list_of_job_vn = Vietseiko_f::getAllJob();
-                        $new_list_of_job_vn = [];
-                        for ($i = 0; $i < 4; $i++) {
-                            $new_list_of_job_vn = array_merge($new_list_of_job_vn, $list_of_job_vn);
-                        }
+                        $list_carousel = Vietseiko_f::getLatestJob(27);
+                        // $list_carousel = [];
+                        // for ($i = 0; $i < 4; $i++) {
+                        //     $list_carousel = array_merge($list_carousel, $list_of_job_vn);
+                        // }
 
                         ?>
                         <div class="owl-carousel carousel-job-list">
-                            <?php for ($i = 0; $i < count($new_list_of_job_vn); $i += $perItemCarousel) : ?>
+                            <?php for ($i = 0; $i < count($list_carousel); $i += $perItemCarousel) : ?>
                                 <div class="row">
                                     <div class="item">
-                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($new_list_of_job_vn); $j++) : ?>
+                                        <?php for ($j = 0; $j < $perItemCarousel && ($i + $j) < count($list_carousel); $j++) : ?>
                                             <div class="col-12 col-sm-12 col-lg-4">
-                                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $new_list_of_job_vn[$i + $j]['slug'] ?>-<?php echo $new_list_of_job_vn[$i + $j]['id_job'] ?>.html">
+                                                <a href="<?php echo 'viec-lam-tai-vietseiko/' . $list_carousel[$i + $j]['slug'] ?>-<?php echo $list_carousel[$i + $j]['id_job'] ?>.html">
                                                     <div class="card-job" id='job-vietnam'>
                                                         <div class="chucvu">
-                                                            <?php echo $new_list_of_job_vn[$i + $j]['chucvu'] ?>
+                                                            <?php echo $list_carousel[$i + $j]['chucvu'] ?>
                                                         </div>
                                                         <div class="group-info">
 
                                                             <?php
-                                                            if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                            if ($list_carousel[$i + $j]['id_cty'] == 1) {
                                                             ?>
                                                                 <div class="company-logo">
                                                                     <img src="public/images/logo.png" />
@@ -589,34 +534,34 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                                             } else {
                                                             ?>
                                                                 <div class="company-logo">
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['img_cty'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['img_cty'] ?>
                                                                 </div>
                                                             <?php
                                                             }
                                                             ?>
                                                             <div class="content">
                                                                 <?php
-                                                                if ($new_list_of_job_vn[$i + $j]['id_cty'] == 1) {
+                                                                if ($list_carousel[$i + $j]['id_cty'] == 1) {
                                                                 ?>
                                                                     <div class="name_cty">
-                                                                        <?php echo $new_list_of_job_vn[$i + $j]['diachi_cuthe'] ?>
+                                                                        <?php echo $list_carousel[$i + $j]['diachi_cuthe'] ?>
                                                                     </div>
                                                                 <?php
                                                                 } else {
                                                                 ?>
                                                                     <div class="name_cty">
-                                                                        <?php echo $new_list_of_job_vn[$i + $j]['name'] ?>
+                                                                        <?php echo $list_carousel[$i + $j]['name'] ?>
                                                                     </div>
                                                                 <?php
                                                                 }
                                                                 ?>
                                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                                     <i class="bi bi-cash" style="margin-right: 5px;"></i>
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['mucluong'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['mucluong'] ?>
                                                                 </div>
                                                                 <div style="font-weight: 500;color: #636e72;font-size: 14px;">
                                                                     <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
-                                                                    <?php echo $new_list_of_job_vn[$i + $j]['diachi'] ?>
+                                                                    <?php echo $list_carousel[$i + $j]['diachi'] ?>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -748,26 +693,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                     }
                     ?>
 
-                    <!-- <div class="item">
-                        <div class="twm-testimonial-1">
-                            <div class="twm-testimonial-1-content">
-                                <div class="twm-testi-media">
-                                    <img src="images/testimonials/pic-3.png" alt="#" />
-                                </div>
-                                <div class="twm-testi-content">
-                                    <div class="twm-quote">
-                                        <img src="images/quote-dark.png" alt="" />
-                                    </div>
-                                    <div class="twm-testi-info">
-                                        <?= __('Công ty uy tín, hỗ trợ tôi rất nhiệt tình trong quá trình tư vấn công việc.') ?>
-                                    </div>
-                                    <div class="twm-testi-detail">
-                                        <div class="twm-testi-name">Ms Nguyễn Văn D</div>                                       
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                   
                 </div>
             </div>
         </div>
@@ -790,7 +716,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                 <div class="twm-blog-post-1-outer-wrap">
                     <div class="owl-carousel twm-la-home-blog owl-btn-bottom-center">
                         <?php
-                        $list_of_latestBlog = Blog_f::getLatestBlog(6);
+                        $list_of_latestBlog = Blog_f::getLatestBlog(9);
                         foreach ($list_of_latestBlog as $key => $value) {
                         ?>
                             <div class="item">
@@ -831,7 +757,97 @@ $vsk = $img_f->getAll_imgBy_id(4);
     <!-- OUR BLOG END -->
 </div>
 <!-- CONTENT END -->
+<script>
+    const suggestions = <?php echo $list_search; ?>;
 
+    console.log('check list: ', suggestions);
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        const matchingNames = suggestions.filter(entry => {
+            const normalizedEntry = entry.name.toLowerCase();
+            return normalizedEntry.includes(searchTerm);
+        });
+
+        displaySuggestions(matchingNames.slice(0, 6)); // Limit to the first 8 suggestions
+    });
+    document.addEventListener('click', function(event) {
+        const searchContainer = document.querySelector('.search-container');
+        if (!searchContainer.contains(event.target)) {
+            searchResults.style.display = 'none';
+        }
+    });
+    searchResults.addEventListener('click', function(event) {
+        const resultItem = event.target.closest('.search-results-item');
+        if (resultItem) {
+            const suggestion = suggestions.find(s => s.name === resultItem.textContent);
+            if (suggestion) {
+                navigateToDetailPage(suggestion.name, suggestion.type_job, suggestion.id);
+            }
+        }
+    });
+
+    function displaySuggestions(suggestions) {
+        searchResults.innerHTML = '';
+
+        suggestions.forEach(suggestion => {
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('search-results-item');
+            resultItem.textContent = suggestion.name;
+            searchResults.appendChild(resultItem);
+        });
+
+        if (suggestions.length > 0) {
+            searchResults.style.display = 'block';
+        } else {
+            searchResults.style.display = 'none';
+        }
+    }
+
+    function navigateToDetailPage(name, type_job, id) {
+        const slug = toSlug(name);
+        if (type_job == 1) window.location.href = `/viec-lam-tai-viet-nam/${slug}-${id}.html`;
+        if (type_job == 2) window.location.href = `/viec-lam-xkld-nhat-ban/${slug}-${id}.html`;
+        if (type_job == 3) window.location.href = `/viec-lam-ky-su-va-thong-dich-nhat-ban/${slug}-${id}.html`;
+        if (type_job == 4) window.location.href = `/viec-lam-tai-vietseiko/${slug}-${id}.html`;
+    }
+</script>
+<script>
+    function toSlug(str) {
+        // Chuyển hết sang chữ thường
+        str = str.toLowerCase();
+
+        // xóa dấu
+        str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
+        str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
+        str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
+        str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
+        str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
+        str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
+        str = str.replace(/(đ)/g, 'd');
+
+        // Xóa ký tự đặc biệt
+        str = str.replace(/([^0-9a-z-\s])/g, '');
+
+        // Xóa khoảng trắng thay bằng ký tự -
+        str = str.replace(/(\s+)/g, '-');
+
+        // Xóa ký tự - liên tiếp
+        str = str.replace(/-+/g, '-');
+
+        // xóa phần dự - ở đầu
+        str = str.replace(/^-+/g, '');
+
+        // xóa phần dư - ở cuối
+        str = str.replace(/-+$/g, '');
+
+        // return
+        return str;
+    }
+</script>
 
 <?php
 require_once 'footer.php';

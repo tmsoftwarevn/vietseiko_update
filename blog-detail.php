@@ -43,8 +43,8 @@ if ($allBlog[0]['type_id'] == 4) {
 
         <div>
           <ul class="wt-breadcrumb breadcrumb-style-2">
-            <li><a href="trang-chu">Tin tức</a></li>
-            <li>Chi tiết tin tức</li>
+            <li><a href="tin-tuc"><?= __('Tin tức') ?></a></li>
+            <li><?= __('Chi tiết tin tức') ?></li>
           </ul>
         </div>
 
@@ -102,7 +102,7 @@ if ($allBlog[0]['type_id'] == 4) {
               <div style="margin-top: 20px;">
 
                 <div class="widget recent-posts-entry">
-                  <h4 class="section-head-small mb-5">Tin tức liên quan</h4>
+                  <h4 class="section-head-small mb-5"><?= __('Tin tức liên quan') ?></h4>
                   <?php
 
                   foreach ($relate_blog as $key => $value) {
@@ -143,7 +143,7 @@ if ($allBlog[0]['type_id'] == 4) {
       <div class="wt-small-separator site-text-primary">
         <!-- <div>Top Jobs</div> -->
       </div>
-      <h2 class="wt-title" style="margin-bottom: 30px;">Công việc mới nhất</h2>
+      <h2 class="wt-title" style="margin-bottom: 30px;"><?= __('Công việc mới nhất') ?></h2>
     </div>
     <div class="container">
 
@@ -207,7 +207,7 @@ if ($allBlog[0]['type_id'] == 4) {
                   <div class="twm-jobs-amount">
                     <?php echo $value['mucluong'] ?>
                   </div>
-                  <a href="<?php echo $link .  $value['slug'] .'/'.$value['id_job'] ?>" class="twm-jobs-browse site-text-primary">Chi tiết</a>
+                  <a href="<?php echo $link .  $value['slug'] .'-'.$value['id_job'] ?>.html" class="twm-jobs-browse site-text-primary">Chi tiết</a>
                 </div>
               </div>
             </div>

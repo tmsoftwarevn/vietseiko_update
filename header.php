@@ -23,10 +23,13 @@ require "models/job_NB_f.php";
 require "models/jobs.php";
 require "models/review.php";
 require "models/hinhanh-video-f.php";
+require "models/search_custom.php";
 
 require_once "admin/models/kinh_nghiem.php";
 require_once "admin/models/gioi_tinh.php";
 require_once "admin/models/image.php";
+
+$search_f = new Search_f;
 
 $hinhanh_video = new Hinhanh_Video_f;
 $img_f = new Image_f;
@@ -67,6 +70,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     <meta name="author" content="" />
     <meta name="robots" content="" />
     <meta name="description" content="Tìm việc xkld nhật bản tại VietSeiko" />
+
 
     <!-- FAVICONS ICON -->
     <link rel="icon" href="public/images/logo.png" type="image/x-icon" />
@@ -321,7 +325,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         }
     </style>
     <!-- ccs search -->
-    
+
     <style>
         .icon-zalo {
             position: fixed;
@@ -337,18 +341,19 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
             }
         }
     </style>
+
 </head>
 
 <body>
     <!-- LOADING AREA START ===== -->
-    <!-- <div class="loading-area">
+    <div class="loading-area">
         <div class="loading-box"></div>
         <div class="loading-pic">
             <div class="wrapper">
                 <div class="cssload-loader"></div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- LOADING AREA  END ====== -->
 
     <div class="page-wraper">
@@ -435,91 +440,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                 </div>
 
             </div>
-            <!-- // form search -->
-            <!-- <div class="box-search-f" style="display: flex; justify-content: space-between;">
-                <form method="get" action="">
-                    <input type="hidden" name="page" value="1">
-                    <div class="row ">
-                        <div class="col-2">
-                            <select name="id_nganhnghe">
-                                <option value="all">Tất cả ngành nghề</option>
-                                <?php
-                                foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
-                                    if ($value['id_nganhnghe'] == $id_nganhnghe) {
-                                        echo ('<option selected="selected" value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
-                                    } else {
-                                        echo ('<option value=' . $value['id_nganhnghe'] . '>' . $value['name_nganhnghe'] . '</option>');
-                                    }
-                                }
 
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <select name="id_hinhthuc">
-                                <option value="all">Tất cả hình thức</option>
-                                <?php
-                                foreach ($hinhthuc->getAllHinhThuc() as $key => $value) {
-                                    if ($value['id_hinhthuc'] == $id_hinhthuc) {
-                                        echo ('<option selected="selected" value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
-                                    } else {
-                                        echo ('<option value=' . $value['id_hinhthuc'] . '>' . $value['name_hinhthuc'] . '</option>');
-                                    }
-                                } ?>
-
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <select name="id_kinhnghiem">
-                                <option value="all">Tất cả kinh nghiệm</option>
-                                <?php
-                                foreach ($kinh_nghiem->getAllKinhNghiem() as $key => $value) {
-                                    if ($value['id_kn'] == $id_kinhnghiem) {
-                                        echo ('<option selected="selected" value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
-                                    } else {
-                                        echo ('<option value=' . $value['id_kn'] . '>' . $value['name_kn'] . '</option>');
-                                    }
-                                } ?>
-
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <select name="id_gioitinh">
-                                <option value="all">Tất cả giới tính</option>
-                                <option <?php
-                                        if (1 == $id_gioitinh) echo 'selected="selected"'
-                                        ?> value="1">Nam</option>
-                                <option <?php
-                                        if ($id_gioitinh == 2) echo 'selected="selected"'
-                                        ?> value="2">Nữ</option>
-                                <option <?php
-                                        if ($id_gioitinh == 3) echo 'selected="selected"'
-                                        ?> value="3">Không yêu cầu</option>
-                            </select>
-                        </div>
-                        <div class="col-2">
-
-                            <select name="id_diachi">
-                                <option value="all">Tất cả khu vực</option>
-                                <?php
-                                foreach ($list_custom_tinhthanh as $index => $item) {
-                                ?>
-                                    <option <?php
-                                            if ($id_diachi == $index) echo 'selected="selected"'
-                                            ?> value="<?php echo $index ?>">
-                                        <?php echo $item ?>
-                                    </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </div> -->
         </header>
     </div>
 
@@ -528,13 +449,13 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     </script>
 
     <div class="icon-zalo">
-        <a href="https://chat.zalo.me/" target="_blank">
+        <a href="https://zalo.me/2635801961745424279" target="_blank">
             <img src="https://page.widget.zalo.me/static/images/2.0/Logo.svg" />
         </a>
 
     </div>
 
-    <!-- // import messager -->
+    <!-- // đoaạn code run message -->
     <div id="fb-root"></div>
 
     <!-- Your Plugin chat code -->
@@ -542,28 +463,32 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     </div>
 
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "608369259596065");
-      chatbox.setAttribute("attribution", "biz_inbox");
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "608369259596065");
+        chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v18.0'
-        });
-      };
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v18.0'
+            });
+        };
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
+
+    
+    
 </body>
 
 </html>

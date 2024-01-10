@@ -8,7 +8,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Gross to net</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
@@ -467,7 +467,7 @@
                         <div class="group-item">
                             <div class="item item-people">
                                 <span>Số người phụ thuộc:</span>
-                                <input type="number" name="family_circumstances" class="family_circumstances" min="0">
+                                <input type="number" name="family_circumstances" class="family_circumstances m-2" min="0">
                             </div>
                             <div class="item item-salary-area">
                                 <span>Vùng</span>

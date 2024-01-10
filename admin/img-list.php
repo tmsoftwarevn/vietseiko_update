@@ -103,6 +103,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
                                 if ($value['type_id'] == 0) {
                                     echo 'ảnh banner';
                                 }
+                                if ($value['type_id'] == 5) {
+                                    echo 'Chi tiết công việc';
+                                }
                                 ?>
 
                             </td>

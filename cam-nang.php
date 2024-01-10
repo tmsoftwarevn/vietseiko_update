@@ -3,7 +3,7 @@ require_once 'header.php';
 
 $page = 1;
 $type = 'all';
-$resultsPerPage = 10;
+$resultsPerPage = 15;
 $totalJob = 1;
 $totalPages = 1;
 if (isset($_GET['page'])) {

@@ -565,6 +565,9 @@ All JavaScript fuctions Start
         480: {
           items: 1,
         },
+        768: {
+          items: 2,
+        },
         991: {
           items: 2,
         },
@@ -794,8 +797,8 @@ All JavaScript fuctions Start
         577: {
           items: 2,
         },
-        991: {
-          items: 2,
+        768: {
+          items: 3,
         },
         1199: {
           items: 3,
