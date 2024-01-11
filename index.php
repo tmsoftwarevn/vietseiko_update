@@ -5,6 +5,10 @@ require_once 'admin/models/gioi_tinh.php';
 $totalShow = 5;
 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
+$list_custom_tinhthanh = $form_contact->list_tinh();
+$id_diachi = 'all';
+$search = 'all';
+
 $typeJob = 'vn';
 if (isset($_GET['type'])) {
     $typeJob = $_GET['type'];
@@ -43,158 +47,95 @@ $list_search = json_encode($list);
     }
 </style>
 <!-- /// search---------- -->
-<!-- <style>
-    .card-search {
+<style>
+    .input-name-job {
+        width: 100%;
+        padding: 7px;
+        border: 1px solid #1967d2;
+        border-radius: 5px;
+    }
+    
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #1967d2;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    option {
+        font-size: 17px;
+    }
+
+    .btn-search {
+        width: 100%;
+        background-color: #1967d2;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .btn-search i {
+        margin-right: 10px;
+        font-size: 18px;
+    }
+
+    .btn-search:hover {
+        background-color: #195191;
+    }
+    .box-search-index{
         margin-top: 130px;
     }
-
-    .search-container {
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        z-index: 99;
-    }
-
     @media only screen and (max-width: 576px) {
-        .card-search {
-            margin-top: 80px;
-        }
-    }
-
-    .search-input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        box-sizing: border-box;
-    }
-
-    .search-input:focus {
-        border-color: red;
-    }
-
-    .search-icon {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        color: #555;
-    }
-
-    .search-results {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-        z-index: 1;
-    }
-
-    .search-results-item {
-        text-align: left;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .search-results-item:hover {
-        background-color: #f0f0f0;
-    }
-</style> -->
-<style>
-    .flex {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
-        .search-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-input,
-        .search-select {
-            padding: 10px;
-            margin: 10px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .search-input:focus,
-        .search-select:focus {
-            border-color: #3498db;
-        }
-
-        .search-button {
-            padding: 10px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .search-button:hover {
-            background-color: #2980b9;
+            .box-search-index {
+                margin-top: 100px;
+            }
         }
 </style>
+
 <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
 <!-- CONTENT START -->
 <div class="test" style="display: none;"></div>
 <div class="container">
     <!-- // form search -->
-    <!-- <div class="card-search">
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Tìm kiếm" id="searchInput">
-            <i class="fas fa-search search-icon"></i>
-            <div class="search-results" id="searchResults"></div>
-        </div>
-    </div> -->
-    <form class="flex" style="margin-top: 150px;">
-        <div class="search-container">
-            <label for="search-input" class="sr-only">Search</label>
-            <input type="search" id="search-input" class="search-input" placeholder="Search...">
-        </div>
-        <div class="search-container">
-            <label for="category-select" class="sr-only">Category</label>
-            <select id="category-select" class="search-select">
-                <option value="category1">Category 1</option>
-                <option value="category2">Category 2</option>
-                <option value="category3">Category 3</option>
-            </select>
-        </div>
-        <div class="search-container">
-            <label for="location-select" class="sr-only">Location</label>
-            <select id="location-select" class="search-select">
-                <option value="location1">Location 1</option>
-                <option value="location2">Location 2</option>
-                <option value="location3">Location 3</option>
-            </select>
-        </div>
-        <button type="submit" class="search-button">
-            Search
-        </button>
-    </form>
+    <div class="box-search-index" >
+        <form method="get" action="/viec-lam-tai-viet-nam">
+            <div class="row">
+                <div class="col-sm-9 col-lg-7 mt-3">
+                    <input  value="<?php
+                                    if ($search != 'all') echo $search;
+                                    ?>" name="search" class="input-name-job" type="text" placeholder="Tên việc làm" />
+                </div>
+                <div class="col-lg-3 mt-3 d-none d-lg-block">
+                    <select name="id_diachi">
+                        <option value="all">Khu vực</option>
+                        <?php
+                        foreach ($list_custom_tinhthanh as $index => $item) {
+                        ?>
+                            <option <?php
+                                    if ($id_diachi == $index) echo 'selected="selected"'
+                                    ?> value="<?php echo $index ?>">
+                                <?php echo $item ?>
+                            </option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="col-sm-3 col-lg-2 mt-3" style="display: flex; justify-content: center;">
+                    <button type="submit" class="btn-search"><i class="bi bi-search"></i>Tìm việc</button>
+                </div>
+                <input name="id_nganhnghe" value="all" hidden/>
+                <input name="id_hinhthuc" value="all" hidden/>
+                <input name="id_kinhnghiem" value="all" hidden/>
+                <input name="id_gioitinh" value="all" hidden/>
+            </div>
+        </form>
+    </div>
+    <!-- slide banner -->
     <div class="owl-carousel carousel-banner-home banner-home mt-5">
         <?php
         foreach ($list_banner as $key => $value) {
@@ -208,6 +149,7 @@ $list_search = json_encode($list);
         }
         ?>
     </div>
+
 </div>
 
 <div class="page-content">
@@ -217,7 +159,7 @@ $list_search = json_encode($list);
         <div class="container">
             <div class="mt-5">
                 <div class="img-bg">
-                    <!-- <img src="public/images/bg-job.jpg" alt="anh" /> -->
+
                     <?php echo $vn[0]['img'] ?>
                 </div>
 
@@ -415,10 +357,6 @@ $list_search = json_encode($list);
                     <div class="job-list ">
                         <?php
                         $list_carousel = Job_kysu_f::getLatestJob(27);
-                        // $list_carousel = [];
-                        // for ($i = 0; $i < 4; $i++) {
-                        //     $list_carousel = array_merge($list_carousel, $list_of_job_vn);
-                        // }
 
                         ?>
                         <div class="owl-carousel carousel-job-list">
@@ -502,13 +440,8 @@ $list_search = json_encode($list);
                         </a>
                     </div>
                     <div class="job-list ">
-
                         <?php
                         $list_carousel = Vietseiko_f::getLatestJob(27);
-                        // $list_carousel = [];
-                        // for ($i = 0; $i < 4; $i++) {
-                        //     $list_carousel = array_merge($list_carousel, $list_of_job_vn);
-                        // }
 
                         ?>
                         <div class="owl-carousel carousel-job-list">
@@ -693,7 +626,7 @@ $list_search = json_encode($list);
                     }
                     ?>
 
-                   
+
                 </div>
             </div>
         </div>
@@ -757,97 +690,6 @@ $list_search = json_encode($list);
     <!-- OUR BLOG END -->
 </div>
 <!-- CONTENT END -->
-<script>
-    const suggestions = <?php echo $list_search; ?>;
-
-    console.log('check list: ', suggestions);
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-
-    searchInput.addEventListener('input', function() {
-        const searchTerm = searchInput.value.toLowerCase();
-
-        const matchingNames = suggestions.filter(entry => {
-            const normalizedEntry = entry.name.toLowerCase();
-            return normalizedEntry.includes(searchTerm);
-        });
-
-        displaySuggestions(matchingNames.slice(0, 6)); // Limit to the first 8 suggestions
-    });
-    document.addEventListener('click', function(event) {
-        const searchContainer = document.querySelector('.search-container');
-        if (!searchContainer.contains(event.target)) {
-            searchResults.style.display = 'none';
-        }
-    });
-    searchResults.addEventListener('click', function(event) {
-        const resultItem = event.target.closest('.search-results-item');
-        if (resultItem) {
-            const suggestion = suggestions.find(s => s.name === resultItem.textContent);
-            if (suggestion) {
-                navigateToDetailPage(suggestion.name, suggestion.type_job, suggestion.id);
-            }
-        }
-    });
-
-    function displaySuggestions(suggestions) {
-        searchResults.innerHTML = '';
-
-        suggestions.forEach(suggestion => {
-            const resultItem = document.createElement('div');
-            resultItem.classList.add('search-results-item');
-            resultItem.textContent = suggestion.name;
-            searchResults.appendChild(resultItem);
-        });
-
-        if (suggestions.length > 0) {
-            searchResults.style.display = 'block';
-        } else {
-            searchResults.style.display = 'none';
-        }
-    }
-
-    function navigateToDetailPage(name, type_job, id) {
-        const slug = toSlug(name);
-        if (type_job == 1) window.location.href = `/viec-lam-tai-viet-nam/${slug}-${id}.html`;
-        if (type_job == 2) window.location.href = `/viec-lam-xkld-nhat-ban/${slug}-${id}.html`;
-        if (type_job == 3) window.location.href = `/viec-lam-ky-su-va-thong-dich-nhat-ban/${slug}-${id}.html`;
-        if (type_job == 4) window.location.href = `/viec-lam-tai-vietseiko/${slug}-${id}.html`;
-    }
-</script>
-<script>
-    function toSlug(str) {
-        // Chuyển hết sang chữ thường
-        str = str.toLowerCase();
-
-        // xóa dấu
-        str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
-        str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
-        str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
-        str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
-        str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
-        str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
-        str = str.replace(/(đ)/g, 'd');
-
-        // Xóa ký tự đặc biệt
-        str = str.replace(/([^0-9a-z-\s])/g, '');
-
-        // Xóa khoảng trắng thay bằng ký tự -
-        str = str.replace(/(\s+)/g, '-');
-
-        // Xóa ký tự - liên tiếp
-        str = str.replace(/-+/g, '-');
-
-        // xóa phần dự - ở đầu
-        str = str.replace(/^-+/g, '');
-
-        // xóa phần dư - ở cuối
-        str = str.replace(/-+$/g, '');
-
-        // return
-        return str;
-    }
-</script>
 
 <?php
 require_once 'footer.php';

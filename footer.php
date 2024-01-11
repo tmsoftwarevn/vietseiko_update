@@ -20,12 +20,12 @@
         }
 
         /* Định dạng cơ bản cho các phần tử */
-        .col-lg-4,
+        /* .col-lg-4,
         .col-md-4,
         .col-sm-12,
         .col-xs-12 {
             padding: 20px;
-        }
+        } */
 
         /* Định dạng hình ảnh logo */
         img {

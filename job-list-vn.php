@@ -5,10 +5,11 @@ require_once "models/jobs.php";
 
 $list_custom_tinhthanh = $form_contact->list_tinh();
 $id_diachi = 'all';
+$search = 'all';
 
 $totalJob = 1;
 $page = 1;
-$resultsPerPage = 20;
+$resultsPerPage = 25;
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -20,20 +21,23 @@ if (isset($_GET['page'])) {
 
 <?php
 $id_gioitinh = '';
-$job_tyen_gap = $job::getJob_tuyen_gap(20);
+$job_tyen_gap = $job::getJob_tuyen_gap($resultsPerPage);
 $allJob = [];
 $totalJob = 1;
+
 if (
     (isset($_GET['id_nganhnghe']) && $_GET['id_nganhnghe'] != 'all')
     || (isset($_GET['id_hinhthuc']) && $_GET['id_hinhthuc'] != 'all')
     || (isset($_GET['id_kinhnghiem']) && $_GET['id_kinhnghiem'] != 'all')
     || (isset($_GET['id_gioitinh']) && $_GET['id_gioitinh'] != 'all')
     || (isset($_GET['id_diachi']) && $_GET['id_diachi'] != 'all')
+    || (isset($_GET['search']) && $_GET['search'] != 'all')
 ) {
     $id_nganhnghe = $_GET['id_nganhnghe'];
     $id_hinhthuc = $_GET['id_hinhthuc'];
     $id_kinhnghiem = $_GET['id_kinhnghiem'];
     $id_gioitinh = $_GET['id_gioitinh'];
+    $search = $_GET['search'];
 
     $id_diachi = $_GET['id_diachi'];
     // get name dia chi
@@ -42,11 +46,11 @@ if (
         $diachi = $list_custom_tinhthanh[$id_diachi];
 
     //search all, tính tổng
-    $kq = $job::searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi);
+    $kq = $job::searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $search);
     $totalPages = ceil(floatval(count($kq)) / floatval($resultsPerPage));
 
     // phân trang
-    $search_phantrang = $job::searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $page, $resultsPerPage);
+    $search_phantrang = $job::searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $search, $page, $resultsPerPage);
     $allJob = $search_phantrang;
     $totalJob = count($kq);
 } else {
@@ -62,19 +66,11 @@ if (
 </style>
 
 <style>
-    form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    input[type="text"] {
-        padding: 10px;
-        width: 300px;
-        border: 1px solid #ccc;
+    .input-name-job {
+        width: 100%;
+        padding: 7px;
+        border: 1px solid #1967d2;
         border-radius: 5px;
-        margin-right: 10px;
     }
 
     select {
@@ -125,6 +121,7 @@ if (
         }
     }
 
+
     .btn-search {
         width: 100%;
         background-color: #1967d2;
@@ -145,6 +142,8 @@ if (
         background-color: #195191;
     }
 </style>
+
+
 <title><?= __('Việc làm tại Việt Nam') ?></title>
 <!-- CONTENT START -->
 
@@ -154,7 +153,7 @@ if (
         <div class="wt-bnr-inr-entry">
             <!-- BREADCRUMB ROW -->
             <div>
-                <ul class="wt-breadcrumb breadcrumb-style-2">
+                <ul class="wt-breadcrumb breadcrumb-style-2" style="margin-top: 100px;">
                     <li><a href="trang-chu"><?= __('Trang chủ') ?></a></li>
                     <li><?= __('Việc làm tại Việt Nam - Headhunter') ?></li>
                 </ul>
@@ -172,12 +171,37 @@ if (
 
 <div>
     <div class="container-css container-bg">
+       
         <div class="title-1" style="margin-top: 20px;"><?= __('Việc làm tại Việt Nam - Headhunter') ?></div>
         <p class="h-des"><?= __('Hàng ngàn việc làm tốt với mức lương cao, đồng nghiệp thân thiện và chế độ đãi ngộ cực tốt à nha!') ?></p>
-
+       
         <!--form search -->
-        <div class="box-search-f" style="display: flex; justify-content: space-between;">
+        <div class="box-search-f" >
             <form method="get" action="">
+                <div class="row">
+                    <div class="col-sm-8 mt-3">
+                        <input value="<?php
+                                        if ($search != 'all') echo $search;
+                                        ?>" name="search" class="input-name-job" type="text" placeholder="Tên việc làm" />
+                    </div>
+                    <div class="col-sm-4 mt-3">
+                        <select name="id_diachi">
+                            <option value="all">Khu vực</option>
+                            <?php
+                            foreach ($list_custom_tinhthanh as $index => $item) {
+                            ?>
+                                <option <?php
+                                        if ($id_diachi == $index) echo 'selected="selected"'
+                                        ?> value="<?php echo $index ?>">
+                                    <?php echo $item ?>
+                                </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
                 <input type="hidden" name="page" value="1">
                 <div class="row ">
                     <div class="col-md-2 mt-3">
@@ -237,24 +261,7 @@ if (
                                     ?> value="3">Không yêu cầu</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mt-3">
-
-                        <select name="id_diachi">
-                            <option value="all">Tất cả khu vực</option>
-                            <?php
-                            foreach ($list_custom_tinhthanh as $index => $item) {
-                            ?>
-                                <option <?php
-                                        if ($id_diachi == $index) echo 'selected="selected"'
-                                        ?> value="<?php echo $index ?>">
-                                    <?php echo $item ?>
-                                </option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="col-md-2 mt-3 d-flex justify-content-center">
+                    <div class="col-md-4 mt-3" style="display: flex; justify-content: center;">
                         <button type="submit" class="btn-search"><i class="bi bi-search"></i>Tìm việc</button>
                     </div>
                 </div>
@@ -266,7 +273,7 @@ if (
 
         <div class="content-list ">
 
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-9" style="margin-top: 30px;">
                     <p style="font-weight: 500;"><span style="color: red;"><?php echo $totalJob ?> </span><?= __('việc làm phù hợp') ?></p>
                     <?php

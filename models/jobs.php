@@ -68,13 +68,14 @@ class Job_f extends Db
             }
         }
     }
-    // max 20 job, asc : ngày gần hết nhất lên đầu.
-    static function getJob_tuyen_gap($number)
+    // max 20 job, asc : ngày gần hết nhất lên đầu. 15 ngay
+    static function getJob_tuyen_gap($resultsPerPage)
     {
+    
         $sql = self::$connection->prepare("SELECT * FROM job
         INNER JOIN cty ON job.id_cty = cty.id_cty
         WHERE id_trangthai = 1 AND ngaycuoicung <= DATE_ADD(CURDATE(), INTERVAL 15 DAY)
-        ORDER BY created_at ASC LIMIT $number");
+        ORDER BY created_at ASC LIMIT $resultsPerPage;");
         $sql->execute();
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -135,7 +136,7 @@ class Job_f extends Db
     }
 
     // tổng số search được
-    static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi)
+    static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $search)
     {
 
         $sql = "SELECT * FROM job WHERE ";
@@ -165,7 +166,13 @@ class Job_f extends Db
         if ($diachi !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "diachi LIKE '%$diachi%' ";
+            $d += 1;
         }
+        if ($search !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "chucvu LIKE '%$search%' ";
+        }
+
         $sql .= "AND id_trangthai = 1";
         $stmt = self::$connection->prepare($sql);
         $stmt->execute();
@@ -174,7 +181,7 @@ class Job_f extends Db
         return $items;
     }
     // phan trang search
-    static function searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $page, $resultsPerPage)
+    static function searchJob_and_Phantrang($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $search, $page, $resultsPerPage)
     {
         $firstLink = ($page - 1) * $resultsPerPage;
         $sql = "SELECT job.*,cty.name,cty.img_cty FROM job INNER JOIN cty ON job.id_cty = cty.id_cty WHERE ";
@@ -204,7 +211,13 @@ class Job_f extends Db
         if ($diachi !== 'all') {
             if ($d > 0) $sql .= 'AND ';
             $sql .= "diachi LIKE '%$diachi%' ";
+            $d += 1;
         }
+        if ($search !== 'all') {
+            if ($d > 0) $sql .= 'AND ';
+            $sql .= "chucvu LIKE '%$search%' ";
+        }
+
         $sql .= "AND id_trangthai = 1 ORDER BY job.ngaycuoicung asc LIMIT $firstLink, $resultsPerPage";
         $stmt = self::$connection->prepare($sql);
         $stmt->execute();

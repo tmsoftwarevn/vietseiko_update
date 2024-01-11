@@ -12,20 +12,20 @@ $allBlog = $blog->detail($id);
 $relate_blog = $blog->getRelatedBlog($allBlog[0]['type_id'], 6);
 
 if ($allBlog[0]['type_id'] == 1) {
-  $job_moinhat = $job::getLatestJob(8);
+  $job_moinhat = $job::getLatestJob(12);
   $link = 'viec-lam-tai-viet-nam/';
   
 }
 if ($allBlog[0]['type_id'] == 2) {
-  $job_moinhat = $job_nb::getLatestJob(8);
+  $job_moinhat = $job_nb::getLatestJob(12);
   $link = 'viec-lam-xkld-nhat-ban/';
 }
 if ($allBlog[0]['type_id'] == 3) {
-  $job_moinhat = $job_kysu::getLatestJob(8);
+  $job_moinhat = $job_kysu::getLatestJob(12);
   $link = 'viec-lam-ky-su-va-thong-dich-nhat-ban/';
 }
 if ($allBlog[0]['type_id'] == 4) {
-  $job_moinhat = $job_vietseiko::getLatestJob(8);
+  $job_moinhat = $job_vietseiko::getLatestJob(12);
   $link = 'viec-lam-tai-vietseiko/';
 }
 ?>

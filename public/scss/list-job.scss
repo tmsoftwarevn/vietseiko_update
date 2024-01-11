@@ -107,8 +107,10 @@
     padding: 10px;
 }
 .box-search-f {
+    width: 100%;
     display: flex;
     align-items: center;
+    //justify-content: center;
     padding: 20px ;
     background-color: var(--bg-color-card);
     

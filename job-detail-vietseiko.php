@@ -484,7 +484,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
         <div class="section-content">
             <div class="owl-carousel twm-related-jobs-carousel owl-btn-vertical-center owl-loaded owl-drag">
                 <?php
-                $list_of_latestJob = Vietseiko_f::getLatestJob(8);
+                $list_of_latestJob = Vietseiko_f::getLatestJob(12);
                 foreach ($list_of_latestJob as $key => $value) {
                 ?>
 
