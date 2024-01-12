@@ -101,7 +101,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                             if ($allJob[0]['id_cty'] == 1) {
                                             ?>
                                                 <div class="twm-media">
-                                                    <img src="public/images/logo.png" alt="anh" style="width: 100%;height: 100%;object-fit: contain;" />
+                                                    <img src="public/images/logo.png" alt="anh" style="width: 100%;height: 50px;" />
                                                 </div>
                                             <?php
                                             } else {
@@ -128,7 +128,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 <div class="twm-job-self-mid-left">
                                                     <span style="font-weight: 500;"><?= __('Mức lương: ') ?></span>
                                                     <span style="color: #1967d2;">
-                                                        <?php echo $allJob[0]['mucluong'] ?> triệu
+                                                        <?php echo $allJob[0]['mucluong'] ?>
                                                     </span>
                                                 </div>
                                                 <div class="twm-job-apllication-area">

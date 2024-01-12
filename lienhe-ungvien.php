@@ -79,7 +79,7 @@ require_once 'header.php';
                         <div class="col-lg-6 bordered-element">
                             <h3 class="ft_title"><?= __('LIÊN HỆ VỚI CHÚNG TÔI') ?></h3>
 
-                            <form action="mail-lien-he-ungvien.php" method="POST" enctype="multipart/form-data">
+                            <form action="mail-lienhe-ungvien.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-contact_f">
                                     <div class="row mt-5">
                                         <div class="col-lg-6">

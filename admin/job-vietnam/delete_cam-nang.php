@@ -18,6 +18,6 @@ array_pop($parts);
 
 $newpath = implode('/', $parts);
 //echo 'check path: '.$newpath;
-header("Location: $newpath/cam-nang-list.php");
+header("Location: $newpath/admin-list-camnang.php");
 
 ?>

@@ -11537,12 +11537,12 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 .twm-job-self-wrap .twm-job-self-info .twm-job-self-top .twm-media {
   width: 70px;
-  height: 70px;
+  /* height: 70px; */
   line-height: 70px;
   display: inline-block;
   text-align: center;
   background-color: #fff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 0px 0px 40px rgba(56, 152, 226, 0.3);
   position: absolute;
   top: -40px;
@@ -12788,12 +12788,12 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 .twm-s-info3 .twm-s-info-logo-section .twm-media {
   width: 70px;
-  height:70px;
+  /* height:70px; */
   line-height: 70px;
   display: inline-block;
   text-align: center;
   background-color: #fff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 0px 0px 40px rgba(56, 152, 226, 0.3);
   position: relative;
   top: -80px;
