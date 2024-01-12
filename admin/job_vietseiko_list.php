@@ -42,6 +42,10 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
   label {
     margin-right: 10px;
   }
+  .dataTables_filter input {
+        width: 500px;
+        /* Adjust the width as needed */
+    }
 </style>
 
 <body>

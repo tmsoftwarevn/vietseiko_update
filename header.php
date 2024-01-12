@@ -70,7 +70,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     <meta name="author" content="" />
     <meta name="robots" content="" />
     <meta name="description" content="Tìm việc xkld nhật bản tại VietSeiko" />
-    
+
 
     <!-- FAVICONS ICON -->
     <link rel="icon" href="public/images/logo.png" type="image/x-icon" />
@@ -411,8 +411,14 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                     <a href="tin-tuc"><?= __('Tin tức') ?></a>
                                 </li>
 
+                               
                                 <li class="has-child">
-                                    <a href="lien-he"><?= __('Liên hệ') ?></a>
+                                    <a href="javascript:;" ;><?= __('Liên hệ') ?></a>
+                                    <ul class="sub-menu" style="width: 270px;">
+                                        <li style="cursor: pointer;"><a href="lien-he-ung-vien"><?= __('Ứng viên') ?></a></li>
+                                        <li style="cursor: pointer;"><a href="lien-he-nha-tuyen-dung"><?= __('Nhà tuyển dụng') ?></a></li>
+                                        <li style="cursor: pointer;"><a href="lien-he-khac"><?= __('Khác') ?></a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -487,8 +493,8 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
         }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    
-    
+
+
 </body>
 
 </html>

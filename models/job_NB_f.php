@@ -91,6 +91,12 @@ class Job_NB_f extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
+    static function tang_view()
+    {
+        $sql = self::$connection->prepare("UPDATE job_xkld_nb SET view = view + 1");
+        $sql->execute();
+        
+    }
     function getJob_Detail($id)
     {
         $sql = self::$connection->prepare("SELECT * FROM job_xkld_nb INNER JOIN cty ON job_xkld_nb.id_cty = cty.id_cty WHERE id_job = ?");

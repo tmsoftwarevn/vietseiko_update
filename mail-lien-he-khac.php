@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -11,27 +11,37 @@ require 'PHPMailer/src/Exception.php';
 require_once 'config.php';
 require "models/db.php";
 require "models/form-contact.php";
-require "models/nganhnghe.php";
+
 
 $form_contact = new Form_contact;
-$name_nganhnghe = new Nganhnghe_f;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+if (isset($_POST['submit']) == TRUE) {
+
+  if ($_FILES["file"]["name"]) {
+    $file_name = time() . $_FILES["file"]["name"];
+    $file_type = $_FILES["file"]["type"];
+    $fileTmpName = $_FILES["file"]["tmp_name"];
+    $target_dir = "./admin/file-cv/list-file/";
+
+    if ($file_name && $fileTmpName) {
+      move_uploaded_file($fileTmpName, $target_dir . $file_name);
+    }
+  }
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   try {
     // Lấy dữ liệu từ biểu mẫu liên hệ
     $name = $_POST['name'];
     $email = $_POST['email'];
+
     $phone = $_POST['phone'];
-    $luong = $_POST['luong'];
+    $mucdich = $_POST['mucdich'];
 
-    $type = $_POST['type'];
-    $nganhnghe = $_POST['nganhnghe'];
-
-    $address = $_POST['address'];
-    $address_h = $_POST['address-h'];
-
-    $get_name_nn = $name_nganhnghe->getNganhngheName($nganhnghe);
-
+  
+    $file = $file_name;
+   
 
     // return;
     // Tạo đối tượng PHPMailer
@@ -45,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->isHTML(true);
 
     // thông tin mk mail console
-    
+
     $mail->Username = 'vietseikohanhdong@gmail.com';
     $mail->Password = 'vpoi kpzu brou firt';
 
@@ -53,29 +63,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->setFrom($email, $name);
 
     //email người nhận
-
-    $recipientEmail = 'admin@vietseiko.com';
+    $recipientEmail = 'thphongboy@gmail.com';
     $recipientName = 'vietseiko';
+
+    // $recipientEmail = 'admin@vietseiko.com';
+    // $recipientName = 'vietseiko';
 
 
     $mail->addAddress($recipientEmail, $recipientName);
 
     $mail->CharSet = "UTF-8";
-    if ($type == 1) $job_name = 'Việc làm tại Việt Nam';
-    if ($type == 2) $job_name = 'XKLD Nhật Bản';
-    if ($type == 3) $job_name = 'Kỹ sư và thông dịch viên Nhật Bản';
-    if ($type == 4) $job_name = 'Việc làm tại VietSeiko';
+   
 
     $mail->Subject = 'Mail từ website VietSeiko: Liên Hệ';
-    $mail->Body = "Bạn nhận được liên hệ công việc thuộc: $job_name <br><br>";
+    $mail->Body = "Bạn nhận được liên hệ từ người khác <br><br>";
     $mail->Body .= "Họ tên: $name<br>";
     $mail->Body .= "Email: $email<br>";
     $mail->Body .= "Số điện thoại: $phone<br>";
+    $mail->Body .= "Mục đích liên hệ: $mucdich<br>";
 
-    $mail->Body .= "Mức lương mong muốn: $luong<br>";
-    $mail->Body .= "Khu vực hiện tại: $address<br>";
-    $mail->Body .= "Nơi mong muốn làm việc: $address_h<br>";
-    $mail->Body .= "Ngành nghề: $get_name_nn <br>";
 
     ///
 
@@ -89,15 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Chuyển hướng đến trang cảm ơn sau khi gửi email thành công
 
-    $form_contact->createInformationUser_lienhe(
+    $form_contact->create_info_khac(
       $name,
       $email,
       $phone,
-      $luong,
-      $type,
-      $nganhnghe,
-      $address,
-      $address_h,
+      $mucdich,
+      $file,
+      2
     );
     header('Location: cam-on');
 

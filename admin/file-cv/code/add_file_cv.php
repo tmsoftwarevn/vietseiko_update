@@ -51,15 +51,5 @@ $url =  $_SERVER['HTTP_REFERER'];
 header("Location: $url");
 
 
-// $path = $url;
-// $parts = explode('&', $path);
-// if (count($parts) > 1) {
-//     array_pop($parts);
-//     $newpath = implode('&', $parts);
-//     header("Location: $newpath&checkResult=$checkResult");
-// } else {
-//     header("Location: $url&checkResult=$checkResult");
-// }
-
 ?>
 

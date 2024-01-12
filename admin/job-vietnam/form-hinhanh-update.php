@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $img = $_POST['image_f'];
 
     $checkResult = $u->update_hinhanh_video($id, $img);
+    
     $url =  $_SERVER['HTTP_REFERER'];
 
     // custom path để click 2 lần submit ko bị lỗi

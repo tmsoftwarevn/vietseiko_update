@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
 } else {
     echo "Khong nhan duoc ID";
 }
-
+$job_kysu::tang_view();
 $allJob = $job_kysu->getJob_Detail($id);
 $name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
 
@@ -90,7 +90,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 <div class="twm-job-self-info">
                                     <div class="twm-job-self-top">
                                         <div class="twm-media-bg">
-                                        <?php echo $banner[0]['img'] ?>
+                                            <?php echo $banner[0]['img'] ?>
                                         </div>
 
                                         <div class="twm-mid-content">
@@ -109,7 +109,10 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                             <?php
                                             }
                                             ?>
-
+                                            <div class="eye-view">
+                                                <i class="bi bi-eye"></i>
+                                                <span style="font-weight: 600;">Lượt xem: <?php echo $allJob[0]['view']?></span>
+                                            </div>
                                             <h4 class="twm-job-title" style="font-size: 25px; padding-top: 20px;">
                                                 <?php echo $allJob[0]['chucvu'] ?>
                                             </h4>
@@ -126,7 +129,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                     </span>
                                                 </div>
                                                 <div class="twm-job-apllication-area">
-                                                <?= __('Hạn nộp hồ sơ: ') ?>
+                                                    <?= __('Hạn nộp hồ sơ: ') ?>
                                                     <span class="twm-job-apllication-date">
                                                         <?php
                                                         $dateTime = new DateTime($allJob[0]['ngaycuoicung']);
@@ -163,7 +166,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                         margin: 0;
                         padding-left: 10px;
                       ">
-                                             <?= __('Thông tin việc làm') ?>
+                                            <?= __('Thông tin việc làm') ?>
                                         </h2>
                                         <ul class="twm-job-hilites2">
                                             <div class="row">
@@ -287,7 +290,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                             <?php echo  $allJob[0]['thongtin_khac']; ?>
                             <!-- // nut dang ki -->
                             <div class="btn-dangki-detail" id="openModalBtn-2">
-                            <?= __('Ứng tuyển ngay ') ?>
+                                <?= __('Ứng tuyển ngay ') ?>
                             </div>
 
                         </div>

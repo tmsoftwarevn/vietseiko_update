@@ -53,7 +53,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
         border: 1px solid #1967d2;
         border-radius: 5px;
     }
-    
+
     select {
         width: 100%;
         padding: 10px;
@@ -85,14 +85,16 @@ $vsk = $img_f->getAll_imgBy_id(4);
     .btn-search:hover {
         background-color: #195191;
     }
-    .box-search-index{
+
+    .box-search-index {
         margin-top: 130px;
     }
+
     @media only screen and (max-width: 576px) {
-            .box-search-index {
-                margin-top: 100px;
-            }
+        .box-search-index {
+            margin-top: 100px;
         }
+    }
 </style>
 
 <title>Tìm việc nhanh, tuyển dụng hiệu quả tại VietSeiko</title>
@@ -100,11 +102,11 @@ $vsk = $img_f->getAll_imgBy_id(4);
 <div class="test" style="display: none;"></div>
 <div class="container">
     <!-- // form search -->
-    <div class="box-search-index" >
+    <div class="box-search-index">
         <form method="get" action="/viec-lam-tai-viet-nam">
             <div class="row">
                 <div class="col-sm-9 col-lg-7 mt-3">
-                    <input  value="<?php
+                    <input value="<?php
                                     if ($search != 'all') echo $search;
                                     ?>" name="search" class="input-name-job" type="text" placeholder="Tên việc làm" />
                 </div>
@@ -127,10 +129,10 @@ $vsk = $img_f->getAll_imgBy_id(4);
                 <div class="col-sm-3 col-lg-2 mt-3" style="display: flex; justify-content: center;">
                     <button type="submit" class="btn-search"><i class="bi bi-search"></i>Tìm việc</button>
                 </div>
-                <input name="id_nganhnghe" value="all" hidden/>
-                <input name="id_hinhthuc" value="all" hidden/>
-                <input name="id_kinhnghiem" value="all" hidden/>
-                <input name="id_gioitinh" value="all" hidden/>
+                <input name="id_nganhnghe" value="all" hidden />
+                <input name="id_hinhthuc" value="all" hidden />
+                <input name="id_kinhnghiem" value="all" hidden />
+                <input name="id_gioitinh" value="all" hidden />
             </div>
         </form>
     </div>
@@ -234,6 +236,9 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                                                     <i class="bi bi-geo-alt" style="margin-right: 5px;"></i>
                                                                     <?php echo $list_carousel[$i + $j]['diachi'] ?>
                                                                 </div>
+                                                                <!-- <div class="eye-view">
+                                                                    <i class="bi bi-eye"></i>9500 lượt xem
+                                                                </div> -->
                                                             </div>
                                                         </div>
                                                     </div>

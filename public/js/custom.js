@@ -220,7 +220,7 @@ All JavaScript fuctions Start
     // );
     jQuery(".has-child > a").each(function(index) {
       // Check if it's the second or third element (index 1 or 2, considering 0-based indexing)
-      if (index === 1 || index === 2) {
+      if (index === 1 || index === 2 || index === 4) {
           jQuery("<div class='fa fa-angle-right submenu-toogle'></div>").insertAfter(this);
       }
   });

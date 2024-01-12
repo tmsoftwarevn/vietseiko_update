@@ -2,7 +2,10 @@ RewriteEngine On
 
 RewriteRule ^trang-chu index.php [QSA]
 RewriteRule ^gioi-thieu about-us.php [QSA]
-RewriteRule ^lien-he contact.php [QSA]
+RewriteRule ^lien-he-ung-vien lienhe-ungvien.php [QSA]
+RewriteRule ^lien-he-nha-tuyen-dung lienhe-ntd.php [QSA]
+RewriteRule ^lien-he-khac lienhe-khac.php [QSA]
+
 RewriteRule ^cam-on thank-you.php [QSA]
 RewriteRule ^tinh-luong-gross-net gross-net.php [QSA]
 RewriteRule ^quy-trinh-viec-lam-tai-viet-nam quytrinh-vn.php [QSA]

@@ -32,6 +32,10 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 <style>
+    .dataTables_filter input {
+        width: 500px;
+        /* Adjust the width as needed */
+    }
     .results {
         margin-bottom: 20px;
     }

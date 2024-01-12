@@ -23,8 +23,7 @@
     }
 }
 // modal nộp cv
-.t{
-
+.t {
 }
 .modal {
     display: none;
@@ -47,7 +46,7 @@
         @media only screen and (max-width: 576px) {
             width: 85vw;
         }
-        @media only screen and (min-width: 577px)and (max-width:991px) {
+        @media only screen and (min-width: 577px) and (max-width: 991px) {
             width: 60vw;
         }
         @media only screen and (min-width: 992px) {
@@ -101,20 +100,20 @@
 }
 .container {
     @media only screen and (min-width: 576px) {
-        max-width: 1200px ;
+        max-width: 1200px;
     }
 }
-.mobile-info{
+.mobile-info {
     @media only screen and (min-width: 991px) {
         display: none;
     }
 }
-.scr_big-info{
+.scr_big-info {
     @media only screen and (max-width: 991px) {
         display: none;
     }
 }
-.scr_big-info{
+.scr_big-info {
     @media only screen and (min-width: 991px) {
         margin-left: 30px;
     }
@@ -175,7 +174,7 @@
             padding: 15px 10px;
             border: 1px solid #ccc;
             border-radius: 10px;
-            // margin-bottom: 30px;
+            position: relative;
             &:hover {
                 cursor: pointer;
                 border: 1px solid var(--border-color);
@@ -243,7 +242,14 @@
         }
     }
 }
-
+.eye-view {
+    position: absolute;
+    top: 50px;
+    @media only screen and (max-width: 576px) {
+        right: 0;
+        top: 20px;
+    }
+}
 //tin tức ở index,
 
 .t {
@@ -283,7 +289,7 @@
     width: 100%;
     border: 1px solid transparent;
     cursor: pointer;
-    &:hover{
+    &:hover {
         border: 1px solid var(--main-color);
         transition: 0.5s;
     }
@@ -311,12 +317,12 @@
 
 .date-custom {
     background-color: var(--main-color);
-   
+
     color: #fff;
     font-size: 14px;
     line-height: 28px;
     padding: 3px 10px;
-    
+
     position: relative;
     z-index: 1;
     width: fit-content;
@@ -337,8 +343,8 @@
 //blog tất cả
 .t {
 }
-.twm-job-title{
-    &:hover{
+.twm-job-title {
+    &:hover {
         color: #1967d2;
     }
 }
@@ -361,7 +367,6 @@
 .img-blog-detail {
     img {
         width: 100%;
-        
     }
 }
 .pr-blog {
@@ -402,34 +407,31 @@
 }
 
 //silde logo
-.t{
-
+.t {
 }
-.logo-slide{
+.logo-slide {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
-    img{
+    img {
         width: 100%;
         height: 100%;
-        
     }
 }
 // search in index
-.t{
-
+.t {
 }
-.main-bar-search{
+.main-bar-search {
     position: fixed;
 
     width: 100%;
     margin-top: 100px;
-   
+
     background: transparent;
     max-width: 1200px;
     left: 50%;
     transform: translateX(-50%);
 
-    transition:all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
+    transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s;
 }

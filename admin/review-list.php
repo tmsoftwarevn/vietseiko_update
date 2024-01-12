@@ -27,7 +27,15 @@ $allReview = $review::getAll_review();
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 
+<style>
+  .image {
+        width: 100px;
+    }
 
+    img {
+        width: 100%;
+    }
+</style>
 
 <body>
 
@@ -51,6 +59,7 @@ $allReview = $review::getAll_review();
                   <th>Họ tên</th>
                   <th>Mô tả</th>
                   <th>Ngày cập nhật</th>
+                  <th>ảnh</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -64,7 +73,7 @@ $allReview = $review::getAll_review();
                     <td><?php echo $value['name'] ?></td>
                     <td><?php echo $value['mota'] ?></td>
                     <td><?php echo $value['updated_at'] ?></td>
-                    
+                    <td><?php echo $value['img_review'] ?></td>
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
                         <a href="review-update.php?typeUpdate=review&id=<?php echo $value['id'] ?>" class="btn btn-secondary light mr-2">

@@ -444,12 +444,12 @@
                                             Việc Làm Tiếng Nhật TP.HCM
                                         </a>
                                     </span>
-                                    <span>
+                                    <!-- <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Vi%E1%BB%87c-L%C3%A0m-Ti%E1%BA%BFng-Nh%E1%BA%ADt-TPHCM-Vietseiko-105744628103928;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span>
+                                    </span> -->
                                 </div>
                             </div>
                             <!-- end div facebook_content_oden-->
@@ -468,12 +468,12 @@
                                             HR- Việc Làm Nhanh
                                         </a>
                                     </span>
-                                    <span>
+                                    <!-- <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/HR-Vietseiko-Vi%E1%BB%87c-L%C3%A0m-Nhanh-108428324645270;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span>
+                                    </span> -->
                                 </div>
                             </div>
                             <!-- end div facebook_content_Hr-->
@@ -495,12 +495,12 @@
                                             Xuất Khẩu Lao Động Nhật Bản
                                         </a>
                                     </span>
-                                    <span>
+                                    <!-- <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span>
+                                    </span> -->
                                 </div>
                             </div>
                             <!-- end div facebook_content_Hr-->
@@ -521,12 +521,12 @@
                                         </a>
 
                                     </span>
-                                    <span>
+                                    <!-- <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span>
+                                    </span> -->
                                 </div>
                             </div>
                             <!-- start div facebook_content_thuduc-->
@@ -543,12 +543,12 @@
                                             Vietseiko Co., Ltd
                                         </a>
                                     </span>
-                                    <span>
+                                    <!-- <span>
                                         <iframe
                                             src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCty.TNHH.Vietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
                                             width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
                                             frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span>
+                                    </span> -->
                                 </div>
                             </div>
                             <!-- end div facebook_content_vietsiko-->
@@ -557,7 +557,7 @@
                     <!--end div footer-->
                 </div>
             </div>
-            <div class="row footer_add">
+            <div class="row footer_add mt-5">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <!-- start div add_cont-->
                     <div class="add_cont">
@@ -635,7 +635,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="copy_right">
                         <div class="copy">
-                            <p>© Copyright © 2023 VIETSEIKO. All rights reserved</p>
+                            <p>© Copyright © VIETSEIKO. All rights reserved</p>
                         </div>
                     </div>
                 </div>

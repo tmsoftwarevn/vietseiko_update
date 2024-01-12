@@ -30,12 +30,23 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
 <style>
+    .dataTables_filter input {
+        width: 500px;
+        /* Adjust the width as needed */
+    }
     .results {
         margin-bottom: 20px;
     }
 
     label {
         margin-right: 10px;
+    }
+    .image {
+        width: 100px;
+    }
+
+    img {
+        width: 100%;
     }
 </style>
 
@@ -79,6 +90,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                         <th>Tên blog</th>
                         <th>Type công việc</th>
                         <th>Ngày đăng</th>
+                        <th>ảnh</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -101,6 +113,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                             <td><?php echo $value['tieude_blog'] ?></td>
                             <td><?php echo $value['type_name'] ?></td>
                             <td><?php echo $value['created_at'] ?></td>
+                            <td><?php echo $value['img_blog'] ?></td>
                             <td>
                                 <div class="action-buttons d-flex justify-content-end">
 

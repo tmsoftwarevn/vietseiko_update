@@ -77,6 +77,10 @@ $lang = [
 	'Chi tiết cẩm nang' =>'ハンドブックの詳細',
 	'Chi tiết tin tức' =>'ニュース詳細',
 	'Tin tức liên quan' =>'関連ニュース',
-	'Cẩm nang liên quan'=>'関連ハンドブック'
+	'Cẩm nang liên quan'=>'関連ハンドブック',
+
+	'Ứng viên'=>'候補者',
+	'Nhà tuyển dụng'=>'雇用者',
+	'Khác'=>'他の',
 
 ];

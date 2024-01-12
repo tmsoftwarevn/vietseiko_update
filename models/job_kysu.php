@@ -125,7 +125,12 @@ class Job_kysu_f extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-
+    static function tang_view()
+    {
+        $sql = self::$connection->prepare("UPDATE job_kysunb SET view = view + 1");
+        $sql->execute();
+        
+    }
     // tổng số search được
     static function searchJob($id_nganhnghe, $id_hinhthuc, $id_kinhnghiem, $id_gioitinh, $diachi, $search)
     {

@@ -2,9 +2,7 @@
 require_once "db.php";
 class Contact extends Db
 {
-    /**
-     * Lấy dữ liệu bảng Job hinhthuc
-     */
+    
     static function getAll_lh($type_id)
     {
         $sql = self::$connection->prepare("SELECT * from contact WHERE type_id = ?");
@@ -26,6 +24,27 @@ class Contact extends Db
         return $items; //return an array.
     }
    
+    // nhà tuyển dụng và khác: 1 ntd, 2: khác
+    static function getAll_lh_ntd_khac($type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * from `contact_ntd&khac` WHERE type_id = ?");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();      
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; 
+    }
+    
+    // chia ra 2 loại
+    static function getAll_lh_andCreatePagination_ntd_khac($page, $resultsPerPage,$type_id)
+    {
+        $firstLink = ($page - 1) * $resultsPerPage; 
+        $sql = self::$connection->prepare("SELECT * from `contact_ntd&khac` where type_id = ? order by created_at desc LIMIT $firstLink, $resultsPerPage");
+        $sql->bind_param("i", $type_id);
+        $sql->execute();
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array.
+    }
     static function delete_contact($id)
     {
         $sql = self::$connection->prepare("DELETE FROM contact WHERE id_contact = ?");

@@ -2,7 +2,6 @@
 class Form_contact extends Db
 {
 
-    /* lấy dữ liệu từ bản Blog*/
 
     static function getAllNganh_ung_tuyen()
     {
@@ -11,35 +10,65 @@ class Form_contact extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-
-    /* lấy một bài viết dựa trên Id */
+    // ung vien
     public function createInformationUser_lienhe(
         $name,
         $email,
         $phone,
         $luong,
-        $type,  
+        $type,
         $nganhnghe,
         $address,
-        $address_h
+        $address_h,
+        $file
     ) {
-        $sql = self::$connection->prepare("INSERT INTO `contact`(`name`, `email`, `phone`, `muc_luong`, `khu_vuc_hien_tai`, `khu_vuc_mong_muon`, `nganhnghe`, `type_id`)
-        VALUES ('$name','$email','$phone','$luong','$address','$address_h','$nganhnghe','$type')");
+        $sql = self::$connection->prepare("INSERT INTO `contact`(`name`, `email`, `phone`, `muc_luong`, `khu_vuc_hien_tai`, `khu_vuc_mong_muon`, `nganhnghe`, `type_id`, `file`)
+        VALUES ('$name','$email','$phone','$luong','$address','$address_h','$nganhnghe','$type','$file')");
         $sql->execute();
 
-        // echo ("checkkk" . $sql);
+    }
+    // nha tuyen dung
+    public function create_info_ntd(
+        $name,
+        $email,
+        $phone,
+        $mucdich,
+        $vitri,
+        $address,
+        $file,
+        $type_id
+    ) {
+        $sql = self::$connection->prepare("INSERT INTO `contact_ntd&khac`(`name`, `email`, `phone`, `muc_dich`, `dia_diem`, `vi_tri_can_tuyen`, `file`, `type_id`) 
+        VALUES ('$name','$email','$phone','$mucdich','$address','$vitri','$file','$type_id')");
+        $sql->execute();
+
+    }
+    // khác
+    public function create_info_khac(
+        $name,
+        $email,
+        $phone,
+        $mucdich,
+        $file,
+        $type_id
+    ) {
+        $sql = self::$connection->prepare("INSERT INTO `contact_ntd&khac`(`name`, `email`, `phone`, `muc_dich`, `file`, `type_id`) 
+        VALUES ('$name','$email','$phone','$mucdich','$file','$type_id')");
+        $sql->execute();
+
     }
     // fet api and custom 
     public function fetch_tinh_thanh()
     {
         // bỏ từ 'tỉnh','thành phố'
-        function cutPrefix($name) {
+        function cutPrefix($name)
+        {
             $prefixes = ['Tỉnh', 'Thành phố'];
-        
+
             foreach ($prefixes as $prefix) {
                 $name = preg_replace("/^$prefix\s+/i", '', $name);
             }
-        
+
             return trim($name);
         }
         $ch = curl_init();
@@ -56,10 +85,11 @@ class Form_contact extends Db
             array_push($array_,  cutPrefix($item['name']));
         }
         echo print_r($array_);
-        return $array_;        
+        return $array_;
     }
-    
-    public function list_tinh(){
+
+    public function list_tinh()
+    {
         $locations = array(
             'Hà Nội', 'Hà Giang', 'Cao Bằng', 'Bắc Kạn', 'Tuyên Quang', 'Lào Cai', 'Điện Biên', 'Lai Châu', 'Sơn La', 'Yên Bái',
             'Hoà Bình', 'Thái Nguyên', 'Lạng Sơn', 'Quảng Ninh', 'Bắc Giang', 'Phú Thọ', 'Vĩnh Phúc', 'Bắc Ninh', 'Hải Dương',
@@ -71,7 +101,8 @@ class Form_contact extends Db
         );
         return $locations;
     }
-    public function list_nhatban_location(){
+    public function list_nhatban_location()
+    {
         $locationsJapan = array(
             'Hokkaido', 'Aomori', 'Iwate', 'Miyagi', 'Akita', 'Yamagata', 'Fukushima',
             'Ibaraki', 'Tochigi', 'Gunma', 'Saitama', 'Chiba', 'Tokyo', 'Kanagawa',
@@ -85,6 +116,3 @@ class Form_contact extends Db
         return $locationsJapan;
     }
 }
-
-
- 

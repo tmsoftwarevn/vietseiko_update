@@ -2,7 +2,11 @@
 require_once 'header.php';
 ?>
 <style>
-    <?php include 'scss-client/contact.scss'; ?>
+    <?php include 'scss-client/contact.scss'; ?>.btn-info-contact {
+        color: #000;
+        background-color: #ccc;
+        border-color: #ccc;
+    }
 </style>
 <title>Liên hệ</title>
 <!-- CONTENT START -->
@@ -75,15 +79,15 @@ require_once 'header.php';
                         <div class="col-lg-6 bordered-element">
                             <h3 class="ft_title"><?= __('LIÊN HỆ VỚI CHÚNG TÔI') ?></h3>
 
-                            <form action="mail.php" method="POST">
+                            <form action="mail-lien-he-khac.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-contact_f">
                                     <div class="row mt-5">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="name">
                                                 <input class="i-half" placeholder="Họ và tên" type="text" required name="name" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="email">
                                                 <input name="email" class="i-half" type="email" placeholder="Nhập email" required />
                                             </div>
@@ -92,75 +96,28 @@ require_once 'header.php';
 
                                     <div class="row">
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="phone">
                                                 <input name="phone" class="i-half" type="tel" placeholder="Số điện thoại" required pattern="(03|05|07|08|09)[0-9]{8}" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="luong">
-                                                <input name="luong" class="i-half" type="text" placeholder="Mức lương mong muốn" required />
+                                                <input name="mucdich" class="i-half" type="text" placeholder="Mục đích liên hệ" required />
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-6">
+                                    <button class="btn btn-info-contact btn-block button-upload">
+                                        <label class="upload-option">
+                                            <input name="file" id="file" type="file" class="upload-input" accept=".pdf, .doc, .docx" onchange="handleFileUpload(event)">
+                                            <span class="svicon-upload mr-2"></span>
+                                        </label>
+                                    </button>
+                                    <div id="error-message" class="text-danger mt-2"></div>
+                                    <p id="uploadSuccess" class="text-success mt-2"></p>
 
-                                            <select class="i-half" required name="type" style="cursor: pointer;">
-
-                                                <option disabled selected value>-- Nhóm việc làm --</option>
-                                                <option value="1">Việc Làm Tại Việt Nam
-                                                </option>
-                                                <option value="2">Xuất Khẩu Lao Động Nhật Bản </option>
-
-                                                <option value="3">Kỹ sư & thông dịch viên tại Nhật Bản </option>
-                                                <option value="4">Việc làm tại VietSeiko </option>
-
-                                            </select>
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            <select id="job-ct" class="i-half" required name="nganhnghe" style="cursor: pointer;">
-                                                <option disabled selected value>-- Ngành bạn ứng tuyển --</option>
-                                                <?php
-                                                foreach ($form_contact->getAllNganh_ung_tuyen() as $key => $value) {
-                                                ?>
-                                                    <option value="<?php echo $value['id_nganhnghe'] ?>">
-                                                        <?php echo $value['name_nganhnghe'] ?>
-                                                    </option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            <select class="i-half" required name="address" style="cursor: pointer;">
-                                                <option disabled selected value>-- Khu vực hiện tại--</option>
-                                                <?php
-                                                foreach ($form_contact->list_tinh() as $index => $item) {
-                                                ?>
-                                                    <option value="<?php echo $item ?>">
-                                                        <?php echo $item ?>
-                                                    </option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input name="address-h" class="i-half" type="text" placeholder="Nơi mong muốn làm việc" required />
-                                        </div>
-                                    </div>
-                                    <input class="btn-form-f mt-5" type="submit" value="Gửi thông tin">
+                                    <input class="btn-form-f mt-5" type="submit" name="submit" value="Gửi thông tin">
 
                                 </div>
                             </form>
@@ -172,8 +129,30 @@ require_once 'header.php';
     </div>
 
 
-
 </div>
+<script>
+    function handleFileUpload(event) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+        const errorMessageBox = document.getElementById('error-message');
+        const uploadSuccess = document.getElementById('uploadSuccess');
+
+        if (file) {
+            const allowedExtensions = ['.pdf', '.doc', '.docx'];
+            const maxFileSize = 2 * 1024 * 1024;
+
+            const fileExtension = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+            if (!allowedExtensions.includes(fileExtension) || file.size > maxFileSize) {
+                errorMessageBox.textContent = 'File upload không hợp lệ. File phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.';
+                uploadSuccess.textContent = '';
+                fileInput.value = '';
+            } else {
+                errorMessageBox.textContent = '';
+                uploadSuccess.textContent = 'Tải lên thành công: ' + file.name;
+            }
+        }
+    }
+</script>
 
 <!-- END CENTEN BODY -->
 

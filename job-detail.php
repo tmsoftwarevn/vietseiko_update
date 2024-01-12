@@ -20,6 +20,7 @@ if (isset($_GET['id'])) {
     echo "Khong nhan duoc ID";
 }
 
+$job::tang_view();
 $allJob = $job->getJob_Detail($id);
 $name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
 $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem']);
@@ -120,6 +121,10 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                             <?php
                                             }
                                             ?>
+                                            <div class="eye-view">
+                                                <i class="bi bi-eye"></i>
+                                                <span style="font-weight: 600;">Lượt xem: <?php echo $allJob[0]['view']?></span>
+                                            </div>
                                             <h4 class="twm-job-title" style="font-size: 25px; padding-top: 20px;">
                                                 <?php echo $allJob[0]['chucvu'] ?>
                                             </h4>
@@ -148,11 +153,10 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                                 </div>
                                             </div>
 
+
                                             <div class="twm-job-self-bottom" id="openModalBtn">
                                                 <a class="site-button" role="button">
                                                     <i class="feather-log-in"></i> <?= __('Ứng tuyển ngay ') ?>
-                                                </a>
-
                                                 </a>
                                             </div>
                                         </div>
@@ -580,7 +584,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <p><?= __('File CV phải có định dạng .pdf, .doc, .docx và dung lượng <= 2MB.') ?></p>
                 </div>
                 <form action="./admin/file-cv/code/add_file_cv.php" method="POST" enctype="multipart/form-data">
-                
+
                     <button class="btn btn-info btn-block button-upload">
                         <label class="upload-option">
                             <input name="file" id="file" type="file" class="upload-input" accept=".pdf, .doc, .docx" required onchange="handleFileUpload(event)">
@@ -610,22 +614,22 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label"><?= __('Năm sinh') ?> <span class="text-danger">*</span></label>
                         <input required name="namsinh" type="text" class="form-control rounded input-field" id="phoneNumber">
-                       
+
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label"><?= __('Mức lương mong muốn') ?> <span class="text-danger">*</span></label>
                         <input required name="mucluong" type="text" class="form-control rounded input-field" id="phoneNumber">
-                     
+
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label"><?= __('Khu vực mong muốn') ?> <span class="text-danger">*</span></label>
                         <input required name="khuvuc" type="text" class="form-control rounded input-field" id="phoneNumber">
-                        
+
                     </div>
                     <div class="mb-3">
                         <label for="phoneNumber" class="form-label"><?= __('Vị trí ứng tuyển') ?> <span class="text-danger">*</span></label>
                         <input required name="vitri" type="text" class="form-control rounded input-field" id="phoneNumber">
-                       
+
                     </div>
                     <hr>
                     <div class="card-footer mt-3 d-flex justify-content-between align-items-center">
