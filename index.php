@@ -33,8 +33,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
 
 //// get all name job to search
 
-$list = $search_f->search_custom($job::getAllJob(), $job_nb::getAllJob(), $job_kysu::getAllJob(), $job_vietseiko::getAllJob());
-$list_search = json_encode($list);
+
 
 ?>
 

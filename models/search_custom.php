@@ -1,40 +1,7 @@
 <?php
 class Search_f extends Db
 {
-    public function search_custom($list1, $list2, $list3, $list4)
-    {
-        $arr = [];
 
-        $new_list_1 = [];
-        for ($i = 0; $i < 500; $i++) {
-            $new_list_1 = array_merge($new_list_1, $list1);
-        }
-        $new_list_2 = [];
-        for ($i = 0; $i < 300; $i++) {
-            $new_list_2 = array_merge($new_list_2, $list2);
-        }
-        $new_list_3 = [];
-        for ($i = 0; $i < 300; $i++) {
-            $new_list_3 = array_merge($new_list_3, $list3);
-        }
-        $new_list_4 = [];
-        for ($i = 0; $i < 200; $i++) {
-            $new_list_4 = array_merge($new_list_4, $list4);
-        }
-        foreach ($new_list_1 as $key => $value) {
-            $arr[] = ['name' => $value['chucvu'], 'type_job' => $value['type_job'], 'id' => $value['id_job']];
-        }
-        foreach ($new_list_2 as $key => $value) {
-            $arr[] = ['name' => $value['chucvu'], 'type_job' => $value['type_job'], 'id' => $value['id_job']];
-        }
-        foreach ($new_list_3 as $key => $value) {
-            $arr[] = ['name' => $value['chucvu'], 'type_job' => $value['type_job'], 'id' => $value['id_job']];
-        }
-        foreach ($new_list_4 as $key => $value) {
-            $arr[] = ['name' => $value['chucvu'], 'type_job' => $value['type_job'], 'id' => $value['id_job']];
-        }
-        return $arr;
-    }
     public static function slug($title)
     {
         $replacement = '-';

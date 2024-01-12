@@ -69,9 +69,9 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                     <option <?php
                             if ($resultsPerPage == 100) echo 'selected="selected"'
                             ?> value="100">100</option>
-                            <option <?php
-                  if ($resultsPerPage == 200) echo 'selected="selected"'
-                  ?> value="200">200</option>
+                    <option <?php
+                            if ($resultsPerPage == 200) echo 'selected="selected"'
+                            ?> value="200">200</option>
                 </select>
                 <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
             </form>
@@ -114,7 +114,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                                         <td><?php echo $key + 1 ?></td>
                                         <td>
                                             <a href="job_vietseiko_view.php?typeView=job-vietseiko&id=<?php echo $value['id_job'] ?>">
-                                            <?php
+                                                <?php
                                                 $get_jobcode = Vietseiko::get_jobcode($value['id_job']);
                                                 if (!empty($get_jobcode))
                                                     echo $get_jobcode['job_code'];
