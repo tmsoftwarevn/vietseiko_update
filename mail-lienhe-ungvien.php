@@ -68,11 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->setFrom($email, $name);
 
     //email người nhận
-    $recipientEmail = 'thphongboy@gmail.com';
-    $recipientName = 'vietseiko';
-
-    // $recipientEmail = 'admin@vietseiko.com';
+    // $recipientEmail = 'thphongboy@gmail.com';
     // $recipientName = 'vietseiko';
+
+    $recipientEmail = 'admin@vietseiko.com';
+    $recipientName = 'vietseiko';
 
 
     $mail->addAddress($recipientEmail, $recipientName);
