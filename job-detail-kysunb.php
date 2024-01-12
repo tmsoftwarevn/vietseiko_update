@@ -15,8 +15,10 @@ if (isset($_GET['id'])) {
 } else {
     echo "Khong nhan duoc ID";
 }
-$job_kysu::tang_view();
+
 $allJob = $job_kysu->getJob_Detail($id);
+$job_kysu::tang_view($allJob[0]['id_job']);
+
 $name_gioitinh = $gioitinh->getGioitinh_byId($allJob[0]['id_gioitinh']);
 
 $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem']);

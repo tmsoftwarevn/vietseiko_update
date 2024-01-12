@@ -125,9 +125,9 @@ class Job_kysu_f extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items;
     }
-    static function tang_view()
+    static function tang_view($id)
     {
-        $sql = self::$connection->prepare("UPDATE job_kysunb SET view = view + 1");
+        $sql = self::$connection->prepare("UPDATE job_kysunb SET view = view + 1 where id_job = $id");
         $sql->execute();
         
     }

@@ -135,9 +135,9 @@ class Job_f extends Db
         return $items;
     }
     // set view
-    static function tang_view()
+    static function tang_view($id)
     {
-        $sql = self::$connection->prepare("UPDATE job SET view = view + 1");
+        $sql = self::$connection->prepare("UPDATE job SET view = view + 1 where id_job = $id");
         $sql->execute();
         
     }
