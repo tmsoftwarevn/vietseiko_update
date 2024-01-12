@@ -69,6 +69,9 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                     <option <?php
                             if ($resultsPerPage == 100) echo 'selected="selected"'
                             ?> value="100">100</option>
+                            <option <?php
+                  if ($resultsPerPage == 200) echo 'selected="selected"'
+                  ?> value="200">200</option>
                 </select>
                 <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
             </form>

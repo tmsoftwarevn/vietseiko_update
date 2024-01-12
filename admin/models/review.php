@@ -2,10 +2,8 @@
 require_once "db.php";
 class Review extends Db
 {
-    /**
-     * LẤY DỮ LIỆU BẢNG JOB
-     */
-    //Lấy danh sách tất cả job
+    
+    //Lấy danh sách tất cả review
     static function getAll_review()
     {
         $sql = self::$connection->prepare("SELECT * FROM review ");
@@ -32,5 +30,17 @@ class Review extends Db
         $sql = self::$connection->prepare("UPDATE `review` SET `img_review`='$anh',`name`='$name',`mota`='$mota' WHERE id = ?");
         $sql->bind_param("i", $id);
         return $sql->execute();
+    }
+    public function add($name, $anh, $mota)
+    {
+        $sql = self::$connection->prepare("INSERT INTO `review`(`img_review`, `name`, `mota`) 
+        VALUES ('$anh','$name','$mota')");
+        return $sql->execute();
+    }
+    public function delete_review($id)
+    {
+        $sql = self::$connection->prepare("DELETE FROM review WHERE id = ?");
+        $sql->bind_param("i", $id);
+        $sql->execute();
     }
 }

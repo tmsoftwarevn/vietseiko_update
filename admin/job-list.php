@@ -55,11 +55,11 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
           <a href="job_add.php?typeAdd=job" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Thêm công việc mới</a>
         </div>
       </div>
-      
+
       <form action="#" method="get">
         <input type="hidden" name="page" value="1">
         <label>Số kết quả trong 1 trang</label>
-        <select style="width: 100px;" class="regular-select form-select" name="per">          
+        <select style="width: 100px;" class="regular-select form-select" name="per">
           <option <?php
                   if ($resultsPerPage == 2) echo 'selected="selected"'
                   ?> value="2">2</option>
@@ -75,6 +75,9 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
           <option <?php
                   if ($resultsPerPage == 100) echo 'selected="selected"'
                   ?> value="100">100</option>
+          <option <?php
+                  if ($resultsPerPage == 200) echo 'selected="selected"'
+                  ?> value="200">200</option>
         </select>
         <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
       </form>
@@ -100,7 +103,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                 $page = 1;
                 //$resultsPerPage = 1;
                 $totalResults = count(Job::getAllJob());
-                if (isset($_GET['page']) == TRUE&& !empty($_GET['page'])) {
+                if (isset($_GET['page']) == TRUE && !empty($_GET['page'])) {
                   $page = $_GET['page'];
                 }
 

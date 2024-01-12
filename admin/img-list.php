@@ -42,6 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
     }
 </style>
 <style>
+    .image {
+        width: 100px;
+    }
+
+    img {
+        width: 100%;
+    }
     .ck-editor__editable[role="textbox"] {
         /* editing area */
         min-height: 300px !important;
@@ -82,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
                         <th>Type</th>
                         <th>Ngày đăng</th>
                         <th>Ngày cập nhật</th>
+                        <th>ảnh</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -103,14 +111,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
                                 if ($value['type_id'] == 0) {
                                     echo 'ảnh banner';
                                 }
-                                if ($value['type_id'] == 5) {
-                                    echo 'Chi tiết công việc';
-                                }
+                               
                                 ?>
 
                             </td>
                             <td><?php echo $value['created_at'] ?></td>
                             <td><?php echo $value['updated_at'] ?></td>
+                            <td><?php echo $value['img'] ?></td>
                             <td>
                                 <div class="action-buttons d-flex justify-content-end">
                                     <a href="img-updated.php?id=<?php echo $value['id'] ?>" class="btn btn-secondary light mr-2">
