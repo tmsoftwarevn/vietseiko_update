@@ -291,7 +291,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
 </head>
 
 <body>
-<?php require "header.php" ?>
+    <?php require "header.php" ?>
     <div class="container " style="margin-top: 130px;">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
@@ -299,10 +299,8 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                     <div class="license1"></div>
                     <div class="license2">
                         <!-- Thay đổi URL hình ảnh tại đây nếu cần -->
-                        <img src="images/giayphep/giayphepkinhdoanh_1.jpg" class="img-fluid" alt="Giấy phép"
-                            width="650px" height="846px">
-                        <img src="images/giayphep/giayphepkinhdoanh_2.jpg" class="img-fluid" alt="Giấy phép"
-                            width="650px" height="846px">
+                        <img src="images/giayphep/giayphepkinhdoanh_1.jpg" class="img-fluid" alt="Giấy phép" width="650px" height="846px">
+                        <img src="images/giayphep/giayphepkinhdoanh_2.jpg" class="img-fluid" alt="Giấy phép" width="650px" height="846px">
                     </div>
                     <div class="license3"></div>
                 </div>
@@ -311,7 +309,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     </div>
     <?php require "footer.php" ?>
     <!-- Link Bootstrap JS và các thư viện khác của Bootstrap (nếu cần) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
