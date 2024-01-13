@@ -775,6 +775,3 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
 </body>
 
 </html>
-<?php
-include "footer.php";
-?>
