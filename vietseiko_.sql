@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 13, 2024 lúc 11:40 AM
+-- Thời gian đã tạo: Th1 15, 2024 lúc 03:15 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -84,8 +84,7 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id_blog`, `img_blog`, `tieude_blog`, `noidung_blog`, `type_id`, `slug`, `created_at`, `updated_at`) VALUES
-(9, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705064202slide-01.jpg\"></figure>', 'cơ quan hoặc tổ chức được quy định tại khoản', '<p>Căn cứ theo Điều 42 Luật Lý lịch tư pháp năm 2009: Phiếu lý lịch tư pháp là phiếu được cơ quan quản lý cơ sở dữ liệu lý lịch tư pháp cấp có giá trị chứng minh cá nhân có hoặc không có có án tích; bị cấm hay không bị cấm đảm nhiệm chức vụ, thành lập, quản lý doanh nghiệp, hợp tác xã trong trường hợp doanh nghiệp và hợp tác xã bị Tòa án tuyên bố phá sản.</p><p>Phiếu lý lịch tư pháp gồm 02 loại, phân biệt với dựa theo nội dung thể hiện trên phiếu, cụ thể như sau:</p><h3><strong>Phiếu lý lịch tư pháp số 1</strong></h3><p><a href=\"https://docs.google.com/document/d/16KCs5B-qwfn8wcqCEwtMrhdVBOcPlf9B/edit?usp=drive_link&amp;ouid=101115996844489148014&amp;rtpof=true&amp;sd=true\">Phiếu lý lịch tư pháp số 1</a> được cấp cho cá nhân, cơ quan hoặc tổ chức được quy định tại khoản 1 và khoản 3 Điều 7 Luật Lý lịch tư pháp năm 2009.&nbsp;</p><p>Theo Điều 42 Luật Lý lịch tư pháp năm 2009, nội dung phiếu lý lịch tư pháp số 1 như sau:&nbsp;</p><p>– Họ, tên, giới tính, ngày, tháng, năm sinh, nơi sinh, quốc tịch, nơi cư trú, số giấy chứng minh nhân dân hoặc hộ chiếu của người được cấp Phiếu lý lịch tư pháp.</p><p>– Tình trạng án tích:</p><ul><li>Đối với người không bị kết án th</li></ul>', 1, 'co-quan-hoac-to-chuc-duoc-quy-dinh-tai-khoan', '2023-12-20', '2024-01-12 12:56:44'),
-(11, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705063948photo-1697103181716-16971031820651723593177.png\"></figure>', 'Backend có thể chỉ cần viết trên console', '<p>Căn cứ theo Điều 42 Luật Lý lịch tư pháp năm 2009: Phiếu lý lịch tư pháp là phiếu được cơ quan quản lý cơ sở dữ liệu lý lịch tư pháp cấp có giá trị</p><h2><strong>Phiếu lý lịch tư pháp là gì? Nội dung gồm những gì?</strong></h2><p>Căn cứ theo Điều 42 Luật Lý lịch tư pháp năm 2009: Phiếu lý lịch tư pháp là phiếu được cơ quan quản lý cơ sở dữ liệu lý lịch tư pháp cấp có giá trị chứng minh cá nhân có hoặc không có có án tích; bị cấm hay không bị cấm đảm nhiệm chức vụ, thành lập, quản lý doanh nghiệp, hợp tác xã trong trường hợp doanh nghiệp và hợp tác xã bị Tòa án tuyên bố phá sản.</p><p>Phiếu lý lịch tư pháp gồm 02 loại, phân biệt với dựa theo nội dung thể hiện trên phiếu, cụ thể như sau:</p><h3><strong>Phiếu lý lịch tư pháp số 1</strong></h3><p><a href=\"https://docs.google.com/document/d/16KCs5B-qwfn8wcqCEwtMrhdVBOcPlf9B/edit?usp=drive_link&amp;ouid=101115996844489148014&amp;rtpof=true&amp;sd=true\">Phiếu lý lịch tư pháp số 1</a> được cấp cho cá nhân, cơ quan hoặc tổ chức được quy định tại khoản 1 và khoản 3 Điều 7 Luật Lý lịch tư pháp năm 2009.&nbsp;</p><p>Theo Điều 42 Luật Lý lịch tư pháp năm 2009, nội dung phiếu lý lịch tư pháp số 1 như sau:&nbsp;</p><p>– Họ, tên, giới tính, ngày, tháng, năm sinh, nơi sinh, quốc tịch, nơi cư trú, số giấy chứng minh nhân dân hoặc hộ chiếu của người được cấp Phiếu lý lịch tư pháp.</p><p>– Tình trạng án tích:</p><ul><li>Đối với người không bị kết án thì ghi “không có án tích”. Trường hợp người bị kết án chưa đủ điều kiện được xóa án tích thì ghi “có án tích”, tội danh, hình phạt chính, hình phạt bổ sung.</li><li>Đối với người được xoá án tích và thông tin về việc xoá án tích đã được cập nhật vào Lý lịch tư pháp thì ghi “không có án tích”.</li><li>Đối với người được đại xá và thông tin về việc đại xá đã được cập nhật vào Lý lịch tư pháp thì ghi “không có án tích”.</li></ul><p>– Thông tin về cấm đảm nhiệm chức vụ, thành lập, quản lý doanh nghiệp, hợp tác xã:</p><ul><li>Đối với người không bị cấm đảm nhiệm chức vụ, thành lập, quản lý doanh nghiệp, hợp tác xã theo quyết định tuyên bố phá sản thì ghi “không bị cấm đảm nhiệm chức vụ, thành lập, quản lý doanh nghiệp, hợp tác xã”.</li><li>Đối với người bị cấm đảm nhiệm chức vụ, thành lập, quản lý doanh nghiệp, hợp tác xã theo quyết định tuyên bố phá sản thì ghi chức vụ bị cấm đảm nhiệm, thời hạn không được thành lập, quản lý doanh nghiệp, hợp tác xã.</li></ul><p>Trường hợp cá nhân, cơ quan hoặc tổ chức không yêu cầu thì nội dung được quy định tại khoản này không ghi vào phiếu lý lịch tư pháp.</p>', 1, 'backend-co-the-chi-can-viet-tren-console', '2023-12-20', '2024-01-12 12:52:30'),
+(22, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705198742Screenshot (43).png\"></figure>', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng, chuyên nghiệp', '<p>Không có bài kiểm tra nào có thể đánh giá chính xác năng lực <a href=\"http://vietseiko.local/\">quản lý</a> chiến lược của một người. Nhưng có những câu hỏi có thể chỉ ra mức độ của năng lực đó. Hãy thử trả lời để có thêm ý tưởng cho việc phát triển tư duy chiến lược của bản thân.</p><h3><strong>1. Bạn có tầm nhìn kinh doanh và quản lý không?</strong></h3><p>Steves Jobs và Wozniak - hai nhà sáng lập Apple Computer đã hình dung ra \"quá trình dân chủ hóa máy tính\". Tầm nhìn của bạn khi bắt đầu bất kỳ hoạt động kinh doanh nào chính là \"kim chỉ nam\" - định hướng lâu dài cho cả quá trình, chứ không phải mục tiêu ngắn hạn. Một nhân sự có năng lực quản lý chiến lược sẽ có khả năng trình bày rõ ràng tầm nhìn của mình chỉ trong một vài câu.</p><h3><strong>2. Bạn có triết lý hành động không?</strong></h3><p>Triết lý chính là sứ mệnh cho hoạt động hàng ngày của bạn và nhóm/ doanh nghiệp của bạn. Một tổ chức có <a href=\"https://vieclam.tuoitre.vn/tin-tuc/phat-trien-to-chuc-tu-triet-ly-dau-tu-con-nguoi-20230630134016982.html\">triết lý</a> hành động đủ để thuyết phục những nhân sự trong tổ chức tuân theo là đã đạt được 50% thành công. Và vì thế, không chỉ quan tâm triết lý của công ty &amp; bản thân, bạn còn cần biết triết lý kinh doanh của công ty đối thủ.</p>', 1, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong-chuyen-nghiep', '2024-01-14', '2024-01-14 02:19:34'),
 (17, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705064220slide-03.jpg\"></figure>', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng', '<p>Không có bài kiểm tra nào có thể đánh giá chính xác năng lực <a href=\"http://vietseiko.local/\">quản lý</a> chiến lược của một người. Nhưng có những câu hỏi có thể chỉ ra mức độ của năng lực đó. Hãy thử trả lời để có thêm ý tưởng cho việc phát triển tư duy chiến lược của bản thân.</p><h3><strong>1. Bạn có tầm nhìn kinh doanh và quản lý không?</strong></h3><p>Steves Jobs và Wozniak - hai nhà sáng lập Apple Computer đã hình dung ra \"quá trình dân chủ hóa máy tính\". Tầm nhìn của bạn khi bắt đầu bất kỳ hoạt động kinh doanh nào chính là \"kim chỉ nam\" - định hướng lâu dài cho cả quá trình, chứ không phải mục tiêu ngắn hạn. Một nhân sự có năng lực quản lý chiến lược sẽ có khả năng trình bày rõ ràng tầm nhìn của mình chỉ trong một vài câu.</p><h3><strong>2. Bạn có triết lý hành động không?</strong></h3><p>Triết lý chính là sứ mệnh cho hoạt động hàng ngày của bạn và nhóm/ doanh nghiệp của bạn. Một tổ chức có <a href=\"https://vieclam.tuoitre.vn/tin-tuc/phat-trien-to-chuc-tu-triet-ly-dau-tu-con-nguoi-20230630134016982.html\">triết lý</a> hành động đủ để thuyết phục những nhân sự trong tổ chức tuân theo là đã đạt được 50% thành công. Và vì thế, không chỉ quan tâm triết lý của công ty &amp; bản thân, bạn còn cần biết triết lý kinh doanh của công ty đối thủ.</p><h3><strong>3. Tổ chức của bạn có lợi thế cạnh tranh?</strong></h3><p>Điều cốt lõi để một tập thể/ doanh nghiệp tồn tại được là có vị trí độc nhất trong phân khúc thị trường đang hoạt động, dựa trên một lợi thế cạnh tranh nào đó. Nói cách khác, tổ chức của bạn phải trở thành số 1 hoặc 2, hoặc chí ít là thuộc tốp các tổ chức cạnh tranh hàng đầu dù là trong phân khúc nào. Ví dụ, lợi thế cạnh tranh là giá cả hợp lý, thiết kế độc đáo, thương hiệu uy tín hoặc thế mạnh về cung cấp.</p><p>Nói cách khác, một nhà chiến lược sẽ xác lập được các yếu tố để thúc đẩy người mua lựa chọn sản phẩm của công ty mình thay vì một sản phẩm khác tương đương. Tương tự, đội nhóm dưới quyền bạn cũng cần chứng minh được vai trò quan trọng trong công ty.</p><h3><strong>4. Nhân viên của bạn có thể làm việc độc lập?</strong></h3><p>CareerBuilder đã từng có các bài viết về việc trao quyền cho nhân viên. Bởi một công ty được <a href=\"https://vieclam.tuoitre.vn/tin-tuc/ky-nang-ma-tat-ca-cac-nha-quan-ly-nhan-su-phai-co-20230310104539558.html\">quản lý</a> một cách <a href=\"https://vieclam.tuoitre.vn/tin-tuc/cach-nao-giu-chan-nhan-tai-20230511164216739.html\">chiến lược</a> sẽ trở thành một tổ chức liên minh mà trong đó mỗi nhân sự là một doanh nhân, có trách nhiệm quản lý một số nhiệm vụ nhất định. Mỗi nhóm có thể coi là một công ty siêu nhỏ, được hỗ trợ bởi nguồn lực của toàn tập đoàn và đứng đầu là các <a href=\"https://vieclam.tuoitre.vn/tin-tuc/nhung-nang-luc-cua-nha-quan-ly-tuong-lai-20230214162046435.html\">nhà quản lý</a>.</p>', 3, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong', '2023-12-26', '2024-01-13 04:04:30');
 
 -- --------------------------------------------------------
@@ -160,6 +159,13 @@ CREATE TABLE `contact_ntd&khac` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `contact_ntd&khac`
+--
+
+INSERT INTO `contact_ntd&khac` (`id_contact`, `name`, `email`, `phone`, `muc_dich`, `dia_diem`, `vi_tri_can_tuyen`, `file`, `type_id`, `created_at`) VALUES
+(104, 'teesst', 'test@gmail.com', '0533333334', 'ưqewqe', 'Lạng Sơn', 'ewqewq', '1705247584file-example_PDF_500_kB.pdf', 1, '2024-01-14 15:53:08');
+
 -- --------------------------------------------------------
 
 --
@@ -183,7 +189,7 @@ CREATE TABLE `cty` (
 
 INSERT INTO `cty` (`id_cty`, `img_cty`, `name`, `quymo`, `about_cty`, `address`, `type_id`, `updated_at`) VALUES
 (1, '', 'Không hiển thị Công ty', '', '', '', 1, '2023-12-18 02:46:42'),
-(23, '<figure class=\"image\"><img src=\"../../images/logo-company/170506348311142670.png\"></figure>', 'Công Ty TNHH Sam Sung Climate Control Việt Nam', '50-100', '<p>We are looking for the right people — people who want to innovate, achieve, grow and lead. We attract and retain the best talent by investing in our employees and empowering them to develop themselves and their careers. Experience the challenges, rewards and opportunity of working for SAM SUNG CLIMATE CONTROL CO., LTD. is leading Korean Auto part maker, specialized in Automotive Thermal System. We have been successfully serving leading customers such as Hyundai, KIA, Mitsubishi, Mercedes Benz, John Deere.</p>', 'Một phần lô J, khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', 1, '2024-01-12 12:45:04'),
+(23, '<figure class=\"image\"><img src=\"../../images/logo-company/170514602411046498.jpg\"></figure>', 'Công Ty TNHH Sam Sung Climate Control Việt Nam', '50-100', '<p>We are looking for the right people — people who want to innovate, achieve, grow and lead. We attract and retain the best talent by investing in our employees and empowering them to develop themselves and their careers. Experience the challenges, rewards and opportunity of working for SAM SUNG CLIMATE CONTROL CO., LTD. is leading Korean Auto part maker, specialized in Automotive Thermal System. We have been successfully serving leading customers such as Hyundai, KIA, Mitsubishi, Mercedes Benz, John Deere.</p>', 'Một phần lô J, khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', 1, '2024-01-13 11:40:26'),
 (24, '<figure class=\"image\"><img src=\"../../images/logo-company/170506465311230694.jpg\"></figure>', 'Công Ty Vàng Bạc Đá Quý Bảo Tín Minh Châu', '50-100', '<p>Bảo Tín Minh Châu là một trong những công ty uy tín hàng đầu trong lĩnh vực kinh doanh và chế tác vàng bạc đá quý tại Việt Nam. Với hơn 30 năm phát triển, Bảo Tín Minh Châu đã có 3 cơ sở kinh doanh tại Hà Nội và trên 200 đại lý, điểm kinh doanh trên toàn quốc với hai loại sản phẩm chính là Vàng rồng Thăng Long và Vàng trang sức chất lượng cao</p>', 'Toà nhà CTM Complex, 139 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Hà Nội', 2, '2024-01-12 13:04:31'),
 (25, '<figure class=\"image\"><img src=\"../../images/logo-company/170506627722.jpg\"></figure>', 'Công ty TNHH Concentrix Service Vietnam 99', '50-100', '<p>We are looking for the right people — people who want to innovate, achieve, grow and lead. We attract and retain the best talent by investing in our employees and empowering them to develop themselves and their careers. Experience the challenges, rewards...</p>', ' TP.HCM, 27 Tam Bình , Tam Phú, Thủ Đức', 3, '2024-01-12 13:31:30');
 
@@ -288,10 +294,10 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `slug`, `type_job`, `view`, `created_at`, `updated_at`) VALUES
-(63, 'Nhân Viên IT ', 'nhân viên', 'VN02', 6, 2, 2, 3, '2024-01-25', 2, 'Tới 20 triệu', 'HÀ NỘI', 'khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', '', '', '', '', 1, 1, '20-30', 'nhan-vien-it', 1, 17, '2024-01-12 13:19:20', '2024-01-13 10:39:05'),
-(64, 'Nhân Viên IT ', 'nhân viên', '4652', 3, 1, 1, 3, '2024-01-31', 2, '12 triệu', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 25, '20-30', 'nhan-vien-it', 1, 5, '2024-01-12 13:32:11', '2024-01-13 04:07:22'),
-(65, 'quản lý', 'nhân viên', '444', 2, 2, 3, 2, '2024-01-31', 2, 'Tới 20 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 1, '20-30', 'quan-ly', 1, 3, '2024-01-13 03:54:24', '2024-01-13 03:55:47'),
-(62, 'Trưởng Phòng Hành Chính Nhân Sự - GA & HR', 'Trưởng phòng', 'vn01', 2, 2, 3, 4, '2024-02-03', 1, 'thỏa thuận', 'Hồ Chí Minh', 'khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', '<p>* Quy mô công ty: &lt;100 nhân sự<br>+ Phụ trách lĩnh vực nhân sự: Quản lý công tác tuyển dụng, đào tạo, Quản lý hồ sơ , thông tin người lao động, hợp đồng lao động.Quản lý, kiểm soát việc chấm công, tiền lương,thưởng , phúc lợi, BHXH,quan hệ lao động…. Lập Nội quy lao động, thang bảng lương, tư vấn cho lãnh đạo về các chính sách liên quan đến pháp luật lao động.<br>+ Phụ trách việc quản lý lao động nước ngoài: Thư mời, Giấy phép lao động, visa, thẻ tạm trú, nhà ở, ...<br>+ Quản lý công việc hành chính: tiếp đón khách, bảo vệ, tạp vụ,vệ sinh, mua bán vpp, đồng phục lao động, nhà ăn, điều xe, rác thải, nước thải…<br>+ Quản lý các công việc liên quan đến an toàn nhà máy: Phòng cháy chữa cháy, An toàn máy móc, lao động, Môi trường, Sức khỏe, Điện…</p>', '<p>- Ưu tiên ứng viên sinh sống tại Hà Nam hoặc có dự định làm việc lâu dài tại Hà Nam<br>- Tốt nghiệp Đại học trở lên.<br>- Sử dụng tiếng Anh trong công việc.<br>- Thành thạo tin học văn phòng: word, excel<br>- Có từ 2-3 năm kinh nghiệm tại vị trí tương đương<br>- Có hiểu biết sâu rộng về Luật lao động và các Luật khác liên quan<br>- Có kinh nghiệm làm việc với các cơ quan ban ngành<br>- Kỹ năng quản lý bao quát, giám sát công việc tốt</p>', '<p>- Làm việc trong môi trường năng động, chuyên nghiệp.<br>- Chế độ lương thưởng hấp dẫn.<br>- Cung cấp đầy đủ trang thiết bị phục vụ công việc.<br>- Đóng BHXH, BHYT, BHTN theo quy định nhà nước.<br>- Có xe đưa đón công nhân viên trong công ty.,…<br>- Thời gian làm việc: 8h – 17h, thứ 2 đến thứ 7.</p>', '', 1, 23, '20-30', 'truong-phong-hanh-chinh-nhan-su-ga-hr', 1, 11, '2024-01-12 12:47:25', '2024-01-13 10:17:05');
+(63, 'Nhân Viên IT ', 'nhân viên', 'VN02', 6, 2, 2, 3, '2024-01-25', 2, 'Tới 20 triệu', 'HÀ NỘI', 'khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', '', '', '', '', 1, 1, '20-30', 'nhan-vien-it', 1, 24, '2024-01-12 13:19:20', '2024-01-13 11:39:04'),
+(64, 'Nhân Viên IT ', 'nhân viên', '4652', 3, 1, 1, 3, '2024-01-31', 2, '12 triệu', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 25, '20-30', 'nhan-vien-it', 1, 11, '2024-01-12 13:32:11', '2024-01-14 03:02:26'),
+(65, 'quản lý', 'nhân viên', '444', 2, 2, 3, 2, '2024-01-31', 2, 'Tới 20 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 1, '20-30', 'quan-ly', 1, 4, '2024-01-13 03:54:24', '2024-01-13 11:38:16'),
+(62, 'Trưởng Phòng Hành Chính Nhân Sự - GA & HR', 'Trưởng phòng', 'vn01', 2, 2, 3, 4, '2024-02-03', 1, 'thỏa thuận', 'Hồ Chí Minh', 'khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', '<p>* Quy mô công ty: &lt;100 nhân sự<br>+ Phụ trách lĩnh vực nhân sự: Quản lý công tác tuyển dụng, đào tạo, Quản lý hồ sơ , thông tin người lao động, hợp đồng lao động.Quản lý, kiểm soát việc chấm công, tiền lương,thưởng , phúc lợi, BHXH,quan hệ lao động…. Lập Nội quy lao động, thang bảng lương, tư vấn cho lãnh đạo về các chính sách liên quan đến pháp luật lao động.<br>+ Phụ trách việc quản lý lao động nước ngoài: Thư mời, Giấy phép lao động, visa, thẻ tạm trú, nhà ở, ...<br>+ Quản lý công việc hành chính: tiếp đón khách, bảo vệ, tạp vụ,vệ sinh, mua bán vpp, đồng phục lao động, nhà ăn, điều xe, rác thải, nước thải…<br>+ Quản lý các công việc liên quan đến an toàn nhà máy: Phòng cháy chữa cháy, An toàn máy móc, lao động, Môi trường, Sức khỏe, Điện…</p>', '<p>- Ưu tiên ứng viên sinh sống tại Hà Nam hoặc có dự định làm việc lâu dài tại Hà Nam<br>- Tốt nghiệp Đại học trở lên.<br>- Sử dụng tiếng Anh trong công việc.<br>- Thành thạo tin học văn phòng: word, excel<br>- Có từ 2-3 năm kinh nghiệm tại vị trí tương đương<br>- Có hiểu biết sâu rộng về Luật lao động và các Luật khác liên quan<br>- Có kinh nghiệm làm việc với các cơ quan ban ngành<br>- Kỹ năng quản lý bao quát, giám sát công việc tốt</p>', '<p>- Làm việc trong môi trường năng động, chuyên nghiệp.<br>- Chế độ lương thưởng hấp dẫn.<br>- Cung cấp đầy đủ trang thiết bị phục vụ công việc.<br>- Đóng BHXH, BHYT, BHTN theo quy định nhà nước.<br>- Có xe đưa đón công nhân viên trong công ty.,…<br>- Thời gian làm việc: 8h – 17h, thứ 2 đến thứ 7.</p>', '', 1, 23, '20-30', 'truong-phong-hanh-chinh-nhan-su-ga-hr', 1, 14, '2024-01-12 12:47:25', '2024-01-14 02:52:07');
 
 -- --------------------------------------------------------
 
@@ -355,7 +361,7 @@ CREATE TABLE `job_kysunb` (
 --
 
 INSERT INTO `job_kysunb` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `ngonngu`, `slug`, `type_job`, `view`, `created_at`, `updated_at`) VALUES
-(31, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'ks01', 4, 2, 5, 2, '2024-02-01', 3, '12 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 23, '20-30', 'nn1', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', 3, 7, '2024-01-12 13:11:48', '2024-01-13 10:17:41');
+(31, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'ks01', 4, 2, 5, 2, '2024-02-01', 3, '12 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 23, '20-30', 'nn1', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', 3, 8, '2024-01-12 13:11:48', '2024-01-13 11:36:30');
 
 -- --------------------------------------------------------
 
@@ -486,7 +492,8 @@ CREATE TABLE `job_xkld_nb` (
 --
 
 INSERT INTO `job_xkld_nb` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `ngonngu`, `slug`, `type_job`, `view`, `created_at`, `updated_at`) VALUES
-(43, 'Trưởng Ban Hành Chính Lương 20 - 30 Triệu, Nghỉ Thứ 7 Chủ Nhật', 'Trưởng phòng', 'jp01', 2, 2, 5, 3, '2024-02-02', 1, 'Tới 20 triệu', 'HÀ NỘI', 'Toà nhà CTM Complex, 139 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Hà Nội', '<p>I) Mô tả công việc<br>1. Hoạch định, tổ chức, chỉ huy, kiểm soát các hoạt động tuyển dụng, phát triển và sử dụng nguồn nhân sự đạt mục tiêu công ty đề ra liên quan đến Ban Hành Chính<br>2. Tiếp cận một cách có hệ thống công tác hoạch định những nhu cầu về nguồn lực của tổ chức, trên nhu cầu đó tiến hành các hoạt động tuyển dụng, huấn luyện, đào tạo, phát triển nhân sự. Trưởng ban Hành Chính đánh giá khả năng, năng lực của cấp dưới, duy trì môi trường làm việc thuận lợi, an toàn.<br>3. Tham mưu cho Ban Giám Đốc về công tác tổ chức hành chính của công ty. Giúp đỡ động viên, tạo điều kiện cho các thành viên hoàn thành tốt nhiệm vụ được giao, tuyên truyền, phổ biến chủ trương chính sách của công ty.<br>4. Có biện pháp phù hợp để xây dựng sự ổn định cơ cấu tổ chức công ty, tạo quan hệ lành mạnh, đoàn</p>', '<p>- Giới tính: Nữ tuổi từ 30 - 40, ngoại hình ưa nhìn.<br>- Học vấn bắt buộc: Tốt nghiệp Đại học chính quy trở lên, chuyên ngành Quản Trị nhân sự, Quản trị văn phòng, Hành chính và các chuyên ngành khác có liên quan.<br>- Kinh nghiệm: Có ít nhất 3- 5 năm kinh nghiệm làm việc tại vị trí tương đương. Ưu tiên có kinh nghiệm làm Quản lý Hành Chính tại các Công ty bán lẻ, thời trang.<br>- Kỹ năng:<br>+ Có kĩ năng quản lý, tổng hợp, sắp xếp và phân công công việc hiệu quả.<br>+ Thành tạo tin học văn phòng.</p>', '<p>- Lương: 20 triệu – 30 triệu/tháng (thỏa thuận phù hợp theo năng lực). Thử việc: Hưởng nguyên lương<br>- Thời gian làm việc: Từ thứ 2 đến thứ 6. Từ 8h30 - 17h30<br>- Cơ hội huấn luyện:<br>+ Được cử đi đào tạo các lớp nghiệp vụ chuyên môn, các hội thảo, diễn đàn<br>+ Được tham gia các khóa đào tạo nâng cao nghiệp vụ do Công ty tài trợ.<br>- Đồng nghiệp: Môi trường làm việc trẻ, năng động, chuyên nghiệp, thân thiện, ổn định<br>- Ngày nghỉ:<br>+ Nghỉ hàng tuần: thứ 7 và chủ nhật<br>+ Nghỉ phép năm: 12 ngày<br>+ Nghỉ việc riêng hưởng lương, nghỉ lễ tết: Theo quy định pháp luật<br>- Phúc lợi:<br>+ Chế độ tham gia BHXH, BHYT, BHTN theo quy định của Nhà nước; hưởng các chế độ phúc lợi: thăm hỏi ốm đau, thai sản, du lịch, chế độ thăm khám sức khỏe,<br>- Phụ cấp khác :<br>+ Được cấp phát đầy đủ máy tính, trang thiết bị để làm việc</p>', '', 1, 24, '20-30', 'nn1', 'truong-ban-hanh-chinh-luong-20-30-trieu-nghi-thu-7-chu-nhat', 2, 7, '2024-01-12 13:06:25', '2024-01-13 09:48:24');
+(44, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'Quản lý cấp trung', '4652', 3, 1, 3, 3, '2024-02-08', 2, 'Tới 20 triệu', 'hcm', 'bình thạnh, 123 , tp hcm', '', '', '', '', 1, 24, '20-30', 'nn1', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', 2, 4, '2024-01-13 10:42:32', '2024-01-13 11:41:21'),
+(43, 'Trưởng Ban Hành Chính Lương 20 - 30 Triệu, Nghỉ Thứ 7 Chủ Nhật', 'Trưởng phòng', 'jp01', 2, 2, 5, 3, '2024-02-02', 1, 'Tới 20 triệu', 'HÀ NỘI', 'Toà nhà CTM Complex, 139 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Hà Nội', '<p>I) Mô tả công việc<br>1. Hoạch định, tổ chức, chỉ huy, kiểm soát các hoạt động tuyển dụng, phát triển và sử dụng nguồn nhân sự đạt mục tiêu công ty đề ra liên quan đến Ban Hành Chính<br>2. Tiếp cận một cách có hệ thống công tác hoạch định những nhu cầu về nguồn lực của tổ chức, trên nhu cầu đó tiến hành các hoạt động tuyển dụng, huấn luyện, đào tạo, phát triển nhân sự. Trưởng ban Hành Chính đánh giá khả năng, năng lực của cấp dưới, duy trì môi trường làm việc thuận lợi, an toàn.<br>3. Tham mưu cho Ban Giám Đốc về công tác tổ chức hành chính của công ty. Giúp đỡ động viên, tạo điều kiện cho các thành viên hoàn thành tốt nhiệm vụ được giao, tuyên truyền, phổ biến chủ trương chính sách của công ty.<br>4. Có biện pháp phù hợp để xây dựng sự ổn định cơ cấu tổ chức công ty, tạo quan hệ lành mạnh, đoàn</p>', '<p>- Giới tính: Nữ tuổi từ 30 - 40, ngoại hình ưa nhìn.<br>- Học vấn bắt buộc: Tốt nghiệp Đại học chính quy trở lên, chuyên ngành Quản Trị nhân sự, Quản trị văn phòng, Hành chính và các chuyên ngành khác có liên quan.<br>- Kinh nghiệm: Có ít nhất 3- 5 năm kinh nghiệm làm việc tại vị trí tương đương. Ưu tiên có kinh nghiệm làm Quản lý Hành Chính tại các Công ty bán lẻ, thời trang.<br>- Kỹ năng:<br>+ Có kĩ năng quản lý, tổng hợp, sắp xếp và phân công công việc hiệu quả.<br>+ Thành tạo tin học văn phòng.</p>', '<p>- Lương: 20 triệu – 30 triệu/tháng (thỏa thuận phù hợp theo năng lực). Thử việc: Hưởng nguyên lương<br>- Thời gian làm việc: Từ thứ 2 đến thứ 6. Từ 8h30 - 17h30<br>- Cơ hội huấn luyện:<br>+ Được cử đi đào tạo các lớp nghiệp vụ chuyên môn, các hội thảo, diễn đàn<br>+ Được tham gia các khóa đào tạo nâng cao nghiệp vụ do Công ty tài trợ.<br>- Đồng nghiệp: Môi trường làm việc trẻ, năng động, chuyên nghiệp, thân thiện, ổn định<br>- Ngày nghỉ:<br>+ Nghỉ hàng tuần: thứ 7 và chủ nhật<br>+ Nghỉ phép năm: 12 ngày<br>+ Nghỉ việc riêng hưởng lương, nghỉ lễ tết: Theo quy định pháp luật<br>- Phúc lợi:<br>+ Chế độ tham gia BHXH, BHYT, BHTN theo quy định của Nhà nước; hưởng các chế độ phúc lợi: thăm hỏi ốm đau, thai sản, du lịch, chế độ thăm khám sức khỏe,<br>- Phụ cấp khác :<br>+ Được cấp phát đầy đủ máy tính, trang thiết bị để làm việc</p>', '', 1, 24, '20-30', 'nn1', 'truong-ban-hanh-chinh-luong-20-30-trieu-nghi-thu-7-chu-nhat', 2, 9, '2024-01-12 13:06:25', '2024-01-13 10:48:21');
 
 -- --------------------------------------------------------
 
@@ -584,7 +591,47 @@ CREATE TABLE `ung_tuyen` (
 --
 
 INSERT INTO `ung_tuyen` (`id_ungtuyen`, `name`, `email`, `phone`, `nam_sinh`, `muc_luong`, `khu_vuc`, `vi_tri_ung_tuyen`, `link_cv`, `id_job`, `type_id`, `created_at`) VALUES
-(75, 'teesst', 'rwerwe@gmail.com', '0333333333', '1234', '12 triệu', 'Đồng Nai', 'Quản lý', '1705066407file-example_PDF_500_kB.pdf', 64, 1, '2024-01-12 13:33:27');
+(77, 'ung vien vn', 'test@gmail.com', '0333333333', '1999', '12 trieu', 'Đồng Nai', 'Quản lý', '1705201346v2.0 Backend Zero Restful APIs.pdf', 64, 1, '2024-02-09 03:02:26'),
+(76, '1234', 'test@gmail.com', '0533333334', '1234', 'Tới 20 triệu', 'ưqe', 'nhân viên', '1705142620CUNG CẤP THÔNG TIN WEBSITE VIETSEIKO.docx', 44, 2, '2024-01-13 10:43:40'),
+(75, 'teesst', 'rwerwe@gmail.com', '0333333333', '1234', '12 triệu', 'Đồng Nai', 'Quản lý', '1705066407file-example_PDF_500_kB.pdf', 64, 1, '2024-01-12 13:33:27'),
+(78, 'ung vien vn', 'test@gmail.com', '0333333333', '1999', '12 trieu', 'Đồng Nai', 'Quản lý', '1705201346v2.0 Backend Zero Restful APIs.pdf', 64, 1, '2024-01-08 03:02:26'),
+(79, 'teesst', 'rwerwe@gmail.com', '0333333333', '1234', '12 triệu', 'Đồng Nai', 'Quản lý', '1705066407file-example_PDF_500_kB.pdf', 64, 1, '2024-01-16 13:33:27');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ung_tuyen_nhaptay`
+--
+
+CREATE TABLE `ung_tuyen_nhaptay` (
+  `id_ungtuyen` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nam_sinh` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `muc_luong` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `khu_vuc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `vi_tri_ung_tuyen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `link_cv` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `ung_tuyen_nhaptay`
+--
+
+INSERT INTO `ung_tuyen_nhaptay` (`id_ungtuyen`, `name`, `email`, `phone`, `nam_sinh`, `muc_luong`, `khu_vuc`, `vi_tri_ung_tuyen`, `link_cv`, `type_id`, `created_at`, `updated_at`) VALUES
+(78, 'test', 'test@gmail.com', '0333333333', '1234', 'Tới 20 triệu', 'Đồng Nai', 'nhân viên', '1705240059file-sample_100kB.doc', 1, '2024-01-14', '2024-01-14 13:47:39'),
+(81, 'rqwe', 'test@gmail.com', '0533333334', '1999', '10-12', 'Đồng Nai', 'Quản lý test 1', '1705244155file-example_PDF_500_kB.pdf', 1, '2024-01-01', '2024-01-14 17:31:07'),
+(86, 'gsdfg', 'test@gmail.com', '0333333333', '1234', 'tret', 'hcm', 'Quản lý test vsk', '1705249436file-example_PDF_500_kB.pdf', 1, '2024-01-14', '2024-01-14 17:02:23'),
+(79, 'gsdfg', 'ewq@krwej.com', '0333333333', '1999', '23', 'hcm', 'ewqe', '1705241162file-example_PDF_500_kB.pdf', 2, '2024-01-14', '2024-01-14 14:06:02'),
+(85, 'gsdfg', 'test@gmail.com', '0333333333', '1234', 'tret', 'hcm', 'Quản lý test vsk', '1705249436file-example_PDF_500_kB.pdf', 3, '2024-01-14', '2024-01-14 16:23:56'),
+(83, 'teesst', 'ewq@krwej.com', '0333333333', '1999', '23', 'hcm', 'Quản lý test 1', '1705244450file-sample_100kB.doc', 2, '2024-01-14', '2024-01-14 15:00:50'),
+(84, 'gsdfg', 'test@gmail.com', '0333333333', '1234', 'tret', 'hcm', 'Quản lý test vsk', '1705249436file-example_PDF_500_kB.pdf', 3, '2024-01-14', '2024-01-14 16:23:56'),
+(87, 'PPPPPPPPPPP', 'test@gmail.com', '0333333333', '1234', 'tret', 'hcm', 'Quản lý test vsk', '1705249537file-sample_100kB.doc', 3, '2024-01-14', '2024-01-14 16:25:37'),
+(88, 'test', 'test@gmail.com', '0333333333', '1234', 'Tới 20 triệu', 'Đồng Nai', 'nhân viên', '1705240059file-sample_100kB.doc', 1, '2024-01-14', '2024-01-14 13:47:39');
 
 -- --------------------------------------------------------
 
@@ -740,6 +787,12 @@ ALTER TABLE `ung_tuyen`
   ADD PRIMARY KEY (`id_ungtuyen`);
 
 --
+-- Chỉ mục cho bảng `ung_tuyen_nhaptay`
+--
+ALTER TABLE `ung_tuyen_nhaptay`
+  ADD PRIMARY KEY (`id_ungtuyen`);
+
+--
 -- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
@@ -765,7 +818,7 @@ ALTER TABLE `anh_banner`
 -- AUTO_INCREMENT cho bảng `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `cam_nang`
@@ -783,7 +836,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT cho bảng `contact_ntd&khac`
 --
 ALTER TABLE `contact_ntd&khac`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT cho bảng `cty`
@@ -837,7 +890,7 @@ ALTER TABLE `job_vietseiko`
 -- AUTO_INCREMENT cho bảng `job_xkld_nb`
 --
 ALTER TABLE `job_xkld_nb`
-  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT cho bảng `kinhnghiem`
@@ -861,7 +914,13 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT cho bảng `ung_tuyen`
 --
 ALTER TABLE `ung_tuyen`
-  MODIFY `id_ungtuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id_ungtuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT cho bảng `ung_tuyen_nhaptay`
+--
+ALTER TABLE `ung_tuyen_nhaptay`
+  MODIFY `id_ungtuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
