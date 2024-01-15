@@ -14,6 +14,13 @@ if (isset($_GET['type']) == TRUE) {
     $type = $_GET['type'];
 }
 
+
+// LẤY DOMAIN WEB
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$domain = $_SERVER['HTTP_HOST'];
+$currentUrl = $protocol . '://' . $domain . $_SERVER['REQUEST_URI'];
+$domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($currentUrl, PHP_URL_HOST);
+
 ?>
 
 <!--**********************************
@@ -35,12 +42,18 @@ if (isset($_GET['type']) == TRUE) {
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <!-- excel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
 </head>
 <style>
     .dataTables_filter input {
         width: 500px;
         /* Adjust the width as needed */
     }
+
     .results {
         margin-bottom: 20px;
     }
@@ -105,6 +118,7 @@ if (isset($_GET['type']) == TRUE) {
                                         <th>Ngành nghề</th>
                                         <th>file</th>
                                         <th>Ngày liên hệ</th>
+                                        <th>FILE</th>
                                         <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
@@ -144,6 +158,8 @@ if (isset($_GET['type']) == TRUE) {
                                                 </a>
                                             </td>
                                             <td><?php echo $value['created_at'] ?></td>
+                                            <td><?php echo $domainFromUrl . '/admin/file-cv/list-file/' . $value['file'] ?></td>
+
                                             <!-- <td>
                                                 <a onclick="return confirm('Xác nhận muốn xóa liên hệ có stt: <?php echo $key + 1 ?>?')" href="job-vietnam/delete_contact.php?id_contact=<?php echo $value['id_contact']; ?>" class="btn btn-danger light">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -224,6 +240,7 @@ if (isset($_GET['type']) == TRUE) {
                                         <th>Ngành nghề</th>
                                         <th>file</th>
                                         <th>Ngày liên hệ</th>
+                                        <th>FILE</th>
                                         <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
@@ -263,6 +280,8 @@ if (isset($_GET['type']) == TRUE) {
                                                 </a>
                                             </td>
                                             <td><?php echo $value['created_at'] ?></td>
+                                            <td><?php echo $domainFromUrl . '/admin/file-cv/list-file/' . $value['file'] ?></td>
+
                                             <!-- <td>
                                                     <a onclick="return confirm('Xác nhận muốn xóa liên hệ có stt: <?php echo $key + 1 ?>?')" href="job-vietnam/delete_contact.php?id_contact=<?php echo $value['id_contact']; ?>" class="btn btn-danger light">
                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -343,7 +362,7 @@ if (isset($_GET['type']) == TRUE) {
                                         <th>Ngành nghề</th>
                                         <th>file</th>
                                         <th>Ngày liên hệ</th>
-
+                                        <th>FILE</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -383,6 +402,7 @@ if (isset($_GET['type']) == TRUE) {
                                             </td>
 
                                             <td><?php echo $value['created_at'] ?></td>
+                                            <td><?php echo $domainFromUrl . '/admin/file-cv/list-file/' . $value['file'] ?></td>
 
                                             <!-- <td>
                                                         <a onclick="return confirm('Xác nhận muốn xóa liên hệ có stt: <?php echo $key + 1 ?>?')" href="job-vietnam/delete_contact.php?id_contact=<?php echo $value['id_contact']; ?>" class="btn btn-danger light">
@@ -420,7 +440,7 @@ if (isset($_GET['type']) == TRUE) {
         ?>
             <div class="container-fluid">
                 <div class="d-flex align-items-center mb-4 flex-wrap">
-                    <h3 class="me-auto">Liên hệ XKLD Nhật Bản</h3>
+                    <h3 class="me-auto">Liên hệ công việc Vietseiko</h3>
                 </div>
                 <form action="#" method="get">
                     <input type="hidden" name="type" value="<?php echo $type ?>">
@@ -464,6 +484,7 @@ if (isset($_GET['type']) == TRUE) {
                                         <th>Ngành nghề</th>
                                         <th>file</th>
                                         <th>Ngày liên hệ</th>
+                                        <th>FILE</th>
                                         <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
@@ -503,6 +524,8 @@ if (isset($_GET['type']) == TRUE) {
                                                 </a>
                                             </td>
                                             <td><?php echo $value['created_at'] ?></td>
+                                            <td><?php echo $domainFromUrl . '/admin/file-cv/list-file/' . $value['file'] ?></td>
+
                                             <!-- <td>
                                                         <a onclick="return confirm('Xác nhận muốn xóa liên hệ có stt: <?php echo $key + 1 ?>?')" href="job-vietnam/delete_contact.php?id_contact=<?php echo $value['id_contact']; ?>" class="btn btn-danger light">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -583,6 +606,7 @@ if (isset($_GET['type']) == TRUE) {
 
                                         <th>file</th>
                                         <th>Ngày liên hệ</th>
+                                        <th>FILE</th>
                                         <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
@@ -619,6 +643,8 @@ if (isset($_GET['type']) == TRUE) {
                                                 </a>
                                             </td>
                                             <td><?php echo $value['created_at'] ?></td>
+                                            <td><?php echo $domainFromUrl . '/admin/file-cv/list-file/' . $value['file'] ?></td>
+
                                             <!-- <td>
                                                     <a onclick="return confirm('Xác nhận muốn xóa liên hệ có stt: <?php echo $key + 1 ?>?')" href="job-vietnam/delete_contact.php?id_contact=<?php echo $value['id_contact']; ?>" class="btn btn-danger light">
                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -654,90 +680,89 @@ if (isset($_GET['type']) == TRUE) {
         <?php
         }
 
-// nhà tuyển dụng
-if (isset($_GET['type']) == TRUE && $_GET['type'] == "khac") {
-    ?>
-        <div class="container-fluid">
-            <div class="d-flex align-items-center mb-4 flex-wrap">
-                <h3 class="me-auto">Liên hệ từ Khác</h3>
-            </div>
-            <form action="#" method="get">
-                <input type="hidden" name="type" value="<?php echo $type ?>">
-                <input type="hidden" name="page" value="1">
-                <label>Số kết quả trong 1 trang</label>
-                <select style="width: 100px;" class="regular-select form-select" name="per">
-                    <option <?php
-                            if ($resultsPerPage == 2) echo 'selected="selected"'
-                            ?> value="2">2</option>
-                    <option <?php
-                            if ($resultsPerPage == 10) echo 'selected="selected"'
-                            ?> value="10">10</option>
-                    <option <?php
-                            if ($resultsPerPage == 20) echo 'selected="selected"'
-                            ?> value="20">20</option>
-                    <option <?php
-                            if ($resultsPerPage == 50) echo 'selected="selected"'
-                            ?> value="50">50</option>
-                    <option <?php
-                            if ($resultsPerPage == 100) echo 'selected="selected"'
-                            ?> value="100">100</option>
-                    <option <?php
-                            if ($resultsPerPage == 200) echo 'selected="selected"'
-                            ?> value="200">200</option>
-                </select>
-                <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
-            </form>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="table-responsive">
-                        <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
-                            <thead>
-                                <tr>
-                                    <th>Stt</th>
-                                    <th>Họ tên</th>
-                                    <th>Email</th>
-                                    <th>SĐT</th>
-                                    <th>Mục đích liên hệ</th>
-                                    
-
-                                    <th>file</th>
-                                    <th>Ngày liên hệ</th>
-                                    <!-- <th>Action</th> -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $page = 1;
-                                //$resultsPerPage = 10;
-                                $totalResults = count(Contact::getAll_lh_ntd_khac(2));
-                                if (isset($_GET['page']) == TRUE) {
-                                    $page = $_GET['page'];
-                                }
-                                $list_of_apply = Contact::getAll_lh_andCreatePagination_ntd_khac($page, $resultsPerPage, 2);
-                                echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
-                                $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
-
-
-                                foreach ($list_of_apply as $key => $value) {
-                                ?>
+        // nhà tuyển dụng
+        if (isset($_GET['type']) == TRUE && $_GET['type'] == "khac") {
+        ?>
+            <div class="container-fluid">
+                <div class="d-flex align-items-center mb-4 flex-wrap">
+                    <h3 class="me-auto">Liên hệ từ Khác</h3>
+                </div>
+                <form action="#" method="get">
+                    <input type="hidden" name="type" value="<?php echo $type ?>">
+                    <input type="hidden" name="page" value="1">
+                    <label>Số kết quả trong 1 trang</label>
+                    <select style="width: 100px;" class="regular-select form-select" name="per">
+                        <option <?php
+                                if ($resultsPerPage == 2) echo 'selected="selected"'
+                                ?> value="2">2</option>
+                        <option <?php
+                                if ($resultsPerPage == 10) echo 'selected="selected"'
+                                ?> value="10">10</option>
+                        <option <?php
+                                if ($resultsPerPage == 20) echo 'selected="selected"'
+                                ?> value="20">20</option>
+                        <option <?php
+                                if ($resultsPerPage == 50) echo 'selected="selected"'
+                                ?> value="50">50</option>
+                        <option <?php
+                                if ($resultsPerPage == 100) echo 'selected="selected"'
+                                ?> value="100">100</option>
+                        <option <?php
+                                if ($resultsPerPage == 200) echo 'selected="selected"'
+                                ?> value="200">200</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary mt-3">Xác nhận</button>
+                </form>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="table-responsive">
+                            <table id="jobsTable" class="table display table-striped mb-4 dataTablesCard job-table table-responsive-xl card-table" id="example5">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $key + 1 ?></td>
+                                        <th>Stt</th>
+                                        <th>Họ tên</th>
+                                        <th>Email</th>
+                                        <th>SĐT</th>
+                                        <th>Mục đích liên hệ</th>
 
-                                        <td><?php echo $value['name'] ?></td>
-                                        <td><?php echo $value['email'] ?></td>
-                                        <td><?php echo $value['phone'] ?></td>
+                                        <th>file</th>
+                                        <th>Ngày liên hệ</th>
+                                        <th>FILE</th>
+                                        <!-- <th>Action</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $page = 1;
+                                    //$resultsPerPage = 10;
+                                    $totalResults = count(Contact::getAll_lh_ntd_khac(2));
+                                    if (isset($_GET['page']) == TRUE) {
+                                        $page = $_GET['page'];
+                                    }
+                                    $list_of_apply = Contact::getAll_lh_andCreatePagination_ntd_khac($page, $resultsPerPage, 2);
+                                    echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
+                                    $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
 
-                                        <td><?php echo $value['muc_dich'] ?></td>
-                                        
 
+                                    foreach ($list_of_apply as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $key + 1 ?></td>
 
-                                        <td>
-                                            <a href="<?php echo './file-cv/list-file/' . $value['file'] ?>" target="_blank">
-                                                <?php echo $value['file'] ?>
-                                            </a>
-                                        </td>
-                                        <td><?php echo $value['created_at'] ?></td>
-                                        <!-- <td>
+                                            <td><?php echo $value['name'] ?></td>
+                                            <td><?php echo $value['email'] ?></td>
+                                            <td><?php echo $value['phone'] ?></td>
+                                            <td><?php echo $value['muc_dich'] ?></td>
+
+                                            <td>
+                                                <a href="<?php echo './file-cv/list-file/' . $value['file'] ?>" target="_blank">
+                                                    <?php echo $value['file'] ?>
+                                                </a>
+                                            </td>
+                                            <td><?php echo $value['created_at'] ?></td>
+                                            <td><?php echo $domainFromUrl . '/admin/file-cv/list-file/' . $value['file'] ?></td>
+
+                                            <!-- <td>
                                                 <a onclick="return confirm('Xác nhận muốn xóa liên hệ có stt: <?php echo $key + 1 ?>?')" href="job-vietnam/delete_contact.php?id_contact=<?php echo $value['id_contact']; ?>" class="btn btn-danger light">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -748,38 +773,44 @@ if (isset($_GET['type']) == TRUE && $_GET['type'] == "khac") {
                                                     </svg>
                                                 </a>
                                             </td> -->
-                                    </tr>
-                                <?php }
+                                        </tr>
+                                    <?php }
 
 
-                                ?>
-                            </tbody>
-                        </table>
+                                    ?>
+                                </tbody>
+                            </table>
 
-                        <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
-                            <span>Trang <?php echo $page . '/' . $total ?></span>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination my-2 my-md-0">
-                                    <?php echo Contact::paginate("contact-list.php?type=khac&per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
-                                </ul>
-                            </nav>
+                            <div class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap">
+                                <span>Trang <?php echo $page . '/' . $total ?></span>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination my-2 my-md-0">
+                                        <?php echo Contact::paginate("contact-list.php?type=khac&per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-    <?php
-    }
+            </div>
+        <?php
+        }
         ?>
 
     </div>
     <script>
         $('#jobsTable').DataTable({
-            //"lengthChange": false,
-
             "paging": false,
-            "info": false
+            "info": false,
+            dom: 'Bfrtip',
+            buttons: [
+                'excel'
+            ],
+            columnDefs: [{
+                targets: [-1], // Indices of the columns to hide (counting from the right)
+                visible: false
+            }]
         });
     </script>
     <script>

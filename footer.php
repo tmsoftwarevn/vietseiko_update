@@ -7,17 +7,18 @@
         background-size: cover;
         padding: 20px 0;
         border-top: 1px solid #4b9331;
-        padding-top: 20px;
+        /* padding-top: 20px; */
         margin-bottom: 20px;
+        background-color: #001744;
     }
 
     /* Định dạng cơ bản cho các phần tử */
-    /* .col-lg-4,
-        .col-md-4,
-        .col-sm-12,
-        .col-xs-12 {
-            padding: 20px;
-        } */
+    .col-lg-4,
+    .col-md-4,
+    .col-sm-12,
+    .col-xs-12 {
+        padding: 10x;
+    }
 
     /* Định dạng hình ảnh logo */
     img {
@@ -32,8 +33,8 @@
     .giayphep-content-col-title {
         color: orange;
         text-align: center;
-        padding: 10px;
-        font-size: 13px;
+        padding: 5px;
+        font-size: 14px;
         text-transform: uppercase;
         text-decoration: none;
     }
@@ -48,10 +49,10 @@
 
     /* Định dạng cho từng giấy phép */
     .giayphep-content-col {
-        flex: 0 0 calc(50% - 0px);
-        margin-bottom: 20px;
+        flex: 0 0 calc(50% - 3px);
+        /* margin-bottom: 20px; */
         box-sizing: border-box;
-        padding: 20px;
+        padding: 5px 8px;
         border: 1px solid #ffc107;
         border-radius: 2px;
 
@@ -67,6 +68,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        margin-top: 20px;
     }
 
     .footer-item {
@@ -183,8 +185,8 @@
         border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
-        margin-right: 1px;
-        padding: 8px 10px;
+        margin-right: 5px;
+        padding: 5px 10px;
         color: #163774;
         font-size: 15px;
     }
@@ -272,7 +274,7 @@
     }
 
     .copy_right {
-        background: #000;
+        background: #57bad3;
         color: #fff;
         padding: 10px 0;
     }
@@ -319,20 +321,18 @@
     }
 
     .img-fluid {
-        max-width: 80%;
+        max-width: 70%;
         height: auto;
     }
 </style>
 
 
-
-
 <footer>
-    <div class="container">
+    <div class="container" >
         <!-- Dòng chứa các cột -->
         <div class="row">
             <!-- Cột 1 -->
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex justify-content-center align-items-center company-logo-bg">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-none d-md-block">
                 <img src="images/logo.png" alt="Company Logo" class="img-fluid">
             </div>
             <!-- Cột 2 -->
@@ -389,7 +389,7 @@
                         <a href="https://www.facebook.com/Cty.TNHH.Vietseiko" rel="nofollow" title="fb_vieseiko" target="_blank" class="mxh">
                             <img alt="Facebook" src="images/Footer/fb.png">
                         </a>
-                        <a href="https://zalo.me/2635801961745424279" rel="nofollow" title="zalo_vietseiko" target="_blank" class="mxh">
+                        <a href="" rel="nofollow" title="zalo_vietseiko" target="_blank" class="mxh">
                             <img alt="mxh" src="images/footer/Zalo.png">
                         </a>
                         <a href="https://www.tiktok.com/@vietseiko.hr" rel="nofollow" title="tiktok_vietseiko" target="_blank" class="mxh">
@@ -408,11 +408,11 @@
         </div>
         <!-- Kết thúc dòng chứa các cột -->
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs hidden-sm">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs hidden-sm d-none d-md-block">
                 <!-- start div facebook_content-->
                 <div class="facebook_content">
                     <div class="facebook_content_title">
-                        <img src="images/icon_face@2x.png" width="60" height="60" alt="icon_face@2x.png" />
+                        <img src="images/Footer/Facebook.png" width="60" height="60" alt="icon_face@2x.png" />
                     </div>
                     <div class="facebook_content_cont">
                         <!-- start div facebook_content_nhipcau-->
@@ -428,12 +428,6 @@
                                         Việc Làm Tiếng Nhật TP.HCM
                                     </a>
                                 </span>
-                                <!-- <span>
-                                        <iframe
-                                            src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Vi%E1%BB%87c-L%C3%A0m-Ti%E1%BA%BFng-Nh%E1%BA%ADt-TPHCM-Vietseiko-105744628103928;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
                             </div>
                         </div>
                         <!-- end div facebook_content_oden-->
@@ -441,7 +435,7 @@
                         <!-- start div facebook_content_Hr-->
                         <div class="facebook_content_oden">
                             <div class="facebook_content_thuduc_img hidden-md">
-                                <a href="https://www.facebook.com/vieclamnhanhvietseiko" target="_blank">
+                                <a href="https://www.77acebook.com/vieclamnhanhvietseiko" target="_blank">
                                     <img src="images/fanpage3.jpg" width="40" height="40" alt="icon_face_oden@2x.png" />
                                 </a>
                             </div>
@@ -451,12 +445,6 @@
                                         HR- Việc Làm Nhanh
                                     </a>
                                 </span>
-                                <!-- <span>
-                                        <iframe
-                                            src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/HR-Vietseiko-Vi%E1%BB%87c-L%C3%A0m-Nhanh-108428324645270;width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
                             </div>
                         </div>
                         <!-- end div facebook_content_Hr-->
@@ -466,8 +454,6 @@
                             <div class="facebook_content_thuduc_img hidden-md">
                                 <a href="https://www.facebook.com/xuatkhaulaodongnhatbanVietseiko" target="_blank">
                                     <img src="images/fanpage4.jpg" width="40" height="40" alt="icon_face_vljp@2x.png" />
-
-
                                 </a>
                             </div>
                             <div class="facebook_content_thuduc_cont">
@@ -476,12 +462,6 @@
                                         Xuất Khẩu Lao Động Nhật Bản
                                     </a>
                                 </span>
-                                <!-- <span>
-                                        <iframe
-                                            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
                             </div>
                         </div>
                         <!-- end div facebook_content_Hr-->
@@ -500,12 +480,6 @@
                                     </a>
 
                                 </span>
-                                <!-- <span>
-                                        <iframe
-                                            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FxuatkhaulaodongnhatbanVietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
                             </div>
                         </div>
                         <!-- start div facebook_content_thuduc-->
@@ -521,12 +495,6 @@
                                         Vietseiko Co., Ltd
                                     </a>
                                 </span>
-                                <!-- <span>
-                                        <iframe
-                                            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FCty.TNHH.Vietseiko&width&layout=button_count&action=like&show_faces=false&share=false&height=21&appId=307551959318533"
-                                            width="81" height="21" style="border:none;overflow:hidden" scrolling="no"
-                                            frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                    </span> -->
                             </div>
                         </div>
                         <!-- end div facebook_content_vietsiko-->
@@ -535,7 +503,7 @@
                 <!--end div footer-->
             </div>
         </div>
-        <div class="row footer_add mt-5">
+        <div class="row footer_add">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <!-- start div add_cont-->
                 <div class="add_cont">
@@ -622,7 +590,6 @@
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 <script>
     $(".user-menu").click(function() {
         $(this).toggleClass("show");

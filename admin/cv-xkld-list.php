@@ -9,11 +9,23 @@ require_once "models/job_NB.php";
 $apply = new Apply;
 $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
 
+$startDate = '';
+$endDate = '';
+if (isset($_GET['startDate']) == TRUE) {
+    $startDate = $_GET['startDate'];
+}
+if (isset($_GET['endDate']) == TRUE) {
+    $endDate = $_GET['endDate'];
+}
+
+// LẤY DOMAIN WEB
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$domain = $_SERVER['HTTP_HOST'];
+$currentUrl = $protocol . '://' . $domain . $_SERVER['REQUEST_URI'];
+$domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($currentUrl, PHP_URL_HOST);
+
 ?>
 
-<!--**********************************
-            Content body start
-        ***********************************-->
 <!DOCTYPE html>
 <html>
 
@@ -30,6 +42,11 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <!-- excel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
 </head>
 <style>
     .results {
@@ -39,6 +56,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
     label {
         margin-right: 10px;
     }
+
     .dataTables_filter input {
         width: 500px;
         /* Adjust the width as needed */
@@ -55,6 +73,12 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
 
             </div>
             <form action="#" method="get">
+                <label for="startDate">Từ:</label>
+                <input type="date" name="startDate" value="<?php echo $startDate ?>">
+
+                <label for="endDate">Đến:</label>
+                <input type="date" name="endDate" value="<?php echo $endDate ?>">
+                <br>
                 <input type="hidden" name="page" value="1">
                 <label>Số kết quả trong 1 trang</label>
                 <select style="width: 100px;" class="regular-select form-select" name="per">
@@ -96,19 +120,19 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                                     <th>Vị trí</th>
                                     <th>Link CV</th>
                                     <th>Ngày nộp</th>
-
+                                    <th>FILE</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $page = 1;
                                 //$resultsPerPage = 10;
-                                $totalResults = count(Apply::getAll_cv(2));
+                                $totalResults = count(Apply::getAll_cv(2, $startDate, $endDate));
                                 if (isset($_GET['page']) == TRUE) {
                                     $page = $_GET['page'];
                                 }
 
-                                $list_of_apply = Apply::getAll_CV_andCreatePagination($page, $resultsPerPage, 2);
+                                $list_of_apply = Apply::getAll_CV_andCreatePagination($page, $resultsPerPage, 2, $startDate, $endDate);
                                 echo "<p style=\"text-align:center;\"><b>Tổng cộng có $totalResults kết quả.</b></p>";
                                 $total = ceil(floatval($totalResults) / floatval($resultsPerPage));
 
@@ -138,6 +162,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                                             </a>
                                         </td>
                                         <td><?php echo $value['created_at'] ?></td>
+                                        <td><?php echo $domainFromUrl . '/admin/file-cv/list-file/' . $value['link_cv'] ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -148,7 +173,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                             <span>Trang <?php echo $page . '/' . $total ?></span>
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination my-2 my-md-0">
-                                    <?php echo Apply::paginate("cv-xkld-list.php?per=$resultsPerPage&", $page, $totalResults, $resultsPerPage, 1) ?>
+                                    <?php echo Apply::paginate("cv-xkld-list.php?per=$resultsPerPage&startDate=$startDate&endDate=$endDate&", $page, $totalResults, $resultsPerPage, 1) ?>
                                 </ul>
                             </nav>
                         </div>
@@ -161,16 +186,17 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
     </div>
     <script>
         $('#jobsTable').DataTable({
-            "lengthChange": false,
-
             "paging": false,
-            "info": false
+            "info": false,
+            dom: 'Bfrtip',
+            buttons: [
+                'excel'
+            ],
+            columnDefs: [{
+                targets: [-1], // Indices of the columns to hide (counting from the right)
+                visible: false
+            }]
         });
-
-        function openPdfInNewTab(pdfPath) {
-            var googleDocsUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pdfPath);
-            window.open(googleDocsUrl, '_blank');
-        }
     </script>
     <script>
         $(document).ready(function() {

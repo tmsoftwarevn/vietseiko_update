@@ -107,7 +107,7 @@ $jobAdmin = new Job;
         <!--**********************************
             Chat box start
         ***********************************-->
-        
+
         <div class="header">
 
         </div>
@@ -193,6 +193,17 @@ $jobAdmin = new Job;
                         </ul>
                     </li>
                     <li>
+                        <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-6.3','span-6.3')">
+                            <i class="flaticon-093-waving"></i>
+                            <span id="span-6.3" class="nav-text">Quản lý ứng viên nhập tay</span>
+                        </a>
+                        <ul class="sub-menu" id="sub-menu-6.3">
+                            <li><a href="ungvien-list-nhaptay.php?type=vn">Nhập tay ứng viên tại Việt Nam</a></li>
+                            <li><a href="ungvien-list-nhaptay.php?type=xkld">Nhập tay ứng viên XKLD Nhật Bản</a></li>
+                            <li><a href="ungvien-list-nhaptay.php?type=vsk">Nhập tay ứng viên tại VietSeiko</a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-3','span-3')">
                             <i class="flaticon-093-waving"></i>
                             <span id="span-3" class="nav-text">Quản lý Tin tức</span>
@@ -231,6 +242,8 @@ $jobAdmin = new Job;
                             <li><a href="contact-list.php?type=vietseiko">Liên hệ tại VietSeiko</a></li>
                         </ul>
                     </li>
+                    
+
                     <li>
                         <a class="has-arrow" href="javascript:void()" onclick="toggleSubMenu('sub-menu-6.2','span-6.2')">
                             <i class="flaticon-093-waving"></i>
@@ -239,7 +252,7 @@ $jobAdmin = new Job;
                         <ul class="sub-menu" id="sub-menu-6.2">
                             <li><a href="contact-list.php?type=ntd">Nhà tuyển dụng</a></li>
                             <li><a href="contact-list.php?type=khac">Khác</a></li>
-                            
+
                         </ul>
                     </li>
                     <li>
@@ -282,7 +295,7 @@ $jobAdmin = new Job;
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <!-- // custom js click tab left -->

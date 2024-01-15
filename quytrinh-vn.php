@@ -286,7 +286,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
 
 <body>
 <?php require "header.php" ?>
-    <div class="container" style="margin-top: 140px; margin-bottom: 100px;">
+    <div class="container" style="margin-top: 130px; margin-bottom: 70px;">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <div class="license">
