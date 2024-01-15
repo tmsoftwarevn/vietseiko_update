@@ -570,7 +570,7 @@ $name_kinhnghiem = $kinh_nghiem->getKinhNghiem_byId($allJob[0]['id_kinhnghiem'])
                                 ?>
 
                                 <h4 class="twm-s-title"><?= __('Yêu cầu:') ?></h4>
-                                <?php echo  $allJob[0]['mota']; ?>
+                                <?php echo  $allJob[0]['yeucau']; ?>
 
                                 <h4 class="twm-s-title"><?= __('Quyền lợi:') ?></h4>
                                 <?php echo  $allJob[0]['quyenloi']; ?>
