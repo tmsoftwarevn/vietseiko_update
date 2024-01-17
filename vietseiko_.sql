@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 15, 2024 lúc 03:15 AM
+-- Thời gian đã tạo: Th1 17, 2024 lúc 02:05 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -54,13 +54,13 @@ CREATE TABLE `anh_banner` (
 --
 
 INSERT INTO `anh_banner` (`id`, `name`, `img`, `type_id`, `created_at`, `updated_at`) VALUES
-(1, 'banner 1 2222', '<figure class=\"image\"><img src=\"../../images/banner/1705063758tryty.png\"></figure>', 0, '2024-01-05', '2024-01-12 12:49:20'),
-(2, 'banner 2', '<figure class=\"image\"><img src=\"../../images/banner/1705063776jhgj.png\"></figure>', 0, '2024-01-05', '2024-01-12 12:49:37'),
-(3, 'banner 3', '<figure class=\"image\"><img src=\"../../images/banner/1705063798ytrytyt.png\"></figure>', 0, '2024-01-05', '2024-01-12 12:50:00'),
-(4, 'job vn', '<figure class=\"image\"><img src=\"../../images/banner/1705063818tryty.png\"></figure>', 1, '2024-01-05', '2024-01-12 12:50:19'),
-(5, 'job xkld', '<figure class=\"image\"><img src=\"../../images/banner/1705063834tryty.png\"></figure>', 2, '2024-01-05', '2024-01-12 12:50:36'),
-(6, 'job ksnb', '<figure class=\"image\"><img src=\"../../images/banner/1705063849tryty.png\"></figure>', 3, '2024-01-05', '2024-01-12 12:50:52'),
-(7, 'job vietseiko', '<figure class=\"image\"><img src=\"../../images/banner/1705063866tryty.png\"></figure>', 4, '2024-01-05', '2024-01-12 12:51:07');
+(25, 'teesst', '1705493605tryty.png', 0, '2024-01-17', '2024-01-17 12:13:25'),
+(20, 'banner 1', '1705493622ytrytyt.png', 0, '2024-01-17', '2024-01-17 12:13:42'),
+(24, 'banner 4444', '1705493640jhgj.png', 0, '2024-01-17', '2024-01-17 12:14:00'),
+(16, 'job ksnb', '1705493656banner ewr.jpg', 3, '2024-01-17', '2024-01-17 12:14:16'),
+(17, 'job vietseiko e2324', '1705493671banner ewr.jpg', 4, '2024-01-17', '2024-01-17 12:14:31'),
+(14, 'job vn', '1705496523banner ewr.jpg', 1, '2024-01-17', '2024-01-17 13:02:03'),
+(15, 'job xkld', '1705493715banner ewr.jpg', 2, '2024-01-17', '2024-01-17 12:15:15');
 
 -- --------------------------------------------------------
 
@@ -84,8 +84,8 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id_blog`, `img_blog`, `tieude_blog`, `noidung_blog`, `type_id`, `slug`, `created_at`, `updated_at`) VALUES
-(22, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705198742Screenshot (43).png\"></figure>', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng, chuyên nghiệp', '<p>Không có bài kiểm tra nào có thể đánh giá chính xác năng lực <a href=\"http://vietseiko.local/\">quản lý</a> chiến lược của một người. Nhưng có những câu hỏi có thể chỉ ra mức độ của năng lực đó. Hãy thử trả lời để có thêm ý tưởng cho việc phát triển tư duy chiến lược của bản thân.</p><h3><strong>1. Bạn có tầm nhìn kinh doanh và quản lý không?</strong></h3><p>Steves Jobs và Wozniak - hai nhà sáng lập Apple Computer đã hình dung ra \"quá trình dân chủ hóa máy tính\". Tầm nhìn của bạn khi bắt đầu bất kỳ hoạt động kinh doanh nào chính là \"kim chỉ nam\" - định hướng lâu dài cho cả quá trình, chứ không phải mục tiêu ngắn hạn. Một nhân sự có năng lực quản lý chiến lược sẽ có khả năng trình bày rõ ràng tầm nhìn của mình chỉ trong một vài câu.</p><h3><strong>2. Bạn có triết lý hành động không?</strong></h3><p>Triết lý chính là sứ mệnh cho hoạt động hàng ngày của bạn và nhóm/ doanh nghiệp của bạn. Một tổ chức có <a href=\"https://vieclam.tuoitre.vn/tin-tuc/phat-trien-to-chuc-tu-triet-ly-dau-tu-con-nguoi-20230630134016982.html\">triết lý</a> hành động đủ để thuyết phục những nhân sự trong tổ chức tuân theo là đã đạt được 50% thành công. Và vì thế, không chỉ quan tâm triết lý của công ty &amp; bản thân, bạn còn cần biết triết lý kinh doanh của công ty đối thủ.</p>', 1, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong-chuyen-nghiep', '2024-01-14', '2024-01-14 02:19:34'),
-(17, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705064220slide-03.jpg\"></figure>', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng', '<p>Không có bài kiểm tra nào có thể đánh giá chính xác năng lực <a href=\"http://vietseiko.local/\">quản lý</a> chiến lược của một người. Nhưng có những câu hỏi có thể chỉ ra mức độ của năng lực đó. Hãy thử trả lời để có thêm ý tưởng cho việc phát triển tư duy chiến lược của bản thân.</p><h3><strong>1. Bạn có tầm nhìn kinh doanh và quản lý không?</strong></h3><p>Steves Jobs và Wozniak - hai nhà sáng lập Apple Computer đã hình dung ra \"quá trình dân chủ hóa máy tính\". Tầm nhìn của bạn khi bắt đầu bất kỳ hoạt động kinh doanh nào chính là \"kim chỉ nam\" - định hướng lâu dài cho cả quá trình, chứ không phải mục tiêu ngắn hạn. Một nhân sự có năng lực quản lý chiến lược sẽ có khả năng trình bày rõ ràng tầm nhìn của mình chỉ trong một vài câu.</p><h3><strong>2. Bạn có triết lý hành động không?</strong></h3><p>Triết lý chính là sứ mệnh cho hoạt động hàng ngày của bạn và nhóm/ doanh nghiệp của bạn. Một tổ chức có <a href=\"https://vieclam.tuoitre.vn/tin-tuc/phat-trien-to-chuc-tu-triet-ly-dau-tu-con-nguoi-20230630134016982.html\">triết lý</a> hành động đủ để thuyết phục những nhân sự trong tổ chức tuân theo là đã đạt được 50% thành công. Và vì thế, không chỉ quan tâm triết lý của công ty &amp; bản thân, bạn còn cần biết triết lý kinh doanh của công ty đối thủ.</p><h3><strong>3. Tổ chức của bạn có lợi thế cạnh tranh?</strong></h3><p>Điều cốt lõi để một tập thể/ doanh nghiệp tồn tại được là có vị trí độc nhất trong phân khúc thị trường đang hoạt động, dựa trên một lợi thế cạnh tranh nào đó. Nói cách khác, tổ chức của bạn phải trở thành số 1 hoặc 2, hoặc chí ít là thuộc tốp các tổ chức cạnh tranh hàng đầu dù là trong phân khúc nào. Ví dụ, lợi thế cạnh tranh là giá cả hợp lý, thiết kế độc đáo, thương hiệu uy tín hoặc thế mạnh về cung cấp.</p><p>Nói cách khác, một nhà chiến lược sẽ xác lập được các yếu tố để thúc đẩy người mua lựa chọn sản phẩm của công ty mình thay vì một sản phẩm khác tương đương. Tương tự, đội nhóm dưới quyền bạn cũng cần chứng minh được vai trò quan trọng trong công ty.</p><h3><strong>4. Nhân viên của bạn có thể làm việc độc lập?</strong></h3><p>CareerBuilder đã từng có các bài viết về việc trao quyền cho nhân viên. Bởi một công ty được <a href=\"https://vieclam.tuoitre.vn/tin-tuc/ky-nang-ma-tat-ca-cac-nha-quan-ly-nhan-su-phai-co-20230310104539558.html\">quản lý</a> một cách <a href=\"https://vieclam.tuoitre.vn/tin-tuc/cach-nao-giu-chan-nhan-tai-20230511164216739.html\">chiến lược</a> sẽ trở thành một tổ chức liên minh mà trong đó mỗi nhân sự là một doanh nhân, có trách nhiệm quản lý một số nhiệm vụ nhất định. Mỗi nhóm có thể coi là một công ty siêu nhỏ, được hỗ trợ bởi nguồn lực của toàn tập đoàn và đứng đầu là các <a href=\"https://vieclam.tuoitre.vn/tin-tuc/nhung-nang-luc-cua-nha-quan-ly-tuong-lai-20230214162046435.html\">nhà quản lý</a>.</p>', 3, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong', '2023-12-26', '2024-01-13 04:04:30');
+(23, '17054856792-1.jpg', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng, chuyên nghiệp', '<p>A text string, also known as a string or simply as text, is a group of characters that are used as <a href=\"https://www.lifewire.com/data-definition-excel-3123415\">data</a> in a spreadsheet program. Text strings are most often comprised of words, but may also include <a href=\"https://www.lifewire.com/convert-text-to-upper-lower-case-3123710\">letters, numbers, special characters</a>, the dash symbol, or the number sign. By default, text strings are left-aligned in a cell while number data is aligned to the right.</p>', 1, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong-chuyen-nghiep', '2024-01-17', '2024-01-17 10:27:32'),
+(24, '1705495190banner.jpg', 'Lý lịch tư pháp là gì? Thủ tục đăng ký lý lịch tư pháp ', '<p>A text string, also known as a string or simply as text, is a group of characters that are used as <a href=\"https://www.lifewire.com/data-definition-excel-3123415\">data</a> in a spreadsheet program. Text strings are most often comprised of words, but may also include <a href=\"https://www.lifewire.com/convert-text-to-upper-lower-case-3123710\">letters, numbers, special characters</a>, the dash symbol, or the number sign. By default, text strings are left-aligned in a cell while number data is aligned to the right.</p><figure class=\"image\"><img src=\"../../images/l-image-blog/1705485891banner.jpg\"></figure><p>ưqewqe</p>', 1, 'ly-lich-tu-phap-la-gi-thu-tuc-dang-ky-ly-lich-tu-phap', '2024-01-17', '2024-01-17 12:39:50');
 
 -- --------------------------------------------------------
 
@@ -109,9 +109,7 @@ CREATE TABLE `cam_nang` (
 --
 
 INSERT INTO `cam_nang` (`id_blog`, `img_blog`, `tieude_blog`, `noidung_blog`, `type_id`, `slug`, `created_at`, `updated_at`) VALUES
-(11, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705063989slide-02.jpg\"></figure>', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng, chuyên nghiệp', '<p>Thư ngỏ là thư dùng để yêu cầu, trình bày nội dung hoặc vấn đến nào đó như xin tài trợ, mời hợp tác, chào hàng,… Dù mục đích khác nhau nhưng các loại thư ngỏ này đều đại diện cho một tập thể, đơn vị,… mang tính chất công việc và dùng để đề xuất một vấn đề cụ thể.&nbsp;</p><p>Nội dung thư ngỏ thường ở dạng mở nhằm gửi đến nhiều đối tượng khác nhau. Người gửi thư sẽ giới thiệu sơ nét về thông tin cá nhân và các thông tin về công ty, sản phẩm/dịch vụ hoặc sự kiện sắp diễn ra.</p><h2><strong>Thế nào là một mẫu thư đẹp, chuyên nghiệp?</strong></h2><p>Tuy thư ngỏ không phải là văn bản hành chính nhưng mẫu thư ngỏ cần đảm bảo các yêu cầu sau đây:</p><ul><li>Nội dung thư ngỏ được viết ngắn gọn, súc tích và chia thành các câu ngắn.</li><li>Bố cục hợp lý: Lời chào – Giới thiệu người gửi thư – Nội dung thư ngỏ – Lời kêu gọi hành động ( hợp tác, xin tài trợ,…) – Kết thư.&nbsp;</li><li>Nội dung được phân bổ hợp lý, đúng trọng tâm và được chia thành nhiều đoạn.</li><li>Ngôn ngữ trang trọng, hấp dẫn.</li><li>Cách trình bày thư ngỏ có thể khác nhau nhưng cần phù hợp với nội dung.</li><li>Đưa ra dẫn chứng thuyết phục.&nbsp;</li></ul>', 3, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong-chuyen-nghiep', '2023-12-21', '2024-01-13 04:04:45'),
-(17, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705064002slide-03.jpg\"></figure>', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng, chuyên nghiệp', '<p>Thư ngỏ là thư dùng để yêu cầu, trình bày nội dung hoặc vấn đến nào đó như xin tài trợ, mời hợp tác, chào hàng,… Dù mục đích khác nhau nhưng các loại thư ngỏ này đều đại diện cho một tập thể, đơn vị,… mang tính chất công việc và dùng để đề xuất một vấn đề cụ thể.&nbsp;</p><p>Nội dung thư ngỏ thường ở dạng mở nhằm gửi đến nhiều đối tượng khác nhau. Người gửi thư sẽ giới thiệu sơ nét về thông tin cá nhân và các thông tin về công ty, sản phẩm/dịch vụ hoặc sự kiện sắp diễn ra.</p><h2><strong>Thế nào là một mẫu thư đẹp, chuyên nghiệp?</strong></h2><p>Tuy thư ngỏ không phải là văn bản hành chính nhưng mẫu thư ngỏ cần đảm bảo các yêu cầu sau đây:</p><ul><li>Nội dung thư ngỏ được viết ngắn gọn, súc tích và chia thành các câu ngắn.</li><li>Bố cục hợp lý: Lời chào – Giới thiệu người gửi thư – Nội dung thư ngỏ – Lời kêu gọi hành động ( hợp tác, xin tài trợ,…) – Kết thư.&nbsp;</li><li>Nội dung được phân bổ hợp lý, đúng trọng tâm và được chia thành nhiều đoạn.</li><li>Ngôn ngữ trang trọng, hấp dẫn.</li><li>Cách trình bày thư ngỏ có thể khác nhau nhưng cần phù hợp với nội dung.</li><li>Đưa ra dẫn chứng thuyết phục.&nbsp;</li></ul>', 1, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong-chuyen-nghiep', '2023-12-21', '2024-01-12 12:53:25'),
-(16, '<figure class=\"image\"><img src=\"../../images/l-image-blog/1705064002slide-03.jpg\"></figure>', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng, chuyên nghiệp', '<p>Thư ngỏ là thư dùng để yêu cầu, trình bày nội dung hoặc vấn đến nào đó như xin tài trợ, mời hợp tác, chào hàng,… Dù mục đích khác nhau nhưng các loại thư ngỏ này đều đại diện cho một tập thể, đơn vị,… mang tính chất công việc và dùng để đề xuất một vấn đề cụ thể.&nbsp;</p><p>Nội dung thư ngỏ thường ở dạng mở nhằm gửi đến nhiều đối tượng khác nhau. Người gửi thư sẽ giới thiệu sơ nét về thông tin cá nhân và các thông tin về công ty, sản phẩm/dịch vụ hoặc sự kiện sắp diễn ra.</p><h2><strong>Thế nào là một mẫu thư đẹp, chuyên nghiệp?</strong></h2><p>Tuy thư ngỏ không phải là văn bản hành chính nhưng mẫu thư ngỏ cần đảm bảo các yêu cầu sau đây:</p><ul><li>Nội dung thư ngỏ được viết ngắn gọn, súc tích và chia thành các câu ngắn.</li><li>Bố cục hợp lý: Lời chào – Giới thiệu người gửi thư – Nội dung thư ngỏ – Lời kêu gọi hành động ( hợp tác, xin tài trợ,…) – Kết thư.&nbsp;</li><li>Nội dung được phân bổ hợp lý, đúng trọng tâm và được chia thành nhiều đoạn.</li><li>Ngôn ngữ trang trọng, hấp dẫn.</li><li>Cách trình bày thư ngỏ có thể khác nhau nhưng cần phù hợp với nội dung.</li><li>Đưa ra dẫn chứng thuyết phục.&nbsp;</li></ul>', 2, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong-chuyen-nghiep', '2023-12-21', '2024-01-13 04:03:51');
+(18, '1705486696images.jpg', 'Không rời mắt trước các mẫu thư ngỏ ấn tượng, chuyên nghiệp ffffff', '<p>A text string, also known as a string or simply as text, is a group of characters that are used as <a href=\"https://www.lifewire.com/data-definition-excel-3123415\">data</a> in a spreadsheet program. Text strings are most often comprised of words, but may also include <a href=\"https://www.lifewire.com/convert-text-to-upper-lower-case-3123710\">letters, numbers, special characters</a>, the dash symbol, or the number sign. By default, text strings are left-aligned in a cell while number data is aligned to the right.</p>', 1, 'khong-roi-mat-truoc-cac-mau-thu-ngo-an-tuong-chuyen-nghiep-ffffff', '2024-01-17', '2024-01-17 10:27:06');
 
 -- --------------------------------------------------------
 
@@ -138,7 +136,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id_contact`, `name`, `email`, `phone`, `muc_luong`, `khu_vuc_hien_tai`, `khu_vuc_mong_muon`, `nganhnghe`, `type_id`, `file`, `created_at`) VALUES
-(107, 'teesst', 'test@gmail.com', '0333333333', '12', 'Phú Thọ', 'ewdsfd', '2', 2, '1705065724file-example_PDF_500_kB.pdf', '2024-01-12 13:22:07');
+(108, 'teesst', 'test@gmail.com', '0333333333', '12', 'Vĩnh Phúc', 'ytry', '3', 1, '17054966091703320038file-sample_100kB.doc', '2024-01-17 13:03:33');
 
 -- --------------------------------------------------------
 
@@ -164,6 +162,7 @@ CREATE TABLE `contact_ntd&khac` (
 --
 
 INSERT INTO `contact_ntd&khac` (`id_contact`, `name`, `email`, `phone`, `muc_dich`, `dia_diem`, `vi_tri_can_tuyen`, `file`, `type_id`, `created_at`) VALUES
+(105, 'teesst', 'test@gmail.com', '0333333333', 'test', 'Bắc Giang', 'test', '', 1, '2024-01-17 12:07:13'),
 (104, 'teesst', 'test@gmail.com', '0533333334', 'ưqewqe', 'Lạng Sơn', 'ewqewq', '1705247584file-example_PDF_500_kB.pdf', 1, '2024-01-14 15:53:08');
 
 -- --------------------------------------------------------
@@ -190,8 +189,9 @@ CREATE TABLE `cty` (
 INSERT INTO `cty` (`id_cty`, `img_cty`, `name`, `quymo`, `about_cty`, `address`, `type_id`, `updated_at`) VALUES
 (1, '', 'Không hiển thị Công ty', '', '', '', 1, '2023-12-18 02:46:42'),
 (23, '<figure class=\"image\"><img src=\"../../images/logo-company/170514602411046498.jpg\"></figure>', 'Công Ty TNHH Sam Sung Climate Control Việt Nam', '50-100', '<p>We are looking for the right people — people who want to innovate, achieve, grow and lead. We attract and retain the best talent by investing in our employees and empowering them to develop themselves and their careers. Experience the challenges, rewards and opportunity of working for SAM SUNG CLIMATE CONTROL CO., LTD. is leading Korean Auto part maker, specialized in Automotive Thermal System. We have been successfully serving leading customers such as Hyundai, KIA, Mitsubishi, Mercedes Benz, John Deere.</p>', 'Một phần lô J, khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', 1, '2024-01-13 11:40:26'),
-(24, '<figure class=\"image\"><img src=\"../../images/logo-company/170506465311230694.jpg\"></figure>', 'Công Ty Vàng Bạc Đá Quý Bảo Tín Minh Châu', '50-100', '<p>Bảo Tín Minh Châu là một trong những công ty uy tín hàng đầu trong lĩnh vực kinh doanh và chế tác vàng bạc đá quý tại Việt Nam. Với hơn 30 năm phát triển, Bảo Tín Minh Châu đã có 3 cơ sở kinh doanh tại Hà Nội và trên 200 đại lý, điểm kinh doanh trên toàn quốc với hai loại sản phẩm chính là Vàng rồng Thăng Long và Vàng trang sức chất lượng cao</p>', 'Toà nhà CTM Complex, 139 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Hà Nội', 2, '2024-01-12 13:04:31'),
-(25, '<figure class=\"image\"><img src=\"../../images/logo-company/170506627722.jpg\"></figure>', 'Công ty TNHH Concentrix Service Vietnam 99', '50-100', '<p>We are looking for the right people — people who want to innovate, achieve, grow and lead. We attract and retain the best talent by investing in our employees and empowering them to develop themselves and their careers. Experience the challenges, rewards...</p>', ' TP.HCM, 27 Tam Bình , Tam Phú, Thủ Đức', 3, '2024-01-12 13:31:30');
+(24, '<figure class=\"image\"><img src=\"../../images/logo-company/1705492398rrewrr.png\"></figure>', 'Công Ty Vàng Bạc Đá Quý Bảo Tín Minh Châu', '50-100', '<p>Bảo Tín Minh Châu là một trong những công ty uy tín hàng đầu trong lĩnh vực kinh doanh và chế tác vàng bạc đá quý tại Việt Nam. Với hơn 30 năm phát triển, Bảo Tín Minh Châu đã có 3 cơ sở kinh doanh tại Hà Nội và trên 200 đại lý, điểm kinh doanh trên toàn quốc với hai loại sản phẩm chính là Vàng rồng Thăng Long và Vàng trang sức chất lượng cao</p>', 'Toà nhà CTM Complex, 139 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Hà Nội', 2, '2024-01-17 11:53:20'),
+(25, '<figure class=\"image\"><img src=\"../../images/logo-company/170506627722.jpg\"></figure>', 'Công ty TNHH Concentrix Service Vietnam 99', '50-100', '<p>We are looking for the right people — people who want to innovate, achieve, grow and lead. We attract and retain the best talent by investing in our employees and empowering them to develop themselves and their careers. Experience the challenges, rewards...</p>', ' TP.HCM, 27 Tam Bình , Tam Phú, Thủ Đức', 3, '2024-01-12 13:31:30'),
+(26, '<figure class=\"image\"><img src=\"../../images/logo-company/1705496303ewrew.png\"></figure>', 'Công Ty TNHH Thực Phẩm Bình Hưng', '50-100', '<p>Công Ty TNHH Thực Phẩm Bình Hưng là công ty hoạt động trong lĩnh vực buôn bán rau quả</p><p>CÔNG TY TNHH THỰC PHẨM BÌNH HƯNG</p><p>Tên giao dịch: BHF CO., LTD</p><p>Loại hình hoạt động: Công ty TNHH Một Thành Viên</p>', ' TP.HCM, 27 Tam Bình , Tam Phú, Thủ Đức', 1, '2024-01-17 12:58:36');
 
 -- --------------------------------------------------------
 
@@ -233,27 +233,15 @@ CREATE TABLE `hinhanh_video` (
 --
 
 INSERT INTO `hinhanh_video` (`id`, `path`, `type`, `created_at`, `updated_at`) VALUES
-(31, 'https://www.youtube.com/watch?v=dLXv0hj7y5k', 3, '2024-01-09', '2024-01-09 03:10:28'),
-(20, 'https://www.youtube.com/watch?v=Op3syM-6_Po', 3, '2024-01-09', '2024-01-09 02:29:21'),
-(21, 'https://www.youtube.com/watch?v=0gwO5_S1whk', 3, '2024-01-09', '2024-01-09 02:33:54'),
-(30, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769781tttt.jpg\"></figure>', 2, '2024-01-09', '2024-01-09 03:09:42'),
-(9, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769670hinh1.jpg\"></figure>', 1, '2024-01-08', '2024-01-09 03:07:55'),
-(29, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769772rrewrr.png\"></figure>', 2, '2024-01-09', '2024-01-09 03:09:34'),
-(27, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/170476976122.jpg\"></figure>', 2, '2024-01-09', '2024-01-09 03:09:22'),
-(28, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769767gggg.jpg\"></figure>', 2, '2024-01-09', '2024-01-09 03:09:27'),
-(15, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704764544hinh5.jpg\"></figure>', 1, '2024-01-09', '2024-01-09 01:42:34'),
-(18, 'https://www.youtube.com/watch?v=z7UDmBkXotw', 3, '2024-01-09', '2024-01-09 02:27:54'),
-(22, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769688hinh2.jpg\"></figure>', 1, '2024-01-09', '2024-01-09 03:08:10'),
-(23, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769694hinh3.jpg\"></figure>', 1, '2024-01-09', '2024-01-09 03:08:15'),
-(24, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769699hinh4.jpg\"></figure>', 1, '2024-01-09', '2024-01-09 03:08:20'),
-(25, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769709hinh7.jpg\"></figure>', 1, '2024-01-09', '2024-01-09 03:08:30'),
-(26, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704769715hinh8.jpg\"></figure>', 1, '2024-01-09', '2024-01-09 03:08:36'),
-(32, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704771916hinh10.jpg\"></figure>', 1, '2024-01-09', '2024-01-09 03:45:18'),
-(33, '<figure class=\"image\"><img src=\"../../images/hinhanh_video/1704771931nnnn.jpg\"></figure>', 2, '2024-01-09', '2024-01-09 03:45:33'),
-(34, 'https://www.youtube.com/watch?v=JRfuAukYTKg', 3, '2024-01-09', '2024-01-09 03:45:49'),
-(35, 'https://www.youtube.com/watch?v=JRfuAukYTKg', 3, '2024-01-09', '2024-01-09 03:47:29'),
-(36, 'https://www.youtube.com/watch?v=JRfuAukYTKg', 3, '2024-01-09', '2024-01-09 03:47:32'),
-(37, 'https://www.youtube.com/watch?v=JRfuAukYTKg', 3, '2024-01-09', '2024-01-09 03:47:35');
+(52, 'https://www.youtube.com/watch?v=v8PRQ3arfi4', 3, '2024-01-17', '2024-01-17 12:29:52'),
+(53, 'https://www.youtube.com/watch?v=-PUrmegeubU', 3, '2024-01-17', '2024-01-17 12:30:05'),
+(48, '1705494924gggg.jpg', 2, '2024-01-17', '2024-01-17 12:35:24'),
+(45, '1705465674hinh10.jpg', 1, '2024-01-17', '2024-01-17 04:27:54'),
+(49, 'https://www.youtube.com/watch?v=PZLcf2f91yg', 3, '2024-01-17', '2024-01-17 04:48:06'),
+(44, '1705465559hinh1.jpg', 1, '2024-01-17', '2024-01-17 04:25:59'),
+(43, '1705465601hinh18.jpg', 1, '2024-01-17', '2024-01-17 04:26:41'),
+(41, '1705461036hinh7.jpg', 1, '2024-01-17', '2024-01-17 03:10:36'),
+(42, '1705461066hinh5.jpg', 1, '2024-01-17', '2024-01-17 03:11:06');
 
 -- --------------------------------------------------------
 
@@ -294,10 +282,7 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `slug`, `type_job`, `view`, `created_at`, `updated_at`) VALUES
-(63, 'Nhân Viên IT ', 'nhân viên', 'VN02', 6, 2, 2, 3, '2024-01-25', 2, 'Tới 20 triệu', 'HÀ NỘI', 'khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', '', '', '', '', 1, 1, '20-30', 'nhan-vien-it', 1, 24, '2024-01-12 13:19:20', '2024-01-13 11:39:04'),
-(64, 'Nhân Viên IT ', 'nhân viên', '4652', 3, 1, 1, 3, '2024-01-31', 2, '12 triệu', 'Hồ Chí Minh', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 25, '20-30', 'nhan-vien-it', 1, 11, '2024-01-12 13:32:11', '2024-01-14 03:02:26'),
-(65, 'quản lý', 'nhân viên', '444', 2, 2, 3, 2, '2024-01-31', 2, 'Tới 20 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 1, '20-30', 'quan-ly', 1, 4, '2024-01-13 03:54:24', '2024-01-13 11:38:16'),
-(62, 'Trưởng Phòng Hành Chính Nhân Sự - GA & HR', 'Trưởng phòng', 'vn01', 2, 2, 3, 4, '2024-02-03', 1, 'thỏa thuận', 'Hồ Chí Minh', 'khu công nghiệp Đồng Văn II, Phường Bạch Thượng, Thị xã Duy Tiên, Tỉnh Hà Nam', '<p>* Quy mô công ty: &lt;100 nhân sự<br>+ Phụ trách lĩnh vực nhân sự: Quản lý công tác tuyển dụng, đào tạo, Quản lý hồ sơ , thông tin người lao động, hợp đồng lao động.Quản lý, kiểm soát việc chấm công, tiền lương,thưởng , phúc lợi, BHXH,quan hệ lao động…. Lập Nội quy lao động, thang bảng lương, tư vấn cho lãnh đạo về các chính sách liên quan đến pháp luật lao động.<br>+ Phụ trách việc quản lý lao động nước ngoài: Thư mời, Giấy phép lao động, visa, thẻ tạm trú, nhà ở, ...<br>+ Quản lý công việc hành chính: tiếp đón khách, bảo vệ, tạp vụ,vệ sinh, mua bán vpp, đồng phục lao động, nhà ăn, điều xe, rác thải, nước thải…<br>+ Quản lý các công việc liên quan đến an toàn nhà máy: Phòng cháy chữa cháy, An toàn máy móc, lao động, Môi trường, Sức khỏe, Điện…</p>', '<p>- Ưu tiên ứng viên sinh sống tại Hà Nam hoặc có dự định làm việc lâu dài tại Hà Nam<br>- Tốt nghiệp Đại học trở lên.<br>- Sử dụng tiếng Anh trong công việc.<br>- Thành thạo tin học văn phòng: word, excel<br>- Có từ 2-3 năm kinh nghiệm tại vị trí tương đương<br>- Có hiểu biết sâu rộng về Luật lao động và các Luật khác liên quan<br>- Có kinh nghiệm làm việc với các cơ quan ban ngành<br>- Kỹ năng quản lý bao quát, giám sát công việc tốt</p>', '<p>- Làm việc trong môi trường năng động, chuyên nghiệp.<br>- Chế độ lương thưởng hấp dẫn.<br>- Cung cấp đầy đủ trang thiết bị phục vụ công việc.<br>- Đóng BHXH, BHYT, BHTN theo quy định nhà nước.<br>- Có xe đưa đón công nhân viên trong công ty.,…<br>- Thời gian làm việc: 8h – 17h, thứ 2 đến thứ 7.</p>', '', 1, 23, '20-30', 'truong-phong-hanh-chinh-nhan-su-ga-hr', 1, 14, '2024-01-12 12:47:25', '2024-01-14 02:52:07');
+(66, ' Helpdesk  77 dá ddasdqwewq ', 'Quản lý cấp trung', '444', 3, 2, 3, 2, '2024-01-18', 1, 'Tới 20 triệu', ' TP.HCM', '123A Gò Dầu, Phường Tân Quý, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam', '<p>- Xuất hoá đơn tài chính</p><p>- Tập hợp công nợ</p><p>- Viết hoá đơn bán hàng</p><p>- Check đơn hàng , báo giá , đối chiếu công nợ</p><p>- Sắp xếp giấy tờ văn bản,..</p><p>Địa chỉ: 15 Ngõ 70 Thạch Cầu, Long Biên, HN</p><p>- Xuất hoá đơn tài chính</p><p>- Tập hợp công nợ</p><p>- Viết hoá đơn bán hàng</p><p>- Check đơn hàng , báo giá , đối chiếu công nợ</p><p>- Sắp xếp giấy tờ văn bản,..</p><p>Địa chỉ: 15 Ngõ 70 Thạch Cầu, Long Biên, HN</p>', '<p>- Cẩn thận và hòa đồng, tâm huyết và trách nhiệm, trung thực</p><p>- Nắm vững các chính sách, chế độ Tài chính - Kế toán, Thuế &amp; quản lý tài chính hiện hành;</p><p>- Thành thạo các kỹ năng word và exel văn phòng, phần mềm kế toán misa</p><p>- Có trình độ từ trung cấp, cao đẳng, đại học. Ưu tiên nhân viên có kinh nghiệm</p><p>- Thành thạo máy tính, có kinh nghiệm kế toán</p>', '<p>- Lương từ 7 - 12 triệu/tháng tùy năng lực</p><p>- Được tham gia BHXH-BHYT</p><p>- Được tăng lương định kỳ theo năm mức tăng từ 5-10% tùy theo năng lực làm việc.</p><p>- Chế độ du lịch: 01 năm /01 lần.</p><p>- Làm giờ hành chính, 1 tháng nghỉ 3 buổi, có làm tăng ca trong tuần</p>', '', 1, 26, '20-30', 'helpdesk-77-da-ddasdqwewq', 1, 9, '2024-01-17 12:48:17', '2024-01-17 13:01:50');
 
 -- --------------------------------------------------------
 
@@ -355,13 +340,6 @@ CREATE TABLE `job_kysunb` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `job_kysunb`
---
-
-INSERT INTO `job_kysunb` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `ngonngu`, `slug`, `type_job`, `view`, `created_at`, `updated_at`) VALUES
-(31, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'nhân viên', 'ks01', 4, 2, 5, 2, '2024-02-01', 3, '12 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 23, '20-30', 'nn1', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', 3, 8, '2024-01-12 13:11:48', '2024-01-13 11:36:30');
 
 -- --------------------------------------------------------
 
@@ -450,7 +428,7 @@ CREATE TABLE `job_vietseiko` (
 --
 
 INSERT INTO `job_vietseiko` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `slug`, `type_job`, `view`, `created_at`, `updated_at`) VALUES
-(24, ' Helpdesk  77', 'nhân viên', 'vsk01', 5, 1, 2, 3, '2024-01-30', 1, 'Tới 20 triệu', 'Hồ Chí Minh', ' 53 Đường 31E, Phường An Phú, Thành phố Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam', '', '', '', '', 1, 1, '20-30', 'helpdesk-77', 4, 7, '2024-01-12 13:12:57', '2024-01-13 10:17:53');
+(25, 'Nhân Viên IT ', 'nhân viên', '4652', 5, 3, 5, 2, '2024-01-15', 2, '12 triệu', 'HÀ NỘI', '- Hà nội: số 14 đường số 7 khu đô thị Him Lam, Tân Hưng, Quận 7', '<h4><strong>Mô tả công việc</strong></h4><p>- Xuất hoá đơn tài chính</p><p>- Tập hợp công nợ</p><p>- Viết hoá đơn bán hàng</p><p>- Check đơn hàng , báo giá , đối chiếu công nợ</p><p>- Sắp xếp giấy tờ văn bản,..</p>', '<h4><strong>Yêu cầu công việc</strong></h4><p>- Cẩn thận và hòa đồng, tâm huyết và trách nhiệm, trung thực</p><p>- Nắm vững các chính sách, chế độ Tài chính - Kế toán, Thuế &amp; quản lý tài chính hiện hành;</p><p>- Thành thạo các kỹ năng word và exel văn phòng, phần mềm kế toán misa</p><p>- Có trình độ từ trung cấp, cao đẳng, đại học. Ưu tiên nhân viên có kinh nghiệm</p><p>- Thành thạo máy tính, có kinh nghiệm kế toán</p>', '<h4><strong>Quyền lợi</strong></h4><p>- Lương từ 7 - 12 triệu/tháng tùy năng lực</p><p>- Được tham gia BHXH-BHYT</p><p>- Được tăng lương định kỳ theo năm mức tăng từ 5-10% tùy theo năng lực làm việc.</p><p>- Chế độ du lịch: 01 năm /01 lần.</p><p>- Làm giờ hành chính, 1 tháng nghỉ 3 buổi, có làm tăng ca trong tuần</p>', '', 0, 24, '20-30', 'nhan-vien-it', 4, 5, '2024-01-17 12:51:49', '2024-01-17 12:59:35');
 
 -- --------------------------------------------------------
 
@@ -486,14 +464,6 @@ CREATE TABLE `job_xkld_nb` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `job_xkld_nb`
---
-
-INSERT INTO `job_xkld_nb` (`id_job`, `chucvu`, `capbac`, `job_code`, `id_nganhnghe`, `id_hinhthuc`, `soluong`, `id_kinhnghiem`, `ngaycuoicung`, `id_gioitinh`, `mucluong`, `diachi`, `diachi_cuthe`, `mota`, `yeucau`, `quyenloi`, `thongtin_khac`, `id_trangthai`, `id_cty`, `age`, `ngonngu`, `slug`, `type_job`, `view`, `created_at`, `updated_at`) VALUES
-(44, 'Quản Lý Bảo Hành – Kho Vận Khu Vực Tp.HCM', 'Quản lý cấp trung', '4652', 3, 1, 3, 3, '2024-02-08', 2, 'Tới 20 triệu', 'hcm', 'bình thạnh, 123 , tp hcm', '', '', '', '', 1, 24, '20-30', 'nn1', 'quan-ly-bao-hanh-kho-van-khu-vuc-tp-hcm', 2, 4, '2024-01-13 10:42:32', '2024-01-13 11:41:21'),
-(43, 'Trưởng Ban Hành Chính Lương 20 - 30 Triệu, Nghỉ Thứ 7 Chủ Nhật', 'Trưởng phòng', 'jp01', 2, 2, 5, 3, '2024-02-02', 1, 'Tới 20 triệu', 'HÀ NỘI', 'Toà nhà CTM Complex, 139 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Hà Nội', '<p>I) Mô tả công việc<br>1. Hoạch định, tổ chức, chỉ huy, kiểm soát các hoạt động tuyển dụng, phát triển và sử dụng nguồn nhân sự đạt mục tiêu công ty đề ra liên quan đến Ban Hành Chính<br>2. Tiếp cận một cách có hệ thống công tác hoạch định những nhu cầu về nguồn lực của tổ chức, trên nhu cầu đó tiến hành các hoạt động tuyển dụng, huấn luyện, đào tạo, phát triển nhân sự. Trưởng ban Hành Chính đánh giá khả năng, năng lực của cấp dưới, duy trì môi trường làm việc thuận lợi, an toàn.<br>3. Tham mưu cho Ban Giám Đốc về công tác tổ chức hành chính của công ty. Giúp đỡ động viên, tạo điều kiện cho các thành viên hoàn thành tốt nhiệm vụ được giao, tuyên truyền, phổ biến chủ trương chính sách của công ty.<br>4. Có biện pháp phù hợp để xây dựng sự ổn định cơ cấu tổ chức công ty, tạo quan hệ lành mạnh, đoàn</p>', '<p>- Giới tính: Nữ tuổi từ 30 - 40, ngoại hình ưa nhìn.<br>- Học vấn bắt buộc: Tốt nghiệp Đại học chính quy trở lên, chuyên ngành Quản Trị nhân sự, Quản trị văn phòng, Hành chính và các chuyên ngành khác có liên quan.<br>- Kinh nghiệm: Có ít nhất 3- 5 năm kinh nghiệm làm việc tại vị trí tương đương. Ưu tiên có kinh nghiệm làm Quản lý Hành Chính tại các Công ty bán lẻ, thời trang.<br>- Kỹ năng:<br>+ Có kĩ năng quản lý, tổng hợp, sắp xếp và phân công công việc hiệu quả.<br>+ Thành tạo tin học văn phòng.</p>', '<p>- Lương: 20 triệu – 30 triệu/tháng (thỏa thuận phù hợp theo năng lực). Thử việc: Hưởng nguyên lương<br>- Thời gian làm việc: Từ thứ 2 đến thứ 6. Từ 8h30 - 17h30<br>- Cơ hội huấn luyện:<br>+ Được cử đi đào tạo các lớp nghiệp vụ chuyên môn, các hội thảo, diễn đàn<br>+ Được tham gia các khóa đào tạo nâng cao nghiệp vụ do Công ty tài trợ.<br>- Đồng nghiệp: Môi trường làm việc trẻ, năng động, chuyên nghiệp, thân thiện, ổn định<br>- Ngày nghỉ:<br>+ Nghỉ hàng tuần: thứ 7 và chủ nhật<br>+ Nghỉ phép năm: 12 ngày<br>+ Nghỉ việc riêng hưởng lương, nghỉ lễ tết: Theo quy định pháp luật<br>- Phúc lợi:<br>+ Chế độ tham gia BHXH, BHYT, BHTN theo quy định của Nhà nước; hưởng các chế độ phúc lợi: thăm hỏi ốm đau, thai sản, du lịch, chế độ thăm khám sức khỏe,<br>- Phụ cấp khác :<br>+ Được cấp phát đầy đủ máy tính, trang thiết bị để làm việc</p>', '', 1, 24, '20-30', 'nn1', 'truong-ban-hanh-chinh-luong-20-30-trieu-nghi-thu-7-chu-nhat', 2, 9, '2024-01-12 13:06:25', '2024-01-13 10:48:21');
 
 -- --------------------------------------------------------
 
@@ -560,10 +530,9 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`id`, `img_review`, `name`, `mota`, `updated_at`) VALUES
-(1, '<figure class=\"image\"><img src=\"../../images/review/1704273606kkj.png\"></figure>', 'nguyễn văn quang 21321', 'Tỷ lệ chọi thấp, uy tín, luôn quan tâm đến học viên, nhiệt tình trong tư vấn', '2024-01-03 09:20:08'),
-(2, '<figure class=\"image\"><img src=\"../../images/review/1704273673tytr.jpg\"></figure>', 'nguyễn thị a', 'Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình nên mình rất tin tưởng,các bạn nên tham gia', '2024-01-04 01:50:26'),
-(3, '<figure class=\"image\"><img src=\"../../images/review/1704273898ewr.jpg\"></figure>', 'nguyễn thị kim', 'Tỷ lệ chọi thấp, uy tín, luôn quan tâm đến học viên, nhiệt tình trong tư vấn', '2024-01-03 09:25:03'),
-(4, '<figure class=\"image\"><img src=\"../../images/review/1704273941fdsf.jpg\"></figure>', 'nguyễn thị c', 'Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình ', '2024-01-03 09:25:48');
+(10, '1705476530tải xuống (3).jpg', '1234243', 'Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình ', '2024-01-17 07:28:50'),
+(8, '1705495443hinh8.jpg', 'gsdfg', 'Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình eeee', '2024-01-17 12:44:03'),
+(11, '1705480794tải xuống (4).jpg', 'rqwe', 'Công ty có hình ảnh thực tế, đội ngũ chuyên môn tư vấn nhiệt tình nên mình rất tin tưởng, ', '2024-01-17 08:39:54');
 
 -- --------------------------------------------------------
 
@@ -591,11 +560,8 @@ CREATE TABLE `ung_tuyen` (
 --
 
 INSERT INTO `ung_tuyen` (`id_ungtuyen`, `name`, `email`, `phone`, `nam_sinh`, `muc_luong`, `khu_vuc`, `vi_tri_ung_tuyen`, `link_cv`, `id_job`, `type_id`, `created_at`) VALUES
-(77, 'ung vien vn', 'test@gmail.com', '0333333333', '1999', '12 trieu', 'Đồng Nai', 'Quản lý', '1705201346v2.0 Backend Zero Restful APIs.pdf', 64, 1, '2024-02-09 03:02:26'),
-(76, '1234', 'test@gmail.com', '0533333334', '1234', 'Tới 20 triệu', 'ưqe', 'nhân viên', '1705142620CUNG CẤP THÔNG TIN WEBSITE VIETSEIKO.docx', 44, 2, '2024-01-13 10:43:40'),
-(75, 'teesst', 'rwerwe@gmail.com', '0333333333', '1234', '12 triệu', 'Đồng Nai', 'Quản lý', '1705066407file-example_PDF_500_kB.pdf', 64, 1, '2024-01-12 13:33:27'),
-(78, 'ung vien vn', 'test@gmail.com', '0333333333', '1999', '12 trieu', 'Đồng Nai', 'Quản lý', '1705201346v2.0 Backend Zero Restful APIs.pdf', 64, 1, '2024-01-08 03:02:26'),
-(79, 'teesst', 'rwerwe@gmail.com', '0333333333', '1234', '12 triệu', 'Đồng Nai', 'Quản lý', '1705066407file-example_PDF_500_kB.pdf', 64, 1, '2024-01-16 13:33:27');
+(81, 'teesst', 'test@gmail.com', '0533333334', '1234', 'Tới 20 triệu', 'hcm', 'Quản lý test', '1705496100file-sample_500kB.docx', 25, 4, '2024-01-17 12:55:00'),
+(80, 'eqw', 'rwerwe@gmail.com', '0333333333', '1999', '12 triệu', 'Đồng Nai', 'nhân viên', '1705495755file-example_PDF_500_kB.pdf', 66, 1, '2024-01-17 12:49:15');
 
 -- --------------------------------------------------------
 
@@ -617,21 +583,6 @@ CREATE TABLE `ung_tuyen_nhaptay` (
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `ung_tuyen_nhaptay`
---
-
-INSERT INTO `ung_tuyen_nhaptay` (`id_ungtuyen`, `name`, `email`, `phone`, `nam_sinh`, `muc_luong`, `khu_vuc`, `vi_tri_ung_tuyen`, `link_cv`, `type_id`, `created_at`, `updated_at`) VALUES
-(78, 'test', 'test@gmail.com', '0333333333', '1234', 'Tới 20 triệu', 'Đồng Nai', 'nhân viên', '1705240059file-sample_100kB.doc', 1, '2024-01-14', '2024-01-14 13:47:39'),
-(81, 'rqwe', 'test@gmail.com', '0533333334', '1999', '10-12', 'Đồng Nai', 'Quản lý test 1', '1705244155file-example_PDF_500_kB.pdf', 1, '2024-01-01', '2024-01-14 17:31:07'),
-(86, 'gsdfg', 'test@gmail.com', '0333333333', '1234', 'tret', 'hcm', 'Quản lý test vsk', '1705249436file-example_PDF_500_kB.pdf', 1, '2024-01-14', '2024-01-14 17:02:23'),
-(79, 'gsdfg', 'ewq@krwej.com', '0333333333', '1999', '23', 'hcm', 'ewqe', '1705241162file-example_PDF_500_kB.pdf', 2, '2024-01-14', '2024-01-14 14:06:02'),
-(85, 'gsdfg', 'test@gmail.com', '0333333333', '1234', 'tret', 'hcm', 'Quản lý test vsk', '1705249436file-example_PDF_500_kB.pdf', 3, '2024-01-14', '2024-01-14 16:23:56'),
-(83, 'teesst', 'ewq@krwej.com', '0333333333', '1999', '23', 'hcm', 'Quản lý test 1', '1705244450file-sample_100kB.doc', 2, '2024-01-14', '2024-01-14 15:00:50'),
-(84, 'gsdfg', 'test@gmail.com', '0333333333', '1234', 'tret', 'hcm', 'Quản lý test vsk', '1705249436file-example_PDF_500_kB.pdf', 3, '2024-01-14', '2024-01-14 16:23:56'),
-(87, 'PPPPPPPPPPP', 'test@gmail.com', '0333333333', '1234', 'tret', 'hcm', 'Quản lý test vsk', '1705249537file-sample_100kB.doc', 3, '2024-01-14', '2024-01-14 16:25:37'),
-(88, 'test', 'test@gmail.com', '0333333333', '1234', 'Tới 20 triệu', 'Đồng Nai', 'nhân viên', '1705240059file-sample_100kB.doc', 1, '2024-01-14', '2024-01-14 13:47:39');
 
 -- --------------------------------------------------------
 
@@ -812,37 +763,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `anh_banner`
 --
 ALTER TABLE `anh_banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `cam_nang`
 --
 ALTER TABLE `cam_nang`
-  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT cho bảng `contact_ntd&khac`
 --
 ALTER TABLE `contact_ntd&khac`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT cho bảng `cty`
 --
 ALTER TABLE `cty`
-  MODIFY `id_cty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_cty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `gioitinh`
@@ -854,13 +805,13 @@ ALTER TABLE `gioitinh`
 -- AUTO_INCREMENT cho bảng `hinhanh_video`
 --
 ALTER TABLE `hinhanh_video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT cho bảng `job`
 --
 ALTER TABLE `job`
-  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT cho bảng `job_hinhthuc`
@@ -878,19 +829,19 @@ ALTER TABLE `job_kysunb`
 -- AUTO_INCREMENT cho bảng `job_nganhnghe`
 --
 ALTER TABLE `job_nganhnghe`
-  MODIFY `id_nganhnghe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_nganhnghe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `job_vietseiko`
 --
 ALTER TABLE `job_vietseiko`
-  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `job_xkld_nb`
 --
 ALTER TABLE `job_xkld_nb`
-  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT cho bảng `kinhnghiem`
@@ -908,19 +859,19 @@ ALTER TABLE `protypes`
 -- AUTO_INCREMENT cho bảng `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `ung_tuyen`
 --
 ALTER TABLE `ung_tuyen`
-  MODIFY `id_ungtuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_ungtuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT cho bảng `ung_tuyen_nhaptay`
 --
 ALTER TABLE `ung_tuyen_nhaptay`
-  MODIFY `id_ungtuyen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id_ungtuyen` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
