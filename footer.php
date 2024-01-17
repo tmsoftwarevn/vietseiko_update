@@ -328,7 +328,7 @@
 
 
 <footer>
-    <div class="container" >
+    <div class="container">
         <!-- Dòng chứa các cột -->
         <div class="row">
             <!-- Cột 1 -->
@@ -390,7 +390,7 @@
                             <img alt="Facebook" src="images/Footer/fb.png">
                         </a>
                         <a href="https://zalo.me/2635801961745424279" rel="nofollow" title="zalo_vietseiko" target="_blank" class="mxh">
-                            <img alt="mxh" src="images/footer/Zalo_f.png">
+                            <img src="https://page.widget.zalo.me/static/images/2.0/Logo.svg" />
                         </a>
                         <a href="https://www.tiktok.com/@vietseiko.hr" rel="nofollow" title="tiktok_vietseiko" target="_blank" class="mxh">
                             <img alt="mxh" src="images/Footer/tiktok.png">

@@ -34,20 +34,12 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
         width: 500px;
         /* Adjust the width as needed */
     }
-    .results {
-        margin-bottom: 20px;
-    }
-
-    label {
-        margin-right: 10px;
-    }
-    .image {
-        width: 100px;
-    }
 
     img {
         width: 100%;
+        max-width: 100px;
     }
+    
 </style>
 
 <body>
@@ -113,7 +105,10 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                             <td><?php echo $value['tieude_blog'] ?></td>
                             <td><?php echo $value['type_name'] ?></td>
                             <td><?php echo $value['created_at'] ?></td>
-                            <td><?php echo $value['img_blog'] ?></td>
+                            <td>
+                            <img src="../images/l-image-blog/<?php echo $value['img_blog'] ?>" />
+
+                            </td>
                             <td>
                                 <div class="action-buttons d-flex justify-content-end">
 

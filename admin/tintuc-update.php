@@ -38,9 +38,39 @@ $all_type = $type::getAllType();
         list-style: unset;
     }
 </style>
-<!--**********************************
-            Content body start
-        ***********************************-->
+<style>
+    .results {
+        margin-bottom: 20px;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    #imagePreview {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .card-file {
+        padding: 20px 20px 10px;
+        width: 100%;
+        background-color: #ecf0f1;
+    }
+
+    #chon_img {
+        padding: 10px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+        max-width: 150px;
+    }
+</style>
+
 <!DOCTYPE html>
 <html>
 
@@ -116,13 +146,20 @@ $all_type = $type::getAllType();
                         </div>
                     </div>
 
-                    <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*Ảnh hiển thị:</label>
+                    <div class="card-file mb-4">
+                        <div class="control-group">
+                            <input name="file_old" value="<?php echo $detail_blog['img_blog'] ?>" hidden />
+                           
+                            <label id="chon_img" for="image_f" class="control-label" style="font-weight: 600;">Chọn ảnh:</label>
+                            <input type="file" name="image_f" id="image_f" accept="image/*" class="form-control" onchange="previewImage('image_f')">
+                        </div>
 
-                        <div class="controls">
-                            <textarea class="form-control" id="image-blog" name='image-blog'><?php echo $detail_blog['img_blog'] ?></textarea>
+                        <div class="form-group">
+                            <img id="imagePreview" class="img-thumbnail" style="display:none;">
                         </div>
                     </div>
+                    <!-- ---------- -->
+
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Nội dung:</label>
                         <div class="controls">
@@ -147,24 +184,9 @@ $all_type = $type::getAllType();
 
 </html>
 
-
-<!--**********************************
-            Content body end
-***********************************-->
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#image-blog'), {
-            ckfinder: {
-                uploadUrl: 'job-vietnam/upload-blog.php'
-            },
-        })
-        .then(editor => {
-            console.Log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+ 
     ClassicEditor
         .create(document.querySelector('#noidung'), {
             ckfinder: {
@@ -179,6 +201,26 @@ $all_type = $type::getAllType();
         });
 </script>
 
+<script>
+    function previewImage(inputId) {
+        var preview = document.getElementById('imagePreview');
+        var fileInput = document.getElementById(inputId);
+        var file = fileInput.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.style.display = 'none';
+        }
+    }
+</script>
 <?php
 require_once "footer.php";
 ?>

@@ -8,10 +8,21 @@ $type = new Protypes;
 $all_type = $type::getAllType();
 $image = new Image_f;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_POST['image_f']) && isset($_POST['add'])) {
-    $name = $_POST["name"];
-    $img = $_POST['image_f'];
-    $image::insert($name, $img, 0);
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && isset($_POST['add'])) {
+    $target_dir = "../images/banner/";
+    $file_name = time() . $_FILES["image_f"]["name"];
+    $file_type = $_FILES["image_f"]["type"];
+    $file_tmp_name = $_FILES["image_f"]["tmp_name"];
+    $target_path = $target_dir . $file_name;
+
+    if (move_uploaded_file($file_tmp_name, $target_path) && $file_type) {
+
+        $name = $_POST["name"];
+        $img = $file_name;
+        $image::insert($name, $img, 0);
+    } else {
+        echo "Error uploading the file.";
+    }
 }
 ?>
 
@@ -40,30 +51,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
     label {
         margin-right: 10px;
     }
-</style>
-<style>
-    .image {
-        width: 100px;
+
+    #imagePreview {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .card-file {
+        padding: 20px 20px 10px;
+        width: 100%;
+        background-color: #ecf0f1;
+    }
+
+    #chon_img {
+        padding: 10px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
     }
 
     img {
         width: 100%;
-    }
-    .ck-editor__editable[role="textbox"] {
-        /* editing area */
-        min-height: 300px !important;
-    }
-
-    .ck-content .image {
-        /* block images */
-        max-width: 80%;
-        margin: 20px auto;
-    }
-
-    ul,
-    ol,
-    li {
-        list-style: unset;
+        max-width: 150px;
     }
 </style>
 
@@ -75,11 +84,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
                 <h3 class="me-auto">Quản lý banner</h3>
             </div>
 
-            <form action="" method="post" class="mt-4">
-                <input class="form-control" required type="text" placeholder="Nhập tên ảnh" name="name" />
-                <textarea class="form-control" id="image_f" name='image_f'></textarea>
-                <button type="submit" name="add" class="btn btn-primary m-5">Thêm banner</button>
-            </form>
+            <div class="card-file mb-5">
+                <h4 style="text-align: center;">Thêm banner</h4>
+                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <input class="form-control mb-3" required type="text" placeholder="Nhập tên ảnh" name="name" />
+                    <div class="form-group">
+                        <label id="chon_img" for="image_f" class="control-label">Chọn banner:</label>
+                        <input required type="file" name="image_f" id="image_f" accept="image/*" class="form-control" onchange="previewImage('image_f')">
+                    </div>
+                    <div class="form-group">
+                        <img id="imagePreview" class="img-thumbnail" style="display:none;">
+                    </div>
+                    <div class="form-group m-5">
+                        <button type="submit" name="add" class="btn btn-primary mt-5">Thêm</button>
+                    </div>
+                </form>
+            </div>
 
             <table id="jobsTable" class="display table table-striped">
                 <thead>
@@ -111,13 +131,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
                                 if ($value['type_id'] == 0) {
                                     echo 'ảnh banner';
                                 }
-                               
+
                                 ?>
 
                             </td>
                             <td><?php echo $value['created_at'] ?></td>
                             <td><?php echo $value['updated_at'] ?></td>
-                            <td><?php echo $value['img'] ?></td>
+                            <td>
+                                <img src="../images/banner/<?php echo $value['img'] ?>" />
+                            </td>
                             <td>
                                 <div class="action-buttons d-flex justify-content-end">
                                     <a href="img-updated.php?id=<?php echo $value['id'] ?>" class="btn btn-secondary light mr-2">
@@ -132,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
                                     <?php
                                     if ($value['type_id'] == 0) {
                                     ?>
-                                        <a onclick="return confirm('Xác nhận muốn xóa Ngành nghề có Stt: <?php echo $index + 1 ?>?')" href="job-vietnam/delete_banner.php?id_banner=<?php echo $value['id']; ?>" class="btn btn-danger light">
+                                        <a onclick="return confirm('Xác nhận muốn xóa banner có Stt: <?php echo $index + 1 ?>?')" href="job-vietnam/delete_banner.php?id_banner=<?php echo $value['id']; ?>" class="btn btn-danger light">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                     <rect x="0" y="0" width="24" height="24"></rect>
@@ -157,20 +179,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['name']) && !empty($_P
         </div>
     </div>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <!-- // js handle img -->
     <script>
-        ClassicEditor
-            .create(document.querySelector('#image_f'), {
-                ckfinder: {
-                    uploadUrl: 'job-vietnam/upload-banner.php'
-                },
-            })
-            .then(editor => {
-                console.Log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        // stop reload submit
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+
+        function previewImage(inputId) {
+            var preview = document.getElementById('imagePreview');
+            var fileInput = document.getElementById(inputId);
+            var file = fileInput.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        }
     </script>
 
 </body>

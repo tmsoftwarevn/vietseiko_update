@@ -54,7 +54,36 @@ $detail = $image->get_hinhanh_video_ById($id);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <style>
+    .results {
+        margin-bottom: 20px;
+    }
 
+    label {
+        margin-right: 10px;
+    }
+
+    #imagePreview {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .card-file {
+        padding: 20px 20px 10px;
+        width: 100%;
+        background-color: #ecf0f1;
+    }
+
+    #chon_img {
+        padding: 10px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+        max-width: 150px;
+    }
 </style>
 
 <body>
@@ -80,21 +109,21 @@ $detail = $image->get_hinhanh_video_ById($id);
 
                 <div class="title-job" style="text-align: center; font-weight: 600; 
                 font-size: 20px; text-transform: capitalize;">
-                    Cập nhật ảnh :
+                    Cập nhật logo :
                 </div>
 
-                <form action="job-vietnam/form-hinhanh-update.php" method="POST" enctype="multipart/form-data">
+                <form action="job-vietnam/form-hinhanh-update.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                     <input value="<?php echo $detail['id'] ?>" hidden name="id_img" />
-                    
-                    <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*Ảnh hiện tại:</label>
-                        <div class="controls">
-                            <textarea class="form-control" id="image_f" name='image_f'><?php echo $detail['path'] ?></textarea>
-                        </div>
+                    <input name="file_old" value="<?php echo $detail['path'] ?>" hidden />
+                    <div class="form-group">
+                        <label id="chon_img" for="image_f" class="control-label">Chọn ảnh:</label>
+                        <input required type="file" name="image_f" id="image_f" accept="image/*" class="form-control" onchange="previewImage('image_f')">
                     </div>
-
-                    <div class="d-flex justify-content-center">
-                        <button style="font-size: 18px;" class="btn btn-primary" type="submit" name="submit">Cập nhật</button>
+                    <div class="form-group">
+                        <img id="imagePreview" class="img-thumbnail" style="display:none;">
+                    </div>
+                    <div class="form-group m-5">
+                        <button type="submit" name="submit" class="btn btn-primary mt-5">Cập nhật</button>
                     </div>
                 </form>
             </div>
@@ -108,23 +137,26 @@ $detail = $image->get_hinhanh_video_ById($id);
 
 </html>
 
-
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#image_f'), {
-            ckfinder: {
-                uploadUrl: 'job-vietnam/upload-logo.php'
-            },
-        })
-        .then(editor => {
-            console.Log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>
+    function previewImage(inputId) {
+        var preview = document.getElementById('imagePreview');
+        var fileInput = document.getElementById(inputId);
+        var file = fileInput.files[0];
 
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.style.display = 'none';
+        }
+    }
+</script>
 
 <?php
 require_once "footer.php";

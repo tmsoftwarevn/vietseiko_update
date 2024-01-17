@@ -132,7 +132,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
 
-                        <a class="btn btn-success light mr-2 " href="job_ksnb_view.php?typeView=job-ksnb&id=<?php echo $value['id_job'] ?>">
+                        <!-- <a class="btn btn-success light mr-2 " href="job_ksnb_view.php?typeView=job-ksnb&id=<?php echo $value['id_job'] ?>">
 
                           <svg xmlns="http://www.w3.org/2000/svg" class="svg-main-icon" width="24px" height="24px" viewBox="0 0 32 32" x="0px" y="0px">
                             <g data-name="Layer 21">
@@ -140,7 +140,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                               <circle cx="16" cy="16" r="3" fill="#000000" fill-rule="nonzero"></circle>
                             </g>
                           </svg>
-                        </a>
+                        </a> -->
 
                         <a href="job_ksnb_update.php?typeUpdate=ksnb&id=<?php echo $value['id_job'] ?>" class="btn btn-secondary light mr-2">
 

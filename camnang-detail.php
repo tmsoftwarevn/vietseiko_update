@@ -367,7 +367,9 @@ if ($allBlog[0]['type_id'] == 4) {
                   echo $formattedDate; ?>
                 </div>
                 <div class="img-blog-detail">
-                  <?php echo $allBlog[0]['img_blog'] ?>
+                <img src="/images/l-image-blog/<?php echo $allBlog[0]['img_blog'] ?>" />
+
+                 
                 </div>
 
                 <div style="margin-top: 20px;">
@@ -404,7 +406,9 @@ if ($allBlog[0]['type_id'] == 4) {
                     ?>
                       <div class="pr-blog">
                         <div class="img-detail-blog-new">
-                          <?php echo $value['img_blog'] ?>
+                        <img src="/images/l-image-blog/<?php echo $value['img_blog'] ?>" />
+
+                         
                         </div>
                         <div class="pr-r">
                           <a href="<?php echo 'cam-nang/' . $value['slug'] ?>-<?php echo $value['id_blog'] ?>.html">

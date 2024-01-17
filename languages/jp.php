@@ -19,7 +19,8 @@ $lang = [
 
 	//index
 	'Xem tất cả' => 'すべてを見る',
-	'LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO NGƯỜI LAO ĐỘNG' => '企業との連携 - 労働者に仕事の機会を創出',
+	'LIÊN KẾT VỚI CÁC DOANH NGHIỆP' => '企業との連携',
+	'LOGO ĐỐI TÁC' =>'パートナーロゴ',
 	'CẢM NHẬN CỦA NGƯỜI LAO ĐỘNG' => '労働者の気持ち',
 
 	'Tin mới nhất' => '最新ニュース',

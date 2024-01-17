@@ -6,27 +6,41 @@ require_once "models/review.php";
 
 $review = new Review;
 
-
 ?>
 <style>
     <?php include './scss/job/job.scss'; ?>
 </style>
+
 <style>
-    .ck-editor__editable[role="textbox"] {
-        /* editing area */
-        min-height: 220px !important;
+    .results {
+        margin-bottom: 20px;
     }
 
-    .ck-content .image {
-        /* block images */
-        max-width: 80%;
-        margin: 20px auto;
+    label {
+        margin-right: 10px;
     }
 
-    ul,
-    ol,
-    li {
-        list-style: unset;
+    #imagePreview {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .card-file {
+        padding: 20px 20px 10px;
+        width: 100%;
+        background-color: #ecf0f1;
+    }
+
+    #chon_img {
+        padding: 10px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+        max-width: 150px;
     }
 </style>
 
@@ -75,21 +89,24 @@ $review = new Review;
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Họ tên </label>
                         <div class="controls">
-                           <input required class="form-control" name="name"  />
+                            <input required class="form-control" name="name" />
                         </div>
                     </div>
 
-                    <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*ảnh </label>
-                        <div class="controls">
-                            <textarea id="anh" name='anh'></textarea>
+                    <div class="card-file mb-4">
+                        <div class="control-group">
+                            <label id="chon_img" for="image_f" class="control-label" style="font-weight: 600;">Chọn ảnh:</label>
+                            <input required type="file" name="image_f" id="image_f" accept="image/*" class="form-control" onchange="previewImage('image_f')">
+                        </div>
+                        <div class="form-group">
+                            <img id="imagePreview" class="img-thumbnail" style="display:none;">
                         </div>
                     </div>
-
+                    <!-- ---------- -->
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Mô tả </label>
                         <div class="controls">
-                           <input required class="form-control" name="mota"  />
+                            <input required class="form-control" name="mota" />
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
@@ -108,26 +125,27 @@ $review = new Review;
 
 </html>
 
-
-<!--**********************************
-            Content body end
-***********************************-->
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+<!-- // js handle img -->
 <script>
-   ClassicEditor
-        .create(document.querySelector('#anh'), {
-            ckfinder: {
-                uploadUrl: 'job-vietnam/upload-review.php'
-            },
-        })
-        .then(editor => {
-            console.Log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>
+    function previewImage(inputId) {
+        var preview = document.getElementById('imagePreview');
+        var fileInput = document.getElementById(inputId);
+        var file = fileInput.files[0];
 
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.style.display = 'none';
+        }
+    }
+</script>
 
 <?php
 require_once "footer.php";

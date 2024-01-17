@@ -6,12 +6,24 @@ require_once "models/hinhanh-video.php";
 $hinhanh_video = new Hinhanh_Video;
 $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($_POST['add-img'])) {
-    $anh = $_POST['image_f'];
-    $hinhanh_video->insert_hinhanh_video($anh, 2);
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add-img'])) {
+    // xử lí lưu ảnh
 
+    $target_dir = "../images/hinhanh_video/";
+    $file_name = time() . $_FILES["image_f"]["name"];
+    $file_type = $_FILES["image_f"]["type"];
+    $file_tmp_name = $_FILES["image_f"]["tmp_name"];
+    $target_path = $target_dir . $file_name;
+
+    if (move_uploaded_file($file_tmp_name, $target_path) && $file_type) {
+        $anh = $file_name;
+        $hinhanh_video->insert_hinhanh_video($anh, 2);
+    } else {
+        echo "Error uploading the file.";
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -31,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
+
 <style>
     .results {
         margin-bottom: 20px;
@@ -39,47 +52,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
     label {
         margin-right: 10px;
     }
-</style>
-<style>
-    .image {
-        width: 100px;
+
+    #imagePreview {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .card-file {
+        padding: 20px 20px 10px;
+        width: 100%;
+        background-color: #ecf0f1;
+    }
+
+    #chon_img {
+        padding: 10px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
     }
 
     img {
         width: 100%;
-    }
-
-    .ck-editor__editable[role="textbox"] {
-        /* editing area */
-        min-height: 300px !important;
-    }
-
-    .ck-content .image {
-        /* block images */
-        max-width: 80%;
-        margin: 20px auto;
-    }
-
-    ul,
-    ol,
-    li {
-        list-style: unset;
+        max-width: 150px;
     }
 </style>
 
 <body>
-
     <div class="content-body">
         <div class="container" style="padding:0 50px;">
             <div class="d-flex align-items-center mb-4 flex-wrap">
                 <h3 class="me-auto">Quản lý Logo</h3>
             </div>
 
-            <form action="" method="post" class="mt-4">
-
-                <textarea class="form-control" id="image_f" name='image_f'></textarea>
-                <button type="submit" name="add-img" class="btn btn-primary m-5">Thêm ảnh</button>
-            </form>
+            <div class="card-file mb-5">
+                <h4 style="text-align: center;">Thêm logo</h4>
+                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="form-group">
+                        <label id="chon_img" for="image_f" class="control-label">Chọn logo:</label>
+                        <input required type="file" name="image_f" id="image_f" accept="image/*" class="form-control" onchange="previewImage('image_f')">
+                    </div>
+                    <div class="form-group">
+                        <img id="imagePreview" class="img-thumbnail" style="display:none;">
+                    </div>
+                    <div class="form-group m-5">
+                        <button type="submit" name="add-img" class="btn btn-primary mt-5">Thêm logo</button>
+                    </div>
+                </form>
+            </div>
             <form action="#" method="get">
                 <input type="hidden" name="page" value="1">
                 <label>Số kết quả trong 1 trang</label>
@@ -132,7 +151,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
                             <td><?php echo $index + 1 ?></td>
                             <td><?php echo $value['created_at'] ?></td>
                             <td><?php echo $value['updated_at'] ?></td>
-                            <td><?php echo $value['path'] ?></td>
+                            <td>
+                                <img src="../images/hinhanh_video/<?php echo $value['path'] ?>"/>
+                            </td>
                             <td>
                                 <div class="action-buttons d-flex justify-content-end">
                                     <a href="hinhanh-update.php?id=<?php echo $value['id'] ?>" class="btn btn-secondary light mr-2">
@@ -192,21 +213,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
             $('.regular-select').select2('destroy');
         });
     </script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#image_f'), {
-                ckfinder: {
-                    uploadUrl: 'job-vietnam/upload-hinhanh-video.php'
-                },
-            })
-            .then(editor => {
-                console.Log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
 
+    <!-- // js handle img -->
+    <script>
+        function previewImage(inputId) {
+            var preview = document.getElementById('imagePreview');
+            var fileInput = document.getElementById(inputId);
+            var file = fileInput.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+    </script>
+    
 </body>
 
 </html>

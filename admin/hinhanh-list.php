@@ -6,9 +6,22 @@ require_once "models/hinhanh-video.php";
 $hinhanh_video = new Hinhanh_Video;
 $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($_POST['add-img'])) {
-    $anh = $_POST['image_f'];
-    $hinhanh_video->insert_hinhanh_video($anh, 1);
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add-img'])) {
+    // xử lí lưu ảnh
+
+    $target_dir = "../images/hinhanh_video/";
+    $file_name = time() . $_FILES["image_f"]["name"];
+    $file_type = $_FILES["image_f"]["type"];
+    $file_tmp_name = $_FILES["image_f"]["tmp_name"];
+    $target_path = $target_dir . $file_name;
+
+    if (move_uploaded_file($file_tmp_name, $target_path) && $file_type) {
+        //echo "File successfully uploaded!";
+        $anh = $file_name;
+        $hinhanh_video->insert_hinhanh_video($anh, 1);
+    } else {
+        echo "Error uploading the file.";
+    }
 }
 ?>
 
@@ -30,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 </head>
+
 <style>
     .results {
         margin-bottom: 20px;
@@ -38,31 +52,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
     label {
         margin-right: 10px;
     }
-</style>
-<style>
-    .image {
-        width: 100px;
-    }
 
-    img {
+    #imagePreview {
+        max-width: 300px;
         width: 100%;
     }
 
-    .ck-editor__editable[role="textbox"] {
-        /* editing area */
-        min-height: 300px !important;
+    .card-file {
+        padding: 20px 20px 10px;
+        width: 100%;
+        background-color: #ecf0f1;
     }
-
-    .ck-content .image {
-        /* block images */
-        max-width: 80%;
-        margin: 20px auto;
+    #chon_img{
+        padding: 10px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
     }
-
-    ul,
-    ol,
-    li {
-        list-style: unset;
+    img{
+        width: 100%;
+        max-width: 150px;
     }
 </style>
 
@@ -74,12 +83,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
                 <h3 class="me-auto">Quản lý hình ảnh</h3>
             </div>
 
-            <form action="" method="post" class="mt-4">
-
-                <textarea class="form-control" id="image_f" name='image_f'></textarea>
-                <button type="submit" name="add-img" class="btn btn-primary m-5">Thêm ảnh</button>
-            </form>
-            <form action="#" method="get">
+            <div class="card-file">
+                <h4 style="text-align: center;">Thêm hình ảnh</h4>
+                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="form-group">
+                        <label id="chon_img" for="image_f" class="control-label">Chọn hình ảnh:</label>
+                        <input required type="file" name="image_f" id="image_f" accept="image/*" class="form-control" onchange="previewImage('image_f')">
+                    </div>
+                    <div class="form-group">
+                        <img id="imagePreview" class="img-thumbnail" style="display:none;">
+                    </div>
+                    <div class="form-group m-5">
+                        <button type="submit" name="add-img" class="btn btn-primary mt-5">Thêm ảnh   </button>
+                    </div>
+                </form>
+            </div>
+           
+            <form action="#" method="get" class="mt-5">
                 <input type="hidden" name="page" value="1">
                 <label>Số kết quả trong 1 trang</label>
                 <select style="width: 100px;" class="regular-select form-select" name="per">
@@ -131,7 +151,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
                             <td><?php echo $index + 1 ?></td>
                             <td><?php echo $value['created_at'] ?></td>
                             <td><?php echo $value['updated_at'] ?></td>
-                            <td><?php echo $value['path'] ?></td>
+                            <td>
+                                <img src="../images/hinhanh_video/<?php echo $value['path'] ?>"/>
+                            </td>
                             <td>
                                 <div class="action-buttons d-flex justify-content-end">
                                     <a href="hinhanh-update.php?id=<?php echo $value['id'] ?>" class="btn btn-secondary light mr-2">
@@ -187,23 +209,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['image_f']) && isset($
     </script>
     <script>
         $(document).ready(function() {
-            // Destroy Select2 for the element with the 'regular-select' class
             $('.regular-select').select2('destroy');
         });
     </script>
+
+    <!-- // js handle img -->
     <script>
-        ClassicEditor
-            .create(document.querySelector('#image_f'), {
-                ckfinder: {
-                    uploadUrl: 'job-vietnam/upload-hinhanh-video.php'
-                },
-            })
-            .then(editor => {
-                console.Log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        function previewImage(inputId) {
+            var preview = document.getElementById('imagePreview');
+            var fileInput = document.getElementById(inputId);
+            var file = fileInput.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        }
     </script>
 
 </body>

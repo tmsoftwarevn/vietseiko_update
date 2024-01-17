@@ -588,7 +588,7 @@ if (isset($_GET['type'])) {
                                                     <section id="gallery" class="tm-section">
                                                         <!-- Gallery Links -->
                                                         <ul class="tm-gallery-links row">
-                                                            <li class="col-md-3 col-sm-6" >
+                                                            <li class="col-md-3 col-sm-6">
                                                                 <a style="cursor: pointer;" href="<?php echo $baseURL . '/hinh-anh-va-video' ?>?page=1&type=all" class="active tm-gallery-link" data-filter="*">
                                                                     <i class="fas fa-layer-group tm-gallery-link-icon"></i>
                                                                     Tất cả
@@ -621,14 +621,14 @@ if (isset($_GET['type'])) {
                                                             foreach ($list as $index => $value) {
                                                             ?>
                                                                 <div class="<?php if ($type == 3) echo 'col-sm-6 col-md-6 mt-4';
-                                                                            else echo 'col-sm-6 col-md-4' ?>">
+                                                                            else echo 'col-sm-6 col-md-4 mt-4' ?>">
                                                                     <?php
                                                                     if ($value['type'] == 3) {
                                                                         $id_video = $hinhanh_video->getVideoId($value['path']);
                                                                         $iframe_code = '<iframe width="100%" height="250px"src="https://www.youtube.com/embed/' . $id_video . '"  frameborder="0" allowfullscreen></iframe>';
                                                                         echo $iframe_code;
                                                                     } else {
-                                                                        echo $value['path'];
+                                                                        echo '<img src="/images/hinhanh_video/' . $value['path'] . '"/>';
                                                                     }
                                                                     ?>
                                                                 </div>

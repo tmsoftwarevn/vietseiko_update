@@ -8736,15 +8736,18 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 .twm-testimonial-1 .twm-testimonial-1-content .twm-testi-media {
   height: 100%;
-  width: 235px;
-  max-width: 235px;
+  /* width: 235px;
+  max-width: 235px; */
+  max-width:170px;
   display: table-cell;
   vertical-align: bottom;
 }
 
 @media (max-width: 1199px) {
   .twm-testimonial-1 .twm-testimonial-1-content .twm-testi-media {
-    width: 170px;
+    /* width: 170px; */
+    /* width: 100%; */
+    max-width: 170px;
   }
 }
 
@@ -8815,7 +8818,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 @media (max-width: 575px) {
   .twm-testimonial-1 .twm-testimonial-1-content {
-    display: block;
+    /* display: block; */
     text-align: center;
     padding: 30px;
   }

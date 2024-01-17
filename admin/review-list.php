@@ -28,12 +28,9 @@ $allReview = $review::getAll_review();
 </head>
 
 <style>
-  .image {
-        width: 100px;
-    }
-
-    img {
+  img {
         width: 100%;
+        max-width: 150px;
     }
 </style>
 
@@ -73,7 +70,7 @@ $allReview = $review::getAll_review();
                     <td><?php echo $value['name'] ?></td>
                     <td><?php echo $value['mota'] ?></td>
                     <td><?php echo $value['updated_at'] ?></td>
-                    <td><?php echo $value['img_review'] ?></td>
+                    <td> <img src="../images/review/<?php echo $value['img_review'] ?>"/></td>
                     <td>
                       <div class="action-buttons d-flex justify-content-end">
                         <a href="review-update.php?typeUpdate=review&id=<?php echo $value['id'] ?>" class="btn btn-secondary light mr-2">
@@ -124,10 +121,6 @@ $allReview = $review::getAll_review();
 
 </html>
 
-
-<!--**********************************
-            Content body end
-***********************************-->
 
 <?php
 require_once "footer.php";

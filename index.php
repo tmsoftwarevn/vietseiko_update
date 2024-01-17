@@ -91,6 +91,34 @@ $vsk = $img_f->getAll_imgBy_id(4);
             margin-top: 100px;
         }
     }
+
+    /* ==== logo đối tác */
+
+    @media (max-width: 767px) {
+        .carousel-inner .carousel-item>div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .carousel-item img {
+            max-width: 33%;
+            /* Adjust size for mobile */
+            margin: auto;
+            /* Center the image */
+        }
+    }
+
+    @media (min-width: 768px) {
+        .carousel-inner .carousel-item>div {
+            display: block;
+        }
+
+        .carousel-item img {
+            max-width: 33.3333%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+    }
 </style>
 
 <!DOCTYPE html>
@@ -360,7 +388,6 @@ $vsk = $img_f->getAll_imgBy_id(4);
         }
     </style>
     <!-- ccs search -->
-
     <style>
         .icon-zalo {
             position: fixed;
@@ -369,14 +396,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
             cursor: pointer;
             z-index: 100;
         }
-
-        /* @media only screen and (max-width: 576px) {
-            .icon-zalo {
-                bottom: 100px;
-            }
-        } */
     </style>
-
 </head>
 
 <body>
@@ -425,9 +445,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
             foreach ($list_banner as $key => $value) {
             ?>
                 <div class="item">
-                    <?php
-                    echo $value['img'];
-                    ?>
+                    <img src="/images/banner/<?php echo $value['img'] ?>" />
                 </div>
             <?php
             }
@@ -437,16 +455,13 @@ $vsk = $img_f->getAll_imgBy_id(4);
     </div>
 
     <div class="page-content">
-
         <div class="test" style="display: none;"></div>
         <section>
             <div class="container">
                 <div class="mt-5">
                     <div class="img-bg">
-
-                        <?php echo $vn[0]['img'] ?>
+                        <img src="/images/banner/<?php echo $vn[0]['img'] ?>" />
                     </div>
-
                     <div class="g1 mt-5">
                         <div class="title ">
                             <div class="job-name">
@@ -540,7 +555,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                 </div>
                 <div class="mt-5">
                     <div class="img-bg">
-                        <?php echo $xkld[0]['img'] ?>
+                        <img src="/images/banner/<?php echo $xkld[0]['img'] ?>" />
                     </div>
                     <div class="g1 mt-5">
                         <div class="title ">
@@ -630,7 +645,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                 </div>
                 <div class="mt-5">
                     <div class="img-bg">
-                        <?php echo $ksnb[0]['img'] ?>
+                        <img src="/images/banner/<?php echo $ksnb[0]['img'] ?>" />
                     </div>
                     <div class="g1 mt-5">
                         <div class="title ">
@@ -715,7 +730,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                 </div>
                 <div class="mt-5">
                     <div class="img-bg">
-                        <?php echo $vsk[0]['img'] ?>
+                        <img src="/images/banner/<?php echo $vsk[0]['img'] ?>" />
                     </div>
                     <div class="g1 mt-5">
                         <div class="title ">
@@ -810,34 +825,24 @@ $vsk = $img_f->getAll_imgBy_id(4);
                     <div class="row">
                         <!-- Column 1: LIÊN KẾT VỚI CÁC DOANH NGHIỆP -->
                         <div class="col-lg-8 col-md-8 col-xs-12">
-                            <h2 style="font-size: 24px;margin-bottom: 30px;text-align: center;">LIÊN KẾT VỚI CÁC DOANH NGHIỆP</h2>
+                            <h2 style="text-align: center;font-size: 24px;margin-bottom: 20px;"><?= __('LIÊN KẾT VỚI CÁC DOANH NGHIỆP') ?></h2>
                             <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
+                                <!-- Repeated Item Structure -->
                                 <div class="item">
                                     <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/logo_olympus.png" alt /></a>
-                                        </div>
+                                        <img src="images/client-logo/logo_olympus.png" alt="Olympus Logo" class="client-logo-media">
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/logo_lixil.jpg" alt /></a>
-                                        </div>
+                                        <img src="images/client-logo/logo_lixil.jpg" alt="Lixil Logo" class="client-logo-media">
                                     </div>
                                 </div>
+                                <!-- Repeat this pattern for other logos -->
                                 <div class="item">
                                     <div class="ow-client-logo">
                                         <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/logo_Nakajima.jpg" alt /></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/shimizu_logo.png" alt /></a>
+                                            <img src="images/client-logo/logo_Nakajima.jpg" alt />
                                         </div>
                                     </div>
                                 </div>
@@ -845,14 +850,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                 <div class="item">
                                     <div class="ow-client-logo">
                                         <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/logo_Sumitomo.png" alt /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/logo_nidec.png" alt /></a>
+                                            <img src="images/client-logo/shimizu_logo.png" alt />
                                         </div>
                                     </div>
                                 </div>
@@ -860,7 +858,14 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                 <div class="item">
                                     <div class="ow-client-logo">
                                         <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/logo_olympus.png" alt /></a>
+                                            <img src="images/client-logo/logo_Sumitomo.png" alt />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <img src="images/client-logo/logo_nidec.png" alt />
                                         </div>
                                     </div>
                                 </div>
@@ -868,7 +873,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                 <div class="item">
                                     <div class="ow-client-logo">
                                         <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/logo_lixil.jpg" alt /></a>
+                                            <img src="images/client-logo/logo_olympus.png" alt />
                                         </div>
                                     </div>
                                 </div>
@@ -876,47 +881,57 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                 <div class="item">
                                     <div class="ow-client-logo">
                                         <div class="client-logo client-logo-media">
-                                            <a><img src="images/client-logo/logo_Nakajima.jpg" alt /></a>
+                                            <img src="images/client-logo/logo_lixil.jpg" alt />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <img src="images/client-logo/logo_Nakajima.jpg" alt />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <!-- Column 2: LOGO ĐỐI TÁC -->
-                        <div class="col-lg-4 col-md-4 col-xs-12">
-                            <h2 style="text-align: center;font-size: 24px; margin-bottom: 30px;">LOGO ĐỐI TÁC</h2>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                                <a><img src="images/client-logo/TM Branding.jpg" alt /></a>
-                                            </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <h2 style="text-align: center;font-size: 24px;margin-bottom: 20px;"><?= __('LOGO ĐỐI TÁC') ?></h2>
+                            <div id="partnerLogoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="d-flex justify-content-center">
+                                            <img src="images/client-logo/TM Branding.jpg" class="img-fluid" alt="TM Branding Logo">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                                <a><img src="images/client-logo/vov.jpg" alt /></a>
-                                            </div>
+                                    <div class="carousel-item">
+                                        <div class="d-flex justify-content-center">
+                                            <img src="images/client-logo/vov.jpg" class="img-fluid" alt="VOV Logo">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                                <a><img src="images/client-logo/hutech.jpg" alt /></a>
-                                            </div>
+                                    <div class="carousel-item">
+                                        <div class="d-flex justify-content-center">
+                                            <img src="images/client-logo/hutech.jpg" class="img-fluid" alt="Hutech Logo">
                                         </div>
                                     </div>
+                                    <!-- Add more items here -->
                                 </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#partnerLogoCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#partnerLogoCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         </div>
+
                     </div>
                 </div>
+                <!-- END -->
             </div>
 
         </div>
@@ -931,12 +946,10 @@ $vsk = $img_f->getAll_imgBy_id(4);
                             <!-- TITLE START-->
                             <div class="section-head left wt-small-separator-outer">
                                 <div class="wt-small-separator site-text-primary">
-                                    <h2 style="font-size: 24px;font-family: 'Roboto', sans-serif !important;margin: 130px 0 20px;display: flex; align-items: center;justify-content: center;">
+                                    <h2 style="text-align: center;font-size: 24px;font-family: 'Roboto', sans-serif !important;margin-top: 50px;display: flex; align-items: center;justify-content: center;">
                                         <?= __('CẢM NHẬN CỦA NGƯỜI LAO ĐỘNG') ?>
                                     </h2>
-                                    <!-- <p style="font-family: 'Roboto', sans-serif; color: unset;">
-                                    Mọi người nói gì về các dịch vụ mà Vietseiko cung cấp khi họ đến với công ty
-                            </p> -->
+
                                 </div>
 
                             </div>
@@ -956,7 +969,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                 <div class="twm-testimonial-1">
                                     <div class="twm-testimonial-1-content">
                                         <div class="twm-testi-media">
-                                            <?php echo $value['img_review'] ?>
+                                            <img src="/images/review/<?php echo $value['img_review'] ?>" />
                                         </div>
 
                                         <div class="twm-testi-content">
@@ -988,7 +1001,7 @@ $vsk = $img_f->getAll_imgBy_id(4);
         <!-- TESTIMONIAL SECTION END -->
 
         <!-- OUR BLOG START -->
-        <div class="section-full p-t50 p-b90 site-bg-gray">
+        <div class="section-full p-t30 p-b90 site-bg-gray">
             <div class="container">
                 <!-- TITLE START-->
                 <div class="section-head center wt-small-separator-outer">
@@ -1009,7 +1022,8 @@ $vsk = $img_f->getAll_imgBy_id(4);
                                 <div class="item">
                                     <div class="blog-post" style="margin-top: 20px; ">
                                         <div class="img_blog_l">
-                                            <?php echo $value['img_blog'] ?>
+                                            <img src="/images/l-image-blog/<?php echo $value['img_blog'] ?>" />
+
                                         </div>
                                         <div class="blog-content">
                                             <div class="date-custom">

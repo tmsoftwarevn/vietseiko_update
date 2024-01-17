@@ -104,9 +104,6 @@
     </header>
 </div>
 
-<script>
-    document.cookie = "width = " + window.innerWidth
-</script>
 
 <div class="icon-zalo">
     <a href="https://zalo.me/2635801961745424279" target="_blank">
@@ -121,7 +118,9 @@
 <!-- Your Plugin chat code -->
 <div id="fb-customer-chat" class="fb-customerchat">
 </div>
-
+<script>
+    document.cookie = "width = " + window.innerWidth
+</script>
 <script>
     var chatbox = document.getElementById('fb-customer-chat');
     chatbox.setAttribute("page_id", "608369259596065");

@@ -48,6 +48,10 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
   label {
     margin-right: 10px;
   }
+  img{
+    width: 100%;
+    max-width: 100px;
+  }
 </style>
 <body>
 
@@ -92,7 +96,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                 <tr>
                   <th>STT</th>
                   <th>Tên công ty</th>
-                  <th>Địa chỉ</th>
+                  <th>Logo</th>
                   <th>Type công ty</th>
 
                   <th>Action</th>
@@ -115,7 +119,7 @@ $resultsPerPage = isset($_GET['per']) ? intval($_GET['per']) : 10;
                   <tr>
                     <td><?php echo $key + 1 ?></td>
                     <td><?php echo $value['name'] ?></td>
-                    <td><?php echo $value['address'] ?></td>
+                    <td><?php echo $value['img_cty'] ?></td>
                     <td><?php echo $value['type_name'] ?></td>
 
                     <td>

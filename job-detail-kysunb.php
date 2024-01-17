@@ -384,7 +384,7 @@ require 'header.php';
                                 <div class="twm-job-self-info">
                                     <div class="twm-job-self-top">
                                         <div class="twm-media-bg">
-                                            <?php echo $banner[0]['img'] ?>
+                                        <img src="/images/banner/<?php echo $banner[0]['img'] ?>" />
                                         </div>
 
                                         <div class="twm-mid-content">

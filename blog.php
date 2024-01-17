@@ -430,7 +430,7 @@ $totalPages = ceil($totalJob / floatval($resultsPerPage));
               <div class="col-sm-6 col-md-6 col-lg-4">
                 <div class="blog-post">
                   <div class="img_blog_l">
-                    <?php echo $value['img_blog'] ?>
+                    <img src="/images/l-image-blog/<?php echo $value['img_blog'] ?>" />
                   </div>
                   <div class="blog-content">
                     <div class="date-custom">

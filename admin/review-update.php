@@ -20,22 +20,37 @@ $detail_review = $review->getReview_ByID($id);
 <style>
     <?php include './scss/job/job.scss'; ?>
 </style>
+
 <style>
-    .ck-editor__editable[role="textbox"] {
-        /* editing area */
-        min-height: 220px !important;
+    .results {
+        margin-bottom: 20px;
     }
 
-    .ck-content .image {
-        /* block images */
-        max-width: 80%;
-        margin: 20px auto;
+    label {
+        margin-right: 10px;
     }
 
-    ul,
-    ol,
-    li {
-        list-style: unset;
+    #imagePreview {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .card-file {
+        padding: 20px 20px 10px;
+        width: 100%;
+        background-color: #ecf0f1;
+    }
+
+    #chon_img {
+        padding: 10px;
+        background-color: orangered;
+        color: white;
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+        max-width: 150px;
     }
 </style>
 
@@ -82,26 +97,33 @@ $detail_review = $review->getReview_ByID($id);
                 </div>
                 <form action="job-vietnam/form-review-update.php" method="POST" enctype="multipart/form-data">
 
-                    <input name='id_review' value="<?php echo $detail_review['id'] ?>" style="display: none;" />
-                    
+                    <input name='id_review' value="<?php echo $detail_review['id'] ?>" hidden />
+
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Họ tên </label>
                         <div class="controls">
-                           <input class="form-control" name="name" value="<?php echo $detail_review['name'] ?>" />
+                            <input class="form-control" name="name" value="<?php echo $detail_review['name'] ?>" />
                         </div>
                     </div>
 
-                    <div class="control-group">
-                        <label class="control-label" style="font-weight: 600;">*ảnh </label>
-                        <div class="controls">
-                            <textarea id="anh" name='anh'><?php echo $detail_review['img_review'] ?></textarea>
+                    <div class="card-file mb-4">
+                        <div class="control-group">
+                            <input name="file_old" value="<?php echo $detail_review['img_review'] ?>" hidden />
+                           
+                            <label id="chon_img" for="image_f" class="control-label" style="font-weight: 600;">Chọn ảnh:</label>
+                            <input type="file" name="image_f" id="image_f" accept="image/*" class="form-control" onchange="previewImage('image_f')">
+                        </div>
+
+                        <div class="form-group">
+                            <img id="imagePreview" class="img-thumbnail" style="display:none;">
                         </div>
                     </div>
+                    <!-- ---------- -->
 
                     <div class="control-group">
                         <label class="control-label" style="font-weight: 600;">*Mô tả </label>
                         <div class="controls">
-                           <input class="form-control" name="mota" value="<?php echo $detail_review['mota'] ?>" />
+                            <input class="form-control" name="mota" value="<?php echo $detail_review['mota'] ?>" />
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
@@ -120,26 +142,26 @@ $detail_review = $review->getReview_ByID($id);
 
 </html>
 
-
-<!--**********************************
-            Content body end
-***********************************-->
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
-   ClassicEditor
-        .create(document.querySelector('#anh'), {
-            ckfinder: {
-                uploadUrl: 'job-vietnam/upload-review.php'
-            },
-        })
-        .then(editor => {
-            console.Log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>
+    function previewImage(inputId) {
+        var preview = document.getElementById('imagePreview');
+        var fileInput = document.getElementById(inputId);
+        var file = fileInput.files[0];
 
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.style.display = 'none';
+        }
+    }
+</script>
 
 <?php
 require_once "footer.php";
