@@ -389,8 +389,8 @@
                         <a href="https://www.facebook.com/Cty.TNHH.Vietseiko" rel="nofollow" title="fb_vieseiko" target="_blank" class="mxh">
                             <img alt="Facebook" src="images/Footer/fb.png">
                         </a>
-                        <a href="" rel="nofollow" title="zalo_vietseiko" target="_blank" class="mxh">
-                            <img alt="mxh" src="images/footer/Zalo.png">
+                        <a href="https://zalo.me/2635801961745424279" rel="nofollow" title="zalo_vietseiko" target="_blank" class="mxh">
+                            <img alt="mxh" src="images/footer/Zalo_f.png">
                         </a>
                         <a href="https://www.tiktok.com/@vietseiko.hr" rel="nofollow" title="tiktok_vietseiko" target="_blank" class="mxh">
                             <img alt="mxh" src="images/Footer/tiktok.png">

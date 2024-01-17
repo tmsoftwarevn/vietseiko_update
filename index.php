@@ -805,53 +805,120 @@ $vsk = $img_f->getAll_imgBy_id(4);
 
         <!-- TOP COMPANIES START -->
         <div class="section-full p-t100 site-bg-white twm-companies-wrap">
-            <!-- TITLE START-->
-            <div class="section-head center wt-small-separator-outer">
-                <h2 class="wt-title" style="font-size: 24px;"><?= __('LIÊN KẾT VỚI CÁC DOANH NGHIỆP - TẠO CƠ HỘI LÀM VIỆC CHO NGƯỜI LAO ĐỘNG') ?></h2>
-            </div>
-            <!-- TITLE END-->
+            <div class="container">
+                <div class="section-content">
+                    <div class="row">
+                        <!-- Column 1: LIÊN KẾT VỚI CÁC DOANH NGHIỆP -->
+                        <div class="col-lg-8 col-md-8 col-xs-12">
+                            <h2 style="font-size: 24px;margin-bottom: 30px;text-align: center;">LIÊN KẾT VỚI CÁC DOANH NGHIỆP</h2>
+                            <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/logo_olympus.png" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/logo_lixil.jpg" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/logo_Nakajima.jpg" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
 
-            <div class="container" style="margin-top: 30px;">
-                <div class="section-content mt-5">
-                    <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
-                        <div class="item">
-                            <div class="logo-slide">
-                                <img src="images/client-logo/logo_olympus.png" alt="" />
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/shimizu_logo.png" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/logo_Sumitomo.png" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/logo_nidec.png" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/logo_olympus.png" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/logo_lixil.jpg" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo client-logo-media">
+                                            <a><img src="images/client-logo/logo_Nakajima.jpg" alt /></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="item">
-                            <div class="logo-slide">
-                                <img src="images/client-logo/logo_lixil.jpg" alt="" />
+                        <!-- Column 2: LOGO ĐỐI TÁC -->
+                        <div class="col-lg-4 col-md-4 col-xs-12">
+                            <h2 style="text-align: center;font-size: 24px; margin-bottom: 30px;">LOGO ĐỐI TÁC</h2>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="item">
+                                        <div class="ow-client-logo">
+                                            <div class="client-logo client-logo-media">
+                                                <a><img src="images/client-logo/TM Branding.jpg" alt /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="item">
+                                        <div class="ow-client-logo">
+                                            <div class="client-logo client-logo-media">
+                                                <a><img src="images/client-logo/vov.jpg" alt /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="item">
+                                        <div class="ow-client-logo">
+                                            <div class="client-logo client-logo-media">
+                                                <a><img src="images/client-logo/hutech.jpg" alt /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="item">
-                            <div class="logo-slide">
-                                <img src="images/client-logo/logo_Nakajima.jpg" alt="" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="logo-slide">
-                                <img src="images/client-logo/shimizu_logo.png" alt="" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="logo-slide">
-                                <img src="images/client-logo/logo_Sumitomo.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="logo-slide">
-                                <img src="images/client-logo/logo_nidec.png" alt="" />
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- TOP COMPANIES END -->
 

@@ -281,11 +281,7 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
             z-index: 100;
         }
 
-        /* @media only screen and (max-width: 576px) {
-            .icon-zalo {
-                bottom: 100px;
-            }
-        } */
+        
     </style>
 
 </head>
@@ -573,6 +569,11 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                         </div>
                     </div>
                 </div>
+
+                <div class="video-yt mb-5">
+                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/z7UDmBkXotw" title="Sứ Mệnh Tầm Nhìn Công Ty Vietseiko" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+
             </div>
         </div>
     </div>
