@@ -829,69 +829,69 @@ $vsk = $img_f->getAll_imgBy_id(4);
                             <div class="owl-carousel home-client-carousel2 owl-btn-vertical-center">
                                 <!-- Repeated Item Structure -->
                                 <div class="item">
-                                    <div class="ow-client-logo">
+                                    <div class="logo-slide">
                                         <img src="images/client-logo/logo_olympus.png" alt="Olympus Logo" class="client-logo-media">
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="ow-client-logo">
+                                    <div class="logo-slide">
                                         <img src="images/client-logo/logo_lixil.jpg" alt="Lixil Logo" class="client-logo-media">
                                     </div>
                                 </div>
                                 <!-- Repeat this pattern for other logos -->
                                 <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <img src="images/client-logo/logo_Nakajima.jpg" alt />
-                                        </div>
+                                    <div class="logo-slide">
+
+                                        <img src="images/client-logo/logo_Nakajima.jpg" alt />
+
                                     </div>
                                 </div>
 
                                 <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <img src="images/client-logo/shimizu_logo.png" alt />
-                                        </div>
+                                    <div class="logo-slide">
+
+                                        <img src="images/client-logo/shimizu_logo.png" alt />
+
                                     </div>
                                 </div>
 
                                 <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <img src="images/client-logo/logo_Sumitomo.png" alt />
-                                        </div>
+                                    <div class="logo-slide">
+
+                                        <img src="images/client-logo/logo_Sumitomo.png" alt />
+
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <img src="images/client-logo/logo_nidec.png" alt />
-                                        </div>
+                                    <div class="logo-slide">
+
+                                        <img src="images/client-logo/logo_nidec.png" alt />
+
                                     </div>
                                 </div>
 
                                 <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <img src="images/client-logo/logo_olympus.png" alt />
-                                        </div>
+                                    <div class="logo-slide">
+
+                                        <img src="images/client-logo/logo_olympus.png" alt />
+
                                     </div>
                                 </div>
 
                                 <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <img src="images/client-logo/logo_lixil.jpg" alt />
-                                        </div>
+                                    <div class="logo-slide">
+
+                                        <img src="images/client-logo/logo_lixil.jpg" alt />
+
                                     </div>
                                 </div>
 
                                 <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo client-logo-media">
-                                            <img src="images/client-logo/logo_Nakajima.jpg" alt />
-                                        </div>
+
+                                    <div class="logo-slide">
+                                        <img src="images/client-logo/logo_Nakajima.jpg" alt />
                                     </div>
+
                                 </div>
                             </div>
                         </div>
