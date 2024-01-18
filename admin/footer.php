@@ -40,8 +40,8 @@
 <script src="js/demo.js"></script>
 <script src="js/styleSwitcher.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
-<script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script>
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script> -->
 
 
 <script src="js/jquery.min.js"></script>
