@@ -198,7 +198,7 @@ $all_type = $type::getAllType();
             },
         })
         .then(editor => {
-            console.Log(editor);
+            console.log(editor);
         })
         .catch(error => {
             console.error(error);
