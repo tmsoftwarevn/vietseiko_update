@@ -125,6 +125,9 @@ This files [Table of contents] are outlined below
 
 @import url('https://use.fontawesome.com/releases/v5.13.0/css/all.css');
 /*===GENERAL===*/
+.page-link{
+  padding: 0 9px !important;
+}
 .site-text-primary {
   color: #1967d2;
 }
