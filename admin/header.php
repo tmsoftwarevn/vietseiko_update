@@ -200,6 +200,7 @@ $jobAdmin = new Job;
                         <ul class="sub-menu" id="sub-menu-6.3">
                             <li><a href="ungvien-list-nhaptay.php?type=vn">Nhập tay ứng viên tại Việt Nam</a></li>
                             <li><a href="ungvien-list-nhaptay.php?type=xkld">Nhập tay ứng viên XKLD Nhật Bản</a></li>
+                            <li><a href="ungvien-list-nhaptay.php?type=ksnb">Nhập tay ứng viên kỹ sư & thông dịch Nhật Bản</a></li>
                             <li><a href="ungvien-list-nhaptay.php?type=vsk">Nhập tay ứng viên tại VietSeiko</a></li>
                         </ul>
                     </li>
@@ -288,7 +289,7 @@ $jobAdmin = new Job;
                     </li>
                 </ul>
                 <div class="copyright">
-                    <p><strong>Jobick Job Admin</strong> © All Rights Reserved</p>
+                    <p><strong>Admin</strong> © All Rights Reserved</p>
                     <p class="fs-12">
                         Made with <span class="heart"></span> by TM
                     </p>

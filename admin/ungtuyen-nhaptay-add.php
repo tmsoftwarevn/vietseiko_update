@@ -267,6 +267,123 @@ $u = new Ungtuyen_nhaptay;
 
         <?php
         }
+        // ksnb
+        if (isset($_GET['typeAdd']) == TRUE && $_GET['typeAdd'] == "ksnb") {
+            ?>
+                <div style="padding:30px 0;text-align:center;font-weight:bold;font-size:15px;">
+                    <?php
+    
+                    if (isset($_GET['checkResult']) == TRUE) {
+    
+                        if ($_GET['checkResult'] > 0) {
+                            echo "<span style=\"color:green;\">" . "Thêm thành công." . "</span>";
+                        } else {
+                            echo "<span style=\"color:red;\">" . "Có lỗi server" . "</span>";
+                        }
+                    }
+                    ?>
+                </div>
+                <div class="body-view-job" style="padding: 0 100px 50px 100px">
+    
+                    <div class="title-job" style="text-align: center; font-weight: 600; 
+                        font-size: 20px; text-transform: capitalize;">
+                        <?php echo 'Thêm ứng viên kỹ sư & thông dịch Nhật Bản : ' ?>
+                    </div>
+                    <form action="file-cv/code/form-ungtuyen-add.php" method="POST" enctype="multipart/form-data">
+                        <input name='type_id' value="3" style="display: none;" />
+    
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: 600;">*Họ tên :</label>
+                                    <div class="controls">
+                                        <input required name="name" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: 600;">*Email :</label>
+                                    <div class="controls">
+                                        <input required name="email" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: 600;">*SDT:</label>
+                                    <div class="controls">
+                                        <input required name="phone" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: 600;">*Năm sinh:</label>
+                                    <div class="controls">
+                                        <input required name="namsinh" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: 600;">*Mức lương:</label>
+                                    <div class="controls">
+                                        <input required name="mucluong" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: 600;">*Khu vực:</label>
+                                    <div class="controls">
+                                        <input required name="khuvuc" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="control-group">
+                                    <label class="control-label" style="font-weight: 600;">*Vị trí ứng tuyển </label>
+                                    <div class="controls">
+                                        <input required name="vitri" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="control-label" style="font-weight: 600;">*File </label>
+                                <div class="control-group">
+    
+                                    <label class="upload-option">
+                                        <input required name="file" id="file" type="file" class="upload-input" accept=".pdf, .doc, .docx" onchange="handleFileUpload(event)">
+                                        <span class="svicon-upload mr-2"></span>
+                                    </label>
+    
+                                    <div id="error-message" class="text-danger mt-2"></div>
+                                    <p id="uploadSuccess" class="text-success mt-2"></p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center mt-5">
+    
+                            <button style="font-size: 18px;" class="btn btn-primary" type="submit" name="submit">Thêm mới</button>
+                        </div>
+                    </form>
+                </div>
+    
+            <?php
+            }
         // VIETSEIKO
         if (isset($_GET['typeAdd']) == TRUE && $_GET['typeAdd'] == "vsk") {
         ?>
