@@ -98,20 +98,16 @@ if (
     .icon-container {
         position: relative;
         display: inline-block;
+        color: red;
     }
-
     .icon-container i {
         font-size: 24px;
-
-        color: #3498db;
-
         cursor: pointer;
         transition: color 0.3s;
         animation: pulse 2s infinite;
     }
 
     .icon-container:hover {
-        color: #1967d2;
         cursor: pointer;
     }
 

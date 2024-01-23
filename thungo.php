@@ -28,7 +28,8 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
     <!-- Bao gồm các tệp CSS và JavaScript của Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -477,7 +478,8 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                         <div class="row">
                                             <div class="col-12 thungo">
                                                 <div style="margin-left: 20px;">
-                                                    <img class="img-thungo" typeof="foaf:Image" src="images/thungo/Ceo.jpg" height="1220">
+                                                    <img class="img-thungo" typeof="foaf:Image"
+                                                        src="images/thungo/Ceo.jpg" height="1220">
                                                     <p class="text-center"><i>CEO.GIÁM ĐỐC PHẠM HỮU ĐẠO</i>
                                                     </p>
                                                     <p align=justify style="font-size:14pt;line-height:2.1em;">
@@ -509,29 +511,21 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                                                         Bản, áp dụng công nghệ số và nguồn dữ liệu Data lao động dồi
                                                         dào, với hơn 100.000 CV chúng tôi tin tưởng rằng trong thời gian
                                                         sớm nhất sẽ kết nối giới thiệu thành công cho quý khách hàng.
-                                                    </p>
                                                     <p align=justify style="font-size:14pt;line-height:2.1em;">
-                                                        Sự yên mến và niềm tin, phó thác của Quý khách hàng là niềm tự
-                                                        hào và thành công nhất của Vietseiko. Chính vì thế chúng tôi
-                                                        luôn cam kết hoàn thiện, nâng cao chất lượng dịch vụ mỗi ngày để
-                                                        đáp ứng tốt nhất về nhu cầu ngày càng cao của Quý khách hàng. Sự
-                                                        thành công của Quý khách hàng, Quý đối tác là niềm hạnh phúc đối
-                                                        với Vietseiko, mong rằng với sự nổ lực và quyết tâm không ngừng
-                                                        nghỉ, chúng tôi hy vọng sẽ cùng hợp tác lâu dài, phát triển bền
-                                                        vững với tất cả các đối tác trong nước và Nhật Bản.
-                                                    </p>
-                                                    <p align=justify style="font-size:14pt;line-height:2.1em;">
-                                                        Vietseiko xin chân thành cảm ơn và mong muốn tiếp tục nhận được
-                                                        sự quan tâm hợp tác, ủng hộ đồng hành của quý khách hàng, quý
-                                                        đối tác, người lao động cũng như sự cống hiến gắn bó của toàn
-                                                        thể cán bộ nhân viên công ty Vietseiko, “Khát vọng của bạn,
-                                                        tương lai của chúng ta”.
-                                                    </p>
-                                                    <p align=justify style="font-size:14pt;line-height:2.1em;">
-                                                        Một lần nữa kính chúc Quý đối tác, Quý khách hàng những lời chúc
-                                                        sức khỏe, kinh doanh ngày càng phát triển. Mong cho sự hợp tác
-                                                        giữa quý vị và Công ty TNHH Vietseiko sẽ lâu dài và ngày càng
-                                                        bền vững.
+                                                        Chính vì thế chúng tôi luôn cam kết hoàn thiện, nâng cao chất
+                                                        lượng dịch vụ mỗi ngày để đáp ứng tốt nhất về nhu cầu ngày càng
+                                                        cao của Quý khách hàng. Sự thành công của Quý khách hàng, Quý
+                                                        đối tác là niềm hạnh phúc đối với Vietseiko, mong rằng với sự nổ
+                                                        lực và quyết tâm không ngừng nghỉ, hy vọng sẽ cùng phát triển
+                                                        bền vững với tất cả các đối tác trong nước và Nhật Bản. Một lần
+                                                        nữa, Vietseiko kính chúc Quý đối tác, Quý khách hàng những lời
+                                                        chúc sức khỏe, kinh doanh ngày càng phát triển. Mong cho sự hợp
+                                                        tác giữa quý vị và Công ty TNHH Vietseiko sẽ lâu dài và ngày
+                                                        càng bền vững. Chúng tôi tin tưởng rằng Vietseiko sẽ phát huy
+                                                        những thế mạnh của mình để trở thành doanh nghiệp đi đầu trong
+                                                        lĩnh vực đã lựa chọn.
+                                                        “Khát vọng của bạn, tương lai của chúng ta”.
+
                                                     </p>
                                                     <p align=justify style="font-size:14pt;line-height:2.1em;">
                                                         Trân trọng cảm ơn!

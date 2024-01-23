@@ -280,8 +280,6 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
             cursor: pointer;
             z-index: 100;
         }
-
-        
     </style>
 
 </head>
@@ -571,9 +569,8 @@ $domainFromUrl = parse_url($currentUrl, PHP_URL_SCHEME) . '://' . parse_url($cur
                 </div>
 
                 <div class="video-yt mb-5">
-                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/z7UDmBkXotw" title="Sứ Mệnh Tầm Nhìn Công Ty Vietseiko" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/PZLcf2f91yg" title="Sứ Mệnh Tầm Nhìn Công Ty Vietseiko" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-
             </div>
         </div>
     </div>
