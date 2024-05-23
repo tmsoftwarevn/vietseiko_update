@@ -407,7 +407,7 @@ $u = new Ungtuyen_nhaptay;
                     <?php echo 'Thêm ứng viên công việc Vietseiko : ' ?>
                 </div>
                 <form action="file-cv/code/form-ungtuyen-add.php" method="POST" enctype="multipart/form-data">
-                    <input name='type_id' value="3" style="display: none;" />
+                    <input name='type_id' value="4" style="display: none;" />
 
                     <div class="row mt-5">
                         <div class="col-6">
